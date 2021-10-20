@@ -9,6 +9,7 @@ $(document).ready(function(){
         }
         else{
             var newValue = curValue + " , "+name;
+            console.log("hi");
         }
         
         $edit.val(newValue);
