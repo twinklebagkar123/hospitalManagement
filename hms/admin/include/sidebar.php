@@ -91,7 +91,7 @@
 									</li>
 									<li>
 										<a href="../doctor/add-patient.php">
-											<span class="title"> Add Patients New</span>
+											<span class="title"> Add Patients</span>
 										</a>
 									</li>
 									<!-- <li>
@@ -218,6 +218,33 @@
 									</div>
 								</a>
 							</li>
+								</li>
+								<li>
+								<a href="javascript:void(0)">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="ti-files"></i>
+										</div>
+										<div class="item-inner">
+											<span class="title"> Medicine </span><i class="icon-arrow"></i>
+										</div>
+									</div>
+								</a>
+								<ul class="sub-menu">
+									
+									<li>
+										<a href="add-medicine.php">
+											<span class="title"> Add medicine </span>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<span class="title"> Manage </span>
+										</a>
+									</li>
+									
+								</ul>
 								</li>
 
 						</ul>
