@@ -4550,7 +4550,9 @@ a.text-light:hover {
 }
 
 .label {
-  font-size: 85% !important;
+  font-size: 12px !important;
+  display: block;
+  width:50%;
   padding: 0.4em 0.6em !important;
 }
 

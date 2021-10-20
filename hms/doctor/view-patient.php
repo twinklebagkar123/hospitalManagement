@@ -46,10 +46,29 @@ if(isset($_POST['submit']))
 		<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 		<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
 		<link rel="stylesheet" href="assets/css/styles.css">
+		<link rel="stylesheet" href="assets/css/styleext.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 	<body>
+    <script type="text/javascript">
+      function getAllValues(){
+        $("#loaderIcon").show();
+        jQuery.ajax({
+            url: "getAllMedicines.php",
+            data:'med='+$("#autosuggest").val(),
+            type: "POST",
+            success:function(data){
+            $("#pillResult").html(data);
+            $("#loaderIcon").hide();
+           
+            },
+            error:function (){}
+        });
+      } 
+
+  
+  </script>
 		<div id="app">		
 <?php include('include/sidebar.php');?>
 <div class="app-content">
@@ -82,8 +101,8 @@ if(isset($_POST['submit']))
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
                                ?>
-<table border="1" class="table table-bordered">
- <tr align="center">
+<table style="border:1" class="table table-bordered">
+ <tr style="align:center">
 <td colspan="4" style="font-size:20px;color:blue">
  Patient Details</td></tr>
 
@@ -192,7 +211,12 @@ while ($row=mysqli_fetch_array($ret)) {
      <tr>
     <th>Prescription :</th>
     <td>
-    <textarea name="pres" placeholder="Medical Prescription" rows="12" cols="14" class="form-control wd-450" required="true"></textarea></td>
+    <input type="text" id="autosuggest" onkeydown="getAllValues()" autocomplete="off">
+    <div id="pillResult"></div>
+
+    <textarea name="pres" id="result" placeholder="Medical Prescription" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+    
+  </td>
   </tr>  
    
 </table>
@@ -241,10 +265,13 @@ while ($row=mysqli_fetch_array($ret)) {
 		<script src="assets/js/main.js"></script>
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="assets/js/form-elements.js"></script>
+		<script src="assets/js/doctor.js"></script>
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
+        console.log("hello");
+        
 			});
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
