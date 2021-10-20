@@ -154,7 +154,7 @@ if(isset($_GET['del']))
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     
     <script src="assets/js/main.js"></script>
-    <script src="bill.js"></script>
+    <script src="assets/js/bill.js"></script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script>
