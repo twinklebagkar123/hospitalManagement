@@ -91,7 +91,7 @@
 									</li>
 									<li>
 										<a href="../doctor/add-patient.php">
-											<span class="title"> Add Patients </span>
+											<span class="title"> Add Patients New</span>
 										</a>
 									</li>
 									<!-- <li>
