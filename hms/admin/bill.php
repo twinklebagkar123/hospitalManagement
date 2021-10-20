@@ -85,8 +85,8 @@ if(isset($_GET['del']))
   <div class="row">
     <div class="col-sm-6 ">
       <div class="input-group">
-      <input type="text"  class="form-control form-control-sm"  id="service" placeholder="service">
-      <input type="text"  class="form-control form-control-sm" id="price" placeholder="price">
+      <input type="text"  class="form-control-input-sm"  id="service" placeholder="service">
+      <input type="text"  class="form-control-input-sm" id="price" placeholder="price">
   
 <button type="button" class="btn btn-outline-secondary btn-sm" id="add">  ADD</button>
 </div>
