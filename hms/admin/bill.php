@@ -13,50 +13,11 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-6 ">
-      <div class="input-group">
-      <input type="text"  class="form-control"  id="service" placeholder="service">
-      <input type="text"  class="form-control" id="price" placeholder="price">
-  
-<button type="button" class="btn btn-outline-secondary btn-sm" id="add">  ADD</button>
-</div>
-    </div>
-    <div class="col-6">
-    <table class="table table-bordered" id="display">
-    <thead>
-    <tr>
-      <th >Name</th>
-      <th >Price</th>
-  </tr>
-  </thead>
-  <tbody id="tbid">
-  
-
-  
-  </tbody>  
-  <tfoot>
-   <tr >
-      
-      <td>TOTAL</td>
-     <td id="total"></td>
-    </tr>
-</tfoot>
-</table>
-
-    </div>
-
-    </div>
-    
-  </div>
- <script src="i.js"></script>
-
 
 
 </body>
-</html> -->
-
+</html>
+ -->
 
 
 <?php
@@ -112,9 +73,50 @@ if(isset($_GET['del']))
               <div class="row">
                 <div class="col-sm-8">
                   <h1 class="mainTitle">Billing | Add Bill</h1>
+
                                   </div>
                 </div>
               </div>
+              <div class="container">
+  <div class="row">
+    <div class="col-6 ">
+      <div class="input-group">
+      <input type="text"  class="form-control"  id="service" placeholder="service">
+      <input type="text"  class="form-control" id="price" placeholder="price">
+  
+<button type="button" class="btn btn-outline-secondary btn-sm" id="add">  ADD</button>
+</div>
+    </div>
+    <div class="col-6">
+    <table class="table table-bordered" id="display">
+    <thead>
+    <tr>
+      <th >Name</th>
+      <th >Price</th>
+  </tr>
+  </thead>
+  <tbody id="tbid">
+  
+
+  
+  </tbody>  
+  <tfoot>
+   <tr >
+      
+      <td>TOTAL</td>
+     <td id="total"></td>
+    </tr>
+</tfoot>
+</table>
+
+    </div>
+
+    </div>
+    
+  </div>
+ <script src="bill.js"></script>
+
+
                 </div>
               </div>
             
