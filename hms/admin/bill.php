@@ -114,7 +114,7 @@ if(isset($_GET['del']))
     </div>
     
   </div>
- <script src="bill.js"></script>
+ 
 
 
                 </div>
@@ -133,6 +133,7 @@ if(isset($_GET['del']))
       <!-- end: SETTINGS -->
     </div>
     <!-- start: MAIN JAVASCRIPTS -->
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="vendor/modernizr/modernizr.js"></script>
@@ -151,7 +152,9 @@ if(isset($_GET['del']))
     <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
+    
     <script src="assets/js/main.js"></script>
+    <script src="bill.js"></script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script>
