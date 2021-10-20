@@ -27,7 +27,7 @@
 											<i class="ti-user"></i>
 										</div>
 										<div class="item-inner">
-											<span class="title"> xyz </span><i class="icon-arrow"></i>
+											<span class="title"> Doctors </span><i class="icon-arrow"></i>
 										</div>
 									</div>
 								</a>
