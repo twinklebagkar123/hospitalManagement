@@ -77,18 +77,22 @@ if(isset($_GET['del']))
                                   </div>
                 </div>
               </div>
-              <div class="container">
+           
+
+
+
+  <div class="container">
   <div class="row">
     <div class="col-6 ">
       <div class="input-group">
-      <input type="text"  class="form-control"  id="service" placeholder="service">
-      <input type="text"  class="form-control" id="price" placeholder="price">
+      <input type="text"  class="form-control form-control-sm"  id="service" placeholder="service">
+      <input type="text"  class="form-control form-control-sm" id="price" placeholder="price">
   
 <button type="button" class="btn btn-outline-secondary btn-sm" id="add">  ADD</button>
 </div>
     </div>
     <div class="col-6">
-    <table class="table table-bordered" id="display">
+    <table class="table " id="display">
     <thead>
     <tr>
       <th >Name</th>
@@ -115,6 +119,9 @@ if(isset($_GET['del']))
     
   </div>
  
+
+
+
 
 
                 </div>
