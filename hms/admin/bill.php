@@ -117,7 +117,7 @@ if(isset($_GET['del']))
               </div>
                 </div>
               </div>
-            </div>
+            
             <!-- end: BASIC EXAMPLE -->
             <!-- end: SELECT BOXES -->
             
