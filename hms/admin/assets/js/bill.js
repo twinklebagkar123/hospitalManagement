@@ -5,7 +5,7 @@ var bill = [];
 
 $("#price").on('keydown ',function(){ 
     var node = $(this);
-    node.val(node.val().replace(/[^0-9]/,/[^\d.]/g,'') );
+    node.val(node.val().replace(/[^0-9]/,/[^\d.]/g,'' );
 
 
      });
