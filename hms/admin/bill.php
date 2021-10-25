@@ -93,8 +93,8 @@ if(isset($_GET['del']))
     </div>
     <div class="col-sm-6">
        <div class="input-group">
-      <input type="text"  class="form-control"  id="name" placeholder="Customer Name">
-<input type="text"  class="form-control" id="phone" placeholder="Phone No.">
+      <input type="text"  class="form-control-input"  id="name" placeholder="Customer Name">
+<input type="text"  class="form-control-input" id="phone" placeholder="Phone No.">
 </div>
     <table class="table table-bordered" id="display">
     <thead>
