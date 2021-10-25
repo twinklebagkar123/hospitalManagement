@@ -41,7 +41,14 @@ if(!service || !price ){
    else{
 
 
-$("#tbid").append('<tr><td>'+service+'</td><td>'+price+'</td></tr>');
+$("#tbid").append('<tr><td>'+service+'</td><td>'+price+'</td><td><a href="#" id="del">del</a></td></tr>');
+
+$("tr").on('click', '#del', function () {
+    $(this).closest('tr').remove();
+
+});
+ 
+
  $("#service").val("");
 $("#price").val("");
     sum = 0;
