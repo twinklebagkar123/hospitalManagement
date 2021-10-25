@@ -113,7 +113,7 @@ if(isset($_GET['del']))
    <tr >
       
       <td>TOTAL</td>
-     <td id="total"></td>
+     <td id="total" colspan="2"></td>
     </tr>
 </tfoot>
 </table>
