@@ -92,11 +92,16 @@ if(isset($_GET['del']))
 </div>
     </div>
     <div class="col-sm-6">
+       <div class="input-group">
+      <input type="text"  class="form-control"  id="name" placeholder="Customer Name">
+<input type="text"  class="form-control" id="phone" placeholder="Phone No.">
+</div>
     <table class="table table-bordered" id="display">
     <thead>
     <tr>
       <th >Name</th>
       <th >Price</th>
+      <th style="width: 15%;">Delete</th>
   </tr>
   </thead>
   <tbody id="tbid">
