@@ -19,7 +19,7 @@ if(isset($_POST['submit']))
 if($sql)
 {
 echo "<script>alert('Patient info added Successfully');</script>";
-header('location:add-patient.php');
+header('location:user-reistration.php');
 
 }
 }
