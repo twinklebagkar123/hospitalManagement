@@ -90,7 +90,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="../doctor/add-patient.php">
+										<a href="user-registration.php">
 											<span class="title"> Add Patients</span>
 										</a>
 									</li>
