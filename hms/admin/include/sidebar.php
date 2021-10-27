@@ -70,6 +70,12 @@
 										</a>
 									</li>
 									
+									<li>
+										<a href="user-registration.php">
+											<span class="title"> Add User</span>
+										</a>
+									</li>
+
 								</ul>
 								</li>
 								<li>
@@ -90,7 +96,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="user-registration.php">
+										<a href="../doctor/add-patient.php">
 											<span class="title"> Add Patients</span>
 										</a>
 									</li>
