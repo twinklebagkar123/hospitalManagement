@@ -99,7 +99,7 @@ check_login();
 							<div class="row">
 								<div class="col-md-12">
 									
-									<div class="row margin-top">
+									<div class="row ">
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
