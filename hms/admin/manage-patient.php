@@ -81,9 +81,6 @@ function getfee(val) {
 <div class="col-md-12">
 <h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
 	
-<button type="button" class="btn btn-info">Add</button>
-
-
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
