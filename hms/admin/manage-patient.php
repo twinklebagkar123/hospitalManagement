@@ -73,7 +73,7 @@ check_login();
 </thead>
 <tbody>
 <!-- The Modal -->
-<div class="modal" id="myModal">
+<div class="modal bg-white" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
