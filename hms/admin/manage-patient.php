@@ -69,30 +69,6 @@ check_login();
 </thead>
 <tbody>
 
-<?php
-
-$sql=mysqli_query($con,"select * from tblpatient");
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-<tr>
-<td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?></td>
-<td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
-  Book
-</button></td>
-</td>
-<td>
-
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
-
-</td>
-</tr>
 <!-- The Modal -->
 <div class="modal" id="myModal">
   <div class="modal-dialog">
@@ -118,6 +94,33 @@ while($row=mysqli_fetch_array($sql))
   </div>
 </div>
 
+
+
+
+<?php
+
+$sql=mysqli_query($con,"select * from tblpatient");
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
+<tr>
+<td class="center"><?php echo $cnt;?>.</td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td><?php echo $row['PatientContno'];?></td>
+<td><?php echo $row['PatientGender'];?></td>
+<td><?php echo $row['CreationDate'];?></td>
+<td><?php echo $row['UpdationDate'];?></td>
+<td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
+  Book
+</button></td>
+</td>
+<td>
+
+<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+
+</td>
+</tr>
 
 <?php 
 $cnt=$cnt+1;
