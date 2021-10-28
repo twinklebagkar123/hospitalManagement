@@ -85,7 +85,7 @@ check_login();
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="main-content" >
+        <div class="main-conte" >
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
