@@ -95,7 +95,91 @@ function getfee(val) {
 <th>Action</th>
 </tr>
 </thead>
-<tbody>
+<tbody id="patientList">
+
+<?php
+
+$sql=mysqli_query($con,"select * from tblpatient");
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
+<tr>
+<td class="center"><?php echo $cnt;?>.</td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td><?php echo $row['PatientContno'];?></td>
+<td><?php echo $row['PatientGender'];?></td>
+<td><?php echo $row['CreationDate'];?></td>
+<td><?php echo $row['UpdationDate'];?>
+</td>
+
+<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Book 
+</button></td>
+
+
+<td>
+
+<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
+
+</td>
+</tr>
+<?php 
+$cnt=$cnt+1;
+ }?></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+			<!-- start: FOOTER -->
+	<?php include('include/footer.php');?>
+			<!-- end: FOOTER -->
+		
+			<!-- start: SETTINGS -->
+	<?php include('include/setting.php');?>
+			
+			<!-- end: SETTINGS -->
+		</div>
+		<!-- start: MAIN JAVASCRIPTS -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="vendor/modernizr/modernizr.js"></script>
+		<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
+		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+		<script src="vendor/switchery/switchery.min.js"></script>
+		<!-- end: MAIN JAVASCRIPTS -->
+		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+		<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+		<script src="vendor/autosize/autosize.min.js"></script>
+		<script src="vendor/selectFx/classie.js"></script>
+		<script src="vendor/selectFx/selectFx.js"></script>
+		<script src="vendor/select2/select2.min.js"></script>
+		<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+		<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<!-- start: CLIP-TWO JAVASCRIPTS -->
+		<script src="assets/js/main.js"></script>
+		<!-- start: JavaScript Event Handlers for this page -->
+		<script src="assets/js/form-elements.js"></script>
+		<script>
+			jQuery(document).ready(function() {
+				Main.init();
+				FormElements.init();
+				$("#patientList button").on("click",function(){
+                  alert("hello");
+				});
+			});
+		</script>
+		<!-- end: JavaScript Event Handlers for this page -->
+		
+		<!-- end: CLIP-TWO JAVASCRIPTS -->
+
 <!-- The Modal -->
 <div class="modal " id="myModal">
   <div class="modal-dialog">
@@ -244,83 +328,6 @@ function getfee(val) {
   </div>
 </div>
 
-<?php
 
-$sql=mysqli_query($con,"select * from tblpatient");
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-<tr>
-<td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
-</td>
-
-<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Book 
-</button></td>
-
-
-<td>
-
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
-
-</td>
-</tr>
-<?php 
-$cnt=$cnt+1;
- }?></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-			<!-- start: FOOTER -->
-	<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
-			<!-- start: SETTINGS -->
-	<?php include('include/setting.php');?>
-			
-			<!-- end: SETTINGS -->
-		</div>
-		<!-- start: MAIN JAVASCRIPTS -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="vendor/modernizr/modernizr.js"></script>
-		<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script src="vendor/switchery/switchery.min.js"></script>
-		<!-- end: MAIN JAVASCRIPTS -->
-		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
-		<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-		<script src="vendor/autosize/autosize.min.js"></script>
-		<script src="vendor/selectFx/classie.js"></script>
-		<script src="vendor/selectFx/selectFx.js"></script>
-		<script src="vendor/select2/select2.min.js"></script>
-		<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-		<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<!-- start: CLIP-TWO JAVASCRIPTS -->
-		<script src="assets/js/main.js"></script>
-		<!-- start: JavaScript Event Handlers for this page -->
-		<script src="assets/js/form-elements.js"></script>
-		<script>
-			jQuery(document).ready(function() {
-				Main.init();
-				FormElements.init();
-			});
-		</script>
-		<!-- end: JavaScript Event Handlers for this page -->
-		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
 </html>
