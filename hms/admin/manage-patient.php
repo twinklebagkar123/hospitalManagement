@@ -86,19 +86,12 @@ check_login();
       <!-- Modal body -->
       <div class="modal-body">
         <div class="main-content" >
-					<div class="wrap-content container" id="coontainer">
+					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
 					
-								<ol class="breadcrumb">
-									<li>
-										<span>User</span>
-									</li>
-									<li class="active">
-										<span>Book Appointment</span>
-									</li>
-								</ol>
+								
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
@@ -106,7 +99,7 @@ check_login();
 							<div class="row">
 								<div class="col-md-12">
 									
-									<div class="row margin-top10">
+									<div class="row margin-top">
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
