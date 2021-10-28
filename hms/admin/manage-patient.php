@@ -110,7 +110,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['PatientContno'];?></td>
 <td><?php echo $row['PatientGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?></td>
+<td><?php echo $row['UpdationDate'];?>
 <td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
   Book
 </button></td>
