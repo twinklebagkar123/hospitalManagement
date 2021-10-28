@@ -88,7 +88,7 @@ check_login();
         <div class="main" >
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
-						<section id="page-title">
+						<section id="">
 							<div class="row">
 					
 								
