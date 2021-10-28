@@ -37,6 +37,20 @@ function getdoctor(val) {
 	});
 }
 </script>
+<script>
+function getfee(val) {
+	$.ajax({
+	type: "POST",
+	url: "get_doctor.php",
+	data:'doctor='+val,
+	success: function(data){
+		$("#fees").html(data);
+	}
+	});
+}
+</script>	
+
+
 
 	</head>
 	<body>
