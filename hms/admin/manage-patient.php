@@ -86,7 +86,7 @@ check_login();
       <!-- Modal body -->
       <div class="modal-body">
         <div class="main-content" >
-					<div class="wrap-content container" id="container">
+					<div class="wrap-content container" id="coontainer">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
@@ -102,7 +102,7 @@ check_login();
 						</section>
 						<!-- end: PAGE TITLE -->
 						<!-- start: BASIC EXAMPLE -->
-						<div class="container-fluid container-fullw bg-white">
+						<div class="container container-fullw bg-white">
 							<div class="row">
 								<div class="col-md-12">
 									
@@ -119,16 +119,16 @@ check_login();
 														
 
 
-<div class="form-group">
+															<div class="form-group">
 															<label for="DoctorSpecialization">
 																Doctor Specialization
 															</label>
 							<select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
 																<option value="">Select Specialization</option>
-<?php $ret=mysqli_query($con,"select * from doctorspecilization");
-while($row=mysqli_fetch_array($ret))
-{
-?>
+										<?php $ret=mysqli_query($con,"select * from doctorspecilization");
+										while($row=mysqli_fetch_array($ret))
+															{
+															?>
 																<option value="<?php echo htmlentities($row['specilization']);?>">
 																	<?php echo htmlentities($row['specilization']);?>
 																</option>
