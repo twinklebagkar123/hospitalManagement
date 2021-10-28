@@ -110,8 +110,8 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['UpdationDate'];?>
 </td>
 
-<td><button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
-  Open modal
+<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Book 
 </button></td>
 
 
