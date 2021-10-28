@@ -85,7 +85,7 @@ check_login();
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="main-conte" >
+        <div class="main" >
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
@@ -100,7 +100,7 @@ check_login();
 								<div class="col-md-12">
 									
 									<div class="row margin-top">
-										<div class="col-lg-12 col-md-12">
+										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
 													<h5 class="panel-title">Book Appointment</h5>
