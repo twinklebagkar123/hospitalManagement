@@ -79,7 +79,7 @@ check_login();
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Modal Heading</h4>
+        <h4 class="modal-title">USER | BOOK APPOINTMENT</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
@@ -90,9 +90,7 @@ check_login();
 						<!-- start: PAGE TITLE -->
 						<section id="page-title">
 							<div class="row">
-								<div class="col-sm-8">
-									<h1 class="mainTitle">User | Book Appointment</h1>
-																	</div>
+					
 								<ol class="breadcrumb">
 									<li>
 										<span>User</span>
@@ -108,7 +106,7 @@ check_login();
 							<div class="row">
 								<div class="col-md-12">
 									
-									<div class="row margin-top-30">
+									<div class="row margin-top10">
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
@@ -217,7 +215,7 @@ while($row=mysqli_fetch_array($ret))
 
 
 
-        
+
       </div>
 
       <!-- Modal footer -->
