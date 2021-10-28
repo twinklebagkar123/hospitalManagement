@@ -81,6 +81,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['PatientGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
 <td><?php echo $row['UpdationDate'];?>
+<td><a href="">Book</a></td>
 </td>
 <td>
 
