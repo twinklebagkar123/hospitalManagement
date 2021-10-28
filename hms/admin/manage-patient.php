@@ -25,6 +25,19 @@ check_login();
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+	<script>
+function getdoctor(val) {
+	$.ajax({
+	type: "POST",
+	url: "get_doctor.php",
+	data:'specilizationid='+val,
+	success: function(data){
+		$("#doctor").html(data);
+	}
+	});
+}
+</script>
+
 	</head>
 	<body>
 		<div id="app">		
@@ -137,7 +150,7 @@ check_login();
 															<label for="doctor">
 																Doctors
 															</label>
-						<select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
+					<select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="require">
 						<option value="">Select Doctor</option>
 						</select>
 														</div>
