@@ -69,6 +69,25 @@ check_login();
 </thead>
 <tbody>
 
+
+
+<?php
+
+$sql=mysqli_query($con,"select * from tblpatient");
+$cnt=1;
+while($row=mysqli_fetch_array($sql))
+{
+?>
+<tr>
+<td class="center"><?php echo $cnt;?>.</td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td><?php echo $row['PatientContno'];?></td>
+<td><?php echo $row['PatientGender'];?></td>
+<td><?php echo $row['CreationDate'];?></td>
+<td><?php echo $row['UpdationDate'];?>
+<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  
+</button>
 	<div class="modal fade" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -94,23 +113,9 @@ check_login();
 </div>
 
 
-<?php
 
-$sql=mysqli_query($con,"select * from tblpatient");
-$cnt=1;
-while($row=mysqli_fetch_array($sql))
-{
-?>
-<tr>
-<td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
-<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-  Book
-</button></td>
+
+</td>
 </td>
 <td>
 
@@ -121,6 +126,8 @@ while($row=mysqli_fetch_array($sql))
 <?php 
 $cnt=$cnt+1;
  }?></tbody>
+
+
 </table>
 </div>
 </div>
