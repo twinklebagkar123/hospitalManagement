@@ -73,7 +73,7 @@ check_login();
 </thead>
 <tbody>
 <!-- The Modal -->
-<div class="modal bg-white" id="myModal">
+<div class="modal " id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -84,7 +84,7 @@ check_login();
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body">
+      <div class="modal-body bg-white">
         <div class="main" >
 					<div class="wrap-content container" id="container">
 						<!-- start: PAGE TITLE -->
