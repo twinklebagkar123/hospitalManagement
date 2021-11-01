@@ -322,7 +322,7 @@ $cnt=$cnt+1;
 				FormElements.init();
 				$("#patientList button").on("click",function(){
 					        var name = $(this).data("name");
-                  $("#titleModal").html("Book"+name+"'s Appointment");
+                  $("#titleModal").html("Book "+name+"'s Appointment");
 				});
 			});
 		</script>
