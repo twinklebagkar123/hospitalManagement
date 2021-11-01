@@ -324,7 +324,7 @@ $cnt=$cnt+1;
 					        var name = $(this).data("name");
 					        var id = $(this).data("pid");
                   $("#titleModal").html("Book "+name+"'s Appointment");
-                  $("#idInput").val() = id;
+                  $("#idInput").val(id) ;
 				});
 			});
 		</script>
