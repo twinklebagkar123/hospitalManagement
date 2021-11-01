@@ -113,7 +113,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['UpdationDate'];?>
 </td>
 
-<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+<td><button type="button" data-name="<?php echo $row['PatientName'];?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Book 
 </button></td>
 
@@ -159,7 +159,7 @@ $cnt=$cnt+1;
 										<div class="col-lg-12 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Book Appointment</h5>
+													<h5 class="panel-title" id="titleModal">Book Appointment</h5>
 												</div>
 												<div class="panel-body">
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
@@ -321,7 +321,8 @@ $cnt=$cnt+1;
 				Main.init();
 				FormElements.init();
 				$("#patientList button").on("click",function(){
-                  alert("hello");
+					        var name = $(this).data("name");
+                  $("#titleModal").html("Book"+name+"'s Appointment");
 				});
 			});
 		</script>
