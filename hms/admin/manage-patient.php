@@ -113,7 +113,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['UpdationDate'];?>
 </td>
 
-<td><button type="button" data-pid="" data-name="<?php echo $row['PatientName'];?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+<td><button type="button" data-pid="<?php echo $row['ID']; ?>" data-name="<?php echo $row['PatientName'];?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
   Book 
 </button></td>
 
@@ -166,7 +166,7 @@ $cnt=$cnt+1;
 								<?php echo htmlentities($_SESSION['msg1']="");?></p>	
 													<form role="form" name="book" method="post" >
 														
-
+														<input id="idInput" type="text" name="idpatient">
 
 															<div class="form-group">
 															<label for="DoctorSpecialization">
@@ -322,7 +322,9 @@ $cnt=$cnt+1;
 				FormElements.init();
 				$("#patientList button").on("click",function(){
 					        var name = $(this).data("name");
+					        var id = $(this).data("pid");
                   $("#titleModal").html("Book "+name+"'s Appointment");
+                  $("#idInput").val() = id;
 				});
 			});
 		</script>
