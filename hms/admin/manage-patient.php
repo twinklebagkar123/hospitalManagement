@@ -106,16 +106,7 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><script>
-			jQuery(document).ready(function() {
-				Main.init();
-				FormElements.init();
-				$("#patientList button").on("click",function(){
-					        var name = $(this).data("name");
-                  $("#titleModal").html("Book "+name+"'s Appointment");
-				});
-			});
-		</script></td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
 <td><?php echo $row['PatientContno'];?></td>
 <td><?php echo $row['PatientGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
