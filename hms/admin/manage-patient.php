@@ -127,16 +127,8 @@ while($row=mysqli_fetch_array($sql))
 <?php 
 $cnt=$cnt+1;
  }?></tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- The Modal -->
+
+ <!-- The Modal -->
 <div class="modal " id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -283,6 +275,16 @@ $cnt=$cnt+1;
     </div>
   </div>
 </div>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 			<!-- start: FOOTER -->
 	<?php include('include/footer.php');?>
 			<!-- end: FOOTER -->
