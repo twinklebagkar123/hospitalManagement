@@ -87,7 +87,7 @@ while($row=mysqli_fetch_array($sql))
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['docname'];?></td>
-												<td class="hidden-xs"><?php echo $row['titleModal'];?></td>
+												<td class="hidden-xs"><?php echo $row['pname'];?></td>
 												<td><?php echo $row['doctorSpecialization'];?></td>
 												<td><?php echo $row['consultancyFees'];?></td>
 												<td><?php echo $row['appointmentDate'];?> / <?php echo
