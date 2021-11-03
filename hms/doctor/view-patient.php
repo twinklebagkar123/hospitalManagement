@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
    $pres=$_POST['pres'];
    
  
-      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+      $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$type','$bs','$weight','$temp','$pres')");
     if ($query) {
     echo '<script>alert("Medicle history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -211,12 +211,12 @@ while ($row=mysqli_fetch_array($ret)) {
     
     <td>
     
-  <input type="text" id="t1" name="t1" >
-  <label for="t1">Type 1</label>
-  <input type="text" id="t2" name="t1" >
-  <label for="t2">Type 2 </label>  
-  <input type="text" id="t3" name="t1" >
-  <label for="t3">Type 3</label></td>
+ <select name="type" >
+  <option value="Type1">Type1</option>
+  <option value="Type2">Type2</option>
+  <option value="Type3">Type3</option>
+  
+</select></td>
 
   </tr>
 
