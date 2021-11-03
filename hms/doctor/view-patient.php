@@ -197,6 +197,9 @@ while ($row=mysqli_fetch_array($ret)) {
      <tr>
     <th>Blood Sugar :</th>
     <td>
+      <input name="bs" placeholder="Blood Sugar" class="form-control wd-150" required="true">
+      <input name="bs" placeholder="Blood Sugar" class="form-control wd-150" required="true">
+      <input name="bs" placeholder="Blood Sugar" class="form-control wd-150" required="true">
     <input name="bs" placeholder="Blood Sugar" class="form-control wd-450" required="true"></td>
   </tr> 
   <tr>
