@@ -163,7 +163,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['BloodPressure'];?></td>
  <td><?php  echo $row['Weight'];?></td>
  <td><?php  echo $row['BloodSugar'];?></td> 
- <td></td>
+ <td><?php  echo $row['BSType'];?></td>
   <td><?php  echo $row['Temperature'];?></td>
   <td><?php  echo $row['MedicalPres'];?></td>
   <td><?php  echo $row['CreationDate'];?></td> 
@@ -211,11 +211,11 @@ while ($row=mysqli_fetch_array($ret)) {
     
     <td>
     
-  <input type="radio" id="age1" name="type" >
+  <input type="radio" id="t1" name="type1" >
   <label for="t1">Type 1</label>
-  <input type="radio" id="age2" name="type" >
+  <input type="radio" id="t2" name="type2" >
   <label for="t2">Type 2 </label>  
-  <input type="radio" id="age3" name="type" >
+  <input type="radio" id="t3" name="type3" >
   <label for="t3">Type 3</label></td>
 
   </tr>
