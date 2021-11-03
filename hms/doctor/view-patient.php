@@ -1,4 +1,4 @@
-<?php
+<?php/
 session_start();
 error_reporting(0);
 include('include/config.php');
@@ -211,11 +211,11 @@ while ($row=mysqli_fetch_array($ret)) {
     
     <td>
     
-  <input type="radio" id="t1" name="type1" >
+  <input type="text" id="t1" name="t1" >
   <label for="t1">Type 1</label>
-  <input type="radio" id="t2" name="type2" >
+  <input type="text" id="t2" name="t1" >
   <label for="t2">Type 2 </label>  
-  <input type="radio" id="t3" name="type3" >
+  <input type="text" id="t3" name="t1" >
   <label for="t3">Type 3</label></td>
 
   </tr>
