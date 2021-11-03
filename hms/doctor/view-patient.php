@@ -150,6 +150,7 @@ $ret=mysqli_query($con,"select * from tblmedicalhistory  where PatientID='$vid'"
 <th>Blood Pressure</th>
 <th>Weight</th>
 <th>Blood Sugar</th>
+<th>Blood Sugar Type</th>
 <th>Body Temprature</th>
 <th>Medical Prescription</th>
 <th>Visit Date</th>
