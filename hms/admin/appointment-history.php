@@ -4,11 +4,16 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_GET['cancel']))
+		  {
+		          mysqli_query($con,"update appointment set userStatus='0' where id = '".$_GET['id']."'");
+                  $_SESSION['msg']="Your appointment canceled !!";
+		  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Patients | Appointment History</title>
+		<title>User | Appointment History</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -39,11 +44,11 @@ check_login();
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Patients  | Appointment History</h1>
+									<h1 class="mainTitle">User  | Appointment History</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>Patients </span>
+										<span>User </span>
 									</li>
 									<li class="active">
 										<span>Appointment History</span>
@@ -66,7 +71,6 @@ check_login();
 											<tr>
 												<th class="center">#</th>
 												<th class="hidden-xs">Doctor Name</th>
-												<th>Patient Name</th>
 												<th>Specialization</th>
 												<th>Consultancy Fee</th>
 												<th>Appointment Date / Time </th>
@@ -78,7 +82,7 @@ check_login();
 										</thead>
 										<tbody>
 <?php
-$sql=mysqli_query($con,"select doctors.doctorName as docname,users.fullName as pname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId join users on users.id=appointment.userId ");
+$sql=mysqli_query($con,"select doctors.doctorName as docname,appointment.*  from appointment join doctors on doctors.id=appointment.doctorId where appointment.userId='".$_SESSION['i  d']."'");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -87,21 +91,23 @@ while($row=mysqli_fetch_array($sql))
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['docname'];?></td>
-												<td class="hidden-xs"><?php echo $row['pname'];?></td>
 												<td><?php echo $row['doctorSpecialization'];?></td>
 												<td><?php echo $row['consultancyFees'];?></td>
 												<td><?php echo $row['appointmentDate'];?> / <?php echo
 												 $row['appointmentTime'];?>
 												</td>
 												<td><?php echo $row['postingDate'];?></td>
+	
 												<td>
+
+
 <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
 {
 	echo "Active";
 }
 if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
 {
-	echo "Cancel by Patient";
+	echo "Cancel by You";
 }
 
 if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
@@ -115,11 +121,11 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							<?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-{ 
+{ ?>
 
 													
-echo "No Action yet";
-	 } else {
+	<a href="appointment-history.php?id=<?php echo $row['id']?>&cancel=update" onClick="return confirm('Are you sure you want to cancel this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Cancel Appointment" tooltip-placement="top" tooltip="Remove">Cancel</a>
+	<?php } else {
 
 		echo "Canceled";
 		} ?>
