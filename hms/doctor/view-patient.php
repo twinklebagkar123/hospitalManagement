@@ -163,6 +163,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['BloodPressure'];?></td>
  <td><?php  echo $row['Weight'];?></td>
  <td><?php  echo $row['BloodSugar'];?></td> 
+ <td></td>
   <td><?php  echo $row['Temperature'];?></td>
   <td><?php  echo $row['MedicalPres'];?></td>
   <td><?php  echo $row['CreationDate'];?></td> 
