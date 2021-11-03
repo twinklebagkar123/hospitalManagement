@@ -210,9 +210,13 @@ while ($row=mysqli_fetch_array($ret)) {
     <th>Blood Sugar Type :</th>
     
     <td>
-      <input name="bst1" placeholder="Blood Sugar" class="form-control wd-150" required="true"></td>
-      <td><input name="bst2" placeholder="Blood Sugar" class="form-control wd-150" required="true"></td>
-      <td><input name="bst3" placeholder="Blood Sugar" class="form-control wd-150" required="true"></td>
+    
+  <input type="radio" id="age1" name="type" >
+  <label for="t1">Type 1</label>
+  <input type="radio" id="age2" name="type" >
+  <label for="t2">Type 2 </label>  
+  <input type="radio" id="age3" name="type" >
+  <label for="t3">Type 3</label></td>
 
   </tr>
 
