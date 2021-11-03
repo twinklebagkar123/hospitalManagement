@@ -11,6 +11,7 @@ if(isset($_POST['submit']))
     $bp=$_POST['bp'];
     $bs=$_POST['bs'];
     $weight=$_POST['weight'];
+    $type=$_POST['type'];
     $temp=$_POST['temp'];
    $pres=$_POST['pres'];
    
@@ -215,9 +216,9 @@ while ($row=mysqli_fetch_array($ret)) {
   <option value="Type1">Type1</option>
   <option value="Type2">Type2</option>
   <option value="Type3">Type3</option>
-   <option value="Type4">Type4</option>
-    <option value="Type5">Type5</option>
-     <option value="Type6">Type6</option>
+   <option value="Type4">Type4</option>  
+<option value="Type5">Type5</option>
+ <option value="Type6">Type6</option>
 
   
 </select></td>
