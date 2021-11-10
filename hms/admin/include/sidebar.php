@@ -94,6 +94,11 @@
 											<span class="title"> Register Patient</span>
 										</a>
 									</li>
+									<li>
+										<a href="patient-admission.php">
+											<span class="title"> Patient Admission</span>
+										</a>
+									</li>
 									<!-- <li>
 										<a href="manage-patient.php">
 											<span class="title"> Manage Patients </span>
