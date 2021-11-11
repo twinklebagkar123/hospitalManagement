@@ -118,7 +118,6 @@ error:function (){}
 </label>
 <input type="text" id="patcontact" name="patcontact" class="form-control"  placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
 <span id="user-availability-status1" style="font-size:12px;"></span>
-<input type="submit" name="id" id="id">
 </div>
 
 <div class="form-group">
