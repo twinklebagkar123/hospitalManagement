@@ -70,9 +70,10 @@ if(isset($_GET['cancel']))
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th class="hidden-xs">Doctor Name</th>
+												<th class="hidden-xs">Patient Name</th>
+												<th>Doctor Name</th>
 												<th>Specialization</th>
-												<th>Consultancy Fee</th>
+												<th>Doctor Fees</th>
 												<th>Appointment Date / Time </th>
 												<th>Appointment Creation Date  </th>
 												<th>Current Status</th>
@@ -90,14 +91,17 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['docname'];?></td>
-												<td><?php echo $row['doctorSpecialization'];?></td>
-												<td><?php echo $row['consultancyFees'];?></td>
+												<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+												<td class="hidden-xs"><?php echo $row['doctorName'];?></td>
+												<td><?php echo $row['specilization'];?></td>
+												<td><?php echo $row['docFees'];?></td>
 												<td><?php echo $row['appointmentDate'];?> / <?php echo
 												 $row['appointmentTime'];?>
 												</td>
 												<td><?php echo $row['postingDate'];?></td>
+	
 												<td>
+
 <?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
 {
 	echo "Active";
