@@ -48,7 +48,7 @@ if(isset($_GET['cancel']))
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>User </span>
+										<span>User Admin </span>
 									</li>
 									<li class="active">
 										<span>Appointment History</span>
