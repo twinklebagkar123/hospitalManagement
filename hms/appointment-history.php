@@ -95,26 +95,26 @@ while($row=mysqli_fetch_array($sql))
 												<td class="hidden-xs"><?php echo $row['doctorName'];?></td>
 												<td><?php echo $row['specilization'];?></td>
 												<td><?php echo $row['docFees'];?></td>
-												<td><?php echo $row['appointmentDate'];?> / <?php echo
-												 $row['appointmentTime'];?>
+												<td><?php echo $row['appointmentDate'];?> / <?php //echo $row['appointmentTime'];?>
 												</td>
 												<td><?php echo $row['postingDate'];?></td>
 	
 												<td>
 
-<?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-{
-	echo "Active";
-}
-if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
-{
-	echo "Cancel by You";
-}
+<?php 
+// if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+// {
+// 	echo "Active";
+// }
+// if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+// {
+// 	echo "Cancel by You";
+// }
 
-if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
-{
-	echo "Cancel by Doctor";
-}
+// if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+// {
+// 	echo "Cancel by Doctor";
+// }
 
 
 
