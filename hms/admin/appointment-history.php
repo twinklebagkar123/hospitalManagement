@@ -86,9 +86,9 @@ if(isset($_GET['cancel']))
 $sql="SELECT `tblp.PatientName`,`doc.doctorName`,`doc.specilization`,`doc.docFees`,`apt.appointmentDate`,`apt.postingDate` FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
 $result = $con->query($sql);
 $cnt=1;
-//print($sql);
+var_dump($result);
 while($row = mysqli_fetch_array($result))
-//var_dump($row);
+
 {
 ?>
 
