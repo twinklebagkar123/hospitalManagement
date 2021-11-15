@@ -24,16 +24,6 @@ if(!empty($_POST["doctor"]))
   <?php
 }
 }
-if(!empty($_POST["doctor"])) 
-{
-
- $sql=mysqli_query($con,"select doctorName from doctors where id='".$_POST['doctor']."'");
- while($row=mysqli_fetch_array($sql))
-    {?>
- <option value="<?php echo htmlentities($row['doctorName']); ?>"><?php echo htmlentities($row['doctorName']); ?></option>
-  <?php
-}
-}
 
 ?>
 

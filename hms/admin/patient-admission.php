@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
 	$billAmount=$_POST[''];
 	$outstandingAmount=$_POST[''];
 	$status=$_POST[''];
-	$doctorid=$_POST['doctor'];
+	$doctor=$_POST['doctor'];
 	$sql=mysqli_query($con,"INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
 if($sql)
 {
@@ -76,11 +76,11 @@ error:function (){}
 }
 </script>
 <script>
-function getdoc(val) {
+function getdoc() {
 	$.ajax({
 	type: "POST",
 	url: "get_doctor.php",
-	data:'doctor='+val,
+	data:'doctor=yes',
 	success: function(data){
 		$("#doctor").html(data);
 	}
@@ -192,8 +192,16 @@ Male
 															<label for="doctor">
 																Doctors
 															</label>
-					<select name="doctor" class="form-control" id="doctor" onChange="getdoc(this.value);" required="require">
-						<option value="">Select Doctor</option>
+					<select name="doctor" class="form-control" id="doctor" onChange="getdoc();" required="require">
+							<option value="">Select doctor</option>
+										<?php $ret=mysqli_query($con,"select * from doctors where 1");
+										while($row=mysqli_fetch_array($ret))
+															{
+															?>
+																<option value="<?php echo htmlentities($row['id']);?>">
+																	<?php echo htmlentities($row['doctorName']);?>
+																</option>
+																<?php } ?>
 						</select>
 														</div>
 
