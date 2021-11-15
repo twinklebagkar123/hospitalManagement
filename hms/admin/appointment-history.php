@@ -13,7 +13,7 @@ if(isset($_GET['cancel']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>User | Appointment History</title>
+		<title>User admin | Appointment History</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -70,9 +70,10 @@ if(isset($_GET['cancel']))
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th class="hidden-xs">Doctor Name</th>
+												<th class="hidden-xs">Patient Name</th>
+												<th>Doctor Name</th>
 												<th>Specialization</th>
-												<th>Consultancy Fee</th>
+												<th>Doctor Fees</th>
 												<th>Appointment Date / Time </th>
 												<th>Appointment Creation Date  </th>
 												<th>Current Status</th>
