@@ -21,6 +21,7 @@ if(isset($_POST['submit']))
 	$billAmount=$_POST[''];
 	$outstandingAmount=$_POST[''];
 	$status=$_POST[''];
+	$doctorid=$_POST['doctor'];
 	$sql=mysqli_query($con,"INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
 if($sql)
 {
@@ -74,7 +75,18 @@ error:function (){}
 });
 }
 </script>
-
+<script>
+function getdoc(val) {
+	$.ajax({
+	type: "POST",
+	url: "get_doctor.php",
+	data:'doctor='+val,
+	success: function(data){
+		$("#doctor").html(data);
+	}
+	});
+}
+</script>	
 	</head>
 	<body>
 		<div id="app">		
@@ -180,7 +192,11 @@ Male
 															<label for="doctor">
 																Doctors
 															</label>
-					<input type="text" name="doctor" class="form-control"  placeholder="Enter DR. name" required="true">														</div>
+					<select name="doctor" class="form-control" id="doctor" onChange="getdoc(this.value);" required="require">
+						<option value="">Select Doctor</option>
+						</select>
+														</div>
+
 
 
 
