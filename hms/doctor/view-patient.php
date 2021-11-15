@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
     $type=$_POST['type'];
     $temp=$_POST['temp'];
    $pres=$_POST['pres'];
-   
+   $nn=$_POST['nurseNote']
  
       $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$type','$bs','$weight','$temp','$pres')");
     if ($query) {
@@ -168,6 +168,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['BSType'];?></td>
   <td><?php  echo $row['Temperature'];?></td>
   <td><?php  echo $row['MedicalPres'];?></td>
+  <td><?php  echo $row['nurseNote'];?></td>
   <td><?php  echo $row['CreationDate'];?></td> 
 </tr>
 <?php $cnt=$cnt+1;} ?>
@@ -253,6 +254,14 @@ while ($row=mysqli_fetch_array($ret)) {
   </td>
   </tr>  
    
+<tr>
+    <th>Nurse Note :</th>
+    <td>
+    <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+  </tr>
+
+
+
 </table>
 </div>
 <div class="modal-footer">
