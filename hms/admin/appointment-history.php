@@ -83,7 +83,7 @@ if(isset($_GET['cancel']))
 										</thead>
 										<tbody>
 <?php
-$sql="SELECT `tblp.PatientName`,`doc.doctorName`,`doc.specilization`,`doc.docFees`,`apt.appointmentDate`,`apt.postingDate` FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
+$sql="SELECT tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
 print_r($sql);
 $result = $con->query($sql);
 $cnt=1;
