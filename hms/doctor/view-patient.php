@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
     $type=$_POST['type'];
     $temp=$_POST['temp'];
    $pres=$_POST['pres'];
-   $nn=$_POST['nurseNote'];
+   $nn=$_POST['nn'];
  
       $query.=mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
     if ($query) {
@@ -168,7 +168,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['BSType'];?></td>
   <td><?php  echo $row['Temperature'];?></td>
   <td><?php  echo $row['MedicalPres'];?></td>
-  <td><?php  echo $row['nn'];?></td>
+  <td><?php  echo $row['nurseNote'];?></td>
   <td><?php  echo $row['CreationDate'];?></td> 
 </tr>
 <?php $cnt=$cnt+1;} ?>
