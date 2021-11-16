@@ -168,7 +168,7 @@ while ($row=mysqli_fetch_array($ret)) {
  <td><?php  echo $row['BSType'];?></td>
   <td><?php  echo $row['Temperature'];?></td>
   <td><?php  echo $row['MedicalPres'];?></td>
-  <td><?php  echo $row['nurseNote'];?></td>
+  <td><?php  echo $row['nn'];?></td>
   <td><?php  echo $row['CreationDate'];?></td> 
 </tr>
 <?php $cnt=$cnt+1;} ?>
@@ -249,7 +249,7 @@ while ($row=mysqli_fetch_array($ret)) {
     <input type="text" id="autosuggest" onkeydown="getAllValues()" autocomplete="off">
     <div id="pillResult"></div>
 
-    <textarea name="pres" id="result" placeholder="Medical Prescription" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+    <textarea name="pres" id="result" placeholder="Medical Prescription" rows="4" cols="14" class="form-control wd-450" required="true"></textarea>
     
   </td>
   </tr>  
