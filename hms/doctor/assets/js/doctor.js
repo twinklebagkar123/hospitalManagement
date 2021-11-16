@@ -6,14 +6,14 @@ $(document).ready(function(){
         var curValue =  $("#result").val();
         console.log(curValue);
         console.log("name:"+name);
-        if(curValue = ""){
+        if(curValue == " "){
             var newValue = name;
         }
         else{
-            var newValue = curValue + " , "+name;
-            console.log("hi");
+            var newValue = curValue+" , "+name;
+            console.log("in loop:" +newValue);
         }
-        console.log("newValue"+newValue);
+        console.log("newValue: "+newValue);
         $edit.val(newValue);
         //$("#result").val().append(+" , ");
       });
