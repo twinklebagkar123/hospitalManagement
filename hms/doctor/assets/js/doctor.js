@@ -4,6 +4,7 @@ $(document).ready(function(){
         var name = $(this).data("name");
         var $edit = $("#result");
         var curValue = $edit.val();
+        console.log(curValue);
         if(curValue = ""){
             var newValue = name;
         }
@@ -11,7 +12,7 @@ $(document).ready(function(){
             var newValue = curValue + " , "+name;
             console.log("hi");
         }
-        
+        console.log("newValue"+newValue);
         $edit.val(newValue);
         //$("#result").val().append(+" , ");
       });
