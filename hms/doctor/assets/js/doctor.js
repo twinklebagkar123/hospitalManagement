@@ -6,7 +6,7 @@ $(document).ready(function(){
         var curValue =  $("#result").val();
         console.log(curValue);
         console.log("name:"+name);
-        if(curValue == " "){
+        if(curValue == " " || empty(curValue)){
             var newValue = name;
         }
         else{
