@@ -3,8 +3,9 @@ $(document).ready(function(){
         console.log("hello");
         var name = $(this).data("name");
         var $edit = $("#result");
-        var curValue = $edit.val();
+        var curValue =  $("#result").val();
         console.log(curValue);
+        console.log("name:"+name);
         if(curValue = ""){
             var newValue = name;
         }
