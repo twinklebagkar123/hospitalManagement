@@ -90,8 +90,8 @@ $today = $year . '-' . $month . '-' . $day;
 															</label>
 					<select name="patient" class="form-control" id="patient" onChange="getdoc();" required="require">
 							<option value="">Patient Name</option>
-										<?php $ret=mysqli_query($con,"select * from tblPatient where 1");
-										while($row=mysqli_fetch_array($ret))
+										<?php $xyz=mysqli_query($con,"select * from tblPatient where 1");
+										while($row=mysqli_fetch_array($xyz))
 															{
 															?>
 																<option value="<?php echo htmlentities($row['PatientName']);?>">
