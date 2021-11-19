@@ -189,6 +189,7 @@ while ($row=mysqli_fetch_array($ret)) {
 		<script src="assets/js/main.js"></script>
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="assets/js/form-elements.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
