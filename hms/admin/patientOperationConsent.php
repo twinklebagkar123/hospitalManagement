@@ -90,7 +90,7 @@ $today = $year . '-' . $month . '-' . $day;
 															</label>
 					<select name="patient" class="form-control" id="patient" required="require">
 							<option value="">Patient Name</option>
-										<?php $xyz=mysqli_query($con,"select * from tblPatient where 1");
+										<?php $xyz=mysqli_query($con,"select * from tblPatient");
 										while($row=mysqli_fetch_array($xyz))
 															{
 															?>
