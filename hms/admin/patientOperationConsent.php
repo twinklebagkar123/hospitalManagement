@@ -88,7 +88,7 @@ $today = $year . '-' . $month . '-' . $day;
 															<label for="Patient Name">
                                                             Patient Name
 															</label>
-					<select name="patient" class="form-control" id="patient" onChange="getdoc();" required="require">
+					<select name="patient" class="form-control" id="patient" required="require">
 							<option value="">Patient Name</option>
 										<?php $xyz=mysqli_query($con,"select * from tblPatient where 1");
 										while($row=mysqli_fetch_array($xyz))
@@ -104,7 +104,7 @@ $today = $year . '-' . $month . '-' . $day;
 															<label for="doctor">
 																Doctors
 															</label>
-					<select name="doctor" class="form-control" id="doctor" onChange="getdoc();" required="require">
+					<select name="doctor" class="form-control" id="doctor"  required="require">
 							<option value="">Select doctor</option>
 										<?php $ret=mysqli_query($con,"select * from doctors where 1");
 										while($row=mysqli_fetch_array($ret))
