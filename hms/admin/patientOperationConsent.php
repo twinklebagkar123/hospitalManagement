@@ -87,10 +87,15 @@ $today = $year . '-' . $month . '-' . $day;
 	  <form method="post" name="submit">
 															<label for="Patient Name">
                                                             Patient Name
+															<?php 
+															$xyz= "select * from tblPatient where 1";
+															print($xyz);
+															?>
 															</label>
 					<select name="patient" class="form-control" id="patient" required="require">
 							<option value="">Patient Name</option>
 										<?php $xyz= "select * from tblPatient where 1";
+
 										 $result = $con->query($xyz);
 										while($row=mysqli_fetch_array($result))
 															{
