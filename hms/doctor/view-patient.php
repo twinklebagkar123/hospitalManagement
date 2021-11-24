@@ -454,7 +454,9 @@ new Chart(document.getElementById("line-chart"), {
           foreach ($data as $key => $value) {
             echo "{";
             echo "label: '$key',";
-            echo " data: ["; implode(",", $value); echo"],";
+            echo " data: [";
+             implode(",", $value);
+             echo"],";
             echo "borderColor: '#3e95cd',";
             echo "fill: false";
             echo "},";
