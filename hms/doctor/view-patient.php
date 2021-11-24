@@ -382,6 +382,27 @@ if (isset($_POST['submit'])) {
             }
           }
         });
+        new Chart(document.getElementById("tpr-chart"), {
+          type: 'line',
+          data: {
+            labels: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
+            datasets: [
+              {
+                label : 'TPR CHART',
+                data: [<?php  echo implode(",", $tpr);?>],
+                borderColor: '#000000',
+                fill: false
+              }
+
+            ]
+          },
+          options: {
+            title: {
+              display: true,
+              text: 'TPR CHART'
+            }
+          }
+        });
       </script>
       <!-- end: JavaScript Event Handlers for this page -->
       <!-- end: CLIP-TWO JAVASCRIPTS -->
