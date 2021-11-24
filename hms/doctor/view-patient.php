@@ -155,9 +155,10 @@ if (isset($_POST['submit'])) {
                     </tr>
                     <?php
                     $tpr = array();
+                    $visit = array();
                     while ($row = mysqli_fetch_array($ret)) {
                        array_push($tpr,$row['Temperature']);
-                      
+                       array_push($visit,$row['CreationDate']);
                     ?>
                       <tr>
                         <td><?php echo $cnt; ?></td>
@@ -385,7 +386,7 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
-            labels: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
+            labels: [<?php echo implode(',',$visit);?>],
             datasets: [
               {
                 label : 'TPR CHART',
