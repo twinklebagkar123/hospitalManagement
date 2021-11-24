@@ -182,7 +182,7 @@ if (isset($_POST['submit'])) {
 
                   <?php
                   //code for blood sugar chart
-                  print($tpr);
+                  print_r($tpr);
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
