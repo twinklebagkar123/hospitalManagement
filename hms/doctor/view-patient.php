@@ -357,7 +357,7 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
-            labels: [10, 20, 10, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
+            labels: [0, 1, 2, 3, 50, 60, 70, 80, 90, 100, 110, 120, 130],
             datasets: [
               <?php
 
