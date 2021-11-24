@@ -156,7 +156,7 @@ if (isset($_POST['submit'])) {
                     <?php
                     $tpr = array();
                     while ($row = mysqli_fetch_array($ret)) {
-                      $tpr = array_push($tpr,$row['Temperature']);
+                       array_push($tpr,$row['Temperature']);
                       
                     ?>
                       <tr>
