@@ -204,13 +204,7 @@ var_dump($value);
 $data = array_push_assoc($data, $type, $value,$x);
 $x++; //
 }
-
 }
-
-// 
-
-
-
 $i++;
 }
 
@@ -222,13 +216,7 @@ function array_push_assoc($array, $key, $value,$x){
 // $data "$i"= array();
 
   
-      foreach ($data as $key => $value) {
-        print "key: " . $key ;
-        foreach ($value as $r) {
-          echo "<br>";
-          echo $r;
-        }
-      }
+      
 
 
 
@@ -455,47 +443,25 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script>
     
 <script>
-  
+ 
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
     labels: [10,20,30,40,50,60,70,80,90,100,110,120,130],
-    datasets: [{ 
-        data: [<?php foreach($cart as $val){echo $val; echo ",";}?>],
-        label: "Type1",
-        borderColor: "#3e95cd",
-        fill: false
-      },
-      { 
-        data: [<?php foreach($c as $val){echo $val; echo ",";}?>],
-        label: "Type2",
-        borderColor: "#8e5ea2",
-        fill: false
-      }
-      , { 
-         data: [<?php foreach($thirdd as $val){echo $val; echo ",";}?>],
-        label: "Type3",
-        borderColor: "#3cba9f",
-        fill: false
-      }
-      , { 
-         data: [<?php foreach($fourth as $val){echo $val; echo ",";}?>],
-        label: "Type4",
-        borderColor: "#ffff00",
-        fill: false
-      }
-      , { 
-         data: [<?php foreach($fifth as $val){echo $val; echo ",";}?>],
-        label: "Type5",
-        borderColor: "#ff0000",
-        fill: false
-      }
-      , { 
-         data: [<?php foreach($sixth as $val){echo $val; echo ",";}?>],
-        label: "Type6",
-        borderColor: "#99ff33",
-        fill: false
-      }
+    datasets: [
+      <?php
+        
+          foreach ($data as $key => $value) {
+            echo "{";
+            echo "label: '$key',";
+            echo " data: ["; foreach($value as $val){echo $val; echo ",";};echo"],";
+            echo "borderColor: '#3e95cd',";
+            echo "fill: false";
+            echo "},";
+          }
+        
+        ?>
+      
     ]
   },
   options: {
