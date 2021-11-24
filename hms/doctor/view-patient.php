@@ -387,7 +387,11 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
-            labels: [<?php  echo implode(",", $visit);?>],
+            labels: [<?php  foreach ($visit as $value) {
+              echo "'";
+             echo $value;
+             echo "',";
+            } ?>],
             datasets: [
               {
                 label : 'TPR CHART',
