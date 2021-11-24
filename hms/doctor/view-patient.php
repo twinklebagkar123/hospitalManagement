@@ -387,7 +387,7 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
-            labels: ['A1','A2','A3','A4','A5','A6','A7','A8'],
+            labels: [<?php  echo implode(",", $visit);?>],
             datasets: [
               {
                 label : 'TPR CHART',
