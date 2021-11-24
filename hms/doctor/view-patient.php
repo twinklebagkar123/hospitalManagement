@@ -199,8 +199,8 @@ if($type != ""){
 $value = $row2["BloodSugar"];
 echo "<br>";
 var_dump($value);
-$data[$type][] = $value;
-//$data [] = array_push($value);
+//$data[$type][] = $value;
+$data = array_push_assoc($data, $type, $value);
 
 }
 
@@ -214,6 +214,10 @@ $i++;
 }
 
 print_r($data["Type4"]);
+function array_push_assoc($array, $key, $value){
+  $array[$key] = $value;
+  return $array;
+  }
 // $data "$i"= array();
 
 
