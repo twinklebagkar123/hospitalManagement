@@ -196,6 +196,7 @@ if($type != ""){
   while($row2=$result1-> fetch_assoc())
 {
 $value = $row2["BloodSugar"];
+var_dump($value);
 $data[] = array_push($value);
 //$data [] = array_push($value);
 
