@@ -197,7 +197,7 @@ if($type != ""){
 {
 $value = $row2["BloodSugar"];
 var_dump($value);
-$data = array_push($value);
+$data[$type][] = array_push($value);
 //$data [] = array_push($value);
 
 }
