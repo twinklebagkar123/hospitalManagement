@@ -143,7 +143,7 @@ $ret=mysqli_query($con,"select * from tblmedicalhistory  where PatientID='$vid'"
 
  ?>
 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-  <tr align="center">
+  <tr style="align : center">
    <th colspan="8" >Medical History</th> 
   </tr>
   <tr>
@@ -180,74 +180,107 @@ while ($row=mysqli_fetch_array($ret)) {
 
 
  <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type1' AND PatientID='$vid'");
-$cart = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $value = $row['BloodSugar'];
-
-array_push($cart, $value);
+ $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
+ $result = $con->query($query);
+//$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
+$data = array();
+while($row= $result->fetch_assoc())
+{
+$i=1;
+$type = $row["BSType"];
+print_r($type);
+if($type != ""){
+  $query2 = "SELECT  `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='".$type."' AND PatientID='$vid'";
+  print_r($query2);
+  $result1 = $con->query($query2);
+  while($row2=$result1-> fetch_assoc())
+{
+$value = $row2["BloodSugar"];
+//$data [] = array_push($value);
 
 }
+
+}
+
+// 
+
+
+
+$i++;
+}
+
+print_r($data);
+// $data "$i"= array();
+
+
+
+// $cart = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $value = $row['BloodSugar'];
+
+// array_push($cart, $value);
+
+// }
 
 
  ?>
  <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type2' AND PatientID='$vid'");
-$c = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $v = $row['BloodSugar'];
+// $chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type2' AND PatientID='$vid'");
+// $c = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $v = $row['BloodSugar'];
 
-array_push($c, $v);
+// array_push($c, $v);
 
-}
-
-
- ?>
- <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT BloodSugar FROM tblmedicalhistory WHERE BSType='Type3' AND PatientID='$vid'");
-$thirdd = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $vv = $row['BloodSugar'];
-
-array_push($thirdd, $vv);
-
-}
+// }
 
 
- ?>
- <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type4' AND PatientID='$vid'");
-$fourth = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $vv = $row['BloodSugar'];
+//  ?>
+//  <?php  
+// $chr=mysqli_query($con,"SELECT DISTINCT BloodSugar FROM tblmedicalhistory WHERE BSType='Type3' AND PatientID='$vid'");
+// $thirdd = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $vv = $row['BloodSugar'];
 
-array_push($fourth, $vv);
+// array_push($thirdd, $vv);
 
-}
-
-
- ?>
- <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type5' AND PatientID='$vid'");
-$fifth = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $vv = $row['BloodSugar'];
-
-array_push($fifth, $vv);
-
-}
+// }
 
 
- ?>
-  <?php  
-$chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type6' AND PatientID='$vid'");
-$sixth = array();
-while ($row=mysqli_fetch_array($chr)) { 
-  $vv = $row['BloodSugar'];
+//  ?>
+//  <?php  
+// $chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type4' AND PatientID='$vid'");
+// $fourth = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $vv = $row['BloodSugar'];
 
-array_push($sixth, $vv);
+// array_push($fourth, $vv);
 
-}
+// }
+
+
+//  ?>
+//  <?php  
+// $chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type5' AND PatientID='$vid'");
+// $fifth = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $vv = $row['BloodSugar'];
+
+// array_push($fifth, $vv);
+
+// }
+
+
+//  ?>
+//   <?php  
+// $chr=mysqli_query($con,"SELECT DISTINCT `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='Type6' AND PatientID='$vid'");
+// $sixth = array();
+// while ($row=mysqli_fetch_array($chr)) { 
+//   $vv = $row['BloodSugar'];
+
+// array_push($sixth, $vv);
+
+// }
 
 
  ?>
