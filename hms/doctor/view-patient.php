@@ -189,20 +189,20 @@ while($row= $result->fetch_assoc())
 $i=1;
 $type = $row["BSType"];
 print_r($type);
-if($type != ""){
-  $query2 = "SELECT  `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='".$type."' AND PatientID='$vid'";
- // print_r($query2);
-  $result1 = $con->query($query2);
-  while($row2=$result1-> fetch_assoc())
-{
-$value = $row2["BloodSugar"];
-var_dump($value);
-$data[$type][] = array_push($value);
-//$data [] = array_push($value);
+// if($type != ""){
+//   $query2 = "SELECT  `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='".$type."' AND PatientID='$vid'";
+//  // print_r($query2);
+//   $result1 = $con->query($query2);
+//   while($row2=$result1-> fetch_assoc())
+// {
+// $value = $row2["BloodSugar"];
+// var_dump($value);
+// $data[$type][] = array_push($value);
+// //$data [] = array_push($value);
 
-}
+// }
 
-}
+// }
 
 // 
 
