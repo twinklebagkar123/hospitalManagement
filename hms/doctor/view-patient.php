@@ -213,7 +213,7 @@ $data = array_push_assoc($data, $type, $value);
 $i++;
 }
 
-print_r($data["Type4"]);
+print_r($data);
 function array_push_assoc($array, $key, $value){
   $array[$key] = $value;
   return $array;
