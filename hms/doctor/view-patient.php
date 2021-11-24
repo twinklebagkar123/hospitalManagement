@@ -216,7 +216,7 @@ $i++;
 
 print_r($data);
 function array_push_assoc($array, $key, $value,$x){
-  $array[$key][] = $value;
+  $array[$key][$x] = $value;
   return $array;
   }
 // $data "$i"= array();
