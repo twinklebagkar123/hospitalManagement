@@ -224,7 +224,10 @@ function array_push_assoc($array, $key, $value,$x){
   
       foreach ($data as $key => $value) {
         print "key: " . $key ;
-        print "value: " . $value ;
+        foreach ($value as $r) {
+          echo "<br>";
+          echo $r;
+        }
       }
 
 
