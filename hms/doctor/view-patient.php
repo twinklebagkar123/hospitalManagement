@@ -211,7 +211,7 @@ $data[$type][] = array_push($value);
 $i++;
 }
 
-print_r($data);
+print_r($data["Type4"]);
 // $data "$i"= array();
 
 
