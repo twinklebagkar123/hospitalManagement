@@ -445,7 +445,7 @@ new Chart(document.getElementById("line-chart"), {
       <?php
         
           foreach ($data as $key => $value) {
-            $color =  '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+            $color =  '#' . substr(md5(rand()), 0, 6);
             echo "{";
             echo "label: '$key',";
             echo " data: ["; echo implode(",", $value);echo"],";
