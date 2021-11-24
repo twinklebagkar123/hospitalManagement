@@ -221,6 +221,12 @@ function array_push_assoc($array, $key, $value,$x){
   }
 // $data "$i"= array();
 
+  
+      foreach ($data as $key => $value) {
+        print "key: " . $key ;
+        print "value: " . $value ;
+      }
+
 
 
 // $cart = array();
@@ -446,6 +452,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script>
     
 <script>
+  
 new Chart(document.getElementById("line-chart"), {
   type: 'line',
   data: {
