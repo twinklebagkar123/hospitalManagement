@@ -387,7 +387,7 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
-            labels: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
+            labels: ['A1','A2','A3','A4','A5','A6','A7','A8'],
             datasets: [
               {
                 label : 'TPR CHART',
