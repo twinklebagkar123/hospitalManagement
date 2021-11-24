@@ -193,7 +193,7 @@ if (isset($_POST['submit'])) {
                     $i = 1;
                     $type = $row["BSType"];
                     if ($type != "") {
-                      $query2 = "SELECT  `BloodSugar` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
+                      $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
 
                       $result1 = $con->query($query2);
                       $x = 0;
@@ -357,7 +357,7 @@ if (isset($_POST['submit'])) {
         new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
-            labels: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
+            labels: [10, 20, 10, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130],
             datasets: [
               <?php
 
