@@ -134,7 +134,11 @@ if (isset($_POST['submit'])) {
 											<th>Visit Date</th>
 										</tr>
 										<?php
+										$tpr = array();
+										$visit = array();
 										while ($row = mysqli_fetch_array($ret)) {
+										array_push($tpr,$row['Temperature']);
+                       					array_push($visit,$row['CreationDate']);
 										?>
 											<tr>
 												<td><?php echo $cnt; ?></td>
