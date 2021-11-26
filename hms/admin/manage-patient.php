@@ -182,7 +182,7 @@ $cnt=$cnt+1;
 								<?php echo htmlentities($_SESSION['msg1']="");?></p>	
 													<form role="form" name="book" method="post" >
 														
-														<input id="idInput" type="text" name="idpatient">
+														<input id="idInput" type="hidden" name="idpatient">
 
 															<div class="form-group">
 															<label for="DoctorSpecialization">
