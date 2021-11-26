@@ -183,8 +183,6 @@ if (isset($_POST['submit'])) {
 
                   <?php
                   //code for blood sugar chart
-                  print_r($tpr);
-                  echo implode(',',$visit);
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
@@ -349,12 +347,7 @@ if (isset($_POST['submit'])) {
           Main.init();
           FormElements.init();
           console.log("hello");
-
-        });
-      </script>
-
-      <script>
-        new Chart(document.getElementById("line-chart"), {
+          new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
             labels: [0, 1, 2, 3, 50, 60, 70, 80, 90, 100, 110, 120, 130],
@@ -409,6 +402,12 @@ if (isset($_POST['submit'])) {
             }
           }
         });
+
+        });
+      </script>
+
+      <script>
+        
       </script>
       <!-- end: JavaScript Event Handlers for this page -->
       <!-- end: CLIP-TWO JAVASCRIPTS -->
