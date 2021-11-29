@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 
 if (isset($_POST['submit'])) {
-	$unqId = $_SESSION['id'];
+	//$unqId = $_SESSION['id'];
 	$phno = $_POST['patcontact'];
 	$uid = $_POST['uid'];
 	$firstname = $_POST['fname'];
@@ -15,34 +15,33 @@ if (isset($_POST['submit'])) {
 	$gender = $_POST['gender'];
 	$adharcardno = $_POST['patadhar'];
 	$dateofadmission = $_POST['appdate'];
-	$dateofdischarge = $_POST[''];
-	$billAmount = $_POST[''];
-	$outstandingAmount = $_POST[''];
-	$status = $_POST[''];
+	
 	$doctor = $_POST['doctor'];
 	$admissionType  = $_POST['admissiontype'];
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
-	$query = "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
+	$query = "INSERT INTO `patientadmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 	if(!empty($uid)){
 		$conn->query($query);
 	}
 	else{
 		$patname = $firstname . ' ' . $lastname;
-		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage')";
-		if ($conn->query($queryToRegister) === TRUE) {
-			$uid = $conn->insert_id;
-			echo $query." IF UID IS MISSING.";
-			$conn->query($query);
-			//echo "New record created successfully. Last inserted ID is: " . $last_id;
-		  } 
+		
+		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
+		print_r($queryToRegister);
+		// if ($conn->query($queryToRegister) === TRUE) {
+		// 	$uid = $conn->insert_id;
+		// 	echo $query." IF UID IS MISSING.";
+		// 	$conn->query($query);
+		// 	//echo "New record created successfully. Last inserted ID is: " . $last_id;
+		//   } 
 	}
 	//$sql = mysqli_query($con, "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
-	if ($sql) {
-		echo "<script>alert('Patient info added Successfully');</script>";
-		header('location:patient-admission.php');
-	}
+	// if ($sql) {
+	// 	echo "<script>alert('Patient info added Successfully');</script>";
+	// 	header('location:patient-admission.php');
+	// }
 }
 ?>
 <!DOCTYPE html>
