@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 		// print_r($queryToRegister);
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
-			echo $query." IF UID IS MISSING.";
+			echo $query." IF UID IS MISSING. USER ID: ".$uid;
 			$con->query($query);
 			//echo "New record created successfully. Last inserted ID is: " . $last_id;
 		  } 
