@@ -15,35 +15,36 @@ if (isset($_POST['submit'])) {
 	$gender = $_POST['gender'];
 	$adharcardno = $_POST['patadhar'];
 	$dateofadmission = $_POST['appdate'];
-	
 	$doctor = $_POST['doctor'];
 	$admissionType  = $_POST['admissiontype'];
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
+	$stat = false;
 	if(!empty($uid)){
-		$con->query($query);
+		
 		$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
+		$con->query($query);
+		$stat = true;
 	}
 	else{
 		$patname = $firstname . ' ' . $lastname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-		// print_r($queryToRegister);
+		
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
 			$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
-			echo $query." IF UID IS MISSING. USER ID: ".$uid;
 			$con->query($query);
-			//echo "New record created successfully. Last inserted ID is: " . $last_id;
+			$stat = true;
+			
 		  } 
 		  
 	}
-	//$sql = mysqli_query($con, "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
-	// if ($sql) {
-	// 	echo "<script>alert('Patient info added Successfully');</script>";
-	// 	header('location:patient-admission.php');
-	// }
+	if ($stat) {
+		echo "<script>alert('Patient info added Successfully');</script>";
+		header('location:patient-admission.php');
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -76,16 +77,14 @@ if (isset($_POST['submit'])) {
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
-					//$("#user-availability-status1").html(data);
 					console.log(data);
 					$('#fname').val(data.name);
-					//  $('#lname').text(data.name);
 					$('#pataddress').val(data.address);
 					$('#rg').val(data.gender);
-					//$('#rg-male').val(data.gender);
 					$('#patemail').val(data.email);
 					$('#patage').val(data.age);
 					$('#uid').val(data.uid);
+					$('#adharCard').val(data.adharCard);
 					$("#loaderIcon").hide();
 				},
 				error: function() {}
@@ -153,7 +152,7 @@ if (isset($_POST['submit'])) {
 														<label for="patadhar">
 															Adhar Card No.
 														</label>
-														<input type="text" name="patadhar" class="form-control" placeholder="Enter Patient Adhaar Card No" required="true" maxlength="12">
+														<input type="text" id="adharCard" name="patadhar" class="form-control" placeholder="Enter Patient Adhaar Card No" required="true" maxlength="12">
 													</div>
 													<div class="form-group">
 														<label for="">

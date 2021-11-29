@@ -48,10 +48,10 @@ if($count>0)
  
   $data["address"] = $row["PatientAdd"];
   $data["gender"] = $row["PatientGender"];
- 
-  $data["email"] = $row["PatientEmail"];
+ $data["email"] = $row["PatientEmail"];
   $data["age"] = $row["PatientAge"];
   $data["uid"] = $row["ID"];
+  $data["adharCard"] = $row["adharCardNo"];
  }
 
 }
