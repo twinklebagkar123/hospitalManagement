@@ -51,6 +51,7 @@ if($count>0)
  
   $data["email"] = $row["PatientEmail"];
   $data["age"] = $row["PatientAge"];
+  $data["uid"] = $row["ID"];
  }
 
 }

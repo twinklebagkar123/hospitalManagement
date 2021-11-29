@@ -8,11 +8,10 @@ check_login();
 if (isset($_POST['submit'])) {
 	$unqId = $_SESSION['id'];
 	$phno = $_POST['patcontact'];
-	$uid = $_POST[''];
+	$uid = $_POST['uid'];
 	$firstname = $_POST['fname'];
 	$lastname = $_POST['lname'];
 	$address = $_POST['pataddress'];
-
 	$gender = $_POST['gender'];
 	$adharcardno = $_POST['patadhar'];
 	$dateofadmission = $_POST['appdate'];
@@ -21,7 +20,24 @@ if (isset($_POST['submit'])) {
 	$outstandingAmount = $_POST[''];
 	$status = $_POST[''];
 	$doctor = $_POST['doctor'];
-	$sql = mysqli_query($con, "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
+	$admissionType  = $_POST['admissiontype'];
+	$patemail  = $_POST['patemail'];
+	$patage  = $_POST['patage'];
+	$query = "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')";
+	if(!empty($uid)){
+		$conn->query($query);
+	}
+	else{
+		$patname = $firstname . ' ' . $lastname;
+		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,PatientAge) values('$doctor','$patname','$phno','$patemail','$gender','$pataddress','$patage')";
+		if ($conn->query($queryToRegister) === TRUE) {
+			$uid = $conn->insert_id;
+			echo $query." IF UID IS MISSING.";
+			$conn->query($query);
+			//echo "New record created successfully. Last inserted ID is: " . $last_id;
+		  } 
+	}
+	//$sql = mysqli_query($con, "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
 	if ($sql) {
 		echo "<script>alert('Patient info added Successfully');</script>";
 		header('location:patient-admission.php');
@@ -67,6 +83,7 @@ if (isset($_POST['submit'])) {
 					//$('#rg-male').val(data.gender);
 					$('#patemail').val(data.email);
 					$('#patage').val(data.age);
+					$('#uid').val(data.uid);
 					$("#loaderIcon").hide();
 				},
 				error: function() {}
@@ -129,6 +146,7 @@ if (isset($_POST['submit'])) {
 														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
 														<span id="user-availability-status1" style="font-size:12px;"></span>
 													</div>
+													<input type="hidden" id="uid" name="uid" value="">
 													<div class="form-group">
 														<label for="patadhar">
 															Adhar Card No.
