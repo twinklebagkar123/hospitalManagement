@@ -183,11 +183,11 @@ if (isset($_POST['submit'])) {
 														</label>
 														<div class="clip-radio radio-primary">
 															<input type="radio" id="r1" name="admissionType" value="opd">
-															<label for="rg-female">
+															<label for="r1-opd">
 																OPD
 															</label>
 															<input type="radio" id="r2" name="admissionType" value="ide">
-															<label for="rg-male">
+															<label for="r2-ide">
 																IDE
 															</label>
 														</div>
