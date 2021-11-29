@@ -29,13 +29,14 @@ if (isset($_POST['submit'])) {
 		$patname = $firstname . ' ' . $lastname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-		//print_r($queryToRegister);
+		print_r($queryToRegister);
 		if ($conn->query($queryToRegister) == TRUE) {
 			$uid = $conn->insert_id;
 			echo $query." IF UID IS MISSING.";
 			$conn->query($query);
 			//echo "New record created successfully. Last inserted ID is: " . $last_id;
 		  } 
+		  
 	}
 	//$sql = mysqli_query($con, "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')");
 	// if ($sql) {
