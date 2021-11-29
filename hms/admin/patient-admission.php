@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
-	$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 	if(!empty($uid)){
 		$con->query($query);
+		$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 	}
 	else{
 		$patname = $firstname . ' ' . $lastname;
@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
 		// print_r($queryToRegister);
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
+			$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 			echo $query." IF UID IS MISSING. USER ID: ".$uid;
 			$con->query($query);
 			//echo "New record created successfully. Last inserted ID is: " . $last_id;
