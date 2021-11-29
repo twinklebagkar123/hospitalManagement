@@ -4,6 +4,7 @@
 .wrapperDiv .subDiv {
   position: absolute;
   background-color: black;
+  width: 100%;
 }
 .wrapperDiv .subDiv .label {
   font-size: 12px !important;
@@ -12,4 +13,49 @@
   padding: 0.4em 0.6em !important;
   margin-bottom: 10px;
   cursor: pointer;
+}
+.chip {
+  position: relative;
+  display: inline-table;
+  margin-right: 4px;
+  font-family: sans-serif;
+  font-size: 12.5px;
+  line-height: 26px;
+  padding: 0;
+  background: #f2f2f2;
+  border: thin solid #d2d2d2;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  overflow: hidden;
+  animation: fadeIn ease 0.6s;
+  transition: background-color 0.8s;
+}
+.chip input {
+  position: absolute;
+  left: -1000px;
+}
+.chip .zap,
+.chip span {
+  display: table-cell;
+  padding: 0;
+  vertical-align: top;
+}
+.chip span {
+  padding: 0 0 0 12px;
+}
+.chip .zap {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  opacity: 0.3;
+  font-family: 'Material Icons';
+  line-height: inherit;
+  font-size: 16px;
+  font-weight: normal;
+  height: 26px;
+  width: 26px;
+  text-align: center;
+}
+.chip .zap:hover {
+  opacity: 1;
 }

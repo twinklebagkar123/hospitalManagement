@@ -9,9 +9,9 @@ if($count>0)
 {
     while ($row=mysqli_fetch_array($result)) {
     
-   
-  echo" <div class='chip'> <span class='mr-2' data-name='".$row['medname']."'>".$row['medname']."</span></div>";
-
+   ?>
+   <?php
+    echo "<span class='label label-warning mr-2' data-name='".$row['medname']."'>".$row['medname']."</span>";
     
 // echo "<span style='color:red'> Email already exists .</span>";
 //  echo "<script>$('#submit').prop('disabled',true);</script>";

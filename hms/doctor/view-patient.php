@@ -279,13 +279,13 @@ if (isset($_POST['submit'])) {
                                 <th>Prescription :</th>
                                 <td>
                                   <div class="wrapperDiv">
-                                  <input type="text" id="autosuggest" onkeydown="getAllValues()" autocomplete="off">
+                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" onkeydown="getAllValues()" autocomplete="false" style="margin-bottom: 5px;">
                                   <div id="pillResult" class="subDiv"></div>
                                   </div>
-                                  
+                                  <div id="medicalResult"></div>
 
-                                  <textarea name="pres" id="result" placeholder="Medical Prescription" rows="4" cols="14" class="form-control wd-450" required="true"></textarea>
-
+                                  <!-- <textarea name="pres" id="result" class="form-control wd-450" required="true"></textarea> -->
+                                  <div></div>
                                 </td>
                               </tr>
 
