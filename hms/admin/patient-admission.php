@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 		$patname = $firstname . ' ' . $lastname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-		print_r($queryToRegister);
+		//print_r($queryToRegister);
 		if ($conn->query($queryToRegister) === TRUE) {
 			$uid = $conn->insert_id;
 			echo $query." IF UID IS MISSING.";
