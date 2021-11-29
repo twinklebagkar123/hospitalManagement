@@ -23,17 +23,17 @@ if (isset($_POST['submit'])) {
 	$wn  = $_POST['wn'];
 	$query = "INSERT INTO `patientadmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 	if(!empty($uid)){
-		$conn->query($query);
+		$con->query($query);
 	}
 	else{
 		$patname = $firstname . ' ' . $lastname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-		print_r($queryToRegister);
-		if ($conn->query($queryToRegister) == TRUE) {
+		// print_r($queryToRegister);
+		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $conn->insert_id;
 			echo $query." IF UID IS MISSING.";
-			$conn->query($query);
+			$con->query($query);
 			//echo "New record created successfully. Last inserted ID is: " . $last_id;
 		  } 
 		  
