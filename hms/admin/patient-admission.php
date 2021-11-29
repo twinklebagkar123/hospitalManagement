@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
 		//print_r($queryToRegister);
-		if ($conn->query($queryToRegister) === TRUE) {
+		if ($conn->query($queryToRegister) == TRUE) {
 			$uid = $conn->insert_id;
 			echo $query." IF UID IS MISSING.";
 			$conn->query($query);
@@ -154,7 +154,7 @@ if (isset($_POST['submit'])) {
 														<input type="text" name="patadhar" class="form-control" placeholder="Enter Patient Adhaar Card No" required="true" maxlength="12">
 													</div>
 													<div class="form-group">
-														<label for="doctorname">
+														<label for="">
 															Patient Name
 														</label>
 														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
@@ -221,7 +221,7 @@ if (isset($_POST['submit'])) {
 														<label for="doctor">
 															Doctors
 														</label>
-														<select name="doctor" class="form-control" id="doctor" onChange="getdoc();" required="require">
+														<select name="doctor" class="form-control" id="doctor" required="true">
 															<option value="">Select doctor</option>
 															<?php $ret = mysqli_query($con, "select * from doctors where 1");
 															while ($row = mysqli_fetch_array($ret)) {
