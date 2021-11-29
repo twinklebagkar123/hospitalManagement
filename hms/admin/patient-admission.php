@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
 		// print_r($queryToRegister);
 		if ($con->query($queryToRegister) == TRUE) {
-			$uid = $conn->insert_id;
+			$uid = $con->insert_id;
 			echo $query." IF UID IS MISSING.";
 			$con->query($query);
 			//echo "New record created successfully. Last inserted ID is: " . $last_id;
