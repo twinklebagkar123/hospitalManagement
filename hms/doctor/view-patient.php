@@ -218,7 +218,7 @@ if (isset($_POST['submit'])) {
 
                   <?php  ?>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLabel">Add Medical History</h5>
@@ -243,12 +243,13 @@ if (isset($_POST['submit'])) {
                                 <td>
 
                                   <select name="type">
-                                    <option value="Type1">Type1</option>
-                                    <option value="Type2">Type2</option>
-                                    <option value="Type3">Type3</option>
-                                    <option value="Type4">Type4</option>
-                                    <option value="Type5">Type5</option>
-                                    <option value="Type6">Type6</option>
+                                    <option value="BBF">BBF</option>
+                                    <option value="PBF">PBF</option>
+                                    <option value="BL">BL</option>
+                                    <option value="PL">PL</option>
+                                    <option value="BD">BD</option>
+                                    <option value="PD">PD</option>
+                                    <option value="Midnight">Midnight</option>
 
 
                                   </select>
