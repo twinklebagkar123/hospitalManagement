@@ -23,13 +23,14 @@ if (isset($_POST['submit'])) {
 	$admissionType  = $_POST['admissiontype'];
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
-	$query = "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$dateofadmission','','','','pending')";
+	$wn  = $_POST['wn'];
+	$query = "INSERT INTO `patientadmission`(`unqId`, `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('','$phno','','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
 	if(!empty($uid)){
 		$conn->query($query);
 	}
 	else{
 		$patname = $firstname . ' ' . $lastname;
-		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,PatientAge) values('$doctor','$patname','$phno','$patemail','$gender','$pataddress','$patage')";
+		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage')";
 		if ($conn->query($queryToRegister) === TRUE) {
 			$uid = $conn->insert_id;
 			echo $query." IF UID IS MISSING.";
