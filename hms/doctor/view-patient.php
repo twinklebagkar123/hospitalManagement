@@ -194,16 +194,20 @@ if (isset($_POST['submit'])) {
                   //code for blood sugar chart
                   //1. get date and
               
-                  $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;";
-                  $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1";
-
+                  $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
+                  $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1";
+                  
                   // Execute multi query
                   if (mysqli_multi_query($con, $sql)) {
+                    $i = 0;
                     do {
                       // Store first result set
                       if ($result = mysqli_store_result($con)) {
                         while ($row = mysqli_fetch_row($result)) {
+                          
                           printf("%s\n", $row[0]);
+                          echo $i." array index \n";
+                          $i++;
                         }
                         mysqli_free_result($result);
                       }
