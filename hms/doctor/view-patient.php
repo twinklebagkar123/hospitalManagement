@@ -287,7 +287,7 @@ if (isset($_POST['submit'])) {
                                   <div class="wrapperDiv">
                                   <div id="medicalResult"></div>
                                   <input type="hidden" name="pres" id="result" value="">
-                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" onkeypress="getAllValues()" autocomplete="off" style="margin-bottom: 5px;">
+                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" onchange="getAllValues()" autocomplete="off" style="margin-bottom: 5px;">
                                   <div id="pillResult" class="subDiv"></div>
                                   </div>
                                   
