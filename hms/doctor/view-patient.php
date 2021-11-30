@@ -193,20 +193,27 @@ if (isset($_POST['submit'])) {
                   <?php
                   //code for blood sugar chart
                   //1. get date and
-                  $dateQuery = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;"."SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
-                  $con->multi_query($dateQuery);
-                  do {
-                      /* store the result set in PHP */
-                      if ($result = $con->store_result()) {
-                          while ($row = $result->fetch_row()) {
-                             print_r($row);
-                          }
+              
+                  $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;";
+                  $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1";
+
+                  // Execute multi query
+                  if (mysqli_multi_query($con, $sql)) {
+                    do {
+                      // Store first result set
+                      if ($result = mysqli_store_result($con)) {
+                        while ($row = mysqli_fetch_row($result)) {
+                          printf("%s\n", $row[0]);
+                        }
+                        mysqli_free_result($result);
                       }
-                      /* print divider */
-                      if ($mysqli->more_results()) {
-                          printf("-----------------\n");
+                      // if there are more result-sets, the print a divider
+                      if (mysqli_more_results($con)) {
+                        printf("-------------\n");
                       }
-                  } while ($con->next_result());
+                      //Prepare next result set
+                    } while (mysqli_next_result($con));
+                  }
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
