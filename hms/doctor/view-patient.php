@@ -203,17 +203,14 @@ if (isset($_POST['submit'])) {
                       // Store first result set
                       if ($result = mysqli_store_result($con)) {
                         while ($row = mysqli_fetch_row($result)) {
-                          
-                          printf("%s\n", $row[0]);
-                          echo $i." array index \n";
                           array_push($startAndEndDate,$row[0]);
                         }
                         mysqli_free_result($result);
                       }
                       // if there are more result-sets, the print a divider
-                      if (mysqli_more_results($con)) {
-                        printf("-------------\n");
-                      }
+                      // if (mysqli_more_results($con)) {
+                      //   printf("-------------\n");
+                      // }
                       //Prepare next result set
                     } while (mysqli_next_result($con));
                   }
