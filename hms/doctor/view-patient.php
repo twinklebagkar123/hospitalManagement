@@ -70,10 +70,12 @@ if (isset($_POST['submit'])) {
       }
       
     }
-    $("#autosuggest").on('input',function(){
-      getAllValues();
-
+    $(document).ready(function() {
+      $("#autosuggest").on('input',function(){
+        getAllValues();
+      });
     });
+   
    
   </script>
   <div id="app">
