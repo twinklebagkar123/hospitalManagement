@@ -193,7 +193,7 @@ if (isset($_POST['submit'])) {
                   <?php
                   //code for blood sugar chart
                   //1. get date and
-                  $dateQuery = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1";
+                  $dateQuery = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;"."SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
                   $con->multi_query($dateQuery);
                   do {
                       /* store the result set in PHP */
