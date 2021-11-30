@@ -11,11 +11,11 @@ $(document).ready(function(){
         <button type="button" class="zap">X</button>
         </div>`);
         if(curValue.length > 0 ){
-            var newValue = curValue+", "+name;
+            var newValue = curValue+","+name;
             console.log("in loop:" +newValue);
         }
         else{
-            var newValue = ' '+name;
+            var newValue = name;
         }
         console.log("newValue: "+newValue);
         $edit.val(newValue);
