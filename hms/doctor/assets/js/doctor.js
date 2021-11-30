@@ -26,6 +26,7 @@ $(document).ready(function(){
             var searchInArray = $(this).children('.medicineName').text();
             let arrayFromRes = $("#result").val().split(','); 
             const index = arrayFromRes.indexOf(searchInArray);
+            console.log( "print array",arrayFromRes);
             if (index > -1) {
 
             arrayFromRes.splice(index, 1);
