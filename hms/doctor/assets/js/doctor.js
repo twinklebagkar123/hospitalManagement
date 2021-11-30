@@ -27,7 +27,9 @@ $(document).ready(function(){
             let arrayFromRes = $("#result").val().split(','); 
             const index = arrayFromRes.indexOf(searchInArray);
             if (index > -1) {
+
             arrayFromRes.splice(index, 1);
+            console.log( " in splice",arrayFromRes);
             }
             // else{
             //     arrayFromRes = [];
