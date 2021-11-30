@@ -196,10 +196,9 @@ if (isset($_POST['submit'])) {
               
                   $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
                   $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1";
-                  
+                  $startAndEndDate = array();
                   // Execute multi query
                   if (mysqli_multi_query($con, $sql)) {
-                    $i = 0;
                     do {
                       // Store first result set
                       if ($result = mysqli_store_result($con)) {
@@ -207,7 +206,7 @@ if (isset($_POST['submit'])) {
                           
                           printf("%s\n", $row[0]);
                           echo $i." array index \n";
-                          $i++;
+                          array_push($startAndEndDate,$row[0]);
                         }
                         mysqli_free_result($result);
                       }
@@ -218,6 +217,7 @@ if (isset($_POST['submit'])) {
                       //Prepare next result set
                     } while (mysqli_next_result($con));
                   }
+                  print_r($startAndEndDate);
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
