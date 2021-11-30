@@ -11,7 +11,7 @@ $(document).ready(function(){
         <button type="button" class="zap">X</button>
         </div>`);
         if(curValue.length > 0 ){
-            var newValue = curValue+" , "+name;
+            var newValue = curValue+", "+name;
             console.log("in loop:" +newValue);
         }
         else{
@@ -19,11 +19,11 @@ $(document).ready(function(){
         }
         console.log("newValue: "+newValue);
         $edit.val(newValue);
-        $("#result").val().append(+" , ");
+        // $("#result").val().append(", ");
       });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
-            var searchInArray = $(this).text();
+            var searchInArray = $(this).closest('span').text();
             let arrayFromRes = $("#result").val().split(','); 
             const index = arrayFromRes.indexOf(searchInArray);
             if (index > -1) {
