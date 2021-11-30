@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
       }
       
     }
-    $(document).ready(function() {
+    jQuery(document).ready(function() {
       $("#autosuggest").on('input',function(){
         getAllValues();
       });
