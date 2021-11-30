@@ -52,17 +52,23 @@ if (isset($_POST['submit'])) {
   <script type="text/javascript">
     function getAllValues() {
       $("#loaderIcon").show();
-      jQuery.ajax({
-        url: "getAllMedicines.php",
-        data: 'med=' + $("#autosuggest").val(),
-        type: "POST",
-        success: function(data) {
-          $("#pillResult").html(data);
-          $("#loaderIcon").hide();
+      if(empty('#autosuggest')){
+        $("#pillResult").html(' ');
+      }
+      else{
+        jQuery.ajax({
+          url: "getAllMedicines.php",
+          data: 'med=' + $("#autosuggest").val(),
+          type: "POST",
+          success: function(data) {
+            $("#pillResult").html(data);
+            $("#loaderIcon").hide();
 
-        },
-        error: function() {}
-      });
+          },
+          error: function() {}
+        });
+      }
+      
     }
   </script>
   <div id="app">
