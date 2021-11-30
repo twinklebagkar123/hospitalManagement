@@ -70,11 +70,7 @@ if (isset($_POST['submit'])) {
       }
       
     }
-    jQuery(document).ready(function() {
-      $("#autosuggest").on('input',function(){
-        getAllValues();
-      });
-    });
+   
    
    
   </script>
@@ -421,7 +417,11 @@ if (isset($_POST['submit'])) {
             }
           }
         });
-
+        // $(document).ready(function() {
+      $("#autosuggest").on('input',function(){
+        getAllValues();
+      });
+    // });
         });
       </script>
 
