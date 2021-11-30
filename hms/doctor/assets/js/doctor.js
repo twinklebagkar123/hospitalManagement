@@ -33,6 +33,7 @@ $(document).ready(function(){
             //     arrayFromRes = [];
             // }
             var stringvar = arrayFromRes.join(",").toString()
+            console.log(stringvar+" string value");
             $("#result").val(stringvar);
 	    	$(this).remove();
             console.log("Chip On Click Value: ",searchInArray)
