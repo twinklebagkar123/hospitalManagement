@@ -24,6 +24,7 @@ $(document).ready(function(){
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
             var searchInArray = $(this).children('.medicineName').text();
+            console.log("Chip On Click Value: ",searchInArray)
             let arrayFromRes = $("#result").val().split(','); 
             var index = arrayFromRes.indexOf(searchInArray);
         
@@ -40,7 +41,7 @@ $(document).ready(function(){
             console.log(stringvar+" string value");
             $("#result").val(stringvar);
 	    	$(this).remove();
-            console.log("Chip On Click Value: ",searchInArray)
+           
 	    });
 	});
 });
