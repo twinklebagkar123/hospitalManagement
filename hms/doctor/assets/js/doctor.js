@@ -7,7 +7,7 @@ $(document).ready(function(){
         console.log(curValue);
         console.log("name:"+name);
         $('#medicalResult').append(`<div class="chip">
-        <span>${name}</span>
+        <span class="medicineName">${name}</span>
         <button type="button" class="zap">X</button>
         </div>`);
         if(curValue.length > 0 ){
@@ -23,7 +23,7 @@ $(document).ready(function(){
       });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
-            var searchInArray = $(this).closest('span').text();
+            var searchInArray = $(this).closest('.medicineName').text();
             let arrayFromRes = $("#result").val().split(','); 
             const index = arrayFromRes.indexOf(searchInArray);
             if (index > -1) {
