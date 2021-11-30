@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 
 <body>
   <script type="text/javascript">
-    function getAllValues() {
+     function getAllValues() {
       $("#loaderIcon").show();
       if($('#autosuggest').val() == ""){
         $("#pillResult").html(' ');
@@ -70,6 +70,11 @@ if (isset($_POST['submit'])) {
       }
       
     }
+    $("#autosuggest").on('input',function(){
+      getAllValues();
+
+    });
+   
   </script>
   <div id="app">
     <?php include('include/sidebar.php'); ?>
@@ -287,7 +292,7 @@ if (isset($_POST['submit'])) {
                                   <div class="wrapperDiv">
                                   <div id="medicalResult"></div>
                                   <input type="hidden" name="pres" id="result" value="">
-                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" onchange="getAllValues()" autocomplete="off" style="margin-bottom: 5px;">
+                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
                                   <div id="pillResult" class="subDiv"></div>
                                   </div>
                                   
