@@ -199,7 +199,7 @@ if (isset($_POST['submit'])) {
                       /* store the result set in PHP */
                       if ($result = $con->store_result()) {
                           while ($row = $result->fetch_row()) {
-                              printf("%s\n", $row[0]);
+                             print_r($row);
                           }
                       }
                       /* print divider */
