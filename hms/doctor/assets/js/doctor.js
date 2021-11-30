@@ -15,7 +15,7 @@ $(document).ready(function(){
             console.log("in loop:" +newValue);
         }
         else{
-            var newValue = name;
+            var newValue = ' '+name;
         }
         console.log("newValue: "+newValue);
         $edit.val(newValue);
@@ -29,6 +29,9 @@ $(document).ready(function(){
             if (index > -1) {
             arrayFromRes.splice(index, 1);
             }
+            // else{
+            //     arrayFromRes = [];
+            // }
             var stringvar = arrayFromRes.join(",").toString()
             $("#result").val(stringvar);
 	    	$(this).remove();
