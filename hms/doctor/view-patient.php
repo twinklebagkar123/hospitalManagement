@@ -192,6 +192,21 @@ if (isset($_POST['submit'])) {
 
                   <?php
                   //code for blood sugar chart
+                  //1. get date and
+                  $dateQuery = "SELECT `CreationDate` as 'last'  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1;SELECT `CreationDate` as 'first' FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1";
+                  $con->multi_query($dateQuery);
+                  do {
+                      /* store the result set in PHP */
+                      if ($result = $con->store_result()) {
+                          while ($row = $result->fetch_row()) {
+                              printf("%s\n", $row[0]);
+                          }
+                      }
+                      /* print divider */
+                      if ($mysqli->more_results()) {
+                          printf("-----------------\n");
+                      }
+                  } while ($con->next_result());
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
