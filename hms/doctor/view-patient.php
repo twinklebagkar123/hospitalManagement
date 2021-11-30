@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
   <script type="text/javascript">
     function getAllValues() {
       $("#loaderIcon").show();
-      if(empty('#autosuggest')){
+      if(empty(('#autosuggest').val())){
         $("#pillResult").html(' ');
       }
       else{
