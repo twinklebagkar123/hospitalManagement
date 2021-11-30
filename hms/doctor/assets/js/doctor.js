@@ -23,7 +23,7 @@ $(document).ready(function(){
       });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
-            var searchInArray = $(this).closest('.medicineName').text();
+            var searchInArray = $(this).children('.medicineName').text();
             let arrayFromRes = $("#result").val().split(','); 
             const index = arrayFromRes.indexOf(searchInArray);
             if (index > -1) {
