@@ -25,8 +25,9 @@ $(document).ready(function(){
 	    $(this).closest('.chip').fadeOut( 500, function() {
             var searchInArray = $(this).children('.medicineName').text();
             let arrayFromRes = $("#result").val().split(','); 
-            const index = arrayFromRes.indexOf(searchInArray);
-            console.log( "print array",arrayFromRes);
+            var index = arrayFromRes.indexOf(searchInArray);
+        
+            console.log( "print array",arrayFromRes,index);
             if (index > -1) {
 
             arrayFromRes.splice(index, 1);
