@@ -232,7 +232,7 @@ if (isset($_POST['submit'])) {
 			new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
-            labels: [<?php for($i=0;$i<150;$i++){echo "2021-11-".$i.",";}?>],
+            labels: [<?php for($i=0;$i<150;$i++){echo "2021 jan ".$i.",";}?>],
             datasets: [
               <?php
 
