@@ -295,7 +295,7 @@ if (isset($_POST['submit'])) {
                         type: 'time',
                         time: {
                             displayFormats: {
-                                day: 'MMM D'
+                                day: 'yy-mm-dd',
                             }
                         }
                     }
