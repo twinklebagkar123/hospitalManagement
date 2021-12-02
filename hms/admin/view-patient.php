@@ -263,7 +263,19 @@ if (isset($_POST['submit'])) {
               display: true,
               text: 'Blood Sugar'
             }
-          }
+          },
+		  scales: {
+                xAxes: [
+                    {
+                        type: 'time',
+                        time: {
+                            displayFormats: {
+                                day: 'yy-mm-dd',
+                            }
+                        }
+                    }
+                ]
+            }
         });
         new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
@@ -288,19 +300,7 @@ if (isset($_POST['submit'])) {
               display: true,
               text: 'TPR CHART'
             }
-          },
-		  scales: {
-                xAxes: [
-                    {
-                        type: 'time',
-                        time: {
-                            displayFormats: {
-                                day: 'yy-mm-dd',
-                            }
-                        }
-                    }
-                ]
-            }
+          }
         });
 
 		});
