@@ -238,7 +238,7 @@ if (isset($_POST['submit'])) {
 			new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
-            labels: [<?php   foreach ($period as $key => $value) {print_r($value->format('Y-m-d') ); echo ","; }?>],
+            labels: [<?php   foreach ($period as $key => $value) { echo "'",print_r($value->format('Y-m-d') ); echo "',"; }?>],
             datasets: [
               <?php
 
