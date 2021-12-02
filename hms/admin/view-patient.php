@@ -288,7 +288,19 @@ if (isset($_POST['submit'])) {
               display: true,
               text: 'TPR CHART'
             }
-          }
+          },
+		  scales: {
+                xAxes: [
+                    {
+                        type: 'time',
+                        time: {
+                            displayFormats: {
+                                day: 'MMM D'
+                            }
+                        }
+                    }
+                ]
+            }
         });
 
 		});
