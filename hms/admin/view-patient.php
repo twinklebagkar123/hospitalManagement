@@ -196,6 +196,7 @@ if (isset($_POST['submit'])) {
 			new DateInterval('P1D'),
 			new DateTime('2021-12-01')
 	   );
+	   print_r($period);
 	 
 	?>									
 	<!-- start: FOOTER -->
