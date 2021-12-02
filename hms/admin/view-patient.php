@@ -191,6 +191,12 @@ if (isset($_POST['submit'])) {
 		$array[$key][$x] = $value;
 		return $array;
 		}
+		$period = new DatePeriod(
+			new DateTime('2021-06-01'),
+			new DateInterval('P1D'),
+			new DateTime('2021-12-01')
+	   );
+	 
 	?>									
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
@@ -232,7 +238,7 @@ if (isset($_POST['submit'])) {
 			new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
-            labels: [<?php for($i=0;$i<150;$i++){echo $i.",";}?>],
+            labels: [<?php   foreach ($period as $key => $value) {print_r($value->format('Y-m-d') ); echo ","; }?>],
             datasets: [
               <?php
 
