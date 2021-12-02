@@ -15,9 +15,9 @@ if (isset($_POST['submit'])) {
   $pres = $_POST['pres'];
   $nn = $_POST['nn'];
 
-  $query .= mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
+  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
   if ($query) {
-    echo '<script>alert("Medicle history has been added.")</script>';
+    echo '<script>alert("Medical history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
   } else {
     echo '<script>alert("Something Went Wrong. Please try again")</script>';
@@ -187,9 +187,6 @@ if (isset($_POST['submit'])) {
                   <p align="center">
                     <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
                   </p>
-
-
-
                   <?php
                   //code for blood sugar chart
                   //1. get date and
@@ -211,6 +208,16 @@ if (isset($_POST['submit'])) {
                     } while (mysqli_next_result($con));
                   }
                   print_r($startAndEndDate);
+                  
+                  $period = new DatePeriod(
+                    new DateTime($startAndEndDate[0]),
+                    new DateInterval('P1D'),
+                    new DateTime($startAndEndDate[1])
+               );
+               foreach ($period as $key => $value) {
+               print_r($value->format('Y-m-d') ); 
+
+            }
                   $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
                   $result = $con->query($query);
                   //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
@@ -324,10 +331,7 @@ if (isset($_POST['submit'])) {
                                 <td>
                                   <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                               </tr>
-
-
-
-                          </table>
+                            </table>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
