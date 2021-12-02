@@ -194,7 +194,7 @@ if (isset($_POST['submit'])) {
 		$period = new DatePeriod(
 			new DateTime('2021-06-01'),
 			new DateInterval('P1D'),
-			new DateTime('2021-12-01')
+			new DateTime('2021-07-01')
 	   );
 	 
 	?>									
