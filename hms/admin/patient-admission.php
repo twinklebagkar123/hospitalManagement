@@ -82,10 +82,10 @@ if (isset($_POST['submit'])) {
 					$('#pataddress').val(data.address);
 					//$('#rg').val(data.gender);
 					if(data.gender == 'male'){
-						$("#rg-male").checked = true;
+						$("#rg-male").prop('checked', true);
 					}
 					else{
-						$("#rg-female").checked = true;
+						$("#rg-female").prop('checked', true);
 					}
 					$('#patemail').val(data.email);
 					$('#patage').val(data.age);
