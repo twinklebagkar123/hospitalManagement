@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 	$stat = false;
 	if(!empty($uid)){
 		
-		$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
+		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
 		$con->query($query);
 		$stat = true;
 	}
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 		
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
-			$query = "INSERT INTO `patientAdmission`( `phno`, `uid`, `firstname`, `lastname`, `address`, `gender`, `adharcardno`, `admissionType`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$phno','$uid','$firstname','$lastname','$address','$gender','$adharcardno','$admissionType','$wn','$dateofadmission','','','','pending')";
+			$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
 			$con->query($query);
 			$stat = true;
 			
