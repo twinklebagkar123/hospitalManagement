@@ -127,18 +127,18 @@ if (isset($_POST['submit'])) {
 												 <th>Discharge Date</th>
 												 <th>Reports</th>
 											 </thead>
-											<tbody>
+											<tbody id="viewReport">
 												<?php
 												$sr = 1;
 													while ($row = mysqli_fetch_array($result)) {
 														?>
 															<tr>
 																<td><?php echo $sr;?></td>
-																<td><?php echo $row['dateofadmission'];?></td>
+																<td id="date"><?php echo $row['dateofadmission'];?></td>
 																<td><?php echo $row['admissionType'];?></td>
 																<td><?php //echo $row['dateofadmission'];?></td>
 																<td><?php echo $row['dateofdischarge'];?></td>
-																<td><button type="button" class="btn btn-primary">View</button></td>
+																<td><button type="button" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
 															</tr>
 														<?php
 														$sr++;
@@ -272,6 +272,10 @@ if (isset($_POST['submit'])) {
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+			$("#viewReport button").click(function(){
+				var admissionid = $(this).data("admissionid");
+				console.log(admissionid);
+			});
 			new Chart(document.getElementById("line-chart"), {
           type: 'line',
           data: {
