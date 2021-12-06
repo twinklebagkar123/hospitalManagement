@@ -26,8 +26,8 @@ if(!empty($_POST['admissionid'])){
     $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
     
-    // array_push($tpr,$row['Temperature']);
-    //    array_push($visit,$row['CreationDate']);
+    array_push($tpr,$row['Temperature']);
+       array_push($visit,$row['CreationDate']);
   
     $html = $html. '  <tr> <td>'. $cnt.'</td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
             <td>'.$row['BloodSugar'].'</td> <td>'.$row['Temperature'].'</td><td>'. $row['MedicalPres'].'</td> <td>'.$row['CreationDate'].'</td>
