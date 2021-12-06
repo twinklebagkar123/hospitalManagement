@@ -1,7 +1,7 @@
 <?php
 require_once("include/config.php");
 $html = "";
-if(!empty($_POST['admissionid']) && !empty($_POST['vid'])){
+if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
     $result = $con->query($query);
@@ -29,13 +29,14 @@ if(!empty($_POST['admissionid']) && !empty($_POST['vid'])){
     // array_push($tpr,$row['Temperature']);
     //    array_push($visit,$row['CreationDate']);
   
-    $html .= '  <tr> <td><?php echo $cnt; ?></td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
+    $html = $html. '  <tr> <td><?php echo $cnt; ?></td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
             <td>'.$row['BloodSugar'].'</td> <td>'.$row['Temperature'].'</td><td>'. $row['MedicalPres'].'</td> <td>'.$row['CreationDate'].'</td>
         </tr>';
    $cnt++;
     } 
-$html .= '</table>';
+$html = $html. '</table>';
 $result["html"] = $html;
+echo $html;
 echo json_encode($result);
 }
 
