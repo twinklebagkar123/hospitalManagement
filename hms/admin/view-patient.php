@@ -284,7 +284,7 @@ if (isset($_POST['submit'])) {
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
-					console.log(data.html);
+					console.log(data.tpr);
 					$("#test").html(data.html);
 					// $('#fname').val(data.name);
 					// $('#pataddress').val(data.address);

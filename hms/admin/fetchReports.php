@@ -21,9 +21,9 @@ if(!empty($_POST['admissionid'])){
         <th>Medical Prescription</th>
         <th>Visit Date</th>
     </tr>';
-    // $tpr = array();
-    // $visit = array();
-    $cnt = 0;
+     $tpr = array();
+     $visit = array();
+    $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
     
     // array_push($tpr,$row['Temperature']);
@@ -36,7 +36,8 @@ if(!empty($_POST['admissionid'])){
     } 
 $html = $html. '</table>';
 $result["html"] = $html;
-
+$result['tpr'] = $tpr;
+$result['visitdate'] = $visit;
 echo json_encode($result);
 }
 
