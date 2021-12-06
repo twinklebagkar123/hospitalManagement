@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
 				<div class="wrap-content container" id="container">
 					<!-- start: PAGE TITLE -->
 					<section id="page-title">
+						
 						<div class="row">
 							<div class="col-sm-8">
 								<h1 class="mainTitle">Doctor | Manage Patients</h1>
@@ -113,6 +114,41 @@ if (isset($_POST['submit'])) {
 
 									<?php } ?>
 									</table>
+									<?php
+									 	$admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
+										 $result = $con->query($admissionQuery);
+										 ?>
+										 <table class="table table-bordered dt-responsive nowrap">
+											 <thead>
+												 <th>#</th>
+												 <th>Admission Date</th>
+												 <th>Admission Type</th>
+												 <th>Diagnosis</th>
+												 <th>Discharge Date</th>
+												 <th>Reports</th>
+											 </thead>
+											<tbody>
+												<?php
+												$sr = 1;
+													while ($row = mysqli_fetch_array($result)) {
+														?>
+															<tr>
+																<td><?php echo $sr;?></td>
+																<td><?php echo $row['dateofadmission'];?></td>
+																<td><?php echo $row['admissionType'];?></td>
+																<td><?php //echo $row['dateofadmission'];?></td>
+																<td><?php echo $row['dateofdischarge'];?></td>
+																<td><button type="button" class="btn btn-primary">View</button></td>
+															</tr>
+														<?php
+														$sr++;
+													}
+												?>
+											</tbody>
+										 </table>
+										 <?php
+										 
+									?>
 									<?php
 
 									$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
