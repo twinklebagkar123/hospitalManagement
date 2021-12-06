@@ -80,7 +80,13 @@ if (isset($_POST['submit'])) {
 					console.log(data);
 					$('#fname').val(data.name);
 					$('#pataddress').val(data.address);
-					$('#rg').val(data.gender);
+					//$('#rg').val(data.gender);
+					if(data.gender == 'male'){
+						$("#rg-male").checked = true;
+					}
+					else{
+						$("#rg-female").checked = true;
+					}
 					$('#patemail').val(data.email);
 					$('#patage').val(data.age);
 					$('#uid').val(data.uid);
@@ -144,7 +150,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Patient Contact no
 														</label>
-														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
+														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onkeypress="userAvailability()">
 														<span id="user-availability-status1" style="font-size:12px;"></span>
 													</div>
 													<input type="hidden" id="uid" name="uid" value="">
