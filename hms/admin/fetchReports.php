@@ -4,7 +4,7 @@ $html = "";
 if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
-    $result = $con->query($query);
+    $result1 = $con->query($query);
  
 
 
@@ -24,7 +24,7 @@ if(!empty($_POST['admissionid'])){
     // $tpr = array();
     // $visit = array();
     $cnt = 0;
-    while ($row = mysqli_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result1)) {
     
     // array_push($tpr,$row['Temperature']);
     //    array_push($visit,$row['CreationDate']);
@@ -36,7 +36,7 @@ if(!empty($_POST['admissionid'])){
     } 
 $html = $html. '</table>';
 $result["html"] = $html;
-echo $html;
+
 echo json_encode($result);
 }
 
