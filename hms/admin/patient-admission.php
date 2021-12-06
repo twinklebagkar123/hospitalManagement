@@ -10,13 +10,13 @@ if (isset($_POST['submit'])) {
 	$phno = $_POST['patcontact'];
 	$uid = $_POST['uid'];
 	$firstname = $_POST['fname'];
-	$lastname = $_POST['lname'];
+	//$lastname = $_POST['lname'];
 	$address = $_POST['pataddress'];
 	$gender = $_POST['gender'];
 	$adharcardno = $_POST['patadhar'];
 	$dateofadmission = $_POST['appdate'];
 	$doctor = $_POST['doctor'];
-	$admissionType  = $_POST['admissiontype'];
+	$admissionType  = $_POST['admissionType'];
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
 		$stat = true;
 	}
 	else{
-		$patname = $firstname . ' ' . $lastname;
+		$patname = $firstname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
 		
@@ -165,7 +165,7 @@ if (isset($_POST['submit'])) {
 															Patient Name
 														</label>
 														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
-														<input type="text" id="lname" name="lname" class="form-control" placeholder="Enter Last Name" required="true">
+													
 													</div>
 													<div class="form-group">
 														<label for="address">
