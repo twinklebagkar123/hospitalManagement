@@ -29,7 +29,7 @@ if(!empty($_POST['admissionid'])){
     // array_push($tpr,$row['Temperature']);
     //    array_push($visit,$row['CreationDate']);
   
-    $html = $html. '  <tr> <td><?php echo $cnt; ?></td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
+    $html = $html. '  <tr> <td>'. $cnt.'</td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
             <td>'.$row['BloodSugar'].'</td> <td>'.$row['Temperature'].'</td><td>'. $row['MedicalPres'].'</td> <td>'.$row['CreationDate'].'</td>
         </tr>';
    $cnt++;
