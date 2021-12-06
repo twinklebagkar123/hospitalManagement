@@ -274,7 +274,32 @@ if (isset($_POST['submit'])) {
 			FormElements.init();
 			$("#viewReport button").click(function(){
 				var admissionid = $(this).data("admissionid");
+				//var admissionid = $(this).data("admissionid");
 				console.log(admissionid);
+				jQuery.ajax({
+				url: "fetchReorts.php",
+				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'',
+				method: "POST",
+				dataType: "JSON",
+				success: function(data) {
+					console.log(data.html);
+					// $('#fname').val(data.name);
+					// $('#pataddress').val(data.address);
+					// //$('#rg').val(data.gender);
+					// if(data.gender == 'male'){
+					// 	$("#rg-male").prop('checked', true);
+					// }
+					// else{
+					// 	$("#rg-female").prop('checked', true);
+					// }
+					// $('#patemail').val(data.email);
+					// $('#patage').val(data.age);
+					// $('#uid').val(data.uid);
+					// $('#adharCard').val(data.adharCard);
+					// $("#loaderIcon").hide();
+				},
+				error: function() {}
+			});
 			});
 			new Chart(document.getElementById("line-chart"), {
           type: 'line',
