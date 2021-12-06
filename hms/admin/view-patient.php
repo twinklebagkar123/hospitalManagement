@@ -274,6 +274,7 @@ if (isset($_POST['submit'])) {
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+			var tpr;
 			$("#viewReport button").click(function(){
 				var admissionid = $(this).data("admissionid");
 				//var admissionid = $(this).data("admissionid");
@@ -285,21 +286,8 @@ if (isset($_POST['submit'])) {
 				dataType: "JSON",
 				success: function(data) {
 					console.log(data.tpr);
+					tpr = data.tpr;
 					$("#test").html(data.html);
-					// $('#fname').val(data.name);
-					// $('#pataddress').val(data.address);
-					// //$('#rg').val(data.gender);
-					// if(data.gender == 'male'){
-					// 	$("#rg-male").prop('checked', true);
-					// }
-					// else{
-					// 	$("#rg-female").prop('checked', true);
-					// }
-					// $('#patemail').val(data.email);
-					// $('#patage').val(data.age);
-					// $('#uid').val(data.uid);
-					// $('#adharCard').val(data.adharCard);
-					// $("#loaderIcon").hide();
 				},
 				error: function() {}
 			});
@@ -357,7 +345,7 @@ if (isset($_POST['submit'])) {
             datasets: [
               {
                 label : 'TPR CHART',
-                data: [<?php  echo implode(",", $tpr);?>],
+                data: [tpr],
                 borderColor: '#000000',
                 fill: false
               }
