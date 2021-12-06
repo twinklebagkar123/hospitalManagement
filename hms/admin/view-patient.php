@@ -287,6 +287,8 @@ if (isset($_POST['submit'])) {
 				success: function(data) {
 					console.log(data.tpr);
 					tpr = data.tpr;
+					myChart.data = tpr.data;
+					myChart.update();
 					$("#test").html(data.html);
 				},
 				error: function() {}
@@ -334,7 +336,7 @@ if (isset($_POST['submit'])) {
                 ]
             }
         });
-        new Chart(document.getElementById("tpr-chart"), {
+       myChart =  new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
             labels: [<?php  foreach ($visit as $value) {
@@ -345,7 +347,7 @@ if (isset($_POST['submit'])) {
             datasets: [
               {
                 label : 'TPR CHART',
-                data: [tpr],
+                data: [<?php  echo implode(",", $tpr);?>],
                 borderColor: '#000000',
                 fill: false
               }
