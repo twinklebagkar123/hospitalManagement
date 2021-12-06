@@ -8,7 +8,7 @@ if(!empty($_POST['admissionid']) && !empty($_POST['vid'])){
  
 
 
-$html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+  $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <tr align="center">
         <th colspan="8">Medical History</th>
     </tr>
@@ -34,9 +34,9 @@ $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap"
         </tr>';
    $cnt++;
     } 
-$html .='</table>';
-
-}
+$html .= '</table>';
 $result["html"] = $html;
 echo json_encode($result);
+}
+
 ?>
