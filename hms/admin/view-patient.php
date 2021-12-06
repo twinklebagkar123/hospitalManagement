@@ -74,6 +74,7 @@ if (isset($_POST['submit'])) {
 						<div class="row">
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
+								
 								<?php
 								$vid = $_GET['viewid'];
 								$ret = mysqli_query($con, "select * from tblpatient where ID='$vid'");
@@ -149,6 +150,7 @@ if (isset($_POST['submit'])) {
 										 <?php
 										 
 									?>
+									<div id="test"></div>
 									<?php
 
 									$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
@@ -283,6 +285,7 @@ if (isset($_POST['submit'])) {
 				dataType: "JSON",
 				success: function(data) {
 					console.log(data.html);
+					$("#test").html(data.html);
 					// $('#fname').val(data.name);
 					// $('#pataddress').val(data.address);
 					// //$('#rg').val(data.gender);
