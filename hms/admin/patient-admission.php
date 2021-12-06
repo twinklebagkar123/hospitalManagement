@@ -150,7 +150,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Patient Contact no
 														</label>
-														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onkeypress="userAvailability()">
+														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
 														<span id="user-availability-status1" style="font-size:12px;"></span>
 													</div>
 													<input type="hidden" id="uid" name="uid" value="">
