@@ -277,7 +277,7 @@ if (isset($_POST['submit'])) {
 				//var admissionid = $(this).data("admissionid");
 				console.log(admissionid);
 				jQuery.ajax({
-				url: "fetchReorts.php",
+				url: "fetchReports.php",
 				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'',
 				method: "POST",
 				dataType: "JSON",
