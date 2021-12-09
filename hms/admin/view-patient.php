@@ -291,6 +291,27 @@ if (isset($_POST['submit'])) {
 						console.log(tpr[i]);
 					}
 					$("#test").html(data.html);
+					new Chart(document.getElementById("tpr-chart"), {
+						type: 'line',
+						data: {
+							labels: [1,2,3,4,5],
+							datasets: [
+							{
+								label : 'TPR CHART',
+								data: tpr,
+								borderColor: '#000000',
+								fill: false
+							}
+
+							]
+						},
+						options: {
+							title: {
+							display: true,
+							text: 'TPR CHART'
+							}
+						}
+					});
 				},
 				error: function() {}
 			});
@@ -337,7 +358,7 @@ if (isset($_POST['submit'])) {
                 ]
             }
         });
-       myChart =  new Chart(document.getElementById("tpr-chart"), {
+       new Chart(document.getElementById("tpr-chart"), {
           type: 'line',
           data: {
             labels: [<?php  foreach ($visit as $value) {
