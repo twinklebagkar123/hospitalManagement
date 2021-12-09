@@ -143,8 +143,21 @@ if (isset($_POST['submit'])) {
 										} ?>
 									</tbody>
 
-									<!-- The Modal -->
-									<div class="modal " id="myModal">
+									
+										</div>
+									</div>
+							</div>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	</div>
+<!-- The Modal -->
+<div class="modal " id="myModal">
 										<div class="modal-dialog modal-dialog-scrollable">
 											<div class="modal-content">
 
@@ -336,20 +349,8 @@ $cnt=$cnt+1;
 												<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 											</div>
 
-										</div>
-									</div>
-							</div>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-
 	<!-- start: FOOTER -->
+
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
 
