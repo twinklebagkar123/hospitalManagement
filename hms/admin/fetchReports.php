@@ -7,9 +7,9 @@ if(!empty($_POST['admissionid'])){
     $dischargeDate = $_POST['discharge'];
     // BS Dates
     	$period = new DatePeriod(
-			new DateTime("'".$admissionDate."'"),
+			new DateTime($admissionDate),
 			new DateInterval('P1D'),
-			new DateTime("'".$dischargeDate."'")
+			new DateTime($dischargeDate)
 	   );
        $bsDates = array();
 	   foreach ($period as $key => $value) { print_r($value->format('Y-m-d')); }
