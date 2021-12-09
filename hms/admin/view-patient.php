@@ -229,12 +229,12 @@ if (isset($_POST['submit'])) {
 		$array[$key][$x] = $value;
 		return $array;
 		}
-		$period = new DatePeriod(
-			new DateTime('2021-06-01'),
-			new DateInterval('P1D'),
-			new DateTime('2021-12-01')
-	   );
-	   foreach ($period as $key => $value) { print_r($value->format('Y-m-d') ); }
+	// 	$period = new DatePeriod(
+	// 		new DateTime('2021-06-01'),
+	// 		new DateInterval('P1D'),
+	// 		new DateTime('2021-12-01')
+	//    );
+	//    foreach ($period as $key => $value) { print_r($value->format('Y-m-d') ); }
 	 
 	?>									
 	<!-- start: FOOTER -->
@@ -358,31 +358,31 @@ if (isset($_POST['submit'])) {
                 ]
             }
         });
-       new Chart(document.getElementById("tpr-chart"), {
-          type: 'line',
-          data: {
-            labels: [<?php  foreach ($visit as $value) {
-              echo "'";
-             echo $value;
-             echo "',";
-            } ?>],
-            datasets: [
-              {
-                label : 'TPR CHART',
-                data: [<?php  echo implode(",", $tpr);?>],
-                borderColor: '#000000',
-                fill: false
-              }
+       //new Chart(document.getElementById("tpr-chart"), {
+        //   type: 'line',
+        //   data: {
+        //     labels: [<?php  //foreach ($visit as $value) {
+        //       echo "'";
+        //      echo $value;
+        //      echo "',";
+        //     } ?>],
+        //     datasets: [
+        //       {
+        //         label : 'TPR CHART',
+        //         data: [<?php // echo implode(",", $tpr);?>],
+        //         borderColor: '#000000',
+        //         fill: false
+        //       }
 
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-              text: 'TPR CHART'
-            }
-          }
-        });
+        //     ]
+        //   },
+        //   options: {
+        //     title: {
+        //       display: true,
+        //       text: 'TPR CHART'
+        //     }
+        //   }
+       // });
 
 		});
 	</script>
