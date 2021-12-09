@@ -3,6 +3,17 @@ require_once("include/config.php");
 $html = "";
 if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
+    $admissionDate = $_POST['admissionDate'];
+    $dischargeDate = $_POST['dischargeDate'];
+    // BS Dates
+    	$period = new DatePeriod(
+			new DateTime($admissionDate),
+			new DateInterval('P1D'),
+			new DateTime($dischargeDate)
+	   );
+       $bsDates = array();
+	   foreach ($period as $key => $value) { array_push($bsDates,$value->format('Y-m-d')); }
+    //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
     $result1 = $con->query($query);
  
@@ -42,6 +53,32 @@ $html = $html. '</table>';
 $result["html"] = $html;
 $result['tpr'] = $tpr;
 $result['tprDate'] = $tprDate;
+$result['bsDates'] = $bsDates;
+// $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
+// 		$result = $con->query($query);
+// 		//$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
+// 		$data = array();
+// 		while ($row = $result->fetch_assoc()) {
+// 		$i = 1;
+// 		$type = $row["BSType"];
+// 		if ($type != "") {
+// 			$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
+
+// 			$result1 = $con->query($query2);
+// 			$x = 0;
+// 			while ($row2 = $result1->fetch_assoc()) {
+// 			$value = $row2["BloodSugar"];
+// 			$data = array_push_assoc($data, $type, $value, $x);
+// 			$x++;
+// 			}
+// 		}
+// 		$i++;
+// 		}
+// 		function array_push_assoc($array, $key, $value, $x)
+// 		{
+// 		$array[$key][$x] = $value;
+// 		return $array;
+// 		}
 echo json_encode($result);
 }
 

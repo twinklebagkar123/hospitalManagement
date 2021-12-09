@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
 																<td><?php echo $row['admissionType'];?></td>
 																<td><?php //echo $row['dateofadmission'];?></td>
 																<td><?php echo $row['dateofdischarge'];?></td>
-																<td><button type="button" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
+																<td><button type="button" data-admissionDate="<?php echo $row['dateofadmission']; ?>" data-dischargeDate="<?php echo $row['dateofdischarge'];?>" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
 															</tr>
 														<?php
 														$sr++;
@@ -204,31 +204,7 @@ if (isset($_POST['submit'])) {
 	</div>
 	<?php
 		//code for blood sugar chart
-		$query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
-		$result = $con->query($query);
-		//$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
-		$data = array();
-		while ($row = $result->fetch_assoc()) {
-		$i = 1;
-		$type = $row["BSType"];
-		if ($type != "") {
-			$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
-
-			$result1 = $con->query($query2);
-			$x = 0;
-			while ($row2 = $result1->fetch_assoc()) {
-			$value = $row2["BloodSugar"];
-			$data = array_push_assoc($data, $type, $value, $x);
-			$x++;
-			}
-		}
-		$i++;
-		}
-		function array_push_assoc($array, $key, $value, $x)
-		{
-		$array[$key][$x] = $value;
-		return $array;
-		}
+		
 	// 	$period = new DatePeriod(
 	// 		new DateTime('2021-06-01'),
 	// 		new DateInterval('P1D'),
@@ -278,15 +254,17 @@ if (isset($_POST['submit'])) {
 			var tprDate;
 			$("#viewReport button").click(function(){
 				var admissionid = $(this).data("admissionid");
+				var admissionDate = $(this).data("admissionDate");
+				var dischargeDate = $(this).data("dischargeDate");
 				//var admissionid = $(this).data("admissionid");
 				console.log(admissionid);
 				jQuery.ajax({
 				url: "fetchReports.php",
-				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'',
+				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'admissionDate='+admissionDate+'dischargeDate='+dischargeDate+'',
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
-					//console.log(data.tpr);
+					console.log(data.bsDates);
 					tpr = data.tpr;
 					tprDate = data.tprDate
 					$("#test").html(data.html);
