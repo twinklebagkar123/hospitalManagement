@@ -260,7 +260,7 @@ if (isset($_POST['submit'])) {
 				console.log(admission);
 				jQuery.ajax({
 				url: "fetchReports.php",
-				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'admission='+admission+'discharge='+discharge+'',
+				data: 'admissionid=' + admissionid+'admission='+admission+'discharge='+discharge+ 'vid='+<?php echo $vid; ?>+'',
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
