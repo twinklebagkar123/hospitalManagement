@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
 																<td><?php echo $row['admissionType'];?></td>
 																<td><?php //echo $row['dateofadmission'];?></td>
 																<td><?php echo $row['dateofdischarge'];?></td>
-																<td><button type="button" data-admissionDate ="<?php echo $row['dateofadmission']; ?>" data-dischargeDate ="<?php echo $row['dateofdischarge'];?>" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
+																<td><button type="button" data-admission ="<?php echo $row['dateofadmission']; ?>" data-discharge ="<?php echo $row['dateofdischarge'];?>" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
 															</tr>
 														<?php
 														$sr++;
@@ -254,13 +254,13 @@ if (isset($_POST['submit'])) {
 			var tprDate;
 			$("#viewReport button").click(function(){
 				var admissionid = $(this).data("admissionid");
-				var admissionDate = $(this).data("admissionDate");
-				var dischargeDate = $(this).data("dischargeDate");
+				var admission = $(this).data("admission");
+				var discharge = $(this).data("discharge");
 				//var admissionid = $(this).data("admissionid");
-				console.log(admissionDate);
+				console.log(admission);
 				jQuery.ajax({
 				url: "fetchReports.php",
-				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'admissionDate='+admissionDate+'dischargeDate='+dischargeDate+'',
+				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'admissionDate='+admission+'dischargeDate='+discharge+'',
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
