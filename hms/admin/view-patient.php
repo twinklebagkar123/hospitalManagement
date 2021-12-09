@@ -257,7 +257,7 @@ if (isset($_POST['submit'])) {
 				var admissionDate = $(this).data("admissionDate");
 				var dischargeDate = $(this).data("dischargeDate");
 				//var admissionid = $(this).data("admissionid");
-				console.log(admissionid);
+				console.log(admissionDate);
 				jQuery.ajax({
 				url: "fetchReports.php",
 				data: 'admissionid=' + admissionid+ 'vid='+<?php echo $vid; ?>+'admissionDate='+admissionDate+'dischargeDate='+dischargeDate+'',
