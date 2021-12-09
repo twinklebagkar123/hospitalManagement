@@ -3,17 +3,17 @@ require_once("include/config.php");
 $html = "";
 if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
-    $admissionDate = $_POST['admission'];
-    $dischargeDate = $_POST['discharge'];
+    $admission = $_POST['admission'];
+    $discharge = $_POST['discharge'];
     // BS Dates
     	$period = new DatePeriod(
-			new DateTime($admissionDate),
+			new DateTime($admission),
 			new DateInterval('P1D'),
-			new DateTime($dischargeDate)
+			new DateTime($discharge)
 	   );
        $bsDates = array();
-       echo $admissionDate."admission";
-       echo $dischargeDate."discharge";
+       echo $admission."admission";
+       echo $discharge."discharge";
 	   foreach ($period as $key => $value) { array_push($bsDates,$value->format('Y-m-d')); }
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
