@@ -3,8 +3,8 @@ require_once("include/config.php");
 $html = "";
 if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
-    $admissionDate = $_POST['admissionDate'];
-    $dischargeDate = $_POST['dischargeDate'];
+    $admissionDate = $_POST['admission'];
+    $dischargeDate = $_POST['discharge'];
     // BS Dates
     	$period = new DatePeriod(
 			new DateTime("'".$admissionDate."'"),
