@@ -23,11 +23,15 @@ if(!empty($_POST['admissionid'])){
     </tr>';
      $tpr = array();
      $visit = array();
+     $tprDate = array();
     $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
-    
-    array_push($tpr,$row['Temperature']);
-       array_push($visit,$row['CreationDate']);
+    if($row['Temperature']){
+        array_push($tpr,$row['Temperature']);
+        array_push($tprDate,$row['CreationDate']);
+    }
+    // array_push($tpr,$row['Temperature']);
+    // array_push($visit,$row['CreationDate']);
   
     $html = $html. '  <tr> <td>'. $cnt.'</td> <td>' .$row['BloodPressure'].'</td> <td>'.$row['Weight'].'</td>
             <td>'.$row['BloodSugar'].'</td> <td>'.$row['Temperature'].'</td><td>'. $row['MedicalPres'].'</td> <td>'.$row['CreationDate'].'</td>
@@ -37,7 +41,7 @@ if(!empty($_POST['admissionid'])){
 $html = $html. '</table>';
 $result["html"] = $html;
 $result['tpr'] = $tpr;
-$result['visitdate'] = $visit;
+$result['tprDate'] = $tprDate;
 echo json_encode($result);
 }
 

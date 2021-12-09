@@ -275,6 +275,7 @@ if (isset($_POST['submit'])) {
 			Main.init();
 			FormElements.init();
 			var tpr;
+			var tprDate;
 			$("#viewReport button").click(function(){
 				var admissionid = $(this).data("admissionid");
 				//var admissionid = $(this).data("admissionid");
@@ -285,16 +286,14 @@ if (isset($_POST['submit'])) {
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
-					console.log(data.tpr);
+					//console.log(data.tpr);
 					tpr = data.tpr;
-					for(var i=0; i< tpr.length; i++){
-						console.log(tpr[i]);
-					}
+					tprDate = data.tprDate
 					$("#test").html(data.html);
 					new Chart(document.getElementById("tpr-chart"), {
 						type: 'line',
 						data: {
-							labels: [1,2,3,4,5],
+							labels: tprDate,
 							datasets: [
 							{
 								label : 'TPR CHART',
@@ -358,31 +357,7 @@ if (isset($_POST['submit'])) {
                 ]
             }
         });
-       //new Chart(document.getElementById("tpr-chart"), {
-        //   type: 'line',
-        //   data: {
-        //     labels: [<?php  //foreach ($visit as $value) {
-        //       echo "'";
-        //      echo $value;
-        //      echo "',";
-        //     } ?>],
-        //     datasets: [
-        //       {
-        //         label : 'TPR CHART',
-        //         data: [<?php // echo implode(",", $tpr);?>],
-        //         borderColor: '#000000',
-        //         fill: false
-        //       }
-
-        //     ]
-        //   },
-        //   options: {
-        //     title: {
-        //       display: true,
-        //       text: 'TPR CHART'
-        //     }
-        //   }
-       // });
+      
 
 		});
 	</script>
