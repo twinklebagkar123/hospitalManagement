@@ -5,6 +5,8 @@ if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
     $discharge = $_POST['discharge'];
+    echo $admission."admission";
+       echo $discharge."discharge";
     // BS Dates
     	$period = new DatePeriod(
 			new DateTime($admission),
@@ -12,8 +14,7 @@ if(!empty($_POST['admissionid'])){
 			new DateTime($discharge)
 	   );
        $bsDates = array();
-       echo $admission."admission";
-       echo $discharge."discharge";
+       
 	   foreach ($period as $key => $value) { array_push($bsDates,$value->format('Y-m-d')); }
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
