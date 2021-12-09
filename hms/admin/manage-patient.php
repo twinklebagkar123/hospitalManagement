@@ -145,7 +145,7 @@ if (isset($_POST['submit'])) {
 
 									<!-- The Modal -->
 									<div class="modal " id="myModal">
-										<div class="modal-dialog">
+										<div class="modal-dialog modal-dialog-scrollable">
 											<div class="modal-content">
 
 												<!-- Modal Header -->
@@ -246,18 +246,27 @@ if (isset($_POST['submit'])) {
 																								Book Appointment
 																							</button>
 																						</form>
-																					</div>
-																				</div>
-																			</div>
+																						
+																					
 
-																		</div>
-																	</div>
 
-																</div>
-															</div>
 
-															<!-- end: BASIC EXAMPLE -->
 
+
+	
+	
+
+
+
+		</div>
+																
+															
+
+
+		
+
+<!-- end: BASIC EXAMPLE -->
+															
 
 
 
@@ -266,15 +275,56 @@ if (isset($_POST['submit'])) {
 															<!-- end: SELECT BOXES -->
 
 														</div>
+														<h2>dc</h2>
+
+		
+<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
+<?php echo htmlentities($_SESSION['msg']="");?></p>	
+<table class="table " id="sample-table-1">
+	<thead>
+		<tr>
+			<th class="center">#</th>
+			<th class="hidden-xs">Patient Name</th>
+			<th>Doctor Name</th>
+			
+			<th>Appointment Time </th>
+	
+		</tr>
+	</thead>
+	<tbody>
+<?php
+$sql="SELECT tblp.PatientName,doc.doctorName,apt.appointmentTime FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
+//print_r($sql);
+$result = $con->query($sql);
+$cnt=1;
+//var_dump($result);
+while($row = mysqli_fetch_array($result))
+
+{
+?>
+
+<tr>
+<td class="center"><?php echo $cnt;?>.</td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td class="hidden-xs"><?php echo $row['doctorName'];?></td>
+
+<td><?php echo $row['appointmentTime'];?> <?php //echo $row['appointmentTime'];?>
+</td>
+</tr>
+
+
+			
+	
+		
+		<?php 
+$cnt=$cnt+1;
+		 }?>
+		
+		
+	</tbody>
+</table> 
 													</div>
 												</div>
-
-
-
-
-
-
-
 
 
 
