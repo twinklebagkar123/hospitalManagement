@@ -287,7 +287,7 @@ if (isset($_POST['submit'])) {
 				success: function(data) {
 					console.log(data.tpr);
 					tpr = data.tpr;
-					myChart.data = tpr.data;
+					myChart.data = tpr;
 					myChart.update();
 					$("#test").html(data.html);
 				},
