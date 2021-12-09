@@ -5,8 +5,8 @@ if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
     $discharge = $_POST['discharge'];
-    echo $admission."admission";
-       echo $discharge."discharge";
+    // echo $admission."admission";
+    //    echo $discharge."discharge";
     // BS Dates
     	$period = new DatePeriod(
 			new DateTime($admission),
