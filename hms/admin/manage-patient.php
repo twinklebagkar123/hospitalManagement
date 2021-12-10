@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	<script>
 		function getdoctor(val) {
+			console.log("hi");
 			$.ajax({
 				type: "POST",
 				url: "get_doctor.php",
@@ -170,8 +171,8 @@ if (isset($_POST['submit'])) {
 												<!-- Modal body -->
 												<div class="modal-body bg-white">
 													<div class="main">
-														<div class="wrap-content container" id="container">
-															<!-- start: PAGE TITLE -->
+														<div class="" id="container">
+															<!-- start: PAGE TITLE   wrap-content container -->
 															<section id="">
 																<div class="row">
 
@@ -179,7 +180,8 @@ if (isset($_POST['submit'])) {
 															</section>
 															<!-- end: PAGE TITLE -->
 															<!-- start: BASIC EXAMPLE -->
-															<div class="container container-fullw bg-white">
+															<!-- container container-fullw  -->
+															<div class="bg-white">
 																<div class="row">
 																	<div class="col-md-12">
 
@@ -289,55 +291,11 @@ if (isset($_POST['submit'])) {
 
 														</div>
 														<h2>dc</h2>
+														<div id="resultFetch">
 
+														</div>
 		
-<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
-<?php echo htmlentities($_SESSION['msg']="");?></p>	
-<table class="table table-hover" id="sample-table-1">
-	<thead>
-		<tr>
-			<th class="center">#</th>
-			<th class="hidden-xs">Patient Name</th>
-			
-			
-			<th>Appointment Time </th>
-	
-		</tr>
-	</thead>
-	<tbody>
-<?php
-//$sql="SELECT PatientName,appointmentTime,doctorName FROM appointment,tblpatient  WHERE appointmentDate < SYSDATETIME() ";
-$sql=" SELECT tblp.PatientName,doc.doctorName,apt.appointmentTime FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id ";
-
-//print_r($sql);
-$result = $con->query($sql);
-$cnt=1;
-//var_dump($result);
-while($row = mysqli_fetch_array($result))
-
-{
-?>
-
-<tr>
-<td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td class="hidden-xs"><?php echo $row['doctorName'];?></td>
-
-<td><?php echo $row['appointmentTime'];?> <?php //echo $row['appointmentTime'];?>
-</td>
-</tr>
-
-
-			
-	
-		
-		<?php 
-$cnt=$cnt+1;
-		 }?>
-		
-		
-	</tbody>
-</table> 
+ 
 													</div>
 												</div>
 		
@@ -357,7 +315,7 @@ $cnt=$cnt+1;
 	<!-- end: FOOTER -->
 
 	<!-- start: SETTINGS -->
-	<?php include('include/setting.php'); ?>
+	<?php //include('include/setting.php'); ?>
 
 	<!-- end: SETTINGS -->
 	</div>
@@ -395,11 +353,21 @@ $cnt=$cnt+1;
 			});
 				$("#appDate").on("change", function(){
 					var apt=$(this).val();
-					console.log(apt);
+					var doc=$("#doctor").val();
+					console.log(doc);
 
+					$.ajax({
+				type: "POST",
+				url: "get_doctor.php",
+				data: {appDate: apt, docID: doc},
+				success: function(data) {
+					$("#resultFetch").html(data);
+				}
+			});
 
 
 				});
+				
 		});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
