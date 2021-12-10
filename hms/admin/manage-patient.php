@@ -242,7 +242,7 @@ if (isset($_POST['submit'])) {
 																								<label for="AppointmentDate">
 																									Date
 																								</label>
-																								<input class="form-control datepicker" name="appdate" required="required" data-date-format="yyyy-mm-dd">
+																								<input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd">
 
 																							</div>
 
@@ -298,7 +298,7 @@ if (isset($_POST['submit'])) {
 		<tr>
 			<th class="center">#</th>
 			<th class="hidden-xs">Patient Name</th>
-			<th>Doctor Name</th>
+			
 			
 			<th>Appointment Time </th>
 	
@@ -306,7 +306,9 @@ if (isset($_POST['submit'])) {
 	</thead>
 	<tbody>
 <?php
-$sql="SELECT tblp.PatientName,doc.doctorName,apt.appointmentTime FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
+//$sql="SELECT PatientName,appointmentTime,doctorName FROM appointment,tblpatient  WHERE appointmentDate < SYSDATETIME() ";
+$sql=" SELECT tblp.PatientName,doc.doctorName,apt.appointmentTime FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id ";
+
 //print_r($sql);
 $result = $con->query($sql);
 $cnt=1;
@@ -338,7 +340,7 @@ $cnt=$cnt+1;
 </table> 
 													</div>
 												</div>
-
+		
 
 
 
@@ -348,6 +350,7 @@ $cnt=$cnt+1;
 											<div class="modal-footer">
 												<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 											</div>
+		</div>
 
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
@@ -390,6 +393,13 @@ $cnt=$cnt+1;
 				$("#titleModal").html("Book " + name + "'s Appointment");
 				$("#idInput").val(id);
 			});
+				$("#appDate").on("change", function(){
+					var apt=$(this).val();
+					console.log(apt);
+
+
+
+				});
 		});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
