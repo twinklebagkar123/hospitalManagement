@@ -260,7 +260,7 @@ if (isset($_POST['submit'])) {
 				console.log(admission);
 				jQuery.ajax({
 				url: "fetchReports.php",
-				data: 'admissionid=' + admissionid+'admission='+admission+'discharge='+discharge+ 'vid='+<?php echo $vid; ?>+'',
+				data:{admissionid:admissionid,admission: admission,discharge: discharge, vid: <?php echo $vid;?>},
 				method: "POST",
 				dataType: "JSON",
 				success: function(data) {
@@ -271,7 +271,7 @@ if (isset($_POST['submit'])) {
 					new Chart(document.getElementById("tpr-chart"), {
 						type: 'line',
 						data: {
-							labels: tprDate,
+							labels: tprDate ,
 							datasets: [
 							{
 								label : 'TPR CHART',
