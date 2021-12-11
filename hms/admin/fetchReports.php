@@ -22,7 +22,7 @@ if (!empty($_POST['admissionid'])) {
     $queryBSTypes = "SELECT DISTINCT BSType FROM tblmedicalhistory";
     $resultTypes = $con->query($queryBSTypes);
 
-    //$data = array();
+    $data = array();
     $type = array();
     while ($rowTypes = $resultTypes->fetch_assoc()) {
         //$i = 1;
@@ -47,16 +47,22 @@ if (!empty($_POST['admissionid'])) {
             if ($valueType != "") {
                 $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND CreationDate= '" . $value . "' AND PatientID='$vid'";
                 echo $query2;
-                echo "<br>";
+                $result1 = $con->query($query2);
+                $x = 0;
+                while ($row3 = $result1->fetch_assoc()) {
+                $value = $row3["BloodSugar"];
+                $data = array_push_assoc($data, $type, $value, $x);
+                $x++;
+                }
             }
         }
     }
-    // function array_push_assoc($array, $key, $value, $x)
-    // {
-    // $array[$key][$x] = $value;
-    // return $array;
-    // }
-
+    function array_push_assoc($array, $key, $value, $x)
+    {
+    $array[$key][$x] = $value;
+    return $array;
+    }
+    print_r($data);
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
