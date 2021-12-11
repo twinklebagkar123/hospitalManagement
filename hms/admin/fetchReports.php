@@ -62,7 +62,7 @@ if (!empty($_POST['admissionid'])) {
                     while ($row3 = $result1->fetch_assoc()) {
                             
                             $valueSugar = $row3["BloodSugar"];
-                           // echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                           echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                             $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                      
                     //$z++;
@@ -70,7 +70,7 @@ if (!empty($_POST['admissionid'])) {
                 }
                 else{
                   //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
-                    $data = array_push_assoc($data, $valueType, 0, $x);
+                    $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                 }
                 
             }
@@ -79,7 +79,7 @@ if (!empty($_POST['admissionid'])) {
         $x++;
     }
     
-  //  print_r($data);
+   print_r($data);
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
