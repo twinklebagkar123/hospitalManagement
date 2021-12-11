@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
 						console.log(sugarReads);
 						var obj=[];
 						$.each(sugarReads,function(key,value){
-							var color = "'#"+Math.floor(Math.random()*16777215).toString(16)+"'";
+							var color = "#"+Math.floor(Math.random()*16777215).toString(16);
 							console.log(key+"key");
 							console.log(value+"value");
 							var jj={
