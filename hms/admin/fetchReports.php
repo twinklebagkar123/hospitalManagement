@@ -47,21 +47,22 @@ if (!empty($_POST['admissionid'])) {
     $array[$key][$x] = $sugarLevel;
     return $array;
     }
+    $x=0;
     foreach ($bsDates as  $value) {
-        $x=0;
+        
         foreach ($type as  $valueType) {
             if ($valueType != "") {
                 $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $valueType . "' AND CreationDate LIKE '" . $value .'%'. "' AND PatientID='$vid'";
                
                 $result1 = $con->query($query2);
-                $z = 0;
+               // $z = 0;
                 if($result1 = $con->query($query2)){
                     while ($row3 = $result1->fetch_assoc()) {
                        
                             $valueSugar = $row3["BloodSugar"];
-                            $data = array_push_assoc($data, $valueType, $valueSugar, $z);
+                            $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                      
-                    $z++;
+                    //$z++;
                     }
                 }
                 else{
@@ -69,8 +70,9 @@ if (!empty($_POST['admissionid'])) {
                 }
                 
             }
-            $x++;
+           
         }
+        $x++;
     }
     
     print_r($data);
