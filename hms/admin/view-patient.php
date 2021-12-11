@@ -294,56 +294,29 @@ if (isset($_POST['submit'])) {
 						
 						console.log(obj);
 						$("#test").html(data.html);
-			// 			new Chart(document.getElementById("line-chart"), {
-			// 	type: 'line',
-			// 	data: {
-			// 		labels: bsDates,
-			// 		datasets: [
-			// 			$.each(sugarReads,function(key,value){
-            //                var color = <?php //echo  '#' . substr(md5(rand()), 0, 6);?>
-			// 			   {
-			// 				   'label': key,
-			// 				   'data' : value,
-			// 				   'bordercolor': color,
-			// 				   'fill': false,
-
-			// 			   }
-			// 			})
-			// 			<?php
-
-			// 			foreach ($data as $key => $value) {
-			// 				$color =  '#' . substr(md5(rand()), 0, 6);
-			// 				echo "{";
-			// 				echo "label: '$key',";
-			// 				echo " data: [";
-			// 				echo implode(",", $value);
-			// 				echo "],";
-			// 				echo "borderColor: '$color',";
-			// 				echo "fill: false";
-			// 				echo "},";
-			// 			}
-
-			// 			?>
-
-			// 		]
-			// 	},
-			// 	options: {
-			// 		title: {
-			// 			display: true,
-			// 			text: 'Blood Sugar'
-			// 		}
-			// 	},
-			// 	scales: {
-			// 		xAxes: [{
-			// 			type: 'time',
-			// 			time: {
-			// 				displayFormats: {
-			// 					day: 'yy-mm-dd',
-			// 				}
-			// 			}
-			// 		}]
-			// 	}
-			// });
+						new Chart(document.getElementById("line-chart"), {
+				type: 'line',
+				data: {
+					labels: bsDates,
+					datasets: obj,
+				},
+				options: {
+					title: {
+						display: true,
+						text: 'Blood Sugar'
+					}
+				},
+				scales: {
+					xAxes: [{
+						type: 'time',
+						time: {
+							displayFormats: {
+								day: 'yy-mm-dd',
+							}
+						}
+					}]
+				}
+			});
 						new Chart(document.getElementById("tpr-chart"), {
 							type: 'line',
 							data: {
