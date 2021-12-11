@@ -282,12 +282,16 @@ if (isset($_POST['submit'])) {
 							var color = <?php echo "'#"  . substr(md5(rand()), 0, 6)."'";?>;
 							console.log(key+"key");
 							console.log(value+"value");
-							obj["label"] = key;
-							obj["data"] = value;
-							obj["bordercolor"]=color;
-							obj["fill"] = false;
+							var jj={
+							   'label': key,
+							   'data' : value,
+							   'bordercolor': color,
+							   'fill': false,
 
+						   }
+						   obj.push(jj);
 						});
+						
 						console.log(obj);
 						$("#test").html(data.html);
 			// 			new Chart(document.getElementById("line-chart"), {
