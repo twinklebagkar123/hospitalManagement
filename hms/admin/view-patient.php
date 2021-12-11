@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 				<div class="wrap-content container" id="container">
 					<!-- start: PAGE TITLE -->
 					<section id="page-title">
-						
+
 						<div class="row">
 							<div class="col-sm-8">
 								<h1 class="mainTitle">Doctor | Manage Patients</h1>
@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
 						<div class="row">
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
-								
+
 								<?php
 								$vid = $_GET['viewid'];
 								$ret = mysqli_query($con, "select * from tblpatient where ID='$vid'");
@@ -116,39 +116,40 @@ if (isset($_POST['submit'])) {
 									<?php } ?>
 									</table>
 									<?php
-									 	$admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
-										 $result = $con->query($admissionQuery);
-										 ?>
-										 <table class="table table-bordered dt-responsive nowrap">
-											 <thead>
-												 <th>#</th>
-												 <th>Admission Date</th>
-												 <th>Admission Type</th>
-												 <th>Diagnosis</th>
-												 <th>Discharge Date</th>
-												 <th>Reports</th>
-											 </thead>
-											<tbody id="viewReport">
-												<?php
-												$sr = 1;
-													while ($row = mysqli_fetch_array($result)) {
-														?>
-															<tr>
-																<td><?php echo $sr;?></td>
-																<td id="date"><?php echo $row['dateofadmission'];?></td>
-																<td><?php echo $row['admissionType'];?></td>
-																<td><?php //echo $row['dateofadmission'];?></td>
-																<td><?php echo $row['dateofdischarge'];?></td>
-																<td><button type="button" data-admission ="<?php echo $row['dateofadmission']; ?>" data-discharge ="<?php echo $row['dateofdischarge'];?>" data-admissionID = "<?php echo $row['unqId'];?>" class="btn btn-primary">View</button></td>
-															</tr>
-														<?php
-														$sr++;
-													}
-												?>
-											</tbody>
-										 </table>
-										 <?php
-										 
+									$admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
+									$result = $con->query($admissionQuery);
+									?>
+									<table class="table table-bordered dt-responsive nowrap">
+										<thead>
+											<th>#</th>
+											<th>Admission Date</th>
+											<th>Admission Type</th>
+											<th>Diagnosis</th>
+											<th>Discharge Date</th>
+											<th>Reports</th>
+										</thead>
+										<tbody id="viewReport">
+											<?php
+											$sr = 1;
+											while ($row = mysqli_fetch_array($result)) {
+											?>
+												<tr>
+													<td><?php echo $sr; ?></td>
+													<td id="date"><?php echo $row['dateofadmission']; ?></td>
+													<td><?php echo $row['admissionType']; ?></td>
+													<td><?php //echo $row['dateofadmission'];
+														?></td>
+													<td><?php echo $row['dateofdischarge']; ?></td>
+													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+												</tr>
+											<?php
+												$sr++;
+											}
+											?>
+										</tbody>
+									</table>
+									<?php
+
 									?>
 									<div id="test"></div>
 									<?php
@@ -175,8 +176,8 @@ if (isset($_POST['submit'])) {
 										$tpr = array();
 										$visit = array();
 										while ($row = mysqli_fetch_array($ret)) {
-										array_push($tpr,$row['Temperature']);
-                       					array_push($visit,$row['CreationDate']);
+											array_push($tpr, $row['Temperature']);
+											array_push($visit, $row['CreationDate']);
 										?>
 											<tr>
 												<td><?php echo $cnt; ?></td>
@@ -191,8 +192,8 @@ if (isset($_POST['submit'])) {
 										} ?>
 									</table>
 									<div>
-									<canvas id="line-chart" width="400" height="100"></canvas>
-                  					<canvas id="tpr-chart" width="400" height="100"></canvas>
+										<canvas id="line-chart" width="400" height="100"></canvas>
+										<canvas id="tpr-chart" width="400" height="100"></canvas>
 									</div>
 							</div>
 						</div>
@@ -203,16 +204,16 @@ if (isset($_POST['submit'])) {
 	</div>
 	</div>
 	<?php
-		//code for blood sugar chart
-		
+	//code for blood sugar chart
+
 	// 	$period = new DatePeriod(
 	// 		new DateTime('2021-06-01'),
 	// 		new DateInterval('P1D'),
 	// 		new DateTime('2021-12-01')
 	//    );
 	//    foreach ($period as $key => $value) { print_r($value->format('Y-m-d') ); }
-	 
-	?>									
+
+	?>
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
@@ -252,90 +253,95 @@ if (isset($_POST['submit'])) {
 			FormElements.init();
 			var tpr;
 			var tprDate;
-			$("#viewReport button").click(function(){
+			$("#viewReport button").click(function() {
 				var admissionid = $(this).data("admissionid");
 				var admission = $(this).data("admission");
 				var discharge = $(this).data("discharge");
 				//var admissionid = $(this).data("admissionid");
 				console.log(admission);
 				jQuery.ajax({
-				url: "fetchReports.php",
-				data:{admissionid:admissionid,admission: admission,discharge: discharge, vid: <?php echo $vid;?>},
-				method: "POST",
-				dataType: "JSON",
-				success: function(data) {
-					console.log(data.bsDates);
-					tpr = data.tpr;
-					tprDate = data.tprDate
-					$("#test").html(data.html);
-					new Chart(document.getElementById("tpr-chart"), {
-						type: 'line',
-						data: {
-							labels: tprDate ,
-							datasets: [
-							{
-								label : 'TPR CHART',
-								data: tpr,
-								borderColor: '#000000',
-								fill: false
-							}
+					url: "fetchReports.php",
+					data: {
+						admissionid: admissionid,
+						admission: admission,
+						discharge: discharge,
+						vid: <?php echo $vid; ?>
+					},
+					method: "POST",
+					dataType: "JSON",
+					success: function(data) {
+						console.log(data.bsDates);
+						tpr = data.tpr;
+						tprDate = data.tprDate
+						$("#test").html(data.html);
+						new Chart(document.getElementById("tpr-chart"), {
+							type: 'line',
+							data: {
+								labels: tprDate,
+								datasets: [{
+										label: 'TPR CHART',
+										data: tpr,
+										borderColor: '#000000',
+										fill: false
+									}
 
-							]
-						},
-						options: {
-							title: {
-							display: true,
-							text: 'TPR CHART'
+								]
+							},
+							options: {
+								title: {
+									display: true,
+									text: 'TPR CHART'
+								}
 							}
-						}
-					});
-				},
-				error: function() {}
-			});
+						});
+					},
+					error: function() {}
+				});
 			});
 			new Chart(document.getElementById("line-chart"), {
-          type: 'line',
-          data: {
-            labels: [<?php   foreach ($period as $key => $value) { echo "'",print_r($value->format('Y-m-d') ); echo "',"; }?>],
-            datasets: [
-              <?php
+				type: 'line',
+				data: {
+					labels: [<?php foreach ($period as $key => $value) {
+									echo "'", print_r($value->format('Y-m-d'));
+									echo "',";
+								} ?>],
+					datasets: [
+						<?php
 
-              foreach ($data as $key => $value) {
-                $color =  '#' . substr(md5(rand()), 0, 6);
-                echo "{";
-                echo "label: '$key',";
-                echo " data: [";
-                echo implode(",", $value);
-                echo "],";
-                echo "borderColor: '$color',";
-                echo "fill: false";
-                echo "},";
-              }
+						foreach ($data as $key => $value) {
+							$color =  '#' . substr(md5(rand()), 0, 6);
+							echo "{";
+							echo "label: '$key',";
+							echo " data: [";
+							echo implode(",", $value);
+							echo "],";
+							echo "borderColor: '$color',";
+							echo "fill: false";
+							echo "},";
+						}
 
-              ?>
+						?>
 
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-              text: 'Blood Sugar'
-            }
-          },
-		  scales: {
-                xAxes: [
-                    {
-                        type: 'time',
-                        time: {
-                            displayFormats: {
-                                day: 'yy-mm-dd',
-                            }
-                        }
-                    }
-                ]
-            }
-        });
-      
+					]
+				},
+				options: {
+					title: {
+						display: true,
+						text: 'Blood Sugar'
+					}
+				},
+				scales: {
+					xAxes: [{
+						type: 'time',
+						time: {
+							displayFormats: {
+								day: 'yy-mm-dd',
+							}
+						}
+					}]
+				}
+			});
+
 
 		});
 	</script>
