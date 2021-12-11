@@ -56,17 +56,19 @@ if (!empty($_POST['admissionid'])) {
                
                 $result1 = $con->query($query2);
                // $z = 0;
+               $valueSugar = 0;
                 if($result1 = $con->query($query2)){
                     while ($row3 = $result1->fetch_assoc()) {
                             
                             $valueSugar = $row3["BloodSugar"];
-                            echo $valueSugar.":Sugar, Type:".$valueType;
+                            echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                             $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                      
                     //$z++;
                     }
                 }
                 else{
+                    echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                     $data = array_push_assoc($data, $valueType, 0, $x);
                 }
                 
