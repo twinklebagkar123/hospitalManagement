@@ -45,7 +45,7 @@ if (!empty($_POST['admissionid'])) {
     foreach ($bsDates as  $value) {
         foreach ($type as  $valueType) {
             if ($valueType != "") {
-                $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $valueType . "' AND CreationDate LIKE '" . $value . "%' AND PatientID='$vid'";
+                $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $valueType . "' AND CreationDate LIKE '" . $value .'%'. "' AND PatientID='$vid'";
                 echo $query2;
                 $result1 = $con->query($query2);
                 $x = 0;
