@@ -285,7 +285,7 @@ if (isset($_POST['submit'])) {
 							var jj={
 							   'label': key,
 							   'data' : value,
-							   'bordercolor': color,
+							   'borderColor': color,
 							   'fill': false,
 
 						   }
