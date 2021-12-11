@@ -56,20 +56,20 @@ if (!empty($_POST['admissionid'])) {
                
                 $result1 = $con->query($query2);
                // $z = 0;
-               echo $valueType."<br>";
+               //echo $valueType."<br>";
                $valueSugar = 0;
                 if($row3 = $result1->fetch_assoc()){
                     while ($row3 = $result1->fetch_assoc()) {
                             
                             $valueSugar = $row3["BloodSugar"];
-                            echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                           // echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                             $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                      
                     //$z++;
                     }
                 }
                 else{
-                    echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                  //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                     $data = array_push_assoc($data, $valueType, 0, $x);
                 }
                 
@@ -79,7 +79,7 @@ if (!empty($_POST['admissionid'])) {
         $x++;
     }
     
-    print_r($data);
+  //  print_r($data);
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
@@ -119,6 +119,7 @@ if (!empty($_POST['admissionid'])) {
     $result['tpr'] = $tpr;
     $result['tprDate'] = $tprDate;
     $result['bsDates'] = $bsDates;
+    $result['sugarReads'] = $data;
     // $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
     // 		$result = $con->query($query);
     // 		//$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
