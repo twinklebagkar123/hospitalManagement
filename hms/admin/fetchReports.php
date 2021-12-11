@@ -26,7 +26,7 @@ if (!empty($_POST['admissionid'])) {
     $type = array();
     while ($rowTypes = $resultTypes->fetch_assoc()) {
         //$i = 1;
-        $type = $rowTypes["BSType"];
+         array_push($type,$rowTypes["BSType"]) ;
 
         // if ($type != "") {
         // 	$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
