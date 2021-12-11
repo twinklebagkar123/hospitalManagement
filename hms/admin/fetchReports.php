@@ -41,7 +41,7 @@ if (!empty($_POST['admissionid'])) {
         // }
         //$i++;
     }
-    print_r($type);
+    //print_r($type);
     foreach ($bsDates as  $value) {
         foreach ($type as  $valueType) {
             if ($valueType != "") {
@@ -50,16 +50,16 @@ if (!empty($_POST['admissionid'])) {
                 $result1 = $con->query($query2);
                 $x = 0;
                 while ($row3 = $result1->fetch_assoc()) {
-                $value = $row3["BloodSugar"];
-                $data = array_push_assoc($data, $type, $value, $x);
+                $valueSugar = $row3["BloodSugar"];
+                $data = array_push_assoc($data, $type, $valueSugar, $x);
                 $x++;
                 }
             }
         }
     }
-    function array_push_assoc($array, $key, $value, $x)
+    function array_push_assoc($array, $key, $sugarLevel, $x)
     {
-    $array[$key][$x] = $value;
+    $array[$key][$x] = $sugarLevel;
     return $array;
     }
     print_r($data);
