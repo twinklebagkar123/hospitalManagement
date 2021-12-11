@@ -58,20 +58,21 @@ if (!empty($_POST['admissionid'])) {
                // $z = 0;
                //echo $valueType."<br>";
                $valueSugar = 0;
-                if($row3 = $result1->fetch_assoc()){
+                // if($row3 = $result1->fetch_assoc()){
                     while ($row3 = $result1->fetch_assoc()) {
                             
                             $valueSugar = $row3["BloodSugar"];
-                           echo $valueSugar.":Sugar, Type:".$valueType."<br>";
-                            $data = array_push_assoc($data, $valueType, $valueSugar, $x);
+                           
+                           // $data = array_push_assoc($data, $valueType, $valueSugar, $x);
                      
                     //$z++;
                     }
-                }
-                else{
-                  //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
-                    $data = array_push_assoc($data, $valueType, $valueSugar, $x);
-                }
+                    echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+              //  }
+                // else{
+                //   //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                //     $data = array_push_assoc($data, $valueType, $valueSugar, $x);
+                // }
                 
             }
            
