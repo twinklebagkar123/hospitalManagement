@@ -272,7 +272,11 @@ if (isset($_POST['submit'])) {
 					success: function(data) {
 						console.log(data.bsDates);
 						tpr = data.tpr;
-						tprDate = data.tprDate
+						tprDate = data.tprDate;
+						bsDates = data.bsDates;
+						sugarReads = data.sugarReads;
+						console.log(bsDates+"BS DATES");
+						console.log(sugarReads+"Sugar Reads");
 						$("#test").html(data.html);
 						new Chart(document.getElementById("tpr-chart"), {
 							type: 'line',
