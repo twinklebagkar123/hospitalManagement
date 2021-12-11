@@ -55,13 +55,20 @@ if (!empty($_POST['admissionid'])) {
                 $result1 = $con->query($query2);
                 $x = 0;
                 while ($row3 = $result1->fetch_assoc()) {
-                $valueSugar = $row3["BloodSugar"];
-                if (empty($valueSugar)) {
-                    $data = array_push_assoc($data, $valueType, 0, $x);
-                }
-                else{
-                    $data = array_push_assoc($data, $valueType, $valueSugar, $x);
-                }
+                    if(!empty($row3)){
+                        $valueSugar = $row3["BloodSugar"];
+                        if (empty($valueSugar)) {
+                            $data = array_push_assoc($data, $valueType, 0, $x);
+                        }
+                        else{
+                            $data = array_push_assoc($data, $valueType, $valueSugar, $x);
+                        }
+
+                    }
+                    else{
+                        $data = array_push_assoc($data, $valueType, 0, $x);
+                    }
+                
                 
                 $x++;
                 }
