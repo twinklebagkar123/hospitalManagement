@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
 						console.log(sugarReads);
 						var obj=[];
 						$.each(sugarReads,function(key,value){
-							var color = <?php echo "'#"  . substr(md5(rand()), 0, 6)."'";?>
+							var color = <?php echo "'#"  . substr(md5(rand()), 0, 6)."'";?>;
 							console.log(key+"key");
 							console.log(value+"value");
 							obj["label"] = key;
