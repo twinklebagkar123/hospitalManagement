@@ -9,6 +9,12 @@ if(isset($_GET['cancel']))
 mysqli_query($con,"update appointment set doctorStatus='0' where id ='".$_GET['id']."'");
                   $_SESSION['msg']="Appointment canceled !!";
 		  }
+		  if(isset($_GET['attend']))
+		  {
+mysqli_query($con,"update appointment set doctorStatus='1' where id ='".$_GET['id']."'");
+                  $_SESSION['msg']="Appointment canceled !!";
+		  }
+		 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,6 +117,10 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 {
 	echo "Cancel by you";
 }
+if(($row['userStatus']==0) && ($row['doctorStatus']==0))  
+{
+	echo "Attending";
+}
 
 
 
@@ -125,6 +135,17 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 	<?php } else {
 
 		echo "Canceled";
+		} ?>
+												</div>
+												<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<?php if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+{ ?>
+
+													
+	<a href="appointment-history.php?id=<?php echo $row['id']?>&attend=update" onClick="return confirm('Are you sure you want to attend this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Attend Appointment" tooltip-placement="top" tooltip="Remove">Attend</a>
+	<?php } else {
+
+		echo "Attending";
 		} ?>
 												</div>
 												</td>
