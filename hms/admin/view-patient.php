@@ -277,11 +277,69 @@ if (isset($_POST['submit'])) {
 						sugarReads = data.sugarReads;
 					//	console.log(bsDates+"BS DATES");
 						console.log(sugarReads);
+						var obj=[];
 						$.each(sugarReads,function(key,value){
+							var color = <?php echo  '#' . substr(md5(rand()), 0, 6);?>
 							console.log(key+"key");
 							console.log(value+"value");
+							obj["label"] = key;
+							obj["data"] = value;
+							obj["bordercolor"]=color;
+							obj["fill"] = false;
+
 						});
+						console.log(obj);
 						$("#test").html(data.html);
+			// 			new Chart(document.getElementById("line-chart"), {
+			// 	type: 'line',
+			// 	data: {
+			// 		labels: bsDates,
+			// 		datasets: [
+			// 			$.each(sugarReads,function(key,value){
+            //                var color = <?php //echo  '#' . substr(md5(rand()), 0, 6);?>
+			// 			   {
+			// 				   'label': key,
+			// 				   'data' : value,
+			// 				   'bordercolor': color,
+			// 				   'fill': false,
+
+			// 			   }
+			// 			})
+			// 			<?php
+
+			// 			foreach ($data as $key => $value) {
+			// 				$color =  '#' . substr(md5(rand()), 0, 6);
+			// 				echo "{";
+			// 				echo "label: '$key',";
+			// 				echo " data: [";
+			// 				echo implode(",", $value);
+			// 				echo "],";
+			// 				echo "borderColor: '$color',";
+			// 				echo "fill: false";
+			// 				echo "},";
+			// 			}
+
+			// 			?>
+
+			// 		]
+			// 	},
+			// 	options: {
+			// 		title: {
+			// 			display: true,
+			// 			text: 'Blood Sugar'
+			// 		}
+			// 	},
+			// 	scales: {
+			// 		xAxes: [{
+			// 			type: 'time',
+			// 			time: {
+			// 				displayFormats: {
+			// 					day: 'yy-mm-dd',
+			// 				}
+			// 			}
+			// 		}]
+			// 	}
+			// });
 						new Chart(document.getElementById("tpr-chart"), {
 							type: 'line',
 							data: {
@@ -306,49 +364,7 @@ if (isset($_POST['submit'])) {
 					error: function() {}
 				});
 			});
-			new Chart(document.getElementById("line-chart"), {
-				type: 'line',
-				data: {
-					labels: [<?php foreach ($period as $key => $value) {
-									echo "'", print_r($value->format('Y-m-d'));
-									echo "',";
-								} ?>],
-					datasets: [
-						<?php
-
-						foreach ($data as $key => $value) {
-							$color =  '#' . substr(md5(rand()), 0, 6);
-							echo "{";
-							echo "label: '$key',";
-							echo " data: [";
-							echo implode(",", $value);
-							echo "],";
-							echo "borderColor: '$color',";
-							echo "fill: false";
-							echo "},";
-						}
-
-						?>
-
-					]
-				},
-				options: {
-					title: {
-						display: true,
-						text: 'Blood Sugar'
-					}
-				},
-				scales: {
-					xAxes: [{
-						type: 'time',
-						time: {
-							displayFormats: {
-								day: 'yy-mm-dd',
-							}
-						}
-					}]
-				}
-			});
+			
 
 
 		});
