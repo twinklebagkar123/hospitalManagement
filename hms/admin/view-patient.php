@@ -270,13 +270,17 @@ if (isset($_POST['submit'])) {
 					method: "POST",
 					dataType: "JSON",
 					success: function(data) {
-						console.log(data.bsDates);
+					//	console.log(data.bsDates);
 						tpr = data.tpr;
 						tprDate = data.tprDate;
 						bsDates = data.bsDates;
 						sugarReads = data.sugarReads;
-						console.log(bsDates+"BS DATES");
-						console.log(sugarReads+"Sugar Reads");
+					//	console.log(bsDates+"BS DATES");
+						console.log(sugarReads);
+						$.each(sugarReads,function(key,value){
+							console.log(key+"key");
+							console.log(value+"value");
+						});
 						$("#test").html(data.html);
 						new Chart(document.getElementById("tpr-chart"), {
 							type: 'line',
