@@ -56,6 +56,7 @@ if (!empty($_POST['admissionid'])) {
                
                 $result1 = $con->query($query2);
                // $z = 0;
+               echo $valueType."<br>";
                $valueSugar = 0;
                 if($result1 = $con->query($query2)){
                     while ($row3 = $result1->fetch_assoc()) {
