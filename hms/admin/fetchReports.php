@@ -5,6 +5,7 @@ if(!empty($_POST['admissionid'])){
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
     $discharge = $_POST['discharge'];
+    $vid = $_POST['vid'];
     // echo $admission."admission";
     //    echo $discharge."discharge";
     // BS Dates
@@ -14,12 +15,49 @@ if(!empty($_POST['admissionid'])){
 			new DateTime($discharge)
 	   );
        $bsDates = array();
+
        
 	   foreach ($period as $key => $value) { array_push($bsDates,$value->format('Y-m-d')); }
+       //BS TYPES AND DATA
+       $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
+       $result = $con->query($query);
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
     $result1 = $con->query($query);
- 
+    $data = array();
+    $type= array();
+    		while ($row = $result->fetch_assoc()) {
+		//$i = 1;
+		$type = $row["BSType"];
+
+		// if ($type != "") {
+		// 	$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
+
+		// 	$result1 = $con->query($query2);
+		// 	$x = 0;
+		// 	while ($row2 = $result1->fetch_assoc()) {
+		// 	$value = $row2["BloodSugar"];
+		// 	$data = array_push_assoc($data, $type, $value, $x);
+		// 	$x++;
+		// 	}
+		// }
+		//$i++;
+		}
+        foreach ($bsDates as  $value) {
+            foreach ($types as  $valueType) {
+                if($valueType != ""){
+                    $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND CreationDate= '".$value."' AND PatientID='$vid'";
+                    echo $query2;
+                    echo "<br>";
+                }
+            }
+        }
+		// function array_push_assoc($array, $key, $value, $x)
+		// {
+		// $array[$key][$x] = $value;
+		// return $array;
+		// }
+    
 
 
   $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
