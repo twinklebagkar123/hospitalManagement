@@ -81,7 +81,7 @@ if (!empty($_POST['admissionid'])) {
         $x++;
     }
     
-   print_r($data);
+  // print_r($data);
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
