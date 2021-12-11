@@ -67,7 +67,8 @@ if (!empty($_POST['admissionid'])) {
                      
                     //$z++;
                     }
-                    echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                   // echo $valueSugar.":Sugar, Type:".$valueType."<br>";
+                    $data = array_push_assoc($data, $valueType, $valueSugar, $x);
               //  }
                 // else{
                 //   //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
