@@ -42,6 +42,11 @@ if (!empty($_POST['admissionid'])) {
         //$i++;
     }
     //print_r($type);
+    function array_push_assoc($array, $key, $sugarLevel, $x)
+    {
+    $array[$key][$x] = $sugarLevel;
+    return $array;
+    }
     foreach ($bsDates as  $value) {
         foreach ($type as  $valueType) {
             if ($valueType != "") {
@@ -57,11 +62,7 @@ if (!empty($_POST['admissionid'])) {
             }
         }
     }
-    function array_push_assoc($array, $key, $sugarLevel, $x)
-    {
-    $array[$key][$x] = $sugarLevel;
-    return $array;
-    }
+    
     print_r($data);
 
     //medical History 
