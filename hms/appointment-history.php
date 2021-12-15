@@ -6,14 +6,20 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['cancel']))
 		  {
-		          mysqli_query($con,"update appointment set userStatus='0' where id = '".$_GET['id']."'");
-                  $_SESSION['msg']="Your appointment canceled !!";
+mysqli_query($con,"update appointment set doctorStatus='0' where id ='".$_GET['id']."'");
+                  $_SESSION['msg']="Appointment canceled !!";
 		  }
+		  if(isset($_GET['attend']))
+		  {
+mysqli_query($con,"update appointment set doctorStatus='1' where id ='".$_GET['id']."'");
+                  $_SESSION['msg']="Appointment canceled !!";
+		  }
+		 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>ADMIN BLOCK | Appointment History</title>
+		<title>Doctor | Appointment History</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -44,11 +50,11 @@ if(isset($_GET['cancel']))
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">User  | Appointment History</h1>
+									<h1 class="mainTitle">Doctor  | Appointment History</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>User </span>
+										<span>Doctor </span>
 									</li>
 									<li class="active">
 										<span>Appointment History</span>
@@ -70,10 +76,9 @@ if(isset($_GET['cancel']))
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th class="hidden-xs">Patient Name</th>
-												<th>Doctor Name</th>
+												<th class="hidden-xs">Patient  Name</th>
 												<th>Specialization</th>
-												<th>Doctor Fees</th>
+												<th>Consultancy Fee</th>
 												<th>Appointment Date / Time </th>
 												<th>Appointment Creation Date  </th>
 												<th>Current Status</th>
@@ -83,42 +88,39 @@ if(isset($_GET['cancel']))
 										</thead>
 										<tbody>
 <?php
-echo "SELECT `tblp.PatientName`,`doc.doctorName`,`doc.specilization`,`doc.docFees`,`apt.appointmentDate`,`apt.postingDate` FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id";
-
-$sql=mysqli_query($con,"SELECT `tblp.PatientName`,`doc.doctorName`,`doc.specilization`,`doc.docFees`,`apt.appointmentDate`,`apt.postingDate` FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id");
+$sql=mysqli_query($con,"select users.fullName as fname,appointment.*  from appointment join users on users.id=appointment.userId where appointment.doctorId='".$_SESSION['id']."'");
 $cnt=1;
-print($sql);
 while($row=mysqli_fetch_array($sql))
-var_dump($row);
 {
 ?>
 
-	<tr>
-		<td class="center"><?php echo $cnt;?>.</td>
-		<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-		<td class="hidden-xs"><?php echo $row['doctorName'];?></td>
-		<td><?php echo $row['specilization'];?></td>
-		<td><?php echo $row['docFees'];?></td>
-		<td><?php echo $row['appointmentDate'];?> / <?php //echo $row['appointmentTime'];?>
-		</td>
-		<td><?php echo $row['postingDate'];?></td>
+											<tr>
+												<td class="center"><?php echo $cnt;?>.</td>
+												<td class="hidden-xs"><?php echo $row['fname'];?></td>
+												<td><?php echo $row['doctorSpecialization'];?></td>
+												<td><?php echo $row['consultancyFees'];?></td>
+												<td><?php echo $row['appointmentDate'];?> / <?php echo
+												 $row['appointmentTime'];?>
+												</td>
+												<td><?php echo $row['postingDate'];?></td>
+												<td>
+<?php if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+{
+	echo "Active";
+}
+if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+{
+	echo "Cancel by Patient";
+}
 
-		<td>
-
-<?php 
-// if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-// {
-// 	echo "Active";
-// }
-// if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
-// {
-// 	echo "Cancel by You";
-// }
-
-// if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
-// {
-// 	echo "Cancel by Doctor";
-// }
+if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+{
+	echo "Cancel by you";
+}
+if(($row['userStatus']==0) && ($row['doctorStatus']==0))  
+{
+	echo "Attending";
+}
 
 
 
@@ -135,30 +137,18 @@ var_dump($row);
 		echo "Canceled";
 		} ?>
 												</div>
-												<div class="visible-xs visible-sm hidden-md hidden-lg">
-													<div class="btn-group" dropdown is-open="status.isopen">
-														<button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle>
-															<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
-														</button>
-														<ul class="dropdown-menu pull-right dropdown-light" role="menu">
-															<li>
-																<a href="#">
-																	Edit
-																</a>
-															</li>
-															<li>
-																<a href="#">
-																	Share
-																</a>
-															</li>
-															<li>
-																<a href="#">
-																	Remove
-																</a>
-															</li>
-														</ul>
-													</div>
-												</div></td>
+												<div class="visible-md visible-lg hidden-sm hidden-xs">
+							<?php if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+{ ?>
+
+													
+	<a href="appointment-history.php?id=<?php echo $row['id']?>&attend=update" onClick="return confirm('Are you sure you want to attend this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Attend Appointment" tooltip-placement="top" tooltip="Remove">Attend</a>
+	<?php } else {
+
+		echo "Attending";
+		} ?>
+												</div>
+												</td>
 											</tr>
 											
 											<?php 
