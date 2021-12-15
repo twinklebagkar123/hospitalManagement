@@ -127,17 +127,17 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							<?php 
-// 							if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-// { 
+							if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+{ 
 	?>
 
 													
-	<a href="appointment-history.php?id=<?php echo $row['id']?>&cancel=update" onClick="return confirm('Are you sure you want to cancel this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Cancel Appointment" tooltip-placement="top" tooltip="Remove">Cancel</a>
+	<a href="appointment-history.php?id=<?php //echo $row['id']?>&cancel=update" onClick="return confirm('Are you sure you want to cancel this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Cancel Appointment" tooltip-placement="top" tooltip="Remove">Cancel</a>
 	<?php
-	 } else {
+	//  } else {
 
-		echo "Canceled";
-	 	} ?>
+	// 	echo "Canceled";
+	// 	} ?>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">
