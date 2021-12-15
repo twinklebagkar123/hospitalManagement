@@ -107,19 +107,19 @@ while($row = mysqli_fetch_array($result))
 
 
 <?php
-//  if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-// {
-// 	echo "Active";
-// }
-// if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
-// {
-// 	echo "Cancel by You";
-// }
+ if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+{
+	echo "Active";
+}
+if(($row['userStatus']==0) && ($row['doctorStatus']==1))  
+{
+	echo "Cancel by You";
+}
 
-// if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
-// {
-// 	echo "Cancel by Doctor";
-// }
+if(($row['userStatus']==1) && ($row['doctorStatus']==0))  
+{
+	echo "Cancel by Doctor";
+}
 
 
 
