@@ -12,7 +12,7 @@ mysqli_query($con,"update appointment set doctorStatus='0' where id ='".$_GET['i
 		  if(isset($_GET['attend']))
 		  {
 mysqli_query($con,"update appointment set doctorStatus='1' where id ='".$_GET['id']."'");
-                  $_SESSION['msg']="Appointment canceled !!";
+                  $_SESSION['msg']="Attending!!";
 		  }
 		 
 ?>
