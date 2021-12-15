@@ -127,8 +127,8 @@ if(($row['userStatus']==1) && ($row['doctorStatus']==0))
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
 							<?php 
-							if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
-{ 
+// 							if(($row['userStatus']==1) && ($row['doctorStatus']==1))  
+// { 
 	?>
 
 													
