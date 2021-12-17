@@ -111,7 +111,7 @@ function checkemailAvailability() {
 												</div>
 												<div class="panel-body">
 									
-													<form role="form" name="addmed" method="post" action="">
+													<form role="form" name="addmed" method="post" onSubmit="return valid();">
 														
                                                         <div class="form-group">
                                                             <label for="doctorname">

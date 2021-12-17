@@ -24,6 +24,8 @@ check_login();
 		<link rel="stylesheet" href="assets/css/styles.css">
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	
 	</head>
 	<body>
 		<div id="app">		
@@ -61,7 +63,7 @@ check_login();
 									
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
-									<table class="table table-hover" id="sample-table-1">
+									<table class="display" id="tab">
 										<thead>
 											<tr>
 												<th class="center">#</th>
@@ -142,6 +144,8 @@ $cnt=$cnt+1;
 		<!-- end: MAIN JAVASCRIPTS -->
 		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 		<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 		<script src="vendor/autosize/autosize.min.js"></script>
 		<script src="vendor/selectFx/classie.js"></script>
@@ -159,6 +163,12 @@ $cnt=$cnt+1;
 				Main.init();
 				FormElements.init();
 			});
+		</script>
+		<script> 
+	$(document).ready( function () {
+    $('#tab').DataTable();
+} );
+										
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->

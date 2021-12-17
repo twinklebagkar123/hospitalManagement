@@ -39,6 +39,10 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  
+
 	<script>
 		function getdoctor(val) {
 			console.log("hi");
@@ -97,7 +101,7 @@ if (isset($_POST['submit'])) {
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
 
-								<table class="table table-hover" id="sample-table-1">
+								<table class="display" id="myTable">
 									<thead>
 										<tr>
 											<th class="center">#</th>
@@ -330,6 +334,8 @@ if (isset($_POST['submit'])) {
 							<!-- end: MAIN JAVASCRIPTS -->
 							<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 							<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+							<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
 							<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 							<script src="vendor/autosize/autosize.min.js"></script>
 							<script src="vendor/selectFx/classie.js"></script>
@@ -374,6 +380,12 @@ if (isset($_POST['submit'])) {
 
 								});
 							</script>
+		<script> 
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+										
+		</script>
 							<!-- end: JavaScript Event Handlers for this page -->
 
 							<!-- end: CLIP-TWO JAVASCRIPTS -->

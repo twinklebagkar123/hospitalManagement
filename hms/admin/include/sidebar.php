@@ -243,11 +243,7 @@
 										</a>
 									</li>
 
-									<li>
-										<a href="#">
-											<span class="title"> Manage </span>
-										</a>
-									</li>
+									
 									
 								</ul>
 								</li>

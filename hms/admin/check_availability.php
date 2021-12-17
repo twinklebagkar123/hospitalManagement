@@ -31,6 +31,7 @@ echo "<span style='color:red'> Medicine Already exists .</span>";
 }
 }
 
+
 //pattcontact
 
 if(!empty($_POST["phone"])) {
