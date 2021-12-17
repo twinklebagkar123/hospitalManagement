@@ -7,15 +7,17 @@ check_login();
 
 if(isset($_POST['submit']))
 {	
+	
     $medname=$_POST['medname'];
     $sql=mysqli_query($con,"insert into medicine_table(medname) values('$medname')");
     if($sql)
     {
-        echo "<script>alert('Doctor info added Successfully');</script>";
+        echo "<script>alert('Medicine added Successfully');</script>";
         echo "<script>window.location.href ='add-medicine.php'</script>";
 
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,6 +67,9 @@ function checkemailAvailability() {
     });
 }
 </script>
+
+
+
 	</head>
 	<body>
 		<div id="app">		
@@ -114,15 +119,11 @@ function checkemailAvailability() {
                                                             </label>
                                                             <input type="text" id="med" name="medname" class="form-control"  placeholder="Enter Medicine Name" required="true" onchange="checkemailAvailability()">
                                                             <span id="email-availability-status"></span>
+															
                                                         </div>
+													
 
-                                                        <!-- <div class="form-group">
-                                                            <label for="fess">
-                                                                    Doctor Email
-                                                            </label>
-                                                            <input type="email" id="docemail" name="docemail" class="form-control"  placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
-                                                            <span id="email-availability-status"></span>
-                                                        </div> -->
+                                                        
                                                         <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
                                                             Submit
                                                         </button>
@@ -144,7 +145,7 @@ function checkemailAvailability() {
 
 									<div class="row">
 								<div class="col-md-12">
-									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Docters</span></h5>
+									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Medicine</span></h5>
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="table table-hover" id="sample-table-1">
@@ -156,7 +157,7 @@ function checkemailAvailability() {
 												
 											</tr>
 										</thead>
-										<tbody>
+										<tbody id="dell"> 
 <?php
 $sql=mysqli_query($con,"select * from medicine_table");
 $cnt=1;
@@ -170,9 +171,9 @@ while($row=mysqli_fetch_array($sql))
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a href="edit-doctor.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-													
-	<a href="manage-doctors.php?id=<?php echo $row['id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+							<a href="edit-medicine.php?id=<?php echo $row['code'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+							<!-- add-medicine.php?code=<?php //echo $row['code']?>&del=delete										 -->
+	<a href="#" class="btn btn-transparent btn-xs tooltips delClass " data-idcode='<?php echo $row['code']; ?>' id="del" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												</div>
 												<div class="visible-xs visible-sm hidden-md hidden-lg">
 													<div class="btn-group" dropdown is-open="status.isopen">
@@ -244,6 +245,7 @@ $cnt=$cnt+1;
 		<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
 		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 		<script src="vendor/switchery/switchery.min.js"></script>
+		
 		<!-- end: MAIN JAVASCRIPTS -->
 		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
@@ -263,6 +265,37 @@ $cnt=$cnt+1;
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
+	$('#dell').on("click",".delClass" ,function(){
+	console.log("heyyyy");
+  
+ 
+  var deleteid = $(this).data('idcode');
+  console.log(deleteid);
+  var confirmalert = confirm("Are you sure?");
+  if (confirmalert == true) {
+	 // AJAX Request
+	 $.ajax({
+	   url: 'delete.php',
+	   type: 'POST',
+	   data: { code:deleteid },
+	   success: function(response){
+
+		 if(response == 1){
+	   // Remove row from HTML Table
+	   $(el).closest('tr').css('background','tomato');
+	   $(el).closest('tr').fadeOut(800,function(){
+		  $(this).remove();
+	   });
+		 }else{
+	   alert('Invalid ID.');
+		 }
+
+	   }
+	 });
+  }
+
+});
+
 			});
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
