@@ -30,6 +30,21 @@ echo "<span style='color:red'> Medicine Already exists .</span>";
  echo "<script>$('#submit').prop('disabled',false);</script>";
 }
 }
+if(!empty($_POST["name"])) {
+	$name  = $_POST["name"];
+	
+		$result =mysqli_query($con,"SELECT Name FROM nearbyAmbulance WHERE Name='$name'");
+		$count=mysqli_num_rows($result);
+if($count>0)
+{
+echo "<span style='color:red'> Ambulance Already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Register as new Ambulance .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
 
 
 //pattcontact

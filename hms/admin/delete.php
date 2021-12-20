@@ -8,9 +8,25 @@ if(isset($_POST['code'])){
    $query = "delete from medicine_table where code =".$id;
    mysqli_query($con,$query);
    echo 1;
+
+
+
+
+}
+if(isset($_POST['id'])){
+   $id = $_POST['id'];
+   // Delete record
+   $query = "delete from nearbyAmbulance where id =".$id;
+   mysqli_query($con,$query);
+   echo 1;
+
+
+
+
 }
 
-  
+
+  ?>
     
  
 
