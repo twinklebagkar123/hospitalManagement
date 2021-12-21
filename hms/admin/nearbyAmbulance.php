@@ -310,7 +310,7 @@ $cnt=$cnt+1;
 	 $.ajax({
 	   url: 'delete.php',
 	   type: 'POST',
-	   data: { code:deleteid },
+	   data: { id:deleteid },
 	   success: function(response){
 
 		 if(response == 1){
