@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
     $ph=$_POST['ph'];
     $add=$_POST['add'];
 
-$sql=mysqli_query($con,"Update nearbyAmbulance set name='$name' where id='$id'");
+$sql=mysqli_query($con,"Update nearbyAmbulance set name='$name' where id='$code'");
 if($sql)
 {
     echo "<script>alert('Medicine added Successfully');</script>";
@@ -81,7 +81,7 @@ echo "<script>window.location.href ='nearbyAmbulance.php'</script>";
 													<h5 class="panel-title">Edit Ambulance</h5>
 												</div>
 												<div class="panel-body">
-									<?php $sql=mysqli_query($con,"select * from nearbyAmbulance where id='$id'");
+									<?php $sql=mysqli_query($con,"select * from nearbyAmbulance where id='$code'");
 while($data=mysqli_fetch_array($sql))
 {
 ?>
