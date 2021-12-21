@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 
 
-if(isset($_POST['add']))
+if(isset($_POST['submit']))
 {	
 	
     $name=$_POST['name'];
@@ -144,7 +144,7 @@ function checkemailAvailability() {
 													
 
                                                         
-                                                        <button type="submit" name="add" id="add" class="btn btn-o btn-primary">
+                                                        <button type="submit" name="submit" id="add" class="btn btn-o btn-primary">
                                                             Submit
                                                         </button>
 												    </form>
