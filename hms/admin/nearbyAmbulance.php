@@ -144,7 +144,7 @@ function checkemailAvailability() {
 													
 
                                                         
-                                                        <button type="submit" name="submit" id="add" class="btn btn-o btn-primary">
+                                                        <button type="submit" name="submit" class="btn btn-o btn-primary">
                                                             Submit
                                                         </button>
 												    </form>
