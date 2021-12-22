@@ -10,9 +10,8 @@ if(isset($_POST['submit']))
 {	
 	
     $name=$_POST['name'];
-    $ph=$_POST['ph'];
-    $addr=$_POST['add'];
-    $sql=mysqli_query($con,"INSERT INTO nearbyAmbulance(`Name`, `number`, `address`) VALUES ('$name','$ph','$addr')");
+    $price=$_POST['price'];
+    $sql=mysqli_query($con,"INSERT INTO `procedureList`(`procedureID`, `name`, `charges`) VALUES ('$name','$price')");
     if($sql)
     {
         echo "<script>alert('Data added Successfully');</script>";
@@ -129,7 +128,7 @@ function checkemailAvailability() {
                                                             <label >
                                                                     Price:
                                                             </label>
-                                                            <input type="text" id="ph" name="ph" class="form-control"  placeholder="Enter Phone No." required="true" >
+                                                            <input type="text" id="ph" name="price" class="form-control"  placeholder="Enter Phone No." required="true" >
                                                             
 															
                                                         </div>
@@ -160,7 +159,7 @@ function checkemailAvailability() {
 
                         <div class="row">
                     <div class="col-md-12">
-                        <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Ambulance</span></h5>
+                        <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
                         <p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
                     <?php echo htmlentities($_SESSION['msg']="");?></p>	
                         <table class="table table-hover" id="sample-table-1">
@@ -168,8 +167,7 @@ function checkemailAvailability() {
                                 <tr>
                                     <th class="center">#</th>
                                     <th>Name</th>
-                                    <th>Phone No.</th>
-                                    <th>Address</th>
+                                    <th>Charges</th>
 
                                     <th>Action</th>
                                     
@@ -177,7 +175,7 @@ function checkemailAvailability() {
                             </thead>
                             <tbody id="delete"> 
 <?php
-$sql=mysqli_query($con,"select * from nearbyAmbulance");
+$sql=mysqli_query($con,"select * from procedureList");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -185,9 +183,8 @@ while($row=mysqli_fetch_array($sql))
 
                                 <tr>
                                     <td class="center"><?php echo $cnt;?>.</td>
-                                    <td><?php echo $row['Name'];?></td>
-                                    <td><?php echo $row['number'];?></td>
-                                    <td><?php echo $row['address'];?></td>
+                                    <td><?php echo $row['name'];?></td>
+                                    <td><?php echo $row['charges'];?></td>
                                     
                                     <td >
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
