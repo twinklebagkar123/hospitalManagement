@@ -15,7 +15,7 @@ if(isset($_POST['submit']))
     if($sql)
     {
         echo "<script>alert('Data added Successfully');</script>";
-        echo "<script>window.location.href ='nearbyAmbulance.php'</script>";
+        echo "<script>window.location.href ='addProcedure.php'</script>";
 
     }
 }
@@ -188,7 +188,7 @@ while($row=mysqli_fetch_array($sql))
                                     
                                     <td >
                                     <div class="visible-md visible-lg hidden-sm hidden-xs">
-                <a href="editAmbulance.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+                <a href="editProcedure.php?id=<?php echo $row['id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
                 <!-- add-medicine.php?code=<?php //echo $row['code']?>&del=delete										 -->
 <a href="#" class="btn btn-transparent btn-xs tooltips dellClass " data-id='<?php echo $row['id']; ?>' id="del" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
                                     </div>
