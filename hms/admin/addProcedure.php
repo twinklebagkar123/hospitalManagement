@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 	
     $name=$_POST['name'];
     $price=$_POST['price'];
-    $sql=mysqli_query($con,"INSERT INTO `procedureList`(`procedureID`, `name`, `charges`) VALUES ('$name','$price')");
+    $sql=mysqli_query($con,"INSERT INTO `procedureList`( `name`, `charges`) VALUES ('$name','$price')");
     if($sql)
     {
         echo "<script>alert('Data added Successfully');</script>";
