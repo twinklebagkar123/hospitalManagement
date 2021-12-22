@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 	$price = $_POST['ph'];
 	//$add = $_POST['add'];
 
-	$sql = mysqli_query($con, "Update procedureList set name='$name',`charges`='$price' where id='$code'");
+	$sql = mysqli_query($con, "Update procedureList set name='$name',`charges`='$price' where procedureID='$code'");
 	if ($sql) {
 		echo "<script>alert('Medicine added Successfully');</script>";
 		echo "<script>window.location.href ='addProcedure.php'</script>";
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
 												<h5 class="panel-title">Edit Ambulance</h5>
 											</div>
 											<div class="panel-body">
-												<?php $sql = mysqli_query($con, "select * from procedureList where id='$code'");
+												<?php $sql = mysqli_query($con, "select * from procedureList where procedureID='$code'");
 												while ($data = mysqli_fetch_array($sql)) {
 												?>
 													<h4><?php echo htmlentities($data['name']); ?></h4>
