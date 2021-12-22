@@ -88,7 +88,7 @@ function checkemailAvailability() {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Add Ambulance Details</h1>
+									<h1 class="mainTitle">Admin | Procedure Section</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
@@ -110,7 +110,7 @@ function checkemailAvailability() {
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Add Ambulance Details</h5>
+													<h5 class="panel-title">Add Procedure Details</h5>
 												</div>
 												<div class="panel-body">
 									
@@ -118,7 +118,7 @@ function checkemailAvailability() {
 														
                                                         <div class="form-group">
                                                             <label for="name">
-                                                                    Name
+                                                                    Procedure Name:
                                                             </label>
                                                            
                                                             <input type="text" id="name" name="name" class="form-control"  placeholder="Enter Name" required="true"  onchange="checkemailAvailability()">
@@ -127,17 +127,9 @@ function checkemailAvailability() {
                                                         </div>
                                                         <div class="form-group">
                                                             <label >
-                                                                    Phone No.
+                                                                    Price:
                                                             </label>
                                                             <input type="text" id="ph" name="ph" class="form-control"  placeholder="Enter Phone No." required="true" >
-                                                            
-															
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label >
-                                                                    Address
-                                                            </label>
-                                                            <input type="text" id="add" name="add" class="form-control"  placeholder="Enter Address" required="true" >
                                                             
 															
                                                         </div>
