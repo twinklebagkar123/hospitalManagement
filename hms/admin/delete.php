@@ -24,6 +24,17 @@ if(isset($_POST['id'])){
 
 
 }
+if(isset($_POST['procedureID'])){
+   $id = $_POST['procedureID'];
+   // Delete record
+   $query = "delete from procedureList where procedureID =".$id;
+   mysqli_query($con,$query);
+   echo 1;
+
+
+
+
+}
 
 
   ?>
