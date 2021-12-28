@@ -11,7 +11,7 @@ include('hms/admin/include/checklogin.php');
     elseif(isset($_POST['all_mail'])):
         fetchEmailAddresses("3",$_POST['email_subject'],$_POST['email_message']);
     elseif(isset($_POST['manual_email_submit'])):
-        fetchEmailAddresses("4",$_POST['email_subject'],$_POST['email_message'],$_POST['email_addresses_manual']);
+        fetchEmailAddresses("4",$_POST['email_subject'],$_POST['email_message'],$_POST['email_address_mail']);
     endif;
 
     /*type
@@ -88,9 +88,9 @@ include('hms/admin/include/checklogin.php');
         $retval = mail($to, $subject, $message, $header);
 
         if ($retval == true) {
-            echo "Message sent to $to successfully... \n";
+            echo "Message sent to " .$to. " successfully... \n";
         } else {
-            echo "Message could not be sent to $to. \n";
+            echo "Message could not be sent to " .$to. "\n";
         }
     }
     ?>
