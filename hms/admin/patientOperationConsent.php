@@ -249,18 +249,19 @@ $today = $year . '-' . $month . '-' . $day;
 								<br>
 
 								<ol>
-									<li> I hereby authorize Dr. <span id="dName"> or associates at St. Anthony's Hospital
-											to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
+									<li>
+										I hereby authorize Dr. <span id="dName"></span> or associates at St. Anthony's Hospital
+										to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
 
-											Procedures.............................................................................................<br>
+										Procedures.............................................................................................<br>
 
-											Meaning (please explain briefly in lay terminology)......................................................<br>
-											.............................................................................................................
+										Meaning (please explain briefly in lay terminology)......................................................<br>
+										.............................................................................................................
 
 
 
 									</li>
-									<li> Dr............................................ has fully explained to me the nature and Purpose of
+									<li> Dr.<span id="dName"></span> has fully explained to me the nature and Purpose of
 										operation / procedure and has also informed me of expected benefits and complications, attendant
 										discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
 										given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
@@ -389,15 +390,15 @@ $today = $year . '-' . $month . '-' . $day;
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
-			$('#doctor').on("change",function() {
+			$('#doctor').on("change", function() {
 				$('#dName').html($('#doctor').val());
 				$('#fdate1').html($('#date').val());
 
 			});
-			$('#consultant').on("change",function() {
+			$('#consultant').on("change", function() {
 				$('#cName').html($('#consultant').val());
 			});
-			$('#opDate').on("change",function() {
+			$('#opDate').on("change", function() {
 				$('#opD').html($('#opDate').val());
 			});
 			$("#pat").on("keyup", function() {
