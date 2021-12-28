@@ -261,7 +261,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 									</li>
-									<li> Dr.<span id="dName"></span> has fully explained to me the nature and Purpose of
+									<li> Dr.<span id="dName2"></span> has fully explained to me the nature and Purpose of
 										operation / procedure and has also informed me of expected benefits and complications, attendant
 										discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
 										given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
@@ -392,6 +392,7 @@ $today = $year . '-' . $month . '-' . $day;
 			FormElements.init();
 			$('#doctor').on("change", function() {
 				$('#dName').html($('#doctor').val());
+				$('#dName2').html($('#doctor').val());
 				$('#fdate1').html($('#date').val());
 
 			});
