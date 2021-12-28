@@ -156,13 +156,31 @@ $today = $year . '-' . $month . '-' . $day;
 									</label>
 									<input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true">
 								</div>
+
+
 								<div class="form-group">
+									<div class="row">  
+										
+									<div class="col-sm-4">
 									<label >Code No:</label>
 									<input type="text" id="code" name="code">
-									<label >Ward:</label>
+								</div>
+								<div class="col-sm-4">
+								<label >Ward:</label>
 									<input type="text" id="ward" name="ward">
-									<label >R No:</label>
+								</div>
+								<div class="col-sm-4">
+								<label >R No:</label>
 									<input type="text" id="rno" name="rno">
+								</div>
+									
+								
+								
+								
+								</div>
+									
+									
+								
 								</div>
 								<div class="form-group">
 									<label for="opTime">Select a time:</label>
