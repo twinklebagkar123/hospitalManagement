@@ -28,6 +28,38 @@ if(!empty($_POST["doctor"]))
 }
 }
 
+if(!empty($_POST["pName"])) 
+{
+$patN=$_POST['pName'];
+$result=[];
+
+
+ $sql=mysqli_query($con,"SELECT * FROM tblpatient WHERE PatientName  LIKE '%$patN%' ");
+ while($row=mysqli_fetch_array($sql))
+ 	{
+		// $data = array('name' => $row['PatientName'],'age'=>$row['PatientAge'],'gender'=>$row['PatientGender']);
+		?>
+
+<p data-pid="<?php echo $row['ID'];?>" data-name="<?php echo $row['PatientName'];?>" data-age="<?php echo $row['PatientAge'];?>" data-sex="<?php echo $row['PatientGender'];?>"  >
+<?php 
+echo $row['PatientName'];
+
+
+?>
+</p>
+<?php
+  $result['name']=$row['PatientName'];
+ $result['age']=$row['PatientAge'];
+ $result['gender']=$row['PatientGender'];
+ 
+}
+//echo json_encode($result);
+}
+
+
+
+
+
 if(!empty($_POST["appDate"])) 
 
 {
