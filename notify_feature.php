@@ -133,7 +133,7 @@ include('hms/admin/include/checklogin.php');
                     do{
                        if ($result=mysqli_store_result($con)){
                           while ($row=mysqli_fetch_row($result)){
-                             echo $row;
+                             print_r($row);
                           }
                         //   global $con;
                           mysqli_free_result($result);
