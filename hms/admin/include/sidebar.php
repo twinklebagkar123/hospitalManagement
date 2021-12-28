@@ -272,6 +272,18 @@
 					</a>
 				</li>
 				<li>
+								<a href="operationList.php">
+									<div class="item-content">
+										<div class="item-media">
+											<i class="ti-list"></i>
+										</div>
+										<div class="item-inner">
+											<span class="title"> Operation list  </span>
+										</div>
+									</div>
+								</a>
+							</li>	
+				<li>
 					<a href="laboratory.php">
 						<div class="item-content">
 							<div class="item-media">
