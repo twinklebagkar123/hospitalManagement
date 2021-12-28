@@ -60,7 +60,7 @@ include('hms/admin/include/checklogin.php');
                                     <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staff">
+                                    <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staffs">
                                 </div>
                             </div>
                               <div class="row" style="margin-top: 3%;">
@@ -90,6 +90,8 @@ include('hms/admin/include/checklogin.php');
         fetchEmailAddresses("2");
     elseif(isset($_POST['staff_mail'])):
         fetchEmailAddresses("1");
+    elseif(isset($_POST['all_mail'])):
+        fetchEmailAddresses("3");
     endif;
     /*type
     1. Staff
@@ -99,7 +101,7 @@ include('hms/admin/include/checklogin.php');
     
     function fetchEmailAddresses($type) {  
         
-        $result = null;  
+        $result = [];  
         switch ($type) {
            
             case '1':
@@ -108,7 +110,8 @@ include('hms/admin/include/checklogin.php');
                 $ret = mysqli_query($con, $sql);
                 $cnt = 1;
                 while ($row = mysqli_fetch_array($ret)) {
-                    echo $row['docEmail'];
+                    // echo ;
+                    array_push($result,$row['docEmail']);
                 }
                 break;
             
@@ -118,28 +121,33 @@ include('hms/admin/include/checklogin.php');
                 $ret = mysqli_query($con, $sql);
                 $cnt = 1;
                 while ($row = mysqli_fetch_array($ret)) {
-                    echo $row['PatientEmail'];
+                    // echo $row['PatientEmail'];
+                    array_push($result,$row['PatientEmail']);
                 }
                 break;
             
             case '3':
-                echo "All";
+                global $con;
+                $sql = "SELECT DISTINCT `PatientEmail` as emailAddress FROM `tblpatient`;SELECT DISTINCT `docEmail`  as emailAddress FROM `doctors`";
+                if (mysqli_multi_query($con,$sql)){
+                    do{
+                       if ($result=mysqli_store_result($con)){
+                          while ($row=mysqli_fetch_row($result)){
+                             echo $row[0];
+                          }
+                        //   global $con;
+                          mysqli_free_result($result);
+                       }
+                    }while (mysqli_next_result($con));
+                 }
                 break;
             
             default:
                 echo "default";
                 break;
-                // if (mysqli_multi_query($connection_mysql,$sql)){
-                //     do{
-                //        if ($result=mysqli_store_result($connection_mysql)){
-                //           while ($row=mysqli_fetch_row($result)){
-                //              printf("%s\n",$row[0]);
-                //           }
-                //           mysqli_free_result($connection_mysql);
-                //        }
-                //     }while (mysqli_next_result($connection_mysql));
-                //  }
+                
         }
+        print_r($result);
 
     }
     function send_mail($to,$subject,$message){
