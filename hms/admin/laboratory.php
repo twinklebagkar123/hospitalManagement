@@ -169,6 +169,7 @@ check_login();
 													
 													<th>Field Name</th>
 													<th>Field Type</th>
+													<th>Action</th>
 
 												</tr>
 											</thead>

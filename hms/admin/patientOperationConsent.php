@@ -5,28 +5,25 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 
-if(isset($_POST['Submit']))
-{	
-	$id=$_POST['pid'];
-	$patient=$_POST['pat'];
-	$doctor=$_POST['doctor'];
-	$opTitle=$_POST['opTitle'];
-	$opTime=$_POST['opTime'];
-	$opDate=$_POST['opDate'];
+if (isset($_POST['Submit'])) {
+	$id = $_POST['pid'];
+	$patient = $_POST['pat'];
+	$doctor = $_POST['doctor'];
+	$opTitle = $_POST['opTitle'];
+	$opTime = $_POST['opTime'];
+	$opDate = $_POST['opDate'];
 
-	$Consent=$_POST['Consent'];
-	$DAMA=$_POST['DAMA'];
-	$pRNote=$_POST['pRNote'];
-	$fCDate=$_POST['date'];
-	
-	
-	$sql=mysqli_query($con,"INSERT INTO `patientoperation`( `patNme`, `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$patient','$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
-if($sql)
-{
-echo "<script>alert('patient Operation Form added Successfully');</script>";
-header('location:patientOperationConsent.php');
+	$Consent = $_POST['Consent'];
+	$DAMA = $_POST['DAMA'];
+	$pRNote = $_POST['pRNote'];
+	$fCDate = $_POST['date'];
 
-}
+
+	$sql = mysqli_query($con, "INSERT INTO `patientoperation`( `patNme`, `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$patient','$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
+	if ($sql) {
+		echo "<script>alert('patient Operation Form added Successfully');</script>";
+		header('location:patientOperationConsent.php');
+	}
 }
 $month = date('m');
 $day = date('d');
@@ -39,28 +36,29 @@ $today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Patient | Operation Consent Form</title>
-		
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-		<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="assets/css/styles.css">
-		<link rel="stylesheet" href="assets/css/plugins.css">
-		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-		
+
+<head>
+	<title>Patient | Operation Consent Form</title>
+
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
+	<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/plugins.css">
+	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 
 
 
-		<!-- <script>
+
+	<!-- <script>
 		function getdoctor(val) {
 			console.log("hi");
 			$.ajax({
@@ -73,366 +71,390 @@ $today = $year . '-' . $month . '-' . $day;
 			});
 		}
 	</script> -->
-	</head>
-	
-	<body>
-		<div id="app">		
-<?php include('include/sidebar.php');?>
-<div class="app-content">
-<?php include('include/header.php');?>
-						
-<div class="main-content" >
-          <div class="wrap-content container" id="container">
-            <!-- start: PAGE TITLE -->
-            <section id="page-title">
-              <div class="row">
-                <div class="col-sm-8">
-                  <h1 class="mainTitle">Patient | Operation Consent Form</h1>
+</head>
 
-                                  </div>
-                </div>
-              </div>
-           
+<body>
+	<div id="app">
+		<?php include('include/sidebar.php'); ?>
+		<div class="app-content">
+			<?php include('include/header.php'); ?>
 
+			<div class="main-content">
+				<div class="wrap-content container" id="container">
+					<!-- start: PAGE TITLE -->
+					<section id="page-title">
+						<div class="row">
+							<div class="col-sm-8">
+								<h1 class="mainTitle">Patient | Operation Consent Form</h1>
 
-
-  <div class="container">
-  <div class="row">
-    <div class="col-sm-6 ">
-      <div class="input-group">
-      <div class="form-group">
-	  <form method="post" name="submit">
-	  <input type="hidden" name="pid" class="form-control" id="patId"  value="" >
-															<label for="Patient Name">
-                                                            Patient Name
-															
-															</label>
-					<input type="text" name="pat" class="form-control" id="pat"  required="require">
-							<div id="nameResponse" >  </div>
-														</div>
-														<div class="form-group">
-															<label for="consultant">
-															Consultant
-															</label>
-					<select name="consultant" class="form-control" id="consultant"  required="require">
-							<option value="">Select consultant</option>
-										<?php $ret=mysqli_query($con,"select * from doctors where 1");
-										while($row=mysqli_fetch_array($ret))
-															{
-															?>
-																<option value="<?php echo htmlentities($row['id']);?>">
-																	<?php echo htmlentities($row['doctorName']);?>
-																</option>
-																<?php } ?>
-						</select>
-														</div>
+							</div>
+						</div>
+				</div>
 
 
 
 
-                                                        <div class="form-group">
-															<label for="doctor">
-																Doctors 
-															</label>
-					<select name="doctor" class="form-control" id="doctor"  required="require">
-							<option value="">Select doctor</option>
-										<?php $ret=mysqli_query($con,"select * from doctors where 1");
-										while($row=mysqli_fetch_array($ret))
-															{
-															?>
-																<option value="<?php echo htmlentities($row['id']);?>">
-																	<?php echo htmlentities($row['doctorName']);?>
-																</option>
-																<?php } ?>
-						</select>
-														</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6 ">
+							<div class="input-group">
+								<div class="form-group">
+									<form method="post" name="submit">
+										<input type="hidden" name="pid" class="form-control" id="patId" value="">
+										<label for="Patient Name">
+											Patient Name
+
+										</label>
+										<input type="text" name="pat" class="form-control" id="pat" required="require">
+										<div id="nameResponse"> </div>
+								</div>
+								<div class="form-group">
+									<label for="consultant">
+										Consultant
+									</label>
+									<select name="consultant" class="form-control" id="consultant" required="require">
+										<option value="">Select consultant</option>
+										<?php $ret = mysqli_query($con, "select * from doctors where 1");
+										while ($row = mysqli_fetch_array($ret)) {
+										?>
+											<option value="<?php echo htmlentities($row['id']); ?>">
+												<?php echo htmlentities($row['doctorName']); ?>
+											</option>
+										<?php } ?>
+									</select>
+								</div>
 
 
 
 
-														
+								<div class="form-group">
+									<label for="doctor">
+										Doctors 
+									</label>
+									<select name="doctor" class="form-control" id="doctor" required="require">
+										<option value="">Select doctor</option>
+										<?php $ret = mysqli_query($con, "select * from doctors where 1");
+										while ($row = mysqli_fetch_array($ret)) {
+										?>
+											<option value="<?php echo htmlentities($row['id']); ?>">
+												<?php echo htmlentities($row['doctorName']); ?>
+											</option>
+										<?php } ?>
+									</select>
+								</div>
 
-														
 
-														<div class="form-group">
-<label >
- Operation Title
-</label>
-<input type="text" name="opTitle" class="form-control"  placeholder="Enter Operation Title" required="true" >
-</div>
-<div class="form-group">
-                                                    <label for="opTime">Select a time:</label>
-                                                    <input type="time" id="opTime" name="opTime">
-                                                        <label for="opDate">Select a Date:</label>
-                                                        <input type="date" id="opDate" name="opDate">
-</div>
-<div class="form-group">
-															<label >
-																Consent
-															</label>
-					<select name="Consent" class="form-control" id="Consent"  required="require">
-							<option value="">Select Option</option>
-							<option >Yes</option>
-							<option >No</option>
-														</select>
-</div>
-<div class="form-group">
-														<label >
-																DAMA
-															</label>
-					<select name="DAMA" class="form-control" id="DAMA"  required="require">
-					<option value="">Select Option</option>		
-					<option >Yes</option>
-							<option >No</option>
-														</select>
-														</div>
+
+
+
+
+
+
+								<div class="form-group">
+									<label>
+										Operation Title
+									</label>
+									<input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true">
+								</div>
+								<div class="form-group">
+									<label for="opTime">Select a time:</label>
+									<input type="time" id="opTime" name="opTime">
+									<label for="opDate">Select a Date:</label>
+									<input type="date" id="opDate" name="opDate">
+								</div>
+								<div class="form-group">
+									<label>
+										Consent
+									</label>
+									<select name="Consent" class="form-control" id="Consent" required="require">
+										<option value="">Select Option</option>
+										<option>Yes</option>
+										<option>No</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>
+										DAMA
+									</label>
+									<select name="DAMA" class="form-control" id="DAMA" required="require">
+										<option value="">Select Option</option>
+										<option>Yes</option>
+										<option>No</option>
+									</select>
+								</div>
 
 								<div class="form-group">
 									<label>Patient Recovery Note</label>
-	<textarea name="pRNote" id="pRNote" placeholder="Enter Patient Recovery Note" rows="4" cols="14" class="form-control wd-450" required="true"></textarea>
+									<textarea name="pRNote" id="pRNote" placeholder="Enter Patient Recovery Note" rows="4" cols="14" class="form-control wd-450" required="true"></textarea>
+								</div>
+
+								<div class="form-group">
+									<label> Form Creation Date
+									</label>
+									<input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
+
+									</select>
+								</div>
+
+								<input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
+								</form>
+							</div>
 						</div>
-					
-						<div class="form-group">
-															<label >					Form Creation Date
-											</label>
-					<input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
-						
-						</select>
-														</div>	
-                                                    
-<input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
-															</form>
-</div>
-    </div>
-	
-    <div class="col-sm-6">
-    
-	<h3>St Anthony's Hospital & Research Centre</h3>
-<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
-	<div class="row-sm-12">
-<div class="col-sm-6"> <p>Patient Name: <span id="pName">  </span></p>  </div>
-<div class="col-sm-3"> <p>Age: <span id="pAge">  </span>  </p> </div>
-<div class="col-sm-3">  <p>Sex:  <span id="pGender"></span> </p></div>	
-</div>
 
-<div class="row-sm-12">
-<div class="col-sm-4"> <p>Code No: </p>    </div>
-<div class="col-sm-4"> <p>  Ward: </p></div>
-<div class="col-sm-4">  <p>R No.: </p></div>	
-</div>
+						<div class="col-sm-6">
 
+							<h3>St Anthony's Hospital & Research Centre</h3>
+							<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
+							<div class="row-sm-12">
+								<div class="col-sm-6">
+									<p>Patient Name: <span id="pName"> </span></p>
+								</div>
+								<div class="col-sm-3">
+									<p>Age: <span id="pAge"> </span> </p>
+								</div>
+								<div class="col-sm-3">
+									<p>Sex: <span id="pGender"></span> </p>
+								</div>
+							</div>
 
-<div class="row-sm-12">
-<div class="col-sm-4"> <p>Consultant:<span id="cName"> </p>  </div>
-<div class="col-sm-4">  <p>DOA:   </p></div>	
-</div>
-<br>
-<br>
-<br>
-<br>
-
-	     <div class="row">   
-			 
-	<p>It is the policy of St. Anthony's Hospital to inform the patient of the proposed treatment and you are encouraged to ask your doctors any questions you may have regarding your care.</p> 
-	<br>
-	
-<ol>
-  <li>  I hereby authorize Dr. <span id="dName">     or associates at St. Anthony's Hospital
-to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
-
-Procedures.............................................................................................<br>
-
-Meaning (please explain briefly in lay terminology)......................................................<br>
-.............................................................................................................
+							<div class="row-sm-12">
+								<div class="col-sm-4">
+									<p>Code No: </p>
+								</div>
+								<div class="col-sm-4">
+									<p> Ward: </p>
+								</div>
+								<div class="col-sm-4">
+									<p>R No.: </p>
+								</div>
+							</div>
 
 
+							<div class="row-sm-12">
+								<div class="col-sm-4">
+									<p>Consultant:<span id="cName"> </p>
+								</div>
+								<div class="col-sm-4">
+									<p>DOA: </p>
+								</div>
+							</div>
+							<br>
+							<br>
+							<br>
+							<br>
 
-</li>
-  <li> Dr............................................ has fully explained to me the nature and Purpose of
-operation / procedure and has also informed me of expected benefits and complications, attendant
-discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
-given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
-  <li> I understand that during the course of the operation or procedure unforeseen conditions may arise which
-require procedures different from those planned. I therefore consent to the performance of additional
-procedure which above-named physician or his / her associates may consider necessary.</li><br>
+							<div class="row">
 
+								<p>It is the policy of St. Anthony's Hospital to inform the patient of the proposed treatment and you are encouraged to ask your doctors any questions you may have regarding your care.</p>
+								<br>
 
-<li> I further consent to the administrator of such aesthetics as may be considered necessary. I recognize
-that there are occasional risks to life and health associated with anesthesia and such risks have been fully
-explained to me. </li><br>
+								<ol>
+									<li> I hereby authorize Dr. <span id="dName"> or associates at St. Anthony's Hospital
+											to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
 
-<li>For the purpose of advancing medical knowledge and education, I consent to the photographing, video
-taping or televising of the operation or procedure to the performed, provided my / the patient's identity is
-not disclosed.
-</li><br>
+											Procedures.............................................................................................<br>
 
-
-<li>I confirm that I have read fully and understood the above.</li><br>
-</ol>
-
-		 </div> 
-		 <div class="row-sm-12">
-<div class="col-sm-6"><p>Witness :<br> (Signature)</p></div>
-<div class="col-sm-6"> <p>patient/relative...<br> or Guardian (Signature)</p> </div>
-
-		 </div>
-
-
-		 <div class="row-sm-12">
-<div class="col-sm-6"><p><br>Name</p></div>
-<div class="col-sm-6"> <p><br>Name</p></div>
-
-
-		 </div>
-		 <div class="row-sm-12">
-<div class="col-sm-6"><p>Date :<span id="opD"> </span></p></div>
-<div class="col-sm-6"> <br>(Relationship, if signed by person<br>
-Other then the Patient) </div>
-
-
-		 </div>
-		 <div>
-
-		<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
-fully answered all such questions.</p>
-		 </div>
-<div class="row-sm-12">
-<div class="col-sm-6"><p>date:<span id="fdate1"> </span></p></div>
-<div class="col-sm-6"> <p>physician: <br> (Signature)</p></div>
-
-
-		 </div>
-
-	</div>  
-
-	
-
-
-	
-
-    </div>
-
-    </div>
-    
-  </div>
- 
+											Meaning (please explain briefly in lay terminology)......................................................<br>
+											.............................................................................................................
 
 
 
+									</li>
+									<li> Dr............................................ has fully explained to me the nature and Purpose of
+										operation / procedure and has also informed me of expected benefits and complications, attendant
+										discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
+										given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
+									<li> I understand that during the course of the operation or procedure unforeseen conditions may arise which
+										require procedures different from those planned. I therefore consent to the performance of additional
+										procedure which above-named physician or his / her associates may consider necessary.</li><br>
 
 
-                </div>
-              </div>
-           
-			<!-- start: FOOTER -->
-<?php include('include/footer.php');?>
-			<!-- end: FOOTER -->
-		
-			<!-- start: SETTINGS -->
-<?php include('include/setting.php');?>
-			
-			<!-- end: SETTINGS -->
+									<li> I further consent to the administrator of such aesthetics as may be considered necessary. I recognize
+										that there are occasional risks to life and health associated with anesthesia and such risks have been fully
+										explained to me. </li><br>
+
+									<li>For the purpose of advancing medical knowledge and education, I consent to the photographing, video
+										taping or televising of the operation or procedure to the performed, provided my / the patient's identity is
+										not disclosed.
+									</li><br>
+
+
+									<li>I confirm that I have read fully and understood the above.</li><br>
+								</ol>
+
+							</div> 
+							<div class="row-sm-12">
+								<div class="col-sm-6">
+									<p>Witness :<br> (Signature)</p>
+								</div>
+								<div class="col-sm-6">
+									<p>patient/relative...<br> or Guardian (Signature)</p>
+								</div>
+
+							</div>
+
+
+							<div class="row-sm-12">
+								<div class="col-sm-6">
+									<p><br>Name</p>
+								</div>
+								<div class="col-sm-6">
+									<p><br>Name</p>
+								</div>
+
+
+							</div>
+							<div class="row-sm-12">
+								<div class="col-sm-6">
+									<p>Date :<span id="opD"> </span></p>
+								</div>
+								<div class="col-sm-6"> <br>(Relationship, if signed by person<br>
+									Other then the Patient) </div>
+
+
+							</div>
+							<div>
+
+								<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
+									fully answered all such questions.</p>
+							</div>
+							<div class="row-sm-12">
+								<div class="col-sm-6">
+									<p>date:<span id="fdate1"> </span></p>
+								</div>
+								<div class="col-sm-6">
+									<p>physician: <br> (Signature)</p>
+								</div>
+
+
+							</div>
+
+						</div>
+
+
+
+
+
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+
+
 		</div>
-		<!-- start: MAIN JAVASCRIPTS -->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="vendor/modernizr/modernizr.js"></script>
-		<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
-		<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-		<script src="vendor/switchery/switchery.min.js"></script>
-		<!-- end: MAIN JAVASCRIPTS -->
-		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
-		<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-		<script src="vendor/autosize/autosize.min.js"></script>
-		<script src="vendor/selectFx/classie.js"></script>
-		<script src="vendor/selectFx/selectFx.js"></script>
-		<script src="vendor/select2/select2.min.js"></script>
-		<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-		<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<!-- start: CLIP-TWO JAVASCRIPTS -->
-		<script src="assets/js/main.js"></script>
+	</div>
 
-<script> 
+	<!-- start: FOOTER -->
+	<?php include('include/footer.php'); ?>
+	<!-- end: FOOTER -->
 
-$(document).ready(function(){
-    $('#doctor').mouseleave(function(){
-      // $('#patient').val();
-	   $('#doctor').val();
-	   $('#date').val();
-	   $('#consultant').val();
-	   $('#opD').val();
-	   
+	<!-- start: SETTINGS -->
+	<?php include('include/setting.php'); ?>
 
-      
-	   $('#dName').html($('#doctor').val());
-	   $('#cName').html($('#consultant').val());
-	   $('#opD').html($('#opDate').val());
-	   
-	   $('#fdate1').html($('#date').val());
-	   
-	});
-});
-</script>
-		<script>
-		 
+	<!-- end: SETTINGS -->
+	</div>
+	<!-- start: MAIN JAVASCRIPTS -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/modernizr/modernizr.js"></script>
+	<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="vendor/switchery/switchery.min.js"></script>
+	<!-- end: MAIN JAVASCRIPTS -->
+	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+	<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+	<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+	<script src="vendor/autosize/autosize.min.js"></script>
+	<script src="vendor/selectFx/classie.js"></script>
+	<script src="vendor/selectFx/selectFx.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+	<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+	<!-- start: CLIP-TWO JAVASCRIPTS -->
+	<script src="assets/js/main.js"></script>
 
-
-
-	jQuery(document).ready(function() {
-									Main.init();
-									FormElements.init();
-								
-									$("#pat").on("keyup", function() {
-										var pn = $(this).val();
-									//	var pat = $("#patient").val();
-										console.log(pn);
-
-										$.ajax({
-											type: "POST",
-											// contentType: "application/json",
-											// dataType: "json",
-											url: "get_doctor.php",
-											data: {
-												pName: pn
-											},
-											success: function(data) {
-												$('#nameResponse').html(data);
-												// var obj = JSON.parse(data);
-												// console.log("TEST: ",obj.name);
-												// $('#pName').html(obj.name);
-												// $('#pAge').html(obj.age);
-												// $('#pGender').html(obj.gender);
-											
-											}
-										});
-										$(document).on("click","#nameResponse p",function(){
-
-											console.log($(this).data("pid"));
-											$('#pName').html($(this).data("name"));
-												$('#pAge').html($(this).data("age"));
-												$('#pGender').html($(this).data("sex"));
-											$("#pat").val($(this).data("name"));
-											$("#patId").val($(this).data("pid"));
-											$("#nameResponse").html("");
+	<!-- <script>
+		$(document).ready(function() {
+			
+		});
+	</script> -->
+	<script>
+		jQuery(document).ready(function() {
+			Main.init();
+			FormElements.init();
+			$('#doctor').mouseleave(function() {
+				// $('#patient').val();
+				$('#doctor').val();
+				$('#date').val();
+				$('#consultant').val();
+				$('#opD').val();
 
 
 
+				$('#dName').html($('#doctor').val());
+				$('#cName').html($('#consultant').val());
+				$('#opD').html($('#opDate').val());
+
+				$('#fdate1').html($('#date').val());
+
+			});
+			$("#pat").on("keyup", function() {
+				var pn = $(this).val();
+				//	var pat = $("#patient").val();
+				console.log(pn);
+
+				$.ajax({
+					type: "POST",
+					// contentType: "application/json",
+					// dataType: "json",
+					url: "get_doctor.php",
+					data: {
+						pName: pn
+					},
+					success: function(data) {
+						$('#nameResponse').html(data);
+						// var obj = JSON.parse(data);
+						// console.log("TEST: ",obj.name);
+						// $('#pName').html(obj.name);
+						// $('#pAge').html(obj.age);
+						// $('#pGender').html(obj.gender);
+
+					}
+				});
+				$(document).on("click", "#nameResponse p", function() {
+
+					console.log($(this).data("pid"));
+					$('#pName').html($(this).data("name"));
+					$('#pAge').html($(this).data("age"));
+					$('#pGender').html($(this).data("sex"));
+					$("#pat").val($(this).data("name"));
+					$("#patId").val($(this).data("pid"));
+					$("#nameResponse").html("");
 
 
 
-										});
 
-									});
 
-								});
-		</script>
-		
-		<!-- start: JavaScript Event Handlers for this page -->
-		<script src="assets/js/form-elements.js"></script>
-		
-		<!-- end: JavaScript Event Handlers for this page -->
-		<!-- end: CLIP-TWO JAVASCRIPTS -->
-	</body>
+
+				});
+
+			});
+
+		});
+	</script>
+
+	<!-- start: JavaScript Event Handlers for this page -->
+	<script src="assets/js/form-elements.js"></script>
+
+	<!-- end: JavaScript Event Handlers for this page -->
+	<!-- end: CLIP-TWO JAVASCRIPTS -->
+</body>
+
 </html>
