@@ -149,3 +149,4 @@ if (!empty($_POST['admissionid'])) {
     // 		}
     echo json_encode($result);
 }
+?>
