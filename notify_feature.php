@@ -1,3 +1,9 @@
+<?php 
+session_start();
+error_reporting(0);
+include('hms/admin/include/config.php'); 
+include('hms/admin/include/checklogin.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form id="contact-form" method="post" action="contact.php" role="form">
+                    <form id="contact-form" method="POST" action="" role="form">
 
                         <div class="messages"></div>
 
@@ -35,15 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="form_email">Emails *</label>
-                                        <input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">
-                                        <div class="help-block with-errors"></div>
-                                    </div>
-                                </div>
-                            </div> -->
+                          
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -52,20 +50,34 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to staffs">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="submit" name="doctors_mail" class="btn btn-success btn-send" value="Mail to Doctors">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="submit" name="all_mail" class="btn btn-success btn-send" value="Mail to all">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staff">
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="form_email">Email Address</label>
+                                        <textarea id="email_addresses_manual" name="email_address_mail" class="form-control" placeholder="Specify email address with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
+                                        <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="submit" name="manual_email_submit" class="btn btn-success btn-send" value="Mail to all">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
                             </div>
-       
                         </div>
 
                     </form>
@@ -74,23 +86,76 @@
         </div>
     </main>
     <?php
-    $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
-    $subject = "We are launching.";
+    if(isset($_POST['patients_mail'])):
+        fetchEmailAddresses("2");
+    elseif(isset($_POST['staff_mail'])):
+        fetchEmailAddresses("1");
+    endif;
+    /*type
+    1. Staff
+    2. Patient
+    3. All
+    */
+    function fetchEmailAddresses($type) {  
+        $result = null;  
+        switch ($type) {
+            case '1':
+                $sql = "SELECT DISTINCT `docEmail` FROM `doctors`";
+                $ret = mysqli_query($con, $sql);
+                $cnt = 1;
+                while ($row = mysqli_fetch_array($ret)) {
+                    echo $row['docEmail'];
+                }
+                break;
+            
+            case '2':
+                $sql = "SELECT DISTINCT `PatientEmail` FROM `tblpatient`";
+                $ret = mysqli_query($con, $sql);
+                $cnt = 1;
+                while ($row = mysqli_fetch_array($ret)) {
+                    echo $row['PatientEmail'];
+                }
+                break;
+            
+            case '3':
+                echo "All";
+                break;
+            
+            default:
+                echo "default";
+                break;
+                // if (mysqli_multi_query($connection_mysql,$sql)){
+                //     do{
+                //        if ($result=mysqli_store_result($connection_mysql)){
+                //           while ($row=mysqli_fetch_row($result)){
+                //              printf("%s\n",$row[0]);
+                //           }
+                //           mysqli_free_result($connection_mysql);
+                //        }
+                //     }while (mysqli_next_result($connection_mysql));
+                //  }
+        }
 
-    $message = "<b>We're Glad to see you again.</b>";
-    $message .= "<h1>Come for party.</h1>";
+    }
+    function send_mail($to,$subject,$message){
+        // $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
+        // $subject = "We are launching.";
 
-    $header = "From:info@adpigo.com \r\n";
-    // $header .= "Cc:afgh@somedomain.com \r\n";
-    $header .= "MIME-Version: 1.0\r\n";
-    $header .= "Content-type: text/html\r\n";
+        // $message = "<b>We're Glad to see you again.</b>";
+        // $message .= "<h1>Come for party.</h1>";
 
-    $retval = mail($to, $subject, $message, $header);
+        $header = "From:info@adpigo.com \r\n";
+        // $header .= "Cc:afgh@somedomain.com \r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-type: text/html\r\n";
 
-    if ($retval == true) {
-        echo "Message sent successfully...";
-    } else {
-        echo "Message could not be sent...";
+        $retval = mail($to, $subject, $message, $header);
+
+        if ($retval == true) {
+            echo "Message sent successfully...";
+        } else {
+            echo "Message could not be sent...";
+        }
     }
     ?>
     <script src="hms/vendor/jquery/jquery.min.js"></script>
