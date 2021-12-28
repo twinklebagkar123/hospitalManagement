@@ -115,7 +115,7 @@ check_login();
 														<label>
 															Field Name:
 														</label>
-														<input type="text" id="ph" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true">
+														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true">
 
 
 													</div>
@@ -123,6 +123,7 @@ check_login();
 														<label>
 															Select Field Type:
 														</label>
+														<br>
 														<input type="radio" id="html" name="fieldType" value="TextBox">
 														<label for="html">TextBox</label><br>
 														<input type="radio" id="css" name="fieldType" value="Radio Button">
@@ -132,7 +133,7 @@ check_login();
 
 
 													</div>
-
+                                                     <a id ="addField">Add Field</a>
 
 
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -165,63 +166,14 @@ check_login();
 										<table class="table table-hover" id="sample-table-1">
 											<thead>
 												<tr>
-													<th class="center">#</th>
-													<th>Name</th>
-													<th>Charges</th>
-
-													<th>Action</th>
+													
+													<th>Field Name</th>
+													<th>Field Type</th>
 
 												</tr>
 											</thead>
-											<tbody id="delete">
-												<?php
-												$sql = mysqli_query($con, "select * from procedureList");
-												$cnt = 1;
-												while ($row = mysqli_fetch_array($sql)) {
-												?>
-
-													<tr>
-														<td class="center"><?php echo $cnt; ?>.</td>
-														<td><?php echo $row['name']; ?></td>
-														<td><?php echo $row['charges']; ?></td>
-
-														<td>
-															<div class="visible-md visible-lg hidden-sm hidden-xs">
-																<a href="editProcedure.php?id=<?php echo $row['procedureID']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-																<!-- add-medicine.php?code=<?php //echo $row['code']
-																							?>&del=delete										 -->
-																<a href="#" class="btn btn-transparent btn-xs tooltips dellClass " data-id='<?php echo $row['procedureID']; ?>' id="del" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
-															</div>
-															<div class="visible-xs visible-sm hidden-md hidden-lg">
-																<div class="btn-group" dropdown is-open="status.isopen">
-																	<button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle>
-																		<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
-																	</button>
-																	<ul class="dropdown-menu pull-right dropdown-light" role="menu">
-																		<li>
-																			<a href="#">
-																				Edit
-																			</a>
-																		</li>
-																		<li>
-																			<a href="#">
-																				Share
-																			</a>
-																		</li>
-																		<li>
-																			<a href="#">
-																				Remove
-																			</a>
-																		</li>
-																	</ul>
-																</div>
-															</div>
-														</td>
-													</tr>
-
-												<?php
-													$cnt = $cnt + 1;
-												} ?>
+											<tbody id="fieldShow">
+											
 
 
 											</tbody>
@@ -287,6 +239,12 @@ check_login();
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+			$("#addField").on("click", function(){
+				var fieldName = $("#fieldName").val();
+				var fieldType = $("input[name='fieldType']:checked").val();
+				var trow = "<tr><td>"+fieldName+"</td><td>"+fieldType+"</td></tr>"; 
+				$("#fieldShow").append(trow);
+			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
 
