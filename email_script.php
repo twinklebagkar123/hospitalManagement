@@ -88,9 +88,9 @@ include('hms/admin/include/checklogin.php');
         $retval = mail($to, $subject, $message, $header);
 
         if ($retval == true) {
-            echo "Message sent to" .$to. "successfully... \n";
+            echo "Message sent to " .$to. " successfully... \n";
         } else {
-            echo "Message could not be sent to" .$to. "\n";
+            echo "Message could not be sent to " .$to. "\n";
         }
     }
     ?>
