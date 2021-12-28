@@ -81,7 +81,7 @@ $today = $year . '-' . $month . '-' . $day;
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
 
-								<table class="display" id="myTable">
+								<table class="display" id="oc">
 									<thead>
 										<tr>
 											<th class="center">#</th>
@@ -187,7 +187,7 @@ $today = $year . '-' . $month . '-' . $day;
     </script>
     <script> 
 	$(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#oc').DataTable();
 } );
 										
 		</script>
