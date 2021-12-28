@@ -7,8 +7,8 @@ check_login();
 
 if(isset($_POST['Submit']))
 {	
-	
-	$patient=$_POST['patient'];
+	$id=$_POST['id'];
+	$patient=$_POST['pat'];
 	$doctor=$_POST['doctor'];
 	$opTitle=$_POST['opTitle'];
 	$opTime=$_POST['opTime'];
@@ -20,7 +20,7 @@ if(isset($_POST['Submit']))
 	$fCDate=$_POST['date'];
 	
 	
-	$sql=mysqli_query($con,"INSERT INTO `patientoperation`(`patNme`, `docName`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$patient','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
+	$sql=mysqli_query($con,"INSERT INTO `patientoperation`( `patNme`, `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$patient','$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
 if($sql)
 {
 echo "<script>alert('patient Operation Form added Successfully');</script>";
@@ -120,7 +120,7 @@ $today = $year . '-' . $month . '-' . $day;
 										while($row=mysqli_fetch_array($ret))
 															{
 															?>
-																<option value="<?php echo htmlentities($row['doctorName']);?>">
+																<option value="<?php echo htmlentities($row['id']);?>">
 																	<?php echo htmlentities($row['doctorName']);?>
 																</option>
 																<?php } ?>
@@ -140,7 +140,7 @@ $today = $year . '-' . $month . '-' . $day;
 										while($row=mysqli_fetch_array($ret))
 															{
 															?>
-																<option value="<?php echo htmlentities($row['doctorName']);?>">
+																<option value="<?php echo htmlentities($row['id']);?>">
 																	<?php echo htmlentities($row['doctorName']);?>
 																</option>
 																<?php } ?>
