@@ -93,7 +93,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 											<th>Appointment </th>
 											<th>Action</th>
-                      <?php echo "$sql";?>
+                    <th>  <?php echo "$today";?></th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
