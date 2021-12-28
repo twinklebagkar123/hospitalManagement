@@ -26,22 +26,17 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if(isset($_POST['submit']))
-{
-$sql=mysqli_query($con,"insert into doctorSpecilization(specilization) values('".$_POST['doctorspecilization']."')");
-$_SESSION['msg']="Doctor Specialization added successfully !!";
-}
 
-if(isset($_GET['del']))
-      {
-              mysqli_query($con,"delete from doctorSpecilization where id = '".$_GET['id']."'");
-                  $_SESSION['msg']="data deleted !!";
-      }
+$month = date('m');
+$day = date('d');
+$year = date('Y');
+
+$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Admin | Doctor Specialization</title>
+    <title>Admin | Doctor Operation</title>
   
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -81,22 +76,42 @@ if(isset($_GET['del']))
 
 
 
-  <div class="container">
-  <div class="row">
-    <div class="col-sm-6 ">
-      <div class="input-group">
-      
+              <div class="container-fluid container-fullw bg-white">
+						<div class="row">
+							<div class="col-md-12">
+								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
 
-  
-  
-     
+								<table class="display" id="myTable">
+									<thead>
+										<tr>
+											<th class="center">#</th>
+											<th>Patient Name</th>
+											<th>Operation Date</th>
+											<th>Operation Title </th>
+											<th>peration Time </th>
+											<th> Note </th>
 
-    </div>
+											<th>Appointment </th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody id="patientList">
 
-    </div>
-    
-  </div>
- 
+										
+										<?php
+											$cnt = $cnt + 1;
+										 ?>
+									</tbody>
+
+
+							</div>
+						</div>
+					</div>
+					</table>
+				</div>
+			</div>
+		</div>
+	
 
 
 
