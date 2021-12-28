@@ -414,7 +414,7 @@ $(document).ready(function(){
 												$('#pAge').html($(this).data("age"));
 												$('#pGender').html($(this).data("sex"));
 											$("#pat").val($(this).data("name"));
-											$("#pId").val($(this).data("pid"));
+											$("#patId").val($(this).data("pid"));
 											$("#nameResponse").html("");
 
 
