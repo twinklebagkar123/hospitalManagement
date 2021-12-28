@@ -1,6 +1,6 @@
 <?php 
 session_start();
-error_reporting(0);
+// error_reporting(0);
 include('hms/admin/include/config.php'); 
 include('hms/admin/include/checklogin.php');
 ?>
@@ -63,17 +63,17 @@ include('hms/admin/include/checklogin.php');
                                     <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staff">
                                 </div>
                             </div>
-                              <div class="row">
+                              <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_email">Email Address</label>
+                                        <!-- <label for="form_email">Email Address</label> -->
                                         <textarea id="email_addresses_manual" name="email_address_mail" class="form-control" placeholder="Specify email address with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="submit" name="manual_email_submit" class="btn btn-success btn-send" value="Mail to all">
+                                        <input type="submit" name="manual_email_submit" class="btn btn-success btn-send" value="Send Mail">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -96,10 +96,14 @@ include('hms/admin/include/checklogin.php');
     2. Patient
     3. All
     */
+    
     function fetchEmailAddresses($type) {  
+        
         $result = null;  
         switch ($type) {
+           
             case '1':
+                global $con;
                 $sql = "SELECT DISTINCT `docEmail` FROM `doctors`";
                 $ret = mysqli_query($con, $sql);
                 $cnt = 1;
@@ -109,6 +113,7 @@ include('hms/admin/include/checklogin.php');
                 break;
             
             case '2':
+                global $con;
                 $sql = "SELECT DISTINCT `PatientEmail` FROM `tblpatient`";
                 $ret = mysqli_query($con, $sql);
                 $cnt = 1;
