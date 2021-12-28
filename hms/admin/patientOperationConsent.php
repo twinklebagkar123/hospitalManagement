@@ -157,6 +157,14 @@ $today = $year . '-' . $month . '-' . $day;
 									<input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true">
 								</div>
 								<div class="form-group">
+									<label >Code No:</label>
+									<input type="text" id="code" name="code">
+									<label >Ward:</label>
+									<input type="text" id="ward" name="ward">
+									<label >R No:</label>
+									<input type="text" id="rno" name="rno">
+								</div>
+								<div class="form-group">
 									<label for="opTime">Select a time:</label>
 									<input type="time" id="opTime" name="opTime">
 									<label for="opDate">Select a Date:</label>
@@ -205,7 +213,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 							<h3>St Anthony's Hospital & Research Centre</h3>
 							<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p>Patient Name: <span id="pName"> </span></p>
 								</div>
@@ -219,20 +227,20 @@ $today = $year . '-' . $month . '-' . $day;
 
 							<div class="row">
 								<div class="col-sm-4">
-									<p>Code No: </p>
+									<p>Code No:<span id="cc"></span></p>
 								</div>
 								<div class="col-sm-4">
-									<p> Ward: </p>
+									<p> Ward:<span id="ww"></span> </p>
 								</div>
 								<div class="col-sm-4">
-									<p>R No.: </p>
+									<p>R No.: <span id="rr"></span></p>
 								</div>
 							</div>
 
 
 							<div class="row">
 								<div class="col-sm-4">
-									<p>Consultant:<span id="cName"> </p>
+									<p>Consultant:<span id="cName"> </span></p>
 								</div>
 								<div class="col-sm-4">
 									<p>DOA: </p>
@@ -401,6 +409,17 @@ $today = $year . '-' . $month . '-' . $day;
 			});
 			$('#opDate').on("change", function() {
 				$('#opD').html($('#opDate').val());
+			});
+
+
+			$('#code').on("change", function() {
+				$('#cc').html($('#code').val());
+			});
+			$('#ward').on("change", function() {
+				$('#ww').html($('#ward').val());
+			});
+			$('#rno').on("change", function() {
+				$('#rr').html($('#rno').val());
 			});
 			$("#pat").on("keyup", function() {
 				var pn = $(this).val();
