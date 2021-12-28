@@ -389,15 +389,15 @@ $today = $year . '-' . $month . '-' . $day;
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
-			$('#doctor').chnage(function() {
+			$('#doctor').onChnage(function() {
 				$('#dName').html($('#doctor').val());
 				$('#fdate1').html($('#date').val());
 
 			});
-			$('#consultant').chnage(function() {
+			$('#consultant').onChnage(function() {
 				$('#cName').html($('#consultant').val());
 			});
-			$('#opDate').chnage(function() {
+			$('#opDate').onChnage(function() {
 				$('#opD').html($('#opDate').val());
 			});
 			$("#pat").on("keyup", function() {
