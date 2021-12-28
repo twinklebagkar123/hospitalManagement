@@ -272,6 +272,18 @@
 					</a>
 				</li>
 				<li>
+					<a href="laboratory.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Laboratory Section </span>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
 					<a href="addProcedure.php">
 						<div class="item-content">
 							<div class="item-media">
