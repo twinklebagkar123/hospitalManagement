@@ -217,7 +217,7 @@ $today = $year . '-' . $month . '-' . $day;
 								</div>
 							</div>
 
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-4">
 									<p>Code No: </p>
 								</div>
@@ -230,7 +230,7 @@ $today = $year . '-' . $month . '-' . $day;
 							</div>
 
 
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-4">
 									<p>Consultant:<span id="cName"> </p>
 								</div>
