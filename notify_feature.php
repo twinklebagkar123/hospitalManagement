@@ -36,7 +36,7 @@ include('hms/admin/include/checklogin.php');
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="form_name">Subject</label>
-                                        <input id="form_name" type="text" name="name" class="form-control" placeholder="Subject *" required="required" data-error="Subject is required.">
+                                        <input id="form_name" type="text" name="email_subject" class="form-control" placeholder="Subject *" required="required" data-error="Subject is required.">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@ include('hms/admin/include/checklogin.php');
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="form_message">Message *</label>
-                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please, leave a message."></textarea>
+                                        <textarea id="form_message" name="email_message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please, leave a message."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -87,11 +87,13 @@ include('hms/admin/include/checklogin.php');
     </main>
     <?php
     if(isset($_POST['patients_mail'])):
-        fetchEmailAddresses("2");
+        fetchEmailAddresses("2",$_POST['email_subject'],$_POST['email_message']);
     elseif(isset($_POST['staff_mail'])):
-        fetchEmailAddresses("1");
+        fetchEmailAddresses("1",$_POST['email_subject'],$_POST['email_message']);
     elseif(isset($_POST['all_mail'])):
-        fetchEmailAddresses("3");
+        fetchEmailAddresses("3",$_POST['email_subject'],$_POST['email_message']);
+    elseif(isset($_POST['manual_email_submit'])):
+        fetchEmailAddresses("4",$_POST['email_subject'],$_POST['email_message'],$_POST['email_addresses_manual']);
     endif;
     /*type
     1. Staff
@@ -99,7 +101,7 @@ include('hms/admin/include/checklogin.php');
     3. All
     */
     
-    function fetchEmailAddresses($type) {  
+    function fetchEmailAddresses($type,$subject,$message,$email_addresses = "") {  
         
         $result = [];  
         switch ($type) {
@@ -143,12 +145,12 @@ include('hms/admin/include/checklogin.php');
                 break;
             
             default:
-                echo "default";
+                send_mail($email_addresses,$subject,$message);
                 break;
-                
         }
-        print_r($result);
-
+        foreach($result as $val){
+            send_mail($val,$subject,$message);
+        }
     }
     function send_mail($to,$subject,$message){
         // $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
