@@ -17,11 +17,11 @@
         </div>
     </main>
     <?php 
-        $to = "porobjagannath@gmail.com";
-        $subject = "This is subject";
+        $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
+        $subject = "We are launching.";
         
-        $message = "<b>This is HTML message.</b>";
-        $message .= "<h1>This is headline.</h1>";
+        $message = "<b>We're Glad to see you again.</b>";
+        $message .= "<h1>Come for party.</h1>";
         
         $header = "From:info@adpigo.com \r\n";
         // $header .= "Cc:afgh@somedomain.com \r\n";
