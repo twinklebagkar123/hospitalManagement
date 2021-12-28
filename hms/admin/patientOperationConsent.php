@@ -7,7 +7,7 @@ check_login();
 
 if(isset($_POST['Submit']))
 {	
-	$id=$_POST['id'];
+	$id=$_POST['pid'];
 	$patient=$_POST['pat'];
 	$doctor=$_POST['doctor'];
 	$opTitle=$_POST['opTitle'];
@@ -102,7 +102,7 @@ $today = $year . '-' . $month . '-' . $day;
       <div class="input-group">
       <div class="form-group">
 	  <form method="post" name="submit">
-	  <input type="hidden" name="id" class="form-control" id="patId"  value="" >
+	  <input type="hidden" name="pid" class="form-control" id="patId"  value="" >
 															<label for="Patient Name">
                                                             Patient Name
 															
