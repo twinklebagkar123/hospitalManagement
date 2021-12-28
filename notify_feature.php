@@ -131,12 +131,12 @@ include('hms/admin/include/checklogin.php');
                 $sql = "SELECT DISTINCT `PatientEmail` as emailAddress FROM `tblpatient`;SELECT DISTINCT `docEmail`  as emailAddress FROM `doctors`";
                 if (mysqli_multi_query($con,$sql)){
                     do{
-                       if ($result=mysqli_store_result($con)){
-                          while ($row=mysqli_fetch_row($result)){
-                             print_r($row);
+                       if ($resp=mysqli_store_result($con)){
+                          while ($row=mysqli_fetch_row($resp)){
+                            array_push($result,$row[0]);
                           }
                         //   global $con;
-                          mysqli_free_result($result);
+                          mysqli_free_result($resp);
                        }
                     }while (mysqli_next_result($con));
                  }
