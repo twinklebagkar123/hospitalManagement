@@ -99,7 +99,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT * FROM `patientoperation` WHERE opDate=$today ");
+										$sql = mysqli_query($con, "SELECT * FROM `patientoperation` WHERE opDate='$today' ");
                     echo "$sql";
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
