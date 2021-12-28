@@ -1,9 +1,4 @@
-<?php 
-session_start();
-// error_reporting(0);
-include('hms/admin/include/config.php'); 
-include('hms/admin/include/checklogin.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 

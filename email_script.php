@@ -1,4 +1,9 @@
 <?php
+session_start();
+// error_reporting(0);
+include('hms/admin/include/config.php'); 
+include('hms/admin/include/checklogin.php');
+
     if(isset($_POST['patients_mail'])):
         fetchEmailAddresses("2",$_POST['email_subject'],$_POST['email_message']);
     elseif(isset($_POST['staff_mail'])):
