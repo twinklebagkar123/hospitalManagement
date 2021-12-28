@@ -57,7 +57,24 @@ $today = $year . '-' . $month . '-' . $day;
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 		
+
+
+
+		<!-- <script>
+		function getdoctor(val) {
+			console.log("hi");
+			$.ajax({
+				type: "POST",
+				url: "get_doctor.php",
+				data: 'pName=' + val,
+				// success: function(data) {
+				// 	$("#pName").html(data);
+				// }
+			});
+		}
+	</script> -->
 	</head>
+	
 	<body>
 		<div id="app">		
 <?php include('include/sidebar.php');?>
@@ -85,27 +102,37 @@ $today = $year . '-' . $month . '-' . $day;
       <div class="input-group">
       <div class="form-group">
 	  <form method="post" name="submit">
+	  <input type="hidden" name="id" class="form-control" id="patId"  value="" >
 															<label for="Patient Name">
                                                             Patient Name
 															
 															</label>
-					<select name="patient" class="form-control" id="patient" required="require">
-							<option value="">Patient Name</option>
-										<?php $xyz= "SELECT * FROM `tblpatient` where 1";
-
-										 $result = $con->query($xyz);
-										while($row=mysqli_fetch_array($result))
+					<input type="text" name="pat" class="form-control" id="pat"  required="require">
+							<div id="nameResponse" >  </div>
+														</div>
+														<div class="form-group">
+															<label for="consultant">
+															Consultant
+															</label>
+					<select name="consultant" class="form-control" id="consultant"  required="require">
+							<option value="">Select consultant</option>
+										<?php $ret=mysqli_query($con,"select * from doctors where 1");
+										while($row=mysqli_fetch_array($ret))
 															{
 															?>
-																<option value="<?php echo htmlentities($row['PatientName']);?>">
-																	<?php echo htmlentities($row['PatientName']);?>
+																<option value="<?php echo htmlentities($row['doctorName']);?>">
+																	<?php echo htmlentities($row['doctorName']);?>
 																</option>
 																<?php } ?>
 						</select>
 														</div>
+
+
+
+
                                                         <div class="form-group">
 															<label for="doctor">
-																Doctors
+																Doctors 
 															</label>
 					<select name="doctor" class="form-control" id="doctor"  required="require">
 							<option value="">Select doctor</option>
@@ -119,6 +146,13 @@ $today = $year . '-' . $month . '-' . $day;
 																<?php } ?>
 						</select>
 														</div>
+
+
+
+
+														
+
+														
 
 														<div class="form-group">
 <label >
@@ -172,58 +206,109 @@ $today = $year . '-' . $month . '-' . $day;
     </div>
 	
     <div class="col-sm-6">
-    <div class="">
-	<p>General Consent For Medical/Surgical Procedures/Interventions</p>
+    
+	<h3>St Anthony's Hospital & Research Centre</h3>
+<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
+	<div class="row-sm-12">
+<div class="col-sm-6"> <p>Patient Name: <span id="pName">  </span></p>  </div>
+<div class="col-sm-3"> <p>Age: <span id="pAge">  </span>  </p> </div>
+<div class="col-sm-3">  <p>Sex:  <span id="pGender"></span> </p></div>	
+</div>
 
-	<p>Patient Name: <span id="pName"> <input type="test" placeholder="" readonly /> </span></p>       <br>  
-	            <p>Doctor Name: <span id="dName"> <input type="test" placeholder="" readonly /> </span></p>   
-	<p><ins>TO THE MEMBER:</ins> You have been given information about your condition and the recommended
-surgical, medical, or diagnostic procedure(s). This consent form is designed to provide a written
-confirmation of these discussions.</p> 
+<div class="row-sm-12">
+<div class="col-sm-4"> <p>Code No: </p>    </div>
+<div class="col-sm-4"> <p>  Ward: </p></div>
+<div class="col-sm-4">  <p>R No.: </p></div>	
+</div>
+
+
+<div class="row-sm-12">
+<div class="col-sm-4"> <p>Consultant:<span id="cName"> </p>  </div>
+<div class="col-sm-4">  <p>DOA:   </p></div>	
+</div>
+<br>
+<br>
+<br>
+<br>
+
+	     <div class="row">   
+			 
+	<p>It is the policy of St. Anthony's Hospital to inform the patient of the proposed treatment and you are encouraged to ask your doctors any questions you may have regarding your care.</p> 
+	<br>
+	
 <ol>
-  <li>  explained to me that I have the following condition(s):
- <br>(Clinician)<br> (explain in lay terms)</li>
-  <li> The following procedure/intervention/anesthesia (if any) has been recommended: </li>
-  <li> _______________________________________________________________________
-(explain in lay terms)</li>
+  <li>  I hereby authorize Dr. <span id="dName">     or associates at St. Anthony's Hospital
+to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
+
+Procedures.............................................................................................<br>
+
+Meaning (please explain briefly in lay terminology)......................................................<br>
+.............................................................................................................
 
 
-<li> The following have been explained to me about the procedure/intervention/anesthesia (if any): </li>
-<ul>
-  <li>Its purpose and nature.</li>
-  <li>The potential benefits and risks. </li>
-  <li>The likely result if I do not have the recommended procedure/intervention.</li>
-  <li>The available alternative treatments and their benefits and risks.</li>
-</ul>
-<li>The most likely and most serious risks of the procedure(s) are:
-<br>________________________________________________________________
+
 </li>
-<li>I am aware that there may be other risks or complications not discussed that may occur. I also
-understand that during the course of the proposed procedure, unforeseen conditions may be
-revealed requiring the performance of additional procedures, and I authorize such procedures
-to be performed. I acknowledge that no guarantees or promises have been made to me
-concerning the results of this procedure or any treatment that may be required as a result of
-this procedure.</li>
-<li>I understand what has been discussed with me as well as the contents of this form. I have
-been given the opportunity to ask questions and have received satisfactory answers. If you
-have not had all of your questions answered to your satisfaction, do not sign this form until you
-have.</li>
-<li>I voluntarily consent to the performance of the procedure/intervention/anesthesia (if any)
-described above by my clinician or those who work with him/her.</li>
+  <li> Dr............................................ has fully explained to me the nature and Purpose of
+operation / procedure and has also informed me of expected benefits and complications, attendant
+discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
+given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
+  <li> I understand that during the course of the operation or procedure unforeseen conditions may arise which
+require procedures different from those planned. I therefore consent to the performance of additional
+procedure which above-named physician or his / her associates may consider necessary.</li><br>
+
+
+<li> I further consent to the administrator of such aesthetics as may be considered necessary. I recognize
+that there are occasional risks to life and health associated with anesthesia and such risks have been fully
+explained to me. </li><br>
+
+<li>For the purpose of advancing medical knowledge and education, I consent to the photographing, video
+taping or televising of the operation or procedure to the performed, provided my / the patient's identity is
+not disclosed.
+</li><br>
+
+
+<li>I confirm that I have read fully and understood the above.</li><br>
 </ol>
 
+		 </div> 
+		 <div class="row-sm-12">
+<div class="col-sm-6"><p>Witness :<br> (Signature)</p></div>
+<div class="col-sm-6"> <p>patient/relative...<br> or Guardian (Signature)</p> </div>
 
-<p>Patient Signature</p><p>Date :<span id="fdate1"> <input type="test" placeholder="" readonly /></p>
-<p>Witness Signature</p><p>Date:<span id="fdate2"> <input type="test" placeholder="" readonly /></p>
-<p>Physician Signature</p><p>Date:<span id="fdate3"> <input type="test" placeholder="" readonly /></p>
+		 </div>
+
+
+		 <div class="row-sm-12">
+<div class="col-sm-6"><p><br>Name</p></div>
+<div class="col-sm-6"> <p><br>Name</p></div>
+
+
+		 </div>
+		 <div class="row-sm-12">
+<div class="col-sm-6"><p>Date :<span id="opD"> </span></p></div>
+<div class="col-sm-6"> <br>(Relationship, if signed by person<br>
+Other then the Patient) </div>
+
+
+		 </div>
+		 <div>
+
+		<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
+fully answered all such questions.</p>
+		 </div>
+<div class="row-sm-12">
+<div class="col-sm-6"><p>date:<span id="fdate1"> </span></p></div>
+<div class="col-sm-6"> <p>physician: <br> (Signature)</p></div>
+
+
+		 </div>
 
 	</div>  
 
+	
 
 
-
-
-
+	
 
     </div>
 
@@ -269,21 +354,81 @@ described above by my clinician or those who work with him/her.</li>
 		<!-- start: CLIP-TWO JAVASCRIPTS -->
 		<script src="assets/js/main.js"></script>
 
+<script> 
 
-		<script>
-		$(document).ready(function(){
-    $('#patient').change(function(){
-       $('#patient').val();
+$(document).ready(function(){
+    $('#doctor').mouseleave(function(){
+      // $('#patient').val();
 	   $('#doctor').val();
 	   $('#date').val();
-       $('#pName').html($('#patient').val());
+	   $('#consultant').val();
+	   $('#opD').val();
+	   
+
+      
 	   $('#dName').html($('#doctor').val());
+	   $('#cName').html($('#consultant').val());
+	   $('#opD').html($('#opDate').val());
+	   
 	   $('#fdate1').html($('#date').val());
-	   $('#fdate2').html($('#date').val());
-	   $('#fdate3').html($('#date').val()); 
+	   
 	});
-	});
+});
+</script>
+		<script>
+		 
+
+
+
+	jQuery(document).ready(function() {
+									Main.init();
+									FormElements.init();
+								
+									$("#pat").on("keyup", function() {
+										var pn = $(this).val();
+									//	var pat = $("#patient").val();
+										console.log(pn);
+
+										$.ajax({
+											type: "POST",
+											// contentType: "application/json",
+											// dataType: "json",
+											url: "get_doctor.php",
+											data: {
+												pName: pn
+											},
+											success: function(data) {
+												$('#nameResponse').html(data);
+												// var obj = JSON.parse(data);
+												// console.log("TEST: ",obj.name);
+												// $('#pName').html(obj.name);
+												// $('#pAge').html(obj.age);
+												// $('#pGender').html(obj.gender);
+											
+											}
+										});
+										$(document).on("click","#nameResponse p",function(){
+
+											console.log($(this).data("pid"));
+											$('#pName').html($(this).data("name"));
+												$('#pAge').html($(this).data("age"));
+												$('#pGender').html($(this).data("sex"));
+											$("#pat").val($(this).data("name"));
+											$("#pId").val($(this).data("pid"));
+											$("#nameResponse").html("");
+
+
+
+
+
+
+										});
+
+									});
+
+								});
 		</script>
+		
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="assets/js/form-elements.js"></script>
 		
