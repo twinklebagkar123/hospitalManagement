@@ -389,21 +389,16 @@ $today = $year . '-' . $month . '-' . $day;
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
-			$('#doctor').mouseleave(function() {
-				// $('#patient').val();
-				$('#doctor').val();
-				$('#date').val();
-				$('#consultant').val();
-				$('#opD').val();
-
-
-
+			$('#doctor').chnage(function() {
 				$('#dName').html($('#doctor').val());
-				$('#cName').html($('#consultant').val());
-				$('#opD').html($('#opDate').val());
-
 				$('#fdate1').html($('#date').val());
 
+			});
+			$('#consultant').chnage(function() {
+				$('#cName').html($('#consultant').val());
+			});
+			$('#opDate').chnage(function() {
+				$('#opD').html($('#opDate').val());
 			});
 			$("#pat").on("keyup", function() {
 				var pn = $(this).val();
