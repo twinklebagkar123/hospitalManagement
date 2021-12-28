@@ -156,6 +156,32 @@ $today = $year . '-' . $month . '-' . $day;
 									</label>
 									<input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true">
 								</div>
+
+
+								<div class="form-group">
+									<div class="row">  
+										
+									<div class="col-sm-4">
+									<label >Code No:</label>
+									<input type="text" id="code" name="code">
+								</div>
+								<div class="col-sm-4">
+								<label >Ward:</label>
+									<input type="text" id="ward" name="ward">
+								</div>
+								<div class="col-sm-4">
+								<label >R No:</label>
+									<input type="text" id="rno" name="rno">
+								</div>
+									
+								
+								
+								
+								</div>
+									
+									
+								
+								</div>
 								<div class="form-group">
 									<label for="opTime">Select a time:</label>
 									<input type="time" id="opTime" name="opTime">
@@ -205,7 +231,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 							<h3>St Anthony's Hospital & Research Centre</h3>
 							<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p>Patient Name: <span id="pName"> </span></p>
 								</div>
@@ -219,20 +245,20 @@ $today = $year . '-' . $month . '-' . $day;
 
 							<div class="row">
 								<div class="col-sm-4">
-									<p>Code No: </p>
+									<p>Code No:<span id="cc"></span></p>
 								</div>
 								<div class="col-sm-4">
-									<p> Ward: </p>
+									<p> Ward:<span id="ww"></span> </p>
 								</div>
 								<div class="col-sm-4">
-									<p>R No.: </p>
+									<p>R No.: <span id="rr"></span></p>
 								</div>
 							</div>
 
 
 							<div class="row">
 								<div class="col-sm-4">
-									<p>Consultant:<span id="cName"> </p>
+									<p>Consultant:<span id="cName"> </span></p>
 								</div>
 								<div class="col-sm-4">
 									<p>DOA: </p>
@@ -249,18 +275,19 @@ $today = $year . '-' . $month . '-' . $day;
 								<br>
 
 								<ol>
-									<li> I hereby authorize Dr. <span id="dName"> or associates at St. Anthony's Hospital
-											to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
+									<li>
+										I hereby authorize Dr. <span id="dName"></span> or associates at St. Anthony's Hospital
+										to perform upon me or the above - named patient the following operation and / or procedures, name of<br>
 
-											Procedures.............................................................................................<br>
+										Procedures.............................................................................................<br>
 
-											Meaning (please explain briefly in lay terminology)......................................................<br>
-											.............................................................................................................
+										Meaning (please explain briefly in lay terminology)......................................................<br>
+										.............................................................................................................
 
 
 
 									</li>
-									<li> Dr............................................ has fully explained to me the nature and Purpose of
+									<li> Dr.<span id="dName2"></span> has fully explained to me the nature and Purpose of
 										operation / procedure and has also informed me of expected benefits and complications, attendant
 										discomforts and risks that may arise, as well as possible alternatives to the proposed treatment. I have been
 										given an opportunity to ask questions, and all my questions have been answered fully satisfactorily.</li><br>
@@ -389,16 +416,28 @@ $today = $year . '-' . $month . '-' . $day;
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
-			$('#doctor').on("change",function() {
+			$('#doctor').on("change", function() {
 				$('#dName').html($('#doctor').val());
+				$('#dName2').html($('#doctor').val());
 				$('#fdate1').html($('#date').val());
 
 			});
-			$('#consultant').on("change",function() {
+			$('#consultant').on("change", function() {
 				$('#cName').html($('#consultant').val());
 			});
-			$('#opDate').on("change",function() {
+			$('#opDate').on("change", function() {
 				$('#opD').html($('#opDate').val());
+			});
+
+
+			$('#code').on("change", function() {
+				$('#cc').html($('#code').val());
+			});
+			$('#ward').on("change", function() {
+				$('#ww').html($('#ward').val());
+			});
+			$('#rno').on("change", function() {
+				$('#rr').html($('#rno').val());
 			});
 			$("#pat").on("keyup", function() {
 				var pn = $(this).val();
