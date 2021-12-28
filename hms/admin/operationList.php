@@ -52,6 +52,7 @@ $today = $year . '-' . $month . '-' . $day;
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
   </head>
   <body>
     <div id="app">    
@@ -91,8 +92,7 @@ $today = $year . '-' . $month . '-' . $day;
 											<th>peration Time </th>
 											<th> Note </th>
 
-											<th>Appointment </th>
-											<th>Action</th>
+											
                    
 										</tr>
 									</thead>
@@ -165,6 +165,8 @@ $today = $year . '-' . $month . '-' . $day;
     <!-- end: MAIN JAVASCRIPTS -->
     <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
     <script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
     <script src="vendor/autosize/autosize.min.js"></script>
     <script src="vendor/selectFx/classie.js"></script>
