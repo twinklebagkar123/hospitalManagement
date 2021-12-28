@@ -52,9 +52,18 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
-                                    <input type="submit" class="btn btn-success btn-send" value="Send message">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to staffs">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <input type="submit" name="doctors_mail" class="btn btn-success btn-send" value="Mail to Doctors">
+                                    </div>
                                 </div>
+                                
                             </div>
        
                         </div>
