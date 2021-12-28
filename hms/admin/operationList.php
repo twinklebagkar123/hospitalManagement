@@ -185,6 +185,12 @@ $today = $year . '-' . $month . '-' . $day;
         FormElements.init();
       });
     </script>
+    <script> 
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+										
+		</script>
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
   </body>
