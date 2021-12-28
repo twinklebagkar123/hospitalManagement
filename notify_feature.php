@@ -133,7 +133,7 @@ include('hms/admin/include/checklogin.php');
                     do{
                        if ($result=mysqli_store_result($con)){
                           while ($row=mysqli_fetch_row($result)){
-                             echo $row[0];
+                             echo $row;
                           }
                         //   global $con;
                           mysqli_free_result($result);
@@ -178,7 +178,6 @@ include('hms/admin/include/checklogin.php');
             $('#bulk_sms').click(function() {
                 console.log("Test on click");
                 $.ajax({
-
                     url: "https://www.fast2sms.com/dev/bulkV2",
                     headers: {
                         "authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
