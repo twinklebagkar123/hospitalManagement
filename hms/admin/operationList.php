@@ -97,10 +97,30 @@ $today = $year . '-' . $month . '-' . $day;
 									</thead>
 									<tbody id="patientList">
 
-										
+										<?php
+
+										$sql = mysqli_query($con, "SELECT * FROM `patientoperation` WHERE opDate=$today ");
+                    echo "$sql";
+										$cnt = 1;
+										while ($row = mysqli_fetch_array($sql)) {
+										?>
+											<tr>
+												<td class="center"><?php echo $cnt; ?>.</td>
+												<td class="hidden-xs"><?php echo $row['patNme']; ?></td>
+												<td><?php echo $row['opDate']; ?></td>
+												<td><?php echo $row['opTitle']; ?></td>
+												<td><?php echo $row['opTime']; ?></td>
+												<td><?php echo $row['pRNote']; ?>
+												</td>
+
+												
+
+
+												
+											</tr>
 										<?php
 											$cnt = $cnt + 1;
-										 ?>
+										} ?>
 									</tbody>
 
 
