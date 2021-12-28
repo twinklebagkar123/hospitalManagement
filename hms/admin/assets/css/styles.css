@@ -11396,3 +11396,19 @@ td.small-width {
 [date-picker] .disabled.active, [date-picker] .disabled.now {
   color: #ffffff !important;
 }
+#nameResponse{
+  background-color: #ffffff;
+  padding: 20px 10px;
+  
+  
+  
+  }
+  
+  #nameResponse p{
+  
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    margin: 0;
+    cursor: pointer;
+  
+  }
