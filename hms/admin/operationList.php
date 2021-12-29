@@ -112,6 +112,7 @@ $today = $year . '-' . $month . '-' . $day;
 												<td><?php echo $row['opTitle']; ?></td>
 												<td><?php echo $row['opTime']; ?></td>
 												<td><?php echo $row['pRNote']; ?>
+                        <td><?php echo $row['Doctor Name']; ?>
 												</td>
 
 												
