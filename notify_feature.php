@@ -106,10 +106,10 @@
                     data: {
                         "sms_type": "1",
                         "message": message,
-                        "numbers": "7038544429,8999052871",
+                        "numbers": "7038544429,899905287",
                     },
                     success: function(data) {
-                        console.log(data);
+                        console.log(data.message);
                     },
                     error: function(xhr, exception) {
                         var msg = "";
