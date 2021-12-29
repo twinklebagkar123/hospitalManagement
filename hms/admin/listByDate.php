@@ -71,10 +71,10 @@ $today = $year . '-' . $month . '-' . $day;
                                     <input type="submit" name="search" class="btn btn-outline-secondary btn-sm" id="Submit" value="Search">
 								</div>
                                 <?php
-if(isset($_POST['search']))
-{ 
+// if(isset($_POST['search']))
+// { 
 
-$sdata=$_POST['searchdata'];
+// $sdata=$_POST['searchdata'];
   ?>
                              <span>
 								<table class="display" id="oc">
@@ -96,19 +96,19 @@ $sdata=$_POST['searchdata'];
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
+										//$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
              
-										$cnt = 1;
-										while ($row = mysqli_fetch_array($sql)) {
+										//$cnt = 1;
+										//while ($row = mysqli_fetch_array($sql)) {
 										?>
 											<tr>
-												<td class="center"><?php echo $cnt; ?>.</td>
-												<td class="hidden-xs"><?php echo $row['patNme']; ?></td>
-												<td><?php echo $row['opDate']; ?></td>
-												<td><?php echo $row['opTitle']; ?></td>
-												<td><?php echo $row['opTime']; ?></td>
-												<td><?php echo $row['pRNote']; ?>
-                                                <td><?php echo $row['doctorName']; ?>
+												<td class="center"><?php // echo $cnt; ?>.</td>
+												<td class="hidden-xs"><?php //echo $row['patNme']; ?></td>
+												<td><?php //echo $row['opDate']; ?></td>
+												<td><?php //echo $row['opTitle']; ?></td>
+												<td><?php // echo $row['opTime']; ?></td>
+												<td><?php //echo $row['pRNote']; ?>
+                                                <td><?php // echo $row['doctorName']; ?>
 												</td>
 
 												
@@ -117,8 +117,8 @@ $sdata=$_POST['searchdata'];
 												
 											</tr>
 										<?php
-											$cnt = $cnt + 1;
-										} ?>
+											//$cnt = $cnt + 1;
+										//} ?>
 									</tbody>
 
 
@@ -184,7 +184,7 @@ $sdata=$_POST['searchdata'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tblpatient where PatientName like '%$sdata%'|| PatientContno like '%$sdata%'");
+$sql=mysqli_query($con,"SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
