@@ -172,14 +172,17 @@ $sdata=$_POST['searchdata'];
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
-<th class="center">#</th>
-<th>Patient Name</th>
-<th>Patient Contact Number</th>
-<th>Patient Gender </th>
-<th>Creation Date </th>
-<th>Updation Date </th>
-<th>Action</th>
-</tr>
+											<th class="center">#</th>
+											<th>Patient Name</th>
+											<th>Operation Date</th>
+											<th>Operation Title </th>
+											<th>peration Time </th>
+											<th> Note </th>
+                                            <th> doctorName </th>
+
+											
+                   
+										</tr>
 </thead>
 <tbody>
 <?php
@@ -193,11 +196,12 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
-<td><?php echo $row['PatientContno'];?></td>
-<td><?php echo $row['PatientGender'];?></td>
-<td><?php echo $row['CreationDate'];?></td>
-<td><?php echo $row['UpdationDate'];?>
+<td class="hidden-xs"><?php echo $row['patNme'];?></td>
+<td><?php echo $row['opDate'];?></td>
+<td><?php echo $row['opTitle'];?></td>
+<td><?php echo $row['opTime'];?></td>
+<td><?php echo $row['pRNote'];?></td>
+<td><?php echo $row['doctorName']; ?>
 </td>
 <td>
 
