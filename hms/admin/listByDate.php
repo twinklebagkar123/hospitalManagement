@@ -176,6 +176,15 @@ $today = $year . '-' . $month . '-' . $day;
       jQuery(document).ready(function() {
         Main.init();
         FormElements.init();
+        $("#submit").on("click", function() {
+										// var name = $(this).data("name");
+										// var id = $(this).data("pid");
+										// $("#titleModal").html("Book " + name + "'s Appointment");
+										// $("#idInput").val(id);
+
+                                        console.log("heyyyyy");
+									});
+
 
         $("#opDate").on("change", function() {
             console.log("heyyy");
