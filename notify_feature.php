@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="hms/vendor/bootstrap/css/bootstrap.min.css">
-    <title>Send Bulk SMS</title>
+    <title>Send Bulk SMS/EMAIL</title>
 </head>
 
 <body>
@@ -16,6 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
+                    <textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea>
                     <button id="bulk_sms" class="btn btn-success">Send SMS</button>
                 </div>
             </div>
@@ -86,7 +87,9 @@
     <script>
         $(document).ready(function() {
             $('#bulk_sms').click(function() {
-                console.log("Test on click");
+                var message = $('#sms_textarea').val();
+                
+                console.log("Test on click with message: ",message);
                 $.ajax({
                     url: "https://www.fast2sms.com/dev/bulkV2",
                     headers: {
