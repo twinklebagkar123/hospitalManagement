@@ -89,7 +89,7 @@
             $('#bulk_sms').click(function() {
                 var message = $('#sms_textarea').val();
                 $.ajax({
-                    url: "/email_script.php",
+                    url: "/hospital/email_script.php",
                     // headers: {
                     //     "Access-Control-Allow-Headers": '*',
                     //     "authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
