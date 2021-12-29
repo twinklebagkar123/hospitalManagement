@@ -96,7 +96,7 @@ $today = $year . '-' . $month . '-' . $day;
 											<th>Operation Title </th>
 											<th>peration Time </th>
 											<th> Note </th>
-                      <th> doctorName </th>
+                                            <th> doctorName </th>
 
 											
                    
@@ -136,6 +136,7 @@ $today = $year . '-' . $month . '-' . $day;
 						</div>
 					</div>
 					</table>
+                    <div id="resultFetch"></div>
 				</div>
 			</div>
 		</div>
@@ -188,10 +189,37 @@ $today = $year . '-' . $month . '-' . $day;
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script>
+     
       jQuery(document).ready(function() {
-        Main.init();
-        FormElements.init();
-      });
+									Main.init();
+									FormElements.init();
+									$("#patientList button").on("click", function() {
+										var name = $(this).data("name");
+										var id = $(this).data("pid");
+										$("#titleModal").html("Book " + name + "'s Appointment");
+										$("#idInput").val(id);
+									});
+									$("#appDate").on("change", function() {
+										var apt = $(this).val();
+										var doc = $("#doctor").val();
+										console.log(doc);
+
+										$.ajax({
+											type: "POST",
+											url: "get_doctor.php",
+											data: {
+												appDate: apt,
+												docID: doc
+											},
+											success: function(data) {
+												$("#resultFetch").html(data);
+											}
+										});
+
+
+									});
+
+								});
     </script>
     <script> 
 	$(document).ready( function () {
