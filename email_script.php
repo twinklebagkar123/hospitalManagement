@@ -115,6 +115,6 @@ include('hms/admin/include/checklogin.php');
         ));
         $response = curl_exec($curl);
         curl_close($curl);
-        return $response;  
+        echo $response;  
     }
     ?>
