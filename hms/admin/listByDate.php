@@ -7,7 +7,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$date= ['opDate'];
+$date=  $_POST['opDate'];
 $month = date('m');
 $day = date('d');
 $year = date('Y');
@@ -90,7 +90,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$today'");
+										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
              
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
