@@ -110,8 +110,8 @@ include('hms/admin/include/checklogin.php');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $query_fields);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-            'authorization : sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu',
-            'Content-Type : application/json'
+            'authorization: sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu',
+            // 'Content-Type : application/json'
         ));
         $response = json_decode(curl_exec($curl), true);
         curl_close($curl);
