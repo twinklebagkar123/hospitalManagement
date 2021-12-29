@@ -81,7 +81,11 @@ $today = $year . '-' . $month . '-' . $day;
 						<div class="row">
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
-
+                                <div class="form-group">
+								
+									<label for="opDate">Select a Date:</label>
+									<input type="date" id="opDate" name="opDate">
+								</div>
 								<table class="display" id="oc">
 									<thead>
 										<tr>
@@ -113,7 +117,7 @@ $today = $year . '-' . $month . '-' . $day;
 												<td><?php echo $row['opTitle']; ?></td>
 												<td><?php echo $row['opTime']; ?></td>
 												<td><?php echo $row['pRNote']; ?>
-                        <td><?php echo $row['doctorName']; ?>
+                                                <td><?php echo $row['doctorName']; ?>
 												</td>
 
 												
