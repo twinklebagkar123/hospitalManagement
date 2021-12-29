@@ -153,9 +153,9 @@ $today = $year . '-' . $month . '-' . $day;
 
 <div class="form-group">
 <label for="doctorname">
-Search by Name/Mobile No.
+Search by Date.
 </label>
-<input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
+<input type="date" name="opDate" id="opDate" class="form-control" value="" required='true'>
 </div>
 
 <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
