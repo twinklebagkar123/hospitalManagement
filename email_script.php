@@ -115,6 +115,6 @@ include('hms/admin/include/checklogin.php');
         ));
         $response = json_decode(curl_exec($curl), true);
         curl_close($curl);
-        print_r($response);  
+        return json_encode($response);  
     }
     ?>
