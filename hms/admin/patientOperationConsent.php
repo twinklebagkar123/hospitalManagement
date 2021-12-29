@@ -105,7 +105,7 @@ $today = $year . '-' . $month . '-' . $day;
 											Patient Name
 
 										</label>
-										<input type="text" name="pat" class="form-control" id="pat" required="require">
+										<input type="text" name="pat" class="form-control" id="pat" required="require" autocomplete="off">
 										<div id="nameResponse"> </div>
 								</div>
 								<div class="form-group">
