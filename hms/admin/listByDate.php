@@ -89,17 +89,13 @@ $today = $year . '-' . $month . '-' . $day;
                                     <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
 								</div>
                                 <?php
-$a = 0;
+
 
 if (isset('submit')) {
   echo "Variable 'a' is set.<br>";
 }
 
-$b = null;
-// False because $b is NULL
-if (isset($b)) {
-  echo "Variable 'b' is set.";
-}
+
 ?>
 								<table class="display" id="oc">
 									<thead>
