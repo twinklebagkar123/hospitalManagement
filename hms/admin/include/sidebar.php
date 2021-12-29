@@ -302,6 +302,11 @@
 								<span class="title"> Todays list </span>
 							</a>
 						</li>
+						<li>
+							<a href="operationList.php">
+								<span class="title"> list by Date </span>
+							</a>
+						</li>
 
 
 
