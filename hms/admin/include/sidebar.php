@@ -272,23 +272,32 @@
 					</a>
 				</li>
 				<li>
-				<div class="item-inner">
-								<span class="title"> operationList </span><i class="icon-arrow"></i>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-user"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Operation List </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
 					<ul class="sub-menu">
 						<li>
 							<a href="operationList.php">
-								<span class="title"> Todays List </span>
+								<span class="title"> Todays List</span>
 							</a>
 						</li>
 						<li>
-							<a href="listByDate.php">
-								<span class="title"> List by Date</span>
+							<a href="user-registration.php">
+								<span class="title"> List By Date</span>
 							</a>
 						</li>
-						
+						<li>
+							<a href="patient-admission.php">
+								<span class="title"> Patient Admission</span>
+							</a>
+						</li>
 				<li>
 					<a href="laboratory.php">
 						<div class="item-content">
