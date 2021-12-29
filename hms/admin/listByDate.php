@@ -203,11 +203,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['pRNote'];?></td>
 <td><?php echo $row['doctorName']; ?>
 </td>
-<td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="fa fa-eye"></i></a>
-
-</td>
 </tr>
 <?php 
 $cnt=$cnt+1;
