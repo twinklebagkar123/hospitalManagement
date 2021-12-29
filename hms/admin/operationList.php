@@ -52,6 +52,7 @@ $today = $year . '-' . $month . '-' . $day;
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
   </head>
   <body>
     <div id="app">    
@@ -81,7 +82,7 @@ $today = $year . '-' . $month . '-' . $day;
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
 
-								<table class="display" id="myTable">
+								<table class="display" id="oc">
 									<thead>
 										<tr>
 											<th class="center">#</th>
@@ -91,9 +92,8 @@ $today = $year . '-' . $month . '-' . $day;
 											<th>peration Time </th>
 											<th> Note </th>
 
-											<th>Appointment </th>
-											<th>Action</th>
-                      <?php echo "$sql";?>
+											
+                   
 										</tr>
 									</thead>
 									<tbody id="patientList">
@@ -101,7 +101,8 @@ $today = $year . '-' . $month . '-' . $day;
 										<?php
 
 										$sql = mysqli_query($con, "SELECT * FROM `patientoperation` WHERE opDate='$today' ");
-                    echo "$sql";
+                $query=    "SELECT * FROM `patientoperation` WHERE opDate='$today' ";
+                    echo "$query";
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
@@ -164,6 +165,8 @@ $today = $year . '-' . $month . '-' . $day;
     <!-- end: MAIN JAVASCRIPTS -->
     <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
     <script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
     <script src="vendor/autosize/autosize.min.js"></script>
     <script src="vendor/selectFx/classie.js"></script>
@@ -184,6 +187,12 @@ $today = $year . '-' . $month . '-' . $day;
         FormElements.init();
       });
     </script>
+    <script> 
+	$(document).ready( function () {
+    $('#oc').DataTable();
+} );
+										
+		</script>
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
   </body>
