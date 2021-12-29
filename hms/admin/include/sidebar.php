@@ -272,17 +272,23 @@
 					</a>
 				</li>
 				<li>
-								<a href="operationList.php">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-list"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Operation list  </span>
-										</div>
-									</div>
-								</a>
-							</li>	
+				<div class="item-inner">
+								<span class="title"> operationList </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="operationList.php">
+								<span class="title"> Todays List </span>
+							</a>
+						</li>
+						<li>
+							<a href="listByDate.php">
+								<span class="title"> List by Date</span>
+							</a>
+						</li>
+						
 				<li>
 					<a href="laboratory.php">
 						<div class="item-content">
