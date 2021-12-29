@@ -103,7 +103,7 @@ include('hms/admin/include/checklogin.php');
             "language" => "english",
             "flash" => 0,
             "numbers" => $numbers,
-            "authorization" => 'sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu'
+            "authorization : sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu"
             // "numbers" => "7038544429,8999052871",
         ];
         $curl = curl_init($url);
