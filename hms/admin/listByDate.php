@@ -138,10 +138,10 @@ $today = $year . '-' . $month . '-' . $day;
 </div>
 <ol class="breadcrumb">
 <li>
-<span>Admin</span>
+<span>Operation List</span>
 </li>
 <li class="active">
-<span>View Patients</span>
+<span>List By date</span>
 </li>
 </ol>
 </div>
