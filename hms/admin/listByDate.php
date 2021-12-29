@@ -26,7 +26,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-
+$date= $_POST['opDate'];;
 $month = date('m');
 $day = date('d');
 $year = date('Y');
@@ -106,7 +106,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= 1");
+										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
              
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
@@ -136,7 +136,6 @@ $today = $year . '-' . $month . '-' . $day;
 						</div>
 					</div>
 					</table>
-                    <div id="resultFetch"></div>
 				</div>
 			</div>
 		</div>
@@ -189,37 +188,10 @@ $today = $year . '-' . $month . '-' . $day;
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script>
-     
       jQuery(document).ready(function() {
-									Main.init();
-									FormElements.init();
-									$("#patientList button").on("click", function() {
-										var name = $(this).data("name");
-										var id = $(this).data("pid");
-										$("#titleModal").html("Book " + name + "'s Appointment");
-										$("#idInput").val(id);
-									});
-									$("#appDate").on("change", function() {
-										var apt = $(this).val();
-										var doc = $("#doctor").val();
-										console.log(doc);
-
-										$.ajax({
-											type: "POST",
-											url: "get_doctor.php",
-											data: {
-												appDate: apt,
-												docID: doc
-											},
-											success: function(data) {
-												$("#resultFetch").html(data);
-											}
-										});
-
-
-									});
-
-								});
+        Main.init();
+        FormElements.init();
+      });
     </script>
     <script> 
 	$(document).ready( function () {
