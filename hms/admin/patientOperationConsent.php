@@ -105,7 +105,7 @@ $today = $year . '-' . $month . '-' . $day;
 											Patient Name
 
 										</label>
-										<input type="text" name="pat" class="form-control" id="pat" required="require">
+										<input type="text" name="pat" class="form-control" id="pat" required="require" autocomplete="off">
 										<div id="nameResponse"> </div>
 								</div>
 								<div class="form-group">
@@ -155,7 +155,7 @@ $today = $year . '-' . $month . '-' . $day;
 										Operation Title
 									</label>
 									<!-- <input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true"> -->
-									<select name="opTitle" class="form-control" id="doctor" required="require">
+									<select name="opTitle" class="form-control" required="require">
 										<option value="">Select procedure</option>
 										<?php $ret = mysqli_query($con, "select * from procedureList where 1");
 										while ($row = mysqli_fetch_array($ret)) {
