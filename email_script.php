@@ -12,6 +12,8 @@ include('hms/admin/include/checklogin.php');
         fetchEmailAddresses("3",$_POST['email_subject'],$_POST['email_message']);
     elseif(isset($_POST['manual_email_submit'])):
         fetchEmailAddresses("4",$_POST['email_subject'],$_POST['email_message'],$_POST['email_address_mail']);
+    elseif(isset($_POST['sms_type'])):
+        sendSMS($_POST['message'],$_POST['numbers']);
     endif;
 
     /*type
@@ -19,7 +21,6 @@ include('hms/admin/include/checklogin.php');
     2. Patient
     3. All
     */
-    
     function fetchEmailAddresses($type,$subject,$message,$email_addresses = "") {  
         
         $result = [];  
@@ -92,5 +93,26 @@ include('hms/admin/include/checklogin.php');
         } else {
             echo "Message could not be sent to " .$to. "\n";
         }
+    }
+    function sendSMS($message,$numbers){
+        $url = 'https://www.fast2sms.com/dev/bulkV2';
+        $query_fields = [
+            "route" => "v3",
+            "sender_id" => "Cghpet",
+            "message" => $message,
+            "language" => "english",
+            "flash" => 0,
+            "numbers" => $numbers,
+            // "numbers" => "7038544429,8999052871",
+        ];
+        $curl = curl_init($url . '?' . http_build_query($query_fields));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [
+            "authorization"=>"sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
+            "Content-Type"=>"application/json"        
+        ]);
+        $response = json_decode(curl_exec($curl), true);
+        curl_close($curl);
+        print_r($response);  
     }
     ?>
