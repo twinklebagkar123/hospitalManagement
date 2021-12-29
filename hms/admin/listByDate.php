@@ -166,7 +166,7 @@ Search
 if(isset($_POST['search']))
 { 
 
-$sdata=$_POST['searchdata'];
+$sdata=$_POST['opDate'];
   ?>
   <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
 <table class="table table-hover" id="sample-table-1">
@@ -187,7 +187,7 @@ $sdata=$_POST['searchdata'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
+$sql=mysqli_query($con,"SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$sdata'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
