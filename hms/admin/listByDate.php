@@ -26,7 +26,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$date= $_POST['opDate'];;
+$date= ['opDate'];;
 $month = date('m');
 $day = date('d');
 $year = date('Y');
