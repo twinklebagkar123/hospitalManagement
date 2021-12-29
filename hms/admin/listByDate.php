@@ -85,8 +85,18 @@ $today = $year . '-' . $month . '-' . $day;
 								
 									<label for="opDate">Select a Date:</label>
 									<input type="date" id="opDate" name="opDate">
+
                                     <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
 								</div>
+                                <?php
+
+
+if (isset('submit')) {
+  echo "Variable 'a' is set.<br>";
+}
+
+
+?>
 								<table class="display" id="oc">
 									<thead>
 										<tr>
