@@ -113,8 +113,8 @@ include('hms/admin/include/checklogin.php');
             'authorization: sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu',
             // 'Content-Type : application/json'
         ));
-        $response = json_decode(curl_exec($curl), true);
+        $response = curl_exec($curl);
         curl_close($curl);
-        return json_encode($response);  
+        return $response;  
     }
     ?>
