@@ -68,7 +68,7 @@ $today = $year . '-' . $month . '-' . $day;
 									<label for="opDate">Select a Date:</label>
 									<input type="date" id="opDate" name="opDate">
 
-                                    <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
+                                    <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Search">
 								</div>
                              <span>
 								<table class="display" id="oc">
