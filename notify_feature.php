@@ -90,9 +90,9 @@
                 $.ajax({
                     url: "https://www.fast2sms.com/dev/bulkV2",
                     headers: {
-                        "Authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
+                        // "Authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
                         "Content-Type": "application/json",
-                        'Access-Control-Allow-Origin': "https://www.fast2sms.com",
+                        'Access-Control-Allow-Origin': "*",
                         "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
                         "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization",
                     },
@@ -103,6 +103,7 @@
                     async: true,
                     data: {
                         "route": "v3",
+                        "authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
                         "sender_id": "Cghpet",
                         "message": "Hello! how are you?",
                         "language": "english",
