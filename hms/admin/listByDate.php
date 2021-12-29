@@ -177,7 +177,7 @@ $today = $year . '-' . $month . '-' . $day;
         Main.init();
         FormElements.init();
 
-        $$("#opDate").on("change", function() {
+        $("#opDate").on("change", function() {
             console.log(helllo);
         });
       });
