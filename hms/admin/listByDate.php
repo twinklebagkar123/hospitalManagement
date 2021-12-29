@@ -27,11 +27,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 $date= ['opDate'];;
-$month = date('m');
-$day = date('d');
-$year = date('Y');
 
-$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +84,7 @@ $today = $year . '-' . $month . '-' . $day;
 
                                     <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
 								</div>
-                             
+                             <span>
 								<table class="display" id="oc">
 									<thead>
 										<tr>
@@ -138,6 +134,7 @@ $today = $year . '-' . $month . '-' . $day;
 						</div>
 					</div>
 					</table>
+                                    </span>
 				</div>
 			</div>
 		</div>
@@ -194,6 +191,10 @@ $today = $year . '-' . $month . '-' . $day;
         Main.init();
         FormElements.init();
       });
+
+
+
+
     </script>
     <script> 
 	$(document).ready( function () {
