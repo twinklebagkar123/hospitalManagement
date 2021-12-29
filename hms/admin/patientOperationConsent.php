@@ -154,7 +154,17 @@ $today = $year . '-' . $month . '-' . $day;
 									<label>
 										Operation Title
 									</label>
-									<input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true">
+									<!-- <input type="text" name="opTitle" class="form-control" placeholder="Enter Operation Title" required="true"> -->
+									<select name="opTitle" class="form-control" id="doctor" required="require">
+										<option value="">Select doctor</option>
+										<?php $ret = mysqli_query($con, "select * from procedureList where 1");
+										while ($row = mysqli_fetch_array($ret)) {
+										?>
+											<option value="<?php echo htmlentities($row['procedureID']); ?>">
+												<?php echo htmlentities($row['name']); ?>
+											</option>
+										<?php } ?>
+									</select>
 								</div>
 
 
