@@ -90,7 +90,7 @@
                 $.ajax({
                     url: "https://www.fast2sms.com/dev/bulkV2",
                     headers: {
-                        "Access-Control-Allow-Headers": "Authorization",
+                        "Access-Control-Allow-Headers": '*',
                         "authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
                     //     "Content-Type": "application/json",
                     //     'Access-Control-Allow-Origin': "*",
