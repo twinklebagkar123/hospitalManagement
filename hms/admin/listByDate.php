@@ -26,7 +26,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$date= $_POST['opDate'];;
+$date= ['opDate'];;
 $month = date('m');
 $day = date('d');
 $year = date('Y');
@@ -88,15 +88,7 @@ $today = $year . '-' . $month . '-' . $day;
 
                                     <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
 								</div>
-                                <?php
-
-
-if (isset('submit')) {
-  echo "Variable 'a' is set.<br>";
-}
-
-
-?>
+                             
 								<table class="display" id="oc">
 									<thead>
 										<tr>
