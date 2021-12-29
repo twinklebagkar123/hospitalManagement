@@ -293,11 +293,10 @@
 								<span class="title"> List By Date</span>
 							</a>
 						</li>
-						<li>
-							<a href="patient-admission.php">
-								<span class="title"> Patient Admission</span>
-							</a>
-						</li>
+					
+
+
+
 				<li>
 					<a href="laboratory.php">
 						<div class="item-content">
