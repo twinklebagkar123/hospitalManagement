@@ -271,18 +271,39 @@
 						</div>
 					</a>
 				</li>
-				<li>
-								<a href="operationList.php">
-									<div class="item-content">
-										<div class="item-media">
-											<i class="ti-list"></i>
-										</div>
-										<div class="item-inner">
-											<span class="title"> Operation list  </span>
-										</div>
-									</div>
-								</a>
-							</li>	
+				
+
+							<li>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-files"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Operation list  </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="operationList.php">
+								<span class="title"> Todays list </span>
+							</a>
+						</li>
+						<li>
+							<a href="listByDate.php">
+								<span class="title"> list by Date </span>
+							</a>
+						</li>
+
+
+
+					</ul>
+				</li>
+
+
+
 				<li>
 					<a href="laboratory.php">
 						<div class="item-content">

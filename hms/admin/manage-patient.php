@@ -294,7 +294,6 @@ if (isset($_POST['submit'])) {
 													<!-- end: SELECT BOXES -->
 
 												</div>
-												<h2>dc</h2>
 												<div id="resultFetch">
 
 												</div>

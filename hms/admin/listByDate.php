@@ -26,7 +26,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-
+$date= $_POST['opDate'];;
 $month = date('m');
 $day = date('d');
 $year = date('Y');
@@ -81,7 +81,12 @@ $today = $year . '-' . $month . '-' . $day;
 						<div class="row">
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
-
+                                <div class="form-group">
+								
+									<label for="opDate">Select a Date:</label>
+									<input type="date" id="opDate" name="opDate">
+                                    <input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
+								</div>
 								<table class="display" id="oc">
 									<thead>
 										<tr>
@@ -91,7 +96,7 @@ $today = $year . '-' . $month . '-' . $day;
 											<th>Operation Title </th>
 											<th>peration Time </th>
 											<th> Note </th>
-                      <th> doctorName </th>
+                                            <th> doctorName </th>
 
 											
                    
@@ -101,7 +106,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$today'");
+										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$date'");
              
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
@@ -113,7 +118,7 @@ $today = $year . '-' . $month . '-' . $day;
 												<td><?php echo $row['opTitle']; ?></td>
 												<td><?php echo $row['opTime']; ?></td>
 												<td><?php echo $row['pRNote']; ?>
-                        <td><?php echo $row['doctorName']; ?>
+                                                <td><?php echo $row['doctorName']; ?>
 												</td>
 
 												
