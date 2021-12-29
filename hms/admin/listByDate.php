@@ -176,6 +176,10 @@ $today = $year . '-' . $month . '-' . $day;
       jQuery(document).ready(function() {
         Main.init();
         FormElements.init();
+
+        $("#opDate").on("change", function() {
+            console.log("$sql");
+        });
       });
 
 
