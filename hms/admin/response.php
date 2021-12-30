@@ -20,8 +20,9 @@ while ($row = mysqli_fetch_array($sql)) {
   $PatientGender = $row['PatientGender'];
   $CreationDate = $row['CreationDate'];
   $UpdationDate = $row['UpdationDate'];
+  $button = '<button>test button</button>';
 
-  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate);
+  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate,$button);
   array_push($data, $result);
 }
 

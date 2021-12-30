@@ -111,8 +111,8 @@ if (isset($_POST['submit'])) {
 											<th>Patient Gender </th>
 											<th>Creation Date </th>
 											<th>Updation Date </th>
-											<!-- <th>Appointment </th>
-											<th>Documents </th>
+											 <th>Appointment </th>
+											<!--<th>Documents </th>
 											<th>Action</th> -->
 										</tr>
 									</thead>
