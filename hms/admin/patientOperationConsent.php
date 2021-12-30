@@ -229,7 +229,6 @@ $today = $year . '-' . $month . '-' . $day;
 									</label>
 									<input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
-									</select>
 								</div>
 
 								<input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
