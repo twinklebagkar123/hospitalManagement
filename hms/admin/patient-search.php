@@ -97,7 +97,10 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 
-<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
+<td class="hidden-xs"> <?php echo $row['ID'];?> </td>
+	
+
+<td><?php echo $row['PatientName'];?></td>
 <td><?php echo $row['PatientContno'];?></td>
 <td><?php echo $row['PatientGender'];?></td>
 <td><?php echo $row['CreationDate'];?></td>
