@@ -15,14 +15,14 @@ $sql = mysqli_query($con, $query);
 										while ($row = mysqli_fetch_array($sql)) {
 										print_r($row);
                       
-                    //   $ID=$row['ID']; 
-										// $PatientName=	 $row['PatientName']; 
-										// 	 $PatientContno= $row['PatientContno']; 
-										// 	 $PatientGender= $row['PatientGender']; 
-                    //    $CreationDate= $row['CreationDate']; 
-                    //    $UpdationDate= $row['UpdationDate']; 
+                      $ID=$row['ID']; 
+										$PatientName=	 $row['PatientName']; 
+											 $PatientContno= $row['PatientContno']; 
+											 $PatientGender= $row['PatientGender']; 
+                       $CreationDate= $row['CreationDate']; 
+                       $UpdationDate= $row['UpdationDate']; 
                       
-                    //    $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
+                       $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
                        
 
 											
