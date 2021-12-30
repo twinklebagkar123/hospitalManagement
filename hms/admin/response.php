@@ -9,15 +9,15 @@ $sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= $s ORDER BY 
 										while ($row = mysqli_fetch_array($sql)) {
 										
                       
-                      $ID=$row['ID']; 
-										$PatientName=	 $row['PatientName']; 
-											 $PatientContno= $row['PatientContno']; 
-											 $PatientGender= $row['PatientGender']; 
-                       $CreationDate= $row['CreationDate']; 
-                       $UpdationDate= $row['UpdationDate']; 
+                    //   $ID=$row['ID']; 
+										// $PatientName=	 $row['PatientName']; 
+										// 	 $PatientContno= $row['PatientContno']; 
+										// 	 $PatientGender= $row['PatientGender']; 
+                    //    $CreationDate= $row['CreationDate']; 
+                    //    $UpdationDate= $row['UpdationDate']; 
                       
-                       $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
-                       array_push($data,$result);
+                    //    $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
+                       array_push($data,$row);
 
 											
 										
