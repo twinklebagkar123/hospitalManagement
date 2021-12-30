@@ -17,7 +17,32 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea>
-                    <button id="bulk_sms" class="btn btn-success">Send SMS</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="submit" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" name="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="submit" name="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- <label for="form_email">Email Address</label> -->
+                            <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify email address with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send Mail">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -59,7 +84,7 @@
                                     <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staffs">
                                 </div>
                             </div>
-                              <div class="row" style="margin-top: 3%;">
+                            <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <!-- <label for="form_email">Email Address</label> -->
