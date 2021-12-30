@@ -72,7 +72,7 @@
                                                             <label for="fess">
                                                                 File Title
                                                             </label>
-                                                            <input type="text" id="fTitle" name="fTitle" class="form-control" placeholder="Enter File Title" required="true"  >
+                                                            <input type="text" id="fTitle" name="fTitle" class="" placeholder="Enter File Title" required="true"  >
                                                             
                                                         </div>
                                                         <input type="hidden" id="uid" name="uid" value="">
