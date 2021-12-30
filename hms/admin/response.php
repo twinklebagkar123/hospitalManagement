@@ -1,13 +1,19 @@
 
 <?php
 
+session_start();
+error_reporting(0);
+include('include/config.php');
+include('include/checklogin.php');
+check_login();
 $data = ["hello"];
 $s=$_GET['start'];
 $g=$_GET['length'];
-$sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= $s ORDER BY `ID` ASC LIMIT $g");
+$query="SELECT * FROM `tblpatient` WHERE `ID` >= ".$s." ORDER BY `ID` ASC LIMIT ".$g;
+$sql = mysqli_query($con, $query);
 										
 										while ($row = mysqli_fetch_array($sql)) {
-										
+										print_r($row);
                       
                     //   $ID=$row['ID']; 
 										// $PatientName=	 $row['PatientName']; 
@@ -38,7 +44,7 @@ $sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= $s ORDER BY 
     
 // ];
             
-array_push($data,$sql);
+array_push($data,$query);
 $results = array(
     "start"=>$s,
     "lengh"=>$g,
