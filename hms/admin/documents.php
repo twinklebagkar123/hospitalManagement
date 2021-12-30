@@ -5,14 +5,14 @@
     include('include/checklogin.php');
     check_login();
     if (isset($_POST['submit'])) {
-        $file_title = $_POST['Doctorspecialization'];
-        $file_url = $_POST['doctor'];
-        $patient_id = $_POST['idpatient'];
-        $uploaded_at = $_POST['fees'];
+        $file_title = $_POST['fTitle'];
+        $file_url = $_POST['myfile'];
+        $patient_id = $_POST['pID'];
+        $uploaded_at = $_POST['date'];
         
-        $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+        $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$file_title','$file_url','$patient_id','$uploaded_at')");
     if ($query) {
-            echo "<script>alert('Your appointment successfully booked');</script>";
+            echo "<script>alert('Your Documents added successfully ');</script>";
         }
     }
     $month = date('m');
@@ -57,7 +57,7 @@
                 <section id="page-title">
                 <div class="row">
                     <div class="col-sm-8">
-                    <h1 class="mainTitle">Billing | Add Bill</h1>
+                    <h1 class="mainTitle">Documents</h1>
 
                                     </div>
                     </div>
