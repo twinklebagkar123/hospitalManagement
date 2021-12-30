@@ -355,7 +355,7 @@ if (isset($_POST['submit'])) {
 							</script>
 		<script>
 $( document ).ready(function() {
-$('#example').dataTable({
+$('#myTable').dataTable({
     "serverSide": true,
     "processing": true,
         
