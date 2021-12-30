@@ -104,17 +104,16 @@ if (isset($_POST['submit'])) {
 								<table class="display" id="myTable">
 									<thead>
 										<tr>
-											<th class="center">#</th>
+											<!-- <th class="center">#</th> -->
 											<th>Patient Id</th>
 											<th>Patient Name</th>
 											<th>Patient Contact Number</th>
 											<th>Patient Gender </th>
 											<th>Creation Date </th>
 											<th>Updation Date </th>
-
-											<th>Appointment </th>
+											<!-- <th>Appointment </th>
 											<th>Documents </th>
-											<th>Action</th>
+											<th>Action</th> -->
 										</tr>
 									</thead>
 									<tbody id="patientList">
@@ -358,10 +357,8 @@ $( document ).ready(function() {
 $('#myTable').dataTable({
     "serverSide": true,
     "processing": true,
-        
     ajax: {
 		"url" : 'response.php',
-		// "dataType": "JSON",
 		"contentType": 'application/json'
 	},
         });  
