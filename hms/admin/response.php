@@ -1,7 +1,7 @@
 
 <?php
 
-$data = [];
+$data = ["hello"];
 $s=$_GET['start'];
 $g=$_GET['length'];
 $sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= $s ORDER BY `ID` ASC LIMIT $g");
