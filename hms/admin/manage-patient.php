@@ -112,6 +112,7 @@ if (isset($_POST['submit'])) {
 											<th>Updation Date </th>
 
 											<th>Appointment </th>
+											<th>Documents </th>
 											<th>Action</th>
 										</tr>
 									</thead>
