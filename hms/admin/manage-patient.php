@@ -104,22 +104,49 @@ if (isset($_POST['submit'])) {
 								<table class="display" id="myTable">
 									<thead>
 										<tr>
-											
-											<th>ID</th>
+											<th class="center">#</th>
 											<th>Patient Name</th>
 											<th>Patient Contact Number</th>
 											<th>Patient Gender </th>
 											<th>Creation Date </th>
 											<th>Updation Date </th>
 
-											<!-- <th>Appointment </th>
-											<th>Action</th> -->
+											<th>Appointment </th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
 
-									
-																			</tbody>
+										<?php
+
+										$sql = mysqli_query($con, "select * from tblpatient");
+										$cnt = 1;
+										while ($row = mysqli_fetch_array($sql)) {
+										?>
+											<tr>
+												<td class="center"><?php echo $cnt; ?>.</td>
+												<td class="hidden-xs"><?php echo $row['PatientName']; ?></td>
+												<td><?php echo $row['PatientContno']; ?></td>
+												<td><?php echo $row['PatientGender']; ?></td>
+												<td><?php echo $row['CreationDate']; ?></td>
+												<td><?php echo $row['UpdationDate']; ?>
+												</td>
+
+												<td><button type="button" data-pid="<?php echo $row['ID']; ?>" data-name="<?php echo $row['PatientName']; ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+														Book
+													</button></td>
+
+
+												<td>
+
+													<a href="view-patient.php?viewid=<?php echo $row['ID']; ?>"><i class="fa fa-eye"></i></a>
+
+												</td>
+											</tr>
+										<?php
+											$cnt = $cnt + 1;
+										} ?>
+									</tbody>
 
 
 							</div>
@@ -352,16 +379,12 @@ if (isset($_POST['submit'])) {
 
 								});
 							</script>
-		<script>
-$( document ).ready(function() {
-$('#myTable').dataTable({
-    "serverSide": true,
-    "processing": true,
-        
-    ajax: 'response.php',
-        });  
-});
-    </script>
+		<script> 
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+										
+		</script>
 							<!-- end: JavaScript Event Handlers for this page -->
 
 							<!-- end: CLIP-TWO JAVASCRIPTS -->
