@@ -119,7 +119,7 @@ if (isset($_POST['submit'])) {
 
 										<?php
 
-										$sql = mysqli_query($con, "select * from tblpatient");
+										$sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= 10 ORDER BY `ID` ASC LIMIT 10;");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
