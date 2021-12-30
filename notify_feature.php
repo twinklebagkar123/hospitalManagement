@@ -18,15 +18,16 @@
                 <div class="col-md-12 text-center">
                     <textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea>
                 </div>
-                <div class="row">
+            </div>
+            <div class="row">
                     <div class="col-md-4">
-                        <input type="submit" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
+                        <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
                     </div>
                     <div class="col-md-4">
-                        <input type="submit" name="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
+                        <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
                     </div>
                     <div class="col-md-4">
-                        <input type="submit" name="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                        <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 3%;">
@@ -44,7 +45,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="row">
                 <div class="col-md-12">
                     <form id="contact-form" method="POST" action="email_script.php" role="form">
@@ -111,27 +111,18 @@
     <script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#bulk_sms').click(function() {
+            function sendSms(smsType){
                 var message = $('#sms_textarea').val();
+                var contacts = $('#contact_number_sms_custom').val();
                 $.ajax({
                     url: "/hospital/email_script.php",
-                    // headers: {
-                    //     "Access-Control-Allow-Headers": '*',
-                    //     "authorization": "sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu",
-                    //     "Content-Type": "application/json",
-                    //     'Access-Control-Allow-Origin': "*",
-                    //     "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-                        
-                    // },
-                    // withCredentials: true,
-                    // crossDomain: true,
                     dataType: "json",
                     type: "Post",
                     async: true,
                     data: {
-                        "sms_type": "1",
+                        "sms_type": smsType,
                         "message": message,
-                        "numbers": "7038544429,899905287",
+                        "numbers": contacts,
                     },
                     success: function(data) {
                         console.log(data.message);
@@ -153,10 +144,30 @@
                         } else {
                             msg = "Error:" + xhr.status + " " + xhr.responseText;
                         }
+                        console.log(msg);
 
                     }
                 });
-            })
+            }
+            $('#all_sms').click(function() {
+               sendSms(1);
+            });
+            $('#patients_sms').click(function() {
+               sendSms(2);
+            });
+            $('#staff_sms').click(function() {
+               sendSms(3);
+            });
+            $('#manual_sms_submit').click(function() {
+               sendSms(4);
+            });
+            /*
+            SMS TYPE:  
+            all_sms - 1,
+            patients_sms - 2,
+            staff_sms -3,
+            manual_sms_submit - 4,
+            */
         });
     </script>
     <!-- <footer></footer> -->

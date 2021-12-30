@@ -13,7 +13,7 @@ include('hms/admin/include/checklogin.php');
     elseif(isset($_POST['manual_email_submit'])):
         fetchEmailAddresses("4",$_POST['email_subject'],$_POST['email_message'],$_POST['email_address_mail']);
     elseif(isset($_POST['sms_type'])):
-        sendSMS($_POST['message'],$_POST['numbers']);
+        sendSMS($_POST['message'],$_POST['numbers'],$_POST['sms_type']);
     endif;
 
     /*type
@@ -94,7 +94,7 @@ include('hms/admin/include/checklogin.php');
             echo "Message could not be sent to " .$to. "\n";
         }
     }
-    function sendSMS($message,$numbers){
+    function sendSMS($message,$numbers,$smsType){
         $url = 'https://www.fast2sms.com/dev/bulkV2';
         $query_fields = [
             "route" => "v3",
