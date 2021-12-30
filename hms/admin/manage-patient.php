@@ -104,7 +104,7 @@ if (isset($_POST['submit'])) {
 								<table class="display" id="myTable">
 									<thead>
 										<tr>
-											<th class="center">#</th>
+											
 											<th>ID</th>
 											<th>Patient Name</th>
 											<th>Patient Contact Number</th>
