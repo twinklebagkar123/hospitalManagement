@@ -75,22 +75,21 @@
                                                             <input type="text" id="fTitle" name="fTitle" class="form-control" placeholder="Enter File Title" required="true"  >
                                                             
                                                         </div>
-                                                        <input type="hidden" id="uid" name="uid" value="">
+                                                       
                                                         <div class="form-group">
                                                         <label for="myfile">Select a file:</label>
                                                         <input type="file" id="myfile" name="myfile">
                                                             </div>
                                                         <div class="form-group">
                                                             <label for="">
-                                                                Patient Name
+                                                                Patient ID
                                                             </label>
-                                                            <input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
+                                                            <input type="text" id="pID" name="pID" class="form-control" placeholder="Enter Patient ID" required="true">
                                                         
                                                         </div>
                                                         <div class="form-group">
-                                        <label> Form Creation Date
-                                        </label>
-                                        <input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
+                                       
+                                        <input type="hidden" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
                                     </div>  
                                     <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
