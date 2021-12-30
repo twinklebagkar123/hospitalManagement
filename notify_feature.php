@@ -34,13 +34,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- <label for="form_email">Email Address</label> -->
-                            <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify email address with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
+                            <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify Phone Numbers with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send Mail">
+                            <input type="submit" id="manual_sms_submit"  name="manual_sms_submit" class="btn btn-success btn-send" value="Send Mail">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
