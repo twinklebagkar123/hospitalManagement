@@ -361,7 +361,8 @@ $('#myTable').dataTable({
         
     ajax: {
 		"url" : 'response.php',
-		"dataType": "json"
+		// "dataType": "JSON",
+		"contentType": 'application/json'
 	},
         });  
 });
