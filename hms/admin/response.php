@@ -6,7 +6,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$data = ["hello"];
+$data = [];
 $s=$_GET['start'];
 $g=$_GET['length'];
 $query="SELECT * FROM `tblpatient` WHERE `ID` >= ".$s." ORDER BY `ID` ASC LIMIT ".$g;
