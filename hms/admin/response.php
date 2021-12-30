@@ -13,7 +13,7 @@ $query="SELECT * FROM `tblpatient` WHERE `ID` >= ".$s." ORDER BY `ID` ASC LIMIT 
 $sql = mysqli_query($con, $query);
 										
 										while ($row = mysqli_fetch_array($sql)) {
-										print_r($row);
+									
                       
                       $ID=$row['ID']; 
 										$PatientName=	 $row['PatientName']; 
