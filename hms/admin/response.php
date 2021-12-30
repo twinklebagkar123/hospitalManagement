@@ -24,7 +24,7 @@ $sql = mysqli_query($con, $query);
                       
                        $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
                        
-
+                       array_push($data,$result);
 											
 										
 									
@@ -44,7 +44,7 @@ $sql = mysqli_query($con, $query);
     
 // ];
             
-array_push($data,$query);
+//
 $results = array(
     "start"=>$s,
     "lengh"=>$g,
