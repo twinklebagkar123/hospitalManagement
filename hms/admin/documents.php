@@ -1,146 +1,100 @@
-<?php
-session_start();
-error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
-if (isset($_POST['submit'])) {
-	$file_title = $_POST['Doctorspecialization'];
-	$file_url = $_POST['doctor'];
-	$patient_id = $_POST['idpatient'];
-	$uploaded_at = $_POST['fees'];
-	
-	$sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
-if ($query) {
-		echo "<script>alert('Your appointment successfully booked');</script>";
-	}
-}
-
-
-?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Admin | Doctor Specialization</title>
-  
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-    <link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
-    <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-  </head>
-  <body>
-    <div id="app">    
-<?php include('include/sidebar.php');?>
-      <div class="app-content">
+    <?php
+    session_start();
+    error_reporting(0);
+    include('include/config.php');
+    include('include/checklogin.php');
+    check_login();
+    if (isset($_POST['submit'])) {
+        $file_title = $_POST['Doctorspecialization'];
+        $file_url = $_POST['doctor'];
+        $patient_id = $_POST['idpatient'];
+        $uploaded_at = $_POST['fees'];
         
-            <?php include('include/header.php');?>
-          
-        <!-- end: TOP NAVBAR -->
-        <div class="main-content" >
-          <div class="wrap-content container" id="container">
-            <!-- start: PAGE TITLE -->
-            <section id="page-title">
-              <div class="row">
-                <div class="col-sm-8">
-                  <h1 class="mainTitle">Billing | Add Bill</h1>
+        $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+    if ($query) {
+            echo "<script>alert('Your appointment successfully booked');</script>";
+        }
+    }
+    $month = date('m');
+    $day = date('d');
+    $year = date('Y');
+    
+    $today = $year . '-' . $month . '-' . $day;
+    
 
-                                  </div>
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Admin | Doctor Specialization</title>
+    
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
+        <link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
+        <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <link rel="stylesheet" href="assets/css/plugins.css">
+        <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+    </head>
+    <body>
+        <div id="app">    
+    <?php include('include/sidebar.php');?>
+        <div class="app-content">
+            
+                <?php include('include/header.php');?>
+            
+            <!-- end: TOP NAVBAR -->
+            <div class="main-content" >
+            <div class="wrap-content container" id="container">
+                <!-- start: PAGE TITLE -->
+                <section id="page-title">
+                <div class="row">
+                    <div class="col-sm-8">
+                    <h1 class="mainTitle">Billing | Add Bill</h1>
+
+                                    </div>
+                    </div>
                 </div>
-              </div>
-           
+            
 
 
 
-              <div class="panel-body">
-												<form role="form" name="" method="post">
-													<div class="form-group">
-														<label for="fess">
-															File Title
-														</label>
-														<input type="text" id="fTitle" name="fTitle" class="form-control" placeholder="Enter File Title" required="true"  >
-														
-													</div>
-													<input type="hidden" id="uid" name="uid" value="">
-													<div class="form-group">
-                                                    <label for="myfile">Select a file:</label>
-                                                    <input type="file" id="myfile" name="myfile">
+                <div class="panel-body">
+                                                    <form role="form" name="" method="post">
+                                                        <div class="form-group">
+                                                            <label for="fess">
+                                                                File Title
+                                                            </label>
+                                                            <input type="text" id="fTitle" name="fTitle" class="form-control" placeholder="Enter File Title" required="true"  >
+                                                            
                                                         </div>
-													<div class="form-group">
-														<label for="">
-															Patient Name
-														</label>
-														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
-													
-													</div>
-													<div class="form-group">
-														<label for="address">
-															Patient Address
-														</label>
-														<textarea name="pataddress" id="pataddress" class="form-control" placeholder="Enter Patient Address" required="true"></textarea>
-													</div>
+                                                        <input type="hidden" id="uid" name="uid" value="">
+                                                        <div class="form-group">
+                                                        <label for="myfile">Select a file:</label>
+                                                        <input type="file" id="myfile" name="myfile">
+                                                            </div>
+                                                        <div class="form-group">
+                                                            <label for="">
+                                                                Patient Name
+                                                            </label>
+                                                            <input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
+                                                        
+                                                        </div>
+                                                        <div class="form-group">
+                                        <label> Form Creation Date
+                                        </label>
+                                        <input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
-													<div class="form-group">
-														<label for="fess">
-															Patient Email
-														</label>
-														<input type="email" id="patemail" name="patemail" class="form-control" placeholder="Enter Patient Email id" required="true">
-													</div>
-													<div class="form-group">
-														<label class="block">
-															Gender
-														</label>
-														<div class="clip-radio radio-primary">
-															<input type="radio" id="rg-female" name="gender" value="female">
-															<label for="rg-female">
-																Female
-															</label>
-															<input type="radio" id="rg-male" name="gender" value="male">
-															<label for="rg-male">
-																Male
-															</label>
-														</div>
-													</div>
-													<div class="form-group">
-														<label for="patage">
-															Patient Age
-														</label>
-														<input type="text" name="patage" id="patage" class="form-control" placeholder="Enter Patient Age" required="true">
-													</div>
+                                    </div>  
 
-													<div class="form-group">
-														<label class="block">
-															Admission Type
-														</label>
-														<div class="clip-radio radio-primary">
-															<input type="radio" id="rg-opd" name="admissionType" value="opd">
-															<label for="rg-opd">
-																OPD
-															</label>
-															<input type="radio" id="rg-ide" name="admissionType" value="ide">
-															<label for="rg-ide">
-																IDE
-															</label>
-														</div>
-													</div>
-
-													<div class="form-group">
-														<label>
-															Ward No.
-														</label>
-														<input type="text" name="wn" class="form-control" placeholder="Enter Ward No." required="true">
-                                            </div>
-											
-													</div>
+                                                        </div>
 
 
 
@@ -149,70 +103,65 @@ if ($query) {
 
 
 
-													<div class="form-group">
-														<label for="AppointmentDate">
-															Date of Admission
-														</label>
-														<input class="form-control datepicker" name="appdate" required="required" data-date-format="yyyy-mm-dd">
-													</div>
+                                                        
 
-													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-														Add
-													</button>
-												</form>
-											</div>
+                                                        <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
+                                                            Add
+                                                        </button>
+                                                    </form>
+                                                </div>
 
 
 
 
 
+                    </div>
                 </div>
-              </div>
-            
-            <!-- end: BASIC EXAMPLE -->
-            <!-- end: SELECT BOXES -->
-            
-      <!-- start: FOOTER -->
-  <?php include('include/footer.php');?>
-      <!-- end: FOOTER -->
-    
-      <!-- start: SETTINGS -->
-  <?php include('include/setting.php');?>
-      
-      <!-- end: SETTINGS -->
-    </div>
-    <!-- start: MAIN JAVASCRIPTS -->
+                
+                <!-- end: BASIC EXAMPLE -->
+                <!-- end: SELECT BOXES -->
+                
+        <!-- start: FOOTER -->
+    <?php include('include/footer.php');?>
+        <!-- end: FOOTER -->
+        
+        <!-- start: SETTINGS -->
+    <?php include('include/setting.php');?>
+        
+        <!-- end: SETTINGS -->
+        </div>
+        <!-- start: MAIN JAVASCRIPTS --> 
 
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/modernizr/modernizr.js"></script>
-    <script src="vendor/jquery-cookie/jquery.cookie.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="vendor/switchery/switchery.min.js"></script>
-    <!-- end: MAIN JAVASCRIPTS -->
-    <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-    <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
-    <script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="vendor/autosize/autosize.min.js"></script>
-    <script src="vendor/selectFx/classie.js"></script>
-    <script src="vendor/selectFx/selectFx.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-    <!-- start: CLIP-TWO JAVASCRIPTS -->
-    
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/bill.js"></script>
-    <!-- start: JavaScript Event Handlers for this page -->
-    <script src="assets/js/form-elements.js"></script>
-    <script>
-      jQuery(document).ready(function() {
-        Main.init();
-        FormElements.init();
-      });
-    </script>
-    <!-- end: JavaScript Event Handlers for this page -->
-    <!-- end: CLIP-TWO JAVASCRIPTS -->
-  </body>
-</html>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="vendor/modernizr/modernizr.js"></script>
+        <script src="vendor/jquery-cookie/jquery.cookie.js"></script>
+        <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+        <script src="vendor/switchery/switchery.min.js"></script>
+        <!-- end: MAIN JAVASCRIPTS -->
+        <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+        <script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+        <script src="vendor/autosize/autosize.min.js"></script>
+        <script src="vendor/selectFx/classie.js"></script>
+        <script src="vendor/selectFx/selectFx.js"></script>
+        <script src="vendor/select2/select2.min.js"></script>
+        <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+        <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+        <!-- start: CLIP-TWO JAVASCRIPTS -->
+        
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/bill.js"></script>
+        <!-- start: JavaScript Event Handlers for this page -->
+        <script src="assets/js/form-elements.js"></script>
+        <script>
+        jQuery(document).ready(function() {
+            Main.init();
+            FormElements.init();
+        });
+        </script>
+        <!-- end: JavaScript Event Handlers for this page -->
+        <!-- end: CLIP-TWO JAVASCRIPTS -->
+    </body>
+    </html>
