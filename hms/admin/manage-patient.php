@@ -112,8 +112,8 @@ if (isset($_POST['submit'])) {
 											<th>Creation Date </th>
 											<th>Updation Date </th>
 											 <th>Appointment </th>
-											<!--<th>Documents </th>
-											<th>Action</th> -->
+											<th>Documents </th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
