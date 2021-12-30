@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -7,28 +6,25 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 $data = [];
-$s=$_GET['start'];
-$g=$_GET['length'];
-$query="SELECT * FROM `tblpatient` WHERE `ID` >= ".$s." ORDER BY `ID` ASC LIMIT ".$g;
+$s = $_GET['start'];
+$g = $_GET['length'];
+$query = "SELECT * FROM `tblpatient` WHERE `ID` >= " . $s . " ORDER BY `ID` ASC LIMIT " . $g;
 $sql = mysqli_query($con, $query);
-										
-										while ($row = mysqli_fetch_array($sql)) {
-									
-                      
-                      $ID=$row['ID']; 
-										$PatientName=	 $row['PatientName']; 
-											 $PatientContno= $row['PatientContno']; 
-											 $PatientGender= $row['PatientGender']; 
-                       $CreationDate= $row['CreationDate']; 
-                       $UpdationDate= $row['UpdationDate']; 
-                      
-                       $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
-                       
-                       array_push($data,$result);
-											
-										
-									
-													} 
+
+while ($row = mysqli_fetch_array($sql)) {
+
+
+  $ID = $row['ID'];
+  $PatientName =   $row['PatientName'];
+  $PatientContno = $row['PatientContno'];
+  $PatientGender = $row['PatientGender'];
+  $CreationDate = $row['CreationDate'];
+  $UpdationDate = $row['UpdationDate'];
+
+  // $result = $ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate;
+
+  array_push($data, $ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate);
+}
 
 // $data = [
 //     [
@@ -39,23 +35,23 @@ $sql = mysqli_query($con, $query);
 //         "9th Oct 09",
 //         "$2,875"
 //     ],
-    
-   
-    
+
+
+
 // ];
-            
+
 //
 $results = array(
-    "start"=>$s,
-    "lengh"=>$g,
-            "recordsTotal" => 100,
-        "recordsFiltered" => 100,
-        
-          "data"=>$data);
+  "start" => $s,
+  "lengh" => $g,
+  "recordsTotal" => 100,
+  "recordsFiltered" => 100,
+  "data" => $data
+);
 /*while($row = $result->fetch_array(MYSQLI_ASSOC)){
   $results["data"][] = $row ;
-}*///
- 
+}*/ //
+
 echo json_encode($results);
 
 
@@ -66,9 +62,12 @@ echo json_encode($results);
 <!-- 
 
 
-$book =`<button type="button" data-pid="<?php //echo row['ID']; ?>" data-name="<?php //echo $row['PatientName']; ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Book</button>`;
+$book =`<button type="button" data-pid="<?php //echo row['ID']; 
+                                        ?>" data-name="<?php //echo $row['PatientName']; 
+                                                                                ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Book</button>`;
 
 
 										
 
-$viewdata=	`<a href="view-patient.php?viewid=<?php //echo $row['ID']; ?>"><i class="fa fa-eye"></i></a>`; -->
+$viewdata=	`<a href="view-patient.php?viewid=<?php //echo $row['ID']; 
+                                              ?>"><i class="fa fa-eye"></i></a>`; -->
