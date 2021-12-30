@@ -379,12 +379,16 @@ if (isset($_POST['submit'])) {
 
 								});
 							</script>
-		<script> 
-	$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-										
-		</script>
+		<script>
+$( document ).ready(function() {
+$('#myTable').dataTable({
+    "serverSide": true,
+    "processing": true,
+        
+    ajax: 'response.php',
+        });  
+});
+    </script>
 							<!-- end: JavaScript Event Handlers for this page -->
 
 							<!-- end: CLIP-TWO JAVASCRIPTS -->
