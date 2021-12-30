@@ -99,7 +99,7 @@ $results = array(
           "data"=>$data);
 /*while($row = $result->fetch_array(MYSQLI_ASSOC)){
   $results["data"][] = $row ;
-}*/
+}*///
  
 echo json_encode($results);
 
