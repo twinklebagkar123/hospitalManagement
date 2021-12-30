@@ -1,4 +1,4 @@
-    <?php
+<?php
     session_start();
     error_reporting(0);
     include('include/config.php');
@@ -6,14 +6,38 @@
     check_login();
     if (isset($_POST['submit'])) {
         $file_title = $_POST['fTitle'];
-        $file_url = $_FILES['patientDoc'];
         $patient_id = $_POST['pID'];
         $uploaded_at = $_POST['date'];
+
+        $file_url = $_FILES['patientDoc']["name"];
+        $tempname = $_FILES["patientDoc"]["tmp_name"]; 
         
-        $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$file_title','$file_url','$patient_id','$uploaded_at')");
-    if ($query) {
-            echo "<script>alert('Your Documents added successfully ');</script>";
-        }
+        $upload_dir='/';
+        $imgExt=strtolower(pathinfo($file_url,PATHINFO_EXTENSION));
+        $valid_extensions=array('jpeg','jpg','png','gif','pdf');
+        $picProfile=rand(1000,1000000).".".$file_url;
+        echo "tempname:".$tempname;
+        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+echo "ext:".$ext;
+echo "/n/n".$_SERVER['DOCUMENT_ROOT'];
+try {
+    if(move_uploaded_file($tempname,'uploads'.$picProfile)):
+        echo "Succefully uploaded";
+    else:
+        echo "Something went wrong";
+    endif;
+} catch (\Throwable $th) {
+    echo "ERROR WHILE UPLOADING: ".$th;
+}
+  
+        
+   print_r( $_FILES) ;
+
+
+    //     $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$file_title','$file_url','$patient_id','$uploaded_at')");
+    // if ($query) {
+    //         echo "<script>alert('Your Documents added successfully ');</script>";
+    //     }
     }
     $month = date('m');
     $day = date('d');
@@ -67,7 +91,7 @@
 
 
                 <div class="panel-body">
-                                                    <form role="form" name="" method="post">
+                                                    <form role="form" name="" method="post" enctype="multipart/form-data">
                                                         <div class="form-group">
                                                             <label for="fess">
                                                                 File Title
@@ -96,7 +120,6 @@
                                                             Add
                                                         </button>
                                                         </div>
-
 
 
 
