@@ -90,7 +90,7 @@
                                                         <div class="form-group">
                                         <label> Form Creation Date
                                         </label>
-                                        <input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
+                                        <input type="hidden" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
                                     </div>  
                                     <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
