@@ -65,18 +65,16 @@ if ($query) {
 												<form role="form" name="" method="post">
 													<div class="form-group">
 														<label for="fess">
-															Patient Contact no
+															File Title
 														</label>
-														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
-														<span id="user-availability-status1" style="font-size:12px;"></span>
+														<input type="text" id="fTitle" name="fTitle" class="form-control" placeholder="Enter File Title" required="true"  >
+														
 													</div>
 													<input type="hidden" id="uid" name="uid" value="">
 													<div class="form-group">
-														<label for="patadhar">
-															Adhar Card No.
-														</label>
-														<input type="text" id="adharCard" name="patadhar" class="form-control" placeholder="Enter Patient Adhaar Card No" required="true" maxlength="12">
-													</div>
+                                                    <label for="myfile">Select a file:</label>
+                                                    <input type="file" id="myfile" name="myfile">
+                                                        </div>
 													<div class="form-group">
 														<label for="">
 															Patient Name
