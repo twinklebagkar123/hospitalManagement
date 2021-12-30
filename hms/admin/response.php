@@ -4,7 +4,7 @@
 
 $s=$_GET['start'];
 $g=$_GET['length'];
-$sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= 10 ORDER BY `ID` ASC LIMIT 10;");
+$sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= '$S' ORDER BY `ID` ASC LIMIT '$g'");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
@@ -34,12 +34,7 @@ $sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= 10 ORDER BY 
 
 $data = [
     [
-        "Angelica",
-        "Ramos",
-        "System Architect",
-        "London",
-        "9th Oct 09",
-        "$2,875"
+       
     ],
     
    
