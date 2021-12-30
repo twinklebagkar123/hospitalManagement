@@ -93,7 +93,9 @@
                                         <input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
                                     </div>  
-
+                                    <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
+                                                            Add
+                                                        </button>
                                                         </div>
 
 
@@ -105,9 +107,7 @@
 
                                                         
 
-                                                        <button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-                                                            Add
-                                                        </button>
+                                                       
                                                     </form>
                                                 </div>
 
