@@ -136,6 +136,9 @@ if (isset($_POST['submit'])) {
 												<td><button type="button" data-pid="<?php echo $row['ID']; ?>" data-name="<?php echo $row['PatientName']; ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 														Book
 													</button></td>
+													<td><button type="button" data-pid="<?php echo $row['ID']; ?>" data-name="<?php echo $row['PatientName']; ?>" class="btn btn-primary" href="documents.php">
+														Add
+													</button></td>
 
 
 												<td>
