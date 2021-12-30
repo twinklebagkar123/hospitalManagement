@@ -359,7 +359,10 @@ $('#myTable').dataTable({
     "serverSide": true,
     "processing": true,
         
-    ajax: 'response.php',
+    ajax: {
+		"url" : 'response.php',
+		"dataType": "json"
+	},
         });  
 });
     </script>
