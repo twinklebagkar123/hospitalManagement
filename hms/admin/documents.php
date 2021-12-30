@@ -6,7 +6,7 @@
     check_login();
     if (isset($_POST['submit'])) {
         $file_title = $_POST['fTitle'];
-        $file_url = $_POST['myfile'];
+        $file_url = $_FILES['patientDoc'];
         $patient_id = $_POST['pID'];
         $uploaded_at = $_POST['date'];
         
@@ -78,7 +78,7 @@
                                                        
                                                         <div class="form-group">
                                                         <label for="myfile">Select a file:</label>
-                                                        <input type="file" id="myfile" name="myfile">
+                                                        <input type="file" id="myfile" name="patientDoc">
                                                             </div>
                                                         <div class="form-group">
                                                             <label for="">
