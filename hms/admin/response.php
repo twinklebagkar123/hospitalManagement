@@ -16,7 +16,7 @@ $sql = mysqli_query($con, "SELECT * FROM `tblpatient` WHERE `ID` >= $s ORDER BY 
                        $CreationDate= $row['CreationDate']; 
                        $UpdationDate= $row['UpdationDate']; 
                       
-                       $result=[$ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate];
+                       $result=array($ID,$PatientName,$PatientContno,$PatientGender,$CreationDate,$UpdationDate);
                        array_push($data,$result);
 
 											
