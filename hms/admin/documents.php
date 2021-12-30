@@ -4,17 +4,19 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if(isset($_POST['submit']))
-{
-$sql=mysqli_query($con,"INSERT INTO `patient_medical_files`(`file_id`, `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
-$_SESSION['msg']="Doctor Specialization added successfully !!";
+if (isset($_POST['submit'])) {
+	$file_title = $_POST['Doctorspecialization'];
+	$file_url = $_POST['doctor'];
+	$patient_id = $_POST['idpatient'];
+	$uploaded_at = $_POST['fees'];
+	
+	$sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+if ($query) {
+		echo "<script>alert('Your appointment successfully booked');</script>";
+	}
 }
 
-if(isset($_GET['del']))
-      {
-              mysqli_query($con,"delete from doctorSpecilization where id = '".$_GET['id']."'");
-                  $_SESSION['msg']="data deleted !!";
-      }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,8 +140,8 @@ if(isset($_GET['del']))
 															Ward No.
 														</label>
 														<input type="text" name="wn" class="form-control" placeholder="Enter Ward No." required="true">
-													</div>
-													
+                                            </div>
+											
 													</div>
 
 
