@@ -13,8 +13,8 @@
     <!-- <header></header> -->
     <main>
         <div class="container">
-            <div>
-                <div class="row" style="margin-top: 3%;">
+            <div style="border: 3px solid #333;padding: 3%;">
+                <div class="row">
                     <div class=" col-md-6">
                         <label for="form_message">Message *</label>
                         <div class="text-center"><textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea></div>
@@ -56,7 +56,7 @@
 
                         <div class="messages"></div>
 
-                        <div class="controls">
+                        <div class="controls" style="border: 3px solid #333;padding: 3%;margin-top: 3%;">
 
                             <div class="row">
                                 <div class="col-md-6">
