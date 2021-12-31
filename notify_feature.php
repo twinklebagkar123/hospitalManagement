@@ -13,41 +13,40 @@
     <!-- <header></header> -->
     <main>
         <div class="container">
-            <div class="row" style="margin-top: 3%;">
-
-
-
-                <div class=" col-md-6">
-                    <label for="form_message">Message *</label>
-                    <div class="text-center"><textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea></div>
-                </div>
-                <div class="col-md-6 text-center">
-                    <div class="row" style="margin-top: 3%;">
-                        <div class="col-md-4">
-                            <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
-                        </div>
-                        <div class="col-md-4">
-                            <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+            <div>
+                <div class="row" style="margin-top: 3%;">
+                    <div class=" col-md-6">
+                        <label for="form_message">Message *</label>
+                        <div class="text-center"><textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea></div>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <div class="row" style="margin-top: 3%;">
+                            <div class="col-md-4">
+                                <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
+                            </div>
+                            <div class="col-md-4">
+                                <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="row" style="margin-top: 3%;">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <!-- <label for="form_email">Email Address</label> -->
-                        <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify Phone Numbers with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
-                        <div class="help-block with-errors"></div>
+                <div class="row" style="margin-top: 3%;">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- <label for="form_email">Email Address</label> -->
+                            <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify Phone Numbers with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
-                        <div class="help-block with-errors"></div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
+                            <div class="help-block with-errors"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +71,7 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="margin-top: 4%;">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <input type="submit" name="all_mail" class="btn btn-success btn-send" value="Mail to all">
@@ -86,7 +85,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-6">
                                     <div class="form-group">
