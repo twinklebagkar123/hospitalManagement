@@ -14,12 +14,13 @@
     <!-- <header></header> -->
     <main>
         <div class="container">
-            <div class="row">
+            <div class="row"  style="margin-top: 3%;">
                 <div class="col-md-12 text-center">
+                    <label for="form_message">Message *</label>
                     <textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 3%;">
                     <div class="col-md-4">
                         <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
                     </div>
@@ -40,7 +41,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="submit" id="manual_sms_submit"  name="manual_sms_submit" class="btn btn-success btn-send" value="Send Mail">
+                            <input type="submit" id="manual_sms_submit"  name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
                             <div class="help-block with-errors"></div>
                         </div>
                     </div>
@@ -114,40 +115,43 @@
             function sendSms(smsType){
                 var message = $('#sms_textarea').val();
                 var contacts = $('#contact_number_sms_custom').val();
-                $.ajax({
-                    url: "/hospital/email_script.php",
-                    dataType: "json",
-                    type: "Post",
-                    async: true,
-                    data: {
-                        "sms_type": smsType,
-                        "message": message,
-                        "numbers": contacts,
-                    },
-                    success: function(data) {
-                        console.log(data.message);
-                    },
-                    error: function(xhr, exception) {
-                        var msg = "";
-                        if (xhr.status === 0) {
-                            msg = "Not connect.\n Verify Network." + xhr.responseText;
-                        } else if (xhr.status == 404) {
-                            msg = "Requested page not found. [404]" + xhr.responseText;
-                        } else if (xhr.status == 500) {
-                            msg = "Internal Server Error [500]." + xhr.responseText;
-                        } else if (exception === "parsererror") {
-                            msg = "Requested JSON parse failed.";
-                        } else if (exception === "timeout") {
-                            msg = "Time out error." + xhr.responseText;
-                        } else if (exception === "abort") {
-                            msg = "Ajax request aborted.";
-                        } else {
-                            msg = "Error:" + xhr.status + " " + xhr.responseText;
+                if(message.length > 0){
+                    $.ajax({
+                        url: "/hospital/email_script.php",
+                        dataType: "json",
+                        type: "Post",
+                        async: true,
+                        data: {
+                            "sms_type": smsType,
+                            "message": message,
+                            "numbers": contacts,
+                        },
+                        success: function(data) {
+                            console.log(data.message[0]);
+                            alert(data.message[0]);
+                        },
+                        error: function(xhr, exception) {
+                            var msg = "";
+                            if (xhr.status === 0) {
+                                msg = "Not connect.\n Verify Network." + xhr.responseText;
+                            } else if (xhr.status == 404) {
+                                msg = "Requested page not found. [404]" + xhr.responseText;
+                            } else if (xhr.status == 500) {
+                                msg = "Internal Server Error [500]." + xhr.responseText;
+                            } else if (exception === "parsererror") {
+                                msg = "Requested JSON parse failed.";
+                            } else if (exception === "timeout") {
+                                msg = "Time out error." + xhr.responseText;
+                            } else if (exception === "abort") {
+                                msg = "Ajax request aborted.";
+                            } else {
+                                msg = "Error:" + xhr.status + " " + xhr.responseText;
+                            }
+                            console.log(msg);
+                            alert(msg);
                         }
-                        console.log(msg);
-
-                    }
-                });
+                    });
+                }
             }
             $('#all_sms').click(function() {
                sendSms(1);

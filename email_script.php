@@ -94,7 +94,56 @@ include('hms/admin/include/checklogin.php');
             echo "Message could not be sent to " .$to. "\n";
         }
     }
+    /*
+    SMS TYPE:  
+    all_sms - 1,
+    patients_sms - 2,
+    staff_sms -3,
+    manual_sms_submit - 4,
+    */
     function sendSMS($message,$numbers,$smsType){
+
+        $contactNumber = "";
+        $result = [];
+        if($smsType == '1'):
+                global $con;
+                $sql = "SELECT DISTINCT `PatientContno` as contactNumber FROM `tblpatient`;SELECT DISTINCT `contactno`  as contactNumber FROM `doctors`";
+                if (mysqli_multi_query($con,$sql)):
+                    do{
+                    if ($resp=mysqli_store_result($con)){
+                        while ($row=mysqli_fetch_row($resp)){
+                            array_push($result,$row[0]);
+                        }
+                        //   global $con;
+                        mysqli_free_result($resp);
+                    }
+                    }while (mysqli_next_result($con));
+                    $contactNumber = implode (", ", $result);
+
+                endif;
+            elseif($smsType == '2'):
+                    global $con;
+                    $sql = "SELECT DISTINCT `PatientContno` FROM `tblpatient`";
+                    $ret = mysqli_query($con, $sql);
+                    $cnt = 1;
+                    while ($row = mysqli_fetch_array($ret)) {
+                        // echo $row['PatientEmail'];
+                        array_push($result,$row['PatientContno']);
+                    }
+                    $contactNumber = implode (", ", $result);
+            elseif($smsType == '3'):
+                global $con;
+                $sql = "SELECT DISTINCT `contactno` FROM `doctors`";
+                $ret = mysqli_query($con, $sql);
+                $cnt = 1;
+                while ($row = mysqli_fetch_array($ret)) {
+                    // echo ;
+                    array_push($result,$row['contactno']);
+                }
+                $contactNumber = implode (", ", $result);
+            elseif($smsType == '4'):
+                $contactNumber = $numbers;
+            endif;
         $url = 'https://www.fast2sms.com/dev/bulkV2';
         $query_fields = [
             "route" => "v3",
@@ -102,7 +151,7 @@ include('hms/admin/include/checklogin.php');
             "message" => $message,
             "language" => "english",
             "flash" => 0,
-            "numbers" => $numbers,
+            "numbers" => $contactNumber,
             "authorization : sq40u1cGfmVrJUBbi62nxMD8ON9RghjwLQHdSCaPoA5XFKv3ItTCHWxe9rUGnfZPOi4gyv3Y2q76zdMu"
             // "numbers" => "7038544429,8999052871",
         ];
