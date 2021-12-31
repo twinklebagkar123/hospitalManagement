@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,38 +13,44 @@
     <!-- <header></header> -->
     <main>
         <div class="container">
-            <div class="row"  style="margin-top: 3%;">
-                <div class="col-md-12 text-center">
+            <div class="row" style="margin-top: 3%;">
+
+
+
+                <div class=" col-md-6 text-center">
                     <label for="form_message">Message *</label>
-                    <textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea>
+                    <div class="text-center"><textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea></div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="row" style="margin-top: 3%;">
+                        <div class="col-md-4">
+                            <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-4">
-                        <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="form_email">Email Address</label> -->
+                        <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify Phone Numbers with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
+                        <div class="help-block with-errors"></div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 3%;">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <!-- <label for="form_email">Email Address</label> -->
-                            <textarea id="contact_number_sms_custom" name="contact_number_sms" class="form-control" placeholder="Specify Phone Numbers with ',' if multiple recipents.*" rows="4" data-error="Email address required."></textarea>
-                            <div class="help-block with-errors"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="submit" id="manual_sms_submit"  name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
-                            <div class="help-block with-errors"></div>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
+                        <div class="help-block with-errors"></div>
                     </div>
                 </div>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <form id="contact-form" method="POST" action="email_script.php" role="form">
@@ -63,7 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                          
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -107,15 +112,15 @@
             </div>
         </div>
     </main>
-    
+
     <script src="hms/vendor/jquery/jquery.min.js"></script>
     <script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            function sendSms(smsType){
+            function sendSms(smsType) {
                 var message = $('#sms_textarea').val();
                 var contacts = $('#contact_number_sms_custom').val();
-                if(message.length > 0){
+                if (message.length > 0) {
                     $.ajax({
                         url: "/hospital/email_script.php",
                         dataType: "json",
@@ -154,16 +159,16 @@
                 }
             }
             $('#all_sms').click(function() {
-               sendSms(1);
+                sendSms(1);
             });
             $('#patients_sms').click(function() {
-               sendSms(2);
+                sendSms(2);
             });
             $('#staff_sms').click(function() {
-               sendSms(3);
+                sendSms(3);
             });
             $('#manual_sms_submit').click(function() {
-               sendSms(4);
+                sendSms(4);
             });
             /*
             SMS TYPE:  
