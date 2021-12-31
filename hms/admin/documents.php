@@ -21,7 +21,7 @@
 echo "ext:".$ext;
 echo "/n/n".$_SERVER['DOCUMENT_ROOT'];
 try {
-    if(move_uploaded_file($tempname,'/hospital/uploads'.$picProfile)):
+    if(move_uploaded_file($tempname,'/home/u298126064/domains/adpigo.com/public_html/hospital/uploads/'.$picProfile)):
         echo "Succefully uploaded";
     else:
         echo "Something went wrong";
