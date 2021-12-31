@@ -17,7 +17,7 @@
 
 
 
-                <div class=" col-md-6 text-center">
+                <div class=" col-md-6">
                     <label for="form_message">Message *</label>
                     <div class="text-center"><textarea id="sms_textarea" name="sms_textarea" class="form-control" placeholder="Message*" rows="4" data-error="Please, leave a message."></textarea></div>
                 </div>
@@ -60,36 +60,33 @@
                         <div class="controls">
 
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="form_name">Subject</label>
                                         <input id="form_name" type="text" name="email_subject" class="form-control" placeholder="Subject *" required="required" data-error="Subject is required.">
                                         <div class="help-block with-errors"></div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="form_message">Message *</label>
                                         <textarea id="form_message" name="email_message" class="form-control" placeholder="Message*" rows="4" required="required" data-error="Please, leave a message."></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
-
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <input type="submit" name="all_mail" class="btn btn-success btn-send" value="Mail to all">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staffs">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="submit" name="all_mail" class="btn btn-success btn-send" value="Mail to all">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
-                                </div>
-                                <div class="col-md-4">
-                                    <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staffs">
-                                </div>
-                            </div>
+                            
                             <div class="row" style="margin-top: 3%;">
                                 <div class="col-md-6">
                                     <div class="form-group">
