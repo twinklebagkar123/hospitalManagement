@@ -22,13 +22,13 @@
                     <div class="col-md-6 text-center">
                         <div class="row" style="margin-top: 3%;">
                             <div class="col-md-4">
-                                <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="SMS to all">
+                                <input type="submit" id="all_sms" name="all_sms" class="btn btn-success btn-send" value="send SMS to all">
                             </div>
                             <div class="col-md-4">
-                                <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="SMS to Patients">
+                                <input type="submit" name="patients_sms" id="patients_sms" class="btn btn-success btn-send" value="send SMS to Patients">
                             </div>
                             <div class="col-md-4">
-                                <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="SMS to Staffs">
+                                <input type="submit" name="staff_sms" id="staff_sms" class="btn btn-success btn-send" value="send SMS to Staffs">
                             </div>
                         </div>
                     </div>
@@ -74,13 +74,13 @@
                                 <div class="col-md-6" style="margin-top: 4%;">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <input type="submit" name="all_mail" class="btn btn-success btn-send" value="Mail to all">
+                                            <input type="submit" name="all_mail" class="btn btn-success btn-send" value="send Mail to all">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="Mail to Patients">
+                                            <input type="submit" name="patients_mail" class="btn btn-success btn-send" value="send Mail to Patients">
                                         </div>
                                         <div class="col-md-4">
-                                            <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="Mail to Staffs">
+                                            <input type="submit" name="staff_mail" class="btn btn-success btn-send" value="send Mail to Staffs">
                                         </div>
                                     </div>
                                 </div>
