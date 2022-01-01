@@ -18,7 +18,7 @@
             // error_reporting(0);
             include('hms/admin/include/config.php');
             include('../urlMapping.php'); 
-            global $home_url;
+            
             // global $con;
             include('hms/admin/include/checklogin.php');
 
@@ -207,8 +207,8 @@
             }
             ?>
             <div class="col-md-12 text-center">
-                <?php $actual_link = "/notify_feature.php"; echo $home_url;?>
-                
+                <?php $actual_link = "/notify_feature.php"; 
+                global $home_url;?>
                     <a href="<?php echo $home_url.$actual_link; ?>" class="btn btn-success btn-send">🔙 Go Back</a>
                 <!-- <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS"> -->
             </div>
