@@ -73,6 +73,7 @@ include('hms/admin/include/checklogin.php');
         foreach($result as $val){
             send_mail($val,$subject,$message);
         }
+        global $con;
         $rep = store_record_in_db($type,"","email",$con);
         echo $rep;
     }
@@ -91,9 +92,9 @@ include('hms/admin/include/checklogin.php');
         $retval = mail($to, $subject, $message, $header);
 
         if ($retval == true) {
-            echo "Message sent to " .$to. " successfully... \n";
+            echo "Email sent to " .$to. " successfully... \n";
         } else {
-            echo "Message could not be sent to " .$to. "\n";
+            echo "Email could not be sent to " .$to. "\n";
         }
     }
     /*
@@ -169,7 +170,7 @@ include('hms/admin/include/checklogin.php');
         curl_close($curl);
         global $con;
         $rep = store_record_in_db($smsType,$jsonRes->message[0],"sms",$con);
-        echo $rep;
+        // echo $rep;
         echo $response;  
     }
     
