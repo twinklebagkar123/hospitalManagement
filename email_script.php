@@ -73,7 +73,8 @@ include('hms/admin/include/checklogin.php');
         foreach($result as $val){
             send_mail($val,$subject,$message);
         }
-        store_record_in_db($type,"","email",$con);
+        $rep = store_record_in_db($type,"","email",$con);
+        echo $rep;
     }
     function send_mail($to,$subject,$message){
         // $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
@@ -166,7 +167,8 @@ include('hms/admin/include/checklogin.php');
         $response = curl_exec($curl);
         curl_close($curl);
         $rep = store_record_in_db($smsType,$response[0],"sms",$con);
-        echo $rep;  
+        echo $rep;
+        echo $response;  
     }
     
     function store_record_in_db($sms_email_type,$remark,$sms_or_email,$con){
