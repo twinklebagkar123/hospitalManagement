@@ -165,8 +165,8 @@ include('hms/admin/include/checklogin.php');
         ));
         $response = curl_exec($curl);
         curl_close($curl);
-        store_record_in_db($smsType,$response[0],"sms",$con);
-        echo $response;  
+        $rep = store_record_in_db($smsType,$response[0],"sms",$con);
+        echo $rep;  
     }
     
     function store_record_in_db($sms_email_type,$remark,$sms_or_email,$con){
@@ -174,5 +174,6 @@ include('hms/admin/include/checklogin.php');
         $datetime = date("Y-m-d H:i:s"); 
         $query = "INSERT INTO `sms_email_record`( `sms_email_type`,`sent_at`, `remark`, `sms_or_email`) values ('".$sms_email_type."','".$datetime."','".$remark."','".$sms_or_email."')"; 
         $result = mysqli_query($con,$query);
+        return $query."  ".$result;
         }
     ?>
