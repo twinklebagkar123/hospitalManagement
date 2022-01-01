@@ -208,10 +208,10 @@
             <div class="col-md-12 text-center">
                 <?php
                 global $home_url;
-                $actual_link = $home_url."hospital/notify_feature.php";
+                $actual_link = "hospital/notify_feature.php";
                 ?>
-                    <div href="<?=$actual_link; ?>" class="btn btn-success btn-send">🔙 Go Back</div>
-                <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS">
+                    <div href="<?php echo $home_url.$actual_link; ?>" class="btn btn-success btn-send">🔙 Go Back</div>
+                <!-- <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS"> -->
             </div>
         </div>
     </main>
