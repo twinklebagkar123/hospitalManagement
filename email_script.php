@@ -2,6 +2,7 @@
 session_start();
 // error_reporting(0);
 include('hms/admin/include/config.php'); 
+// global $con;
 include('hms/admin/include/checklogin.php');
 
     if(isset($_POST['patients_mail'])):
@@ -67,12 +68,12 @@ include('hms/admin/include/checklogin.php');
                 send_mail($email_addresses,$subject,$message);
                 break;
             default:
-                
                 break;
         }
         foreach($result as $val){
             send_mail($val,$subject,$message);
         }
+        store_record_in_db($type,"","email",$con);
     }
     function send_mail($to,$subject,$message){
         // $to = "porobjagannath@gmail.com,info@weblozee.com,twinklebagkar99@gmail.com";
@@ -164,6 +165,14 @@ include('hms/admin/include/checklogin.php');
         ));
         $response = curl_exec($curl);
         curl_close($curl);
+        store_record_in_db($smsType,$response[0],"sms",$con);
         echo $response;  
     }
+    
+    function store_record_in_db($sms_email_type,$remark,$sms_or_email,$con){
+        // global $con;
+        $datetime = date("Y-m-d H:i:s"); 
+        $query = "INSERT INTO `sms_email_record`( `sms_email_type`,`sent_at`, `remark`, `sms_or_email`) values ('".$sms_email_type."','".$datetime."','".$remark."','".$sms_or_email."')"; 
+        $result = mysqli_query($con,$query);
+        }
     ?>
