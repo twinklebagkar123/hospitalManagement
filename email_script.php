@@ -207,11 +207,9 @@
             }
             ?>
             <div class="col-md-12 text-center">
-                <?php
+                <?php $actual_link = "/notify_feature.php"; echo $home_url;?>
                 
-                $actual_link = "/notify_feature.php";
-                ?>
-                    <div href="<?php echo $home_url.$actual_link; ?>" class="btn btn-success btn-send">🔙 Go Back</div>
+                    <a href="<?php echo $home_url.$actual_link; ?>" class="btn btn-success btn-send">🔙 Go Back</a>
                 <!-- <input type="submit" id="manual_sms_submit" name="manual_sms_submit" class="btn btn-success btn-send" value="Send SMS"> -->
             </div>
         </div>
