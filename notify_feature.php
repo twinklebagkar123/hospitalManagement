@@ -128,7 +128,7 @@
                             "numbers": contacts,
                         },
                         success: function(data) {
-                            console.log(data.message[0]);
+                            console.log(data);
                             alert(data.message[0]);
                         },
                         error: function(xhr, exception) {

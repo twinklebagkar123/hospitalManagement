@@ -165,8 +165,9 @@ include('hms/admin/include/checklogin.php');
             // 'Content-Type : application/json'
         ));
         $response = curl_exec($curl);
+        $jsonRes = json_decode($response);
         curl_close($curl);
-        $rep = store_record_in_db($smsType,$response[0],"sms",$con);
+        $rep = store_record_in_db($smsType,$jsonRes->message[0],"sms",$con);
         echo $rep;
         echo $response;  
     }
