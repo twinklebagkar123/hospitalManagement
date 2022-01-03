@@ -97,9 +97,11 @@
             }, 10);
 
         }
+    
         $(document).on("click", "#printDoc", function() {
             printDiv();
         });
+    });
     </script>
 </body>
 
