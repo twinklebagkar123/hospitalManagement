@@ -106,6 +106,11 @@
                     </form>
                 </div>
             </div>
+            <div id='DivIdToPrint'>
+                <p>This is a sample text for printing purpose.</p>
+            </div>
+            <p>Do not print.</p>
+            <input type='button' id='printDoc' value='Print'>
         </div>
     </main>
 
@@ -173,6 +178,25 @@
             staff_sms -3,
             manual_sms_submit - 4,
             */
+            function printDiv() 
+    {
+
+            var divToPrint=document.getElementById('DivIdToPrint');
+
+            var newWin=window.open('','Print-Window');
+
+            newWin.document.open();
+
+            newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+            newWin.document.close();
+
+            setTimeout(function(){newWin.close();},10);
+
+            }
+            $(document).on("click", "#printDoc", function () {
+                printDiv();
+            });
         });
     </script>
     <!-- <footer></footer> -->
