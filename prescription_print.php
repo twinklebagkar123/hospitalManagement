@@ -76,7 +76,10 @@
             </table>
         </div>
     </main>
-    <script type="text/javascript">
+    <script src="hms/vendor/jquery/jquery.min.js"></script>
+    <script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
         function printDiv() {
 
             var divToPrint = document.getElementById('DivIdToPrint');
