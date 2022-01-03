@@ -17,7 +17,7 @@
             session_start();
             // error_reporting(0);
             include('hms/admin/include/config.php');
-            include('../urlMapping.php'); 
+            include('urlMapping.php'); 
             
             // global $con;
             include('hms/admin/include/checklogin.php');
