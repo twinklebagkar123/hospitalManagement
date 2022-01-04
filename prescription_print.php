@@ -75,6 +75,7 @@
 
             </table>
         </div>
+        <button onclick="window.print()">Print this page</button>
     </main>
     <script src="hms/vendor/jquery/jquery.min.js"></script>
     <script src="hms/vendor/bootstrap/js/bootstrap.min.js"></script>
