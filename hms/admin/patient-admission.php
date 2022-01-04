@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 	$stat = false;
 	if(!empty($uid)){
 		
-		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
+		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
 		$con->query($query);
 		$stat = true;
 	}
@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
 		
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
-			$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `outstandingAmount`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
+			$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
 			$con->query($query);
 			$stat = true;
 			
@@ -228,6 +228,12 @@ $today = $year . '-' . $month . '-' . $day;
 															Ward No.
 														</label>
 														<input type="text" name="wn" class="form-control" placeholder="Enter Ward No." required="true">
+													</div>
+													<div class="form-group">
+														<label>
+															Cost Per day
+														</label>
+														<input type="text" name="cpd" class="form-control" placeholder="Enter Cost Per day" required="true">
 													</div>
 													<div class="form-group">
 														<label for="doctor">
