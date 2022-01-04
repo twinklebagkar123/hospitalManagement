@@ -117,20 +117,36 @@
 								</ul> -->
 				</li>
 
+				
+
 				<li>
-					<a href="appointment-history.php">
+					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-file"></i>
+								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Appointment History </span>
+								<span class="title"> Appointment History  </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="appointment-history.php">
+								<span class="title"> Todays list </span>
+							</a>
+						</li>
+						<li>
+							<a href="searchByDate.php">
+								<span class="title">Search By Date</span>
+							</a>
+						</li>
+
+
+
+					</ul>
 				</li>
-
-
 
 				<li>
 					<a href="javascript:void(0)">
