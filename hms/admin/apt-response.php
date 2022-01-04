@@ -13,7 +13,6 @@ $appointmentCountSql ="SELECT COUNT(`id`) as totalAppointments FROM `appointment
 $sql = mysqli_query($con, $query);
 $countSql = mysqli_query($con, $appointmentCountSql);
 $resultOfAppointmentCount = mysqli_fetch_array($countSql);
-print_r($resultOfAppointmentCount);
 while ($row = mysqli_fetch_array($sql)) {
 
 
@@ -31,8 +30,8 @@ while ($row = mysqli_fetch_array($sql)) {
 $results = array(
   "start" => $s,
   "lengh" => $g,
-  "recordsTotal" => 100,
-  "recordsFiltered" => 100,
+  "recordsTotal" => $resultOfAppointmentCount[0]['totalAppointments'],
+  "recordsFiltered" => $resultOfAppointmentCount[0]['totalAppointments'],
   "data" => $data
 ); 
 echo json_encode($results);
