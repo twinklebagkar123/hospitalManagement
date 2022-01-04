@@ -138,7 +138,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="searchByDate.php">
+							<a href="date-search.php">
 								<span class="title">Search By Date</span>
 							</a>
 						</li>
