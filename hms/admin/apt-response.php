@@ -10,7 +10,7 @@ $data = [];
 $s = $_GET['start'];
 $getDataFromId = $s;
 $g = $_GET['length'];
-if(isset($_SESSION['lastPageId'])): 
+if((isset($_SESSION['lastPageId'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageId'];
   $query="SELECT tblp.ID,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where tblp.ID  <= " . $getDataFromId . " ORDER BY tblp.ID DESC LIMIT ". $g;
 else:
