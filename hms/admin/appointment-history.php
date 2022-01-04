@@ -137,12 +137,7 @@ if(isset($_GET['cancel']))
 				FormElements.init();
 			});
 		</script>
-		<script> 
-	$(document).ready( function () {
-    $('#tab').DataTable();
-} );
-										
-		</script>
+		
 			<script>
 $( document ).ready(function() {
 $('#tab').dataTable({
