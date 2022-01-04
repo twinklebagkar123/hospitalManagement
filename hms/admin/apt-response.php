@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($sql)) {
 $results = array(
   "start" => $s,
   "lengh" => $g,
-  "recordsTotal" => $resultOfAppointmentCount[0]['totalAppointments'],
+  "recordsTotal" => $resultOfAppointmentCount[0],
   "recordsFiltered" => $resultOfAppointmentCount[0]['totalAppointments'],
   "data" => $data
 ); 
