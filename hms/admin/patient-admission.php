@@ -46,6 +46,11 @@ if (isset($_POST['submit'])) {
 		header('location:patient-admission.php');
 	}
 }
+$month = date('m');
+$day = date('d');
+$year = date('Y');
+
+$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -251,7 +256,7 @@ if (isset($_POST['submit'])) {
 														<label for="AppointmentDate">
 															Date of Admission
 														</label>
-														<input class="form-control datepicker" name="appdate" required="required" data-date-format="yyyy-mm-dd">
+														<input class="form-control " type="hidden" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd">
 													</div>
 
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
