@@ -32,7 +32,7 @@ if(isset($_GET['cancel']))
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 	
 	</head>
-	<body>
+	<body> 
 		<div id="app">		
 <?php include('include/sidebar.php');?>
 			<div class="app-content">
