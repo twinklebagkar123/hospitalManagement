@@ -38,7 +38,9 @@
      tfoot {display: table-footer-group;}
      .page-footer{
       background: yellow; 
+      -webkit-print-color-adjust: exact; 
      }
+     
      button {display: none;}
      
      body {margin: 0;}
