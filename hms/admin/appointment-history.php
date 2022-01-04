@@ -72,12 +72,13 @@ if(isset($_GET['cancel']))
 										<thead>
 											<tr>
 												
-												<th class="hidden-xs">Patient Name</th>
+												<th class="hidden-xs">ID</th>
+												<th >Patient Name</th>
 												<th>Doctor Name</th>
 												<th>Specialization</th>
 												<th>Doctor Fees</th>
 												<th>Appointment Date / Time </th>
-												<th>Appointment Creation Date  </th>
+												
 												
 												<th>Action</th>
 												
