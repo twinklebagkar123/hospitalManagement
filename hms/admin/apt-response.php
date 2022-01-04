@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $CreationDate = $row['docFees'];
   $UpdationDate = $row['appointmentDate'];
  $viewInfo = '<a href="view-patient.php?viewid='.$row['ID'].'"><i class="fa fa-eye"></i></a>';
-  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate,$bookAppointment,$addFiles,$viewInfo);
+  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate,$viewInfo);
   array_push($data, $result);
 }
 
