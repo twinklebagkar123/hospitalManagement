@@ -20,8 +20,8 @@ while ($row = mysqli_fetch_array($sql)) {
   $specilization = $row['specilization'];
   $docFees = $row['docFees'];
   $appointmentDate = $row['appointmentDate'];
- $cancel = '<a href="appointment-history.php?id= echo '.$row['id'].' &cancel=update" onClick="return confirm('Are you sure you want to cancel this appointment ?')"class="btn btn-transparent btn-xs tooltips" title="Cancel Appointment" tooltip-placement="top" tooltip="Remove">Cancel</a>';
-  $result = array($ID, $PatientName, $doctorName, $specilization, $docFees, $appointmentDate,$cancel);
+ $cancel = '<a href="view-patient.php?viewid='.$row['ID'].'"><i class="fa fa-eye"></i></a>';
+ $result = array($ID, $PatientName, $doctorName, $specilization, $docFees, $appointmentDate,$cancel);
   array_push($data, $result);
 }
 
