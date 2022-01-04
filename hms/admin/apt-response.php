@@ -31,7 +31,7 @@ $results = array(
   "start" => $s,
   "lengh" => $g,
   "recordsTotal" => $resultOfAppointmentCount[0],
-  "recordsFiltered" => $resultOfAppointmentCount[0]['totalAppointments'],
+  "recordsFiltered" => $resultOfAppointmentCount[0],
   "data" => $data
 ); 
 echo json_encode($results);
