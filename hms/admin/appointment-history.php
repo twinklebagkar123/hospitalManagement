@@ -143,6 +143,18 @@ if(isset($_GET['cancel']))
 } );
 										
 		</script>
+			<script>
+$( document ).ready(function() {
+$('#tab').dataTable({
+    "serverSide": true,
+    "processing": true,
+    ajax: {
+		"url" : 'apt-response.php',
+		"contentType": 'application/json'
+	},
+        });  
+});
+    </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
