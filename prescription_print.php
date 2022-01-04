@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="hms/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/print.css">
-    <title>Send Bulk SMS/EMAIL</title>
+    <title>Print</title>
 </head>
 
 <body>
@@ -88,7 +88,10 @@
 
             newWin.document.open();
 
-            newWin.document.write('<html><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
+            newWin.document.write(`
+            <html>
+            
+            <body onload="window.print()">' + divToPrint.innerHTML + '</body></html>`);
 
             newWin.document.close();
 

@@ -36,7 +36,9 @@
   @media print {
      thead {display: table-header-group;} 
      tfoot {display: table-footer-group;}
-     
+     .page-footer{
+      background: yellow; 
+     }
      button {display: none;}
      
      body {margin: 0;}
