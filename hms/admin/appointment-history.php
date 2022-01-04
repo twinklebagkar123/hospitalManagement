@@ -71,14 +71,14 @@ if(isset($_GET['cancel']))
 									<table class="display" id="tab">
 										<thead>
 											<tr>
-												<th class="center">#</th>
+												
 												<th class="hidden-xs">Patient Name</th>
 												<th>Doctor Name</th>
 												<th>Specialization</th>
 												<th>Doctor Fees</th>
 												<th>Appointment Date / Time </th>
 												<th>Appointment Creation Date  </th>
-												<th>Current Status</th>
+												
 												<th>Action</th>
 												
 											</tr>
