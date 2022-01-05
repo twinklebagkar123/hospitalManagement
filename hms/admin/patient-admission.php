@@ -20,10 +20,11 @@ if (isset($_POST['submit'])) {
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
+	$cpd= $_POST['cpd'];
 	$stat = false;
 	if(!empty($uid)){
 		
-		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
+		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`,`cpd`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$cpd','pending')";
 		$con->query($query);
 		$stat = true;
 	}
