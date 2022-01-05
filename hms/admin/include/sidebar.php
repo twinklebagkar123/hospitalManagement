@@ -94,18 +94,39 @@
 								<span class="title"> Register Patient</span>
 							</a>
 						</li>
-						<li>
-							<a href="patient-admission.php">
-								<span class="title"> Patient Admission</span>
-							</a>
-						</li>
-						<!-- <li>
-										<a href="manage-patient.php">
-											<span class="title"> Manage Patients </span>
-										</a>
-									</li> -->
+					
+					
 
 					</ul>
+
+					<li>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-user"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Patient Admission </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="view-admit-patient.php">
+								<span class="title"> Admit Patient  </span>
+							</a>
+						</li>
+						<li>
+							<a href="user-registration.php">
+								<span class="title"> Register Patient</span>
+							</a>
+						</li>
+						
+					
+
+					</ul>
+
+
 					<!-- <ul class="sub-menu">
 									
 									<li>
@@ -147,6 +168,36 @@
 
 					</ul>
 				</li>
+
+				<li>
+					<a href="javascript:void(0)">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-files"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Operation list  </span><i class="icon-arrow"></i>
+							</div>
+						</div>
+					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="operationList.php">
+								<span class="title"> Todays list </span>
+							</a>
+						</li>
+						<li>
+							<a href="listByDate.php">
+								<span class="title"> list by Date </span>
+							</a>
+						</li>
+
+
+
+					</ul>
+				</li>
+
 
 				<li>
 					<a href="javascript:void(0)">
@@ -289,35 +340,7 @@
 				</li>
 				
 
-							<li>
-					<a href="javascript:void(0)">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-files"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Operation list  </span><i class="icon-arrow"></i>
-							</div>
-						</div>
-					</a>
-					<ul class="sub-menu">
-
-						<li>
-							<a href="operationList.php">
-								<span class="title"> Todays list </span>
-							</a>
-						</li>
-						<li>
-							<a href="listByDate.php">
-								<span class="title"> list by Date </span>
-							</a>
-						</li>
-
-
-
-					</ul>
-				</li>
-
+							
 
 
 				<li>
