@@ -112,13 +112,13 @@
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="view-admit-patient.php">
+							<a href="patient-admission.php">
 								<span class="title"> Admit Patient  </span>
 							</a>
 						</li>
 						<li>
 							<a href="user-registration.php">
-								<span class="title"> Register Patient</span>
+								<span class="title"> View Patient</span>
 							</a>
 						</li>
 						
