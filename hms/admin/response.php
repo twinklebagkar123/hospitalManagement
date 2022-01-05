@@ -9,14 +9,14 @@ $data = [];
 $s = $_GET['start'];
 $getDataFromId = $s;
 $g = $_GET['length'];
-if((isset($_SESSION['lastPageId'])) && $s > 0): 
-  $getDataFromId = $_SESSION['lastPageId'];
+if((isset($_SESSION['lastPageIdPatient'])) && $s > 0): 
+  $getDataFromId = $_SESSION['lastPageIdPatient'];
   $query="SELECT * FROM `tblpatient` WHERE `ID` <= " . $getDataFromId . " ORDER BY `ID` ASC LIMIT " . $g;
 else:
   $query="SELECT * FROM `tblpatient` WHERE `ID` >= " . $getDataFromId . " ORDER BY `ID` ASC LIMIT " . $g;
 endif;
 
-$patientCountSql ="SELECT COUNT(`ID`) as totalPatients FROM `tblpatient`";
+$patientCountSql ="SELECT COUNT(`ID`) FROM `tblpatient`";
 $sql = mysqli_query($con, $query);
 $countSql = mysqli_query($con, $patientCountSql);
 $resultOfAPatientCount = mysqli_fetch_array($countSql);
@@ -42,8 +42,8 @@ while ($row = mysqli_fetch_array($sql)) {
 $results = array(
   "start" => $s,
   "lengh" => $g,
-  "recordsTotal" => $resultOfAPatientCount,
-  "recordsFiltered" => $resultOfAPatientCount,
+  "recordsTotal" => $resultOfAPatientCount[0],
+  "recordsFiltered" => $resultOfAPatientCount[0],
   "data" => $data
 ); 
 echo json_encode($results);
