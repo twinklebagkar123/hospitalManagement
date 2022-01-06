@@ -117,7 +117,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="user-registration.php">
+							<a href="view-admit-patient.php">
 								<span class="title"> View Patient</span>
 							</a>
 						</li>
