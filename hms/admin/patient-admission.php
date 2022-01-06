@@ -24,13 +24,14 @@ if (isset($_POST['submit'])) {
 	$advpaid=$_POST['aa'];
 	$stat = false;
 	if(!empty($uid)){
-		
+		echo "condition1";
 		$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
 		$con->query($query);
 		$stat = true;
 		echo $query.")_)_)__)_)";
 	}
 	else{
+		echo "condition2";
 		$patname = $firstname;
 		
 		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
@@ -244,7 +245,7 @@ $today = $year . '-' . $month . '-' . $day;
 														<label>
 															Advance Amount
 														</label>
-														<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
+														<input type="hidden" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 													</div>
 													<div class="form-group">
 														<label for="doctor">
