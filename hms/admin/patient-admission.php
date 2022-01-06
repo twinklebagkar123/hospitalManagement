@@ -1,3 +1,10 @@
+<?php
+	session_start();
+	error_reporting(0);
+	include('include/config.php');
+	include('include/checklogin.php');
+	check_login();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -278,11 +285,7 @@
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
 	<?php
-	session_start();
-	error_reporting(0);
-	include('include/config.php');
-	include('include/checklogin.php');
-	check_login();
+
 
 	if (isset($_POST['submit'])) {
 		//$unqId = $_SESSION['id'];
