@@ -23,34 +23,39 @@ if (isset($_POST['submit'])) {
 	$cpd= $_POST['cpd'];
 	$advpaid=$_POST['aa'];
 	$stat = false;
-	if(!empty($uid)){
-		echo "condition1";
-		$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
-		$con->query($query);
-		$stat = true;
-		echo $query.")_)_)__)_)";
-	}
-	else{
-		echo "condition2";
-		$patname = $firstname;
-		
-		$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-		
-		if ($con->query($queryToRegister) == TRUE) {
-			$uid = $con->insert_id;
+	try {
+		if(!empty($uid)){
+			echo "condition1";
 			$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
-		$con->query($query);
+			$con->query($query);
 			$stat = true;
 			echo $query.")_)_)__)_)";
+		}
+		else{
+			echo "condition2";
+			$patname = $firstname;
 			
-		  } 
-		  
+			$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
+			
+			if ($con->query($queryToRegister) == TRUE) {
+				$uid = $con->insert_id;
+				$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
+			$con->query($query);
+				$stat = true;
+				echo $query.")_)_)__)_)";
+				
+			  } 
+			  
+		}
+		
+		if ($stat) {
+			echo "<script>alert('Patient info added Successfully');</script>";
+			header('location:patient-admission.php');
+		}
+	} catch (\Throwable $th) {
+		echo $th;
 	}
 	
-	if ($stat) {
-		echo "<script>alert('Patient info added Successfully');</script>";
-		header('location:patient-admission.php');
-	}
 }
 $month = date('m');
 $day = date('d');
