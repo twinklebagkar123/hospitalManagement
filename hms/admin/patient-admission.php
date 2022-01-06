@@ -20,98 +20,35 @@ if (isset($_POST['submit'])) {
 	$patemail  = $_POST['patemail'];
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
-	$cpd = $_POST['cpd'];
-	$advpaid = $_POST['aa'];
+	$cpd= $_POST['cpd'];
+	$advpaid=$_POST['aa'];
 	$stat = false;
-
-?>
-	<!DOCTYPE html>
-	<html lang="en">
-
-	<head>
-		<title>Admin | Patient Admission</title>
-
-		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-		<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-		<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-		<link rel="stylesheet" href="assets/css/styles.css">
-		<link rel="stylesheet" href="assets/css/plugins.css">
-		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
-		<script>
-			function userAvailability() {
-				$("#loaderIcon").show();
-				jQuery.ajax({
-					url: "check_availability.php",
-					data: 'phone=' + $("#patcontact").val(),
-					method: "POST",
-					dataType: "JSON",
-					success: function(data) {
-						console.log(data);
-						$('#fname').val(data.name);
-						$('#pataddress').val(data.address);
-						//$('#rg').val(data.gender);
-						if (data.gender == 'male') {
-							$("#rg-male").prop('checked', true);
-						} else {
-							$("#rg-female").prop('checked', true);
-						}
-						$('#patemail').val(data.email);
-						$('#patage').val(data.age);
-						$('#uid').val(data.uid);
-						$('#adharCard').val(data.adharCard);
-						$("#loaderIcon").hide();
-					},
-					error: function() {}
-				});
-			}
-		</script>
-		<script>
-			function getdoc() {
-				$.ajax({
-					type: "POST",
-					url: "get_doctor.php",
-					data: 'doctor=yes',
-					success: function(data) {
-						$("#doctor").html(data);
-					}
-				});
-			}
-		</script>
-	</head>
-
-	<body>
-	<?php
+	echo "test";
 	try {
-		if (!empty($uid)) {
+		if(!empty($uid)){
 			echo "condition1";
 			$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
 			$con->query($query);
 			$stat = true;
-			echo $query . ")_)_)__)_)";
-		} else {
+			echo $query.")_)_)__)_)";
+		}
+		else{
 			echo "condition2";
 			$patname = $firstname;
-
+			
 			$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-
+			
 			if ($con->query($queryToRegister) == TRUE) {
 				$uid = $con->insert_id;
 				$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
-				$con->query($query);
+			$con->query($query);
 				$stat = true;
-				echo $query . ")_)_)__)_)";
-			}
+				echo $query.")_)_)__)_)";
+				
+			  } 
+			  
 		}
-
+		
 		if ($stat) {
 			echo "<script>alert('Patient info added Successfully');</script>";
 			header('location:patient-admission.php');
@@ -119,13 +56,80 @@ if (isset($_POST['submit'])) {
 	} catch (\Throwable $th) {
 		echo $th;
 	}
+	
 }
 $month = date('m');
 $day = date('d');
 $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
-	?>
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Admin | Patient Admission</title>
+
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
+	<link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
+	<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/plugins.css">
+	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+
+	<script>
+		function userAvailability() {
+			$("#loaderIcon").show();
+			jQuery.ajax({
+				url: "check_availability.php",
+				data: 'phone=' + $("#patcontact").val(),
+				method: "POST",
+				dataType: "JSON",
+				success: function(data) {
+					console.log(data);
+					$('#fname').val(data.name);
+					$('#pataddress').val(data.address);
+					//$('#rg').val(data.gender);
+					if(data.gender == 'male'){
+						$("#rg-male").prop('checked', true);
+					}
+					else{
+						$("#rg-female").prop('checked', true);
+					}
+					$('#patemail').val(data.email);
+					$('#patage').val(data.age);
+					$('#uid').val(data.uid);
+					$('#adharCard').val(data.adharCard);
+					$("#loaderIcon").hide();
+				},
+				error: function() {}
+			});
+		}
+	</script>
+	<script>
+		function getdoc() {
+			$.ajax({
+				type: "POST",
+				url: "get_doctor.php",
+				data: 'doctor=yes',
+				success: function(data) {
+					$("#doctor").html(data);
+				}
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<?php echo "test2"; ?>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
 		<div class="app-content">
@@ -179,7 +183,7 @@ $today = $year . '-' . $month . '-' . $day;
 															Patient Name
 														</label>
 														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
-
+													
 													</div>
 													<div class="form-group">
 														<label for="address">
@@ -339,6 +343,6 @@ $today = $year . '-' . $month . '-' . $day;
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
-	</body>
+</body>
 
-	</html>
+</html>
