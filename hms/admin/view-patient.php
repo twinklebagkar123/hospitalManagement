@@ -154,43 +154,12 @@ if (isset($_POST['submit'])) {
 									<div id="test"></div>
 									<?php
 
-									$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
+									//$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
 
 
 
 									?>
-									<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-										<tr align="center">
-											<th colspan="8">Medical History</th>
-										</tr>
-										<tr>
-											<th>#</th>
-											<th>Blood Pressure</th>
-											<th>Weight</th>
-											<th>Blood Sugar</th>
-											<th>Body Temprature</th>
-											<th>Medical Prescription</th>
-											<th>Visit Date</th>
-										</tr>
-										<?php
-										$tpr = array();
-										$visit = array();
-										while ($row = mysqli_fetch_array($ret)) {
-											array_push($tpr, $row['Temperature']);
-											array_push($visit, $row['CreationDate']);
-										?>
-											<tr>
-												<td><?php echo $cnt; ?></td>
-												<td><?php echo $row['BloodPressure']; ?></td>
-												<td><?php echo $row['Weight']; ?></td>
-												<td><?php echo $row['BloodSugar']; ?></td>
-												<td><?php echo $row['Temperature']; ?></td>
-												<td><?php echo $row['MedicalPres']; ?></td>
-												<td><?php echo $row['CreationDate']; ?></td>
-											</tr>
-										<?php $cnt = $cnt + 1;
-										} ?>
-									</table>
+									
 									<div>
 										<canvas id="line-chart" width="400" height="100"></canvas>
 										<canvas id="tpr-chart" width="400" height="100"></canvas>
