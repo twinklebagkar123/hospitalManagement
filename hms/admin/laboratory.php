@@ -236,8 +236,10 @@ check_login();
 				console.log(jsonFieldDetails);
 				
 			});
-			$(".remove").on("click",function(){
-               console.log($(this).data("name"));
+			$(document).on("click" ,".remove",function(){
+				var shanti = $(this).data("name");
+               console.log("shanti");
+			   $(this).parent().remove();
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
