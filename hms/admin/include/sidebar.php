@@ -125,6 +125,18 @@
 					
 
 					</ul>
+					<li>
+					<a href="patient-search.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Patient Search </span>
+							</div>
+						</div>
+					</a>
+				</li>
 
 
 					<!-- <ul class="sub-menu">
@@ -278,18 +290,7 @@
 
 
 					</ul>
-				<li>
-					<a href="patient-search.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-search"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Patient Search </span>
-							</div>
-						</div>
-					</a>
-				</li>
+				
 				</li>
 				<li>
 					<a href="javascript:void(0)">
