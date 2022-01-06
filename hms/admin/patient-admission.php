@@ -4,6 +4,11 @@
 	include('include/config.php');
 	include('include/checklogin.php');
 	check_login();
+	$month = date('m');
+	$day = date('d');
+	$year = date('Y');
+
+	$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -192,7 +197,7 @@
 														<label>
 															Advance Amount
 														</label>
-														<input type="hidden" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
+														<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 													</div>
 													<div class="form-group">
 														<label for="doctor">
@@ -221,7 +226,7 @@
 														<label for="AppointmentDate">
 															Date of Admission
 														</label>
-														<input class="form-control " type="text" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
+														<input class="form-control " type="hidden" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
 													</div>
 
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
@@ -336,11 +341,7 @@
 			echo $th;
 		}
 	}
-	$month = date('m');
-	$day = date('d');
-	$year = date('Y');
-
-	$today = $year . '-' . $month . '-' . $day;
+	
 	?>
 </body>
 
