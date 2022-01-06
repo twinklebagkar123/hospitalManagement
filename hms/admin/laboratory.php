@@ -119,20 +119,7 @@ check_login();
 
 
 													</div>
-													<div class="form-group">
-														<label>
-															Select Field Type:
-														</label>
-														<br>
-														<input type="radio" id="html" name="fieldType" value="TextBox">
-														<label for="html">TextBox</label><br>
-														<input type="radio" id="css" name="fieldType" value="Radio Button">
-														<label for="css">Radio Button</label><br>
-														<input type="radio" id="javascript" name="fieldType" value="Check Box">
-														<label for="javascript">Check Box</label>
-
-
-													</div>
+													
                                                      <a id ="addField">Add Field</a>
 
 
@@ -246,11 +233,7 @@ check_login();
 				var fieldType = $("input[name='fieldType']:checked").val();
 				var trow = "<tr><td>"+fieldName+"</td><td>"+fieldType+"</td></tr>"; 
 				$("#fieldShow").append(trow);
-				jsonFieldDetails.push({
-					'fieldName' : fieldName,
-					'fieldType' : fieldType
-				});
-				console.log(jsonFieldDetails.fieldName);
+				jsonFieldDetails.push(fieldName);
 				
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
