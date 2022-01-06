@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 		
 		if ($con->query($queryToRegister) == TRUE) {
 			$uid = $con->insert_id;
-			$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','pending')";
+			$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`,`cpd`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','$cpd','pending')";
 			$con->query($query);
 			$stat = true;
 			
