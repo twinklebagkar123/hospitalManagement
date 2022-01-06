@@ -240,11 +240,18 @@ check_login();
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
 				var fieldType = $("input[name='fieldType']:checked").val();
 				var trow = "<tr><td>"+fieldName+"</td><td>"+fieldType+"</td></tr>"; 
 				$("#fieldShow").append(trow);
+				jsonFieldDetails.push({
+					'fieldName' : fieldName,
+					'fieldType' : fieldType
+				});
+				console.log(jsonFieldDetails);
+				
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
