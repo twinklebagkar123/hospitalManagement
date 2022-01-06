@@ -250,7 +250,7 @@ check_login();
 					'fieldName' : fieldName,
 					'fieldType' : fieldType
 				});
-				console.log(jsonFieldDetails);
+				console.log(jsonFieldDetails.fieldName);
 				
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
