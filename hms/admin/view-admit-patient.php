@@ -105,6 +105,7 @@ if (isset($_POST['submit'])) {
 									<thead>
 										<tr>
 											<!-- <th class="center">#</th> -->
+											
 											<th>Patient Id</th>
 											<th>Doctor Name</th>
 											
