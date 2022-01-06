@@ -33,9 +33,8 @@ while ($row = mysqli_fetch_array($sql)) {
   $advanve = $row['advance_paid'];
   $operation = '<a class="btn btn-primary"  href="patientOperationConsent.php?admissionId='.$row['unqId'].'" >Operation</a>';
  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
- $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
-   
-  $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge);
+  
+  $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation, $discharge);
   array_push($data, $result);
 }
 

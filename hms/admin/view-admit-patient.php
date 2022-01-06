@@ -114,9 +114,7 @@ if (isset($_POST['submit'])) {
 											<th>Admission Date </th>
 											<th>Discharge Date </th>
 											 <th>Advanced Paid </th>
-											<th>Operation </th>
-											
-											<th>ID</th>
+											<th>Operation </th>										
 											<th>Discharge </th>
 										</tr>
 									</thead>
