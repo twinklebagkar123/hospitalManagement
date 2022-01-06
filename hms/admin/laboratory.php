@@ -237,7 +237,8 @@ check_login();
 				
 			});
 			$(".remove").on("click",function(){
-               console.log($(this).data("name"));
+				var shanti = $(this).data("name");
+               console.log(shanti);
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
