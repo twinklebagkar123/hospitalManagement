@@ -233,6 +233,7 @@ check_login();
 				var trow = "<tr><td>"+fieldName+"</td><td></td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
+				console.log(jsonFieldDetails);
 				
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
