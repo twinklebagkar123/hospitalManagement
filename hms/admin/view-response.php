@@ -25,8 +25,8 @@ while ($row = mysqli_fetch_array($sql)) {
 
   $_SESSION['lastPageIdAdmit'] = $row['unqId'];
 
-  $ID = $row['uId'];
-  $doc =   $row['docId'];
+  $ID = $row['uid'];
+  $doc =   $row['docID'];
   $ward = $row['wardNo'];
   $admissiondate = $row['dateofadmission'];
   $dischargedate = $row['dateofdischarge'];
