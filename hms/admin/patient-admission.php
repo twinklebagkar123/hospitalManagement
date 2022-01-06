@@ -21,10 +21,11 @@ if (isset($_POST['submit'])) {
 	$patage  = $_POST['patage'];
 	$wn  = $_POST['wn'];
 	$cpd= $_POST['cpd'];
+	$advpaid=$_POST['aa'];
 	$stat = false;
 	if(!empty($uid)){
 		
-		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`,`cpd`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$cpd','pending')";
+		$query = "INSERT INTO `patientAdmission`(  `uid`, `admissionType`,`docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`,`cpd`, `status`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','$cpd','pending')";
 		$con->query($query);
 		$stat = true;
 	}
@@ -235,6 +236,12 @@ $today = $year . '-' . $month . '-' . $day;
 															Cost Per day
 														</label>
 														<input type="text" name="cpd" class="form-control" placeholder="Enter Cost Per day" required="true">
+													</div>
+													<div class="form-group">
+														<label>
+															Advance Amount
+														</label>
+														<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 													</div>
 													<div class="form-group">
 														<label for="doctor">
