@@ -107,14 +107,15 @@ if (isset($_POST['submit'])) {
 											<!-- <th class="center">#</th> -->
 											<th>Patient Id</th>
 											<th>Doctor Name</th>
-											<th>Consultant</th>
-											<th>Patient Gender </th>
-											<th>Creation Date </th>
-											<th>Updation Date </th>
-											 <th>Appointment </th>
-											<th>Documents </th>
+											
+											
+											<th> Ward Number </th>
+											<th>Admission Date </th>
+											<th>Discharge Date </th>
+											 <th>Advanced Paid </th>
+											<th>Operation </th>
 											<th>Discharge </th>
-											<th>Action</th>
+											<th>ID</th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
