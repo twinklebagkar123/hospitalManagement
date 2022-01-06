@@ -35,7 +35,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $addFiles = '<a class="btn btn-primary"  class="btn btn-primary" href="medical-history-documents.php?docId='.$row['ID'].'"">Attach</a>';
 
   $viewInfo = '<a href="view-patient.php?viewid='.$row['ID'].'"><i class="fa fa-eye"></i></a>';
-  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate,$bookAppointment,$addFiles,  $discharge,$viewInfo);
+  $result = array($ID, $PatientName, $PatientContno, $PatientGender, $CreationDate, $UpdationDate,$bookAppointment,$addFiles,  $viewInfo);
   array_push($data, $result);
 }
 
