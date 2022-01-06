@@ -238,8 +238,10 @@ check_login();
 			});
 			$(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
-              console.log(jsonFieldDetails.indexOf(shanti));
+              jsonFieldDetails.splice(jsonFieldDetails.indexOf(shanti));
+			  console.log(jsonFieldDetails);
 			   $(this).parent().remove();
+
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
