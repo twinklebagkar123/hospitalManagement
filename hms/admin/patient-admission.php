@@ -224,7 +224,7 @@
 
 													<div class="form-group">
 														<label for="AppointmentDate">
-															Date of Admission
+															
 														</label>
 														<input class="form-control " type="hidden" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
 													</div>
