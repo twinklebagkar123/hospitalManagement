@@ -116,15 +116,24 @@ check_login();
 															Field Name:
 														</label>
 														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true">
+														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control" placeholder="Add Test Field Name" >
 
 
 													</div>
+													<div class="form-group">
+														<label>
+															Test Charges:
+														</label>
+														<input type="text" id="fieldName" name="charges" class="form-control" placeholder="Add Test Field Name" required="true">
+														
+
+													</div>
 													
-                                                     <a id ="addField">Add Field</a>
+                                                     <a class="btn btn-o btn-primary" id ="addField">Add Field</a>
 
-
+													<br>
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
-														Submit
+														Submit Test
 													</button>
 												</form>
 											</div>
@@ -233,6 +242,8 @@ check_login();
 				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
+				jsonFieldDetailsString = jsonFieldDetails.toString();
+				$("#fieldArray").val(jsonFieldDetailsString);
 				console.log(jsonFieldDetails);
 				
 			});
@@ -241,8 +252,10 @@ check_login();
               var index = jsonFieldDetails.indexOf(shanti);
 			  if (index > -1) {
 				jsonFieldDetails.splice(index, 1);
-				}
+			}
 			  console.log(jsonFieldDetails);
+			  jsonFieldDetailsString = jsonFieldDetails.toString();
+				$("#fieldArray").val(jsonFieldDetailsString);
 			   $(this).parent().remove();
 
 			});
