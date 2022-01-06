@@ -155,7 +155,6 @@ check_login();
 												<tr>
 													
 													<th>Field Name</th>
-													<th>Field Type</th>
 													<th>Action</th>
 
 												</tr>
@@ -230,8 +229,8 @@ check_login();
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
-				var fieldType = $("input[name='fieldType']:checked").val();
-				var trow = "<tr><td>"+fieldName+"</td><td>"+fieldType+"</td></tr>"; 
+			//	var fieldType = $("input[name='fieldType']:checked").val();
+				var trow = "<tr><td>"+fieldName+"</td><td></td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
 				
