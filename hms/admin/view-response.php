@@ -28,14 +28,14 @@ while ($row = mysqli_fetch_array($sql)) {
   $ID = $row['uId'];
   $doc =   $row['docId'];
   $ward = $row['wardNo'];
-  $admission = $row['dateofadmission'];
-  $dischargedate = $row['dateofdischarg'];
+  $admissiondate = $row['dateofadmission'];
+  $dischargedate = $row['dateofdischarge'];
   $advanve = $row['advance_paid'];
   $operation = "<button type='button' data-pid='".$row['ID']."' data-name='".$row['PatientName']."' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Operation</button>";
   $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
   $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
    
-  $result = array($ID, $doc, $ward, $admission, $dischargedate, $advanve,$operation,$id,  $discharge,$discharge);
+  $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge,$discharge);
   array_push($data, $result);
 }
 
