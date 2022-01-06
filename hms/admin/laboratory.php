@@ -117,7 +117,7 @@ check_login();
 														</label>
 														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true">
 														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control" placeholder="Add Test Field Name" >
-
+														<br>
 														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
 
 														<br>
