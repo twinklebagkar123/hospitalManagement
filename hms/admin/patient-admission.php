@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
 	$cpd= $_POST['cpd'];
 	$advpaid=$_POST['aa'];
 	$stat = false;
+	echo "test";
 	try {
 		if(!empty($uid)){
 			echo "condition1";
@@ -128,6 +129,7 @@ $today = $year . '-' . $month . '-' . $day;
 </head>
 
 <body>
+	<?php echo "test2"; ?>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
 		<div class="app-content">
