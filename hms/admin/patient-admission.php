@@ -43,6 +43,7 @@ if (isset($_POST['submit'])) {
 		  } 
 		  
 	}
+	echo $query;
 	if ($stat) {
 		echo "<script>alert('Patient info added Successfully');</script>";
 		header('location:patient-admission.php');
