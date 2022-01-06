@@ -239,6 +239,7 @@ check_login();
 			$(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
                console.log("shanti");
+			   $(this).parent().parent().remove();
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
