@@ -11,9 +11,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageIdAdmit'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` ASC LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else:
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` ASC LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 endif;
 
 $patientCountSql ="SELECT COUNT(`unqId`) FROM `patientAdmission`";
