@@ -4,7 +4,20 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_POST['submit']))
+{
+$labTestName=$_POST['name'];
+$labFields=$_POST['fieldArray'];
+$charges=$_POST['charges'];
 
+$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`) VALUES ('$labTestName','$labFields','$charges')";
+$con->query($query);
+$stat = true;
+if($stat)
+{
+	echo "<script>alert('Successfully Registered. You can login now');</script>";
+}
+}
 
 
 ?>
@@ -126,7 +139,7 @@ check_login();
 														<label>
 															Test Charges:
 														</label>
-														<input type="text" id="fieldName" name="charges" class="form-control" placeholder="Add Test Field Name" required="true">
+														<input type="text" name="charges" class="form-control" placeholder="Add Test Field Name" required="true">
 														
 
 													</div>
