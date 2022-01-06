@@ -236,9 +236,9 @@ check_login();
 				console.log(jsonFieldDetails);
 				
 			});
-			$(".remove").on("click",function(){
+			$(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
-               console.log(shanti);
+               console.log("shanti");
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
