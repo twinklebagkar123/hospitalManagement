@@ -15,6 +15,21 @@ echo "<span style='color:red'> Email already exists .</span>";
  echo "<script>$('#submit').prop('disabled',false);</script>";
 }
 }
+if(!empty($_POST["nameTest"])) {
+	$nameTest= $_POST["nameTest"];
+	
+		$result =mysqli_query($con,"SELECT labTestName FROM laboratoryTestList WHERE labTestName='$nameTest'");
+		$count=mysqli_num_rows($result);
+if($count>0)
+{
+echo "<span style='color:red'> Test already exists .</span>";
+ echo "<script>$('#submit').prop('disabled',true);</script>";
+} else{
+	
+	echo "<span style='color:green'> Test available for Registration .</span>";
+ echo "<script>$('#submit').prop('disabled',false);</script>";
+}
+}
 if(!empty($_POST["med"])) {
 	$med  = $_POST["med"];
 	
