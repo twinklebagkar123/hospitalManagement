@@ -28,6 +28,7 @@ if (isset($_POST['submit'])) {
 		$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
 		$con->query($query);
 		$stat = true;
+		echo $query.")_)_)__)_)";
 	}
 	else{
 		$patname = $firstname;
@@ -39,11 +40,12 @@ if (isset($_POST['submit'])) {
 			$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
 		$con->query($query);
 			$stat = true;
+			echo $query.")_)_)__)_)";
 			
 		  } 
 		  
 	}
-	echo $query;
+	
 	if ($stat) {
 		echo "<script>alert('Patient info added Successfully');</script>";
 		header('location:patient-admission.php');
