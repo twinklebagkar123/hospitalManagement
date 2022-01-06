@@ -230,11 +230,14 @@ check_login();
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
 			//	var fieldType = $("input[name='fieldType']:checked").val();
-				var trow = "<tr><td>"+fieldName+"</td><td></td></tr>"; 
+				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
 				console.log(jsonFieldDetails);
 				
+			});
+			$(".remove").on("click",function(){
+               console.log($(this).data("name"));
 			});
 			// 	$('#delete').on("click",".dellClass" ,function(){
 			// 	console.log("heyyyy");
