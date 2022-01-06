@@ -238,7 +238,10 @@ check_login();
 			});
 			$(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
-              jsonFieldDetails.splice(jsonFieldDetails.indexOf(shanti));
+              var index = jsonFieldDetails.indexOf(shanti);
+			  if (index > -1) {
+				jsonFieldDetails.splice(index, 1);
+				}
 			  console.log(jsonFieldDetails);
 			   $(this).parent().remove();
 
