@@ -58,7 +58,7 @@ if($stat)
 			$("#loaderIcon").show();
 			jQuery.ajax({
 				url: "check_availability.php",
-				data: 'name=' + $("#name").val(),
+				data: 'nameTest=' + $("#name").val(),
 				type: "POST",
 				success: function(data) {
 					$("#email-availability-status").html(data);
