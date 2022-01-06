@@ -1,68 +1,14 @@
 <?php
-session_start();
-error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
+	session_start();
+	error_reporting(0);
+	include('include/config.php');
+	include('include/checklogin.php');
+	check_login();
+	$month = date('m');
+	$day = date('d');
+	$year = date('Y');
 
-if (isset($_POST['submit'])) {
-	//$unqId = $_SESSION['id'];
-	$phno = $_POST['patcontact'];
-	$uid = $_POST['uid'];
-	$firstname = $_POST['fname'];
-	//$lastname = $_POST['lname'];
-	$address = $_POST['pataddress'];
-	$gender = $_POST['gender'];
-	$adharcardno = $_POST['patadhar'];
-	$dateofadmission = $_POST['appdate'];
-	$doctor = $_POST['doctor'];
-	$admissionType  = $_POST['admissionType'];
-	$patemail  = $_POST['patemail'];
-	$patage  = $_POST['patage'];
-	$wn  = $_POST['wn'];
-	$cpd= $_POST['cpd'];
-	$advpaid=$_POST['aa'];
-	$stat = false;
-	echo "test";
-	try {
-		if(!empty($uid)){
-			echo "condition1";
-			$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
-			$con->query($query);
-			$stat = true;
-			echo $query.")_)_)__)_)";
-		}
-		else{
-			echo "condition2";
-			$patname = $firstname;
-			
-			$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
-			
-			if ($con->query($queryToRegister) == TRUE) {
-				$uid = $con->insert_id;
-				$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
-			$con->query($query);
-				$stat = true;
-				echo $query.")_)_)__)_)";
-				
-			  } 
-			  
-		}
-		
-		if ($stat) {
-			echo "<script>alert('Patient info added Successfully');</script>";
-			header('location:patient-admission.php');
-		}
-	} catch (\Throwable $th) {
-		echo $th;
-	}
-	
-}
-$month = date('m');
-$day = date('d');
-$year = date('Y');
-
-$today = $year . '-' . $month . '-' . $day;
+	$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,10 +44,9 @@ $today = $year . '-' . $month . '-' . $day;
 					$('#fname').val(data.name);
 					$('#pataddress').val(data.address);
 					//$('#rg').val(data.gender);
-					if(data.gender == 'male'){
+					if (data.gender == 'male') {
 						$("#rg-male").prop('checked', true);
-					}
-					else{
+					} else {
 						$("#rg-female").prop('checked', true);
 					}
 					$('#patemail').val(data.email);
@@ -183,7 +128,7 @@ $today = $year . '-' . $month . '-' . $day;
 															Patient Name
 														</label>
 														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
-													
+
 													</div>
 													<div class="form-group">
 														<label for="address">
@@ -252,7 +197,7 @@ $today = $year . '-' . $month . '-' . $day;
 														<label>
 															Advance Amount
 														</label>
-														<input type="hidden" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
+														<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 													</div>
 													<div class="form-group">
 														<label for="doctor">
@@ -281,7 +226,7 @@ $today = $year . '-' . $month . '-' . $day;
 														<label for="AppointmentDate">
 															Date of Admission
 														</label>
-														<input class="form-control " type="text" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
+														<input class="form-control " type="hidden" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
 													</div>
 
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
@@ -304,6 +249,7 @@ $today = $year . '-' . $month . '-' . $day;
 		</div>
 	</div>
 	</div>
+
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
@@ -343,6 +289,60 @@ $today = $year . '-' . $month . '-' . $day;
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
+	<?php
+
+
+	if (isset($_POST['submit'])) {
+		//$unqId = $_SESSION['id'];
+		$phno = $_POST['patcontact'];
+		$uid = $_POST['uid'];
+		$firstname = $_POST['fname'];
+		//$lastname = $_POST['lname'];
+		$address = $_POST['pataddress'];
+		$gender = $_POST['gender'];
+		$adharcardno = $_POST['patadhar'];
+		$dateofadmission = $_POST['appdate'];
+		$doctor = $_POST['doctor'];
+		$admissionType  = $_POST['admissionType'];
+		$patemail  = $_POST['patemail'];
+		$patage  = $_POST['patage'];
+		$wn  = $_POST['wn'];
+		$cpd = $_POST['cpd'];
+		$advpaid = $_POST['aa'];
+		$stat = false;
+		echo "test";
+		try {
+			if (!empty($uid)) {
+				echo "condition1";
+				$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
+				$con->query($query);
+				$stat = true;
+				echo $query . ")_)_)__)_)";
+			} else {
+				echo "condition2";
+				$patname = $firstname;
+
+				$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$dateofadmission')";
+
+				if ($con->query($queryToRegister) == TRUE) {
+					$uid = $con->insert_id;
+					$query = "INSERT INTO `patientAdmission`(`unqId`, `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `dateofdischarge`, `billAmount`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','','','','$advpaid','pending','$cpd')";
+					$con->query($query);
+					$stat = true;
+					echo $query . ")_)_)__)_)";
+				}
+			}
+
+			if ($stat) {
+				echo "<script>alert('Patient info added Successfully');</script>";
+				header('location:patient-admission.php');
+			}
+		} catch (\Throwable $th) {
+			echo $th;
+		}
+	}
+	
+	?>
 </body>
 
 </html>
