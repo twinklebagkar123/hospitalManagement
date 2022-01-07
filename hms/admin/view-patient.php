@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
 													<td><?php //echo $row['dateofadmission'];
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
-													<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
+													<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
 													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
 												</tr>
 											<?php
