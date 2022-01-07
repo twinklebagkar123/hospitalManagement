@@ -6,17 +6,17 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST['submit']))
 {
-$labTestName=$_POST['name'];
-$labFields=$_POST['fieldArray'];
-$charges=$_POST['charges'];
+	$labTestName=$_POST['name'];
+	$labFields=$_POST['fieldArray'];
+	$charges=$_POST['charges'];
 
-$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`) VALUES ('$labTestName','$labFields','$charges')";
-$con->query($query);
-$stat = true;
-if($stat)
-{
-	echo "<script>alert('Successfully Registered. You can login now');</script>";
-}
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`) VALUES ('$labTestName','$labFields','$charges')";
+	$con->query($query);
+	$stat = true;
+	if($stat)
+	{
+		echo "<script>alert('Successfully Registered. You can login now');</script>";
+	}
 }
 
 
