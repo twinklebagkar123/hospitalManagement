@@ -126,6 +126,7 @@ if (isset($_POST['submit'])) {
 											<th>Admission Type</th>
 											<th>Diagnosis</th>
 											<th>Discharge Date</th>
+											<th>Assign Test</th>
 											<th>Reports</th>
 										</thead>
 										<tbody id="viewReport">
@@ -140,6 +141,7 @@ if (isset($_POST['submit'])) {
 													<td><?php //echo $row['dateofadmission'];
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
+													<td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
 													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
 												</tr>
 											<?php
@@ -186,6 +188,29 @@ if (isset($_POST['submit'])) {
 	//    foreach ($period as $key => $value) { print_r($value->format('Y-m-d') ); }
 
 	?>
+	<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
