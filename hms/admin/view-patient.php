@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
 													<td><?php //echo $row['dateofadmission'];
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
-													<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Open Modal</button></td>
+													<td><button type="button" id="assignTest" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
 													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
 												</tr>
 											<?php
@@ -202,7 +202,20 @@ if (isset($_POST['submit'])) {
         <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <form method="POST" action="">
+           <?php
+				$ret = mysqli_query($con, "select * from laboratoryTestList");
+				$cnt = 1;
+				while ($row = mysqli_fetch_array($ret)) { 
+					?>
+					<input type="radio" id="<?php echo $row['labFormID']?>" name="testID" value="<?php echo $row['labFormID']?>">
+					<label for="<?php echo $row['labFormID']?>"><?php echo $row['labTestName']?></label><br>
+
+					<?php
+				} 
+		 
+		 ?>
+		</form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
