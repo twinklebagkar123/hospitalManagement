@@ -56,7 +56,7 @@ function fetchPatientName($admissionID)
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $answer = $row['PatientName'];
-       }
+      
     }
     return $answer;
 }
