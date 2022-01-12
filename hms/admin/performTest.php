@@ -66,9 +66,27 @@ function fetchPatientName($admissionID){
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h3><?php echo fetchPatientName($adID); ?></h3>
+                                
                                 <form method="POST" action="">
-
+                                 <?php 
+                                    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+                                    $result = $con->query($query);
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                            <h3> <?php echo $row['labTestName'];?> | <?php echo fetchPatientName($adID); ?></h3>
+                                            
+                                        <?php
+                                        $fields = $row['labFields'];
+                                        $fields_arr = explode (",", $fields); 
+                                        foreach ($fields_arr as  $field) {
+                                            ?>
+                                            <label><?php echo $field;?></label>
+                                            <input type="text" name="<?php echo $field; ?>" >
+                                            <?php
+                                        }
+                                    }
+                                 ?>
+                                 <input type="submit" name="submit" value="SUBMIT">
                                 </form>
                             </div>
                         </div>
