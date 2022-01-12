@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
     $date = date("Y-m-d");
     //print_r($testresult);
     $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testresult',`performedDate`='$date',`performedBy`='test',`charges`='$charges' WHERE recordID = '$recID'";
-    $con->query($updateQuery);
+    print_r($updateQuery);
+    $result = $con->query($updateQuery);
 }
 
 ?>
