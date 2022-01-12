@@ -67,7 +67,7 @@ function fetchPatientName($admissionID)
                     </section>
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
 
                                 <form method="POST" action="">
                                     <?php
