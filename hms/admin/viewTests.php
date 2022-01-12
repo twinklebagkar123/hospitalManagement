@@ -76,7 +76,7 @@ function fetchPatientName($admissionID){
 											<th>Test Type</th>
 											<th>Patient Name</th>
 											<th>Status</th>
-											<th>Perform Test</th>
+											<th>Action</th>
 											<th>Reports</th>
 										</thead>
 										<tbody id="viewReport">
@@ -87,10 +87,10 @@ function fetchPatientName($admissionID){
 												<tr>
 													<td><?php echo $sr; ?></td>
 													<td id="date"><?php echo $row['assignedDate']; ?></td>
-													<td><?php echo $row['labTestName']; echo $row['admissionID'];?></td>
+													<td><?php echo $row['labTestName'];?></td>
 													<td><?php echo fetchPatientName($row['admissionID']) ;?></td>
 													<td><?php echo $row['labTestStatus']; ?></td>
-													<td><button type="button" >Perform Test</button></td>
+													<td><a href="">Perform test</a> | <a href="">Decline</a> | <a href="">Add Remark</a></td>
 													<td></td>
 												</tr>
 											<?php
