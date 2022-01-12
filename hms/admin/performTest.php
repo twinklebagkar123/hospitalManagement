@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
        foreach ($fields_arr as  $value) {
            $postVAl = $_POST["$value"];
            $testresult = $testresult." ".$value." : ".$postVAl;
+           echo $postVAl;
        }
 
     }
