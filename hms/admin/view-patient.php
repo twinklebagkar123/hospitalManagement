@@ -10,7 +10,7 @@ if(isset($_POST["testAssign"])){
 	$date = date("Y-m-d");
 	foreach ($testID as $value) {
 		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
-		$con->query($query);
+		$con->query($sql);
 	}
 }
 if (isset($_POST['submit'])) {
