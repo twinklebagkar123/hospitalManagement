@@ -359,7 +359,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="add-medicine.php">
+							<a href="viewTests.php">
 								<span class="title"> Manage Tests </span>
 							</a>
 						</li>
