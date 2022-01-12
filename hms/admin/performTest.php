@@ -6,23 +6,23 @@ include('include/checklogin.php');
 check_login();
 ?>
 <?php
-if (isset($_POST['submit'])) {
-    $testID = $_GET['testID'];
-    $recID = $_GET['recID'];
-    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
-    $result = $con->query($query);
-    while ($row = mysqli_fetch_array($result)) {
-        $fields = $row['labFields'];
+// if (isset($_POST['submit'])) {
+//     $testID = $_GET['testID'];
+//    // $recID = $_GET['recID'];
+//     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+//     $result = $con->query($query);
+//     while ($row = mysqli_fetch_array($result)) {
+//         $fields = $row['labFields'];
       
-       $fields_arr = explode(",", $fields);
-       foreach ($fields_arr as  $value) {
-           $postVAl = $_POST["$value"];
-           $testresult = $testresult." ".$value." : ".$postVAl;
+//        $fields_arr = explode(",", $fields);
+//        foreach ($fields_arr as  $value) {
+//            $postVAl = $_POST["$value"];
+//            $testresult = $testresult." ".$value." : ".$postVAl;
 
-    }
-    print_r($testresult);
-   // exit();
-}
+//     }
+//     print_r($testresult);
+//    // exit();
+// }
 
 ?>
 <!DOCTYPE html>
