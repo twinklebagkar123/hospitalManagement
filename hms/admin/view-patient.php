@@ -141,7 +141,7 @@ if (isset($_POST['submit'])) {
 													<td><?php //echo $row['dateofadmission'];
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
-													<td><button type="button" id="assignTest" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
+													<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
 													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
 												</tr>
 											<?php
@@ -199,7 +199,7 @@ if (isset($_POST['submit'])) {
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Assign Test Here</h4>
       </div>
       <div class="modal-body">
         <form method="POST" action="">
@@ -217,6 +217,7 @@ if (isset($_POST['submit'])) {
 				} 
 		 
 		 ?>
+		 <input type="submit" name="testAssign" value="Assign Test">
 		</form>
       </div>
       <div class="modal-footer">
@@ -265,6 +266,11 @@ if (isset($_POST['submit'])) {
 			FormElements.init();
 			var tpr;
 			var tprDate;
+			$("#viewReport .assignTest").click(function(){
+                var admissionid = $(this).data("admissionid");
+				$("#adID").val(admissionid);
+
+			});
 			$("#viewReport button").click(function() {
 				var admissionid = $(this).data("admissionid");
 				var admission = $(this).data("admission");
