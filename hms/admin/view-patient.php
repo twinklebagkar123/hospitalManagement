@@ -203,13 +203,15 @@ if (isset($_POST['submit'])) {
       </div>
       <div class="modal-body">
         <form method="POST" action="">
+		<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
            <?php
 				$ret = mysqli_query($con, "select * from laboratoryTestList");
 				$cnt = 1;
 				while ($row = mysqli_fetch_array($ret)) { 
 					?>
-					<input type="radio" id="<?php echo $row['labFormID']?>" name="testID" value="<?php echo $row['labFormID']?>">
-					<label for="<?php echo $row['labFormID']?>"><?php echo $row['labTestName']?></label><br>
+					
+					<input type="checkbox" id="<?php echo $row['labFormID']?>" name="testID[]" value="<?php echo $row['labFormID']?>">
+					<label for="<?php echo $row['labFormID']?>"> <?php echo $row['labTestName']?></label><br>
 
 					<?php
 				} 
