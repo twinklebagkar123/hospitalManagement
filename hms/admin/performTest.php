@@ -16,7 +16,8 @@ if (isset($_POST['submit'])) {
       
        $fields_arr = explode(",", $fields);
        foreach ($fields_arr as  $value) {
-           $postVAl = $_POST['$value'];
+            $str = str_replace(' ', '_', $value);
+           $postVAl = $_POST["$str"];
            $testresult = $testresult." ".$value." : ".$postVAl;
           
        }
