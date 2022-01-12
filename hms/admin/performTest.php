@@ -96,7 +96,7 @@ function fetchPatientName($admissionID)
                                         }
                                     }
                                     ?>
-                                    <input type="submit" name="submit" value="SUBMIT">
+                                    <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
                                 </form>
                             </div>
                         </div>
