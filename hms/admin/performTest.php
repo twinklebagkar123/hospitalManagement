@@ -26,10 +26,11 @@ check_login();
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
-<?php 
+<?php
 $adID = $_GET['adID'];
 $testID = $_GET['testID'];
-function fetchPatientName($admissionID){
+function fetchPatientName($admissionID)
+{
     include('include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
@@ -40,6 +41,7 @@ function fetchPatientName($admissionID){
 }
 
 ?>
+
 <body>
     <div id="app">
         <?php include('include/sidebar.php'); ?>
@@ -66,27 +68,35 @@ function fetchPatientName($admissionID){
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-sm-12">
-                                
+
                                 <form method="POST" action="">
-                                 <?php 
+                                    <?php
                                     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
                                     $result = $con->query($query);
                                     while ($row = mysqli_fetch_array($result)) {
-                                        ?>
-                                            <h3> <?php echo $row['labTestName'];?> | <?php echo fetchPatientName($adID); ?></h3>
-                                            
+                                    ?>
+                                        <h3> <?php echo $row['labTestName']; ?> | <?php echo fetchPatientName($adID); ?></h3>
+
                                         <?php
                                         $fields = $row['labFields'];
-                                        $fields_arr = explode (",", $fields); 
+                                        $fields_arr = explode(",", $fields);
                                         foreach ($fields_arr as  $field) {
-                                            ?>
-                                            <label><?php echo $field;?></label>
-                                            <input type="text" name="<?php echo $field; ?>" >
-                                            <?php
+                                        ?>
+                                            <div class="form-group">
+                                                <label for="<?php echo $field; ?>">
+                                                    <?php echo $field; ?>
+                                                </label>
+
+                                                <input type="text" id="<?php echo $field; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
+
+
+                                            </div>
+
+                                    <?php
                                         }
                                     }
-                                 ?>
-                                 <input type="submit" name="submit" value="SUBMIT">
+                                    ?>
+                                    <input type="submit" name="submit" value="SUBMIT">
                                 </form>
                             </div>
                         </div>
