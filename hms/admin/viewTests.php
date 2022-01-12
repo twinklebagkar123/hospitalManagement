@@ -26,7 +26,19 @@ check_login();
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
+<?php 
 
+function fetchPatientName($admissionID){
+    include('include/config.php');
+    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result =  $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['PatientName'];
+    }
+    return $answer;
+}
+
+?>
 <body>
     <div id="app">
         <?php include('include/sidebar.php'); ?>
@@ -75,8 +87,8 @@ check_login();
 												<tr>
 													<td><?php echo $sr; ?></td>
 													<td id="date"><?php echo $row['assignedDate']; ?></td>
-													<td><?php echo $row['labTestName']; ?></td>
-													<td><?php ?></td>
+													<td><?php echo $row['labTestName']; echo $row['admissionID'];?></td>
+													<td><?php echo fetchPatientName($row['admissionID']) ;?></td>
 													<td><?php echo $row['labTestStatus']; ?></td>
 													<td><button type="button" >Perform Test</button></td>
 													<td></td>
