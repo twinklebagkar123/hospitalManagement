@@ -4,6 +4,11 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_POST["testAssign"])){
+	$testID = $_POST["testID"];
+	print_r($testID);
+	exit;
+}
 if (isset($_POST['submit'])) {
 
 	$vid = $_GET['viewid'];
