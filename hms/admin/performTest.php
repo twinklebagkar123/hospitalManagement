@@ -6,23 +6,24 @@ include('include/checklogin.php');
 check_login();
 ?>
 <?php
-// if (isset($_POST['submit'])) {
-//     $testID = $_GET['testID'];
-//    // $recID = $_GET['recID'];
-//     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
-//     $result = $con->query($query);
-//     while ($row = mysqli_fetch_array($result)) {
-//         $fields = $row['labFields'];
+if (isset($_POST['submit'])) {
+    $testID = $_GET['testID'];
+    $recID = $_GET['recID'];
+    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $fields = $row['labFields'];
       
-//        $fields_arr = explode(",", $fields);
-//        foreach ($fields_arr as  $value) {
-//            $postVAl = $_POST["$value"];
-//            $testresult = $testresult." ".$value." : ".$postVAl;
+       $fields_arr = explode(",", $fields);
+       foreach ($fields_arr as  $value) {
+           $postVAl = $_POST["$value"];
+           $testresult = $testresult." ".$value." : ".$postVAl;
+       }
 
-//     }
-//     print_r($testresult);
-//    // exit();
-// }
+    }
+    print_r($testresult);
+    exit();
+}
 
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ function fetchPatientName($admissionID)
     <?php include('include/setting.php'); ?>
 
     <!-- end: SETTINGS -->
-    </div>
+    </div> 
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -159,7 +160,6 @@ function fetchPatientName($admissionID)
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {});
-    </script>
+   
 </body>
+</html>
