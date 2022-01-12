@@ -54,7 +54,7 @@ check_login();
                         <div class="row">
                             <div class="col-sm-12">
                             <?php
-									$admissionQuery = "SELECT * FROM `laboratoryTestList` where 1";
+									$admissionQuery = "SELECT * FROM `labTestRecord` where 1";
 									$result = $con->query($admissionQuery);
 									?>
 									<table class="table table-bordered dt-responsive nowrap">
