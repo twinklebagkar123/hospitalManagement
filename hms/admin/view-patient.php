@@ -7,7 +7,7 @@ check_login();
 if(isset($_POST["testAssign"])){
 	$testID = $_POST["testID"];
 	print_r($testID);
-	exit;
+	exit();
 }
 if (isset($_POST['submit'])) {
 
