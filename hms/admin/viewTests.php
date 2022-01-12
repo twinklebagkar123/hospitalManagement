@@ -54,7 +54,7 @@ check_login();
                         <div class="row">
                             <div class="col-sm-12">
                             <?php
-									$admissionQuery = "SELECT * FROM `labTestRecord` where 1";
+									$admissionQuery = "SELECT * FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
 									$result = $con->query($admissionQuery);
 									?>
 									<table class="table table-bordered dt-responsive nowrap">
@@ -75,7 +75,7 @@ check_login();
 												<tr>
 													<td><?php echo $sr; ?></td>
 													<td id="date"><?php echo $row['assignedDate']; ?></td>
-													<td><?php echo $row['performedTestID']; ?></td>
+													<td><?php echo $row['labTestName']; ?></td>
 													<td><?php ?></td>
 													<td><?php echo $row['labTestStatus']; ?></td>
 													<td><button type="button" >Perform Test</button></td>
