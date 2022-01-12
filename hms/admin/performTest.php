@@ -17,16 +17,17 @@ if (isset($_POST['submit'])) {
        $fields_arr = explode(",", $fields);
        foreach ($fields_arr as  $value) {
            $str = str_replace(' ', '_', $value);
-           print_r($str);
            $postVAl = $_POST["$str"];
            $testresult = $testresult." ".$value." : ".$postVAl;
           
        }
+       $charges = $row['labCharges'];
 
     }
-    print_r($_POST);
-    print_r($testresult);
-    exit();
+    $date = date("Y-m-d");
+    //print_r($testresult);
+    $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testresult',`performedDate`='$date',`performedBy`='test',`charges`='$charges' WHERE recordID = '$recID'";
+    $con->query($updateQuery);
 }
 
 ?>
