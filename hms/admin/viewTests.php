@@ -77,7 +77,7 @@ check_login();
 													<td id="date"><?php echo $row['assignedDate']; ?></td>
 													<td><?php echo $row['performedTestID']; ?></td>
 													<td><?php ?></td>
-													<td><?php echo $row['status']; ?></td>
+													<td><?php echo $row['labTestStatus']; ?></td>
 													<td><button type="button" >Perform Test</button></td>
 													<td></td>
 												</tr>
