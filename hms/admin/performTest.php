@@ -16,12 +16,13 @@ if (isset($_POST['submit'])) {
       
        $fields_arr = explode(",", $fields);
        foreach ($fields_arr as  $value) {
-           $postVAl = $_POST["$value"];
+           $postVAl = $_POST['$value'];
            $testresult = $testresult." ".$value." : ".$postVAl;
-           echo $postVAl;
+          
        }
 
     }
+    print_r($_POST);
     print_r($testresult);
     exit();
 }
