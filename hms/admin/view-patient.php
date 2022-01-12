@@ -6,8 +6,12 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST["testAssign"])){
 	$testID = $_POST["testID"];
-	print_r($testID);
-	exit();
+	$admissionID = $_POST["admissionID"];
+	$date = date("Y-m-d");
+	foreach ($testID as $value) {
+		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
+		$con->query($query);
+	}
 }
 if (isset($_POST['submit'])) {
 
