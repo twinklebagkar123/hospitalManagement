@@ -28,6 +28,7 @@ check_login();
 </head>
 <?php 
 $adID = $_GET['adID'];
+$testID = $_GET['testID'];
 function fetchPatientName($admissionID){
     include('include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
