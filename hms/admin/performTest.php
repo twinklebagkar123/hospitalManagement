@@ -6,6 +6,7 @@ include('include/checklogin.php');
 check_login();
 ?>
 <?php
+
 if (isset($_POST['submit'])) {
     $testID = $_GET['testID'];
     $recID = $_GET['recID'];
@@ -25,7 +26,7 @@ if (isset($_POST['submit'])) {
 
     }
     $date = date("Y-m-d");
-    //print_r($testresult);
+    print_r($testresult);
     $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testresult',`performedDate`='$date',`performedBy`='test',`charges`='$charges' WHERE recordID = '$recID'";
     print_r($updateQuery);
     $result = $con->query($updateQuery);
