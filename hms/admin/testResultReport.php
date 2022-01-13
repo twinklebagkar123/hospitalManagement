@@ -38,6 +38,16 @@ function fetchPatientName($admissionID)
     }
     return $answer;
 }
+function fetchTestName($testID)
+{
+    include('include/config.php');
+    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+      $answer = $row['labTestName'];
+    }
+    return $answer;
+}
 ?>
 <body>
     <div id="app">
@@ -70,12 +80,25 @@ function fetchPatientName($admissionID)
                                    $queryRec = "SELECT * FROM `labTestRecord` where recordID='$recID'";
                                    $result = $con->query($queryRec);
                                    while ($row = mysqli_fetch_array($result)) {
-                                    
+                                    ?>
+                                      <h3>patient name: <?php echo fetchPatientName($row['admissionID']);?></h3>
+                                      <h3>Test Name: <?php echo fetchTestName($row['performedTestID']);?></h3>
+                                      <h3>Test Assigned Date: <?php echo $row['assignedDate'];?></h3>
+                                      <h3>Test Performed Date: <?php echo $row['performedDate'];?></h3>
+                                      <p>Lab Test Findings: </p>
+                                    <?php
                                    $recResult=  json_decode($row['testResult']);
                                      foreach ($recResult as $key => $value) {
-                                         echo "key: ".$key;
-                                         echo "<br>value: ".$value;
+                                         ?>
+                                         <p> <?php echo $key; ?> : <?php echo $value;?></p>
+                                         <?php
                                      }
+                                     ?>
+                                     <h3>Report Status: <?php echo $row['labTestStatus'];?></h3>
+                                     <h3>Report Remarks: <?php echo $row['remark'];?></h3>
+                                     <h3>Laboratory/Test Incharge: <?php echo $row['performedBy'];?></h3>
+                                     <h3>Report Summary: <?php echo $row['findings'];?></h3>
+                                     <?php
                                    }
 
                                 ?>
