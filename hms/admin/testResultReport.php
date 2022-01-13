@@ -71,14 +71,15 @@ function fetchPatientName($admissionID)
                                    $result = $con->query($queryRec);
                                    while ($row = mysqli_fetch_array($result)) {
                                      // $recResult =  $row['testResult'];
-                                      $recResult = json_decode($row['testResult']);
-                                      print_r($recResult);
+                                     // $recResult =
+                                       print_r($row['testResult']);
+                                     // print_r($recResult);
                                    }
 
                                 ?>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
