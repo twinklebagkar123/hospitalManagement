@@ -97,7 +97,14 @@ function fetchPatientName($admissionID){
                                                         <?php
                                                     }?>    
                                                     </td>
-													<td></td>
+													<td><?php
+                                                        if($row['labTestStatus'] == "complete"){
+                                                            ?>
+                                                             <a href="performTest.php?recID=<?php echo $row['recordID']?>">View Results</a>
+                                                            <?php
+                                                        }
+                                                    
+                                                    ?></td>
 												</tr>
 											<?php
 												$sr++;

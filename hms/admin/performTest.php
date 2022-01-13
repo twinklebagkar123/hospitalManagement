@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $testID = $_GET['testID'];
     $recID = $_GET['recID'];
     $performedBy = $_POST['performedBy'];
+    $findings = $_POST['findings'];
     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])) {
     }
     $date = date("Y-m-d");
     $testJson = json_encode($testresult);
-    $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
+    $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
     //print_r($updateQuery);
     $result = $con->query($updateQuery);
 }
@@ -131,6 +132,12 @@ function fetchPatientName($admissionID)
                                            Laboratory Incharge
                                         </label>
                                         <input type="text" id="performedBy" name="performedBy" class="form-control" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="findings">
+                                           Laboratory Findings
+                                        </label>
+                                        <input type="text" id="findings" name="findings" class="form-control" required="true">
                                     </div>
                                     <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
                                 </form>
