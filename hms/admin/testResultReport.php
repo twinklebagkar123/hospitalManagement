@@ -70,11 +70,12 @@ function fetchPatientName($admissionID)
                                    $queryRec = "SELECT * FROM `labTestRecord` where recordID='$recID'";
                                    $result = $con->query($queryRec);
                                    while ($row = mysqli_fetch_array($result)) {
-                                     // $recResult =  $row['testResult'];
-                                     // $recResult =
                                     
-                                       print_r( json_decode($row['testResult']));
-                                     // print_r($recResult);
+                                   $recResult=  json_decode($row['testResult']);
+                                     foreach ($recResult as $key => $value) {
+                                         echo "key: ".$key;
+                                         echo "<br>value: ".$value;
+                                     }
                                    }
 
                                 ?>
