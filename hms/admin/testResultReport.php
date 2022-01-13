@@ -9,7 +9,7 @@ check_login();
 <html lang="en">
 
 <head>
-    <title>Admin | View Tests</title>
+    <title>Laboratory | View Tests</title>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -26,18 +26,18 @@ check_login();
     <link rel="stylesheet" href="assets/css/plugins.css">
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
-<?php 
-
-function fetchPatientName($admissionID){
+<?php
+function fetchPatientName($admissionID)
+{
     include('include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $answer = $row['PatientName'];
+      
     }
     return $answer;
 }
-
 ?>
 <body>
     <div id="app">
@@ -50,7 +50,7 @@ function fetchPatientName($admissionID){
                     <section id="page-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h1 class="mainTitle">Admin | View Tests</h1>
+                                <h1 class="mainTitle">Laboratory | Test Result</h1>
                             </div>
                             <ol class="breadcrumb">
                                 <li>
@@ -64,54 +64,18 @@ function fetchPatientName($admissionID){
                     </section>
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
-                            <div class="col-sm-12">
-                            <?php
-									$admissionQuery = "SELECT * FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
-									$result = $con->query($admissionQuery);
-									?>
-									<table class="table table-bordered dt-responsive nowrap">
-										<thead>
-											<th>#</th>
-											<th>Assigned Date</th>
-											<th>Test Type</th>
-											<th>Patient Name</th>
-											<th>Status</th>
-											<th>Action</th>
-											<th>Reports</th>
-										</thead>
-										<tbody id="viewReport">
-											<?php
-											$sr = 1;
-											while ($row = mysqli_fetch_array($result)) {
-											?>
-												<tr>
-													<td><?php echo $sr; ?></td>
-													<td id="date"><?php echo $row['assignedDate']; ?></td>
-													<td><?php echo $row['labTestName'];?></td>
-													<td><?php echo fetchPatientName($row['admissionID']) ;?></td>
-													<td><?php echo $row['labTestStatus']; ?></td>
-													<td>
-                                                    <?php if($row['labTestStatus'] == "pending"){
-                                                        ?>
-                                                            <a href="performTest.php?recID=<?php echo $row['recordID']?>&adID=<?php echo $row['admissionID']; ?>&testID=<?php echo $row['performedTestID'];?>">Perform test</a> | <a href="">Decline</a> 
-                                                        <?php
-                                                    }?>    
-                                                    </td>
-													<td><?php
-                                                        if($row['labTestStatus'] == "complete"){
-                                                            ?>
-                                                             <a href="testResultReport.php?recID=<?php echo $row['recordID']?>">View Results</a>
-                                                            <?php
-                                                        }
-                                                    
-                                                    ?></td>
-												</tr>
-											<?php
-												$sr++;
-											}
-											?>
-										</tbody>
-									</table>
+                            <div class="col-sm-6">
+                                <?php
+                                   $recID = $_GET['recID'];
+                                   $queryRec = "SELECT * FROM `labTestRecord` where recordID='$recID'";
+                                   $result = $con->query($queryRec);
+                                   while ($row = mysqli_fetch_array($result)) {
+                                     // $recResult =  $row['testResult'];
+                                      $recResult = json_decode($row['testResult']);
+                                      print_r($recResult);
+                                   }
+
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -119,15 +83,15 @@ function fetchPatientName($admissionID){
             </div>
         </div>
     </div>
-    <!-- start: FOOTER -->
-    <?php include('include/footer.php'); ?>
+<!-- start: FOOTER -->
+<?php include('include/footer.php'); ?>
     <!-- end: FOOTER -->
 
     <!-- start: SETTINGS -->
     <?php include('include/setting.php'); ?>
 
     <!-- end: SETTINGS -->
-    </div>
+    </div> 
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -152,7 +116,6 @@ function fetchPatientName($admissionID){
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
-    <script>
-        jQuery(document).ready(function() {});
-    </script>
 </body>
+
+</html>
