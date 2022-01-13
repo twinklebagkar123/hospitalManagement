@@ -72,7 +72,8 @@ function fetchPatientName($admissionID)
                                    while ($row = mysqli_fetch_array($result)) {
                                      // $recResult =  $row['testResult'];
                                      // $recResult =
-                                       print_r($row['testResult']);
+                                    
+                                       print_r( json_decode($row['testResult']));
                                      // print_r($recResult);
                                    }
 
