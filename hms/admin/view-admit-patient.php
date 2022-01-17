@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-  
+
 
 	<script>
 		function getdoctor(val) {
@@ -105,24 +105,24 @@ if (isset($_POST['submit'])) {
 									<thead>
 										<tr>
 											<!-- <th class="center">#</th> -->
-											
+
 											<th>Patient Id</th>
 											<th>Doctor Name</th>
-											
-											
+
+
 											<th> Ward Number </th>
 											<th>Admission Date </th>
 											<th>Discharge Date </th>
-											 <th>Advanced Paid </th>
+											<th>Advanced Paid </th>
 											<th>Operation </th>
-											
+
 											<th>ID</th>
 											<th>Discharge </th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
 
-									
+
 									</tbody>
 
 
@@ -242,32 +242,8 @@ if (isset($_POST['submit'])) {
 																Book Appointment
 															</button>
 														</form>
-
-
-
-
-
-
-
-
-
-
-
-
 													</div>
-
-
-
-
-
-
 													<!-- end: BASIC EXAMPLE -->
-
-
-
-
-
-
 													<!-- end: SELECT BOXES -->
 
 												</div>
@@ -356,18 +332,18 @@ if (isset($_POST['submit'])) {
 
 								});
 							</script>
-		<script>
-$( document ).ready(function() {
-$('#myTable').dataTable({
-    "serverSide": true,
-    "processing": true,
-    ajax: {
-		"url" : 'view-response.php',
-		"contentType": 'application/json'
-	},
-        });  
-});
-    </script>
+							<script>
+								$(document).ready(function() {
+									$('#myTable').dataTable({
+										"serverSide": true,
+										"processing": true,
+										ajax: {
+											"url": 'view-response.php',
+											"contentType": 'application/json'
+										},
+									});
+								});
+							</script>
 							<!-- end: JavaScript Event Handlers for this page -->
 
 							<!-- end: CLIP-TWO JAVASCRIPTS -->
