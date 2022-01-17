@@ -11,9 +11,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageIdAdmit'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else:
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 endif;
 
 $patientCountSql ="SELECT COUNT(`unqId`) FROM `patientAdmission`";
@@ -26,6 +26,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $_SESSION['lastPageIdAdmit'] = $row['unqId'];
 
   $ID = $row['uid'];
+  $patientName = $row['PatientName'];
   $doc =   $row['docID'];
   $ward = $row['wardNo'];
   $admissiondate = $row['dateofadmission'];
@@ -40,7 +41,7 @@ while ($row = mysqli_fetch_array($sql)) {
    
   // $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge_getreport);
   
-  $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation, $discharge_getreport);
+  $result = array($patientName, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation, $discharge_getreport);
   array_push($data, $result);
 }
 
