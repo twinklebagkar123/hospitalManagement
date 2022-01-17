@@ -125,6 +125,18 @@
 					
 
 					</ul>
+					<li>
+					<a href="patient-search.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Patient Search </span>
+							</div>
+						</div>
+					</a>
+				</li>
 
 
 					<!-- <ul class="sub-menu">
@@ -278,18 +290,7 @@
 
 
 					</ul>
-				<li>
-					<a href="patient-search.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-search"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Patient Search </span>
-							</div>
-						</div>
-					</a>
-				</li>
+				
 				</li>
 				<li>
 					<a href="javascript:void(0)">
@@ -339,22 +340,40 @@
 					</a>
 				</li>
 				
-
-							
-
-
 				<li>
-					<a href="laboratory.php">
+					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-search"></i>
+								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Laboratory Section </span>
+								<span class="title"> Laboratory Section </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="laboratory.php">
+								<span class="title"> Create Tests </span>
+							</a>
+						</li>
+						<li>
+							<a href="viewTests.php">
+								<span class="title"> Manage Tests </span>
+							</a>
+						</li>
+						<li>
+							<a href="add-medicine.php">
+								<span class="title"> Create Tests </span>
+							</a>
+						</li>
+
+
+
+					</ul>
 				</li>
+				
 				<li>
 					<a href="addProcedure.php">
 						<div class="item-content">

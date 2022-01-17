@@ -4,6 +4,7 @@
     include('include/config.php');
     include('include/checklogin.php');
     check_login();
+    $docid = $_GET['docId'];
     if (isset($_POST['submit'])) {
         $file_title = $_POST['fTitle'];
         $patient_id = $_POST['pID'];

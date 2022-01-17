@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-
+$aid = $_GET['admissionId'];
 if (isset($_POST['Submit'])) {
 	$id = $_POST['pid'];
 	$patient = $_POST['pat'];

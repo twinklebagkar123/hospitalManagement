@@ -11,9 +11,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageIdAdmit'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` ASC LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else:
-  $query="SELECT * FROM `patientAdmission` WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` ASC LIMIT " . $g;
+  $query="SELECT * FROM `patientAdmission` WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 endif;
 
 $patientCountSql ="SELECT COUNT(`unqId`) FROM `patientAdmission`";
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $dischargedate = $row['dateofdischarge'];
   $admission_status = $row['status'];
   $advanve = $row['advance_paid'];
-  $operation = '<a class="btn btn-primary"  class="btn btn-primary" href="operation-form.php">Operation</a>';
+  $operation = '<a class="btn btn-primary"  href="patientOperationConsent.php?admissionId='.$row['unqId'].'" >Operation</a>';
  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
  $getReport = '<a class="btn btn-primary"  class="btn btn-primary" href="">Get Report</a>';
  $discharge_getreport = $admission_status == 'pending' ? $discharge : $getReport;

@@ -4,6 +4,16 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_POST["testAssign"])){
+	$testID = $_POST["testID"];
+	$admissionID = $_POST["admissionID"];
+	$date = date("Y-m-d");
+	foreach ($testID as $value) {
+		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
+	 print_r($sql);
+			$con->query($sql);
+	}
+}
 if (isset($_POST['submit'])) {
 
 	$vid = $_GET['viewid'];
@@ -126,6 +136,7 @@ if (isset($_POST['submit'])) {
 											<th>Admission Type</th>
 											<th>Diagnosis</th>
 											<th>Discharge Date</th>
+											<th>Assign Test</th>
 											<th>Reports</th>
 										</thead>
 										<tbody id="viewReport">
@@ -140,6 +151,7 @@ if (isset($_POST['submit'])) {
 													<td><?php //echo $row['dateofadmission'];
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
+													<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
 													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
 												</tr>
 											<?php
@@ -152,45 +164,17 @@ if (isset($_POST['submit'])) {
 
 									?>
 									<div id="test"></div>
+									<p align="center">
+										<button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Assign Test</button>
+									</p>
 									<?php
 
-									$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
+									//$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
 
 
 
 									?>
-									<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-										<tr align="center">
-											<th colspan="8">Medical History</th>
-										</tr>
-										<tr>
-											<th>#</th>
-											<th>Blood Pressure</th>
-											<th>Weight</th>
-											<th>Blood Sugar</th>
-											<th>Body Temprature</th>
-											<th>Medical Prescription</th>
-											<th>Visit Date</th>
-										</tr>
-										<?php
-										$tpr = array();
-										$visit = array();
-										while ($row = mysqli_fetch_array($ret)) {
-											array_push($tpr, $row['Temperature']);
-											array_push($visit, $row['CreationDate']);
-										?>
-											<tr>
-												<td><?php echo $cnt; ?></td>
-												<td><?php echo $row['BloodPressure']; ?></td>
-												<td><?php echo $row['Weight']; ?></td>
-												<td><?php echo $row['BloodSugar']; ?></td>
-												<td><?php echo $row['Temperature']; ?></td>
-												<td><?php echo $row['MedicalPres']; ?></td>
-												<td><?php echo $row['CreationDate']; ?></td>
-											</tr>
-										<?php $cnt = $cnt + 1;
-										} ?>
-									</table>
+									
 									<div>
 										<canvas id="line-chart" width="400" height="100"></canvas>
 										<canvas id="tpr-chart" width="400" height="100"></canvas>
@@ -214,6 +198,45 @@ if (isset($_POST['submit'])) {
 	//    foreach ($period as $key => $value) { print_r($value->format('Y-m-d') ); }
 
 	?>
+	<!-- Trigger the modal with a button -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Assign Test Here</h4>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="">
+		<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
+           <?php
+				$ret = mysqli_query($con, "select * from laboratoryTestList");
+				$cnt = 1;
+				while ($row = mysqli_fetch_array($ret)) { 
+					?>
+					
+					<input type="checkbox" id="<?php echo $row['labFormID']?>" name="testID[]" value="<?php echo $row['labFormID']?>">
+					<label for="<?php echo $row['labFormID']?>"> <?php echo $row['labTestName']?></label><br>
+
+					<?php
+				} 
+		 
+		 ?>
+		 <input type="submit" name="testAssign" value="Assign Test">
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
@@ -253,6 +276,11 @@ if (isset($_POST['submit'])) {
 			FormElements.init();
 			var tpr;
 			var tprDate;
+			$("#viewReport .assignTest").click(function(){
+                var admissionid = $(this).data("admissionid");
+				$("#adID").val(admissionid);
+
+			});
 			$("#viewReport button").click(function() {
 				var admissionid = $(this).data("admissionid");
 				var admission = $(this).data("admission");
