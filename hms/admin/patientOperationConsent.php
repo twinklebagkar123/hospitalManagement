@@ -19,7 +19,7 @@ if (isset($_POST['Submit'])) {
 	$fCDate = $_POST['date'];
 
 
-	$sql = mysqli_query($con, "INSERT INTO `patientoperation`( `patNme`, `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$patient','$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
+	$sql = mysqli_query($con, "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
 	if ($sql) {
 		echo "<script>alert('patient Operation Form added Successfully');</script>";
 		header('location:patientOperationConsent.php');
@@ -463,12 +463,6 @@ $today = $year . '-' . $month . '-' . $day;
 					},
 					success: function(data) {
 						$('#nameResponse').html(data);
-						// var obj = JSON.parse(data);
-						// console.log("TEST: ",obj.name);
-						// $('#pName').html(obj.name);
-						// $('#pAge').html(obj.age);
-						// $('#pGender').html(obj.gender);
-
 					}
 				});
 				$(document).on("click", "#nameResponse p", function() {
@@ -480,12 +474,6 @@ $today = $year . '-' . $month . '-' . $day;
 					$("#pat").val($(this).data("name"));
 					$("#patId").val($(this).data("pid"));
 					$("#nameResponse").html("");
-
-
-
-
-
-
 				});
 
 			});

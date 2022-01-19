@@ -187,7 +187,7 @@ $sdata=$_POST['opDate'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$sdata'");
+$sql=mysqli_query($con,"SELECT tblpatient.PatientName, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id INNER JOIN tblpatient ON tblpatient.ID =patientoperation.patientID where patientoperation.opDate= '$sdata'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
@@ -196,7 +196,7 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 <td class="center"><?php echo $cnt;?>.</td>
-<td class="hidden-xs"><?php echo $row['patNme'];?></td>
+<td class="hidden-xs"><?php echo $row['PatientName'];?></td>
 <td><?php echo $row['opDate'];?></td>
 <td><?php echo $row['opTitle'];?></td>
 <td><?php echo $row['opTime'];?></td>

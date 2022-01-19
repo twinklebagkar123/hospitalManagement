@@ -4,27 +4,12 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if (isset($_POST['submit'])) {
-    $specilization = $_POST['Doctorspecialization'];
-    $doctorid = $_POST['doctor'];
-    $userid = $_POST['idpatient'];
-    $fees = $_POST['fees'];
-    $appdate = $_POST['appdate'];
-    $time = $_POST['apptime'];
-    $userstatus = 1;
-    $docstatus = 1;
-    $query = mysqli_query($con, "insert into appointment(doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
-    if ($query) {
-        echo "<script>alert('Your appointment successfully booked');</script>";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Admin | View Patients</title>
-
+    <title>Admin | Discharge Patients</title>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -41,36 +26,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
-
-    <script>
-        function getdoctor(val) {
-            console.log("hi");
-            $.ajax({
-                type: "POST",
-                url: "get_doctor.php",
-                data: 'specilizationid=' + val,
-                success: function(data) {
-                    $("#doctor").html(data);
-                }
-            });
-        }
-    </script>
-    <script>
-        function getfee(val) {
-            $.ajax({
-                type: "POST",
-                url: "get_doctor.php",
-                data: 'doctor=' + val,
-                success: function(data) {
-                    $("#fees").html(data);
-                }
-            });
-        }
-    </script>
-
-
-
 </head>
 
 <body>
@@ -84,14 +39,14 @@ if (isset($_POST['submit'])) {
                     <section id="page-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h1 class="mainTitle">Admin | View Patients</h1>
+                                <h1 class="mainTitle">Admin | Discharge Patients</h1>
                             </div>
                             <ol class="breadcrumb">
                                 <li>
                                     <span>Admin</span>
                                 </li>
                                 <li class="active">
-                                    <span>View Patients</span>
+                                    <span>Discharge Patients</span>
                                 </li>
                             </ol>
                         </div>
@@ -99,71 +54,37 @@ if (isset($_POST['submit'])) {
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
+                                <h5 class="over-title margin-bottom-15">Patient <span class="text-bold">Information</span></h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">#</th>
-                                            <th>Name</th>
-                                            <th>Phone No.</th>
+                                            <th class="center">Patient Id </th>
+                                            <th>Patient Name</th>
+                                            <th>Phone Number</th>
+                                            <th>Email Address</th>
+                                            <th>Adhar Card</th>
+                                            <th>Gender</th>
                                             <th>Address</th>
-
-                                            <th>Action</th>
-
                                         </tr>
                                     </thead>
                                     <tbody id="delete">
                                         <?php
-                                        $sql = mysqli_query($con, "select * from nearbyAmbulance");
+                                        $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
                                         $cnt = 1;
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
-
                                             <tr>
-                                                <td class="center"><?php echo $cnt; ?>.</td>
-                                                <td><?php echo $row['Name']; ?></td>
-                                                <td><?php echo $row['number']; ?></td>
-                                                <td><?php echo $row['address']; ?></td>
-
-                                                <td>
-                                                    <div class="visible-md visible-lg hidden-sm hidden-xs">
-                                                        <a href="editAmbulance.php?id=<?php echo $row['id']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
-                                                        <!-- add-medicine.php?code=<?php //echo $row['code']
-                                                                                    ?>&del=delete										 -->
-                                                        <a href="#" class="btn btn-transparent btn-xs tooltips dellClass " data-id='<?php echo $row['id']; ?>' id="del" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
-                                                    </div>
-                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
-                                                        <div class="btn-group" dropdown is-open="status.isopen">
-                                                            <button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle>
-                                                                <i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
-                                                            </button>
-                                                            <ul class="dropdown-menu pull-right dropdown-light" role="menu">
-                                                                <li>
-                                                                    <a href="#">
-                                                                        Edit
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        Share
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#">
-                                                                        Remove
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <td class="center"><?php echo $row['ID']; ?></td>
+                                                <td><?php echo $row['PatientName']; ?></td>
+                                                <td><?php echo $row['PatientContno']; ?></td>
+                                                <td><?php echo $row['PatientEmail']; ?></td>
+                                                <td><?php echo $row['adharCardNo']; ?></td>
+                                                <td><?php echo $row['PatientGender']; ?></td>
+                                                <td><?php echo $row['PatientAdd']; ?></td>
                                             </tr>
 
-                                        <?php
-                                            $cnt = $cnt + 1;
-                                        } ?>
-
+                                        <?php } ?>
 
                                     </tbody>
                                 </table>

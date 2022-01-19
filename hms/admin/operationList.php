@@ -101,14 +101,14 @@ $today = $year . '-' . $month . '-' . $day;
 
 										<?php
 
-										$sql = mysqli_query($con, "SELECT patientoperation.patNme, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id where patientoperation.opDate= '$today'");
+										$sql = mysqli_query($con, "SELECT tblpatient.PatientName, patientoperation.opDate,patientoperation.opTitle,patientoperation.opTime,patientoperation.pRNote, doctors.doctorName FROM patientoperation INNER JOIN doctors ON patientoperation.docID = doctors.id INNER JOIN tblpatient ON tblpatient.ID =patientoperation.patientID where patientoperation.opDate= '$today'");
              
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
-												<td class="hidden-xs"><?php echo $row['patNme']; ?></td>
+												<td class="hidden-xs"><?php echo $row['PatientName']; ?></td>
 												<td><?php echo $row['opDate']; ?></td>
 												<td><?php echo $row['opTitle']; ?></td>
 												<td><?php echo $row['opTime']; ?></td>
@@ -191,7 +191,7 @@ $today = $year . '-' . $month . '-' . $day;
     <script> 
 	$(document).ready( function () {
     $('#oc').DataTable();
-} );
+  });
 										
 		</script>
     <!-- end: JavaScript Event Handlers for this page -->
