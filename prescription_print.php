@@ -124,11 +124,11 @@
     }
 
     .doc-meta {
-        font-size: 9px;
+        font-size: 10px;
     }
 
     .datetime {
-        font-size: 10px;
+        font-size: 12px;
         margin-top: 5px;
 
     }
@@ -166,7 +166,7 @@
     }
 
     .instruction {
-        font-size: 6px;
+        font-size: 12px;
     }
 </style>
 
