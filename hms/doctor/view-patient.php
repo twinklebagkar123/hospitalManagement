@@ -7,6 +7,7 @@ check_login();
 if (isset($_POST['submit'])) {
 
   $vid = $_GET['viewid'];
+  $admissionID = $_POST['admissionID'];
   $bp = $_POST['bp'];
   $bs = $_POST['bs'];
   $weight = $_POST['weight'];
@@ -15,7 +16,7 @@ if (isset($_POST['submit'])) {
   $pres = $_POST['pres'];
   $nn = $_POST['nn'];
 
-  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
+  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
   if ($query) {
     echo '<script>alert("Medical history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -43,19 +44,18 @@ if (isset($_POST['submit'])) {
   <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
   <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/styleext.css?ver=<?php echo rand();?>">
+  <link rel="stylesheet" href="assets/css/styleext.css?ver=<?php echo rand(); ?>">
   <link rel="stylesheet" href="assets/css/plugins.css">
   <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
 
 <body>
   <script type="text/javascript">
-     function getAllValues() {
+    function getAllValues() {
       $("#loaderIcon").show();
-      if($('#autosuggest').val() == ""){
+      if ($('#autosuggest').val() == "") {
         $("#pillResult").html(' ');
-      }
-      else{
+      } else {
         jQuery.ajax({
           url: "getAllMedicines.php",
           data: 'med=' + $("#autosuggest").val(),
@@ -68,11 +68,8 @@ if (isset($_POST['submit'])) {
           error: function() {}
         });
       }
-      
+
     }
-   
-   
-   
   </script>
   <div id="app">
     <?php include('include/sidebar.php'); ?>
@@ -140,116 +137,65 @@ if (isset($_POST['submit'])) {
 
                   <?php } ?>
                   </table>
+                  <!-- new table structure -->
                   <?php
-
-                  $ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
-
+                  $admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
+                  $result = $con->query($admissionQuery);
 
 
                   ?>
-                  <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                    <tr style="align : center">
-                      <th colspan="8">Medical History</th>
-                    </tr>
-                    <tr>
+                  <table class="table table-bordered dt-responsive nowrap">
+                    <thead>
                       <th>#</th>
-                      <th>Blood Pressure</th>
-                      <th>Weight</th>
-                      <th>Blood Sugar</th>
-                      <th>Blood Sugar Type</th>
-                      <th>Body Temprature</th>
-                      <th>Medical Prescription</th>
-                      <th>Nurse Note</th>
-                      <th>Visit Date</th>
-                    </tr>
-                    <?php
-                    $tpr = array();
-                    $visit = array();
-                    while ($row = mysqli_fetch_array($ret)) {
-                       array_push($tpr,$row['Temperature']);
-                       array_push($visit,$row['CreationDate']);
-                    ?>
-                      <tr>
-                        <td><?php echo $cnt; ?></td>
-                        <td><?php echo $row['BloodPressure']; ?></td>
-                        <td><?php echo $row['Weight']; ?></td>
-                        <td><?php echo $row['BloodSugar']; ?></td>
-                        <td><?php echo $row['BSType']; ?></td>
-                        <td><?php echo $row['Temperature']; ?></td>
-                        <td><?php echo $row['MedicalPres']; ?></td>
-                        <td><?php echo $row['nurseNote']; ?></td>
-                        <td><?php echo $row['CreationDate']; ?></td>
-                      </tr>
-                    <?php $cnt = $cnt + 1;
-                    } ?>
+                      <th>Admission Date</th>
+                      <th>Admission Type</th>
+                      <th>Diagnosis</th>
+                      <th>Discharge Date</th>
+                      <th>Assign Test</th>
+                      <th>Reports</th>
+                      <th>Add History</th>
+                    </thead>
+                    <tbody id="viewReport">
+                      <?php
+                      $sr = 1;
+                      while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                        <tr>
+                          <td><?php echo $sr; ?></td>
+                          <td id="date"><?php echo $row['dateofadmission']; ?></td>
+                          <td><?php echo $row['admissionType']; ?></td>
+                          <td><?php //echo $row['dateofadmission'];
+                              ?></td>
+                          <td><?php echo $row['dateofdischarge']; ?></td>
+                          <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
+                          <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+                          <td>
+                            <?php
+                            if ($row['dateofdischarge']=="0000-00-00") {
+                            ?>
+                              <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                            <?php
+                            }
+
+                            ?>
+                          </td>
+                        </tr>
+                      <?php
+                        $sr++;
+                      }
+                      ?>
+                    </tbody>
                   </table>
+                  <div id="test"></div>
+                  <div>
+                    <canvas id="line-chart" width="400" height="100"></canvas>
+                    <canvas id="tpr-chart" width="400" height="100"></canvas>
+                  </div>
+                  <!-- old table structure -->
 
-                  <p align="center">
-                    <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
-                  </p>
-                  <?php
-                  //code for blood sugar chart
-                  //1. get date and
-              
-                  $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
-                  $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1";
-                  $startAndEndDate = array();
-                  // Execute multi query
-                  if (mysqli_multi_query($con, $sql)) {
-                    do {
-                      // Store first result set
-                      if ($result = mysqli_store_result($con)) {
-                        while ($row = mysqli_fetch_row($result)) {
-                          $outputDate = date("Y-m-d", strtotime($row[0]));
-                          array_push($startAndEndDate,$outputDate);
-                        }
-                        mysqli_free_result($result);
-                      }
-                    } while (mysqli_next_result($con));
-                  }
-                  print_r($startAndEndDate);
-                  
-                  $period = new DatePeriod(
-                    new DateTime($startAndEndDate[0]),
-                    new DateInterval('P1D'),
-                    new DateTime($startAndEndDate[1])
-               );
-               foreach ($period as $key => $value) {
-               print_r($value->format('Y-m-d') ); 
 
-            }
-                  $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
-                  $result = $con->query($query);
-                  //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
-                  $data = array();
-                  while ($row = $result->fetch_assoc()) {
-                    $i = 1;
-                    $type = $row["BSType"];
-                    if ($type != "") {
-                      $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
 
-                      $result1 = $con->query($query2);
-                      $x = 0;
-                      while ($row2 = $result1->fetch_assoc()) {
-                        $value = $row2["BloodSugar"];
-                        $data = array_push_assoc($data, $type, $value, $x);
-                        $x++;
-                      }
-                    }
-                    $i++;
-                  }
-                  function array_push_assoc($array, $key, $value, $x)
-                  {
-                    $array[$key][$x] = $value;
-                    return $array;
-                  }
-                  ?>
-                  <?php
-                   
-                  ?>
-                   
-                  <canvas id="line-chart" width="400" height="100"></canvas>
-                  <canvas id="tpr-chart" width="400" height="100"></canvas>
+
 
                   <?php  ?>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -265,7 +211,7 @@ if (isset($_POST['submit'])) {
                           <table class="table table-bordered table-hover data-tables">
 
                             <form method="post" name="submit">
-
+                              <input type="hidden" id="admissionIDHis" name="admissionID" value="">
                               <tr>
                                 <th>Blood Pressure :</th>
                                 <td>
@@ -314,12 +260,12 @@ if (isset($_POST['submit'])) {
                                 <th>Prescription :</th>
                                 <td>
                                   <div class="wrapperDiv">
-                                  <div id="medicalResult"></div>
-                                  <input type="hidden" name="pres" id="result" value="">
-                                  <input type="text" placeholder="Type here..." class ="form-control wd-450" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                  <div id="pillResult" class="subDiv"></div>
+                                    <div id="medicalResult"></div>
+                                    <input type="hidden" name="pres" id="result" value="">
+                                    <input type="text" placeholder="Type here..." class="form-control wd-450" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                    <div id="pillResult" class="subDiv"></div>
                                   </div>
-                                  
+
 
                                   <!-- <textarea name="pres" id="result" class="form-control wd-450" required="true"></textarea> -->
                                   <div></div>
@@ -331,7 +277,7 @@ if (isset($_POST['submit'])) {
                                 <td>
                                   <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                               </tr>
-                            </table>
+                          </table>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -385,71 +331,111 @@ if (isset($_POST['submit'])) {
           Main.init();
           FormElements.init();
           console.log("hello");
-          new Chart(document.getElementById("line-chart"), {
-          type: 'line',
-          data: {
-            labels: [0, 1, 2, 3, 50, 60, 70, 80, 90, 100, 110, 120, 130],
-            datasets: [
-              <?php
+          $(".addMedHistory").click(function(){
+            var id = $(this).data("admissionid");
+            $("#admissionIDHis").val(id);
+          });
+          //new js for charts:
+          $("#viewReport button").click(function() {
+            var admissionid = $(this).data("admissionid");
+            var admission = $(this).data("admission");
+            var discharge = $(this).data("discharge");
+            //var admissionid = $(this).data("admissionid");
+            console.log(admission);
+            jQuery.ajax({
+              url: "fetchReports.php",
+              data: {
+                admissionid: admissionid,
+                admission: admission,
+                discharge: discharge,
+                vid: <?php echo $vid; ?>
+              },
+              method: "POST",
+              dataType: "JSON",
+              success: function(data) {
+                //	console.log(data.bsDates);
+                tpr = data.tpr;
+                tprDate = data.tprDate;
+                bsDates = data.bsDates;
+                sugarReads = data.sugarReads;
+                //	console.log(bsDates+"BS DATES");
+                console.log(sugarReads);
+                var obj = [];
+                $.each(sugarReads, function(key, value) {
+                  var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                  console.log(key + "key");
+                  console.log(value + "value");
+                  var jj = {
+                    'label': key,
+                    'data': value,
+                    'borderColor': color,
+                    'fill': false,
 
-              foreach ($data as $key => $value) {
-                $color =  '#' . substr(md5(rand()), 0, 6);
-                echo "{";
-                echo "label: '$key',";
-                echo " data: [";
-                echo implode(",", $value);
-                echo "],";
-                echo "borderColor: '$color',";
-                echo "fill: false";
-                echo "},";
-              }
+                  }
+                  obj.push(jj);
+                });
 
-              ?>
+                console.log(obj);
+                $("#test").html(data.html);
+                new Chart(document.getElementById("line-chart"), {
+                  type: 'line',
+                  data: {
+                    labels: bsDates,
+                    datasets: obj,
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: 'Blood Sugar'
+                    }
+                  },
+                  scales: {
+                    xAxes: [{
+                      type: 'time',
+                      time: {
+                        displayFormats: {
+                          day: 'yy-mm-dd',
+                        }
+                      }
+                    }]
+                  }
+                });
+                new Chart(document.getElementById("tpr-chart"), {
+                  type: 'line',
+                  data: {
+                    labels: tprDate,
+                    datasets: [{
+                        label: 'TPR CHART',
+                        data: tpr,
+                        borderColor: '#000000',
+                        fill: false
+                      }
 
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-              text: 'Blood Sugar'
-            }
-          }
-        });
-        new Chart(document.getElementById("tpr-chart"), {
-          type: 'line',
-          data: {
-            labels: [<?php  foreach ($visit as $value) {
-              echo "'";
-             echo $value;
-             echo "',";
-            } ?>],
-            datasets: [
-              {
-                label : 'TPR CHART',
-                data: [<?php  echo implode(",", $tpr);?>],
-                borderColor: '#000000',
-                fill: false
-              }
+                    ]
+                  },
+                  options: {
+                    title: {
+                      display: true,
+                      text: 'TPR CHART'
+                    }
+                  }
+                });
+              },
+              error: function() {}
+            });
+          });
 
-            ]
-          },
-          options: {
-            title: {
-              display: true,
-              text: 'TPR CHART'
-            }
-          }
-        });
-        // $(document).ready(function() {
-      $("#autosuggest").on('input',function(){
-        getAllValues();
-      });
-    // });
+
+          // $(document).ready(function() {
+          $("#autosuggest").on('input', function() {
+            getAllValues();
+          });
+          // });
         });
       </script>
 
       <script>
-        
+
       </script>
       <!-- end: JavaScript Event Handlers for this page -->
       <!-- end: CLIP-TWO JAVASCRIPTS -->
