@@ -7,7 +7,7 @@ check_login();
 if(isset($_GET['switch_to_ide']))
 		  {
 	mysqli_query($con,"UPDATE `patientAdmission` SET `admissionType` = 'ide' where unqId ='".$_GET['id']."'");
-	header('Location: '.$_SERVER['REQUEST_URI']);
+	header('Location: view-admit-patient.php');
 	// $_SESSION['msg']="Attending!!";
 }
 if (isset($_POST['submit'])) {
