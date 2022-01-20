@@ -18,7 +18,48 @@
 
                 </div>
                 <div class="col-md-6">
-                        <h3 class="text-centre"> St. Anthony Hostpital & Research Center </h3>
+                    <div class="wrapper">
+                        <div class="title">
+                            <h3 class="text-centre"> St. Anthony Hostpital & Research Center </h3>
+                        </div>
+                        <div class="content">
+                           <table class="table">
+                                <thead>
+                                    <th>Sr.No.</th>
+                                    <th>Item Name</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1.</td>
+                                        <td>Medicine 1</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2.</td>
+                                        <td>Medicine 1</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3.</td>
+                                        <td>Medicine 1</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4.</td>
+                                        <td>Medicine 1</td>
+                                        <td>1</td>
+                                        <td>200</td>
+                                    </tr>
+                                </tbody>
+                           </table>
+                        </div>
+
+                    </div>
                 </div>
                 <div class="col-md-3">
 
