@@ -152,7 +152,7 @@
     }
 
     table th {
-        font-size: 8px;
+        font-size: 13px;
         font-weight: bold;
     }
 
@@ -161,7 +161,7 @@
     }
 
     table td {
-        font-size: 7px;
+        font-size: 12px;
 
     }
 
@@ -176,14 +176,14 @@
             <header class="row">
                 <div class="col-10">
                     <div class="doc-details">
-                        <p class="doc-name">Alvin plus father name</p>
-                        <p class="doc-meta">MS - General Surgery , F.I.A.G.E.S , F.UROGYN(USA) , FECSM (Oxford , UK) , MBBS</p>
+                        <p class="doc-name">St. Anthony's Hospital & Research Center</p>
+                        <p class="doc-meta">General Hospital</p>
                         <p class="doc-meta">Rgn: 2341</p>
                     </div>
 
                     <div class="clinic-details">
-                        <p class="doc-meta">Clinic Name</p>
-                        <p class="doc-meta">#1, Crescent Park Street, Chennai</p>
+                        <p class="doc-meta">Doctor Name: </p>
+                        <p class="doc-meta">Anjana Gupta</p>
                     </div>
 
                 </div>
