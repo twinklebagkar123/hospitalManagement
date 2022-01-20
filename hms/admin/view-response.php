@@ -11,9 +11,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageIdAdmit'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
-  $query="SELECT doctors.doctorName,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query="SELECT doctors.doctorName,patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else:
-  $query="SELECT doctors.doctorName,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query="SELECT doctors.doctorName,patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 endif;
 
 $patientCountSql ="SELECT COUNT(`unqId`) FROM `patientAdmission`";
