@@ -5,6 +5,9 @@ if (!empty($_POST['admissionid'])) {
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
     $discharge = $_POST['discharge'];
+    if($discharge == "0000-00-00"){
+        $discharge = date("Y-m-d");
+    }
     $vid = $_POST['vid'];
     // BS Dates
     $period = new DatePeriod(

@@ -111,8 +111,7 @@ if (!empty($_POST['admissionid'])) {
             array_push($tpr, $row['Temperature']);
             array_push($tprDate, $row['CreationDate']);
         }
-        // array_push($tpr,$row['Temperature']);
-        // array_push($visit,$row['CreationDate']);
+       
 
         $html = $html . '  <tr> <td>' . $cnt . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
             <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>' . $row['MedicalPres'] . '</td> <td>' . $row['CreationDate'] . '</td>
@@ -125,31 +124,6 @@ if (!empty($_POST['admissionid'])) {
     $result['tprDate'] = $tprDate;
     $result['bsDates'] = $bsDates;
     $result['sugarReads'] = $data;
-    // $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
-    // 		$result = $con->query($query);
-    // 		//$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
-    // 		$data = array();
-    // 		while ($row = $result->fetch_assoc()) {
-    // 		$i = 1;
-    // 		$type = $row["BSType"];
-    // 		if ($type != "") {
-    // 			$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
-
-    // 			$result1 = $con->query($query2);
-    // 			$x = 0;
-    // 			while ($row2 = $result1->fetch_assoc()) {
-    // 			$value = $row2["BloodSugar"];
-    // 			$data = array_push_assoc($data, $type, $value, $x);
-    // 			$x++;
-    // 			}
-    // 		}
-    // 		$i++;
-    // 		}
-    // 		function array_push_assoc($array, $key, $value, $x)
-    // 		{
-    // 		$array[$key][$x] = $value;
-    // 		return $array;
-    // 		}
     echo json_encode($result);
 }
 ?>
