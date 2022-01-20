@@ -113,7 +113,7 @@ if (isset($_POST['submit'])) {
 										<tr>
 											<!-- <th class="center">#</th> -->
 
-											<th>Patient Id</th>
+											<th>Patient Name</th>
 											<th>Doctor Name</th>
 
 
