@@ -140,6 +140,45 @@ if (isset($_POST['submit'])) {
 
                   <?php } ?>
                   </table>
+                  <!-- new table structure -->
+                  <?php 
+                  $admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
+									$result = $con->query($admissionQuery);
+                  
+                  
+                  ?>
+                  <table class="table table-bordered dt-responsive nowrap">
+										<thead>
+											<th>#</th>
+											<th>Admission Date</th>
+											<th>Admission Type</th>
+											<th>Diagnosis</th>
+											<th>Discharge Date</th>
+											<th>Assign Test</th>
+											<th>Reports</th>
+										</thead>
+										<tbody id="viewReport">
+											<?php
+											$sr = 1;
+											while ($row = mysqli_fetch_array($result)) {
+											?>
+												<tr>
+													<td><?php echo $sr; ?></td>
+													<td id="date"><?php echo $row['dateofadmission']; ?></td>
+													<td><?php echo $row['admissionType']; ?></td>
+													<td><?php //echo $row['dateofadmission'];
+														?></td>
+													<td><?php echo $row['dateofdischarge']; ?></td>
+													<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
+													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+												</tr>
+											<?php
+												$sr++;
+											}
+											?>
+										</tbody>
+									</table>
+                  <!-- old table structure -->
                   <?php
 
                   $ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
