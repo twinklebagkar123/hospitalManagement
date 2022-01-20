@@ -152,6 +152,7 @@ if (isset($_POST['submit'])) {
                       <th>Discharge Date</th>
                       <th>Assign Test</th>
                       <th>Reports</th>
+                      <th>Add History</th>
                     </thead>
                     <tbody id="viewReport">
                       <?php
@@ -167,6 +168,16 @@ if (isset($_POST['submit'])) {
                           <td><?php echo $row['dateofdischarge']; ?></td>
                           <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
                           <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+                          <td>
+                            <?php
+                            if (!empty($row['dateofdischarge'])) {
+                            ?>
+                              <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                            <?php
+                            }
+
+                            ?>
+                          </td>
                         </tr>
                       <?php
                         $sr++;
@@ -176,119 +187,14 @@ if (isset($_POST['submit'])) {
                   </table>
                   <div id="test"></div>
                   <div>
-										<canvas id="line-chart" width="400" height="100"></canvas>
-										<canvas id="tpr-chart" width="400" height="100"></canvas>
-									</div>
+                    <canvas id="line-chart" width="400" height="100"></canvas>
+                    <canvas id="tpr-chart" width="400" height="100"></canvas>
+                  </div>
                   <!-- old table structure -->
-                  <?php
-
-                  $ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
 
 
 
-                  ?>
-                  <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                    <tr style="align : center">
-                      <th colspan="8">Medical History</th>
-                    </tr>
-                    <tr>
-                      <th>#</th>
-                      <th>Blood Pressure</th>
-                      <th>Weight</th>
-                      <th>Blood Sugar</th>
-                      <th>Blood Sugar Type</th>
-                      <th>Body Temprature</th>
-                      <th>Medical Prescription</th>
-                      <th>Nurse Note</th>
-                      <th>Visit Date</th>
-                    </tr>
-                    <?php
-                    $tpr = array();
-                    $visit = array();
-                    while ($row = mysqli_fetch_array($ret)) {
-                      array_push($tpr, $row['Temperature']);
-                      array_push($visit, $row['CreationDate']);
-                    ?>
-                      <tr>
-                        <td><?php echo $cnt; ?></td>
-                        <td><?php echo $row['BloodPressure']; ?></td>
-                        <td><?php echo $row['Weight']; ?></td>
-                        <td><?php echo $row['BloodSugar']; ?></td>
-                        <td><?php echo $row['BSType']; ?></td>
-                        <td><?php echo $row['Temperature']; ?></td>
-                        <td><?php echo $row['MedicalPres']; ?></td>
-                        <td><?php echo $row['nurseNote']; ?></td>
-                        <td><?php echo $row['CreationDate']; ?></td>
-                      </tr>
-                    <?php $cnt = $cnt + 1;
-                    } ?>
-                  </table>
 
-                  <p align="center">
-                    <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
-                  </p>
-                  <?php
-                  //code for blood sugar chart
-                  //1. get date and
-
-                  $sql = "SELECT `CreationDate`  FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate ASC LIMIT 1;";
-                  $sql .= "SELECT `CreationDate` FROM `tblmedicalhistory` WHERE `PatientID` = '$vid' ORDER BY CreationDate DESC LIMIT 1";
-                  $startAndEndDate = array();
-                  // Execute multi query
-                  if (mysqli_multi_query($con, $sql)) {
-                    do {
-                      // Store first result set
-                      if ($result = mysqli_store_result($con)) {
-                        while ($row = mysqli_fetch_row($result)) {
-                          $outputDate = date("Y-m-d", strtotime($row[0]));
-                          array_push($startAndEndDate, $outputDate);
-                        }
-                        mysqli_free_result($result);
-                      }
-                    } while (mysqli_next_result($con));
-                  }
-                  print_r($startAndEndDate);
-
-                  $period = new DatePeriod(
-                    new DateTime($startAndEndDate[0]),
-                    new DateInterval('P1D'),
-                    new DateTime($startAndEndDate[1])
-                  );
-                  foreach ($period as $key => $value) {
-                    print_r($value->format('Y-m-d'));
-                  }
-                  $query = "SELECT DISTINCT BSType FROM tblmedicalhistory";
-                  $result = $con->query($query);
-                  //$result=mysqli_query($con,"SELECT DISTINCT BSType FROM tblmedicalhistory");
-                  $data = array();
-                  while ($row = $result->fetch_assoc()) {
-                    $i = 1;
-                    $type = $row["BSType"];
-                    if ($type != "") {
-                      $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
-
-                      $result1 = $con->query($query2);
-                      $x = 0;
-                      while ($row2 = $result1->fetch_assoc()) {
-                        $value = $row2["BloodSugar"];
-                        $data = array_push_assoc($data, $type, $value, $x);
-                        $x++;
-                      }
-                    }
-                    $i++;
-                  }
-                  function array_push_assoc($array, $key, $value, $x)
-                  {
-                    $array[$key][$x] = $value;
-                    return $array;
-                  }
-                  ?>
-                  <?php
-
-                  ?>
-
-                  <canvas id="line-chart" width="400" height="100"></canvas>
-                  <canvas id="tpr-chart" width="400" height="100"></canvas>
 
                   <?php  ?>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
