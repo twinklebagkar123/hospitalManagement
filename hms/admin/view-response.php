@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_array($sql)) {
  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
  $getReport = '<a class="btn btn-primary"  class="btn btn-primary" href="">Get Report</a>';
  $discharge_getreport = ($admission_status == 'pending') ? $discharge : $getReport;
- $switchToIDE = '<a class="btn btn-primary"  class="btn btn-primary" href="">Switch to IDE</a>';
+ $switchToIDE = '<a class="btn btn-primary"  class="btn btn-primary" href="view-admit-patient.php?id= '.$ID.'&switch_to_ide=true">Switch to IDE</a>';
  $admissionType = ($row['admissionType'] == 'opd') ? $switchToIDE : '';
 //  $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
    

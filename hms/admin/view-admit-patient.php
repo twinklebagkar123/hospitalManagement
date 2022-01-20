@@ -4,6 +4,12 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_GET['switch_to_ide']))
+		  {
+	mysqli_query($con,"UPDATE `patientAdmission` SET `admissionType` = 'ide' where unqId ='".$_GET['id']."'");
+	header('Location: '.$_SERVER['REQUEST_URI']);
+	// $_SESSION['msg']="Attending!!";
+}
 if (isset($_POST['submit'])) {
 	$specilization = $_POST['Doctorspecialization'];
 	$doctorid = $_POST['doctor'];
