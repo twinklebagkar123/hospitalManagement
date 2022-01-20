@@ -7,7 +7,7 @@ check_login();
 if (isset($_POST['submit'])) {
 
   $vid = $_GET['viewid'];
-  $admissionID = $_GET['admissionID'];
+  $admissionID = $_POST['admissionID'];
   $bp = $_POST['bp'];
   $bs = $_POST['bs'];
   $weight = $_POST['weight'];
