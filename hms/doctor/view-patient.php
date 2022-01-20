@@ -174,6 +174,11 @@ if (isset($_POST['submit'])) {
                       ?>
                     </tbody>
                   </table>
+                  <div id="test"></div>
+                  <div>
+										<canvas id="line-chart" width="400" height="100"></canvas>
+										<canvas id="tpr-chart" width="400" height="100"></canvas>
+									</div>
                   <!-- old table structure -->
                   <?php
 
