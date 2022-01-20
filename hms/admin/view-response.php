@@ -38,11 +38,13 @@ while ($row = mysqli_fetch_array($sql)) {
  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
  $getReport = '<a class="btn btn-primary"  class="btn btn-primary" href="">Get Report</a>';
  $discharge_getreport = ($admission_status == 'pending') ? $discharge : $getReport;
+ $switchToIDE = '<a class="btn btn-primary"  class="btn btn-primary" href="">Switch to IDE</a>';
+ $admissionType = ($row['admissionType'] == 'opd') ? $switchToIDE : '';
 //  $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
    
   // $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge_getreport);
   
-  $result = array($patientName, $doctorName, $ward, $admissiondate, $dischargedate, $advanve,$operation, $discharge_getreport);
+  $result = array($patientName, $doctorName, $ward, $admissiondate, $dischargedate, $advanve,$admissionType,$operation, $discharge_getreport);
   array_push($data, $result);
 }
 

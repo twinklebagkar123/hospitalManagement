@@ -113,10 +113,10 @@ if (isset($_POST['submit'])) {
 											<th> Ward Number </th>
 											<th>Admission Date </th>
 											<th>Discharge Date </th>
-											 <th>Advanced Paid </th>
+											<th>Advanced Paid </th>
+											<th>Admit Patient </th>
 											<th>Operation </th>										
-
-											<th>Discharge </th>
+											<th>Action </th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
