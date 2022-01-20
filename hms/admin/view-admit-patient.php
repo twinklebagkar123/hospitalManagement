@@ -6,6 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_GET['switch_to_ide']))
 		  {
+			  echo "*(*(*(*(*(*(".$_GET['id']."asdasdasd";
 	mysqli_query($con,"UPDATE `patientAdmission` SET `admissionType` = 'ide' where unqId ='".$_GET['id']."'");
 	header('Location: view-admit-patient.php?'.$_GET['id']);
 	// $_SESSION['msg']="Attending!!";
