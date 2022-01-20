@@ -39,7 +39,9 @@
                                     </tr>
                                     <tr>
                                         <td>2.</td>
-                                        <td>Medicine 1</td>
+                                        <td>Medicine 1 Medicine 1
+                                        Medicine 1 Medicine 1dkjgflnv
+                                        </td>
                                         <td>1</td>
                                         <td>200</td>
                                     </tr>
