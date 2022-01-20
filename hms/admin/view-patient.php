@@ -4,13 +4,13 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if(isset($_POST["testAssign"])){
+if (isset($_POST["testAssign"])) {
 	$testID = $_POST["testID"];
 	$admissionID = $_POST["admissionID"];
 	$date = date("Y-m-d");
 	foreach ($testID as $value) {
 		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
-	 print_r($sql);
+		print_r($sql);
 		//	$con->query($sql);
 	}
 }
@@ -174,7 +174,7 @@ if (isset($_POST['submit'])) {
 
 
 									?>
-									
+
 									<div>
 										<canvas id="line-chart" width="400" height="100"></canvas>
 										<canvas id="tpr-chart" width="400" height="100"></canvas>
@@ -201,42 +201,42 @@ if (isset($_POST['submit'])) {
 	<!-- Trigger the modal with a button -->
 
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Assign Test Here</h4>
-      </div>
-      <div class="modal-body">
-        <form method="POST" action="">
-		<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
-           <?php
-				$ret = mysqli_query($con, "select * from laboratoryTestList");
-				$cnt = 1;
-				while ($row = mysqli_fetch_array($ret)) { 
-					?>
-					
-					<input type="checkbox" id="<?php echo $row['labFormID']?>" name="testID[]" value="<?php echo $row['labFormID']?>">
-					<label for="<?php echo $row['labFormID']?>"> <?php echo $row['labTestName']?></label><br>
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Assign Test Here</h4>
+				</div>
+				<div class="modal-body">
+					<form method="POST" action="">
+						<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
+						<?php
+						$ret = mysqli_query($con, "select * from laboratoryTestList");
+						$cnt = 1;
+						while ($row = mysqli_fetch_array($ret)) {
+						?>
 
-					<?php
-				} 
-		 
-		 ?>
-		 <input type="submit" name="testAssign" value="Assign Test">
-		</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+							<input type="checkbox" id="<?php echo $row['labFormID'] ?>" name="testID[]" value="<?php echo $row['labFormID'] ?>">
+							<label for="<?php echo $row['labFormID'] ?>"> <?php echo $row['labTestName'] ?></label><br>
 
-  </div>
-</div>
+						<?php
+						}
+
+						?>
+						<input type="submit" name="testAssign" value="Assign Test">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<!-- start: FOOTER -->
 	<?php include('include/footer.php'); ?>
 	<!-- end: FOOTER -->
@@ -276,8 +276,8 @@ if (isset($_POST['submit'])) {
 			FormElements.init();
 			var tpr;
 			var tprDate;
-			$("#viewReport .assignTest").click(function(){
-                var admissionid = $(this).data("admissionid");
+			$("#viewReport .assignTest").click(function() {
+				var admissionid = $(this).data("admissionid");
 				$("#adID").val(admissionid);
 
 			});
@@ -298,53 +298,53 @@ if (isset($_POST['submit'])) {
 					method: "POST",
 					dataType: "JSON",
 					success: function(data) {
-					//	console.log(data.bsDates);
+						//	console.log(data.bsDates);
 						tpr = data.tpr;
 						tprDate = data.tprDate;
 						bsDates = data.bsDates;
 						sugarReads = data.sugarReads;
-					//	console.log(bsDates+"BS DATES");
+						//	console.log(bsDates+"BS DATES");
 						console.log(sugarReads);
-						var obj=[];
-						$.each(sugarReads,function(key,value){
-							var color = "#"+Math.floor(Math.random()*16777215).toString(16);
-							console.log(key+"key");
-							console.log(value+"value");
-							var jj={
-							   'label': key,
-							   'data' : value,
-							   'borderColor': color,
-							   'fill': false,
+						var obj = [];
+						$.each(sugarReads, function(key, value) {
+							var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+							console.log(key + "key");
+							console.log(value + "value");
+							var jj = {
+								'label': key,
+								'data': value,
+								'borderColor': color,
+								'fill': false,
 
-						   }
-						   obj.push(jj);
+							}
+							obj.push(jj);
 						});
-						
+
 						console.log(obj);
 						$("#test").html(data.html);
 						new Chart(document.getElementById("line-chart"), {
-				type: 'line',
-				data: {
-					labels: bsDates,
-					datasets: obj,
-				},
-				options: {
-					title: {
-						display: true,
-						text: 'Blood Sugar'
-					}
-				},
-				scales: {
-					xAxes: [{
-						type: 'time',
-						time: {
-							displayFormats: {
-								day: 'yy-mm-dd',
+							type: 'line',
+							data: {
+								labels: bsDates,
+								datasets: obj,
+							},
+							options: {
+								title: {
+									display: true,
+									text: 'Blood Sugar'
+								}
+							},
+							scales: {
+								xAxes: [{
+									type: 'time',
+									time: {
+										displayFormats: {
+											day: 'yy-mm-dd',
+										}
+									}
+								}]
 							}
-						}
-					}]
-				}
-			});
+						});
 						new Chart(document.getElementById("tpr-chart"), {
 							type: 'line',
 							data: {
@@ -369,7 +369,7 @@ if (isset($_POST['submit'])) {
 					error: function() {}
 				});
 			});
-			
+
 
 
 		});
