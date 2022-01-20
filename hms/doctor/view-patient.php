@@ -170,7 +170,7 @@ if (isset($_POST['submit'])) {
                           <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
                           <td>
                             <?php
-                            if (!empty($row['dateofdischarge'])) {
+                            if ($row['dateofdischarge']=="0000-00-00") {
                             ?>
                               <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
                             <?php
