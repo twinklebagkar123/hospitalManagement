@@ -14,10 +14,15 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                        <h3> St. Anthony Hostpital & Research Center </h3>
-                </div>
+                <div class="col-md-6">
 
+                </div>
+                <div class="col-md-6">
+                        <h3 class="text-centre"> St. Anthony Hostpital & Research Center </h3>
+                </div>
+                <div class="col-md-6">
+
+                </div>
             </div>
         </div>
     </section>
