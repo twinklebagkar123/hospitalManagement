@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $operation = '<a class="btn btn-primary"  href="patientOperationConsent.php?admissionId='.$row['unqId'].'" >Operation</a>';
  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge.php">Discharge</a>';
  $getReport = '<a class="btn btn-primary"  class="btn btn-primary" href="">Get Report</a>';
- $discharge_getreport = $admission_status == 'pending' ? $discharge : $getReport;
+ $discharge_getreport = ($admission_status == 'pending') ? $discharge : $getReport;
 //  $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
    
   // $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge_getreport);
