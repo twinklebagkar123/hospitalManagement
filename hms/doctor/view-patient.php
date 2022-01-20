@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
                             <?php
                             if ($row['dateofdischarge']=="0000-00-00") {
                             ?>
-                              <button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                              <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
                             <?php
                             }
 
@@ -210,7 +210,7 @@ if (isset($_POST['submit'])) {
                           <table class="table table-bordered table-hover data-tables">
 
                             <form method="post" name="submit">
-
+                              <input type="hidden" id="admissionIDHis" name="admissionID" value="">
                               <tr>
                                 <th>Blood Pressure :</th>
                                 <td>
@@ -330,6 +330,10 @@ if (isset($_POST['submit'])) {
           Main.init();
           FormElements.init();
           console.log("hello");
+          $(".addMedHistory").click(function(){
+            var id = $(this).data("admissionid");
+            $("#admissionIDHis").val(id);
+          });
           //new js for charts:
           $("#viewReport button").click(function() {
             var admissionid = $(this).data("admissionid");
