@@ -93,9 +93,9 @@
     /* Custom */
 
     .container {
-        min-height: 84px;
+        /* min-height: 84px; */
         border: 1px solid black;
-        max-width: 420px;
+        /* max-width: 420px; */
         margin: 0 auto;
         margin-top: 40px;
     }
@@ -172,62 +172,6 @@
 
 <body>
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-
-                </div>
-                <div class="col-md-6">
-                    <div class="wrapper">
-                        <div class="title">
-                            <h3 class="text-centre"> St. Anthony Hostpital & Research Center </h3>
-                        </div>
-                        <div class="content">
-                            <table class="table">
-                                <thead>
-                                    <th>Sr.No.</th>
-                                    <th>Item Name</th>
-                                    <th>Qty</th>
-                                    <th>Price</th>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1.</td>
-                                        <td>Medicine 1</td>
-                                        <td>1</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2.</td>
-                                        <td>Medicine 1 Medicine 1
-                                            Medicine 1 Medicine 1dkjgflnv
-                                        </td>
-                                        <td>1</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3.</td>
-                                        <td>Medicine 1</td>
-                                        <td>1</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4.</td>
-                                        <td>Medicine 1</td>
-                                        <td>1</td>
-                                        <td>200</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-3">
-
-                </div>
-            </div>
-        </div>
         <div class="container">
             <header class="row">
                 <div class="col-10">
