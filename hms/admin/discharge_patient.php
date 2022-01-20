@@ -91,6 +91,43 @@ check_login();
 
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="over-title margin-bottom-15">Admission <span class="text-bold">Information</span></h5>
+
+                                <table class="table table-hover" id="sample-table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">Admission Type</th>
+                                            <th>Doctor Name</th>
+                                            <th>Ward Number</th>
+                                            <th>Admitted Date</th>
+                                            <th>Advance Paid</th>
+                                            <th>Admission (Cost Per Day</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="delete">
+                                        <?php
+                                        $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
+                                        $cnt = 1;
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
+                                            <tr>
+                                                <td class="center"><?php echo $row['admissionType']; ?></td>
+                                                <td><?php echo $row['doctorName']; ?></td>
+                                                <td><?php echo $row['wardNo']; ?></td>
+                                                <td><?php echo $row['dateofadmission']; ?></td>
+                                                <td><?php echo $row['advance_paid']; ?></td>
+                                                <td><?php echo $row['cpd']; ?></td>
+                                            </tr>
+
+                                        <?php } ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
