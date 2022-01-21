@@ -51,19 +51,31 @@ if (isset($_POST['submit'])) {
         }
     </script>
 
-<script>
-		function getdoctor(val) {
-			console.log("hi");
-			$.ajax({
-				type: "POST",
-				url: "get_doctor.php",
-				data: 'specilizationid=' + val,
-				success: function(data) {
-					$("#doctor").html(data);
-				}
-			});
-		}
-	</script>
+    <script>
+        function getdoctor(val) {
+            console.log("hi");
+            $.ajax({
+                type: "POST",
+                url: "get_doctor.php",
+                data: 'specilizationid=' + val,
+                success: function(data) {
+                    $("#doctor").html(data);
+                }
+            });
+        }
+    </script>
+    <script>
+        function getfee(val) {
+            $.ajax({
+                type: "POST",
+                url: "get_doctor.php",
+                data: 'doctor=' + val,
+                success: function(data) {
+                    $("#fees").html(data);
+                }
+            });
+        }
+    </script>
     <script>
         function checkemailAvailability() {
             $("#loaderIcon").show();
@@ -121,13 +133,13 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="panel-body">
                                                 <?php
-                                                    $admissionID = $_GET['admissionId'];
-                                                    $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionID'";
-                                                    $result = $con->query($queryAdmission);
-                                                    while ($row = mysqli_fetch_array($result)) {
-                                                        $patientID = $row['uid'];
-                                                    }
-                                                
+                                                $admissionID = $_GET['admissionId'];
+                                                $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionID'";
+                                                $result = $con->query($queryAdmission);
+                                                while ($row = mysqli_fetch_array($result)) {
+                                                    $patientID = $row['uid'];
+                                                }
+
                                                 ?>
                                                 <form role="form" name="book" method="post">
 
@@ -195,7 +207,7 @@ if (isset($_POST['submit'])) {
                                                     <button type="submit" name="submit" class="btn btn-o btn-primary">
                                                         Book Appointment
                                                     </button>
-                                                </form> 
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -259,6 +271,25 @@ if (isset($_POST['submit'])) {
         jQuery(document).ready(function() {
             Main.init();
             FormElements.init();
+            $("#appDate").on("change", function() {
+                var apt = $(this).val();
+                var doc = $("#doctor").val();
+                console.log(doc);
+
+                $.ajax({
+                    type: "POST",
+                    url: "get_doctor.php",
+                    data: {
+                        appDate: apt,
+                        docID: doc
+                    },
+                    success: function(data) {
+                        $("#resultFetch").html(data);
+                    }
+                });
+
+
+            }); 
         });
     </script>
     <!-- end: JavaScript Event Handlers for this page -->
