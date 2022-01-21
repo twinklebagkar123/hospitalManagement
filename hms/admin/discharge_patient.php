@@ -161,6 +161,45 @@ check_login();
 
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="over-title margin-bottom-15">Operation <span class="text-bold">Information</span></h5>
+
+                                <table class="table table-hover" id="sample-table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">Date</th>
+                                            <th>Time</th>
+                                            <th>Ward Number</th>
+                                            <th>Operation</th>
+                                            <th>Charges</th>
+                                            <th>Doctor Name</th>
+                                            <th>Consultant Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="delete">
+                                        <?php
+                                        $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
+                                        $cnt = 1;
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
+                                            <tr>
+                                                <td class="center"><?php echo $row['opDate']; ?></td>
+                                                <td><?php echo $row['opTime']; ?></td>
+                                                <td><?php echo $row['ward']; ?></td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['charges']; ?></td>
+                                                <td><?php echo $row['doctorName']; ?></td>
+                                                <td><?php echo $row['consultantName']; ?></td>
+                                            </tr>
+
+                                        <?php } ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
