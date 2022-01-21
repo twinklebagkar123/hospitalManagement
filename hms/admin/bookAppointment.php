@@ -134,17 +134,17 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="panel-body">
                                                 <?php
-                                                $admissionID = $_GET['admissionId'];
-                                                $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionID'";
+                                                $admissionIDin = $_GET['admissionId'];
+                                                $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionIDin'";
                                                 $result = $con->query($queryAdmission);
                                                 while ($row = mysqli_fetch_array($result)) {
-                                                    $patientID = $row['uid'];
+                                                    $patientIDin = $row['uid'];
                                                 }
 
                                                 ?>
                                                 <form role="form" name="book" method="post">
 
-                                                    <input id="idInput" type="hidden" name="idpatient" value="<?php echo $patientid; ?>">
+                                                    <input id="idInput" type="hidden" name="idpatient" value="<?php echo $patientIDin; ?>">
 
                                                     <div class="form-group">
                                                         <label for="DoctorSpecialization">
