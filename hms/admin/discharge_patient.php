@@ -130,32 +130,28 @@ check_login();
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Admission <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15">Appointment <span class="text-bold">Information</span></h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Admission Type</th>
+                                            <th class="center">Date</th>
+                                            <th>Time</th>
+                                            <th>Consultancy Fee</th>
                                             <th>Doctor Name</th>
-                                            <th>Ward Number</th>
-                                            <th>Admitted Date</th>
-                                            <th>Advance Paid</th>
-                                            <th>Admission (Cost Per Day)</th>
                                         </tr>
                                     </thead>
                                     <tbody id="delete">
                                         <?php
-                                        $sql = mysqli_query($con, "SELECT * FROM `appointment` where `admission_id` = '6' ORDER BY `id` DESC");
+                                        $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
                                         $cnt = 1;
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['admissionType']; ?></td>
+                                                <td class="center"><?php echo $row['appointmentDate']; ?></td>
+                                                <td><?php echo $row['appointmentTime']; ?></td>
+                                                <td><?php echo $row['consultancyFees']; ?></td>
                                                 <td><?php echo $row['doctorName']; ?></td>
-                                                <td><?php echo $row['wardNo']; ?></td>
-                                                <td><?php echo $row['dateofadmission']; ?></td>
-                                                <td><?php echo $row['advance_paid']; ?></td>
-                                                <td><?php echo $row['cpd']; ?></td>
                                             </tr>
 
                                         <?php } ?>
