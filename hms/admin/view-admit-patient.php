@@ -123,6 +123,7 @@ if (isset($_POST['submit'])) {
 											<th>Advanced Paid </th>
 											<th>Admit Patient </th>
 											<th>Operation </th>										
+											<th>Book Appointment </th>										
 											<th>Action </th>
 										</tr>
 									</thead>
