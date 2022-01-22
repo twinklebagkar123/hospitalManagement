@@ -16,10 +16,11 @@ if (isset($_POST['submit'])) {
 	$userstatus = 1;
 	$docstatus = 1;
 	$query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')";
-	print_r($query);
-    // if ($query) {
-	// 	echo "<script>alert('Your appointment successfully booked');</script>";
-	// }
+	$result = $con->query($query);
+   // print_r($query);
+    if ($result) {
+		echo "<script>alert('Your appointment successfully booked');</script>";
+	}
 }
 ?>
 <!DOCTYPE html>
