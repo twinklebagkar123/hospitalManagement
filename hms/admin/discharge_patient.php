@@ -59,7 +59,7 @@ check_login();
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Patient Id </th>
+                                            <th>Patient Id </th>
                                             <th>Patient Name</th>
                                             <th>Phone Number</th>
                                             <th>Email Address</th>
@@ -75,7 +75,7 @@ check_login();
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['ID']; ?></td>
+                                                <td><?php echo $row['ID']; ?></td>
                                                 <td><?php echo $row['PatientName']; ?></td>
                                                 <td><?php echo $row['PatientContno']; ?></td>
                                                 <td><?php echo $row['PatientEmail']; ?></td>
@@ -98,7 +98,7 @@ check_login();
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Admission Type</th>
+                                            <th>Admission Type</th>
                                             <th>Doctor Name</th>
                                             <th>Ward Number</th>
                                             <th>Admitted Date</th>
@@ -113,7 +113,7 @@ check_login();
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['admissionType']; ?></td>
+                                                <td><?php echo $row['admissionType']; ?></td>
                                                 <td><?php echo $row['doctorName']; ?></td>
                                                 <td><?php echo $row['wardNo']; ?></td>
                                                 <td><?php echo $row['dateofadmission']; ?></td>
@@ -135,7 +135,7 @@ check_login();
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Date</th>
+                                            <th>Date</th>
                                             <th>Time</th>
                                             <th>Consultancy Fee</th>
                                             <th>Doctor Name</th>
@@ -148,7 +148,7 @@ check_login();
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['appointmentDate']; ?></td>
+                                                <td><?php echo $row['appointmentDate']; ?></td>
                                                 <td><?php echo $row['appointmentTime']; ?></td>
                                                 <td><?php echo $row['consultancyFees']; ?></td>
                                                 <td><?php echo $row['doctorName']; ?></td>
@@ -168,7 +168,7 @@ check_login();
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Date</th>
+                                            <th>Date</th>
                                             <th>Time</th>
                                             <th>Ward Number</th>
                                             <th>Operation</th>
@@ -184,7 +184,7 @@ check_login();
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['opDate']; ?></td>
+                                                <td><?php echo $row['opDate']; ?></td>
                                                 <td><?php echo $row['opTime']; ?></td>
                                                 <td><?php echo $row['ward']; ?></td>
                                                 <td><?php echo $row['name']; ?></td>
@@ -207,7 +207,7 @@ check_login();
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
                                         <tr>
-                                            <th class="center">Test Name</th>
+                                            <th>Test Name</th>
                                             <th>Assigned Date</th>
                                             <th>Performed Date</th>
                                             <th>Performed By</th>
@@ -221,7 +221,7 @@ check_login();
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
-                                                <td class="center"><?php echo $row['labTestName']; ?></td>
+                                                <td><?php echo $row['labTestName']; ?></td>
                                                 <td><?php echo $row['assignedDate']; ?></td>
                                                 <td><?php echo $row['performedDate']; ?></td>
                                                 <td><?php echo $row['performedBy']; ?></td>
