@@ -200,6 +200,41 @@ check_login();
 
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="over-title margin-bottom-15">Lab Test <span class="text-bold">Information</span></h5>
+
+                                <table class="table table-hover" id="sample-table-1">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">Test Name</th>
+                                            <th>Assigned Date</th>
+                                            <th>Performed Date</th>
+                                            <th>Performed By</th>
+                                            <th>Charges</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="delete">
+                                        <?php
+                                        $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
+                                        $cnt = 1;
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
+                                            <tr>
+                                                <td class="center"><?php echo $row['labTestName']; ?></td>
+                                                <td><?php echo $row['assignedDate']; ?></td>
+                                                <td><?php echo $row['performedDate']; ?></td>
+                                                <td><?php echo $row['performedBy']; ?></td>
+                                                <td><?php echo $row['charges']; ?></td>
+                                            </tr>
+
+                                        <?php } ?>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
