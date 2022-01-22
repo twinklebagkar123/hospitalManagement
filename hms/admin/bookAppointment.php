@@ -7,7 +7,7 @@ check_login();
 
 if (isset($_POST['submit'])) {
 	$specilization = $_POST['Doctorspecialization'];
-	$admissionID = $_GET['admissionID'];
+	$admissionID = $_GET['admissionId'];
 	$doctorid = $_POST['doctor'];
 	$userid = $_POST['idpatient'];
 	$fees = $_POST['fees'];
