@@ -71,7 +71,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
-                                        $cnt = 1;
+                                       
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
@@ -109,7 +109,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
-                                        $cnt = 1;
+                                        
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
@@ -144,7 +144,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
-                                        $cnt = 1;
+                                       
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
@@ -180,7 +180,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
-                                        $cnt = 1;
+                                     
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
@@ -217,7 +217,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
-                                        $cnt = 1;
+                                    
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>

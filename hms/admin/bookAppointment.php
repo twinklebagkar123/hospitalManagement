@@ -15,10 +15,11 @@ if (isset($_POST['submit'])) {
 	$time = $_POST['apptime'];
 	$userstatus = 1;
 	$docstatus = 1;
-	$query = mysqli_query($con, "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
-	if ($query) {
-		echo "<script>alert('Your appointment successfully booked');</script>";
-	}
+	$query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')";
+	print_r($query);
+    // if ($query) {
+	// 	echo "<script>alert('Your appointment successfully booked');</script>";
+	// }
 }
 ?>
 <!DOCTYPE html>
