@@ -6,18 +6,19 @@ include('include/checklogin.php');
 check_login();
 
 if (isset($_POST['submit'])) {
-    $docspecialization = $_POST['Doctorspecialization'];
-    $docname = $_POST['docname'];
-    $docaddress = $_POST['clinicaddress'];
-    $docfees = $_POST['docfees'];
-    $doccontactno = $_POST['doccontact'];
-    $docemail = $_POST['docemail'];
-    $password = md5($_POST['npass']);
-    $sql = mysqli_query($con, "insert into doctors(specilization,doctorName,address,docFees,contactno,docEmail,password) values('$docspecialization','$docname','$docaddress','$docfees','$doccontactno','$docemail','$password')");
-    if ($sql) {
-        echo "<script>alert('Doctor info added Successfully');</script>";
-        echo "<script>window.location.href ='manage-doctors.php'</script>";
-    }
+	$specilization = $_POST['Doctorspecialization'];
+	$admissionID = $_GET['admissionID'];
+	$doctorid = $_POST['doctor'];
+	$userid = $_POST['idpatient'];
+	$fees = $_POST['fees'];
+	$appdate = $_POST['appdate'];
+	$time = $_POST['apptime'];
+	$userstatus = 1;
+	$docstatus = 1;
+	$query = mysqli_query($con, "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')");
+	if ($query) {
+		echo "<script>alert('Your appointment successfully booked');</script>";
+	}
 }
 ?>
 <!DOCTYPE html>
@@ -51,19 +52,31 @@ if (isset($_POST['submit'])) {
         }
     </script>
 
-<script>
-		function getdoctor(val) {
-			console.log("hi");
-			$.ajax({
-				type: "POST",
-				url: "get_doctor.php",
-				data: 'specilizationid=' + val,
-				success: function(data) {
-					$("#doctor").html(data);
-				}
-			});
-		}
-	</script>
+    <script>
+        function getdoctor(val) {
+            console.log("hi");
+            $.ajax({
+                type: "POST",
+                url: "get_doctor.php",
+                data: 'specilizationid=' + val,
+                success: function(data) {
+                    $("#doctor").html(data);
+                }
+            });
+        }
+    </script>
+    <script>
+        function getfee(val) {
+            $.ajax({
+                type: "POST",
+                url: "get_doctor.php",
+                data: 'doctor=' + val,
+                success: function(data) {
+                    $("#fees").html(data);
+                }
+            });
+        }
+    </script>
     <script>
         function checkemailAvailability() {
             $("#loaderIcon").show();
@@ -121,17 +134,17 @@ if (isset($_POST['submit'])) {
                                             </div>
                                             <div class="panel-body">
                                                 <?php
-                                                    $admissionID = $_GET['admissionId'];
-                                                    $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionID'";
-                                                    $result = $con->query($queryAdmission);
-                                                    while ($row = mysqli_fetch_array($result)) {
-                                                        $patientID = $row['uid'];
-                                                    }
-                                                
+                                                $admissionIDin = $_GET['admissionId'];
+                                                $queryAdmission = "SELECT * FROM patientAdmission where unqId='$admissionIDin'";
+                                                $result = $con->query($queryAdmission);
+                                                while ($row = mysqli_fetch_array($result)) {
+                                                    $patientIDin = $row['uid'];
+                                                }
+
                                                 ?>
                                                 <form role="form" name="book" method="post">
 
-                                                    <input id="idInput" type="hidden" name="idpatient" value="<?php echo $patientid; ?>">
+                                                    <input id="idInput" type="hidden" name="idpatient" value="<?php echo $patientIDin; ?>">
 
                                                     <div class="form-group">
                                                         <label for="DoctorSpecialization">
@@ -195,7 +208,7 @@ if (isset($_POST['submit'])) {
                                                     <button type="submit" name="submit" class="btn btn-o btn-primary">
                                                         Book Appointment
                                                     </button>
-                                                </form> 
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -259,6 +272,25 @@ if (isset($_POST['submit'])) {
         jQuery(document).ready(function() {
             Main.init();
             FormElements.init();
+            $("#appDate").on("change", function() {
+                var apt = $(this).val();
+                var doc = $("#doctor").val();
+                console.log(doc);
+
+                $.ajax({
+                    type: "POST",
+                    url: "get_doctor.php",
+                    data: {
+                        appDate: apt,
+                        docID: doc
+                    },
+                    success: function(data) {
+                        $("#resultFetch").html(data);
+                    }
+                });
+
+
+            }); 
         });
     </script>
     <!-- end: JavaScript Event Handlers for this page -->
