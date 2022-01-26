@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-  
+
 
 	<script>
 		function getdoctor(val) {
@@ -111,15 +111,15 @@ if (isset($_POST['submit'])) {
 											<th>Patient Gender </th>
 											<th>Creation Date </th>
 											<th>Updation Date </th>
-											 <th>Appointment </th>
+											<th>Appointment </th>
 											<th>Documents </th>
-											
+
 											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody id="patientList">
 
-									
+
 									</tbody>
 
 
@@ -353,18 +353,18 @@ if (isset($_POST['submit'])) {
 
 								});
 							</script>
-		<script>
-$( document ).ready(function() {
-$('#myTable').dataTable({
-    "serverSide": true,
-    "processing": true,
-    ajax: {
-		"url" : 'response.php',
-		"contentType": 'application/json'
-	},
-        });  
-});
-    </script>
+							<script>
+								$(document).ready(function() {
+									$('#myTable').dataTable({
+										"serverSide": true,
+										"processing": true,
+										ajax: {
+											"url": 'response.php',
+											"contentType": 'application/json'
+										},
+									});
+								});
+							</script>
 							<!-- end: JavaScript Event Handlers for this page -->
 
 							<!-- end: CLIP-TWO JAVASCRIPTS -->

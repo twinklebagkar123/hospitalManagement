@@ -6,21 +6,21 @@ include('include/checklogin.php');
 check_login();
 
 if (isset($_POST['submit'])) {
-	$specilization = $_POST['Doctorspecialization'];
-	$admissionID = $_GET['admissionId'];
-	$doctorid = $_POST['doctor'];
-	$userid = $_POST['idpatient'];
-	$fees = $_POST['fees'];
-	$appdate = $_POST['appdate'];
-	$time = $_POST['apptime'];
-	$userstatus = 1;
-	$docstatus = 1;
-	$query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')";
-	$result = $con->query($query);
-   // print_r($query);
+    $specilization = $_POST['Doctorspecialization'];
+    $admissionID = $_GET['admissionId'];
+    $doctorid = $_POST['doctor'];
+    $userid = $_POST['idpatient'];
+    $fees = $_POST['fees'];
+    $appdate = $_POST['appdate'];
+    $time = $_POST['apptime'];
+    $userstatus = 1;
+    $docstatus = 1;
+    $query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')";
+    $result = $con->query($query);
+    // print_r($query);
     if ($result) {
-		echo "<script>alert('Your appointment successfully booked');</script>";
-	}
+        echo "<script>alert('Your appointment successfully booked');</script>";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -292,7 +292,7 @@ if (isset($_POST['submit'])) {
                 });
 
 
-            }); 
+            });
         });
     </script>
     <!-- end: JavaScript Event Handlers for this page -->
