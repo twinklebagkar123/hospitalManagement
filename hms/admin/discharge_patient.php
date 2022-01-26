@@ -71,8 +71,9 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $billPayable = 0;
+                                        $advancePaid = 0;
                                         $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
-                                       
+
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                             <tr>
@@ -110,22 +111,22 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
-                                        
+
                                         while ($row = mysqli_fetch_array($sql)) {
                                             $month = date('m');
                                             $day = date('d');
                                             $year = date('Y');
                                             $today = $year . '-' . $month . '-' . $day;
-                                             $datetime1 = date_create($row['dateofadmission']);
-                                             $datetime2 = date_create($today);
-                                            
+                                            $datetime1 = date_create($row['dateofadmission']);
+                                            $datetime2 = date_create($today);
+                                            $advancePaid += $row['advance_paid'];
                                             // Calculates the difference between DateTime objects
                                             $interval = date_diff($datetime1, $datetime2);
                                             $daysDiff = $interval->format('%a days');
                                             $daysDiffNumeric = $interval->format('%a');
                                             $billPayable += ($row['cpd'] * $daysDiffNumeric);
-                                            
-                                            
+
+
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['admissionType']; ?></td>
@@ -135,7 +136,7 @@ check_login();
                                                 <td><?php echo $row['advance_paid']; ?></td>
                                                 <td><?php echo $row['cpd']; ?> (Admitted for <?php echo $daysDiff ?>)</td>
                                             </tr>
-                                            
+
                                         <?php } ?>
 
                                     </tbody>
@@ -159,7 +160,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
-                                        
+
                                         while ($row = mysqli_fetch_array($sql)) {
                                             $billPayable += $row['consultancyFees'];
                                         ?>
@@ -196,7 +197,7 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
-                                     
+
                                         while ($row = mysqli_fetch_array($sql)) {
                                             $billPayable +=  $row['charges'];
                                         ?>
@@ -234,10 +235,10 @@ check_login();
                                     <tbody id="delete">
                                         <?php
                                         $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
-                                    
+
                                         while ($row = mysqli_fetch_array($sql)) {
                                             $billPayable += $row['charges'];
-                                            
+
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['labTestName']; ?></td>
@@ -251,8 +252,18 @@ check_login();
 
                                     </tbody>
                                 </table>
-                                <div>
-                                    <?php echo "********".$billPayable."********"; ?>
+                                <div class="row">
+                                    <div class="col-md-12 text-right ">
+                                        <h5 class=" margin-top-15" style="font-size: 18px;">
+                                            <span class="text-bold">Total: </span><?php echo $billPayable; ?>
+                                        </h5>
+                                        <h5 class=" margin-top-15" style="font-size: 18px;">
+                                            <span class="text-bold">Advance Paid: </span><?php echo $advancePaid; ?>
+                                        </h5>
+                                        <h5 class=" margin-top-15" style="font-size: 18px;">
+                                            <span class="text-bold">Total Payable: </span><?php echo $billPayable - $advancePaid; ?>
+                                        </h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
