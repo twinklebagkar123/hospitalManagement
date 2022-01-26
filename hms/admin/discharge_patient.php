@@ -123,7 +123,7 @@ check_login();
                                             $interval = date_diff($datetime1, $datetime2);
                                             $daysDiff = $interval->format('%a days');
                                             $daysDiffNumeric = $interval->format('%a');
-                                            $billPayable += $billPayable + ($row['cpd'] * $daysDiffNumeric);
+                                            $billPayable += ($row['cpd'] * $daysDiffNumeric);
                                             
                                             
                                         ?>
@@ -161,7 +161,7 @@ check_login();
                                         $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
                                         
                                         while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable += $billPayable + $row['consultancyFees'];
+                                            $billPayable += $row['consultancyFees'];
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['appointmentDate']; ?></td>
@@ -198,7 +198,7 @@ check_login();
                                         $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
                                      
                                         while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable += $billPayable + $row['charges'];
+                                            $billPayable +=  $row['charges'];
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['opDate']; ?></td>
@@ -236,7 +236,7 @@ check_login();
                                         $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
                                     
                                         while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable += $billPayable + $row['charges'];
+                                            $billPayable += $row['charges'];
                                             
                                         ?>
                                             <tr>
