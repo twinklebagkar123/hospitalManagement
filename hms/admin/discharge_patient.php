@@ -255,13 +255,13 @@ check_login();
                                 <div class="row">
                                     <div class="col-md-12 text-right ">
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total: </span><?php echo $billPayable; ?>
+                                            <span class="text-bold">Total: </span><?php echo number_format($billPayable)."/-"; ?>
                                         </h5>
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Advance Paid: </span><?php echo $advancePaid; ?>
+                                            <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid)."/-"; ?>
                                         </h5>
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total Payable: </span><?php echo $billPayable - $advancePaid; ?>
+                                            <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid)."/-"; ?>
                                         </h5>
                                     </div>
                                 </div>
