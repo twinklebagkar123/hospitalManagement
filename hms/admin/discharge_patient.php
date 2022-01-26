@@ -54,7 +54,7 @@ check_login();
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Patient <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Patient </span>Information</h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
@@ -95,7 +95,7 @@ check_login();
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Admission <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Admission</span> Information</h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
@@ -146,7 +146,7 @@ check_login();
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Appointment <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Appointment </span>Information</h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
@@ -180,7 +180,7 @@ check_login();
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Operation <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Operation</span> Information</h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
@@ -220,7 +220,7 @@ check_login();
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15">Lab Test <span class="text-bold">Information</span></h5>
+                                <h5 class="over-title margin-bottom-15"><span class="text-bold">Lab Test </span>Information</h5>
 
                                 <table class="table table-hover" id="sample-table-1">
                                     <thead>
