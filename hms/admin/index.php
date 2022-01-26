@@ -47,6 +47,7 @@
 				header("location:http://$host$uri/$extra");
 				exit();
 			}
+			echo "TRY)_)_)_))";
 		} catch (\Throwable $th) {
 			print_r($th);
 		}
