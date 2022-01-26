@@ -116,8 +116,8 @@ check_login();
                                             $day = date('d');
                                             $year = date('Y');
                                             $today = $year . '-' . $month . '-' . $day;
-                                            $datetime1 = date_create($row['dateofadmission']);
-                                            $datetime2 = date_create($today);
+                                            echo $datetime1 = date_create($row['dateofadmission']);
+                                            echo $datetime2 = date_create($today);
                                             
                                             // Calculates the difference between DateTime objects
                                             $interval = date_diff($datetime1, $datetime2);
