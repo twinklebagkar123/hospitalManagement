@@ -70,6 +70,7 @@ check_login();
                                     </thead>
                                     <tbody id="delete">
                                         <?php
+                                        $billPayable = 0;
                                         $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
                                        
                                         while ($row = mysqli_fetch_array($sql)) {
@@ -111,6 +112,20 @@ check_login();
                                         $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
                                         
                                         while ($row = mysqli_fetch_array($sql)) {
+                                            $month = date('m');
+                                            $day = date('d');
+                                            $year = date('Y');
+                                            $today = $year . '-' . $month . '-' . $day;
+                                            $datetime1 = date_create($row['dateofadmission']);
+                                            $datetime2 = date_create($today);
+                                            
+                                            // Calculates the difference between DateTime objects
+                                            $interval = date_diff($datetime1, $datetime2);
+                                            $daysDiff = $interval->format('%a days');
+                                            $daysDiffNumeric = $interval->format('%a');
+                                            $billPayable += $billPayable + ($row['cpd'] * $daysDiffNumeric);
+                                            echo $billPayable."********";
+                                            
                                         ?>
                                             <tr>
                                                 <td><?php echo $row['admissionType']; ?></td>
@@ -118,9 +133,9 @@ check_login();
                                                 <td><?php echo $row['wardNo']; ?></td>
                                                 <td><?php echo $row['dateofadmission']; ?></td>
                                                 <td><?php echo $row['advance_paid']; ?></td>
-                                                <td><?php echo $row['cpd']; ?></td>
+                                                <td><?php echo $row['cpd']; ?> (Admitted for <?php $daysDiff ?>)</td>
                                             </tr>
-
+                                            
                                         <?php } ?>
 
                                     </tbody>
