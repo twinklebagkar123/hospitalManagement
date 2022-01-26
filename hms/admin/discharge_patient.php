@@ -116,8 +116,8 @@ check_login();
                                             $day = date('d');
                                             $year = date('Y');
                                             $today = $year . '-' . $month . '-' . $day;
-                                            echo $datetime1 = date_create($row['dateofadmission']);
-                                            echo $datetime2 = date_create($today);
+                                             $datetime1 = date_create($row['dateofadmission']);
+                                             $datetime2 = date_create($today);
                                             
                                             // Calculates the difference between DateTime objects
                                             $interval = date_diff($datetime1, $datetime2);
@@ -133,7 +133,7 @@ check_login();
                                                 <td><?php echo $row['wardNo']; ?></td>
                                                 <td><?php echo $row['dateofadmission']; ?></td>
                                                 <td><?php echo $row['advance_paid']; ?></td>
-                                                <td><?php echo $row['cpd']; ?> (Admitted for <?php $daysDiff ?>)</td>
+                                                <td><?php echo $row['cpd']; ?> (Admitted for <?php echo $daysDiff ?>)</td>
                                             </tr>
                                             
                                         <?php } ?>
