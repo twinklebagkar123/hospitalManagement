@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    $(document).on("click","#remove_medicine", function(){
+        $(this).parent().parent().remove();
+    });
     $(document).on("click","#addMedicine", function(){
         var medicineName = $('#autosuggest').val();
         var frequency = $('#frequency').val();
@@ -9,7 +12,9 @@ $(document).ready(function(){
             <td>${medicineName}</td>
             <td>${frequency}</td>
             <td>${dosage}</td>
-            <td>${period}</td></tr>`);
+            <td>${period} <button id='remove_medicine' class="btn btn-primary" style="
+            padding: 0px 10px;
+        ">-</button></td></tr>`);
     });
     $(document).on("click","#pillResult span", function(){
         
