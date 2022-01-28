@@ -27,6 +27,64 @@ check_login();
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
+<style>
+    .reportHeader header {
+        min-height: 83px;
+        border-bottom: 1px solid black;
+
+    }
+
+    .doc-details {
+        margin-top: 5px;
+        margin-left: 15px;
+
+    }
+
+    .clinic-details {
+        margin-top: 5px;
+        margin-left: 15px;
+    }
+
+    .doc-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+
+    }
+
+    .doc-meta {
+        font-size: 10px;
+    }
+
+    .datetime {
+        font-size: 12px;
+        margin-top: 5px;
+
+    }
+
+    .row.title {
+        font-weight: bold;
+        padding-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .prescription {
+        min-height: 380px;
+        margin-bottom: 10px;
+    }
+
+    .border {
+        border: 1px solid black;
+    }
+
+    .reportHeader {
+        border: 1px solid black;
+    }
+
+    .instruction {
+        font-size: 12px;
+    }
+</style>
 
 <body>
     <div id="app">
@@ -51,233 +109,255 @@ check_login();
                             </ol>
                         </div>
                     </section>
-                    <div class="container-fluid container-fullw bg-white">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Patient </span>Information</h5>
+                    <section class="reportHeader">
+                        <div class="container border">
+                            <header class="row">
+                                <div class="col-md-10">
+                                    <div class="doc-details">
+                                        <p class="doc-name">St. Anthony's Hospital & Research Center</p>
+                                        <p class="doc-meta">General Hospital</p>
+                                        <p class="doc-meta">Rgn: 2341</p>
+                                    </div>
 
-                                <table class="table table-hover" id="sample-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th>Patient Id </th>
-                                            <th>Patient Name</th>
-                                            <th>Phone Number</th>
-                                            <th>Email Address</th>
-                                            <th>Adhar Card</th>
-                                            <th>Gender</th>
-                                            <th>Address</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="delete">
-                                        <?php
-                                        $billPayable = 0;
-                                        $advancePaid = 0;
-                                        $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
+                                    <div class="clinic-details">
+                                        <p class="doc-meta">Doctor Name: </p>
+                                        <p class="doc-meta">Anjana Gupta</p>
+                                    </div>
 
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $row['ID']; ?></td>
-                                                <td><?php echo $row['PatientName']; ?></td>
-                                                <td><?php echo $row['PatientContno']; ?></td>
-                                                <td><?php echo $row['PatientEmail']; ?></td>
-                                                <td><?php echo $row['adharCardNo']; ?></td>
-                                                <td><?php echo $row['PatientGender']; ?></td>
-                                                <td><?php echo $row['PatientAdd']; ?></td>
-                                            </tr>
-
-                                        <?php } ?>
-
-                                    </tbody>
-                                </table>
-
-                            </div>
+                                </div>
+                                <div class="col-md-2 datetime">
+                                    <p>Date: <?php echo date("Y/m/d"); ?></p>
+                                    <p>Time: <?php echo date("h:i:sa");?></p>
+                                </div>
+                            </header>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Admission</span> Information</h5>
+                        <div class="container bg-white">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15"> <span class="text-bold">Patient </span>Information</h5>
 
-                                <table class="table table-hover" id="sample-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th>Admission Type</th>
-                                            <th>Doctor Name</th>
-                                            <th>Ward Number</th>
-                                            <th>Admitted Date</th>
-                                            <th>Advance Paid</th>
-                                            <th>Admission (Cost Per Day)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="delete">
-                                        <?php
-                                        $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
-
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                            $month = date('m');
-                                            $day = date('d');
-                                            $year = date('Y');
-                                            $today = $year . '-' . $month . '-' . $day;
-                                            $datetime1 = date_create($row['dateofadmission']);
-                                            $datetime2 = date_create($today);
-                                            $advancePaid += $row['advance_paid'];
-                                            // Calculates the difference between DateTime objects
-                                            $interval = date_diff($datetime1, $datetime2);
-                                            $daysDiff = $interval->format('%a days');
-                                            $daysDiffNumeric = $interval->format('%a');
-                                            $billPayable += ($row['cpd'] * $daysDiffNumeric);
-
-
-                                        ?>
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $row['admissionType']; ?></td>
-                                                <td><?php echo $row['doctorName']; ?></td>
-                                                <td><?php echo $row['wardNo']; ?></td>
-                                                <td><?php echo $row['dateofadmission']; ?></td>
-                                                <td><?php echo $row['advance_paid']; ?></td>
-                                                <td><?php echo $row['cpd']; ?> (Admitted for <?php echo $daysDiff ?>)</td>
+                                                <th>Patient Id </th>
+                                                <th>Patient Name</th>
+                                                <th>Phone Number</th>
+                                                <th>Email Address</th>
+                                                <th>Adhar Card</th>
+                                                <th>Gender</th>
+                                                <th>Address</th>
                                             </tr>
+                                        </thead>
+                                        <tbody id="delete">
+                                            <?php
+                                            $billPayable = 0;
+                                            $advancePaid = 0;
+                                            $sql = mysqli_query($con, "SELECT tblpatient.ID, tblpatient.PatientName,tblpatient.PatientContno,tblpatient.PatientEmail,tblpatient.adharCardNo,tblpatient.PatientGender,tblpatient.PatientAdd FROM `patientAdmission` INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE patientAdmission.unqId = 6");
 
-                                        <?php } ?>
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['ID']; ?></td>
+                                                    <td><?php echo $row['PatientName']; ?></td>
+                                                    <td><?php echo $row['PatientContno']; ?></td>
+                                                    <td><?php echo $row['PatientEmail']; ?></td>
+                                                    <td><?php echo $row['adharCardNo']; ?></td>
+                                                    <td><?php echo $row['PatientGender']; ?></td>
+                                                    <td><?php echo $row['PatientAdd']; ?></td>
+                                                </tr>
 
-                                    </tbody>
-                                </table>
+                                            <?php } ?>
 
+                                        </tbody>
+                                    </table>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Appointment </span>Information</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15"> <span class="text-bold">Admission</span> Information</h5>
 
-                                <table class="table table-hover" id="sample-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                            <th>Consultancy Fee</th>
-                                            <th>Doctor Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="delete">
-                                        <?php
-                                        $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
-
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable += $row['consultancyFees'];
-                                        ?>
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $row['appointmentDate']; ?></td>
-                                                <td><?php echo $row['appointmentTime']; ?></td>
-                                                <td><?php echo $row['consultancyFees']; ?></td>
-                                                <td><?php echo $row['doctorName']; ?></td>
+                                                <th>Admission Type</th>
+                                                <th>Doctor Name</th>
+                                                <th>Ward Number</th>
+                                                <th>Admitted Date</th>
+                                                <th>Advance Paid</th>
+                                                <th>Admission (Cost Per Day)</th>
                                             </tr>
+                                        </thead>
+                                        <tbody id="delete">
+                                            <?php
+                                            $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = 6");
 
-                                        <?php } ?>
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                                $month = date('m');
+                                                $day = date('d');
+                                                $year = date('Y');
+                                                $today = $year . '-' . $month . '-' . $day;
+                                                $datetime1 = date_create($row['dateofadmission']);
+                                                $datetime2 = date_create($today);
+                                                $advancePaid += $row['advance_paid'];
+                                                // Calculates the difference between DateTime objects
+                                                $interval = date_diff($datetime1, $datetime2);
+                                                $daysDiff = $interval->format('%a days');
+                                                $daysDiffNumeric = $interval->format('%a');
+                                                $billPayable += ($row['cpd'] * $daysDiffNumeric);
 
-                                    </tbody>
-                                </table>
 
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['admissionType']; ?></td>
+                                                    <td><?php echo $row['doctorName']; ?></td>
+                                                    <td><?php echo $row['wardNo']; ?></td>
+                                                    <td><?php echo $row['dateofadmission']; ?></td>
+                                                    <td><?php echo $row['advance_paid']; ?></td>
+                                                    <td><?php echo $row['cpd']; ?> (Admitted for <?php echo $daysDiff ?>)</td>
+                                                </tr>
+
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15"> <span class="text-bold">Operation</span> Information</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15"> <span class="text-bold">Appointment </span>Information</h5>
 
-                                <table class="table table-hover" id="sample-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Time</th>
-                                            <th>Ward Number</th>
-                                            <th>Operation</th>
-                                            <th>Charges</th>
-                                            <th>Doctor Name</th>
-                                            <th>Consultant Name</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="delete">
-                                        <?php
-                                        $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
-
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable +=  $row['charges'];
-                                        ?>
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $row['opDate']; ?></td>
-                                                <td><?php echo $row['opTime']; ?></td>
-                                                <td><?php echo $row['ward']; ?></td>
-                                                <td><?php echo $row['name']; ?></td>
-                                                <td><?php echo $row['charges']; ?></td>
-                                                <td><?php echo $row['doctorName']; ?></td>
-                                                <td><?php echo $row['consultantName']; ?></td>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Consultancy Fee</th>
+                                                <th>Doctor Name</th>
                                             </tr>
+                                        </thead>
+                                        <tbody id="delete">
+                                            <?php
+                                            $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '6' AND appointment.doctorStatus = 1");
 
-                                        <?php } ?>
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                                $billPayable += $row['consultancyFees'];
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['appointmentDate']; ?></td>
+                                                    <td><?php echo $row['appointmentTime']; ?></td>
+                                                    <td><?php echo $row['consultancyFees']; ?></td>
+                                                    <td><?php echo $row['doctorName']; ?></td>
+                                                </tr>
 
-                                    </tbody>
-                                </table>
+                                            <?php } ?>
 
+                                        </tbody>
+                                    </table>
+
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="over-title margin-bottom-15"><span class="text-bold">Lab Test </span>Information</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15"> <span class="text-bold">Operation</span> Information</h5>
 
-                                <table class="table table-hover" id="sample-table-1">
-                                    <thead>
-                                        <tr>
-                                            <th>Test Name</th>
-                                            <th>Assigned Date</th>
-                                            <th>Performed Date</th>
-                                            <th>Performed By</th>
-                                            <th>Charges</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="delete">
-                                        <?php
-                                        $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
-
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                            $billPayable += $row['charges'];
-
-                                        ?>
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
                                             <tr>
-                                                <td><?php echo $row['labTestName']; ?></td>
-                                                <td><?php echo $row['assignedDate']; ?></td>
-                                                <td><?php echo $row['performedDate']; ?></td>
-                                                <td><?php echo $row['performedBy']; ?></td>
-                                                <td><?php echo $row['charges']; ?></td>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Ward Number</th>
+                                                <th>Operation</th>
+                                                <th>Charges</th>
+                                                <th>Doctor Name</th>
+                                                <th>Consultant Name</th>
                                             </tr>
+                                        </thead>
+                                        <tbody id="delete">
+                                            <?php
+                                            $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = 6 ORDER BY operationID DESC");
 
-                                        <?php } ?>
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                                $billPayable +=  $row['charges'];
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['opDate']; ?></td>
+                                                    <td><?php echo $row['opTime']; ?></td>
+                                                    <td><?php echo $row['ward']; ?></td>
+                                                    <td><?php echo $row['name']; ?></td>
+                                                    <td><?php echo $row['charges']; ?></td>
+                                                    <td><?php echo $row['doctorName']; ?></td>
+                                                    <td><?php echo $row['consultantName']; ?></td>
+                                                </tr>
 
-                                    </tbody>
-                                </table>
-                                <div class="row">
-                                    <div class="col-md-12 text-right ">
-                                        <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total: </span><?php echo number_format($billPayable)."/-"; ?>
-                                        </h5>
-                                        <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid)."/-"; ?>
-                                        </h5>
-                                        <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid)."/-"; ?>
-                                        </h5>
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="over-title margin-bottom-15"><span class="text-bold">Lab Test </span>Information</h5>
+
+                                    <table class="table table-hover" id="sample-table-1">
+                                        <thead>
+                                            <tr>
+                                                <th>Test Name</th>
+                                                <th>Assigned Date</th>
+                                                <th>Performed Date</th>
+                                                <th>Performed By</th>
+                                                <th>Charges</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="delete">
+                                            <?php
+                                            $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = 6 AND labTestRecord.labTestStatus = 'complete'");
+
+                                            while ($row = mysqli_fetch_array($sql)) {
+                                                $billPayable += $row['charges'];
+
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $row['labTestName']; ?></td>
+                                                    <td><?php echo $row['assignedDate']; ?></td>
+                                                    <td><?php echo $row['performedDate']; ?></td>
+                                                    <td><?php echo $row['performedBy']; ?></td>
+                                                    <td><?php echo $row['charges']; ?></td>
+                                                </tr>
+
+                                            <?php } ?>
+
+                                        </tbody>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col-md-12 text-right ">
+                                            <h5 class=" margin-top-15" style="font-size: 18px;">
+                                                <span class="text-bold">Total: </span><?php echo number_format($billPayable) . "/-"; ?>
+                                            </h5>
+                                            <h5 class=" margin-top-15" style="font-size: 18px;">
+                                                <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid) . "/-"; ?>
+                                            </h5>
+                                            <h5 class=" margin-top-15" style="font-size: 18px;">
+                                                <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid) . "/-"; ?>
+                                            </h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
+                    </section>
                 </div>
             </div>
         </div>
-    <!-- </div> -->
-    
-    <!-- start: FOOTER -->
-    <?php include('include/footer.php'); ?>
-    <!-- end: FOOTER -->
-    <!-- end: SETTINGS -->
+        <!-- </div> -->
+
+        <!-- start: FOOTER -->
+        <?php include('include/footer.php'); ?>
+        <!-- end: FOOTER -->
+        <!-- end: SETTINGS -->
     </div>
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="vendor/jquery/jquery.min.js"></script>
