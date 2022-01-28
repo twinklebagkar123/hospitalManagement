@@ -212,11 +212,6 @@ if (isset($_POST['submit'])) {
 																	<option value="">Select Doctor</option>
 																</select>
 															</div>
-
-
-
-
-
 															<div class="form-group">
 																<label for="consultancyfees">
 																	Consultancy Fees
@@ -225,7 +220,6 @@ if (isset($_POST['submit'])) {
 
 																</select>
 															</div>
-
 															<div class="form-group">
 																<label for="AppointmentDate">
 																	Date
@@ -233,16 +227,12 @@ if (isset($_POST['submit'])) {
 																<input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd">
 
 															</div>
-
 															<div class="form-group">
 																<label for="Appointmenttime">
-
 																	Time
-
 																</label>
 																<input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
 															</div>
-
 															<button type="submit" name="submit" class="btn btn-o btn-primary">
 																Book Appointment
 															</button>

@@ -275,9 +275,31 @@ if (isset($_POST['submit'])) {
                                         
                                       </div>
                                     </div>
+                                    <div class="row" id="prescribedMedicineList">
+                                      <div class="col-md-12">
+                                      <table class="display" id="myTable">
+                                        <thead>
+                                          <tr>
+                                            <th>Medicine</th>
+                                            <th>Frequency</th>
+                                            <th>Dosage</th>
+                                            <th>Period</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody id="patientList">
+                                          <tr>
+                                              <td>Medicine</td>
+                                              <td>1-0-1</td>
+                                              <td>400 mg</td>
+                                              <td>5 days</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                      </div>
+                                    </div>
                                     <div class="row">
                                       <div class="col-md-12 text-right">
-                                        <button type="button" class="btn btn-primary">+ Add</button>
+                                        <button type="button" class="btn btn-primary">+ Medicine</button>
                                       </div>
                                     </div>
 
