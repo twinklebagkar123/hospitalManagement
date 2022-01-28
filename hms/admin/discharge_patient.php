@@ -77,6 +77,9 @@ check_login();
     .border{
         border: 1px solid black;
     }
+    .reportHeader{
+        border: 1px solid black;
+    }
 
     .instruction {
         font-size: 12px;
@@ -127,7 +130,6 @@ check_login();
                                 </div>
                             </header>
                         </div>
-                    </section>
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-md-12">
@@ -345,7 +347,7 @@ check_login();
                             </div>
                         </div>
                     </div>
-
+                                        </section>
                 </div>
             </div>
         </div>
