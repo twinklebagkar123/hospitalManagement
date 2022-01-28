@@ -261,28 +261,28 @@ if (isset($_POST['submit'])) {
                                       </div>
                                       <div class="col-md-3">
                                         Frequency
-                                        <input type="text" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="frequency" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-3">
                                         Dosage
-                                        <input type="text" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="dosage"  placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-3">
                                         Period
-                                        <input type="text" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="period"  placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
                                         
                                       </div>
                                     </div>
                                     <div class="row">
                                       <div class="col-md-12 text-right">
-                                        <button type="button" class="btn btn-primary">+ Medicine</button>
+                                        <button type="button" id="addMedicine" class="btn btn-primary">+ Medicine</button>
                                       </div>
                                     </div>
-                                    <div class="row" id="prescribedMedicineList">
+                                    <div class="row" id="prescribedMedicineList" style="display: none;">
                                       <div class="col-md-12">
-                                      <table class="table table-bordered table-hover data-tables" id="myTable">
+                                      <table class="table table-bordered table-hover data-tables" >
                                         <thead>
                                           <tr>
                                             <th>Medicine</th>
@@ -291,13 +291,8 @@ if (isset($_POST['submit'])) {
                                             <th>Period</th>
                                           </tr>
                                         </thead>
-                                        <tbody id="patientList">
-                                          <tr>
-                                              <td>Medicine</td>
-                                              <td>1-0-1</td>
-                                              <td>400 mg</td>
-                                              <td>5 days</td>
-                                          </tr>
+                                        <tbody id="medicineList">
+                                        
                                         </tbody>
                                       </table>
                                       </div>
