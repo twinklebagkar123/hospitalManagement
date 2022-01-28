@@ -115,8 +115,6 @@ if (isset($_POST['submit'])) {
 
 											<th>Patient Name</th>
 											<th>Doctor Name</th>
-
-
 											<th> Ward Number </th>
 											<th>Admission Date </th>
 											<th>Discharge Date </th>

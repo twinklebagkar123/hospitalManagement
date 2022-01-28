@@ -68,7 +68,6 @@ if (isset($_POST['submit'])) {
           error: function() {}
         });
       }
-
     }
   </script>
   <div id="app">
@@ -171,7 +170,7 @@ if (isset($_POST['submit'])) {
                           <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
                           <td>
                             <?php
-                            if ($row['dateofdischarge']=="0000-00-00") {
+                            if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
                               <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
                             <?php
@@ -191,13 +190,6 @@ if (isset($_POST['submit'])) {
                     <canvas id="line-chart" width="400" height="100"></canvas>
                     <canvas id="tpr-chart" width="400" height="100"></canvas>
                   </div>
-                  <!-- old table structure -->
-
-
-
-
-
-                  <?php  ?>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -255,15 +247,34 @@ if (isset($_POST['submit'])) {
                                   <input name="temp" placeholder="Blood Sugar" class="form-control wd-450" required="true">
                                 </td>
                               </tr>
-
                               <tr>
                                 <th>Prescription :</th>
                                 <td>
                                   <div class="wrapperDiv">
-                                    <div id="medicalResult"></div>
-                                    <input type="hidden" name="pres" id="result" value="">
-                                    <input type="text" placeholder="Type here..." class="form-control wd-450" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                    <!-- <div id="medicalResult"></div>
+                                    <input type="hidden" name="pres" id="result" value=""> -->
+                                    <div class="row">
+                                      <div class="col-md-3">
+                                      <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
                                     <div id="pillResult" class="subDiv"></div>
+                                      </div>
+                                      <div class="col-md-3">
+                                        Frequency
+                                      <input type="text" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                    
+                                      </div>
+                                      <div class="col-md-3">
+                                        Dosage
+                                      <input type="text" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                    
+                                      </div>
+                                      <div class="col-md-3">
+                                        Period
+                                      <input type="text" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                    
+                                      </div>
+                                    </div>
+                                    
                                   </div>
 
 
@@ -331,7 +342,7 @@ if (isset($_POST['submit'])) {
           Main.init();
           FormElements.init();
           console.log("hello");
-          $(".addMedHistory").click(function(){
+          $(".addMedHistory").click(function() {
             var id = $(this).data("admissionid");
             $("#admissionIDHis").val(id);
           });
@@ -425,7 +436,9 @@ if (isset($_POST['submit'])) {
             });
           });
 
-
+          $(document).on("click", ".medicineSugg", function () {
+            $(this)
+          });
           // $(document).ready(function() {
           $("#autosuggest").on('input', function() {
             getAllValues();
