@@ -4,6 +4,7 @@ $(document).ready(function(){
         var frequency = $('#frequency').val();
         var dosage = $('#dosage').val();
         var period = $('#period').val();
+        $('#prescribedMedicineList').css("display: block"); 
         $('#medicineList').append(`<tr>
             <td>${medicineName}</td>
             <td>${frequency}</td>
