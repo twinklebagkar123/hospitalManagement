@@ -4,6 +4,7 @@ $(document).ready(function(){
         console.log("hello");
         var name = $(this).data("name");
         $('#autosuggest').val(name);
+        $('#pillResult').empty();
         // var $edit = $("#result");
         // var curValue =  $("#result").val();
         // console.log(curValue);
