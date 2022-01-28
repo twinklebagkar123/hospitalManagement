@@ -126,8 +126,8 @@ check_login();
 
                                 </div>
                                 <div class="col-md-2 datetime">
-                                    <p>Date: 18/03/16</p>
-                                    <p>Time: 03:13</p>
+                                    <p>Date: <?php echo date("Y/m/d"); ?></p>
+                                    <p>Time: <?php echo date("h:i:sa");?></p>
                                 </div>
                             </header>
                         </div>
