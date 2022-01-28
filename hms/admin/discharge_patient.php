@@ -28,13 +28,6 @@ check_login();
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
 <style>
-      .container {
-        /* min-height: 84px; */
-        border: 1px solid black;
-        /* max-width: 420px; */
-        margin: 0 auto;
-        margin-top: 40px;
-    }
 
     .reportHeader header {
         min-height: 83px;
