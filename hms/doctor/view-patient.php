@@ -255,6 +255,7 @@ if (isset($_POST['submit'])) {
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="row">
                                       <div class="col-md-3">
+                                        Medicine
                                       <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
                                     <div id="pillResult" class="subDiv"></div>
                                       </div>
@@ -271,7 +272,7 @@ if (isset($_POST['submit'])) {
                                       <div class="col-md-3">
                                         Period
                                       <input type="text" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                    
+                                    <span>+ Add</span>
                                       </div>
                                     </div>
                                     
@@ -436,9 +437,9 @@ if (isset($_POST['submit'])) {
             });
           });
 
-          $(document).on("click", ".medicineSugg", function () {
-            $(this)
-          });
+          // $(document).on("click", ".medicineSugg", function () {
+          //   $(this)
+          // });
           // $(document).ready(function() {
           $("#autosuggest").on('input', function() {
             getAllValues();
