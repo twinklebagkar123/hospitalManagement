@@ -256,26 +256,31 @@ if (isset($_POST['submit'])) {
                                     <div class="row">
                                       <div class="col-md-3">
                                         Medicine
-                                      <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                    <div id="pillResult" class="subDiv"></div>
+                                        <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <div id="pillResult" class="subDiv"></div>
                                       </div>
                                       <div class="col-md-3">
                                         Frequency
-                                      <input type="text" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
-                                    
+                                        <input type="text" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
                                       </div>
                                       <div class="col-md-3">
                                         Dosage
-                                      <input type="text" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
-                                    
+                                        <input type="text" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
                                       </div>
                                       <div class="col-md-3">
                                         Period
-                                      <input type="text" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                    <span>+ Add</span>
+                                        <input type="text" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        
                                       </div>
                                     </div>
-                                    
+                                    <div class="row">
+                                      <div class="col-md-12 text-right">
+                                        <button type="button" class="btn btn-primary">+ Add</button>
+                                      </div>
+                                    </div>
+
                                   </div>
 
 
