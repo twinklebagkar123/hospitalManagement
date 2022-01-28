@@ -74,7 +74,9 @@ check_login();
         margin-bottom: 10px;
     }
 
- 
+    .border{
+        border: 1px solid black;
+    }
 
     .instruction {
         font-size: 12px;
@@ -104,7 +106,7 @@ check_login();
                         </div>
                     </section>
                     <section class="reportHeader">
-                        <div class="container">
+                        <div class="container border">
                             <header class="row">
                                 <div class="col-md-10">
                                     <div class="doc-details">
