@@ -27,7 +27,66 @@ check_login();
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
+<style>
+      .container {
+        /* min-height: 84px; */
+        border: 1px solid black;
+        /* max-width: 420px; */
+        margin: 0 auto;
+        margin-top: 40px;
+    }
 
+    .reportHeader header {
+        min-height: 83px;
+        border-bottom: 1px solid black;
+
+    }
+
+    .doc-details {
+        margin-top: 5px;
+        margin-left: 15px;
+
+    }
+
+    .clinic-details {
+        margin-top: 5px;
+        margin-left: 15px;
+    }
+
+    .doc-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+
+    }
+
+    .doc-meta {
+        font-size: 10px;
+    }
+
+    .datetime {
+        font-size: 12px;
+        margin-top: 5px;
+
+    }
+
+    .row.title {
+        font-weight: bold;
+        padding-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .prescription {
+        min-height: 380px;
+        margin-bottom: 10px;
+    }
+
+ 
+
+    .instruction {
+        font-size: 12px;
+    }
+</style>
 <body>
     <div id="app">
         <?php include('include/sidebar.php'); ?>
@@ -49,6 +108,29 @@ check_login();
                                     <span>Discharge Patients</span>
                                 </li>
                             </ol>
+                        </div>
+                    </section>
+                    <section class="reportHeader">
+                        <div class="container">
+                            <header class="row">
+                                <div class="col-10">
+                                    <div class="doc-details">
+                                        <p class="doc-name">St. Anthony's Hospital & Research Center</p>
+                                        <p class="doc-meta">General Hospital</p>
+                                        <p class="doc-meta">Rgn: 2341</p>
+                                    </div>
+
+                                    <div class="clinic-details">
+                                        <p class="doc-meta">Doctor Name: </p>
+                                        <p class="doc-meta">Anjana Gupta</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-2 datetime">
+                                    <p>Date: 18/03/16</p>
+                                    <p>Time: 03:13</p>
+                                </div>
+                            </header>
                         </div>
                     </section>
                     <div class="container-fluid container-fullw bg-white">
@@ -255,13 +337,13 @@ check_login();
                                 <div class="row">
                                     <div class="col-md-12 text-right ">
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total: </span><?php echo number_format($billPayable)."/-"; ?>
+                                            <span class="text-bold">Total: </span><?php echo number_format($billPayable) . "/-"; ?>
                                         </h5>
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid)."/-"; ?>
+                                            <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid) . "/-"; ?>
                                         </h5>
                                         <h5 class=" margin-top-15" style="font-size: 18px;">
-                                            <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid)."/-"; ?>
+                                            <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid) . "/-"; ?>
                                         </h5>
                                     </div>
                                 </div>
@@ -272,12 +354,12 @@ check_login();
                 </div>
             </div>
         </div>
-    <!-- </div> -->
-    
-    <!-- start: FOOTER -->
-    <?php include('include/footer.php'); ?>
-    <!-- end: FOOTER -->
-    <!-- end: SETTINGS -->
+        <!-- </div> -->
+
+        <!-- start: FOOTER -->
+        <?php include('include/footer.php'); ?>
+        <!-- end: FOOTER -->
+        <!-- end: SETTINGS -->
     </div>
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="vendor/jquery/jquery.min.js"></script>
