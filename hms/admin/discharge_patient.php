@@ -113,7 +113,7 @@ check_login();
                     <section class="reportHeader">
                         <div class="container">
                             <header class="row">
-                                <div class="col-10">
+                                <div class="col-md-10">
                                     <div class="doc-details">
                                         <p class="doc-name">St. Anthony's Hospital & Research Center</p>
                                         <p class="doc-meta">General Hospital</p>
@@ -126,7 +126,7 @@ check_login();
                                     </div>
 
                                 </div>
-                                <div class="col-2 datetime">
+                                <div class="col-md-2 datetime">
                                     <p>Date: 18/03/16</p>
                                     <p>Time: 03:13</p>
                                 </div>
