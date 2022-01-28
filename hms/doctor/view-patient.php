@@ -50,18 +50,6 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-  <style>
-    table tr td {
-      border: 1px solid #333;
-    }
-
-    table tr {
-        border: 1px solid #333;
-    }
-    table {
-        width: inherit;
-    }
-  </style>
   <script type="text/javascript">
     function getAllValues() {
       $("#loaderIcon").show();
@@ -294,7 +282,7 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <div class="row" id="prescribedMedicineList">
                                       <div class="col-md-12">
-                                      <table class="display" id="myTable">
+                                      <table class="table table-bordered table-hover data-tables" id="myTable">
                                         <thead>
                                           <tr>
                                             <th>Medicine</th>
