@@ -1,20 +1,30 @@
 $(document).ready(function(){
-    $(document).on("click","#remove_medicine", function(){
-        $(this).parent().parent().remove();
+    var medList = [];
+    
+    //from above getting index we can remove data when required.
+    //also json stringify to store data in input type hidden and json decode in php 
+    $(document).on("click",".remove_medicine", function(){
+        var medRow = $(this).parent();
+        console.log(medRow);
+        var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf('sohn');
+        medList.splice(medIndex, 1);
+        // $(this).parent().parent().remove();
     });
     $(document).on("click","#addMedicine", function(){
         var medicineName = $('#autosuggest').val();
         var frequency = $('#frequency').val();
         var dosage = $('#dosage').val();
         var period = $('#period').val();
+        medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period});
         $('#prescribedMedicineList').css("display","block"); 
         $('#medicineList').append(`<tr>
             <td>${medicineName}</td>
             <td>${frequency}</td>
             <td>${dosage}</td>
-            <td>${period} <button id='remove_medicine' class="btn btn-primary" style="
+            <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  class="remove_medicine btn btn-primary" style="
             padding: 0px 10px;
-        ">-</button></td></tr>`);
+        ">-</button></div></div>
+            </td></tr>`);
     });
     $(document).on("click","#pillResult span", function(){
         

@@ -280,7 +280,7 @@ if (isset($_POST['submit'])) {
                                         <button type="button" id="addMedicine" class="btn btn-primary">+ Medicine</button>
                                       </div>
                                     </div>
-                                    <div class="row" id="prescribedMedicineList" style="display: none;">
+                                    <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
                                       <div class="col-md-12">
                                       <table class="table table-bordered table-hover data-tables" >
                                         <thead>
