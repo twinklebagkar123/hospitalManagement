@@ -4,11 +4,11 @@ $(document).ready(function(){
     //from above getting index we can remove data when required.
     //also json stringify to store data in input type hidden and json decode in php 
     $(document).on("click",".remove_medicine", function(){
-        var medRow = $(this).parent().parent().closest('td').text();
-        console.log(medRow);
-        var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf('sohn');
-        medList.splice(medIndex, 1);
-        // $(this).parent().parent().remove();
+        // var medRow = $(this).parent().parent().closest('td').text();
+        // console.log(medRow);
+        // var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf('sohn');
+        // medList.splice(medIndex, 1);
+        $(this).parent().parent().remove();
     });
     $(document).on("click","#addMedicine", function(){
         var medicineName = $('#autosuggest').val();
