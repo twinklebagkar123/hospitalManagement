@@ -3,7 +3,7 @@ $(document).ready(function(){
     
     //from above getting index we can remove data when required.
     //also json stringify to store data in input type hidden and json decode in php 
-    $(document).on("click",".remove_medicine", function(){
+    $(document).on("click","#remove_medicine", function(){
         // var medRow = $(this).parent().parent().closest('td').text();
         // console.log(medRow);
         // var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf('sohn');
@@ -21,7 +21,7 @@ $(document).ready(function(){
             <td>${medicineName}</td>
             <td>${frequency}</td>
             <td>${dosage}</td>
-            <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  class="remove_medicine btn btn-primary" style="
+            <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
             padding: 0px 10px;
         ">-</button></div></div>
             </td></tr>`);
