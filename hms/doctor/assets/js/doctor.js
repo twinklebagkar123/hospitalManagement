@@ -7,6 +7,7 @@ $(document).ready(function(){
         var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
         var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
         medList.splice(medIndex, 1);
+        $('#medicinePrescription').val(medList);
         $(this).parent().parent().closest('tr').remove();
     });
     $(document).on("click","#addMedicine", function(){
@@ -15,6 +16,7 @@ $(document).ready(function(){
         var dosage = $('#dosage').val();
         var period = $('#period').val();
         medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period});
+        $('#medicinePrescription').val(medList);
         $('#prescribedMedicineList').css("display","block"); 
         $('#medicineList').append(`<tr>
             <td>${medicineName}</td>

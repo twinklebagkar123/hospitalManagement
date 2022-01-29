@@ -204,6 +204,8 @@ if (isset($_POST['submit'])) {
 
                             <form method="post" name="submit">
                               <input type="hidden" id="admissionIDHis" name="admissionID" value="">
+                              <input type="hidden" id="medicinePrescription" name="medicinePrescription" value="">
+
                               <tr>
                                 <th>Blood Pressure :</th>
                                 <td>
