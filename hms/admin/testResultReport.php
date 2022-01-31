@@ -161,19 +161,56 @@ function fetchTestName($testID)
                                     $result = $con->query($queryRec);
                                     while ($row = mysqli_fetch_array($result)) {
                                     ?>
-                                        <h3>patient name: <?php echo fetchPatientName($row['admissionID']); ?></h3>
-                                        <h3>Test Name: <?php echo fetchTestName($row['performedTestID']); ?></h3>
-                                        <h3>Test Assigned Date: <?php echo $row['assignedDate']; ?></h3>
-                                        <h3>Test Performed Date: <?php echo $row['performedDate']; ?></h3>
-                                        <p>Lab Test Findings: </p>
-                                        <?php
-                                        $recResult =  json_decode($row['testResult']);
-                                        foreach ($recResult as $key => $value) {
-                                        ?>
-                                            <p> <?php echo $key; ?> : <?php echo $value; ?></p>
-                                        <?php
-                                        }
-                                        ?>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Patient Name </th>
+                                                    <th>Test Name</th>
+                                                    <th>Test Assigned Date</th>
+                                                    <th>Test Performed Date</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?php echo fetchPatientName($row['admissionID']); ?></td>
+                                                    <td><?php echo fetchTestName($row['performedTestID']); ?></td>
+                                                    <td><?php echo $row['assignedDate']; ?></td>
+                                                    <td><?php echo $row['performedDate']; ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <h5>Lab Test Findings: </h5>
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Field Name </th>
+                                                    <th>Finding</th>
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                                <?php
+                                                $recResult =  json_decode($row['testResult']);
+                                                foreach ($recResult as $key => $value) {
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $key; ?>
+                                                        </td>
+                                                        <td><?php echo $value; ?></td>
+                                                    </tr>
+
+                                                <?php
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
                                         <h3>Report Status: <?php echo $row['labTestStatus']; ?></h3>
                                         <h3>Report Remarks: <?php echo $row['remark']; ?></h3>
                                         <h3>Laboratory/Test Incharge: <?php echo $row['performedBy']; ?></h3>
