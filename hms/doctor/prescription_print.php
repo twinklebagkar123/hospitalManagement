@@ -224,7 +224,7 @@ check_login(); ?>
                     </tr>
                    <?php  
                     // foreach($MedicalPres as $medicalDetail){
-                        var_dump($MedicalPres);
+                        var_dump(json_decode($MedicalPres));
                     
                    ?>
                     <tr>
