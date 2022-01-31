@@ -112,9 +112,9 @@ if (!empty($_POST['admissionid'])) {
             array_push($tprDate, $row['CreationDate']);
         }
        
-
-        $html = $html . '  <tr> <td>' . $cnt . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>' . $row['MedicalPres'] . '</td> <td>' . $row['CreationDate'] . '</td>
+        $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
+        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
+            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="hms/doctor/prescription_print.php?reportId='.$row['ID'].'">View & Print</a></td> <td>' . $prescribed_date . '</td>
         </tr>';
         $cnt++;
     }
