@@ -168,6 +168,9 @@ function fetchTestName($testID)
                                                     <th>Test Name</th>
                                                     <th>Test Assigned Date</th>
                                                     <th>Test Performed Date</th>
+                                                    <th>Report Status</th>
+                                                    <th>Report Remarks</th>
+                                                    <th>Test Performed Date</th>
 
                                                 </tr>
                                             </thead>
@@ -177,6 +180,8 @@ function fetchTestName($testID)
                                                     <td><?php echo fetchTestName($row['performedTestID']); ?></td>
                                                     <td><?php echo $row['assignedDate']; ?></td>
                                                     <td><?php echo $row['performedDate']; ?></td>
+                                                    <td><?php echo $row['labTestStatus']; ?></td>
+                                                    <td><?php echo $row['remark']; ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -211,10 +216,25 @@ function fetchTestName($testID)
                                                 ?>
                                             </tbody>
                                         </table>
-                                        <h3>Report Status: <?php echo $row['labTestStatus']; ?></h3>
-                                        <h3>Report Remarks: <?php echo $row['remark']; ?></h3>
-                                        <h3>Laboratory/Test Incharge: <?php echo $row['performedBy']; ?></h3>
-                                        <h3>Report Summary: <?php echo $row['findings']; ?></h3>
+                                        <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <h5>Report Summary:</h5>
+                                                        <p>
+                                                             <?php echo $row['findings']; ?>
+
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-sm-6" align="right">
+                                                        <h5>
+                                                        Laboratory/Test Incharge:
+                                                        </h5>
+                                                        <p>
+                                                        <?php echo $row['performedBy']; ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                        </div>
                                     <?php
                                     }
 
