@@ -179,7 +179,7 @@ check_login(); ?>
 <body>
     <section>
     <?php 
-        $ret = mysqli_query($con, "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE tblmedicalhistory.ID = 34");
+        $ret = mysqli_query($con, "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE tblmedicalhistory.ID = '34'");
         $cnt = 1;
         echo $ret." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($ret)) {
