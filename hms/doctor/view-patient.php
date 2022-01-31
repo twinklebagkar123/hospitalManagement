@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
   $weight = $_POST['weight'];
   $type = $_POST['type'];
   $temp = $_POST['temp'];
-  $pres = $_POST['pres'];
+  $pres = $_POST['medicinePrescription'];
   $nn = $_POST['nn'];
 
   $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
