@@ -87,7 +87,7 @@ if (!empty($_POST['admissionid'])) {
   // print_r($data);
 
     //medical History 
-    $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
+    $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
     $result1 = $con->query($query);
     $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <tr align="center">
