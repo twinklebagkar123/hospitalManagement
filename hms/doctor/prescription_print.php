@@ -179,8 +179,8 @@ check_login(); ?>
 <body>
     <section>
     <?php 
-        
-        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = 34";
+        $reportId = $_GET["reportId"];
+        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = '".$reportId."'";
         $result = $con->query($query);
         // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
@@ -247,11 +247,15 @@ check_login(); ?>
         <?php } ?>
     </section>
     
-    <!-- <h2 style="background-color: #333;">The window.print() Method</h2>
+     <!-- <h2 style="background-color: #333;">The window.print() Method</h2>
 
-    <p>Click the button to print the current page.</p>
-
-    <button onclick="window.print()">Print this page</button> -->
+    <p>Click the button to print the current page.</p> -->
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-default">Go Back</a>
+        </div>
+    </div>
+    
 
 
     <!-- Optional JavaScript -->
@@ -263,6 +267,7 @@ check_login(); ?>
     window.onload = function() {
       console.log("DOcument loaded");
       window.print();
+      
     }
 </script>
 </body>

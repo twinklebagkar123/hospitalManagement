@@ -94,7 +94,7 @@ if (!empty($_POST['admissionid'])) {
         <th colspan="8">Medical History</th>
     </tr>
     <tr>
-        <th>#</th>
+        <th>Report Id</th>
         <th>Blood Pressure</th>
         <th>Weight</th>
         <th>Blood Sugar</th>
@@ -114,8 +114,8 @@ if (!empty($_POST['admissionid'])) {
         // array_push($tpr,$row['Temperature']);
         // array_push($visit,$row['CreationDate']);
 
-        $html = $html . '  <tr> <td>' . $cnt . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>' . $row['MedicalPres'] . '</td> <td>' . $row['CreationDate'] . '</td>
+        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
+            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="hms/doctor/prescription_print.php?reportId='.$row['ID'].'">View & Print</a></td> <td>' . $row['CreationDate'] . '</td>
         </tr>';
         $cnt++;
     }
