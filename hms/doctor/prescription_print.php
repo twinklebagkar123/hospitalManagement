@@ -223,9 +223,9 @@ check_login(); ?>
                         <th>Period</th>
                     </tr>
                    <?php  
-                    foreach($MedicalPres as $medicalDetail){
-                        var_dump($medicalDetail);
-                    }
+                    // foreach($MedicalPres as $medicalDetail){
+                        var_dump($MedicalPres);
+                    
                    ?>
                     <tr>
                         <td>1.</td>
@@ -240,7 +240,7 @@ check_login(); ?>
 
             </div>
 
-            <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;">Dr. Alvin plus father name</p>
+            <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
             <p style="font-size:6px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
         <?php } ?>
