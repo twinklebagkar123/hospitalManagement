@@ -250,9 +250,9 @@ check_login(); ?>
      <!-- <h2 style="background-color: #333;">The window.print() Method</h2>
 
     <p>Click the button to print the current page.</p> -->
-    <div class="row">
+    <div class="row" id="goBackRow" style="display:none;">
         <div class="col-md-12 text-center">
-            <a href="<?php echo $_SERVER['HTTP_REFERER'] ?>" class="btn btn-default">Go Back</a>
+            <a href="view-patient.php"  class="btn btn-default">Go Back</a>
         </div>
     </div>
     
@@ -267,7 +267,7 @@ check_login(); ?>
     window.onload = function() {
       console.log("DOcument loaded");
       window.print();
-      
+      document.getElementById("goBackRow")[0].setAttribute("style", "display: block;");
     }
 </script>
 </body>

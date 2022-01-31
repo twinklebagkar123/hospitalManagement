@@ -114,7 +114,7 @@ if (!empty($_POST['admissionid'])) {
        
         $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
         $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="hms/doctor/prescription_print.php?reportId='.$row['ID'].'">View & Print</a></td> <td>' . $prescribed_date . '</td>
+            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="prescription_print.php?reportId='.$row['ID'].'">View & Print</a></td> <td>' . $prescribed_date . '</td>
         </tr>';
         $cnt++;
     }
