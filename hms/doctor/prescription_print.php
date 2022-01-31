@@ -180,6 +180,8 @@ check_login(); ?>
     <section>
     <?php 
         $reportId = $_GET["reportId"];
+        $patientId = $_GET["patientId"];
+        
         $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = '".$reportId."'";
         $result = $con->query($query);
         // echo $query." QUERY UPDATE ";
@@ -252,7 +254,7 @@ check_login(); ?>
     <p>Click the button to print the current page.</p> -->
     <div class="row" id="goBackRow" style="display:none;">
         <div class="col-md-12 text-center">
-            <a href="view-patient.php"  class="btn btn-default">Go Back</a>
+            <a href="view-patient.php?viewid=<?php echo $patientId ?>" class="btn btn-default">Go Back</a>
         </div>
     </div>
     
