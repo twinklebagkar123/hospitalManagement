@@ -161,7 +161,7 @@ function fetchTestName($testID)
                                     $result = $con->query($queryRec);
                                     while ($row = mysqli_fetch_array($result)) {
                                     ?>
-                                        <table>
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Patient Name </th>
@@ -182,7 +182,7 @@ function fetchTestName($testID)
                                         </table>
 
                                         <h5>Lab Test Findings: </h5>
-                                        <table>
+                                        <table class="table table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Field Name </th>
