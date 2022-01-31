@@ -184,7 +184,7 @@ check_login(); ?>
         $result = $con->query($query);
         // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
-            $MedicalPres = $row['MedicalPres'];
+            $MedicalPres = json_decode($row['MedicalPres']);
             $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
             $prescribed_time = date('h:i A', strtotime($row['CreationDate']));
             $PatientName = $row['PatientName'];
@@ -216,25 +216,25 @@ check_login(); ?>
                 <table>
                     <tr>
                         <th></th>
-                        <th>Type</th>
                         <th>Name of the drug</th>
                         <th>Dosage</th>
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
                    <?php  
-                    // foreach($MedicalPres as $medicalDetail){
-                        var_dump(json_decode($MedicalPres));
+                   $i = 0;
+                    foreach($MedicalPres as $medicalDetail){ $i++; ?>
+                        <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $medicalDetail->medicineName; ?></td>
+                        <td><?php echo $medicalDetail->dosage; ?></td>
+                        <td><?php echo $medicalDetail->frequency; ?></td>
+                        <td><?php echo $medicalDetail->period; ?></td>
+                    </tr>
+                   <?php }
                     
                    ?>
-                    <tr>
-                        <td>1.</td>
-                        <td>Tablet</td>
-                        <td>Brufen Brufen Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
+                    
                 </table>
 
 
