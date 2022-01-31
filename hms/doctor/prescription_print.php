@@ -182,11 +182,11 @@ check_login(); ?>
         
         $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = 34";
         $result = $con->query($query);
-        echo $query." QUERY UPDATE ";
+        // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
             $MedicalPres = $row['MedicalPres'];
-            $prescribed_date = date('m/d/Y', $row['CreationDate']);
-            $prescribed_time = date('h:i A', $row['CreationDate']);
+            $prescribed_date = date('m/d/Y', strtotime($row['CreationDate']));
+            $prescribed_time = date('h:i A', strtotime($row['CreationDate']));
             $PatientName = $row['PatientName'];
             $doctorName = $row['doctorName'];
             $PatientAge = $row['PatientAge'];
@@ -207,7 +207,7 @@ check_login(); ?>
 
                 </div>
                 <div class="col-2 datetime">
-                    <p>Date: <?php echo $prescribed_date."_+_+_".$row['CreationDate']; ?></p>
+                    <p>Date: <?php echo $prescribed_date; ?></p>
                     <p>Time: <?php echo $prescribed_time; ?></p>
                 </div>
             </header>
