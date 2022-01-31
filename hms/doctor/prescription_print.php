@@ -243,14 +243,15 @@ check_login(); ?>
             <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
             <p style="font-size:10px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
+        
         <?php } ?>
     </section>
-
-    <h2 style="background-color: #333;">The window.print() Method</h2>
+    
+    <!-- <h2 style="background-color: #333;">The window.print() Method</h2>
 
     <p>Click the button to print the current page.</p>
 
-    <button onclick="window.print()">Print this page</button>
+    <button onclick="window.print()">Print this page</button> -->
 
 
     <!-- Optional JavaScript -->
@@ -258,7 +259,12 @@ check_login(); ?>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script>
+    window.onload = function() {
+      console.log("DOcument loaded");
+      window.print();
+    }
+</script>
 </body>
 
 </html>
