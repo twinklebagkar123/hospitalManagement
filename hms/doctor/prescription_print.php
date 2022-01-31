@@ -267,7 +267,7 @@ check_login(); ?>
     window.onload = function() {
       console.log("DOcument loaded");
       window.print();
-      document.getElementById("goBackRow")[0].setAttribute("style", "display: block;");
+      document.getElementById("goBackRow").setAttribute("style", "display: block;");
     }
 </script>
 </body>
