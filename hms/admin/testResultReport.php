@@ -130,7 +130,7 @@ function fetchTestName($testID)
                             </ol>
                         </div>
                     </section>
-                    <section class="resultSection">
+                    <section class="resultSection border">
                         <div class="container border">
                             <header class="row">
                                 <div class="col-md-10">
