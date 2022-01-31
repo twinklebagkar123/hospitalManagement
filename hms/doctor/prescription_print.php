@@ -172,6 +172,18 @@
 
 <body>
     <section>
+    <?php 
+        $ret = mysqli_query($con, "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE tblmedicalhistory.ID = 34");
+        $cnt = 1;
+        while ($row = mysqli_fetch_array($ret)) {
+            $MedicalPres = $row['MedicalPres'];
+            $prescribed_date = date('m/d/Y', $row['CreationDate']);
+            $prescribed_time = date('h:i A', $row['CreationDate']);
+            $PatientName = $row['PatientName'];
+            $doctorName = $row['doctorName'];
+            $PatientAge = $row['PatientAge'];
+            $PatientGender = $row['PatientGender'];
+    ?>
         <div class="container">
             <header class="row">
                 <div class="col-10">
@@ -182,18 +194,17 @@
                     </div>
 
                     <div class="clinic-details">
-                        <p class="doc-meta">Doctor Name: </p>
-                        <p class="doc-meta">Anjana Gupta</p>
+                        <p class="doc-meta">Doctor Name: <?php echo $doctorName;?></p>
                     </div>
 
                 </div>
                 <div class="col-2 datetime">
-                    <p>Date: 18/03/16</p>
-                    <p>Time: 03:13</p>
+                    <p>Date: <?php echo $prescribed_date."_+_+_".$row['CreationDate']; ?></p>
+                    <p>Time: <?php echo $prescribed_time; ?></p>
                 </div>
             </header>
             <div class="prescription">
-                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx Name of patient, M/35</p>
+                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
                     <tr>
                         <th></th>
@@ -203,6 +214,11 @@
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
+                   <?php  
+                    foreach($MedicalPres as $medicalDetail){
+                        var_dump($medicalDetail);
+                    }
+                   ?>
                     <tr>
                         <td>1.</td>
                         <td>Tablet</td>
@@ -211,38 +227,6 @@
                         <td>1 - 0 - 1</td>
                         <td>10 days</td>
                     </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Lotion</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
-                    <tr>
-                        <td>3.</td>
-                        <td>Syrub</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5">
-                            <p style="margin-left:14px;font-size:6px">Before food (Don’t take the tab, I say)</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Oil</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
                 </table>
 
 
@@ -251,6 +235,7 @@
             <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;">Dr. Alvin plus father name</p>
             <p style="font-size:6px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
+        <?php } ?>
     </section>
 
     <h2 style="background-color: #333;">The window.print() Method</h2>
