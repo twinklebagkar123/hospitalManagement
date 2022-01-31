@@ -130,7 +130,7 @@ check_login(); ?>
     }
 
     .doc-meta {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .datetime {
@@ -148,7 +148,7 @@ check_login(); ?>
 
     .prescription {
         min-height: 380px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     table {
@@ -240,8 +240,8 @@ check_login(); ?>
 
             </div>
 
-            <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
-            <p style="font-size:6px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
+            <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
+            <p style="font-size:10px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
         <?php } ?>
     </section>
