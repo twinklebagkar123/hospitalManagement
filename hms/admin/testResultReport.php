@@ -152,7 +152,7 @@ function fetchTestName($testID)
                                 </div>
                             </header>
                         </div>
-                        <div class="container-fluid container-fullw bg-white">
+                        <div class="container-fluid container-fullw bg-white border">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <?php
