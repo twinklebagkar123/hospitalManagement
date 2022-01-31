@@ -185,7 +185,7 @@ check_login(); ?>
         // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
             $MedicalPres = $row['MedicalPres'];
-            $prescribed_date = date('m/d/Y', strtotime($row['CreationDate']));
+            $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
             $prescribed_time = date('h:i A', strtotime($row['CreationDate']));
             $PatientName = $row['PatientName'];
             $doctorName = $row['doctorName'];
