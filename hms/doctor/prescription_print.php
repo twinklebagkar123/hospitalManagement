@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login(); ?>
@@ -181,6 +181,7 @@ check_login(); ?>
     <?php 
         $ret = mysqli_query($con, "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid WHERE tblmedicalhistory.ID = 34");
         $cnt = 1;
+        echo $ret." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($ret)) {
             $MedicalPres = $row['MedicalPres'];
             $prescribed_date = date('m/d/Y', $row['CreationDate']);
