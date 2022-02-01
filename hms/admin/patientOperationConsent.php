@@ -55,7 +55,7 @@ $today = $year . '-' . $month . '-' . $day;
 <?php
 
 $aid = $_GET['admissionId'];
-if (isset($_POST['Submit'])) {
+if (isset($_POST['submit'])) {
 	$id = $_POST['pid'];
 	$patient = $_POST['pat'];
 	$doctor = $_POST['doctor'];
@@ -239,7 +239,7 @@ if (isset($_POST['Submit'])) {
 
 								</div>
 
-								<input type="submit" name="Submit" class="btn btn-outline-secondary btn-sm" id="Submit" value="Submit">
+								<input type="submit" name="submit" class="btn btn-primary pull-right" id="Submit" value="Submit">
 								</form>
 							</div>
 						</div>
