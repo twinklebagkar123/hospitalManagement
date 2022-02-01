@@ -112,7 +112,7 @@ $admissionId = $_GET['admissionId'];
 
     .container {
         /* min-height: 84px; */
-        border: 1px solid black;
+        /* border: 1px solid black; */
         /* max-width: 420px; */
         margin: 0 auto;
         margin-top: 40px;
@@ -120,12 +120,12 @@ $admissionId = $_GET['admissionId'];
 
     header {
         min-height: 83px;
-        border-bottom: 1px solid black;
+        /* border-bottom: 1px solid black; */
 
     }
     .reportHeader header {
         min-height: 83px;
-        border-bottom: 1px solid black;
+        /* border-bottom: 1px solid black; */
 
     }
 
@@ -227,8 +227,8 @@ $admissionId = $_GET['admissionId'];
                             </ol>
                         </div>
                     </section>
-                    <section class="reportHeader">
-                        <div class="container border">
+                    <section class="">
+                        <div class="container ">
                             <header class="row">
                                 <div class="col-10">
                                     <div class="doc-details">
