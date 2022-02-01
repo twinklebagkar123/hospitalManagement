@@ -23,10 +23,10 @@ $resultOfAPatientCount = mysqli_fetch_array($countSql);
 
 while ($row = mysqli_fetch_array($sql)) {
 
-  $_SESSION['lastPageId'] = $row['ID'];
+  $_SESSION['lastPageIdPatient'] = $row['ID'];
 
   $ID = $row['ID'];
-  $PatientName =   $row['PatientName'];
+  $PatientName =   $row['PatientName']."test";
   $PatientContno = $row['PatientContno'];
   $PatientGender = $row['PatientGender'];
   $CreationDate = $row['CreationDate'];
