@@ -36,7 +36,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $advanve = $row['advance_paid'];
   $operation = '<a class="btn btn-primary"  href="patientOperationConsent.php?admissionId=' . $row['unqId'] . '" >Operation</a>';
   $bookAppointment = '<a class="btn btn-primary"  href="bookAppointment.php?admissionId=' . $row['unqId'] . '" >Book</a>';
-  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge_patient.php?admissionId="'.$row['unqId'].'">Discharge</a>';
+  $discharge = '<a class="btn btn-primary"  class="btn btn-primary" href="discharge_patient.php?admissionId='. $row['unqId'] .'">Discharge</a>';
   $getReport = '<a class="btn btn-primary"  class="btn btn-primary" href="">Get Report</a>';
   $discharge_getreport = ($admission_status == 'pending') ? $discharge : $getReport;
   $switchToIDE = '<a class="btn btn-primary"  class="btn btn-primary" href="view-admit-patient.php?id=' . $row['unqId'] . '&switch_to_ide=true">Switch to IDE</a>';
