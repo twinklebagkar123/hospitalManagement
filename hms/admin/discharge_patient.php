@@ -518,9 +518,11 @@ $admissionId = $_GET['admissionId'];
     <script>
         $(document).on("click", "#clear_print" , function() {
         $('#page-title').css('display', 'none');
+        $('#clear_print').css('display', 'none');
         $('.print_header').css('margin', 0);
         window.print();
         $('#page-title').css('display', 'block');
+        $('#clear_print').css('display', 'block');
         $('.print_header').css('margin', auto);
     });
     </script>
