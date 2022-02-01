@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $_SESSION['lastPageIdPatient'] = $row['ID'];
 
   $ID = $row['ID'];
-  $PatientName =   $row['PatientName']."test";
+  $PatientName =   $row['PatientName'];
   $PatientContno = $row['PatientContno'];
   $PatientGender = $row['PatientGender'];
   $CreationDate = $row['CreationDate'];
