@@ -51,13 +51,7 @@ $(document).ready(function(){
         // $edit.val(newValue);
         // $("#result").val().append(", ");
       });
-      $(document).on("click", "#clear_print" , function() {
-        $('#page-title').css('display', 'none');
-        $('.print_header').css('margin', 0);
-        window.print();
-        $('#page-title').css('display', 'block');
-        $('.print_header').css('margin', auto);
-    });
+    
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
             var searchInArray = $(this).children('.medicineName').text();

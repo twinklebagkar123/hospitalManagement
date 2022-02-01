@@ -512,10 +512,18 @@ $admissionId = $_GET['admissionId'];
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/doctor.js"></script>
+    <!-- <script src="assets/js/doctor.js"></script> -->
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
-
+    <script>
+        $(document).on("click", "#clear_print" , function() {
+        $('#page-title').css('display', 'none');
+        $('.print_header').css('margin', 0);
+        window.print();
+        $('#page-title').css('display', 'block');
+        $('.print_header').css('margin', auto);
+    });
+    </script>
     <!-- end: JavaScript Event Handlers for this page -->
 
     <!-- end: CLIP-TWO JAVASCRIPTS -->
