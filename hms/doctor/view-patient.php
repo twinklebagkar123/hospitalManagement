@@ -147,7 +147,7 @@ if (isset($_POST['submit'])) {
                   ?>
                   <table class="table table-bordered dt-responsive nowrap">
                     <thead>
-                      <th>Report Id</th>
+                      <th>#</th>
                       <th>Admission Date</th>
                       <th>Admission Type</th>
                       <th>Diagnosis</th>

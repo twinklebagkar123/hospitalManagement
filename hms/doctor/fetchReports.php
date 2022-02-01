@@ -94,7 +94,7 @@ if (!empty($_POST['admissionid'])) {
         <th colspan="8">Medical History</th>
     </tr>
     <tr>
-        <th>#</th>
+        <th>Report Id</th>
         <th>Blood Pressure</th>
         <th>Weight</th>
         <th>Blood Sugar</th>
