@@ -214,7 +214,7 @@ $admissionId = $_GET['admissionId'];
                     <!-- start: PAGE TITLE -->
                     <section id="page-title">
                         <div class="row">
-                            <div class="col-sm-8">
+                            <div class="col-8">
                                 <h1 class="mainTitle">Admin | Discharge Patients</h1>
                             </div>
                             <ol class="breadcrumb">
@@ -230,7 +230,7 @@ $admissionId = $_GET['admissionId'];
                     <section class="reportHeader">
                         <div class="container border">
                             <header class="row">
-                                <div class="col-md-10">
+                                <div class="col-10">
                                     <div class="doc-details">
                                         <p class="doc-name">St. Anthony's Hospital & Research Center</p>
                                         <p class="doc-meta">General Hospital</p>
@@ -243,7 +243,7 @@ $admissionId = $_GET['admissionId'];
                                     </div>
 
                                 </div>
-                                <div class="col-md-2 datetime">
+                                <div class="col-2 datetime">
                                     <p>Date: <?php echo date("Y/m/d"); ?></p>
                                     <p>Time: <?php echo date("h:i a");?></p>
                                 </div>
@@ -251,7 +251,7 @@ $admissionId = $_GET['admissionId'];
                         </div>
                         <div class="container bg-white">
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Patient </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
@@ -292,7 +292,7 @@ $admissionId = $_GET['admissionId'];
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Admission</span> Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
@@ -343,7 +343,7 @@ $admissionId = $_GET['admissionId'];
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Appointment </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
@@ -377,12 +377,15 @@ $admissionId = $_GET['admissionId'];
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Operation</span> Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                            <tr>
+                                        <!-- <thead>
+                                           
+                                        </thead> -->
+                                        <tbody id="delete">
+                                        <tr>
                                                 <th>Date</th>
                                                 <th>Time</th>
                                                 <th>Ward Number</th>
@@ -392,8 +395,6 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Consultant Name</th>
                                                 <th>Operation Amount Received</th>
                                             </tr>
-                                        </thead>
-                                        <tbody id="delete">
                                             <?php
                                             $sql = mysqli_query($con, "SELECT patientoperation.operationFeeRecieved,patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = '".$admissionId."' ORDER BY operationID DESC");
 
@@ -420,7 +421,7 @@ $admissionId = $_GET['admissionId'];
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12">
                                     <h5 class="over-title margin-bottom-15"><span class="text-bold">Lab Test </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
@@ -454,7 +455,7 @@ $admissionId = $_GET['admissionId'];
                                         </tbody>
                                     </table>
                                     <div class="row">
-                                        <div class="col-md-12 text-right ">
+                                        <div class="col-12 text-right ">
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
                                                 <span class="text-bold">Total: </span><?php echo number_format($billPayable) . "/-"; ?>
                                             </h5>
