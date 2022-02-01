@@ -29,6 +29,100 @@ $admissionId = $_GET['admissionId'];
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 </head>
 <style>
+    
+    * {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+
+
+    /* ==== GRID SYSTEM ==== */
+    .container {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .row {
+        position: relative;
+        width: 100%;
+    }
+
+    .row [class^="col"] {
+        float: left;
+    }
+
+    .row::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+
+    /* Custom */
+
+    .container {
+        /* min-height: 84px; */
+        border: 1px solid black;
+        /* max-width: 420px; */
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    header {
+        min-height: 83px;
+        border-bottom: 1px solid black;
+
+    }
     .reportHeader header {
         min-height: 83px;
         border-bottom: 1px solid black;
@@ -85,6 +179,25 @@ $admissionId = $_GET['admissionId'];
     .instruction {
         font-size: 12px;
     }
+    table {
+        text-align: left;
+        width: 90%;
+        min-height: 25px;
+    }
+
+    table th {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    table tr {
+        margin-top: 20px;
+    }
+
+    table td {
+        font-size: 12px;
+
+    }
 </style>
 
 <body>
@@ -128,7 +241,7 @@ $admissionId = $_GET['admissionId'];
                                 </div>
                                 <div class="col-md-2 datetime">
                                     <p>Date: <?php echo date("Y/m/d"); ?></p>
-                                    <p>Time: <?php echo date("h:i:sa");?></p>
+                                    <p>Time: <?php echo date("h:i a");?></p>
                                 </div>
                             </header>
                         </div>
@@ -273,7 +386,7 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Charges</th>
                                                 <th>Doctor Name</th>
                                                 <th>Consultant Name</th>
-                                                <th>Opeation Amount Received</th>
+                                                <th>Operation Amount Received</th>
                                             </tr>
                                         </thead>
                                         <tbody id="delete">
@@ -347,6 +460,11 @@ $admissionId = $_GET['admissionId'];
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
                                                 <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid) . "/-"; ?>
                                             </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <a class="btn btn-default" id="clear_print">Clear Bill & Print</a>
                                         </div>
                                     </div>
                                 </div>
