@@ -206,6 +206,13 @@ $today = $year . '-' . $month . '-' . $day;
 								</div>
 
 								<div class="form-group">
+									<label> Payment Recieved
+									</label>
+									<input type="text" value="<?php echo $today; ?>" class="form-control" id="text" name="amntRecieved">
+
+								</div>
+
+								<div class="form-group">
 									<label> Form Creation Date
 									</label>
 									<input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
@@ -487,9 +494,10 @@ if (isset($_POST['submit'])) {
 	$code = $_POST['code'];
 	$ward = $_POST['ward'];
 	$rno = $_POST['rno'];
+	$amntRecieved = $_POST['amntRecieved'];
 
 
-	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`patient_admission_id`,`code`, `ward`, `rno`,`consultantID`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno','$consultant')";
+	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`patient_admission_id`,`code`, `ward`, `rno`,`consultantID`,`operationFeeRecieved`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno','$consultant','$amntRecieved')";
 	print_r($sql);
 	$result = $con->query($sql);
 	if ($result) {
