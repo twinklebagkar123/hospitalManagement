@@ -14,9 +14,11 @@ if (isset($_POST['submit'])) {
   $type = $_POST['type'];
   $temp = $_POST['temp'];
   $pres = $_POST['medicinePrescription'];
+  $doctorObservation = $_POST['doctorObservation'];
+  $doctorDiagnosis = $_POST['doctorDiagnosis'];
   $nn = $_POST['nn'];
-
-  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn')");
+  $docID = $_SESSION['id'];
+  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote,doctorObservation,doctorDiagnosis,doctorID)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn','$doctorObservation','$doctorDiagnosis','$docID')");
   if ($query) {
     echo '<script>alert("Medical history has been added.")</script>';
     echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -313,6 +315,16 @@ if (isset($_POST['submit'])) {
                                 <th>Nurse Note :</th>
                                 <td>
                                   <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                              </tr>
+                              <tr>
+                                <th>Doctor's Observation :</th>
+                                <td>
+                                  <textarea name="doctorObservation" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                              </tr>
+                              <tr>
+                                <th>Doctor's Diagnosis :</th>
+                                <td>
+                                  <textarea name="doctorDiagnosis" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                               </tr>
                           </table>
                         </div>
