@@ -208,7 +208,7 @@ $today = $year . '-' . $month . '-' . $day;
 								<div class="form-group">
 									<label> Payment Recieved
 									</label>
-									<input type="text" value="<?php echo $today; ?>" class="form-control" id="text" name="amntRecieved">
+									<input type="text" value="" class="form-control" id="text" name="amntRecieved">
 
 								</div>
 
