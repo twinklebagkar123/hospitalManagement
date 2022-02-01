@@ -55,7 +55,8 @@ $(document).ready(function(){
         $('#page-title').css('display', 'none');
         $('.print_header').css('margin', 0);
         window.print();
-        
+        $('#page-title').css('display', 'block');
+        $('.print_header').css('margin', auto);
     });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
