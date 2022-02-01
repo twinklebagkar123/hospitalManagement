@@ -15,7 +15,7 @@ if((isset($_SESSION['lastPageIdPatient'])) && $s > 0):
 else:
   $query="SELECT * FROM `tblpatient` WHERE `ID` >= " . $getDataFromId . " ORDER BY `ID` DESC LIMIT " . $g;
 endif;
-
+print_r($query);
 $patientCountSql ="SELECT COUNT(`ID`) FROM `tblpatient`";
 $sql = mysqli_query($con, $query);
 $countSql = mysqli_query($con, $patientCountSql);
