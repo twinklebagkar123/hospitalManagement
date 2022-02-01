@@ -473,7 +473,7 @@ $admissionId = $_GET['admissionId'];
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 text-center">
-                                            <a class="btn btn-default" id="clear_print">Clear Bill & Print</a>
+                                            <button class="btn btn-default" id="clear_print">Clear Bill & Print</button>
                                         </div>
                                     </div>
                                 </div>
@@ -512,6 +512,7 @@ $admissionId = $_GET['admissionId'];
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/doctor.js"></script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
 

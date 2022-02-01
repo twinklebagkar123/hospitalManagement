@@ -51,7 +51,7 @@ $(document).ready(function(){
         // $edit.val(newValue);
         // $("#result").val().append(", ");
       });
-    $(document).on("click", "#clear_print" , function() {
+      $(document).on("click", "#clear_print" , function() {
         $('#page-title').css('display', 'none');
         $('.print_header').css('margin', 0);
         window.print();
