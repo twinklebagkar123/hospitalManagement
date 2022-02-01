@@ -228,7 +228,7 @@ $admissionId = $_GET['admissionId'];
                         </div>
                     </section>
                     <section class="">
-                        <div class="container ">
+                        <div class="container border print_header">
                             <header class="row">
                                 <div class="col-10">
                                     <div class="doc-details">
@@ -255,8 +255,11 @@ $admissionId = $_GET['admissionId'];
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Patient </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                            <tr>
+                                        <!-- <thead>
+                                            
+                                        </thead> -->
+                                        <tbody id="delete">
+                                        <tr>
                                                 <th>Patient Id </th>
                                                 <th>Patient Name</th>
                                                 <th>Phone Number</th>
@@ -265,8 +268,6 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Gender</th>
                                                 <th>Address</th>
                                             </tr>
-                                        </thead>
-                                        <tbody id="delete">
                                             <?php
                                             $billPayable = 0;
                                             $advancePaid = 0;
@@ -296,8 +297,11 @@ $admissionId = $_GET['admissionId'];
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Admission</span> Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                            <tr>
+                                        <!-- <thead>
+                                            
+                                        </thead> -->
+                                        <tbody id="delete">
+                                        <tr>
                                                 <th>Admission Type</th>
                                                 <th>Doctor Name</th>
                                                 <th>Ward Number</th>
@@ -305,8 +309,6 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Advance Paid</th>
                                                 <th>Admission (Cost Per Day)</th>
                                             </tr>
-                                        </thead>
-                                        <tbody id="delete">
                                             <?php
                                             $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = '".$admissionId."'");
 
@@ -347,15 +349,16 @@ $admissionId = $_GET['admissionId'];
                                     <h5 class="over-title margin-bottom-15"> <span class="text-bold">Appointment </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                            <tr>
+                                        <!-- <thead>
+                                            
+                                        </thead> -->
+                                        <tbody id="delete">
+                                        <tr>
                                                 <th>Date</th>
                                                 <th>Time</th>
                                                 <th>Consultancy Fee</th>
                                                 <th>Doctor Name</th>
                                             </tr>
-                                        </thead>
-                                        <tbody id="delete">
                                             <?php
                                             $sql = mysqli_query($con, "SELECT appointment.appointmentDate,appointment.appointmentTime,appointment.consultancyFees,doctors.doctorName FROM `appointment` INNER JOIN `doctors` ON appointment.doctorId = doctors.id where appointment.admission_id = '".$admissionId."' AND appointment.doctorStatus = 1");
 
@@ -425,16 +428,17 @@ $admissionId = $_GET['admissionId'];
                                     <h5 class="over-title margin-bottom-15"><span class="text-bold">Lab Test </span>Information</h5>
 
                                     <table class="table table-hover" id="sample-table-1">
-                                        <thead>
-                                            <tr>
+                                        <!-- <thead>
+                                            
+                                        </thead> -->
+                                        <tbody id="delete">
+                                        <tr>
                                                 <th>Test Name</th>
                                                 <th>Assigned Date</th>
                                                 <th>Performed Date</th>
                                                 <th>Performed By</th>
                                                 <th>Charges</th>
                                             </tr>
-                                        </thead>
-                                        <tbody id="delete">
                                             <?php
                                             $sql = mysqli_query($con, "SELECT laboratoryTestList.labTestName,labTestRecord.assignedDate,labTestRecord.performedDate,labTestRecord.performedBy,labTestRecord.charges from labTestRecord INNER JOIN patientAdmission ON patientAdmission.unqId = labTestRecord.admissionID INNER JOIN laboratoryTestList ON laboratoryTestList.labFormID = labTestRecord.performedTestID WHERE labTestRecord.admissionID = '".$admissionId."' AND labTestRecord.labTestStatus = 'complete'");
 

@@ -52,6 +52,9 @@ $(document).ready(function(){
         // $("#result").val().append(", ");
       });
     $(document).on("click", "#clear_print" , function() {
+        $('#page-title').css('display', 'none');
+        $('.print_header').css('margin', 0);
+        window.print();
         
     });
     $(document).on("click", ".zap" , function() {
