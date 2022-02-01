@@ -489,8 +489,9 @@ if (isset($_POST['submit'])) {
 
 
 	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
-	print_r($sql);
-	if ($sql) {
+	//print_r($sql);
+	$result = $con->query($sql);
+	if ($result) {
 		echo "<script>alert('patient Operation Form added Successfully');</script>";
 		header('location:patientOperationConsent.php');
 	}
