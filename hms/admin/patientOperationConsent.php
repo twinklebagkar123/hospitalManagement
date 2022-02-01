@@ -17,9 +17,12 @@ if (isset($_POST['Submit'])) {
 	$DAMA = $_POST['DAMA'];
 	$pRNote = $_POST['pRNote'];
 	$fCDate = $_POST['date'];
+	$code = $_POST['code'];
+	$ward = $_POST['ward'];
+	$rno = $_POST['rno'];
 
 
-	$sql = mysqli_query($con, "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate')");
+	$sql = mysqli_query($con, "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')");
 	if ($sql) {
 		echo "<script>alert('patient Operation Form added Successfully');</script>";
 		header('location:patientOperationConsent.php');
