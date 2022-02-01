@@ -4,31 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$aid = $_GET['admissionId'];
-if (isset($_POST['Submit'])) {
-	$id = $_POST['pid'];
-	$patient = $_POST['pat'];
-	$doctor = $_POST['doctor'];
-	$opTitle = $_POST['opTitle'];
-	$opTime = $_POST['opTime'];
-	$opDate = $_POST['opDate'];
 
-	$Consent = $_POST['Consent'];
-	$DAMA = $_POST['DAMA'];
-	$pRNote = $_POST['pRNote'];
-	$fCDate = $_POST['date'];
-	$code = $_POST['code'];
-	$ward = $_POST['ward'];
-	$rno = $_POST['rno'];
-
-
-	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
-print_r($sql);
-	if ($sql) {
-		echo "<script>alert('patient Operation Form added Successfully');</script>";
-		header('location:patientOperationConsent.php');
-	}
-}
 $month = date('m');
 $day = date('d');
 $year = date('Y');
@@ -76,6 +52,34 @@ $today = $year . '-' . $month . '-' . $day;
 		}
 	</script> -->
 </head>
+<?php
+
+$aid = $_GET['admissionId'];
+if (isset($_POST['Submit'])) {
+	$id = $_POST['pid'];
+	$patient = $_POST['pat'];
+	$doctor = $_POST['doctor'];
+	$opTitle = $_POST['opTitle'];
+	$opTime = $_POST['opTime'];
+	$opDate = $_POST['opDate'];
+
+	$Consent = $_POST['Consent'];
+	$DAMA = $_POST['DAMA'];
+	$pRNote = $_POST['pRNote'];
+	$fCDate = $_POST['date'];
+	$code = $_POST['code'];
+	$ward = $_POST['ward'];
+	$rno = $_POST['rno'];
+
+
+	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
+	print_r($sql);
+	if ($sql) {
+		echo "<script>alert('patient Operation Form added Successfully');</script>";
+		header('location:patientOperationConsent.php');
+	}
+}
+?>
 
 <body>
 	<div id="app">
@@ -173,28 +177,28 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 								<div class="form-group">
-									<div class="row">  
-										
-									<div class="col-sm-4">
-									<label >Code No:</label>
-									<input type="text" id="code" name="code">
-								</div>
-								<div class="col-sm-4">
-								<label >Ward:</label>
-									<input type="text" id="ward" name="ward">
-								</div>
-								<div class="col-sm-4">
-								<label >R No:</label>
-									<input type="text" id="rno" name="rno">
-								</div>
-									
-								
-								
-								
-								</div>
-									
-									
-								
+									<div class="row">
+
+										<div class="col-sm-4">
+											<label>Code No:</label>
+											<input type="text" id="code" name="code">
+										</div>
+										<div class="col-sm-4">
+											<label>Ward:</label>
+											<input type="text" id="ward" name="ward">
+										</div>
+										<div class="col-sm-4">
+											<label>R No:</label>
+											<input type="text" id="rno" name="rno">
+										</div>
+
+
+
+
+									</div>
+
+
+
 								</div>
 								<div class="form-group">
 									<label for="opTime">Select a time:</label>
@@ -231,7 +235,7 @@ $today = $year . '-' . $month . '-' . $day;
 								<div class="form-group">
 									<label> Form Creation Date
 									</label>
-									<input type="date" value="<?php echo $today; ?>"  class="form-control" id="date" name="date" readonly>
+									<input type="date" value="<?php echo $today; ?>" class="form-control" id="date" name="date" readonly>
 
 								</div>
 
