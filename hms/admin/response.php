@@ -11,9 +11,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageIdPatient'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageIdPatient'];
-  $query="SELECT * FROM `tblpatient` WHERE `ID` <= " . $getDataFromId . " ORDER BY `ID` ASC LIMIT " . $g;
+  $query="SELECT * FROM `tblpatient` WHERE `ID` <= '" . $getDataFromId . "' ORDER BY `ID` DESC LIMIT " . $g;
 else:
-  $query="SELECT * FROM `tblpatient` WHERE `ID` >= " . $getDataFromId . " ORDER BY `ID` ASC LIMIT " . $g;
+  $query="SELECT * FROM `tblpatient` WHERE `ID` >= '" . $getDataFromId . "' ORDER BY `ID` DESC LIMIT " . $g;
 endif;
 
 $patientCountSql ="SELECT COUNT(`ID`) FROM `tblpatient`";
@@ -23,7 +23,7 @@ $resultOfAPatientCount = mysqli_fetch_array($countSql);
 
 while ($row = mysqli_fetch_array($sql)) {
 
-  $_SESSION['lastPageId'] = $row['ID'];
+  $_SESSION['lastPageIdPatient'] = $row['ID'];
 
   $ID = $row['ID'];
   $PatientName =   $row['PatientName'];
@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $PatientGender = $row['PatientGender'];
   $CreationDate = $row['CreationDate'];
   $UpdationDate = $row['UpdationDate'];
-  $bookAppointment = "<button type='button' data-pid='".$row['ID']."' data-name='".$row['PatientName']."' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Book</button>";
+  $bookAppointment = "<button type='button' data-admissionID = '".$row['']."' data-pid='".$row['ID']."' data-name='".$row['PatientName']."' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Book</button>";
   $addFiles = '<a class="btn btn-primary"  class="btn btn-primary" href="medical-history-documents.php?docId='.$row['ID'].'"">Attach</a>';
 
   $viewInfo = '<a href="view-patient.php?viewid='.$row['ID'].'"><i class="fa fa-eye"></i></a>';
