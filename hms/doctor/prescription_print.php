@@ -1,3 +1,9 @@
+<?php
+session_start();
+// error_reporting(0);
+include('include/config.php');
+include('include/checklogin.php');
+check_login(); ?>
 <!DOCTYPE html>
 <html>
 
@@ -124,7 +130,7 @@
     }
 
     .doc-meta {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .datetime {
@@ -142,7 +148,7 @@
 
     .prescription {
         min-height: 380px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
 
     table {
@@ -172,6 +178,22 @@
 
 <body>
     <section>
+    <?php 
+        $reportId = $_GET["reportId"];
+        $patientId = $_GET["patientId"];
+        
+        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = '".$reportId."'";
+        $result = $con->query($query);
+        // echo $query." QUERY UPDATE ";
+        while ($row = mysqli_fetch_array($result)) {
+            $MedicalPres = json_decode($row['MedicalPres']);
+            $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
+            $prescribed_time = date('h:i A', strtotime($row['CreationDate']));
+            $PatientName = $row['PatientName'];
+            $doctorName = $row['doctorName'];
+            $PatientAge = $row['PatientAge'];
+            $PatientGender = $row['PatientGender'];
+    ?>
         <div class="container">
             <header class="row">
                 <div class="col-10">
@@ -182,82 +204,60 @@
                     </div>
 
                     <div class="clinic-details">
-                        <p class="doc-meta">Doctor Name: </p>
-                        <p class="doc-meta">Anjana Gupta</p>
+                        <p class="doc-meta">Doctor Name: <?php echo $doctorName;?></p>
                     </div>
 
                 </div>
                 <div class="col-2 datetime">
-                    <p>Date: 18/03/16</p>
-                    <p>Time: 03:13</p>
+                    <p>Date: <?php echo $prescribed_date; ?></p>
+                    <p>Time: <?php echo $prescribed_time; ?></p>
                 </div>
             </header>
             <div class="prescription">
-                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx Name of patient, M/35</p>
+                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
                     <tr>
                         <th></th>
-                        <th>Type</th>
                         <th>Name of the drug</th>
                         <th>Dosage</th>
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>Tablet</td>
-                        <td>Brufen Brufen Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
+                   <?php  
+                   $i = 0;
+                    foreach($MedicalPres as $medicalDetail){ $i++; ?>
+                        <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $medicalDetail->medicineName; ?></td>
+                        <td><?php echo $medicalDetail->dosage; ?></td>
+                        <td><?php echo $medicalDetail->frequency; ?></td>
+                        <td><?php echo $medicalDetail->period; ?></td>
                     </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Lotion</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
-                    <tr>
-                        <td>3.</td>
-                        <td>Syrub</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="5">
-                            <p style="margin-left:14px;font-size:6px">Before food (Don’t take the tab, I say)</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Oil</td>
-                        <td>Brufen</td>
-                        <td>400 mg</td>
-                        <td>1 - 0 - 1</td>
-                        <td>10 days</td>
-                    </tr>
-
+                   <?php }
+                    
+                   ?>
+                    
                 </table>
 
 
             </div>
 
-            <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;">Dr. Alvin plus father name</p>
-            <p style="font-size:6px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
+            <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
+            <p style="font-size:10px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
+        
+        <?php } ?>
     </section>
+    
+     <!-- <h2 style="background-color: #333;">The window.print() Method</h2>
 
-    <h2 style="background-color: #333;">The window.print() Method</h2>
-
-    <p>Click the button to print the current page.</p>
-
-    <button onclick="window.print()">Print this page</button>
+    <p>Click the button to print the current page.</p> -->
+    <div class="row" id="goBackRow" style="display:none;">
+        <div class="col-md-12 text-center">
+            <a href="view-patient.php?viewid=<?php echo $patientId ?>" class="btn btn-default">Go Back</a>
+        </div>
+    </div>
+    
 
 
     <!-- Optional JavaScript -->
@@ -265,7 +265,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<script>
+    window.onload = function() {
+      console.log("DOcument loaded");
+      window.print();
+      document.getElementById("goBackRow").setAttribute("style", "display: block;");
+    }
+</script>
 </body>
 
 </html>

@@ -169,7 +169,7 @@ if (isset($_POST['submit'])) {
                               ?></td>
                           <td><?php echo $row['dateofdischarge']; ?></td>
                           <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
-                          <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+                          <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary reportInfo">View</button></td>
                           <td>
                             <?php
                             if ($row['dateofdischarge'] == "0000-00-00") {

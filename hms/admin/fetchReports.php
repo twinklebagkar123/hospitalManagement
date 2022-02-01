@@ -87,14 +87,14 @@ if (!empty($_POST['admissionid'])) {
   // print_r($data);
 
     //medical History 
-    $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid'";
+    $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
     $result1 = $con->query($query);
     $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <tr align="center">
         <th colspan="8">Medical History</th>
     </tr>
     <tr>
-        <th>#</th>
+        <th>Report Id</th>
         <th>Blood Pressure</th>
         <th>Weight</th>
         <th>Blood Sugar</th>
@@ -111,11 +111,12 @@ if (!empty($_POST['admissionid'])) {
             array_push($tpr, $row['Temperature']);
             array_push($tprDate, $row['CreationDate']);
         }
+        $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
         // array_push($tpr,$row['Temperature']);
         // array_push($visit,$row['CreationDate']);
 
-        $html = $html . '  <tr> <td>' . $cnt . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>' . $row['MedicalPres'] . '</td> <td>' . $row['CreationDate'] . '</td>
+        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
+            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="prescription_print.php?reportId='.$row['ID'].'&patientId='.$vid.'">View & Print</a></td> <td>' . $prescribed_date . '</td>
         </tr>';
         $cnt++;
     }

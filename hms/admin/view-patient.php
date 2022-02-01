@@ -281,7 +281,7 @@ if (isset($_POST['submit'])) {
 				$("#adID").val(admissionid);
 
 			});
-			$("#viewReport button").click(function() {
+			$(".reportInfo").click(function() {
 				var admissionid = $(this).data("admissionid");
 				var admission = $(this).data("admission");
 				var discharge = $(this).data("discharge");
