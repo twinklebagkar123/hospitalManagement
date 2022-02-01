@@ -4,6 +4,16 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if (isset($_POST["testAssign"])) {
+	$testID = $_POST["testID"];
+	$admissionID = $_POST["admissionID"];
+	$date = date("Y-m-d");
+	foreach ($testID as $value) {
+		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
+		print_r($sql);
+		//	$con->query($sql);
+	}
+}
 if (isset($_POST['submit'])) {
 
   $vid = $_GET['viewid'];
@@ -168,7 +178,7 @@ if (isset($_POST['submit'])) {
                           <td><?php //echo $row['dateofadmission'];
                               ?></td>
                           <td><?php echo $row['dateofdischarge']; ?></td>
-                          <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
+                          <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#testModal">Assign Test</button></td>
                           <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary reportInfo">View</button></td>
                           <td>
                             <?php
@@ -192,6 +202,42 @@ if (isset($_POST['submit'])) {
                     <canvas id="line-chart" width="400" height="100"></canvas>
                     <canvas id="tpr-chart" width="400" height="100"></canvas>
                   </div>
+                  	<!-- Modal -->
+	<div id="testModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Assign Test Here</h4>
+				</div>
+				<div class="modal-body">
+					<form method="POST" action="">
+						<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
+						<?php
+						$ret = mysqli_query($con, "select * from laboratoryTestList");
+						$cnt = 1;
+						while ($row = mysqli_fetch_array($ret)) {
+						?>
+
+							<input type="checkbox" id="<?php echo $row['labFormID'] ?>" name="testID[]" value="<?php echo $row['labFormID'] ?>">
+							<label for="<?php echo $row['labFormID'] ?>"> <?php echo $row['labTestName'] ?></label><br>
+
+						<?php
+						}
+
+						?>
+						<input type="submit" name="testAssign" value="Assign Test">
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
@@ -270,13 +316,13 @@ if (isset($_POST['submit'])) {
                                       </div>
                                       <div class="col-md-3">
                                         Dosage
-                                        <input type="text" id="dosage"  placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-3">
                                         Period
-                                        <input type="text" id="period"  placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                        
+                                        <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+
                                       </div>
                                     </div>
                                     <div class="row">
@@ -286,22 +332,22 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
                                       <div class="col-md-12">
-                                      <table class="table table-bordered table-hover data-tables" >
-                                        <thead>
-                                          <tr>
-                                            <th>Medicine</th>
-                                            <th>Frequency</th>
-                                            <th>Dosage</th>
-                                            <th>Period</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody id="medicineList">
-                                        
-                                        </tbody>
-                                      </table>
+                                        <table class="table table-bordered table-hover data-tables">
+                                          <thead>
+                                            <tr>
+                                              <th>Medicine</th>
+                                              <th>Frequency</th>
+                                              <th>Dosage</th>
+                                              <th>Period</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="medicineList">
+
+                                          </tbody>
+                                        </table>
                                       </div>
                                     </div>
-                                   
+
 
                                   </div>
 
@@ -380,6 +426,11 @@ if (isset($_POST['submit'])) {
           Main.init();
           FormElements.init();
           console.log("hello");
+          $("#viewReport .assignTest").click(function() {
+            var admissionid = $(this).data("admissionid");
+            $("#adID").val(admissionid);
+
+          });
           $(".addMedHistory").click(function() {
             var id = $(this).data("admissionid");
             $("#admissionIDHis").val(id);
