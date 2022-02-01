@@ -52,34 +52,7 @@ $today = $year . '-' . $month . '-' . $day;
 		}
 	</script> -->
 </head>
-<?php
 
-$aid = $_GET['admissionId'];
-if (isset($_POST['submit'])) {
-	$id = $_POST['pid'];
-	$patient = $_POST['pat'];
-	$doctor = $_POST['doctor'];
-	$opTitle = $_POST['opTitle'];
-	$opTime = $_POST['opTime'];
-	$opDate = $_POST['opDate'];
-
-	$Consent = $_POST['Consent'];
-	$DAMA = $_POST['DAMA'];
-	$pRNote = $_POST['pRNote'];
-	$fCDate = $_POST['date'];
-	$code = $_POST['code'];
-	$ward = $_POST['ward'];
-	$rno = $_POST['rno'];
-
-
-	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
-	print_r($sql);
-	if ($sql) {
-		echo "<script>alert('patient Operation Form added Successfully');</script>";
-		header('location:patientOperationConsent.php');
-	}
-}
-?>
 
 <body>
 	<div id="app">
@@ -495,5 +468,33 @@ if (isset($_POST['submit'])) {
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>
+<?php
+
+$aid = $_GET['admissionId'];
+if (isset($_POST['submit'])) {
+	$id = $_POST['pid'];
+	$patient = $_POST['pat'];
+	$doctor = $_POST['doctor'];
+	$opTitle = $_POST['opTitle'];
+	$opTime = $_POST['opTime'];
+	$opDate = $_POST['opDate'];
+
+	$Consent = $_POST['Consent'];
+	$DAMA = $_POST['DAMA'];
+	$pRNote = $_POST['pRNote'];
+	$fCDate = $_POST['date'];
+	$code = $_POST['code'];
+	$ward = $_POST['ward'];
+	$rno = $_POST['rno'];
+
+
+	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`	patient_admission_id`,`code`, `ward`, `rno`,) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
+	print_r($sql);
+	if ($sql) {
+		echo "<script>alert('patient Operation Form added Successfully');</script>";
+		header('location:patientOperationConsent.php');
+	}
+}
+?>
 
 </html>
