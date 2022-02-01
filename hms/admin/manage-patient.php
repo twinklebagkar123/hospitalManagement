@@ -325,7 +325,7 @@ if (isset($_POST['submit'])) {
 								jQuery(document).ready(function() {
 									Main.init();
 									FormElements.init();
-									$("#patientList button").on("click", function() {
+									$(document).on("click","#patientList button", function() {
 										var name = $(this).data("name");
 										var id = $(this).data("pid");
 										$("#titleModal").html("Book " + name + "'s Appointment");
