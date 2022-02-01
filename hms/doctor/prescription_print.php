@@ -182,7 +182,7 @@ check_login(); ?>
         $reportId = $_GET["reportId"];
         $patientId = $_GET["patientId"];
         
-        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = patientAdmission.docID WHERE tblmedicalhistory.ID = '".$reportId."'";
+        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = tblmedicalhistory.doctorID WHERE tblmedicalhistory.ID = '".$reportId."'";
         $result = $con->query($query);
         // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
