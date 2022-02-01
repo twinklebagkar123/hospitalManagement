@@ -273,14 +273,16 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Charges</th>
                                                 <th>Doctor Name</th>
                                                 <th>Consultant Name</th>
+                                                <th>Opeation Amount Received</th>
                                             </tr>
                                         </thead>
                                         <tbody id="delete">
                                             <?php
-                                            $sql = mysqli_query($con, "SELECT patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = '".$admissionId."' ORDER BY operationID DESC");
+                                            $sql = mysqli_query($con, "SELECT patientoperation.operationFeeRecieved,patientoperation.opDate,patientoperation.opTime,patientoperation.ward,procedureList.name,procedureList.charges,doctors.doctorName, consultant.doctorName as consultantName FROM `patientoperation` INNER JOIN `procedureList` ON procedureList.procedureID = patientoperation.opTitle INNER JOIN doctors ON doctors.id = patientoperation.docID LEFT JOIN doctors as consultant ON consultant.id = patientoperation.consultantID WHERE `patient_admission_id` = '".$admissionId."' ORDER BY operationID DESC");
 
                                             while ($row = mysqli_fetch_array($sql)) {
-                                                $billPayable +=  $row['charges'];
+                                                $billPayable += $row['charges'];
+                                                $advancePaid += $row['operationFeeRecieved'];
                                             ?>
                                                 <tr>
                                                     <td><?php echo $row['opDate']; ?></td>
@@ -290,6 +292,7 @@ $admissionId = $_GET['admissionId'];
                                                     <td><?php echo $row['charges']; ?></td>
                                                     <td><?php echo $row['doctorName']; ?></td>
                                                     <td><?php echo $row['consultantName']; ?></td>
+                                                    <td><?php echo $row['operationFeeRecieved']; ?></td>
                                                 </tr>
 
                                             <?php } ?>
