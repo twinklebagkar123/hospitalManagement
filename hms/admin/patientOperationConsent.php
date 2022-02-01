@@ -475,6 +475,7 @@ if (isset($_POST['submit'])) {
 	$id = $_POST['pid'];
 	$patient = $_POST['pat'];
 	$doctor = $_POST['doctor'];
+	$consultant = $_POST['consultant'];
 	$opTitle = $_POST['opTitle'];
 	$opTime = $_POST['opTime'];
 	$opDate = $_POST['opDate'];
@@ -488,7 +489,7 @@ if (isset($_POST['submit'])) {
 	$rno = $_POST['rno'];
 
 
-	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`patient_admission_id`,`code`, `ward`, `rno`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno')";
+	$sql = "INSERT INTO `patientoperation`( `patientID`, `docID`, `opDate`, `opTitle`, `opTime`, `consent`, `DAMA`, `pRNote`, `fCDate`,`patient_admission_id`,`code`, `ward`, `rno`,`consultantID`) VALUES ('$id','$doctor','$opDate','$opTitle','$opTime','$Consent','$DAMA','$pRNote','$fCDate','$aid','$code','$ward','$rno','$consultant')";
 	print_r($sql);
 	$result = $con->query($sql);
 	if ($result) {
