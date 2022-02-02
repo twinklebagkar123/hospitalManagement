@@ -51,7 +51,7 @@
 					</ul>
 				</li>
 
-				<li>
+				<!-- <li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
@@ -71,7 +71,7 @@
 						</li>
 
 					</ul>
-				</li>
+				</li> -->
 				<li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
@@ -121,9 +121,6 @@
 								<span class="title"> View Patient</span>
 							</a>
 						</li>
-						
-					
-
 					</ul>
 					<li>
 					<a href="patient-search.php">
@@ -137,21 +134,7 @@
 						</div>
 					</a>
 				</li>
-
-
-					<!-- <ul class="sub-menu">
-									
-									<li>
-										<a href="manage-patient.php">
-											<span class="title"> Manage Patients </span>
-										</a>
-									</li>
-									
-								</ul> -->
 				</li>
-
-				
-
 				<li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
@@ -175,9 +158,6 @@
 								<span class="title">Search By Date</span>
 							</a>
 						</li>
-
-
-
 					</ul>
 				</li>
 
@@ -204,14 +184,9 @@
 								<span class="title"> list by Date </span>
 							</a>
 						</li>
-
-
-
 					</ul>
 				</li>
-
-
-				<li>
+				<!-- <li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
@@ -237,10 +212,7 @@
 						</li>
 
 					</ul>
-				</li>
-
-
-
+				</li> -->
 				<li>
 					<a href="doctor-logs.php">
 						<div class="item-content">
@@ -253,9 +225,6 @@
 						</div>
 					</a>
 				</li>
-
-
-
 				<li>
 					<a href="user-logs.php">
 						<div class="item-content">
@@ -286,9 +255,6 @@
 								<span class="title">B/w dates reports </span>
 							</a>
 						</li>
-
-
-
 					</ul>
 				
 				</li>
@@ -310,9 +276,6 @@
 								<span class="title"> Add medicine </span>
 							</a>
 						</li>
-
-
-
 					</ul>
 				</li>
 				<li>
@@ -323,18 +286,6 @@
 							</div>
 							<div class="item-inner">
 								<span class="title"> Ambulance </span>
-							</div>
-						</div>
-					</a>
-				</li>
-				<li>
-					<a href="bill.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-list"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Billing </span>
 							</div>
 						</div>
 					</a>
@@ -363,14 +314,6 @@
 								<span class="title"> Manage Tests </span>
 							</a>
 						</li>
-						<li>
-							<a href="add-medicine.php">
-								<span class="title"> Create Tests </span>
-							</a>
-						</li>
-
-
-
 					</ul>
 				</li>
 				
