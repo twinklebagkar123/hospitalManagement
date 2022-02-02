@@ -119,6 +119,27 @@ if (!empty($_POST['admissionid'])) {
         $cnt++;
     }
     $html = $html . '</table>';
+
+    $testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '".$admissionid."'";
+    $testList = $con->query($testQuery);
+    if($testList){
+        $html = $html. '<table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; 
+        border-spacing: 0; width: 100%;"><thead><tr><td>Sr No.</td><td>Assigned Date</td><td>Test Name</td><td>Test 
+        Status</td><td>Results</td></tr></thead><tbody>';
+    }
+    $srNum = 0;
+    while ($row2 = mysqli_fetch_array($testList)) {
+        $srNum++;
+      $html = $html. '<tr><td>'.$srNum.'</td><td>'. $row2['assignedDate'].'</td><td>'.$row2['labTestName'].'</td><td>'.$row2['labTestStatus'].'</td>';
+      if($row2['labTestStatus'] == 'complete'){
+        $html = $html. '<td><a href="testResultReport.php?recID='.$row2['recordID'].'"> View Results</a></td><tr>';
+      }
+      else{
+          $html = $html. '<td></td><tr>';
+      }
+    }
+    $html = $html. '</tbody></table>';
+
     $result["html"] = $html;
     $result['tpr'] = $tpr;
     $result['tprDate'] = $tprDate;
@@ -126,4 +147,3 @@ if (!empty($_POST['admissionid'])) {
     $result['sugarReads'] = $data;
     echo json_encode($result);
 }
-?>
