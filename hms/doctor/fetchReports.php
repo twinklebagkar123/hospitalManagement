@@ -1,6 +1,16 @@
 <?php
 require_once("include/config.php");
 $html = "";
+function fetchTestName($testID)
+{
+    include('include/config.php');
+    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['labTestName'];
+    }
+    return $answer;
+}
 if (!empty($_POST['admissionid'])) {
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
@@ -130,7 +140,8 @@ if (!empty($_POST['admissionid'])) {
     $srNum = 0;
     while ($row2 = mysqli_fetch_array($testList)) {
         $srNum++;
-      $html = $html. '<tr><td>'.$srNum.'</td><td>'. $row2['assignedDate'].'</td><td>'.$row2['labTestName'].'</td><td>'.$row2['labTestStatus'].'</td>';
+        $testname = fetchTestName($row2['labTestName']);
+      $html = $html. '<tr><td>'.$srNum.'</td><td>'. $row2['assignedDate'].'</td><td>'.$testname.'</td><td>'.$row2['labTestStatus'].'</td>';
       if($row2['labTestStatus'] == 'complete'){
         $html = $html. '<td><a href="testResultReport.php?recID='.$row2['recordID'].'"> View Results</a></td><tr>';
       }
