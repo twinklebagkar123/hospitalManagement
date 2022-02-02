@@ -347,7 +347,8 @@ $today = $year . '-' . $month . '-' . $day;
 									<p>date:<span id="fdate1"> </span></p>
 								</div>
 								<div class="col-sm-6">
-									<p>physician: <br> (Signature)</p>
+									<p>physician: </p>
+									<p class="mt-1" style="margin-top: 30px;"> (Signature)</p>
 								</div>
 
 
