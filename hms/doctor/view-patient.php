@@ -196,6 +196,7 @@ if (isset($_POST['submit'])) {
                       }
                       ?>
                     </tbody>
+                    <h5 class="over-title margin-bottom-15">Files <span class="text-bold">Attached</span></h5>
                   </table>
                   <?php
 
