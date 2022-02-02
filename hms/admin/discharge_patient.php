@@ -5,6 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 $admissionId = $_GET['admissionId'];
+$paymentStatus = "pending";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -310,9 +311,10 @@ $admissionId = $_GET['admissionId'];
                                                 <th>Admission (Cost Per Day)</th>
                                             </tr>
                                             <?php
-                                            $sql = mysqli_query($con, "SELECT patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = '".$admissionId."'");
+                                            $sql = mysqli_query($con, "SELECT patientAdmission.status,patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = '".$admissionId."'");
 
                                             while ($row = mysqli_fetch_array($sql)) {
+                                                $paymentStatus = $row['status'];
                                                 $month = date('m');
                                                 $day = date('d');
                                                 $year = date('Y');
@@ -463,17 +465,27 @@ $admissionId = $_GET['admissionId'];
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
                                                 <span class="text-bold">Total: </span><?php echo number_format($billPayable) . "/-"; ?>
                                             </h5>
+                                            <?php if($paymentStatus == 'pending'): ?>
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
                                                 <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid) . "/-"; ?>
                                             </h5>
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
                                                 <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid) . "/-"; ?>
                                             </h5>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <button class="btn btn-default" id="clear_print">Clear Bill & Print</button>
+                                        <?php  if($paymentStatus == 'pending'):  ?>
+                                        <div class="col-md-6 text-center" id="clear_bill_btn">
+                                            <form action="bill_clear.php" method="POST"> 
+                                                <input type="hidden" name="admissionId" value="<?php echo $admissionId; ?>">
+                                                <button class="btn btn-default">Clear Bill</button>
+                                            </form>
+                                        </div>
+                                        <?php endif; ?>
+                                        <div class="col-md-6 text-center">
+                                            <button class="btn btn-default" id="clear_print">Print</button>
                                         </div>
                                     </div>
                                 </div>
@@ -518,9 +530,11 @@ $admissionId = $_GET['admissionId'];
     <script>
         $(document).on("click", "#clear_print" , function() {
         $('#page-title').css('display', 'none');
+        $('#clear_bill_btn').css('display', 'none');
         $('#clear_print').css('display', 'none');
         $('.print_header').css('margin', 0);
         window.print();
+        $('#clear_bill_btn').css('display', 'block');
         $('#page-title').css('display', 'block');
         $('#clear_print').css('display', 'block');
         $('.print_header').css('margin', auto);
