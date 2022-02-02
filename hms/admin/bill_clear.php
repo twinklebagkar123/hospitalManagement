@@ -10,5 +10,5 @@ $sql = "UPDATE `patientAdmission` SET `status` = 'paid', `dateofdischarge` = '".
 $con->query($sql);
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-$extra = 'patient-admission.php?discharge_patient.php?admissionId="'.$admissionId.'"';
+$extra = 'discharge_patient.php?admissionId='.$admissionId;
 header("location:http://$host$uri/$extra");
