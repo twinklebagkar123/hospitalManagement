@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$admissionId = $_GET['admissionId'];
+$admissionId = $_POST['admissionId'];
 $today = date('Y-m-d H:i:s');
 $sql = "UPDATE `patientAdmission` SET `status` = 'paid', `dateofdischarge` = '".$today."' WHERE `patientAdmission`.`unqId` = '".$admissionId."'";
 $con->query($sql);
