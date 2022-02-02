@@ -140,7 +140,7 @@ if (!empty($_POST['admissionid'])) {
     $srNum = 0;
     while ($row2 = mysqli_fetch_array($testList)) {
         $srNum++;
-        $testname = fetchTestName($row2['labTestName']);
+        $testname = fetchTestName($row2['performedTestID']);
       $html = $html. '<tr><td>'.$srNum.'</td><td>'. $row2['assignedDate'].'</td><td>'.$testname.'</td><td>'.$row2['labTestStatus'].'</td>';
       if($row2['labTestStatus'] == 'complete'){
         $html = $html. '<td><a href="testResultReport.php?recID='.$row2['recordID'].'"> View Results</a></td><tr>';
