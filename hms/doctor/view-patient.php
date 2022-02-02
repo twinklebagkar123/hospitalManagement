@@ -239,7 +239,7 @@ if (isset($_POST['submit'])) {
                             <?php echo $row1['uploaded_at'] ?>
                           </td>
                           <td>
-                            <a href = "https://adpigo.com/hospital/uploads/ <?php echo $row1['file_url'] ?>">View</a>
+                            <a href = "https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
                            
                           </td>
                         </tr>
