@@ -204,7 +204,7 @@ if (isset($_POST['submit'])) {
 
 
                   ?>
-                  <table>
+                  <table class="table table-bordered dt-responsive nowrap">
                     <thead>
                       <tr>
                         <th>
