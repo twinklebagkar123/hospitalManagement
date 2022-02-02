@@ -23,15 +23,15 @@ if (isset($_POST['submit'])) {
     echo "/n/n" . $_SERVER['DOCUMENT_ROOT'];
     $path =  $picProfile;
     $month = date('m');
-$day = date('d');
-$year = date('Y');
+    $day = date('d');
+    $year = date('Y');
 
-$today = $year . '-' . $month . '-' . $day;
+    $today = $year . '-' . $month . '-' . $day;
     try {
         if (move_uploaded_file($tempname, '/home/u298126064/domains/adpigo.com/public_html/hospital/uploads/' . $picProfile)) :
-           $query = "INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) VALUES ('".$_POST['fTitle']."','".$path."','".$docid."','".$today."')";
-           $result = $con->query($query);
-           echo "Succefully uploaded";
+            $query = "INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) VALUES ('" . $_POST['fTitle'] . "','" . $path . "','" . $docid . "','" . $today . "')";
+            $result = $con->query($query);
+            echo "Succefully uploaded";
         else :
             echo "Something went wrong";
         endif;
@@ -40,7 +40,7 @@ $today = $year . '-' . $month . '-' . $day;
     }
 
 
-   // print_r($_FILES);
+    // print_r($_FILES);
 
 
     //     $sql=mysqli_query($con,"INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) values('$file_title','$file_url','$patient_id','$uploaded_at')");

@@ -5,14 +5,14 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
-	$testID = $_POST["testID"];
-	$admissionID = $_POST["admissionID"];
-	$date = date("Y-m-d");
-	foreach ($testID as $value) {
-		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
-		//print_r($sql);
-		$result = $con->query($sql);
-	}
+  $testID = $_POST["testID"];
+  $admissionID = $_POST["admissionID"];
+  $date = date("Y-m-d");
+  foreach ($testID as $value) {
+    $sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
+    //print_r($sql);
+    $result = $con->query($sql);
+  }
 }
 if (isset($_POST['submit'])) {
 
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
   $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote,doctorObservation,doctorDiagnosis,doctorID)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn','$doctorObservation','$doctorDiagnosis','$docID')");
   if ($query) {
     echo '<script>alert("Medical history has been added.")</script>';
-    echo "<script>window.location.href ='view-patient.php?viewid=".$vid."'</script>";
+    echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
   } else {
     echo '<script>alert("Something Went Wrong. Please try again")</script>';
   }
@@ -197,47 +197,98 @@ if (isset($_POST['submit'])) {
                       ?>
                     </tbody>
                   </table>
+                  <?php
+
+                  $queryfetchFiles = "SELECT * FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
+                  $res = $con->query($queryfetchFiles);
+
+
+                  ?>
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>
+                          Sr No.
+                        </th>
+                        <th>
+                          File Name
+                        </th>
+                        <th>
+                          Uploaded Date
+                        </th>
+                        <th>
+                          View
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      $i = 0;
+                      while ($row1 = mysqli_fetch_array($res)) {
+                        $i++;
+                      ?>
+                        <tr>
+                          <td>
+                            <?php echo $i; ?>
+                          </td>
+                          <td>
+                            <?php echo $row1['file_title'] ?>
+                          </td>
+                          <td>
+                            <?php echo $row1['uploaded_at'] ?>
+                          </td>
+                          <td>
+                            <a href = "https://adpigo.com/hospital/uploads/ <?php echo $row1['file_url'] ?>">View</a>
+                           
+                          </td>
+                        </tr>
+                      <?php
+                      }
+
+                      ?>
+                    </tbody>
+                  </table>
                   <div id="test"></div>
                   <div>
                     <canvas id="line-chart" width="400" height="100"></canvas>
                     <canvas id="tpr-chart" width="400" height="100"></canvas>
                   </div>
-                  	<!-- Modal -->
-	<div id="testModal" class="modal fade" role="dialog">
-		<div class="modal-dialog">
+                  <!-- Modal -->
+                  <div id="testModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Assign Test Here</h4>
-				</div>
-				<div class="modal-body">
-					<form method="POST" action="">
-						<input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
-						<?php
-						$ret = mysqli_query($con, "select * from laboratoryTestList");
-						$cnt = 1;
-						while ($row = mysqli_fetch_array($ret)) {
-						?>
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Assign Test Here</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form method="POST" action="">
+                            <input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
+                            <?php
+                            $ret = mysqli_query($con, "select * from laboratoryTestList");
+                            $cnt = 1;
+                            while ($row = mysqli_fetch_array($ret)) {
+                            ?>
 
-							<input type="checkbox" id="<?php echo $row['labFormID'] ?>" name="testID[]" value="<?php echo $row['labFormID'] ?>">
-							<label for="<?php echo $row['labFormID'] ?>"> <?php echo $row['labTestName'] ?></label><br>
+                              <input type="checkbox" id="<?php echo $row['labFormID'] ?>" name="testID[]" value="<?php echo $row['labFormID'] ?>">
+                              <label for="<?php echo $row['labFormID'] ?>"> <?php echo $row['labTestName'] ?></label><br>
 
-						<?php
-						}
+                            <?php
+                            }
 
-						?>
-						<input type="submit" name="testAssign" value="Assign Test">
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
+                            ?>
+                            <input type="submit" name="testAssign" value="Assign Test">
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
 
-		</div>
-	</div>
+                    </div>
+                  </div>
                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
