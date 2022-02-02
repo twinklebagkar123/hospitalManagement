@@ -307,7 +307,7 @@ $today = $year . '-' . $month . '-' . $day;
 								</ol>
 
 							</div> 
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p>Witness :<br> (Signature)</p>
 								</div>
@@ -318,7 +318,7 @@ $today = $year . '-' . $month . '-' . $day;
 							</div>
 
 
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p><br>Name</p>
 								</div>
@@ -328,7 +328,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 							</div>
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p>Date :<span id="opD"> </span></p>
 								</div>
@@ -342,7 +342,7 @@ $today = $year . '-' . $month . '-' . $day;
 								<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
 									fully answered all such questions.</p>
 							</div>
-							<div class="row-sm-12">
+							<div class="row">
 								<div class="col-sm-6">
 									<p>date:<span id="fdate1"> </span></p>
 								</div>
