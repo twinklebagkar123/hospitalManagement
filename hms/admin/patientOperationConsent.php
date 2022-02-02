@@ -337,7 +337,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 							</div>
-							<div>
+							<div tyle="margin: 30px 0;"> 
 
 								<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
 									fully answered all such questions.</p>
