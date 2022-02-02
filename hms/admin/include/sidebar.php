@@ -329,7 +329,7 @@
 						</div>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="patientOperationConsent.php">
 						<div class="item-content">
 							<div class="item-media">
@@ -340,7 +340,7 @@
 							</div>
 						</div>
 					</a>
-				</li>
+				</li> -->
 
 			</ul>
 			<!-- end: CORE FEATURES -->
