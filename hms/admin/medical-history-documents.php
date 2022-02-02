@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
     $ext = pathinfo($filename, PATHINFO_EXTENSION);
     echo "ext:" . $ext;
     echo "/n/n" . $_SERVER['DOCUMENT_ROOT'];
-    $path = '/home/u298126064/domains/adpigo.com/public_html/hospital/uploads/' . $picProfile;
+    $path =  $picProfile;
     $month = date('m');
 $day = date('d');
 $year = date('Y');
