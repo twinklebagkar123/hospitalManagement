@@ -282,7 +282,7 @@ if (isset($_POST['submit'])) {
 
 			});
 			$(".reportInfo").click(function() {
-				var admissionid = $(this).data("admissionid");
+				var admissionid = $(this).data("admissionID");
 				var admission = $(this).data("admission");
 				var discharge = $(this).data("discharge");
 				//var admissionid = $(this).data("admissionid");
