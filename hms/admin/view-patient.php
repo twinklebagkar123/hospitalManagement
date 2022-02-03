@@ -152,7 +152,7 @@ if (isset($_POST['submit'])) {
 														?></td>
 													<td><?php echo $row['dateofdischarge']; ?></td>
 													<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
-													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary">View</button></td>
+													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionid="<?php echo $row['unqId']; ?>" class="btn btn-primary reportInfo">View</button></td>
 												</tr>
 											<?php
 												$sr++;
@@ -286,7 +286,7 @@ if (isset($_POST['submit'])) {
 				var admission = $(this).data("admission");
 				var discharge = $(this).data("discharge");
 				//var admissionid = $(this).data("admissionid");
-				console.log(admission);
+				console.log(admissionid);
 				jQuery.ajax({
 					url: "fetchReports.php",
 					data: {

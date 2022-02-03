@@ -7,6 +7,8 @@ if (!empty($_POST['admissionid'])) {
     $discharge = $_POST['discharge'];
     if($discharge == "0000-00-00"){
         $discharge = date("Y-m-d");
+    }else{
+        date('Y-m-d', strtotime($discharge) );
     }
     $vid = $_POST['vid'];
     // BS Dates
@@ -88,6 +90,7 @@ if (!empty($_POST['admissionid'])) {
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
+    print($query);
     $result1 = $con->query($query);
     $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <tr align="center">
