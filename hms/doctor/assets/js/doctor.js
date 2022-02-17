@@ -16,7 +16,14 @@ $(document).ready(function(){
         var frequency = $('#frequency').val();
         var dosage = $('#dosage').val();
         var period = $('#period').val();
-        medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period});
+        var mealCheck = $('#meal_check');
+        var mealDetail = "";
+        if(mealCheck.is(':checked')){
+            mealDetail = "Before Meal";
+        }else{
+            mealDetail = "After Meal";
+        }
+        medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period,mealDetail:mealDetail});
         $('#medicinePrescription').val(JSON.stringify(medList));
         $('#prescribedMedicineList').css("display","block"); 
         $('#medicineList').append(`<tr>
@@ -26,7 +33,9 @@ $(document).ready(function(){
             <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
             padding: 0px 10px;
         ">-</button></div></div>
-            </td></tr>`);
+            </td>
+            <td>${mealDetail}</td>
+            </tr>`);
     });
     $(document).on("click","#pillResult span", function(){
         

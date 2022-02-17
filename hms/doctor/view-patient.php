@@ -373,8 +373,8 @@ if (isset($_POST['submit'])) {
                                       </div>
                                       <div class="col-md-3">
                                         Period
-                                        <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-
+                                        <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                        <input type="checkbox" id="meal_check" autocomplete="off"> Before Meal
                                       </div>
                                     </div>
                                     <div class="row">
