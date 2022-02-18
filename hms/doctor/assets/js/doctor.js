@@ -51,7 +51,7 @@ $(document).ready(function(){
         
         console.log("hello");
         var name = $(this).data("name");
-        $('#autosuggest').val(name);
+        $('.autosuggest').val(name);
         $('.pillResult').empty();
         
         // var $edit = $("#result");
