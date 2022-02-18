@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 	$roomList=$_POST['roomList'];
     $is_fee_distributed=$_POST['is_fee_distributed'];
 
-	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','$roomList','$is_fee_distributed')";
+	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','roomList','$is_fee_distributed')";
 	$con->query($query);
 	$stat = true;
 	if($stat)
