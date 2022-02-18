@@ -186,33 +186,46 @@
 						</li>
 					</ul>
 				</li>
-				<!-- <li>
-					<a href="javascript:void(0)">
+				
+
+				<li>
+					<a href="abc.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-search"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Conatctus Queries </span><i class="icon-arrow"></i>
+								<span class="title"> abc </span>
 							</div>
 						</div>
 					</a>
-					<ul class="sub-menu">
-
-						<li>
-							<a href="unread-queries.php">
-								<span class="title"> Unread Query </span>
-							</a>
-						</li>
-
-						<li>
-							<a href="read-query.php">
-								<span class="title"> Read Query </span>
-							</a>
-						</li>
-
-					</ul>
-				</li> -->
+				</li>
+				<li>
+					<a href="tariff_class_name.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> tariff class name </span>
+							</div>
+						</div>
+					</a>
+				</li>
+				</li>
+				<li>
+					<a href="tariff_cat_name.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Tariff category </span>
+							</div>
+						</div>
+					</a>
+				</li>
+				</li>
 				<li>
 					<a href="doctor-logs.php">
 						<div class="item-content">
