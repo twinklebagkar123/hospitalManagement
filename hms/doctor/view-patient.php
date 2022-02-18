@@ -616,6 +616,7 @@ if (isset($_POST['submit'])) {
           // });
           // $(document).ready(function() {
           $(".autosuggest").on('input', function() {
+            console.log("TYPE... ",$(this).val())
             getAllValues();
           });
           // });
