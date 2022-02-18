@@ -65,12 +65,12 @@ if (isset($_POST['submit'])) {
   <script type="text/javascript">
     function getAllValues() {
       $("#loaderIcon").show();
-      if ($('#autosuggest').val() == "") {
+      if ($('.autosuggest').val() == "") {
         $(".pillResult").html(' ');
       } else {
         jQuery.ajax({
           url: "getAllMedicines.php",
-          data: 'med=' + $("#autosuggest").val(),
+          data: 'med=' + $(".autosuggest").val(),
           type: "POST",
           success: function(data) {
             $(".pillResult").html(data);
@@ -368,7 +368,7 @@ if (isset($_POST['submit'])) {
                                       <div class="row">
                                         <div class="col-md-3">
                                           Medicine
-                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg autosuggest" autocomplete="off" style="margin-bottom: 5px;">
                                           <div class="subDiv pillResult"></div>
                                         </div>
                                         <div class="col-md-3">
@@ -383,7 +383,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Period
-                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
                                     </div>
@@ -391,7 +391,7 @@ if (isset($_POST['submit'])) {
                                       <div class="row">
                                         <div class="col-md-3">
                                           Medicine
-                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg autosuggest " autocomplete="off" style="margin-bottom: 5px;">
                                           <div  class="subDiv pillResult"></div>
                                         </div>
                                         <div class="col-md-3">
@@ -406,7 +406,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Period
-                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                           <input type="checkbox" id="meal_check" autocomplete="off"> Before Meal
                                         </div>
                                       </div>
@@ -615,7 +615,7 @@ if (isset($_POST['submit'])) {
           //   $(this)
           // });
           // $(document).ready(function() {
-          $("#autosuggest").on('input', function() {
+          $(".autosuggest").on('input', function() {
             getAllValues();
           });
           // });
