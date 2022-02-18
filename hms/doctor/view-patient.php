@@ -364,6 +364,9 @@ if (isset($_POST['submit'])) {
                                     </div>
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
+                                    <div class="hourly_prescription" style="display: none;">
+                                      
+                                    </div>
                                     <div class="general_prescription" style="display: none;">
                                       <div class="row">
                                         <div class="col-md-3">

@@ -214,14 +214,6 @@
 															<?php } ?>
 														</select>
 													</div>
-
-
-
-
-
-
-
-
 													<div class="form-group">
 														<label for="AppointmentDate">
 															Date of Admission

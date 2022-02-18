@@ -11,6 +11,16 @@ $(document).ready(function(){
         $('#medicinePrescription').val(JSON.stringify(medList));
         $(this).parent().parent().closest('tr').remove();
     });
+    $(document).on("click","#general_prescription", function(){
+        $('.general_prescription').css("display","block");
+        $('#medicinePrescriptionType').val("general_prescription");
+        $('.hourly_prescription').css("display","none");
+    });
+    $(document).on("click","#hourly_prescription", function(){
+        $('.general_prescription').css("display","none");
+        $('#medicinePrescriptionType').val("hourly_prescription");
+        $('.hourly_prescription').css("display","block");
+    });
     $(document).on("click","#addMedicine", function(){
         var medicineName = $('#autosuggest').val();
         var frequency = $('#frequency').val();
