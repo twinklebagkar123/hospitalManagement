@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
           data: 'med=' + em.val(),
           type: "POST",
           success: function(data) {
-            em.html(data);
+            $('.pillResult').html(data);
             $("#loaderIcon").hide();
 
           },
