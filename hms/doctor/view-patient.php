@@ -76,7 +76,6 @@ if (isset($_POST['submit'])) {
           success: function(data) {
             $('.pillResult').html(data);
             $("#loaderIcon").hide();
-
           },
           error: function() {}
         });
