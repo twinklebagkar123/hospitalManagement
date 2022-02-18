@@ -64,6 +64,7 @@ if (isset($_POST['submit'])) {
 <body>
   <script type="text/javascript">
     function getAllValues(em) {
+      console.log("TYPE... ",em.val())
       $("#loaderIcon").show();
       if (em.val() == "") {
         $(".pillResult").html(' ');
@@ -616,7 +617,7 @@ if (isset($_POST['submit'])) {
           // });
           // $(document).ready(function() {
           $(".autosuggest").on('input', function() {
-            console.log("TYPE... ",$(this).val())
+           
             getAllValues($(this));
           });
           // });
