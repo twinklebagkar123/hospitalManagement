@@ -63,17 +63,17 @@ if (isset($_POST['submit'])) {
 
 <body>
   <script type="text/javascript">
-    function getAllValues() {
+    function getAllValues(em) {
       $("#loaderIcon").show();
-      if ($('.autosuggest').val() == "") {
+      if (em.val() == "") {
         $(".pillResult").html(' ');
       } else {
         jQuery.ajax({
           url: "getAllMedicines.php",
-          data: 'med=' + $(".autosuggest").val(),
+          data: 'med=' + em.val(),
           type: "POST",
           success: function(data) {
-            $(".pillResult").html(data);
+            em.html(data);
             $("#loaderIcon").hide();
 
           },
@@ -617,7 +617,7 @@ if (isset($_POST['submit'])) {
           // $(document).ready(function() {
           $(".autosuggest").on('input', function() {
             console.log("TYPE... ",$(this).val())
-            getAllValues();
+            getAllValues($(this));
           });
           // });
         });
