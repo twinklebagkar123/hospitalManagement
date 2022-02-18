@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
 	$stat = true;
 	if($stat)
 	{
-		echo "<script>alert('Successfully Registered. You can login now');</script>";
+		echo "<script>alert('Successfully Added.');</script>";
 	}
 }
 ?>
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
 									<div class="col-lg-8 col-md-12">
 										<div class="panel panel-white">
 											<div class="panel-heading">
-												<h5 class="panel-title">Traffic Card Of Hospital</h5>
+												<h5 class="panel-title"></h5>
 											</div>
                                             <form method="POST" name="submit">
 											<div class="form-group">
