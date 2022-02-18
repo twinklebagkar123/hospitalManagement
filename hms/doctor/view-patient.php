@@ -305,6 +305,7 @@ if (isset($_POST['submit'])) {
                             <form method="post" name="submit">
                               <input type="hidden" id="admissionIDHis" name="admissionID" value="">
                               <input type="hidden" id="medicinePrescription" name="medicinePrescription" value="">
+                              <input type="hidden" id="medicinePrescriptionType" name="medicinePrescriptionType" value="general_prescription">
 
                               <tr>
                                 <th>Blood Pressure :</th>
@@ -353,33 +354,43 @@ if (isset($_POST['submit'])) {
                                 <th>Prescription :</th>
                                 <td>
                                   <div class="wrapperDiv">
-                                    <!-- <div id="medicalResult"></div>
-                                    <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="row">
-                                      <div class="col-md-3">
-                                        Medicine
-                                        <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                        <div id="pillResult" class="subDiv"></div>
+                                      <div class="col-md-6">
+                                        <button type="button" id="general_prescription" class="btn btn-primary">General Prescription</button>
                                       </div>
-                                      <div class="col-md-3">
-                                        Frequency
-                                        <input type="text" id="frequency" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
-
-                                      </div>
-                                      <div class="col-md-3">
-                                        Dosage
-                                        <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
-
-                                      </div>
-                                      <div class="col-md-3">
-                                        Period
-                                        <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
-                                        <input type="checkbox" id="meal_check" autocomplete="off"> Before Meal
+                                      <div class="col-md-6">
+                                        <button type="button" id="hourly_prescription" class="btn btn-primary">Hourly Prescription</button>
                                       </div>
                                     </div>
-                                    <div class="row">
-                                      <div class="col-md-12 text-right">
-                                        <button type="button" id="addMedicine" class="btn btn-primary">+ Medicine</button>
+                                    <!-- <div id="medicalResult"></div>
+                                    <input type="hidden" name="pres" id="result" value=""> -->
+                                    <div class="general_prescription" style="display: none;">
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          Medicine
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                          <div id="pillResult" class="subDiv"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          Frequency
+                                          <input type="text" id="frequency" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Dosage
+                                          <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Period
+                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="checkbox" id="meal_check" autocomplete="off"> Before Meal
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 text-right">
+                                          <button type="button" id="addMedicine" class="btn btn-primary">+ Medicine</button>
+                                        </div>
                                       </div>
                                     </div>
                                     <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
