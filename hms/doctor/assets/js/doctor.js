@@ -47,12 +47,12 @@ $(document).ready(function(){
             <td>${mealDetail}</td>
             </tr>`);
     });
-    $(document).on("click","#pillResult span", function(){
+    $(document).on("click",".pillResult span", function(){
         
         console.log("hello");
         var name = $(this).data("name");
         $('#autosuggest').val(name);
-        $('#pillResult').empty();
+        $('.pillResult').empty();
         
         // var $edit = $("#result");
         // var curValue =  $("#result").val();

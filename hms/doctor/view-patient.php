@@ -66,14 +66,14 @@ if (isset($_POST['submit'])) {
     function getAllValues() {
       $("#loaderIcon").show();
       if ($('#autosuggest').val() == "") {
-        $("#pillResult").html(' ');
+        $(".pillResult").html(' ');
       } else {
         jQuery.ajax({
           url: "getAllMedicines.php",
           data: 'med=' + $("#autosuggest").val(),
           type: "POST",
           success: function(data) {
-            $("#pillResult").html(data);
+            $(".pillResult").html(data);
             $("#loaderIcon").hide();
 
           },
@@ -365,14 +365,34 @@ if (isset($_POST['submit'])) {
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="hourly_prescription" style="display: none;">
-                                      
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          Medicine
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                          <div class="subDiv pillResult"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          Start From
+                                          <input type="text" id="start_from" placeholder="10:00 AM" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Dosage
+                                          <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Period
+                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="general_prescription" style="display: none;">
                                       <div class="row">
                                         <div class="col-md-3">
                                           Medicine
                                           <input type="text" placeholder="Type here..." class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
-                                          <div id="pillResult" class="subDiv"></div>
+                                          <div  class="subDiv pillResult"></div>
                                         </div>
                                         <div class="col-md-3">
                                           Frequency
