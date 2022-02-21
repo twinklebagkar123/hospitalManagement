@@ -22,7 +22,7 @@ $(document).ready(function(){
         $('#medicineList').append(`<tr>
             <td>${medicineName}</td>
             <td>${frequency}</td>
-            <td>${dosage}</td>
+            <td>${dosage}</td> 
             <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
             padding: 0px 10px;
         ">-</button></div></div>

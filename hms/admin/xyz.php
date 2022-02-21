@@ -92,6 +92,8 @@ if(isset($_POST['submit']))
 															<?php } ?>
 														</select>
 													</div>
+
+
 													
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -99,6 +101,79 @@ if(isset($_POST['submit']))
 													</button>
 												</form>
 											</div>
+                                            <div class="row">
+									<div class="col-md-12">
+										<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Ambulance</span></h5>
+										<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
+											<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+										<table class="table table-hover" id="sample-table-1">
+											<thead>
+												<tr>
+													<th class="center">#</th>
+													<th>name</th>
+													<th>Price</th>
+													<th>fee distributed</th>
+
+													<th>Action</th>
+
+												</tr>
+											</thead>
+											<tbody id="delete">
+												<?php
+												$sql = mysqli_query($con, "SELECT * FROM `tariff_room_info`");
+												$cnt = 1;
+												while ($row = mysqli_fetch_array($sql)) {
+												?>
+
+													<tr>
+														<td class="center"><?php echo $cnt; ?>.</td>
+														<td><?php echo $row['tariff_room_name']; ?></td>
+														<td><?php echo $row['tariff_room_fee']; ?></td>
+														<td><?php echo $row['tariff_fee_distribution']; ?></td>
+
+														<td>
+															<div class="visible-md visible-lg hidden-sm hidden-xs">
+																<a href="editAmbulance.php?id=<?php echo $row['id']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+																<!-- add-medicine.php?code=<?php //echo $row['code']
+																							?>&del=delete										 -->
+																<a href="#" class="btn btn-transparent btn-xs tooltips dellClass " data-id='<?php echo $row['id']; ?>' id="del" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+															</div>
+															<div class="visible-xs visible-sm hidden-md hidden-lg">
+																<div class="btn-group" dropdown is-open="status.isopen">
+																	<button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle>
+																		<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
+																	</button>
+																	<ul class="dropdown-menu pull-right dropdown-light" role="menu">
+																		<li>
+																			<a href="#">
+																				Edit
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				Share
+																			</a>
+																		</li>
+																		<li>
+																			<a href="#">
+																				Remove
+																			</a>
+																		</li>
+																	</ul>
+																</div>
+															</div>
+														</td>
+													</tr>
+
+												<?php
+													$cnt = $cnt + 1;
+												} ?>
+
+
+											</tbody>
+										</table>
+									</div>
+								</div>
 										</div>
 									</div>
 
