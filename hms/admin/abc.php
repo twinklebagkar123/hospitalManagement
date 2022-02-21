@@ -61,6 +61,7 @@ if(isset($_POST['submit']))
 												<h5 class="panel-title"></h5>
 											</div>
                                             <form method="POST" name="submit">
+											<input type="hidden" id="roomList" name="roomList" value="">
 											<div class="form-group">
 														<label for="doctor">
 															Tariff Category
@@ -117,7 +118,7 @@ if(isset($_POST['submit']))
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="row">
-                                    <input type="hidden" id="roomList" name="roomList" value="">
+                                  
                                       <div class="col-md-4">
                                         HOSPITALITION
                                         <input type="text" id="hospitalition" placeholder="hospitalition Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
