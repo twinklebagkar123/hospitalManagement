@@ -61,14 +61,20 @@ if(isset($_POST['submit']))
 
 												<form role="form" action="" method="post" >
 
-													<div class="form-group">
-														<label for="name">
-                                                        tariff Class Name:
+                                                <div class="form-group">
+														<label for="doctor">
+															Tariff Class
 														</label>
-
-														<input type="text" id="tariff_class_name" name="tariff_class_name" class="form-control" placeholder="Enter tariff class Name" required="true" >
-													
-													</div>
+														<select name="tariff_class_name" class="form-control" id="tariff_class_name" required="true">
+															<option value="">Select Tariff Class</option>
+															<?php $ret = mysqli_query($con, "SELECT * FROM `tariff_class` where 1");
+															while ($row = mysqli_fetch_array($ret)) {
+															?>
+																<option value="<?php echo htmlentities($row['tariff_class_id']); ?>">
+																	<?php echo htmlentities($row['tariff_class_name']); ?>
+																</option>
+															<?php } ?>
+														</select>
 													
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
