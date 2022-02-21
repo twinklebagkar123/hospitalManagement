@@ -75,6 +75,23 @@ if(isset($_POST['submit']))
 																</option>
 															<?php } ?>
 														</select>
+                                                </div>
+
+                                                <div class="form-group">
+														<label for="doctor">
+															Tariff Category
+														</label>
+														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
+															<option value="">Select Tariff Category</option>
+															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
+															while ($row = mysqli_fetch_array($ret)) {
+															?>
+																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>">
+																	<?php echo htmlentities($row['tariff_cat_name']); ?>
+																</option>
+															<?php } ?>
+														</select>
+													</div>
 													
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
