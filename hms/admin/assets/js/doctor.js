@@ -47,6 +47,7 @@ $(document).ready(function(){
             <td>${hospitalition}</td>
             <td>${medofficer}</td>
             <td>${nursing}</td>
+            
            </tr>`);
     });
 
