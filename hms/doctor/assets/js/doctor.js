@@ -21,7 +21,7 @@ $(document).ready(function(){
         $('#medicinePrescriptionType').val("hourly_prescription");
         $('.hourly_prescription').css("display","block");
     });
-    $(document).on("click","#addMedicine", function(){
+    $(document).on("click",".addMedicineBtn", function(){
         var medicineName = $('#autosuggest').val();
         var prescription_type = $('#medicinePrescriptionType').val();
         if(prescription_type == "hourly_prescription"){

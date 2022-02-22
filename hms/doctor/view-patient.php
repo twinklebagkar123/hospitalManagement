@@ -386,6 +386,11 @@ if (isset($_POST['submit'])) {
                                           <input type="text" id="interval_hourly" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
+                                      <div class="row">
+                                        <div class="col-md-12 text-right">
+                                          <button type="button" class="btn btn-primary addMedicineBtn">+ Medicine</button>
+                                        </div>
+                                      </div>
                                     </div>
                                     <div class="general_prescription" style="display: none;">
                                       <div class="row">
@@ -412,7 +417,7 @@ if (isset($_POST['submit'])) {
                                       </div>
                                       <div class="row">
                                         <div class="col-md-12 text-right">
-                                          <button type="button" id="addMedicine" class="btn btn-primary">+ Medicine</button>
+                                          <button type="button" class="btn btn-primary addMedicineBtn">+ Medicine</button>
                                         </div>
                                       </div>
                                     </div>
