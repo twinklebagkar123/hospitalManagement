@@ -5,19 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 $vid=intval($_GET['tariff_room_id']);// get room id
-if(isset($_POST['']))
-{
-	$tclassname=$_POST['tariff_class_name'];
-	
 
-	$query = "INSERT INTO `tariff_class` ( `tariff_class_name`) VALUES ('$tclassname');";
-	$con->query($query);
-	$stat = true;
-	if($stat)
-	{
-		echo "<script>alert('Successfully Added.');</script>";
-	}
-}
 
 ?>
 <!DOCTYPE html>
@@ -114,6 +102,7 @@ echo "category id: ".$sdata." class id : ".$cdata;
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
 <thead>
+    
 <tr>
 
 <th>name</th>
@@ -123,7 +112,7 @@ echo "category id: ".$sdata." class id : ".$cdata;
 <th>Action</th>
 </tr>
 </thead>
-<tbody>
+<tbody id="hello"> 
 <?php
 
 $sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id = '$sdata' AND tariff_class_type_id = '$cdata'");
@@ -215,8 +204,8 @@ $cnt=$cnt+1;
 				FormElements.init();
 			});
             $(document).on("click","#selectId", function(){
-        console.log("hello");
         
+        $('#hello option:selected', this ).remove();
     
         
         
