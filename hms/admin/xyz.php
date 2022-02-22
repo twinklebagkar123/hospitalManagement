@@ -143,7 +143,7 @@ while($row=mysqli_fetch_array($sql))
 </td>
 <td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="button"></i></a>
+<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="btn btn-o btn-primary"></i></a>
 
 </td>
 </tr>
