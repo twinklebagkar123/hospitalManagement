@@ -145,11 +145,8 @@ while($row=mysqli_fetch_array($sql))
 
 </td>
 <td>
-<div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
-            padding: 0px 10px;
-        ">-</button></div></div>
+<button  id="remove_medicine" class=" btn btn-primary" style="padding: 0px 10px;">-</button>
            
-<a href="xyz.php?tariff_room_id=<?php echo $row['tariff_room_id'];?>"><i class="btn btn-o btn-primary"></i></a>
 
 </td>
 </tr>
