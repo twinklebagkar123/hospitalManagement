@@ -136,14 +136,14 @@ while($row=mysqli_fetch_array($sql))
 	
 
 <td><?php echo $row['tariff_room_name'];?></td>
-<td><?php echo $row['is_fee_distributed'];?></td>
+<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">view</button></td>
 <td><?php echo $row['tariff_room_fee'];?></td>
 
 
 </td>
 <td>
 
-<a href="view-patient.php?viewid=<?php echo $row['ID'];?>"><i class="btn btn-o btn-primary"></i></a>
+<a href="view-patient.php?tariff_room_id=<?php echo $row['tariff_room_id'];?>"><i class="btn btn-o btn-primary"></i></a>
 
 </td>
 </tr>
