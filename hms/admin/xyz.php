@@ -103,10 +103,11 @@ if(isset($_POST['']))
 												</form>
 											</div>
                                             <?php
-if(isset($_POST['tariff_cat_id']))
+if(isset($_POST['submit']))
 { 
 
 $sdata=$_POST['tariff_cat_id'];
+$cdata=$_POST['tariff_class_type_id'];
   ?>
   <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
 <table class="table table-hover" id="sample-table-1">
@@ -123,7 +124,7 @@ $sdata=$_POST['tariff_cat_id'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id = '$sdata'");
+$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id = '$sdata' and tariff_class_type_id = '$cdata'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
