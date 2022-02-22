@@ -22,11 +22,19 @@ $(document).ready(function(){
         $('#medicineList').append(`<tr>
             <td>${medicineName}</td>
             <td>${frequency}</td>
-            <td>${dosage}</td>
+            <td>${dosage}</td>    
             <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
             padding: 0px 10px;
         ">-</button></div></div>
             </td></tr>`);
+    });
+    $(document).on("click","#remove_medicine", function(){
+        var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
+        var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
+        medList.splice(medIndex, 1);
+        
+        $('#room').val(JSON.stringify(medList));
+        $(this).parent().parent().closest('tr').remove();
     });
     $(document).on("click","#addMore", function(){
         var hospitalition = $('#hospitalition').val();
@@ -39,8 +47,10 @@ $(document).ready(function(){
             <td>${hospitalition}</td>
             <td>${medofficer}</td>
             <td>${nursing}</td>
+            
            </tr>`);
     });
+    
 
 
 

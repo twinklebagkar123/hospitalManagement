@@ -61,8 +61,9 @@ if(isset($_POST['submit']))
 												<h5 class="panel-title"></h5>
 											</div>
                                             <form method="POST" name="submit">
+											<input type="hidden" id="roomList" name="roomList" value="">
 											<div class="form-group">
-														<label for="doctor">
+														<label for="">
 															Tariff Category
 														</label>
 														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
@@ -117,7 +118,7 @@ if(isset($_POST['submit']))
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="row">
-                                    <input type="hidden" id="roomList" name="roomList" value="">
+                                  
                                       <div class="col-md-4">
                                         HOSPITALITION
                                         <input type="text" id="hospitalition" placeholder="hospitalition Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
@@ -156,13 +157,15 @@ if(isset($_POST['submit']))
                                         </table>
                                       </div>
                                     </div>
-                                    <div class="form-group">
-														<label>
-                                                        is_fee_distributed:
+                                    
+													<div class="form-group">
+														<label for="">
+															Tariff Category
 														</label>
-														<input type="text" name="is_fee_distributed" class="form-control" placeholder="1/0" required="true">
-														
-
+														<select name="is_fee_distributed" class="form-control" id="tariff_cat_id" required="true">
+															<option value="1">yes</option>
+															<option value="0">no</option>
+														</select>
 													</div>
 
                                   </div>

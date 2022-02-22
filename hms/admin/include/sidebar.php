@@ -187,7 +187,18 @@
 					</ul>
 				</li>
 				
-
+				<li>
+					<a href="xyz.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-search"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> xyz </span>
+							</div>
+						</div>
+					</a>
+				</li>
 				<li>
 					<a href="abc.php">
 						<div class="item-content">

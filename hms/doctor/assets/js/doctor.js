@@ -69,6 +69,7 @@ $(document).ready(function(){
                 </tr>`);
         }
     });
+    
     $(document).on("click",".pillResult span", function(){
         
         console.log("hello");
