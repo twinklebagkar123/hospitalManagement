@@ -132,7 +132,7 @@ while($row=mysqli_fetch_array($sql))
 ?>
 <tr>
 
-<td class="hidden-xs"> <?php echo $row['ID'];?> </td>
+
 	
 
 <td><?php echo $row['tariff_room_name'];?></td>
