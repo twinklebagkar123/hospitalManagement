@@ -216,7 +216,7 @@ $cnt=$cnt+1;
 				FormElements.init();
 			});
             $(document).on("click","#selectId", function(){
-        console.log("hello");
+        
         $('#hello option:selected', this ).remove();
     
         
