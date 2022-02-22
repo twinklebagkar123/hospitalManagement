@@ -116,7 +116,7 @@ echo "category id: ".$sdata." class id : ".$cdata;
 <thead>
     
 <tr>
-<th>ID</th>
+
 <th>name</th>
 <th>Fee distribution</th>
 <th>total price</th>
