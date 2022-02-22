@@ -217,7 +217,7 @@ $cnt=$cnt+1;
 			});
             $(document).on("click","#selectId", function(){
         console.log("hello");
-        
+        $('option:selected', this ).remove();
     
         
         
