@@ -5,19 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 $vid=intval($_GET['tariff_room_id']);// get room id
-if(isset($_POST['']))
-{
-	$tclassname=$_POST['tariff_class_name'];
-	
 
-	$query = "INSERT INTO `tariff_class` ( `tariff_class_name`) VALUES ('$tclassname');";
-	$con->query($query);
-	$stat = true;
-	if($stat)
-	{
-		echo "<script>alert('Successfully Added.');</script>";
-	}
-}
 
 ?>
 <!DOCTYPE html>
