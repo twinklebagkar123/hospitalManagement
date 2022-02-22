@@ -107,10 +107,10 @@ if(isset($_POST['tariff_cat_id']))
 { 
 
 $sdata=$_POST['tariff_cat_id'];
-$cat=$_POST['tariff_cat_name'];
+//$cat=$_POST['tariff_cat_name'];
 $cdata=$_POST['tariff_class_id'];
   ?>
-  <h4 align="center">Result against "<?php echo $cat;?>" keyword </h4>
+  <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
