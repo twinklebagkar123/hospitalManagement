@@ -103,12 +103,12 @@ if(isset($_POST['']))
 												</form>
 											</div>
                                             <?php
-if(isset($_POST['tariff_cat_id']['tariff_class_id']))
+if(isset($_POST['tariff_cat_id']))
 { 
 
 $sdata=$_POST['tariff_cat_id'];
 //$cat=$_POST['tariff_cat_name'];
-$cdata=$_POST['tariff_class_id'];
+$cdata=$_POST['tariff_class_name'];
 echo "category id: ".$sdata." class id : ".$cdata;
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
