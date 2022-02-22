@@ -114,8 +114,13 @@ echo "category id: ".$sdata." class id : ".$cdata;
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
 <thead>
+<?php
+                      $i = 0;
+                      while ($row1 = mysqli_fetch_array($res)) {
+                        $i++;
+                      ?>
 <tr>
-
+<th>ID</th>
 <th>name</th>
 <th>Fee distribution</th>
 <th>total price</th>
@@ -137,7 +142,9 @@ while($row=mysqli_fetch_array($sql))
 
 
 	
-
+<td>
+                            <?php echo $i; ?>
+                          </td>
 <td><?php echo $row['tariff_room_name'];?></td>
 <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">view</button></td>
 <td><?php echo $row['tariff_room_fee'];?></td>
