@@ -139,7 +139,7 @@ while($row=mysqli_fetch_array($sql))
 <td><?php echo $row['is_fee_distributed'];?></td>
 <td><?php echo $row['tariff_room_fee'];?></td>
 
-<td><?php echo $row['UpdationDate'];?>
+
 </td>
 <td>
 
