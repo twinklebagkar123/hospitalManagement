@@ -108,7 +108,7 @@ if(isset($_POST['tariff_cat_id']))
 
 $sdata=$_POST['tariff_cat_id'];
 $cat=$_POST['tariff_cat_name'];
-$cdata=$_POST['tariff_class_type_id'];
+$cdata=$_POST['tariff_class_id'];
   ?>
   <h4 align="center">Result against "<?php echo $cat;?>" keyword </h4>
 <table class="table table-hover" id="sample-table-1">
@@ -125,7 +125,7 @@ $cdata=$_POST['tariff_class_type_id'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id = '$sdata' and tariff_class_type_id = '$cdata'");
+$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id = '$sdata' AND tariff_class_type_id = '$cdata'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
