@@ -23,29 +23,51 @@ $(document).ready(function(){
     });
     $(document).on("click","#addMedicine", function(){
         var medicineName = $('#autosuggest').val();
-        var frequency = $('#frequency').val();
-        var dosage = $('#dosage').val();
-        var period = $('#period').val();
-        var mealCheck = $('#meal_check');
-        var mealDetail = "";
-        if(mealCheck.is(':checked')){
-            mealDetail = "Before Meal";
-        }else{
-            mealDetail = "After Meal";
+        var prescription_type = $('#medicinePrescriptionType').val();
+        if(prescription_type == "hourly_prescription"){
+            var start_from = $('#start_from').val();
+            var dosage = $('#dosage').val();
+            var interval_hourly = $('#interval_hourly');
+            medList.push({medicineName: medicineName,start_from: start_from,dosage: dosage,interval_hourly: interval_hourly,prescription_type:prescription_type});
+            $('#medicinePrescription').val(JSON.stringify(medList));
+            $('#prescribedMedicineList').css("display","none"); 
+            $('#prescribedMedicineListHourly').css("display","block"); 
+            $('#medicineList').append(`<tr>
+                <td>${medicineName}</td>
+                <td>${start_from}</td>
+                <td>${dosage}</td>
+                <td><div class="row"><div class="col-md-6">${interval_hourly}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
+                padding: 0px 10px;
+            ">-</button></div></div>
+                </td>
+                </tr>`);
         }
-        medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period,mealDetail:mealDetail});
-        $('#medicinePrescription').val(JSON.stringify(medList));
-        $('#prescribedMedicineList').css("display","block"); 
-        $('#medicineList').append(`<tr>
-            <td>${medicineName}</td>
-            <td>${frequency}</td>
-            <td>${dosage}</td>
-            <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
-            padding: 0px 10px;
-        ">-</button></div></div>
-            </td>
-            <td>${mealDetail}</td>
-            </tr>`);
+        else{
+            var frequency = $('#frequency').val();
+            var dosage = $('#dosage').val();
+            var period = $('#period').val();
+            var mealCheck = $('#meal_check');
+            var mealDetail = "";
+            if(mealCheck.is(':checked')){
+                mealDetail = "Before Meal";
+            }else{
+                mealDetail = "After Meal";
+            }
+            medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period,mealDetail:mealDetail,prescription_type:prescription_type});
+            $('#medicinePrescription').val(JSON.stringify(medList));
+            $('#prescribedMedicineList').css("display","block"); 
+            $('#prescribedMedicineListHourly').css("display","none"); 
+            $('#medicineList').append(`<tr>
+                <td>${medicineName}</td>
+                <td>${frequency}</td>
+                <td>${dosage}</td>
+                <td><div class="row"><div class="col-md-6">${period}</div><div class="col-md-6 text-right"><button  id="remove_medicine" class=" btn btn-primary" style="
+                padding: 0px 10px;
+            ">-</button></div></div>
+                </td>
+                <td>${mealDetail}</td>
+                </tr>`);
+        }
     });
     $(document).on("click",".pillResult span", function(){
         
