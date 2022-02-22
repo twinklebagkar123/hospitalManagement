@@ -214,6 +214,13 @@ $cnt=$cnt+1;
 				Main.init();
 				FormElements.init();
 			});
+            $(document).on("click","#selectId", function(){
+        console.log("hello");
+        
+    
+        
+        
+    });
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->

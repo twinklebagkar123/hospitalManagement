@@ -50,13 +50,7 @@ $(document).ready(function(){
             
            </tr>`);
     });
-    $(document).on("click","#selectId", function(){
-        
-        
     
-        
-        
-    });
 
 
 
