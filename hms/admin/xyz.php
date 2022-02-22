@@ -123,7 +123,7 @@ $sdata=$_POST['tariff_cat_name'];
 <tbody>
 <?php
 
-$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id like '%$sdata%'");
+$sql=mysqli_query($con,"select * from tariff_room_info where tariff_cat_id like '$sdata'");
 $num=mysqli_num_rows($sql);
 if($num>0){
 $cnt=1;
