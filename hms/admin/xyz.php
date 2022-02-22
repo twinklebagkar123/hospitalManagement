@@ -103,13 +103,14 @@ if(isset($_POST['']))
 												</form>
 											</div>
                                             <?php
-if(isset($_POST['submit']))
+if(isset($_POST['tariff_cat_id']))
 { 
 
 $sdata=$_POST['tariff_cat_id'];
+$cat=$_POST['tariff_cat_name'];
 $cdata=$_POST['tariff_class_type_id'];
   ?>
-  <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
+  <h4 align="center">Result against "<?php echo $cat;?>" keyword </h4>
 <table class="table table-hover" id="sample-table-1">
 <thead>
 <tr>
