@@ -4,6 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+$vid=intval($_GET['tariff_room_id']);// get room id
 if(isset($_POST['']))
 {
 	$tclassname=$_POST['tariff_class_name'];
@@ -102,7 +103,7 @@ if(isset($_POST['']))
 												</form>
 											</div>
                                             <?php
-if(isset($_POST['tariff_cat_name']))
+if(isset($_POST['tariff_cat_id']))
 { 
 
 $sdata=$_POST['searchdata'];
