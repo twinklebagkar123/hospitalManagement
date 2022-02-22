@@ -106,7 +106,7 @@ if(isset($_POST['']))
 if(isset($_POST['tariff_cat_id']))
 { 
 
-$sdata=$_POST['searchdata'];
+$sdata=$_POST['tariff_cat_name'];
   ?>
   <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>
 <table class="table table-hover" id="sample-table-1">
