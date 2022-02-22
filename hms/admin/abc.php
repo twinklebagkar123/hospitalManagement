@@ -157,14 +157,7 @@ if(isset($_POST['submit']))
                                         </table>
                                       </div>
                                     </div>
-                                    <div class="form-group">
-														<label>
-                                                        is_fee_distributed:
-														</label>
-														<input type="text" name="is_fee_distributed" class="form-control" placeholder="1/0" required="true">
-														
-
-													</div>
+                                    
 													<div class="form-group">
 														<label for="">
 															Tariff Category
