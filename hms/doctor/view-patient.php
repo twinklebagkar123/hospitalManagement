@@ -382,8 +382,8 @@ if (isset($_POST['submit'])) {
 
                                         </div>
                                         <div class="col-md-3">
-                                          Period
-                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          Interval
+                                          <input type="text" id="interval_hourly" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
                                     </div>
@@ -425,6 +425,23 @@ if (isset($_POST['submit'])) {
                                               <th>Frequency</th>
                                               <th>Dosage</th>
                                               <th>Period</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody id="medicineList">
+
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="row" id="prescribedMedicineListHourly" style="display: none; margin-top: 10px;">
+                                      <div class="col-md-12">
+                                        <table class="table table-bordered table-hover data-tables">
+                                          <thead>
+                                            <tr>
+                                              <th>Medicine</th>
+                                              <th>Start From</th>
+                                              <th>Dosage</th>
+                                              <th>Interval</th>
                                             </tr>
                                           </thead>
                                           <tbody id="medicineList">
