@@ -47,6 +47,7 @@ $(document).ready(function(){
             <td>${mealDetail}</td>
             </tr>`);
     });
+    
     $(document).on("click",".pillResult span", function(){
         
         console.log("hello");
