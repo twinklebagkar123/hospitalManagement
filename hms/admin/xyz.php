@@ -103,7 +103,7 @@ if(isset($_POST['']))
 												</form>
 											</div>
                                             <?php
-if(isset($_POST['tariff_cat_id']))
+if(isset($_POST['tariff_cat_id']['tariff_class_id']))
 { 
 
 $sdata=$_POST['tariff_cat_id'];
