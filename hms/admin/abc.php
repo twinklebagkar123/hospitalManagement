@@ -10,10 +10,10 @@ if(isset($_POST['submit']))
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
-	$roomList=$_POST['roomList'];
+	$feeDistribution=$_POST['feeDistribution'];
     $is_fee_distributed=$_POST['is_fee_distributed'];
 
-	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','roomList','$is_fee_distributed')";
+	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','$feeDistribution','$is_fee_distributed')";
 	$con->query($query);
 	$stat = true;
 	if($stat)
@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
 												<h5 class="panel-title"></h5>
 											</div>
                                             <form method="POST" name="submit">
-											<input type="hidden" id="roomList" name="roomList" value="">
+											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
 															Tariff Category
