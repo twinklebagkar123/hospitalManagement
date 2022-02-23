@@ -231,7 +231,10 @@ $cnt=$cnt+1;
     $(document).on("click","#selectId", function(){
         $('.abc').css("display","none");
         
-        $('.xyz').css("display","block");
+
+
+
+       
         var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
         var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
         medList.splice(medIndex, 1);
@@ -240,6 +243,15 @@ $cnt=$cnt+1;
       var id=$(this).parent().parent().closest('tr').children().first()[0].innerText;  
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
+
+      $('.xyz').val("roomName");
+
+
+      $('.xyz').css("display","block");
+
+
+
+
     });
             });
           
