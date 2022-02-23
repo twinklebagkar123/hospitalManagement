@@ -22,9 +22,10 @@ $(document).ready(function(){
         $('.hourly_prescription').css("display","block");
     });
     $(document).on("click",".addMedicineBtn", function(){
-        var medicineName = $('#autosuggest').val();
+        
         var prescription_type = $('#medicinePrescriptionType').val();
         if(prescription_type == "hourly_prescription"){
+            var medicineName = $('.hourly_prescription .autosuggest').val();
             var start_from = $('#start_from').val();
             var dosage = $('#dosage').val();
             var interval_hourly = $('#interval_hourly');
@@ -43,6 +44,7 @@ $(document).ready(function(){
                 </tr>`);
         }
         else{
+            var medicineName = $('.general_prescription .autosuggest').val();
             var frequency = $('#frequency').val();
             var dosage = $('#dosage').val();
             var period = $('#period').val();
