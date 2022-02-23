@@ -214,22 +214,24 @@ check_login(); ?>
                 </div>
             </header>
             <div class="prescription">
+                <?php echo $medicalPres[0]->prescription_type; ?>
                 <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
-                    <?php if($medicalPres[0]->prescription_type == "general_prescription"): ?>
-                    <tr>
+                    <?php if($medicalPres[0]->prescription_type == "hourly_prescription"): ?>
+                        <th></th>
+                        <th>Name of the drug</th>
+                        <th>Start From </th>
+                        <th>Dosage</th>
+                        <th>Interval</th>
+                    <?php else: ?>
+                        <tr>
                         <th></th>
                         <th>Name of the drug</th>
                         <th>Dosage</th>
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
-                    <?php else: ?>
-                        <th></th>
-                        <th>Name of the drug</th>
-                        <th>Start From <?php echo $medicalPres[0]->prescription_type; ?></th>
-                        <th>Dosage</th>
-                        <th>Interval</th>
+                        
                     <?php endif; ?>
                    <?php  
                    $i = 0;
