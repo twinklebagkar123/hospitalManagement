@@ -383,7 +383,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Interval
-                                          <input type="text" id="interval_hourly" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="text" id="interval_hourly" placeholder="1 Hour" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
                                       <div class="row">
