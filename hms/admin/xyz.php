@@ -161,8 +161,8 @@ $cnt=$cnt+1;
                                         </div>
                                         <div id="displayResults" style="display:none;">
 <h2><?php
-echo $explodedClassData;
-echo $explodedCatData;
+echo $explodedClassData [1];
+echo $explodedCatData [1];
 
 ?> </h2>
 <h3>room name : <p id="roomName"></p> </h3>
