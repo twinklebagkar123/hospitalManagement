@@ -160,12 +160,14 @@ $cnt=$cnt+1;
 										</div>
                                         </div>
                                         <div id="displayResults" style="display:none;">
+                                        
 <h2> The class is <?php
 echo $explodedClassData [1];
 echo "</br>";
 
 
 ?> </h2>
+<input type="hidden" id="packageId"   autocomplete="off" value="">
 <h2>The Category is<?php echo $explodedCatData [1];?></h2>
 <h3>Package  : <p id="roomName"></p> </h3>
 <h3>Total : <p id="total"></p> </h3>
@@ -252,7 +254,7 @@ echo "</br>";
       var id=$(this).parent().parent().closest('tr').children().first()[0].innerText;  
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
-
+        $('#packageId').text(id);
       $('#roomName').text(roomName);
       $('#total').text(totalPrice);
 
