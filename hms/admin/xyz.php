@@ -45,7 +45,7 @@ $vid=intval($_GET['tariff_room_id']);// get room id
                                         <div class="packageSelection">
 										<div class="panel panel-white">
 											<div class="panel-heading">
-												<h5 class="panel-title">Add Tariff Class</h5>
+												<h5 class="panel-title">Package Selection</h5>
 											</div>
 											<div class="panel-body">
 
@@ -101,9 +101,9 @@ $sdata=$_POST['tariff_cat_id'];
 //$cat=$_POST['tariff_cat_name'];
 $cdata=$_POST['tariff_class_name'];
 $explodedClassData=explode("|",$cdata);
-echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
+//echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
 $explodedCatData=explode(",",$sdata);
-echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
+//echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
