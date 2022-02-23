@@ -41,7 +41,7 @@ $(document).ready(function(){
         var medofficer = $('#medofficer').val();
         var nursing = $('#nursing').val();
         medList.push({hospitalition: hospitalition,medofficer: medofficer,nursing: nursing});
-        $('#room').val(JSON.stringify(medList));
+        $('#feeDistribution').val(JSON.stringify(medList));
         $('#prescribedMedicineList').css("display","block"); 
         $('#roomInfo').append(`<tr>
             <td>${hospitalition}</td>
@@ -50,6 +50,8 @@ $(document).ready(function(){
             
            </tr>`);
     });
+
+    
     
 
 

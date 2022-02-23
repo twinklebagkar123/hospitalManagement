@@ -10,10 +10,10 @@ if(isset($_POST['submit']))
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
-	$roomList=$_POST['roomList'];
+	$feeDistribution=$_POST['feeDistribution'];
     $is_fee_distributed=$_POST['is_fee_distributed'];
 
-	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','roomList','$is_fee_distributed')";
+	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','$feeDistribution','$is_fee_distributed')";
 	$con->query($query);
 	$stat = true;
 	if($stat)
@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
 												<h5 class="panel-title"></h5>
 											</div>
                                             <form method="POST" name="submit">
-											<input type="hidden" id="roomList" name="roomList" value="">
+											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
 															Tariff Category
@@ -115,9 +115,15 @@ if(isset($_POST['submit']))
 													</div>
 													
                                                     <div class="wrapperDiv">
+													
+
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  >
+													<label > Fee Distribution</label>
+										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
-                                    <div class="row">
+                                    <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
+									<div class="row">
                                   
                                       <div class="col-md-4">
                                         HOSPITALITION
@@ -135,12 +141,13 @@ if(isset($_POST['submit']))
 
                                       </div>
                                     </div>
-                                    <div class="row">
+									</div>
+                                    <!-- <div class="row">
                                       <div class="col-md-12 text-right">
                                         <button type="button" id="addMore" class="btn btn-primary">+ More</button>
                                       </div>
-                                    </div>
-                                    <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
+                                    </div> -->
+                                    <!-- <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
                                       <div class="col-md-12">
                                         <table class="table table-bordered table-hover data-tables">
                                           <thead>
@@ -156,9 +163,9 @@ if(isset($_POST['submit']))
                                           </tbody>
                                         </table>
                                       </div>
-                                    </div>
+                                    </div> -->
                                     
-													<div class="form-group">
+													<!-- <div class="form-group">
 														<label for="">
 															Tariff Category
 														</label>
@@ -166,7 +173,7 @@ if(isset($_POST['submit']))
 															<option value="1">yes</option>
 															<option value="0">no</option>
 														</select>
-													</div>
+													</div> -->
 
                                   </div>
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -227,6 +234,17 @@ if(isset($_POST['submit']))
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
+			});
+			
+			$(document).on("change","#isFeeDistributed ", function(){
+			if($('#isFeeDistributed').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".feeDistribution").show();
+
+				}
+        else
+            {$(".feeDistribution").hide();}
+
 			});
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->

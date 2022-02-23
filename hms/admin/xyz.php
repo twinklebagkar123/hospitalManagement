@@ -45,7 +45,7 @@ $vid=intval($_GET['tariff_room_id']);// get room id
                                         <div class="packageSelection">
 										<div class="panel panel-white">
 											<div class="panel-heading">
-												<h5 class="panel-title">Add Tariff Class</h5>
+												<h5 class="panel-title">Package Selection</h5>
 											</div>
 											<div class="panel-body">
 
@@ -101,9 +101,9 @@ $sdata=$_POST['tariff_cat_id'];
 //$cat=$_POST['tariff_cat_name'];
 $cdata=$_POST['tariff_class_name'];
 $explodedClassData=explode("|",$cdata);
-echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
+//echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
 $explodedCatData=explode(",",$sdata);
-echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
+//echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
@@ -160,12 +160,14 @@ $cnt=$cnt+1;
 										</div>
                                         </div>
                                         <div id="displayResults" style="display:none;">
+                                        
 <h2> The class is <?php
 echo $explodedClassData [1];
 echo "</br>";
 
 
 ?> </h2>
+<input type="hidden" id="packageId"   autocomplete="off" >
 <h2>The Category is<?php echo $explodedCatData [1];?></h2>
 <h3>Package  : <p id="roomName"></p> </h3>
 <h3>Total : <p id="total"></p> </h3>
@@ -253,6 +255,7 @@ echo "</br>";
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
 
+        $('#packageId').val(id);
       $('#roomName').text(roomName);
       $('#total').text(totalPrice);
 
