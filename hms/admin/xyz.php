@@ -167,7 +167,7 @@ echo "</br>";
 
 ?> </h2>
 <h2>The Category is<?php echo $explodedCatData [1];?></h2>
-<h3>room name : <p id="roomName"></p> </h3>
+<h3>Package  : <p id="roomName"></p> </h3>
 <h3>Total : <p id="total"></p> </h3>
 <div></div>
 
