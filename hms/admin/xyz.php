@@ -203,14 +203,24 @@ $cnt=$cnt+1;
 				Main.init();
 				FormElements.init();
 			});
-            $(document).on("click","#selectId", function(){
-        
-        $('#hello option:selected', this ).remove();
+           
     
-        
-        
-    });
 		</script>
+        <script>
+            $(document).ready(function(){
+    var medList = [];
+
+    $(document).on("click","#selectId", function(){
+        var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
+        var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
+        medList.splice(medIndex, 1);
+        
+        $('#medicinePrescription').val(JSON.stringify(medList));
+        $(this).parent().parent().closest('tr').remove();
+    });
+            });
+
+        </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
