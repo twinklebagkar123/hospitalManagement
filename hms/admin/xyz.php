@@ -159,6 +159,13 @@ $cnt=$cnt+1;
 										</div>
                                         </div>
 									</div>
+                                    <div class="xyz">
+
+
+
+
+
+                                    </div>
 
 								</div>
 							</div>
@@ -235,7 +242,7 @@ $cnt=$cnt+1;
             $(document).on("click","#selectId", function(){
         $('.abc').css("display","none");
         
-        $('.abc').css("display","block");
+        $('.xyz').css("display","block");
     });
         </script>
 		<!-- end: JavaScript Event Handlers for this page -->
