@@ -255,7 +255,7 @@ echo "</br>";
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
 
-        $('#packageId').text(id);
+        $('#packageId').val(id);
       $('#roomName').text(roomName);
       $('#total').text(totalPrice);
 
