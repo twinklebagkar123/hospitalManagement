@@ -162,6 +162,7 @@ $cnt=$cnt+1;
                                         <div id="displayResults" style="display:none;">
 <h2><?php
 echo $explodedClassData [1];
+echo "</br>";
 echo $explodedCatData [1];
 
 ?> </h2>
