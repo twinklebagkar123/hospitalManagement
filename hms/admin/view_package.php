@@ -95,7 +95,8 @@ while($row=mysqli_fetch_array($sql))
 												<td><?php 
                                                 $feeDistribution=$row['tariff_fee_distribution'];
                                                 foreach ($feeDistribution as  $value) {
-                                                    echo $value->hospitalition;
+                                                    // echo $value->hospitalition;
+                                                    print_r($value);
                                                 }
                                                 
                                                 ?>
