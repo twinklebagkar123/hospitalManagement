@@ -42,7 +42,7 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 
 								<div class="row margin-top-30">
 									<div class="col-lg-8 col-md-12">
-                                        <div class="abc">
+                                        <div class="packageSelection">
 										<div class="panel panel-white">
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Tariff Class</h5>
@@ -156,9 +156,24 @@ $cnt=$cnt+1;
 <?php } }?></tbody>
 </table>
 
+
 										</div>
                                         </div>
+                                        <div id="displayResults" style="display:none;">
+<h2><?php
+echo $explodedClassData [1];
+echo "</br>";
+echo $explodedCatData [1];
+
+?> </h2>
+<h3>room name : <p id="roomName"></p> </h3>
+<h3>Total : <p id="total"></p> </h3>
+<div></div>
+
+
+</div>
 									</div>
+                                   
 
 								</div>
 							</div>
@@ -222,6 +237,12 @@ $cnt=$cnt+1;
     var medList = [];
 
     $(document).on("click","#selectId", function(){
+        $('.packageSelection').css("display","none");
+        
+
+
+
+       
         var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
         var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
         medList.splice(medIndex, 1);
@@ -230,13 +251,19 @@ $cnt=$cnt+1;
       var id=$(this).parent().parent().closest('tr').children().first()[0].innerText;  
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
+
+      $('#roomName').text(roomName);
+      $('#total').text(totalPrice);
+
+
+      $('#displayResults').css("display","block");
+
+
+
+
     });
             });
-            $(document).on("click","#selectId", function(){
-        $('.abc').css("display","none");
-        
-        $('.abc').css("display","block");
-    });
+          
         </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
