@@ -92,7 +92,13 @@ while($row=mysqli_fetch_array($sql))
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['tariff_room_name'];?></td>
 												<td><?php echo $row['tariff_room_fee'];?></td>
-												<td><?php print_r($row['tariff_fee_distribution'][0]);?>
+												<td><?php 
+                                                $feeDistribution=$row['tariff_fee_distribution'];
+                                                foreach ($feeDistribution as  $value) {
+                                                    echo $value->hospitalition;
+                                                }
+                                                
+                                                ?>
 												</td>
 												
 												<td >
