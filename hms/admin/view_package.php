@@ -100,7 +100,7 @@ while($row=mysqli_fetch_array($sql))
                                                     echo $value->hospitalisation;
                                                    
                                                 }
-                                               
+                                               echo "  ";
                                                 $feeDistributio = json_decode($row['tariff_fee_distribution']);
                                                 
                                                 foreach($feeDistributio as $value) {
@@ -108,6 +108,14 @@ while($row=mysqli_fetch_array($sql))
                                                     echo $value->medofficer;
                                                    
                                                 }
+                                                $feeDistributi = json_decode($row['tariff_fee_distribution']);
+                                                
+                                                foreach($feeDistributio as $value) {
+                                                    
+                                                    echo $value->nursing;
+                                                   
+                                                }
+                                                
                                                 
                                                 
                                                 ?>
