@@ -120,7 +120,8 @@ if(isset($_POST['submit']))
 										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
-                                    <div class="row">
+                                    <div class="feeDistribution">
+									<div class="row">
                                   
                                       <div class="col-md-4">
                                         HOSPITALITION
@@ -138,6 +139,7 @@ if(isset($_POST['submit']))
 
                                       </div>
                                     </div>
+									</div>
                                     <!-- <div class="row">
                                       <div class="col-md-12 text-right">
                                         <button type="button" id="addMore" class="btn btn-primary">+ More</button>
@@ -230,6 +232,11 @@ if(isset($_POST['submit']))
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
+			});
+			$(document).on("change","#isFeeDistributed", function(){
+				$('#feeDistribution').css("display","block");
+
+
 			});
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
