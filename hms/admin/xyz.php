@@ -226,7 +226,8 @@ $cnt=$cnt+1;
         
         $('#medicinePrescription').val(JSON.stringify(medList));
       console.log($(this).parent().parent().closest('tr').children().first()[0].innerText);  
-      console.log($(this).parent().parent().closest('tr').children().eq(1)[0].innerText);  
+      console.log($(this).parent().parent().closest('tr').children().eq(1)[0].innerText); 
+      console.log($(this).parent().parent().closest('tr').children().eq(3)[0].innerText);  
     });
             });
 
