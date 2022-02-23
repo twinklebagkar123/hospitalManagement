@@ -251,7 +251,7 @@ $cnt=$cnt+1;
       $('#total').data(roomName);
 
 
-      $('.displayResults').css("display","block");
+      $('#displayResults').css("display","block");
 
 
 
