@@ -115,7 +115,7 @@ if(isset($_POST['submit']))
 													</div>
 													
                                                     <div class="wrapperDiv">
-													<label > Is Fee Distributed?</label><br>
+													<label > Is Fee Distributed?</label>
 													<input type="checkbox" id="isFeeDistributed" name="isFeeDistributed" >
 										
                                     <!-- <div id="medicalResult"></div>
@@ -138,11 +138,11 @@ if(isset($_POST['submit']))
 
                                       </div>
                                     </div>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                       <div class="col-md-12 text-right">
                                         <button type="button" id="addMore" class="btn btn-primary">+ More</button>
                                       </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
                                       <div class="col-md-12">
                                         <table class="table table-bordered table-hover data-tables">
