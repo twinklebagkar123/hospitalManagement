@@ -75,8 +75,9 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 															<option value="">Select Tariff Category</option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
 															while ($row = mysqli_fetch_array($ret)) {
+                                                                $catdata= $row['tariff_cat_id'].",".$row['tariff_cat_name'];
 															?>
-																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>">
+																<option value="<?php echo $catdata ; ?>">
 																	<?php echo htmlentities($row['tariff_cat_name']); ?>
 																</option>
 															<?php } ?>
@@ -100,6 +101,8 @@ $sdata=$_POST['tariff_cat_id'];
 $cdata=$_POST['tariff_class_name'];
 $explodedClassData=explode("|",$cdata);
 echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
+$explodedCatData=explode("|",$sdata);
+echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
