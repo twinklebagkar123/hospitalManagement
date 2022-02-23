@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Package</h5>
 											</div>
-                                            <form method="POST" name="submit">
+                                            <form method="POST" name="submit" id="package_submit">
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
@@ -176,7 +176,7 @@ if(isset($_POST['submit']))
 													</div> -->
 
                                   </div>
-													<button type="submit" id="package_submit" name="submit" class="btn btn-o btn-primary">
+													<button type="submit"  name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>
