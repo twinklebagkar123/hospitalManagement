@@ -216,6 +216,7 @@ check_login(); ?>
             <div class="prescription">
                 <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
+                    <?php if($medicalPres[0]->prescription_type == "general_prescription"): ?>
                     <tr>
                         <th></th>
                         <th>Name of the drug</th>
@@ -223,20 +224,33 @@ check_login(); ?>
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
+                    <?php else: ?>
+                        <th></th>
+                        <th>Name of the drug</th>
+                        <th>Start From</th>
+                        <th>Dosage</th>
+                        <th>Interval</th>
+                    <?php endif; ?>
                    <?php  
                    $i = 0;
-                    foreach($MedicalPres as $medicalDetail){ $i++; ?>
+                    foreach($MedicalPres as $medicalDetail){ $i++; 
+                    if($medicalDetail->prescription_type == "hourly_prescription"){ ?>
                         <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $medicalDetail->medicineName; ?></td>
+                        <td><?php echo $medicalDetail->start_from; ?></td>
+                        <td><?php echo $medicalDetail->dosage; ?></td>
+                        <td><?php echo $medicalDetail->interval_hourly; ?></td>
+                    </tr>
+                   <?php } else{ ?>
+                    <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $medicalDetail->medicineName; ?></td>
                         <td><?php echo $medicalDetail->dosage; ?></td>
                         <td><?php echo $medicalDetail->frequency; ?></td>
                         <td><?php echo $medicalDetail->period; ?></td>
                     </tr>
-                   <?php }
-                    
-                   ?>
-                    
+                    <?php } } ?>
                 </table>
 
 
