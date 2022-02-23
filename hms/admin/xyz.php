@@ -161,8 +161,8 @@ $cnt=$cnt+1;
                                         </div>
                                         <div id="displayResults" style="display:none;">
 
-<h1>room name : <p id="roomName"></p> </h1>
-<h1>Total : <p id="total"></p> </h1>
+<h3>room name : <p id="roomName"></p> </h3>
+<h3>Total : <p id="total"></p> </h3>
 <div></div>
 
 
