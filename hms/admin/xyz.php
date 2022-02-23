@@ -248,7 +248,7 @@ $cnt=$cnt+1;
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
 
       $('#roomName').text(roomName);
-      $('#total').text(total);
+      $('#total').text(totalPrice);
 
 
       $('#displayResults').css("display","block");
