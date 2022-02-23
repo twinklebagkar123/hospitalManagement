@@ -115,6 +115,9 @@ if(isset($_POST['submit']))
 													</div>
 													
                                                     <div class="wrapperDiv">
+													<label > Is Fee Distributed?</label><br>
+													<input type="checkbox" id="isFeeDistributed" name="isFeeDistributed" >
+										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="row">
@@ -140,7 +143,7 @@ if(isset($_POST['submit']))
                                         <button type="button" id="addMore" class="btn btn-primary">+ More</button>
                                       </div>
                                     </div>
-                                    <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
+                                    <!-- <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
                                       <div class="col-md-12">
                                         <table class="table table-bordered table-hover data-tables">
                                           <thead>
@@ -156,9 +159,9 @@ if(isset($_POST['submit']))
                                           </tbody>
                                         </table>
                                       </div>
-                                    </div>
+                                    </div> -->
                                     
-													<div class="form-group">
+													<!-- <div class="form-group">
 														<label for="">
 															Tariff Category
 														</label>
@@ -166,7 +169,7 @@ if(isset($_POST['submit']))
 															<option value="1">yes</option>
 															<option value="0">no</option>
 														</select>
-													</div>
+													</div> -->
 
                                   </div>
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
