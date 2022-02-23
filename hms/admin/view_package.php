@@ -73,16 +73,16 @@ if(isset($_GET['del']))
 										<thead>
 											<tr>
 												<th class="center">#</th>
-												<th>Specialization</th>
-												<th class="hidden-xs">Doctor Name</th>
-												<th>Creation Date </th>
+												<th>Package Name</th>
+												<th>Total Price</th>
+												<th>  Distributed fee </th>
 												<th>Action</th>
 												
 											</tr>
 										</thead>
 										<tbody>
 <?php
-$sql=mysqli_query($con,"select * from doctors");
+$sql=mysqli_query($con,"select * from tariff_room_info");
 $cnt=1;
 while($row=mysqli_fetch_array($sql))
 {
@@ -90,9 +90,9 @@ while($row=mysqli_fetch_array($sql))
 
 											<tr>
 												<td class="center"><?php echo $cnt;?>.</td>
-												<td class="hidden-xs"><?php echo $row['specilization'];?></td>
-												<td><?php echo $row['doctorName'];?></td>
-												<td><?php echo $row['creationDate'];?>
+												<td class="hidden-xs"><?php echo $row['tariff_room_name'];?></td>
+												<td><?php echo $row['tariff_room_fee'];?></td>
+												<td><?php echo $row['tariff_fee_distribution'];?>
 												</td>
 												
 												<td >
