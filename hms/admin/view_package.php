@@ -109,7 +109,7 @@ while($row=mysqli_fetch_array($sql))
                                                    
                                                 }
                                                 $feeDistributi = json_decode($row['tariff_fee_distribution']);
-                                                
+                                                echo "  ";
                                                 foreach($feeDistributio as $value) {
                                                     
                                                     echo $value->nursing;
