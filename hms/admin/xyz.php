@@ -58,8 +58,9 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 															<option value="">Select Tariff Class</option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM `tariff_class` where 1");
 															while ($row = mysqli_fetch_array($ret)) {
+                                                                $classdata= $row['tariff_class_id']."|".$row['tariff_class_name'];
 															?>
-																<option value="<?php echo htmlentities($row['tariff_class_id']); ?>">
+																<option value="<?php echo $classdata; ?>">
 																	<?php echo htmlentities($row['tariff_class_name']); ?>
 																</option>
 															<?php } ?>
@@ -74,8 +75,9 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 															<option value="">Select Tariff Category</option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
 															while ($row = mysqli_fetch_array($ret)) {
+                                                                $catdata= $row['tariff_cat_id'].",".$row['tariff_cat_name'];
 															?>
-																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>">
+																<option value="<?php echo $catdata ; ?>">
 																	<?php echo htmlentities($row['tariff_cat_name']); ?>
 																</option>
 															<?php } ?>
@@ -97,14 +99,17 @@ if(isset($_POST['tariff_cat_id']))
 $sdata=$_POST['tariff_cat_id'];
 //$cat=$_POST['tariff_cat_name'];
 $cdata=$_POST['tariff_class_name'];
-echo "category id: ".$sdata." class id : ".$cdata;
+$explodedClassData=explode("|",$cdata);
+echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
+$explodedCatData=explode(",",$sdata);
+echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
 <table class="table table-hover" id="sample-table-1">
 <thead>
     
 <tr>
-
+<th>ID</th>
 <th>name</th>
 <th>Fee distribution</th>
 <th>total price</th>
@@ -126,7 +131,7 @@ while($row=mysqli_fetch_array($sql))
 
 
 	
-
+<td><?php echo $row['tariff_room_id'];?></td>
 <td><?php echo $row['tariff_room_name'];?></td>
 <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">view</button></td>
 <td><?php echo $row['tariff_room_fee'];?></td>
@@ -134,7 +139,7 @@ while($row=mysqli_fetch_array($sql))
 
 </td>
 <td>
-<button  id="selectId" class=" btn btn-primary" style="padding: 0px 10px;">-</button>
+<button  id="selectId" class=" btn btn-primary" style="padding: 0px 10px;">Select</button>
            
 
 </td>
@@ -203,14 +208,30 @@ $cnt=$cnt+1;
 				Main.init();
 				FormElements.init();
 			});
-            $(document).on("click","#selectId", function(){
-        
-        $('#hello option:selected', this ).remove();
+           
     
-        
-        
-    });
 		</script>
+        <script>
+            $(document).ready(function(){
+             var className =  $('#tariff_class_name').change(function(){
+                console.log($(this));
+
+             });
+    var medList = [];
+
+    $(document).on("click","#selectId", function(){
+        var medRow = $(this).parent().parent().closest('tr').find('td').first().text();
+        var medIndex = medList.map(function(e) { return e.medicineName; }).indexOf(medRow);
+        medList.splice(medIndex, 1);
+        
+        $('#medicinePrescription').val(JSON.stringify(medList));
+      console.log($(this).parent().parent().closest('tr').children().first()[0].innerText);  
+      console.log($(this).parent().parent().closest('tr').children().eq(1)[0].innerText); 
+      console.log($(this).parent().parent().closest('tr').children().eq(3)[0].innerText);  
+    });
+            });
+
+        </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
 	</body>
