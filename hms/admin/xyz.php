@@ -134,7 +134,7 @@ while($row=mysqli_fetch_array($sql))
 
 </td>
 <td>
-<button  id="selectId" class=" btn btn-primary" style="padding: 0px 10px;">-</button>
+<button  id="selectId" class=" btn btn-primary" style="padding: 0px 10px;">Select</button>
            
 
 </td>
