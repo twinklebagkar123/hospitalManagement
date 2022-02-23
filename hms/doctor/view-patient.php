@@ -432,7 +432,7 @@ if (isset($_POST['submit'])) {
                                               <th>Period</th>
                                             </tr>
                                           </thead>
-                                          <tbody id="medicineList">
+                                          <tbody class="medicineList">
 
                                           </tbody>
                                         </table>
@@ -449,7 +449,7 @@ if (isset($_POST['submit'])) {
                                               <th>Interval</th>
                                             </tr>
                                           </thead>
-                                          <tbody id="medicineList">
+                                          <tbody class="medicineList">
 
                                           </tbody>
                                         </table>

@@ -32,7 +32,7 @@ $(document).ready(function(){
             $('#medicinePrescription').val(JSON.stringify(medList));
             $('#prescribedMedicineList').css("display","none"); 
             $('#prescribedMedicineListHourly').css("display","block"); 
-            $('#medicineList').append(`<tr>
+            $('.medicineList').append(`<tr>
                 <td>${medicineName}</td>
                 <td>${start_from}</td>
                 <td>${dosage}</td>
@@ -57,7 +57,7 @@ $(document).ready(function(){
             $('#medicinePrescription').val(JSON.stringify(medList));
             $('#prescribedMedicineList').css("display","block"); 
             $('#prescribedMedicineListHourly').css("display","none"); 
-            $('#medicineList').append(`<tr>
+            $('.medicineList').append(`<tr>
                 <td>${medicineName}</td>
                 <td>${frequency}</td>
                 <td>${dosage}</td>
