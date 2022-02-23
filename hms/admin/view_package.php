@@ -101,7 +101,13 @@ while($row=mysqli_fetch_array($sql))
                                                    
                                                 }
                                                
+                                                $feeDistributio = json_decode($row['tariff_fee_distribution']);
                                                 
+                                                foreach($feeDistributio as $value) {
+                                                    
+                                                    echo $value->medofficer;
+                                                   
+                                                }
                                                 
                                                 
                                                 ?>
