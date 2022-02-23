@@ -157,7 +157,7 @@ $cnt=$cnt+1;
 </table>
 <div class="xyz">
 
-
+<h1>room name : ward </h1>
 
 
 
@@ -244,7 +244,7 @@ $cnt=$cnt+1;
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
 
-      $('.xyz').val("roomName");
+      $('.xyz').data("roomName");
 
 
       $('.xyz').css("display","block");
