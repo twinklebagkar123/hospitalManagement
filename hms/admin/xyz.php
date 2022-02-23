@@ -208,6 +208,10 @@ $cnt=$cnt+1;
 		</script>
         <script>
             $(document).ready(function(){
+             var className =  $('#tariff_class_name').change(function(){
+                console.log($(this).val());
+
+             });
     var medList = [];
 
     $(document).on("click","#selectId", function(){
