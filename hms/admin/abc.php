@@ -115,9 +115,10 @@ if(isset($_POST['submit']))
 													</div>
 													
                                                     <div class="wrapperDiv">
-													<label > Is Fee Distributed?</label>
+													
 
 													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  >
+													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
