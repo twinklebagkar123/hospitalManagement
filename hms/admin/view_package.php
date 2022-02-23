@@ -6,9 +6,9 @@ include('include/checklogin.php');
 check_login();
 
 
-if(isset($_GET['del']))
+if(isset($_POST['del']))
 		  {
-		          mysqli_query($con,"delete from tariff_room_info where id = '".$_GET['id']."'");
+		          mysqli_query($con,"delete from tariff_room_info where tariff_room_id = '".$_POST['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
