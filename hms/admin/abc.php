@@ -122,7 +122,7 @@ if(isset($_POST['submit']))
 										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
-                                    <div class="feeDistribution" style="display:none; margin-bottom: 5px;">
+                                    <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
 									<div class="row">
                                   
                                       <div class="col-md-4">
