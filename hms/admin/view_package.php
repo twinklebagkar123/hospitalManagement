@@ -97,7 +97,7 @@ while($row=mysqli_fetch_array($sql))
                                                 // print_r($feeDistribution);
                                                 foreach($feeDistribution as $value) {
                                                     echo "hello";
-                                                    echo $value->hospitalition;
+                                                    echo $value->hospitalisation;
                                                     // print_r($value);
                                                 }
                                                 

@@ -126,8 +126,8 @@ if(isset($_POST['submit']))
 									<div class="row">
                                   
                                       <div class="col-md-4">
-                                        HOSPITALITION
-                                        <input type="text" id="hospitalition" placeholder="hospitalition Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+									  HOSPITALISATION
+                                        <input type="text" id="hospitalisation" placeholder="hospitalisation Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
@@ -153,7 +153,7 @@ if(isset($_POST['submit']))
                                           <thead>
                                             <tr>
                                              
-                                              <th>HOSPITALITION</th>
+                                              <th>hospitalisation</th>
                                               <th>    MEDICAL OFFICER</th>
                                               <th> NURSING</th>
                                             </tr>
