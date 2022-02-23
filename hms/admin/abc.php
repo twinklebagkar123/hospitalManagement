@@ -235,7 +235,7 @@ if(isset($_POST['submit']))
 			});
 			
 				
-				if($('.isFeeDistributed').is(":checked"))   
+				if($('#isFeeDistributed').is(":checked"))   
             {$(".feeDistribution").show();}
         else
             {$(".feeDistribution").hide();}
