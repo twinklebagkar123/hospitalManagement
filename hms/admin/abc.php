@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Package</h5>
 											</div>
-                                            <form method="POST" name="submit" id="package_submit">
+                                            <form method="POST" name="submit" id="package_submit" >
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
@@ -117,7 +117,7 @@ if(isset($_POST['submit']))
                                                     <div class="wrapperDiv">
 													
 
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  >
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  value="1">
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
