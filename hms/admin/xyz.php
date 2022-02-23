@@ -216,7 +216,7 @@ $cnt=$cnt+1;
         medList.splice(medIndex, 1);
         
         $('#medicinePrescription').val(JSON.stringify(medList));
-        $(this).parent().parent().closest('tr').remove();
+      console.log($(this).parent().parent().closest('tr'));  
     });
             });
 
