@@ -42,7 +42,7 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 
 								<div class="row margin-top-30">
 									<div class="col-lg-8 col-md-12">
-                                        <div class="abc">
+                                        <div class="packageSelection">
 										<div class="panel panel-white">
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Tariff Class</h5>
@@ -155,7 +155,7 @@ $cnt=$cnt+1;
    
 <?php } }?></tbody>
 </table>
-<div class="xyz">
+<div class="displayResults" style="display:none;">
 
 <h1>room name : ward </h1>
 
@@ -229,7 +229,7 @@ $cnt=$cnt+1;
     var medList = [];
 
     $(document).on("click","#selectId", function(){
-        $('.abc').css("display","none");
+        $('.packageSelection').css("display","none");
         
 
 
@@ -244,10 +244,10 @@ $cnt=$cnt+1;
       var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
       var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
 
-      $('.xyz').data("roomName");
+      $('.displayResults').data("roomName");
 
 
-      $('.xyz').css("display","block");
+      $('.displayResults').css("display","block");
 
 
 
