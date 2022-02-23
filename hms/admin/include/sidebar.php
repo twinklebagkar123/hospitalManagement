@@ -43,7 +43,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="Manage-doctors.php">
+							<a href="manage-doctors.php">
 								<span class="title"> Manage Doctors </span>
 							</a>
 						</li>
@@ -206,7 +206,7 @@
 							</a>
 						</li>
 						<li>
-							<a href=".php">
+							<a href="view_package.php">
 								<span class="title"> Show </span>
 							</a>
 						</li>
