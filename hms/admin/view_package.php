@@ -92,12 +92,12 @@ while($row=mysqli_fetch_array($sql))
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['tariff_room_name'];?></td>
 												<td><?php echo $row['tariff_room_fee'];?></td>
-												<td><?php echo $row['tariff_fee_distribution'];?>
+												<td><?php echo $row['tariff_fee_distribution'][0]->hospitalition;?>
 												</td>
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a href="edit-doctor.php?id=<?php echo $row['tariff_room_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+							<a href=" eeeedit.php?id=<?php echo $row['tariff_room_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
 													
 	<a href="view_package.php?id=<?php echo $row['tariff_room_id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												</div>
