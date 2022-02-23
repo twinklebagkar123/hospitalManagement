@@ -101,7 +101,7 @@ $sdata=$_POST['tariff_cat_id'];
 $cdata=$_POST['tariff_class_name'];
 $explodedClassData=explode("|",$cdata);
 echo "category id: ".$sdata." class id : ".$explodedClassData[0]." className: ".$explodedClassData[1];
-$explodedCatData=explode("|",$sdata);
+$explodedCatData=explode(",",$sdata);
 echo "category id: ".$sdata." class id : ".$explodedCatData[0]." catName: ".$explodedCatData[1];
   ?>
   <!-- <h4 align="center">Result against  </h4> -->
