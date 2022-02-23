@@ -42,6 +42,7 @@ $vid=intval($_GET['tariff_room_id']);// get room id
 
 								<div class="row margin-top-30">
 									<div class="col-lg-8 col-md-12">
+                                        <div class="abc">
 										<div class="panel panel-white">
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Tariff Class</h5>
@@ -156,6 +157,7 @@ $cnt=$cnt+1;
 </table>
 
 										</div>
+                                        </div>
 									</div>
 
 								</div>
@@ -225,12 +227,16 @@ $cnt=$cnt+1;
         medList.splice(medIndex, 1);
         
         $('#medicinePrescription').val(JSON.stringify(medList));
-      console.log($(this).parent().parent().closest('tr').children().first()[0].innerText);  
-      console.log($(this).parent().parent().closest('tr').children().eq(1)[0].innerText); 
-      console.log($(this).parent().parent().closest('tr').children().eq(3)[0].innerText);  
+      var id=$(this).parent().parent().closest('tr').children().first()[0].innerText;  
+      var roomName=$(this).parent().parent().closest('tr').children().eq(1)[0].innerText; 
+      var totalPrice=$(this).parent().parent().closest('tr').children().eq(3)[0].innerText;  
     });
             });
-
+            $(document).on("click","#selectId", function(){
+        $('.abc').css("display","none");
+        
+        $('.abc').css("display","block");
+    });
         </script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
