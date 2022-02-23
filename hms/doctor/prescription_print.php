@@ -227,7 +227,7 @@ check_login(); ?>
                     <?php else: ?>
                         <th></th>
                         <th>Name of the drug</th>
-                        <th>Start From</th>
+                        <th>Start From <?php echo $medicalPres[0]->prescription_type; ?></th>
                         <th>Dosage</th>
                         <th>Interval</th>
                     <?php endif; ?>
