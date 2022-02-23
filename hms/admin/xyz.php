@@ -155,17 +155,17 @@ $cnt=$cnt+1;
    
 <?php } }?></tbody>
 </table>
+<div class="xyz">
 
+
+
+
+
+</div>
 										</div>
                                         </div>
 									</div>
-                                    <div class="xyz">
-
-
-
-
-
-                                    </div>
+                                   
 
 								</div>
 							</div>
