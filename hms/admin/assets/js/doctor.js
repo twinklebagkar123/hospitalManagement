@@ -36,19 +36,22 @@ $(document).ready(function(){
         $('#room').val(JSON.stringify(medList));
         $(this).parent().parent().closest('tr').remove();
     });
-    $(document).on("click","#addMore", function(){
+    $(document).on("click","#package_submit", function(e){
+        e.preventDefault();
         var hospitalisation = $('#hospitalisation').val();
         var medofficer = $('#medofficer').val();
         var nursing = $('#nursing').val();
         medList.push({hospitalisation: hospitalisation,medofficer: medofficer,nursing: nursing});
         $('#feeDistribution').val(JSON.stringify(medList));
-        $('#prescribedMedicineList').css("display","block"); 
-        $('#roomInfo').append(`<tr>
-            <td>${hospitalisation}</td>
-            <td>${medofficer}</td>
-            <td>${nursing}</td>
+
+        $(this).submit();
+        // $('#prescribedMedicineList').css("display","block"); 
+        // $('#roomInfo').append(`<tr>
+        //     <td>${hospitalisation}</td>
+        //     <td>${medofficer}</td>
+        //     <td>${nursing}</td>
             
-           </tr>`);
+        //    </tr>`);
     });
 
 
