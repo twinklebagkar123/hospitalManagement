@@ -214,29 +214,45 @@ check_login(); ?>
                 </div>
             </header>
             <div class="prescription">
+                <?php echo $medicalPres[0]->prescription_type; ?>
                 <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
-                    <tr>
+                    <?php if($medicalPres[0]->prescription_type == "hourly_prescription"): ?>
+                        <th></th>
+                        <th>Name of the drug</th>
+                        <th>Start From </th>
+                        <th>Dosage</th>
+                        <th>Interval</th>
+                    <?php else: ?>
+                        <tr>
                         <th></th>
                         <th>Name of the drug</th>
                         <th>Dosage</th>
                         <th>Frequency</th>
                         <th>Period</th>
                     </tr>
+                        
+                    <?php endif; ?>
                    <?php  
                    $i = 0;
-                    foreach($MedicalPres as $medicalDetail){ $i++; ?>
+                    foreach($MedicalPres as $medicalDetail){ $i++; 
+                    if($medicalDetail->prescription_type == "hourly_prescription"){ ?>
                         <tr>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $medicalDetail->medicineName; ?></td>
+                        <td><?php echo $medicalDetail->start_from; ?></td>
+                        <td><?php echo $medicalDetail->dosage; ?></td>
+                        <td><?php echo $medicalDetail->interval_hourly; ?></td>
+                    </tr>
+                   <?php } else{ ?>
+                    <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $medicalDetail->medicineName; ?></td>
                         <td><?php echo $medicalDetail->dosage; ?></td>
                         <td><?php echo $medicalDetail->frequency; ?></td>
                         <td><?php echo $medicalDetail->period; ?></td>
                     </tr>
-                   <?php }
-                    
-                   ?>
-                    
+                    <?php } } ?>
                 </table>
 
 
