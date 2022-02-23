@@ -209,7 +209,7 @@ $cnt=$cnt+1;
         <script>
             $(document).ready(function(){
              var className =  $('#tariff_class_name').change(function(){
-                console.log($(this).val());
+                console.log($(this));
 
              });
     var medList = [];
