@@ -233,11 +233,14 @@ if(isset($_POST['submit']))
 				Main.init();
 				FormElements.init();
 			});
-			$(document).on("change","#isFeeDistributed", function(){
-				$('#feeDistribution').css("display","block");
+			
+				
+				if($('.coupon_question').is(":checked"))   
+            {$(".feeDistribution").show();}
+        else
+            {$(".feeDistribution").hide();}
 
-
-			});
+			
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
