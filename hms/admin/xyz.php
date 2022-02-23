@@ -160,12 +160,13 @@ $cnt=$cnt+1;
 										</div>
                                         </div>
                                         <div id="displayResults" style="display:none;">
-<h2><?php
+<h2> The class is <?php
 echo $explodedClassData [1];
 echo "</br>";
-echo $explodedCatData [1];
+
 
 ?> </h2>
+<h2>The Category is<?php echo $explodedCatData [1];?></h2>
 <h3>room name : <p id="roomName"></p> </h3>
 <h3>Total : <p id="total"></p> </h3>
 <div></div>
