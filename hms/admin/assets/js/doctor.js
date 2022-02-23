@@ -36,7 +36,7 @@ $(document).ready(function(){
         $('#room').val(JSON.stringify(medList));
         $(this).parent().parent().closest('tr').remove();
     });
-    $(document).on("submit","#package_submit", function(e){
+    $(document).one("submit","#package_submit", function(e){
         e.preventDefault();
         console.log("tetstt");
         var hospitalisation = $('#hospitalisation').val();
