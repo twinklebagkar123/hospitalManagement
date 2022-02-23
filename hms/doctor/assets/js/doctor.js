@@ -73,8 +73,6 @@ $(document).ready(function(){
     });
     
     $(document).on("click",".pillResult span", function(){
-        
-        console.log("hello");
         var name = $(this).data("name");
         $('.autosuggest').val(name);
         $('.pillResult').empty();

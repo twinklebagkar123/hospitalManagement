@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
                       while ($row = mysqli_fetch_array($result)) {
                       ?>
                         <tr>
-                          <td><?php echo $sr; ?></td>
+                          <td><?php echo $row['unqId']; ?></td>
                           <td id="date"><?php echo $row['dateofadmission']; ?></td>
                           <td><?php echo $row['admissionType']; ?></td>
                           <td><?php //echo $row['dateofadmission'];
@@ -382,7 +382,7 @@ if (isset($_POST['submit'])) {
 
                                         </div>
                                         <div class="col-md-3">
-                                          Interval
+                                          Interval (In Hour)
                                           <input type="text" id="interval_hourly" placeholder="1 Hour" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
