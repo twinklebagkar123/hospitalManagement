@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
 									<div class="col-lg-8 col-md-12">
 										<div class="panel panel-white">
 											<div class="panel-heading">
-												<h5 class="panel-title"></h5>
+												<h5 class="panel-title">Add Package</h5>
 											</div>
                                             <form method="POST" name="submit">
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
