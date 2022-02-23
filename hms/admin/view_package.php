@@ -8,7 +8,7 @@ check_login();
 
 if(isset($_GET['del']))
 		  {
-		          mysqli_query($con,"delete from doctors where id = '".$_GET['id']."'");
+		          mysqli_query($con,"delete from tariff_room_info where id = '".$_GET['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
