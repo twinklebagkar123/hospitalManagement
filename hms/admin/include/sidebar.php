@@ -206,7 +206,7 @@
 							</a>
 						</li>
 						<li>
-							<a href=".php">
+							<a href="view_package.php">
 								<span class="title"> Show </span>
 							</a>
 						</li>
