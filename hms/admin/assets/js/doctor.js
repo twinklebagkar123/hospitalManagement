@@ -38,6 +38,7 @@ $(document).ready(function(){
     });
     $(document).on("click","#package_submit", function(e){
         e.preventDefault();
+        console.log("tetstt");
         var hospitalisation = $('#hospitalisation').val();
         var medofficer = $('#medofficer').val();
         var nursing = $('#nursing').val();
