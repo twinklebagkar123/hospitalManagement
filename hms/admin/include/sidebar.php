@@ -188,29 +188,31 @@
 				</li>
 				
 				<li>
-					<a href="xyz.php">
+					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-search"></i>
+								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> xyz </span>
+								<span class="title"> Admission Fee  </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
+					<ul class="sub-menu">
+
+						<li>
+							<a href="abc.php">
+								<span class="title">   Add </span>
+							</a>
+						</li>
+						<li>
+							<a href=".php">
+								<span class="title"> Show </span>
+							</a>
+						</li>
+					</ul>
 				</li>
-				<li>
-					<a href="abc.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-search"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> abc </span>
-							</div>
-						</div>
-					</a>
-				</li>
+			
 				<li>
 					<a href="tariff_class_name.php">
 						<div class="item-content">
