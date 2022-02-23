@@ -155,15 +155,17 @@ $cnt=$cnt+1;
    
 <?php } }?></tbody>
 </table>
-<div class="displayResults" style="display:none;">
+
+
+										</div>
+                                        </div>
+                                        <div class="displayResults" style="display:none;">
 
 <h1>room name : ward </h1>
 
 
 
 </div>
-										</div>
-                                        </div>
 									</div>
                                    
 
