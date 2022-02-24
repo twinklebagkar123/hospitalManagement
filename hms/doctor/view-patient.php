@@ -374,7 +374,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Start From
-                                          <input type="text" id="start_from" placeholder="10:00 AM" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                          <input id="start_from" placeholder="10:00 AM" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                         </div>
                                         <div class="col-md-3">
