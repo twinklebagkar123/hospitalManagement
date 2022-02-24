@@ -379,7 +379,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Dosage
-                                          <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                          <input type="text" id="dosage_hourly" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                         </div>
                                         <div class="col-md-3">
