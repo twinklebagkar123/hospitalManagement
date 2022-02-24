@@ -532,6 +532,7 @@ if (isset($_POST['submit'])) {
       <script src="assets/js/doctor.js"></script>
       <script>
         jQuery(document).ready(function() {
+          $('#start_from').timepicker();
           Main.init();
           FormElements.init();
           console.log("hello");
@@ -644,7 +645,7 @@ if (isset($_POST['submit'])) {
           });
           // });
         });
-        $('#start_from').timepicker();
+    
       </script>
 
       <script>
