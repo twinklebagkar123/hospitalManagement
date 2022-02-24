@@ -522,6 +522,9 @@ if (isset($_POST['submit'])) {
       <script src="vendor/select2/select2.min.js"></script>
       <!-- <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
       <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script> -->
+      <script type="text/javascript" src=
+"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
+    </script>
       <link
         href=
 "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
