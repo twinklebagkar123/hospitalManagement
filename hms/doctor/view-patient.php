@@ -532,7 +532,10 @@ if (isset($_POST['submit'])) {
       <script src="assets/js/doctor.js"></script>
       <script>
         jQuery(document).ready(function() {
-          $('#start_from').timepicker();
+          // $('#start_from').timepicker();
+          $('#start_from').datetimepicker({
+            format: 'hh:mm a'
+        });
           Main.init();
           FormElements.init();
           console.log("hello");
