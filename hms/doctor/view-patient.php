@@ -520,19 +520,8 @@ if (isset($_POST['submit'])) {
       <script src="vendor/selectFx/classie.js"></script>
       <script src="vendor/selectFx/selectFx.js"></script>
       <script src="vendor/select2/select2.min.js"></script>
-      <!-- <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-      <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script> -->
-      <script type="text/javascript" src=
-"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js">
-    </script>
-      <link
-        href=
-"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css"
-        rel="stylesheet">
- 
-    <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js">
-        </script>
+      <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+      <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
       <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
@@ -544,7 +533,7 @@ if (isset($_POST['submit'])) {
       <script>
         jQuery(document).ready(function() {
           // $('#start_from').timepicker();
-          $('#start_from').datetimepicker({
+          $('#start_from').timepicker({
             format: 'hh:mm a'
         });
           Main.init();
