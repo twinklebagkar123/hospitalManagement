@@ -522,8 +522,8 @@ if (isset($_POST['submit'])) {
       <script src="vendor/select2/select2.min.js"></script>
       <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
       <script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-      </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
       <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
       <!-- start: CLIP-TWO JAVASCRIPTS -->
       <script src="assets/js/main.js"></script>
@@ -644,6 +644,7 @@ if (isset($_POST['submit'])) {
           });
           // });
         });
+        $('#start_from').timepicker();
       </script>
 
       <script>

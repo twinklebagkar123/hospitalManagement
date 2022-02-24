@@ -214,7 +214,6 @@ check_login(); ?>
                 </div>
             </header>
             <div class="prescription">
-                <?php  var_dump($MedicalPres); ?>
                 <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
                     <?php if($MedicalPres[0]->prescription_type == "hourly_prescription"): ?>
