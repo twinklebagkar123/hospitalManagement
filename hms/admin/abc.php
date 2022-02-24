@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
 	$feeDistribution=$_POST['feeDistribution'];
-    $is_fee_distributed=$_POST['is_fee_distributed'];
+    $is_fee_distributed=$_POST['isFeeDistributed'];
 
 	$query = "INSERT INTO `tariff_room_info`( `tariff_cat_id`, `tariff_class_type_id`, `tariff_room_name`, `tariff_room_fee`, `tariff_fee_distribution`, `is_fee_distributed`) VALUES ('$tariff_cat_id','$tariff_class_name','$roomn','$total','$feeDistribution','$is_fee_distributed')";
 	$con->query($query);
@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Package</h5>
 											</div>
-                                            <form method="POST" name="submit">
+                                            <form method="POST" name="submit" id="package_submit" >
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
@@ -117,7 +117,7 @@ if(isset($_POST['submit']))
                                                     <div class="wrapperDiv">
 													
 
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  >
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  value="1">
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
@@ -126,8 +126,8 @@ if(isset($_POST['submit']))
 									<div class="row">
                                   
                                       <div class="col-md-4">
-                                        HOSPITALITION
-                                        <input type="text" id="hospitalition" placeholder="hospitalition Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+									  HOSPITALISATION
+                                        <input type="text" id="hospitalisation" placeholder="hospitalisation Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
@@ -153,7 +153,7 @@ if(isset($_POST['submit']))
                                           <thead>
                                             <tr>
                                              
-                                              <th>HOSPITALITION</th>
+                                              <th>hospitalisation</th>
                                               <th>    MEDICAL OFFICER</th>
                                               <th> NURSING</th>
                                             </tr>
@@ -176,7 +176,7 @@ if(isset($_POST['submit']))
 													</div> -->
 
                                   </div>
-													<button type="submit" name="submit" class="btn btn-o btn-primary">
+													<button type="submit"  name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>

@@ -6,9 +6,9 @@ include('include/checklogin.php');
 check_login();
 
 
-if(isset($_GET['del']))
+if(isset($_POST['del']))
 		  {
-		          mysqli_query($con,"delete from tariff_room_info where id = '".$_GET['id']."'");
+		          mysqli_query($con,"delete from tariff_room_info where tariff_room_id = '".$_POST['id']."'");
                   $_SESSION['msg']="data deleted !!";
 		  }
 ?>
@@ -92,12 +92,38 @@ while($row=mysqli_fetch_array($sql))
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['tariff_room_name'];?></td>
 												<td><?php echo $row['tariff_room_fee'];?></td>
-												<td><?php echo $row['tariff_fee_distribution'];?>
+												<td><?php 
+                                                $feeDistribution = json_decode($row['tariff_fee_distribution']);
+                                                
+                                                foreach($feeDistribution as $value) {
+                                                    
+                                                    echo $value->hospitalisation;
+                                                   
+                                                }
+                                               echo "  ";
+                                                $feeDistributio = json_decode($row['tariff_fee_distribution']);
+                                                
+                                                foreach($feeDistributio as $value) {
+                                                    
+                                                    echo $value->medofficer;
+                                                   
+                                                }
+                                                $feeDistributi = json_decode($row['tariff_fee_distribution']);
+                                                echo "  ";
+                                                foreach($feeDistributio as $value) {
+                                                    
+                                                    echo $value->nursing;
+                                                   
+                                                }
+                                                
+                                                
+                                                
+                                                ?>
 												</td>
 												
 												<td >
 												<div class="visible-md visible-lg hidden-sm hidden-xs">
-							<a href="edit-doctor.php?id=<?php echo $row['tariff_room_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+							<a href=" eeeedit.php?id=<?php echo $row['tariff_room_id'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
 													
 	<a href="view_package.php?id=<?php echo $row['tariff_room_id']?>&del=delete" onClick="return confirm('Are you sure you want to delete?')"class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 												</div>
