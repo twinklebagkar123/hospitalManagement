@@ -259,14 +259,18 @@ check_login(); ?>
             <div class="row">
                 <div class="col-md-12">
                     <h5>Hourly Distribution</h5>
-                    <table>
+                    <table class="table table-bordered">
                         <tr>
-                            <td>Medicine Name</td>
-                            <td>Timing</td>
+                            <td scope="col">#</td>
+                            <td scope="col">Medicine Name</td>
+                            <td scope="col">Timing</td>
                         </tr>
-                        
+                      
                     <?php 
+                    $i = 1;
                     foreach ($MedicalPres as $medicineDetail) {
+                        echo "<tr>";
+                        echo "<th scope='row'>".$i."</th>";
                         echo "<td>".$medicineDetail->medicineName."</td>";
                         $date = '27/06/2020, '.$medicineDetail->start_from;
                         $date = str_replace('/', '-', $date);
@@ -286,7 +290,8 @@ check_login(); ?>
                             echo $increasedDateFormatted->format('g:i a')."<br>";
                             endif;
                         }
-                        echo "</td>";
+                        echo "</td></tr>";
+                        $i++;
                     }
                     ?>
                     </table>
