@@ -374,8 +374,10 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Start From
-                                          <input id="start_from" placeholder="10:00 AM" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
-
+                                          <div class="input-group bootstrap-timepicker timepicker" style="margin-bottom: 5px;">
+                                            <input id="start_from" type="text" class="form-control input-small">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                        </div>
                                         </div>
                                         <div class="col-md-3">
                                           Dosage
