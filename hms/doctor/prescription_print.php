@@ -264,13 +264,12 @@ check_login(); ?>
             <?php  if($medicalDetail->prescription_type == "hourly_prescription"): ?>
             <div class="row">
                 <div class="col-md-12">
-                    <h5>Hourly Distribution</h5>
+                    <h6>Hourly Distribution: </h6>
                     <table class="table table-bordered">
                         <tr>
                             <td scope="col">#</td>
                             <td scope="col">Medicine Name</td>
                             <td scope="col">Timing</td>
-                            <td></td>
                         </tr>
                       
                     <?php 
