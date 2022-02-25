@@ -217,11 +217,13 @@ check_login(); ?>
                 <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
                 <table>
                     <?php if($MedicalPres[0]->prescription_type == "hourly_prescription"): ?>
+                        <tr>
                         <th></th>
                         <th>Name of the drug</th>
                         <th>Start From </th>
                         <th>Dosage</th>
                         <th>Interval</th>
+                    </tr>
                     <?php else: ?>
                         <tr>
                         <th></th>
@@ -256,8 +258,16 @@ check_login(); ?>
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <h5>Hourly Distribution</h5>
+                    <table>
+                        <tr>
+                            <td>Medicine Name</td>
+                            <td>Timing</td>
+                        </tr>
+                        
                     <?php 
                     foreach ($MedicalPres as $medicineDetail) {
+                        echo "<td>".$medicineDetail->medicineName."</td>";
                         $date = '27/06/2020, '.$medicineDetail->start_from;
                         $date = str_replace('/', '-', $date);
                         $date =  date('Y-m-d H:i:s',strtotime($date));
@@ -266,6 +276,7 @@ check_login(); ?>
                         $increasedDate = $date;
                         $increasedDateFormatted = new DateTime($increasedDate);
                         $dateTimeLoop = $createDate->format('d');
+                        echo "<td>";
                         while($strip == $dateTimeLoop){
                             $increasedDate =  date('Y-m-d H:i:s',strtotime('+2 hour',strtotime($increasedDate)));
                             // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
@@ -275,8 +286,10 @@ check_login(); ?>
                             echo $increasedDateFormatted->format('g:i a')."<br>";
                             endif;
                         }
+                        echo "</td>";
                     }
                     ?>
+                    </table>
                 </div>
             </div>
             <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
