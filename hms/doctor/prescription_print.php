@@ -270,6 +270,7 @@ check_login(); ?>
                             <td scope="col">#</td>
                             <td scope="col">Medicine Name</td>
                             <td scope="col">Timing</td>
+                            <td></td>
                         </tr>
                       
                     <?php 
@@ -286,14 +287,14 @@ check_login(); ?>
                         $increasedDate = $date;
                         $increasedDateFormatted = new DateTime($increasedDate);
                         $dateTimeLoop = $createDate->format('d');
-                        echo "<td>";
+                        echo "<td style='display: flex; flex-wrap: wrap;'>";
                         while($strip == $dateTimeLoop){
                             $increasedDate =  date('Y-m-d H:i:s',strtotime('+2 hour',strtotime($increasedDate)));
                             // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
                             if($strip == $dateTimeLoop):
-                            echo "<strong>".$increasedDateFormatted->format('g:i a')."</strong>  <input type='checkbox' class='prescription_checkbox'><br>";
+                            echo "<input type='checkbox' class='prescription_checkbox'>  <strong>".$increasedDateFormatted->format('g:i a')."</strong><br>";
                             endif;
                         }
                         echo "</td></tr>";
