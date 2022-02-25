@@ -147,7 +147,7 @@ check_login(); ?>
     }
 
     .prescription {
-        min-height: 380px;
+        min-height: 100px;
         margin-bottom: 12px;
     }
 
@@ -256,6 +256,7 @@ check_login(); ?>
                     <?php } } ?>
                 </table>
             </div>
+            <?php  if($medicalDetail->prescription_type == "hourly_prescription"): ?>
             <div class="row">
                 <div class="col-md-12">
                     <h5>Hourly Distribution</h5>
@@ -287,7 +288,7 @@ check_login(); ?>
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
                             if($strip == $dateTimeLoop):
-                            echo $increasedDateFormatted->format('g:i a')."<br>";
+                            echo "<strong>".$increasedDateFormatted->format('g:i a')."</strong>  <input type='checkbox'><br>";
                             endif;
                         }
                         echo "</td></tr>";
@@ -297,6 +298,7 @@ check_login(); ?>
                     </table>
                 </div>
             </div>
+            <?php endif; ?>
             <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
             <p style="font-size:10px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
