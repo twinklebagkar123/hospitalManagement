@@ -263,7 +263,7 @@ check_login(); ?>
                         $date =  date('Y-m-d H:i:s',strtotime($date));
                         $createDate = new DateTime($date);
                         $strip = $createDate->format('d');
-                        $increasedDate = '2012-09-09 03:09:00';
+                        $increasedDate = $date;
                         $increasedDateFormatted = new DateTime($increasedDate);
                         $dateTimeLoop = $createDate->format('d');
                         while($strip == $dateTimeLoop){
