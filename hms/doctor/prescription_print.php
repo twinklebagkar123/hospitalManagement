@@ -263,7 +263,7 @@ check_login(); ?>
             </div>
             <?php  if($medicalDetail->prescription_type == "hourly_prescription"): ?>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12" style="min-height: 200px;">
                     <h6>Hourly Distribution: </h6>
                     <table class="table table-bordered">
                         <tr>
