@@ -258,7 +258,9 @@ check_login(); ?>
                 <div class="col-md-12">
                     <?php 
                     foreach ($MedicalPres as $medicineDetail) {
-                        $date = '2012-09-09 03:09:00';
+                        $date = '27/06/2020, '.$medicineDetail->start_from;
+                        $date = str_replace('/', '-', $date);
+                        $date =  date('Y-m-d H:i:s',strtotime($date));
                         $createDate = new DateTime($date);
                         $strip = $createDate->format('d');
                         $increasedDate = '2012-09-09 03:09:00';
