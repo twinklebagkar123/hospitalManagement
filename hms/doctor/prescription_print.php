@@ -271,7 +271,9 @@ check_login(); ?>
                             // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
-                            echo $increasedDateFormatted->format('H:i')."<br>";
+                            if($strip == $dateTimeLoop):
+                            echo $increasedDateFormatted->format('g:i a')."<br>";
+                            endif;
                         }
                     }
                     ?>
