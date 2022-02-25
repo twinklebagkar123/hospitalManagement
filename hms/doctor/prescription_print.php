@@ -268,7 +268,7 @@ check_login(); ?>
                             $increasedDate =  date('Y-m-d H:i:s',strtotime('+2 hour',strtotime($increasedDate)));
                             // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
                             $increasedDateFormatted = new DateTime($increasedDate);
-                            $dateTimeLoop = $createDate->format('d');
+                            $dateTimeLoop = $increasedDateFormatted->format('d');
                             echo $increasedDateFormatted->format('H:i')."<br>";
                         }
                     }
