@@ -28,7 +28,7 @@ $(document).ready(function(){
             var medicineName = $('.hourly_prescription .autosuggest').val();
             var start_from = $('#start_from').val();
             var dosage = $('#dosage_hourly').val();
-            var interval_hourly = $('#interval_hourly').val();
+            var interval_hourly = parseInt($('#interval_hourly').val());
             medList.push({medicineName: medicineName,start_from: start_from,dosage: dosage,interval_hourly: interval_hourly,prescription_type:prescription_type});
             $('#medicinePrescription').val(JSON.stringify(medList));
             $('#prescribedMedicineList').css("display","none"); 

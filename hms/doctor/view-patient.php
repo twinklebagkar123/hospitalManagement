@@ -386,7 +386,7 @@ if (isset($_POST['submit'])) {
                                         </div>
                                         <div class="col-md-3">
                                           Interval (In Hour)
-                                          <input type="text" id="interval_hourly" placeholder="1 Hour" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="number" id="interval_hourly" class="form-control" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
                                         </div>
                                       </div>
                                       <div class="row">
@@ -537,7 +537,7 @@ if (isset($_POST['submit'])) {
           // $('#start_from').timepicker();
           $('#start_from').timepicker({
             format: 'hh:mm a'
-        });
+          });
           Main.init();
           FormElements.init();
           console.log("hello");
