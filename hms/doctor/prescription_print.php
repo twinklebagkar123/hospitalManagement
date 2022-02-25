@@ -23,7 +23,12 @@ check_login(); ?>
         margin: 0 auto;
         box-sizing: border-box;
     }
-
+    .prescription_checkbox{
+        position: relative;
+        top: 2px;
+        margin-left: 18px;
+        margin-bottom: 12px;
+    }
 
 
     /* ==== GRID SYSTEM ==== */
@@ -288,7 +293,7 @@ check_login(); ?>
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
                             if($strip == $dateTimeLoop):
-                            echo "<strong>".$increasedDateFormatted->format('g:i a')."</strong>  <input type='checkbox'><br>";
+                            echo "<strong>".$increasedDateFormatted->format('g:i a')."</strong>  <input type='checkbox' class='prescription_checkbox'><br>";
                             endif;
                         }
                         echo "</td></tr>";
