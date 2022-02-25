@@ -302,12 +302,10 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="modal-body">
                           <table class="table table-bordered table-hover data-tables">
-
                             <form method="post" name="submit">
                               <input type="hidden" id="admissionIDHis" name="admissionID" value="">
                               <input type="hidden" id="medicinePrescription" name="medicinePrescription" value="">
                               <input type="hidden" id="medicinePrescriptionType" name="medicinePrescriptionType" value="general_prescription">
-
                               <tr>
                                 <th>Blood Pressure :</th>
                                 <td>
@@ -316,9 +314,7 @@ if (isset($_POST['submit'])) {
                               </tr>
                               <tr>
                                 <th>Blood Sugar Type :</th>
-
                                 <td>
-
                                   <select name="type">
                                     <option value="BBF">BBF</option>
                                     <option value="PBF">PBF</option>

@@ -237,26 +237,44 @@ check_login(); ?>
                     foreach($MedicalPres as $medicalDetail){ $i++; 
                     if($medicalDetail->prescription_type == "hourly_prescription"){ ?>
                         <tr>
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $medicalDetail->medicineName; ?></td>
-                        <td><?php echo $medicalDetail->start_from; ?></td>
-                        <td><?php echo $medicalDetail->dosage; ?></td>
-                        <td><?php echo $medicalDetail->interval_hourly; ?></td>
-                    </tr>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $medicalDetail->medicineName; ?></td>
+                            <td><?php echo $medicalDetail->start_from; ?></td>
+                            <td><?php echo $medicalDetail->dosage; ?></td>
+                            <td><?php echo $medicalDetail->interval_hourly; ?></td>
+                        </tr>
                    <?php } else{ ?>
-                    <tr>
-                        <td><?php echo $i; ?></td>
-                        <td><?php echo $medicalDetail->medicineName; ?></td>
-                        <td><?php echo $medicalDetail->dosage; ?></td>
-                        <td><?php echo $medicalDetail->frequency; ?></td>
-                        <td><?php echo $medicalDetail->period; ?></td>
-                    </tr>
+                        <tr>
+                            <td><?php echo $i; ?></td>
+                            <td><?php echo $medicalDetail->medicineName; ?></td>
+                            <td><?php echo $medicalDetail->dosage; ?></td>
+                            <td><?php echo $medicalDetail->frequency; ?></td>
+                            <td><?php echo $medicalDetail->period; ?></td>
+                        </tr>
                     <?php } } ?>
                 </table>
-
-
             </div>
-
+            <div class="row">
+                <div class="col-md-12">
+                    <?php 
+                    foreach ($MedicalPres as $medicineDetail) {
+                        $date = '2012-09-09 03:09:00';
+                        $createDate = new DateTime($date);
+                        $strip = $createDate->format('d');
+                        $increasedDate = '2012-09-09 03:09:00';
+                        $increasedDateFormatted = new DateTime($increasedDate);
+                        $dateTimeLoop = $createDate->format('d');
+                        while($strip == $dateTimeLoop){
+                            $increasedDate =  date('Y-m-d H:i:s',strtotime('+2 hour',strtotime($increasedDate)));
+                            // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
+                            $increasedDateFormatted = new DateTime($increasedDate);
+                            $dateTimeLoop = $createDate->format('d');
+                            echo $increasedDateFormatted->format('H:i')."<br>";
+                        }
+                    }
+                    ?>
+                </div>
+            </div>
             <p style="font-size:12px;text-align:right;padding-bottom:15px;padding-right:25px;"><?php echo $doctorName;?></p>
             <p style="font-size:10px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
         </div>
