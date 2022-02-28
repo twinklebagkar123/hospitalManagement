@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
 {
 	print_r("tariff_cat_name");
 
-	
+
 	$tariff_cat_id=$_POST['tariff_cat_id'];
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
@@ -47,7 +47,8 @@ if(isset($_POST['submit']))
 		<link rel="stylesheet" href="assets/css/plugins.css">
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
-	<body>
+	<body><?php 	print_r("tariff_cat_name"); ?>
+
 		<div id="app">		
 <?php include('include/sidebar.php');?>
 <div class="app-content">
