@@ -83,6 +83,8 @@ if(isset($_POST['submit']))
 														</select>
 													</div>
 
+													
+
                                                     <div class="form-group">
 														<label for="doctor">
 															Tariff Class
