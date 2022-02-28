@@ -97,12 +97,12 @@ if (isset($_GET['del'])) {
 												<td class="hidden-xs"><?php echo $row['tariff_room_name']; ?></td>
 												<td><?php echo $row['tariff_room_fee']; ?></td>
 												<td><?php
-												if(isset($row['tariff_fee_distribution'])):
+												if(!empty($row['tariff_fee_distribution'])):
 													$feeDistribution = json_decode($row['tariff_fee_distribution']);
 													
 													echo "Hospitalition: ".$feeDistribution[0]->hospitalisation;
-													echo	"Medical Officer: " .$feeDistribution[0]->medofficer;
-													echo "Nursing :"	.$feeDistribution[0]->nursing; 
+													echo	" Medical Officer: " .$feeDistribution[0]->medofficer;
+													echo " Nursing :" 	.$feeDistribution[0]->nursing; 
 												endif;
 												// echo	$feeDistribution[0]->hospitalisation;
 												// echo	$feeDistribution[0]->medofficer;
