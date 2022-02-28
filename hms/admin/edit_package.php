@@ -255,7 +255,7 @@ check_login();
         medList.push({hospitalisation: hospitalisation,medofficer: medofficer,nursing: nursing});
         $('#feeDistribution').val(JSON.stringify(medList));
 
-        // $(this).submit();
+        $(this).submit();
         
     });
 		</script>
