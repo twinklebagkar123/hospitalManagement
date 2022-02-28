@@ -230,6 +230,7 @@ check_login();
 		<!-- start: JavaScript Event Handlers for this page -->
 		<script src="assets/js/form-elements.js"></script>
 		<script>
+			 var medList = [];
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
@@ -254,7 +255,7 @@ check_login();
         medList.push({hospitalisation: hospitalisation,medofficer: medofficer,nursing: nursing});
         $('#feeDistribution').val(JSON.stringify(medList));
 
-        $(this).submit();
+        // $(this).submit();
         
     });
 		</script>
