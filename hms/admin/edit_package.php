@@ -111,7 +111,7 @@ if(isset($_POST['submit']))
 															Room Name:
 														</label>
 
-														<input type="text" id="roomn" value="<?php echo $_POST['tariff_room_name']?>" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
+														<input type="text" id="roomn" value="<?php echo $_POST['tariff_room_name'];?>" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
 														
 
 													</div>
@@ -120,7 +120,7 @@ if(isset($_POST['submit']))
 														<label>
 															Total:
 														</label>
-														<input type="text" name="total" value="<?php echo $_POST['tariff_room_fee']?>" class="form-control" placeholder="total" required="true">
+														<input type="text" name="total" value="<?php echo $_POST['tariff_room_fee'];?>" class="form-control" placeholder="total" required="true">
 														
 
 													</div>
@@ -128,7 +128,7 @@ if(isset($_POST['submit']))
                                                     <div class="wrapperDiv">
 													
 													<?php // if(!empty($row['tariff_fee_distribution'])): ?>
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed']?>" <?php echo "checked"; ?>>
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed'];?>" <?php echo "checked"; ?>>
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
@@ -151,7 +151,7 @@ if(isset($_POST['submit']))
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" value="<?php echo $feeDistribution[0]->nursing;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php echo $feeDistribution[0]->nursing; ?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
