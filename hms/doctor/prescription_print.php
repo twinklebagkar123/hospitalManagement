@@ -294,7 +294,7 @@ check_login(); ?>
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
                             if($strip == $dateTimeLoop):
-                            echo "<input type='checkbox' class='prescription_checkbox'>  <strong>".$increasedDateFormatted->format('g:i a')."</strong><br>";
+                            echo "<div><input type='checkbox' class='prescription_checkbox'>  <strong>".$increasedDateFormatted->format('g:i a')."</strong></div><br>";
                             endif;
                         }
                         echo "</td></tr>";
