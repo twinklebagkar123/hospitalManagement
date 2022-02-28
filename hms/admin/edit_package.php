@@ -7,7 +7,7 @@ check_login();
 if(isset($_POST['submit']))
 {
 	
-$id=$_POST['tariff_room_id'];
+   $id=$_POST['tariff_room_id'];
 
 	$tariff_cat_id=$_POST['tariff_cat_id'];
 	$tariff_class_name=$_POST['tariff_class_name'];
