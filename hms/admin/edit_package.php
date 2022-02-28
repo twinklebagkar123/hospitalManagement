@@ -222,7 +222,7 @@ if(isset($_POST['submit']))
 				Main.init();
 				FormElements.init();
 			});
-			$(document).on("change","#isFeeDistributed ", function(){
+			$(document).on("click","#isFeeDistributed ", function(){
 			if($('#isFeeDistributed').is(":checked")){
 					
 					$(".feeDistribution").show();
