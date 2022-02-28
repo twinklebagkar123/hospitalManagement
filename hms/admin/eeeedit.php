@@ -57,10 +57,53 @@ if(isset($_POST['submit']))
 											<div class="panel-heading">
 												<h5 class="panel-title">Add Tariff Class</h5>
 											</div>
+											</div>
 											<div class="panel-body">
 
 												<form role="form" action="" method="post" >
 
+                                                <div class="form-group">
+														<label for="doctor">
+															Tariff Class
+														</label>
+														<select name="tariff_class_name" class="form-control" id="tariff_class_name" required="true">
+															<option value="">Select Tariff Class</option>
+															<?php $ret = mysqli_query($con, "SELECT * FROM `tariff_class` where 1");
+															while ($row = mysqli_fetch_array($ret)) {
+                                                                $classdata= $row['tariff_class_id']."|".$row['tariff_class_name'];
+															?>
+																<option value="<?php echo $classdata; ?>">
+																	<?php echo htmlentities($row['tariff_class_name']); ?>
+																</option>
+															<?php } ?>
+														</select>
+                                                </div>
+
+                                                <div class="form-group">
+														<label for="doctor">
+															Tariff Category
+														</label>
+														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
+															<option value="">Select Tariff Category</option>
+															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
+															while ($row = mysqli_fetch_array($ret)) {
+                                                                $catdata= $row['tariff_cat_id'].",".$row['tariff_cat_name'];
+															?>
+																<option value="<?php echo $catdata ; ?>">
+																	<?php echo htmlentities($row['tariff_cat_name']); ?>
+																</option>
+															<?php } ?>
+														</select>
+													</div>
+
+
+													
+                                                    
+													<button type="submit" name="submit" class="btn btn-o btn-primary">
+														Submit 
+													</button>
+												</form>
+											</div>
                                                 
                                               
 								</div>
