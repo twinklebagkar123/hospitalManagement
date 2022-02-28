@@ -136,7 +136,7 @@ if(isset($_POST['submit']))
                                     <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
 									<div class="row">
                                   <?php
-								 $feeDistribution = json_decode($row['tariff_fee_distribution']); 
+								 $feeDistribution = json_decode($_POST['tariff_fee_distribution']); 
 								 
 								 ?>
                                       <div class="col-md-4">
