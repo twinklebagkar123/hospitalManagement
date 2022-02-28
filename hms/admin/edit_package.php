@@ -39,8 +39,8 @@ check_login();
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
-	$feeDistribution=$_POST['feeDistribution'];
-    $is_fee_distributed=$_POST['isFeeDistributed'];
+	$feeDistribution=$_POST['tariff_fee_distribution'];
+   
 	
 
 	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
@@ -149,8 +149,9 @@ check_login();
 								  endif;
 								 ?>
 
-<input type="hidden" name="feeDistribution" value="<?php echo $_POST['feeDistribution']; ?>" >
-                                      <div class="col-md-4">
+<input type="hidden" name="tariff_fee_distribution" value="<?php echo $_POST['tariff_fee_distribution']; ?>" >
+
+<div class="col-md-4">
 									  HOSPITALISATION
                                         <input type="text" id="hospitalisation" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
