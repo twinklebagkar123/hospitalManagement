@@ -127,13 +127,13 @@ if(isset($_POST['submit']))
 													
                                                     <div class="wrapperDiv">
 													
-													<?php // if(!empty($row['tariff_fee_distribution'])): ?>
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed'];?>" <?php echo "checked"; ?>>
+													
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed'];?>" <?php if(!empty($row['tariff_fee_distribution'])): echo "checked"; endif;?>>
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
-                                    <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
+                                    <div class="feeDistribution" style="margin-bottom: 8px;">
 									<div class="row">
                                   <?php
 								 $feeDistribution = json_decode($_POST['tariff_fee_distribution']); 
@@ -141,26 +141,22 @@ if(isset($_POST['submit']))
 								 ?>
                                       <div class="col-md-4">
 									  HOSPITALISATION
-                                        <input type="text" id="hospitalisation" value="<?php echo $feeDistribution[0]->hospitalisation;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="hospitalisation" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                       MEDICAL OFFICER
-                                        <input type="text" id="medofficer" value="<?php echo $feeDistribution[0]->medofficer;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="medofficer" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->medofficer; endif;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" value="<?php echo $feeDistribution[0]->nursing; ?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->nursing; endif;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
 									</div>
-									<?php 
 									
-	
-													
-													//endif; ?>
                                
 
                                   </div>
