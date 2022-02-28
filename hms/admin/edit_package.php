@@ -127,7 +127,7 @@ if(isset($_POST['submit']))
 													
                                                     <div class="wrapperDiv">
 													
-													<?php if(!empty($row['tariff_fee_distribution'])):?>
+													<?php if(!empty($row['tariff_fee_distribution'])): ?>
 													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed']?>" <?php echo "checked"; ?>>
 													<label > Fee Distribution</label>
 										
@@ -138,22 +138,26 @@ if(isset($_POST['submit']))
                                   
                                       <div class="col-md-4">
 									  HOSPITALISATION
-                                        <input type="text" id="hospitalisation" placeholder="hospitalisation Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="hospitalisation" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->hospitalisation;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                       MEDICAL OFFICER
-                                        <input type="text" id="medofficer" placeholder=" MEDICAL OFFICER Charges" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="medofficer" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->medofficer;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" placeholder="NURSING Charges" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->nursing;?>" placeholder="NURSING Charges" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
 									</div>
-									<?php endif; ?>
+									<?php 
+									
+	
+													
+													endif; ?>
                                
 
                                   </div>
