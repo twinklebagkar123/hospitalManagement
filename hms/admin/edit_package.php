@@ -173,7 +173,7 @@ check_login();
                                
 
                                   </div>
-													<button type="submit" value="submit" id="package_submit" name="submit" class="btn btn-o btn-primary">
+													<button type="submit" value="submit"  name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>
