@@ -127,8 +127,8 @@ if(isset($_POST['submit']))
 													
                                                     <div class="wrapperDiv">
 													
-
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed']?>" >
+													<?php if(!empty($row['tariff_fee_distribution'])):?>
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed']?>" <?php echo "checked"; ?>>
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
@@ -153,6 +153,7 @@ if(isset($_POST['submit']))
                                       </div>
                                     </div>
 									</div>
+									<?php endif; ?>
                                
 
                                   </div>
