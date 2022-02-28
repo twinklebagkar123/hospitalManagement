@@ -120,13 +120,14 @@ if (isset($_GET['del'])) {
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
 														<form action="edit_package" method="post" enctype="multipart/form-data">
+														
 														<input type="hidden" name="tariff_cat_name" value="<?php echo $row['tariff_cat_name']; ?>">
 														<input type="hidden" name="tariff_class_name" value="<?php echo $row['tariff_class_name']; ?>">
 														<input type="hidden" name="tariff_room_name" value="<?php echo $row['tariff_room_name']; ?>">
 														<input type="hidden" name="tariff_room_fee" value="<?php echo $row['tariff_room_fee']; ?>">
 														<input type="hidden" name="tariff_fee_distribution" value="<?php echo $row['tariff_fee_distribution']; ?>">
 
-														<a href=" edit_package.php?id=<?php echo $row['tariff_room_id']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+														<button class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></button>
 														
 													
 													</form>
