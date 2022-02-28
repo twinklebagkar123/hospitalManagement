@@ -279,6 +279,7 @@ check_login(); ?>
                         echo "<th scope='row'>".$i."</th>";
                         echo "<td>".$medicineDetail->medicineName."</td>";
                         $date = '27/06/2020, '.$medicineDetail->start_from;
+                        $interval = $medicineDetail->interval_hourly;
                         $date = str_replace('/', '-', $date);
                         $date =  date('Y-m-d H:i:s',strtotime($date));
                         $createDate = new DateTime($date);
@@ -288,7 +289,7 @@ check_login(); ?>
                         $dateTimeLoop = $createDate->format('d');
                         echo "<td style='display: flex; flex-wrap: wrap;'>";
                         while($strip == $dateTimeLoop){
-                            $increasedDate =  date('Y-m-d H:i:s',strtotime('+2 hour',strtotime($increasedDate)));
+                            $increasedDate =  date('Y-m-d H:i:s',strtotime('+'.$interval.' hour',strtotime($increasedDate)));
                             // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
