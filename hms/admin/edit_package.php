@@ -149,7 +149,7 @@ check_login();
 								  endif;
 								 ?>
 
-<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['feeDistribution']; ?>" >
+<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['tariff_room_id']; ?>" >
 
                                       <div class="col-md-4">
 									  HOSPITALISATION
