@@ -74,6 +74,8 @@ if (isset($_GET['del'])) {
 									<thead>
 										<tr>
 											<th class="center">#</th>
+											<th>Tariff Category</th>
+											<th>Tariff class</th> </th>	
 											<th>Package Name</th>
 											<th>Total Price</th>
 											<th> Distributed fee </th>
@@ -83,13 +85,15 @@ if (isset($_GET['del'])) {
 									</thead>
 									<tbody>
 										<?php
-										$sql = mysqli_query($con, "select * from tariff_room_info");
+										$sql = mysqli_query($con, "SELECT * FROM `tariff_room_info` INNER JOIN tariff_category ON tariff_category.tariff_cat_id=tariff_room_info.tariff_cat_id INNER JOIN tariff_class ON tariff_class.tariff_class_id=tariff_room_info.tariff_class_type_id;");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
 
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
+												<td class="hidden-xs"><?php echo $row['tariff_cat_name']; ?></td>
+												<td class="hidden-xs"><?php echo $row['tariff_class_name']; ?></td>
 												<td class="hidden-xs"><?php echo $row['tariff_room_name']; ?></td>
 												<td><?php echo $row['tariff_room_fee']; ?></td>
 												<td><?php
