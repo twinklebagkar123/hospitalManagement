@@ -18,6 +18,7 @@ $id=$_POST['tariff_room_id'];
 	
 
 	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id' ";
+	print_r($query);
 	$con->query($query);
 	$stat = true;
 	if($stat)
