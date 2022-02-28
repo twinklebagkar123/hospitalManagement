@@ -125,7 +125,7 @@ if (isset($_GET['del'])) {
 														<input type="hidden" name="tariff_class_name" value="<?php echo $row['tariff_class_name']; ?>">
 														<input type="hidden" name="tariff_room_name" value="<?php echo $row['tariff_room_name']; ?>">
 														<input type="hidden" name="tariff_room_fee" value="<?php echo $row['tariff_room_fee']; ?>">
-														<input type="hidden" name="isFeeDistributed" value=" <?php echo $row['isFeeDistributed']; ?> ">
+														<input type="hidden" name="is_fee_distributed" value=" <?php echo $row['is_fee_distributed']; ?> ">
 														<input type="hidden" name="tariff_fee_distribution" value="<?php echo $row['tariff_fee_distribution']; ?>">
 
 
