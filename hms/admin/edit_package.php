@@ -111,7 +111,7 @@ if(isset($_POST['submit']))
 															Room Name:
 														</label>
 
-														<input type="text" id="roomn" value="<?php echo $_POST['tariff_class_name']?>" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
+														<input type="text" id="roomn" value="<?php echo $_POST['tariff_room_name']?>" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
 														
 
 													</div>
@@ -120,7 +120,7 @@ if(isset($_POST['submit']))
 														<label>
 															Total:
 														</label>
-														<input type="text" name="total" class="form-control" placeholder="total" required="true">
+														<input type="text" name="total" value="<?php echo $_POST['tariff_room_fee']?>" class="form-control" placeholder="total" required="true">
 														
 
 													</div>
