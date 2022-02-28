@@ -60,9 +60,25 @@ if(isset($_POST['submit']))
 											</div>
 											<div class="panel-body">
 
-												<form role="form" action="" method="post" >
+											<form method="POST" name="submit" id="package_submit" >
+											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
+											<div class="form-group">
+														<label for="">
+															Tariff Category
+														</label>
+														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
+															<option value="">Select Tariff Category</option>
+															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
+															while ($row = mysqli_fetch_array($ret)) {
+															?>
+																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>">
+																	<?php echo htmlentities($row['tariff_cat_name']); ?>
+																</option>
+															<?php } ?>
+														</select>
+													</div>
 
-                                                <div class="form-group">
+                                                    <div class="form-group">
 														<label for="doctor">
 															Tariff Class
 														</label>
@@ -70,36 +86,66 @@ if(isset($_POST['submit']))
 															<option value="">Select Tariff Class</option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM `tariff_class` where 1");
 															while ($row = mysqli_fetch_array($ret)) {
-                                                                $classdata= $row['tariff_class_id']."|".$row['tariff_class_name'];
 															?>
-																<option value="<?php echo $classdata; ?>">
+																<option value="<?php echo htmlentities($row['tariff_class_id']); ?>">
 																	<?php echo htmlentities($row['tariff_class_name']); ?>
 																</option>
 															<?php } ?>
 														</select>
-                                                </div>
 
-                                                <div class="form-group">
-														<label for="doctor">
-															Tariff Category
+
+
+													<div class="form-group">
+														<label for="name">
+															Room Name:
 														</label>
-														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
-															<option value="">Select Tariff Category</option>
-															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
-															while ($row = mysqli_fetch_array($ret)) {
-                                                                $catdata= $row['tariff_cat_id'].",".$row['tariff_cat_name'];
-															?>
-																<option value="<?php echo $catdata ; ?>">
-																	<?php echo htmlentities($row['tariff_cat_name']); ?>
-																</option>
-															<?php } ?>
-														</select>
+
+														<input type="text" id="roomn" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
+														
+
 													</div>
-
-
 													
-                                                    
-													<button type="submit" name="submit" class="btn btn-o btn-primary">
+                                                    <div class="form-group">
+														<label>
+															Total:
+														</label>
+														<input type="text" name="total" class="form-control" placeholder="total" required="true">
+														
+
+													</div>
+													
+                                                    <div class="wrapperDiv">
+													
+
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  value="1">
+													<label > Fee Distribution</label>
+										
+                                    <!-- <div id="medicalResult"></div>
+                                    <input type="hidden" name="pres" id="result" value=""> -->
+                                    <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
+									<div class="row">
+                                  
+                                      <div class="col-md-4">
+									  HOSPITALISATION
+                                        <input type="text" id="hospitalisation" placeholder="hospitalisation Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
+                                      </div>
+                                      <div class="col-md-4">
+                                      MEDICAL OFFICER
+                                        <input type="text" id="medofficer" placeholder=" MEDICAL OFFICER Charges" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+                                      </div>
+                                      <div class="col-md-4">
+                                        NURSING
+                                        <input type="text" id="nursing" placeholder="NURSING Charges" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+
+                                      </div>
+                                    </div>
+									</div>
+                               
+
+                                  </div>
+													<button type="submit"  name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>
