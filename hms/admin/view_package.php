@@ -119,7 +119,7 @@ if (isset($_GET['del'])) {
 
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<form action="edit_package" method="post" enctype="multipart/form-data">
+														<form action="edit_package.php" method="post" enctype="multipart/form-data">
 														
 														<input type="hidden" name="tariff_cat_name" value="<?php echo $row['tariff_cat_name']; ?>">
 														<input type="hidden" name="tariff_class_name" value="<?php echo $row['tariff_class_name']; ?>">
