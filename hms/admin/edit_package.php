@@ -76,7 +76,7 @@ check_login();
 											</div>
 											<div class="panel-body">
 
-											<form method="POST" action="edit_package.php" id="package_submit" >
+											<form method="POST" action="" id="package_submit" >
 												<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['tariff_room_id']; ?>" >
 
 											<div class="form-group">
@@ -149,7 +149,6 @@ check_login();
 								  endif;
 								 ?>
 
-<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['tariff_room_id']; ?>" >
 
                                       <div class="col-md-4">
 									  HOSPITALISATION
