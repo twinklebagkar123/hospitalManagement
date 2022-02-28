@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
 											</div>
 											<div class="panel-body">
 
-											<form method="POST" name="submit" action="eeeedit.php" id="package_submit" >
+											<form method="POST" name="submit" action="edit.php" id="package_submit" >
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">

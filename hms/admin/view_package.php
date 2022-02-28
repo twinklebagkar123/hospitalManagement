@@ -99,23 +99,12 @@ if (isset($_GET['del'])) {
 												<td><?php
 													$feeDistribution = json_decode($row['tariff_fee_distribution']);
 
-													foreach ($feeDistribution as $value) {
+												echo	$feeDistribution[0]->hospitalisation;
+												echo	$feeDistribution[0]->medofficer;
+												echo	$feeDistribution[0]->nursing; 
 
-														echo $value->hospitalisation;
-													}
-													echo "  ";
-													$feeDistributio = json_decode($row['tariff_fee_distribution']);
 
-													foreach ($feeDistributio as $value) {
-
-														echo $value->medofficer;
-													}
-													$feeDistributi = json_decode($row['tariff_fee_distribution']);
-													echo "  ";
-													foreach ($feeDistributio as $value) {
-
-														echo $value->nursing;
-													}
+												
 
 
 
