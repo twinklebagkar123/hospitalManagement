@@ -71,7 +71,7 @@ if(isset($_POST['submit']))
 											</div>
 											<div class="panel-body">
 
-											<form method="POST" name="submit" action="edit_package.php" id="package_submit" >
+											<form method="POST" name="submit" value="submit" action="edit_package.php" id="package_submit" >
 											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
 											<div class="form-group">
 														<label for="">
@@ -142,6 +142,7 @@ if(isset($_POST['submit']))
 								 $feeDistribution = json_decode($_POST['tariff_fee_distribution']); 
 								  endif;
 								 ?>
+
                                       <div class="col-md-4">
 									  HOSPITALISATION
                                         <input type="text" id="hospitalisation" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
@@ -163,7 +164,7 @@ if(isset($_POST['submit']))
                                
 
                                   </div>
-													<button type="submit"  name="submit" class="btn btn-o btn-primary">
+													<button type="submit" value="submit" name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>
