@@ -4,28 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if(isset($_POST['submit']))
-{
-	
-   $id3=$_POST['tariff_room_id'];
 
-	$tariff_cat_id=$_POST['tariff_cat_id'];
-	$tariff_class_name=$_POST['tariff_class_name'];
-    $roomn=$_POST['roomn'];
-	$total=$_POST['total'];
-	$feeDistribution=$_POST['feeDistribution'];
-    $is_fee_distributed=$_POST['isFeeDistributed'];
-	
-
-	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
-	print_r($query);
-	$con->query($query);
-	$stat = true;
-	if($stat)
-	{
-		echo "<script>alert('Successfully Edited.');</script>";
-	}
-}
 
 ?>
 <!DOCTYPE html>
@@ -49,7 +28,33 @@ if(isset($_POST['submit']))
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 	<body>
-		<?php 	print_r($_POST['tariff_cat_name']); ?>
+		<?php 	print_r($_POST['tariff_cat_name']); 
+		
+		if(isset($_POST['submit']))
+{
+	
+   $id3=$_POST['tariff_room_id'];
+
+	$tariff_cat_id=$_POST['tariff_cat_id'];
+	$tariff_class_name=$_POST['tariff_class_name'];
+    $roomn=$_POST['roomn'];
+	$total=$_POST['total'];
+	$feeDistribution=$_POST['feeDistribution'];
+    $is_fee_distributed=$_POST['isFeeDistributed'];
+	
+
+	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
+	print_r($query);
+	// $con->query($query);
+	// $stat = true;
+	// if($stat)
+	// {
+	// 	echo "<script>alert('Successfully Edited.');</script>";
+	// }
+}
+		
+		
+		?>
 
 		<div id="app">		
 <?php include('include/sidebar.php');?>
