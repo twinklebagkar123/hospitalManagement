@@ -206,6 +206,16 @@ if(isset($_POST['submit']))
 				Main.init();
 				FormElements.init();
 			});
+			$(document).on("change","#isFeeDistributed ", function(){
+			if($('#isFeeDistributed').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".feeDistribution").show();
+
+				}
+        else
+            {$(".feeDistribution").hide();}
+
+			});
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
