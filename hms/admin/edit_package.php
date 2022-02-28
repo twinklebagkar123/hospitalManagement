@@ -144,6 +144,8 @@ if(isset($_POST['submit']))
 								  endif;
 								 ?>
 
+<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['feeDistribution']; ?>" >
+
                                       <div class="col-md-4">
 									  HOSPITALISATION
                                         <input type="text" id="hospitalisation" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
