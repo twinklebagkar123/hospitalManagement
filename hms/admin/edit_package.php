@@ -7,7 +7,7 @@ check_login();
 if(isset($_POST['submit']))
 {
 	
-
+$id=$_POST['tariff_room_id'];
 
 	$tariff_cat_id=$_POST['tariff_cat_id'];
 	$tariff_class_name=$_POST['tariff_class_name'];
@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
     $is_fee_distributed=$_POST['isFeeDistributed'];
 	
 
-	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE 1";
+	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id' ";
 	$con->query($query);
 	$stat = true;
 	if($stat)

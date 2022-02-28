@@ -127,9 +127,11 @@ if (isset($_GET['del'])) {
 														<input type="hidden" name="tariff_room_fee" value="<?php echo $row['tariff_room_fee']; ?>">
 
 														<input type="hidden" name="tariff_fee_distribution" value='<?php echo $row['tariff_fee_distribution']; ?>'>
+														<input type="hidden" name="tariff_room_id" value="<?php echo $row['tariff_room_id']; ?>">
 
 
-														<input type="submit" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i>
+
+														<input type="submit" class="btn btn-transparent btn-xs"  tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i>
 														
 													
 													</form>
