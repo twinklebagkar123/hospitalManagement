@@ -39,7 +39,7 @@ check_login();
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
-	$feeDistribution=$_POST['tariff_fee_distribution'];
+	$feeDistribution=$_POST['feeDistribution'];
 	$is_fee_distributed=$_POST['isFeeDistributed'];
    
 	
@@ -139,8 +139,8 @@ check_login();
 													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="1" <?php if(!empty($_POST['tariff_fee_distribution'])): echo "checked"; endif;?>>
 													<label > Fee Distribution</label>
 										
-                                    <!-- <div id="medicalResult"></div>
-                                    <input type="hidden" name="pres" id="result" value=""> -->
+                                    <!-- <div id="medicalResult"></div>-->
+                                    <input type="hidden" name="feeDistribution" id="feeDistribution" value=""> 
                                     <div class="feeDistribution" style=" <?php if(empty($row['tariff_fee_distribution']) ):  echo "display:none"; endif;?> margin-bottom: 8px;">
 									<div class="row">
                                   <?php
