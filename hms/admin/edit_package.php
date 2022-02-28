@@ -128,7 +128,7 @@ if(isset($_POST['submit']))
                                                     <div class="wrapperDiv">
 													
 
-													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['tariff_fee_distribution']?>" value="1">
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed" value="<?php echo $_POST['is_fee_distributed']?>" value="1">
 													<label > Fee Distribution</label>
 										
                                     <!-- <div id="medicalResult"></div>
