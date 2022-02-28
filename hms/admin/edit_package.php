@@ -143,17 +143,17 @@ if(isset($_POST['submit']))
 								 ?>
                                       <div class="col-md-4">
 									  HOSPITALISATION
-                                        <input type="text" id="hospitalisation" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="hospitalisation" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                       MEDICAL OFFICER
-                                        <input type="text" id="medofficer" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->medofficer; endif;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="medofficer" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->medofficer; endif;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" value="<?php if(!empty($row['tariff_fee_distribution'])): echo $feeDistribution[0]->nursing; endif;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->nursing; endif;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
