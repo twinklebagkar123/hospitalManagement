@@ -71,8 +71,9 @@ if(isset($_POST['submit']))
 											</div>
 											<div class="panel-body">
 
-											<form method="POST" name="submit" value="submit" action="edit_package.php" id="package_submit" >
-											<input type="hidden" id="feeDistribution" name="feeDistribution" value="">
+											<form method="POST" action="edit_package.php" id="package_submit" >
+												<input type="hidden" name="tariff_room_id" value="<?php echo $_POST['tariff_room_id']; ?>" >
+
 											<div class="form-group">
 														<label for="">
 															Tariff Category
