@@ -45,12 +45,12 @@ check_login();
 
 	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
 	print_r($query);
-	// $con->query($query);
-	// $stat = true;
-	// if($stat)
-	// {
-	// 	echo "<script>alert('Successfully Edited.');</script>";
-	// }
+	$con->query($query);
+	$stat = true;
+	if($stat)
+	{
+		echo "<script>alert('Successfully Edited.');</script>";
+	}
 }
 		
 		
@@ -149,7 +149,7 @@ check_login();
 								  endif;
 								 ?>
 
-
+<input type="hidden" name="feeDistribution" value="<?php echo $_POST['feeDistribution']; ?>" >
                                       <div class="col-md-4">
 									  HOSPITALISATION
                                         <input type="text" id="hospitalisation" value="<?php if(!empty($_POST['tariff_fee_distribution'])): echo $feeDistribution[0]->hospitalisation; endif;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
