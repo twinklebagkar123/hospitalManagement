@@ -81,7 +81,7 @@ if(isset($_POST['submit']))
 															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
 															while ($row = mysqli_fetch_array($ret)) {
 															?>
-																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>" <?php if($row['tariff_cat_id']==1): echo "selected"; endif; ?>>
+																<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>" <?php if($row['tariff_cat_id']==8): echo "selected"; endif; ?>>
 																	<?php echo htmlentities($row['tariff_cat_name']); ?>
 																</option>
 															<?php } ?>
