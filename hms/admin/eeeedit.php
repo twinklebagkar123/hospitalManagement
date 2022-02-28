@@ -6,15 +6,20 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST['submit']))
 {
-	$tclassname=$_POST['tariff_class_name'];
+	$tariff_cat_id=$_POST['tariff_cat_id'];
+	$tariff_class_name=$_POST['tariff_class_name'];
+    $roomn=$_POST['roomn'];
+	$total=$_POST['total'];
+	$feeDistribution=$_POST['feeDistribution'];
+    $is_fee_distributed=$_POST['isFeeDistributed'];
 	
 
-	$query = "INSERT INTO `tariff_class` ( `tariff_class_name`) VALUES ('$tclassname');";
+	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE 1";
 	$con->query($query);
 	$stat = true;
 	if($stat)
 	{
-		echo "<script>alert('Successfully Added.');</script>";
+		echo "<script>alert('Successfully Edited.');</script>";
 	}
 }
 
