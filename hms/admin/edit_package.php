@@ -6,6 +6,9 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST['submit']))
 {
+	print_r("tariff_cat_name");
+
+	
 	$tariff_cat_id=$_POST['tariff_cat_id'];
 	$tariff_class_name=$_POST['tariff_class_name'];
     $roomn=$_POST['roomn'];
@@ -72,7 +75,7 @@ if(isset($_POST['submit']))
 															Tariff Category
 														</label>
 														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
-															<option value="<?php echo $row['tariff_cat_name']; ?>"></option>
+															<option value="<?php echo $row['tariff_cat_name']; ?>">Select Tariff Category</option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
 															while ($row = mysqli_fetch_array($ret)) {
 															?>
