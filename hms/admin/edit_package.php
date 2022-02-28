@@ -148,7 +148,7 @@ if(isset($_POST['submit']))
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->nursing;?>" placeholder="NURSING Charges" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->nursing;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
