@@ -135,20 +135,23 @@ if(isset($_POST['submit']))
                                     <input type="hidden" name="pres" id="result" value=""> -->
                                     <div class="feeDistribution" style="display:none; margin-bottom: 8px;">
 									<div class="row">
-                                  
+                                  <?php
+								 $feeDistribution = json_decode($row['tariff_fee_distribution']); 
+								 
+								 ?>
                                       <div class="col-md-4">
 									  HOSPITALISATION
-                                        <input type="text" id="hospitalisation" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->hospitalisation;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="hospitalisation" value="<?php echo $feeDistribution[0]->hospitalisation;?>"  class="form-control" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                       MEDICAL OFFICER
-                                        <input type="text" id="medofficer" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->medofficer;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="medofficer" value="<?php echo $feeDistribution[0]->medofficer;?>"  class="form-control " autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                       <div class="col-md-4">
                                         NURSING
-                                        <input type="text" id="nursing" value="<?php $feeDistribution = json_decode($row['tariff_fee_distribution']);echo $feeDistribution[0]->nursing;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                        <input type="text" id="nursing" value="<?php echo $feeDistribution[0]->nursing;?>"  class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
 
                                       </div>
                                     </div>
