@@ -173,7 +173,7 @@ check_login();
                                
 
                                   </div>
-													<button type="submit" value="submit" name="submit" class="btn btn-o btn-primary">
+													<button type="submit" value="submit" id="package_submit" name="submit" class="btn btn-o btn-primary">
 														Submit 
 													</button>
 												</form>
@@ -236,7 +236,7 @@ check_login();
 			});
 			$(document).on("change","#isFeeDistributed ", function(){
 			if($('#isFeeDistributed').is(":checked")){
-					
+					console.log("whjevdjuahv");
 					$(".feeDistribution").show();
 
 				}
@@ -244,6 +244,19 @@ check_login();
             {$(".feeDistribution").hide();}
 
 			});
+
+			$(document).one("submit","#package_submit", function(e){
+        e.preventDefault();
+        console.log("tetstt");
+        var hospitalisation = $('#hospitalisation').val();
+        var medofficer = $('#medofficer').val();
+        var nursing = $('#nursing').val();
+        medList.push({hospitalisation: hospitalisation,medofficer: medofficer,nursing: nursing});
+        $('#feeDistribution').val(JSON.stringify(medList));
+
+        $(this).submit();
+        
+    });
 		</script>
 		<!-- end: JavaScript Event Handlers for this page -->
 		<!-- end: CLIP-TWO JAVASCRIPTS -->
