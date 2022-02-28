@@ -48,7 +48,7 @@ if(isset($_POST['submit']))
 		<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	</head>
 	<body>
-		<?php 	print_r($_POST  ['tariff_cat_name'] ); ?>
+		<?php 	print_r($_POST['tariff_cat_name']); ?>
 
 		<div id="app">		
 <?php include('include/sidebar.php');?>
