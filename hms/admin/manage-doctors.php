@@ -119,8 +119,9 @@ while($row=mysqli_fetch_array($sql))
 															</li>
 															<li>
 																<a href="#">
-																	Remove
+							   										Remove
 																</a>
+																
 															</li>
 														</ul>
 													</div>
