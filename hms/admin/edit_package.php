@@ -72,7 +72,7 @@ if(isset($_POST['submit']))
 															Tariff Category
 														</label>
 														<select name="tariff_cat_id" class="form-control" id="tariff_cat_id" required="true">
-															<option value="">Select Tariff Category</option>
+															<option value="<?php echo $row['tariff_cat_name']; ?>"></option>
 															<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
 															while ($row = mysqli_fetch_array($ret)) {
 															?>
