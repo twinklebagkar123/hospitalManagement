@@ -6,9 +6,9 @@ include('include/checklogin.php');
 check_login();
 
 
-if (isset($_POST['del'])) {
-	mysqli_query($con, "delete from tariff_room_info where tariff_room_id = '" . $_POST['id'] . "'");
-	$_SESSION['msg'] = "data deleted !!";
+if (isset($_GET['del'])) {
+	mysqli_query($con, "delete from tariff_room_info where tariff_room_id = '" . $_GET['id'] . "'");
+	$_SESSION['msg'] = "data deleted ! !!";
 }
 ?>
 <!DOCTYPE html>
@@ -162,7 +162,7 @@ if (isset($_POST['del'])) {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<!-- end: BASIC EXAMPLE -->
 			<!-- end: SELECT BOXES -->
 
