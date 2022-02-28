@@ -40,6 +40,7 @@ check_login();
     $roomn=$_POST['roomn'];
 	$total=$_POST['total'];
 	$feeDistribution=$_POST['tariff_fee_distribution'];
+	$is_fee_distributed=$_POST['isFeeDistributed'];
    
 	
 
@@ -149,7 +150,7 @@ check_login();
 								  endif;
 								 ?>
 
-<input type="hidden" name="tariff_fee_distribution" value="<?php echo $_POST['tariff_fee_distribution']; ?>" >
+<input type="hidden" name="tariff_fee_distribution" value='<?php echo $_POST['tariff_fee_distribution']; ?>' >
 
 <div class="col-md-4">
 									  HOSPITALISATION
