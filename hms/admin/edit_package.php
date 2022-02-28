@@ -111,7 +111,7 @@ if(isset($_POST['submit']))
 															Room Name:
 														</label>
 
-														<input type="text" id="roomn" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
+														<input type="text" id="roomn" value="<?php $_POST['tariff_class_name']?>" name="roomn" class="form-control" placeholder="Enter Room Name" required="true" >
 														
 
 													</div>
