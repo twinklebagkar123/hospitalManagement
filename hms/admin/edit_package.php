@@ -136,7 +136,7 @@ if(isset($_POST['submit']))
                                     <div class="feeDistribution" style=" <?php if(empty($row['tariff_fee_distribution']) ):  echo "display:none"; endif;?> margin-bottom: 8px;">
 									<div class="row">
                                   <?php
-								  if(!empty($row['tariff_fee_distribution'])):
+								  if(!empty($_POST['tariff_fee_distribution'])):
 									
 								 $feeDistribution = json_decode($_POST['tariff_fee_distribution']); 
 								  endif;
