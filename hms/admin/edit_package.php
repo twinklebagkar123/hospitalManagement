@@ -133,7 +133,7 @@ if(isset($_POST['submit']))
 										
                                     <!-- <div id="medicalResult"></div>
                                     <input type="hidden" name="pres" id="result" value=""> -->
-                                    <div class="feeDistribution" style=" <?php if(empty($row['tariff_fee_distribution'])): echo "display:none";?> margin-bottom: 8px;">
+                                    <div class="feeDistribution" style=" <?php if(empty($row['tariff_fee_distribution']) ):  echo "display:none"; endif;?> margin-bottom: 8px;">
 									<div class="row">
                                   <?php
 								  if(!empty($row['tariff_fee_distribution'])):
