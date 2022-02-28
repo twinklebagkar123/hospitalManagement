@@ -101,12 +101,13 @@ if (isset($_GET['del'])) {
 													$feeDistribution = json_decode($row['tariff_fee_distribution']);
 													
 													echo "Hospitalition: ".$feeDistribution[0]->hospitalisation;
-													echo	" Medical Officer: " .$feeDistribution[0]->medofficer;
-													echo " Nursing :" 	.$feeDistribution[0]->nursing; 
+													echo	"  Medical Officer: " .$feeDistribution[0]->medofficer;
+													echo "  Nursing :" 	.$feeDistribution[0]->nursing; 
 												endif;
 												// echo	$feeDistribution[0]->hospitalisation;
 												// echo	$feeDistribution[0]->medofficer;
 												// echo	$feeDistribution[0]->nursing; 
+
 
 
 												
@@ -118,8 +119,17 @@ if (isset($_GET['del'])) {
 
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<a href=" edit_package.php?id=<?php echo $row['tariff_room_id']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+														<form action="edit_package" method="post" enctype="multipart/form-data">
+														<input type="hidden" name="tariff_cat_name" value="<?php echo $row['tariff_cat_name']; ?>">
+														<input type="hidden" name="tariff_class_name" value="<?php echo $row['tariff_class_name']; ?>">
+														<input type="hidden" name="tariff_room_name" value="<?php echo $row['tariff_room_name']; ?>">
+														<input type="hidden" name="tariff_room_fee" value="<?php echo $row['tariff_room_fee']; ?>">
+														<input type="hidden" name="tariff_fee_distribution" value="<?php echo $row['tariff_fee_distribution']; ?>">
 
+														<a href=" edit_package.php?id=<?php echo $row['tariff_room_id']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+														
+													
+													</form>
 														<a href="view_package.php?id=<?php echo $row['tariff_room_id'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
 													<div class="visible-xs visible-sm hidden-md hidden-lg">
