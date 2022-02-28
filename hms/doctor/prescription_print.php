@@ -274,7 +274,7 @@ check_login(); ?>
                       
                     <?php 
                     $i = 1;
-                    foreach ($MedicalPres as $medicineDetail) {
+                    foreach ($MedicalPres as $medicineDetail) { 
                         echo "<tr>";
                         echo "<th scope='row'>".$i."</th>";
                         echo "<td>".$medicineDetail->medicineName."</td>";
@@ -288,9 +288,11 @@ check_login(); ?>
                         $increasedDateFormatted = new DateTime($increasedDate);
                         $dateTimeLoop = $createDate->format('d');
                         echo "<td style='display: flex; flex-wrap: wrap;'>";
+                        if($i == 1){
+                            echo "<div><input type='checkbox' class='prescription_checkbox'>  <strong>".$createDate->format('g:i a')."</strong></div><br>";
+                        }
                         while($strip == $dateTimeLoop){
                             $increasedDate =  date('Y-m-d H:i:s',strtotime('+'.$interval.' hour',strtotime($increasedDate)));
-                            // $dateTimeLoop =  date('d',strtotime('+2 hour',strtotime($date)));
                             $increasedDateFormatted = new DateTime($increasedDate);
                             $dateTimeLoop = $increasedDateFormatted->format('d');
                             if($strip == $dateTimeLoop):
