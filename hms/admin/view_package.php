@@ -98,10 +98,10 @@ if (isset($_GET['del'])) {
 												<td><?php echo $row['tariff_room_fee']; ?></td>
 												<td><?php
 													$feeDistribution = json_decode($row['tariff_fee_distribution']);
-
-												echo	$feeDistribution[0]->hospitalisation;
-												echo	$feeDistribution[0]->medofficer;
-												echo	$feeDistribution[0]->nursing; 
+												print_r($feeDistribution);
+												// echo	$feeDistribution[0]->hospitalisation;
+												// echo	$feeDistribution[0]->medofficer;
+												// echo	$feeDistribution[0]->nursing; 
 
 
 												
