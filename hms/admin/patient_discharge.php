@@ -119,6 +119,30 @@ if(isset($_POST['submit']))
     <td> Miscellaneous charges</td>
     <td> </td>
   </tr>
+  <tr>
+  <td>Resident DR's Charges   </td>
+    <td> </td>
+    <td> Food charges</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Nursing care    </td>
+    <td> 1500</td>
+    <td> Communication charges</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Hospital Charges   </td>
+    <td> 1500</td>
+    <td> Attendant room charges</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Hospital Charges   </td>
+    <td> 1500</td>
+    <td> Attendant room charges</td>
+    <td> </td>
+  </tr>
 </table>
 
 
