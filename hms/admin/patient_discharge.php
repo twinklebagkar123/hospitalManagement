@@ -86,7 +86,7 @@ if(isset($_POST['submit']))
     
 </tr>
 <tr>
-    <th>
+    
                                                      <div class="row">
 
 
@@ -96,7 +96,7 @@ if(isset($_POST['submit']))
 
 
                                                      </div>
-    </th>
+   
 </tr>
                                                
   
