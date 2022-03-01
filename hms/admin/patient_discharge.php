@@ -62,7 +62,7 @@ if(isset($_POST['submit']))
 												<form role="form" action="" method="post" >
 
                                                 <table class="table table-bordered">
-                                                <thead>
+                                               
 <tr>
     <th>
                                                 <div class="row"> 
@@ -97,7 +97,7 @@ if(isset($_POST['submit']))
                                                      </div>
     </th>
 </tr>
-                                                </thead>
+                                               
   
   <tr>
     <td> </td>
