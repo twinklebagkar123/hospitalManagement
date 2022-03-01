@@ -63,27 +63,45 @@ if(isset($_POST['submit']))
 
                                                 <table style="width:100%">
                                                 <thead>
-                                                    
+                                                     <div class="row"> 
+                                       <h4>HOSPITAL BILL</h4>
+
+                                                     </div>
+
+                                                     <div class="row">
+
+
+<div class="col-sm-4"> <h4> NAME OF THE PATIENT: </h4> </div>
+<div class="col-sm-4"><h4>D.O.B :</h4></div>
+<div class="col-sm-4"> <h4> DATE: </h4> </div>
+
+
+                                                     </div>
+                                                     <div class="row">
+
+
+<div class="col-sm-4"> <h4> ADMISSION NO: </h4> </div>
+<div class="col-sm-4"><h4>D.O.A :</h4></div>
+<div class="col-sm-4"> <h4> D.O.D: </h4> </div>
+
+
+                                                     </div>
                                                 </thead>
+  
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
   </tr>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
   </tr>
   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
   </tr>
 </table>
 
