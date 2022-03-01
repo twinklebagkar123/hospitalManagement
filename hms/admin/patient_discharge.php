@@ -66,7 +66,8 @@ if(isset($_POST['submit']))
 <tr>
     <th>
                                                 <div class="row"> 
-                                       <h4>HOSPITAL BILL</h4>
+                                                    <div class="col-sm-12">  <h4>HOSPITAL BILL</h4> </div>
+                                      
 
                                                      </div>
     </th>
