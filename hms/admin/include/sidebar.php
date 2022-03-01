@@ -121,6 +121,11 @@
 								<span class="title"> View Patient</span>
 							</a>
 						</li>
+						<li>
+							<a href="patient_discharge.php">
+								<span class="title"> Discharge Patient</span>
+							</a>
+						</li>
 					</ul>
 					<li>
 					<a href="patient-search.php">
