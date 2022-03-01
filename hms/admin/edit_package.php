@@ -44,7 +44,7 @@ check_login();
    
 	
 
-	$query = "UPDATE `tariff_room_info` SET `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
+	$query = "UPDATE `tariff_room_info` SET  `tariff_cat_id`='$tariff_cat_id',`tariff_class_type_id`='$tariff_class_name', `tariff_room_name`=' $roomn',`tariff_room_fee`='$total',`tariff_fee_distribution`='$feeDistribution',`is_fee_distributed`=' $is_fee_distributed' WHERE tariff_room_id='$id3' ";
 	print_r($query);
 	$con->query($query);
 	$stat = true;
