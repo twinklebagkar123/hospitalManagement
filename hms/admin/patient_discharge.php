@@ -132,7 +132,7 @@ if(isset($_POST['submit']))
     <td> </td>
   </tr>
   <tr>
-  <td>Hospital Charges   </td>
+  <td> HOSPITAL CHARGES  </td>
     <td> 1500</td>
     <td> Attendant room charges</td>
     <td> </td>
@@ -140,7 +140,7 @@ if(isset($_POST['submit']))
   <tr>
   <td>Hospital Charges   </td>
     <td> 1500</td>
-    <td> Attendant room charges</td>
+    <td>   ambulance  </td>
     <td> </td>
   </tr>
 </table>
