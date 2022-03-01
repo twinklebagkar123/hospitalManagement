@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
 
 												<form role="form" action="" method="post" >
 
-                                                <table style="width:100%">
+                                                <table class="table table-bordered">
                                                 <thead>
                                                      <div class="row"> 
                                        <h4>HOSPITAL BILL</h4>
