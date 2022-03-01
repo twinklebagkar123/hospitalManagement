@@ -239,12 +239,77 @@ if(isset($_POST['submit']))
     <td> </td>
   </tr>
   <tr>
-  <td>     </td>
+  <td>    Anesthetist </td>
     <td> </td>
-    <td>  </td>
+    <td> X-Ray </td>
     <td> </td>
   </tr>
-
+  <tr>
+  <td> OT Gases    </td>
+    <td> </td>
+    <td> Doppler </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Implant</td>
+    <td> </td>
+    <td>Ultrasound</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>   OT- medicines & disposables  </td>
+    <td> </td>
+    <td>ECG  </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>INVESTIGATIONS</td>
+    <td> </td>
+    <td>Ultrasound</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>RBSL</td>
+    <td> </td>
+    <td>CT SCAN</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Laboratory Charges</td>
+    <td> </td>
+    <td>GRAND TOTAL  </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Histopathology</td>
+    <td> </td>
+    <td>ADVANCE PAID </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>DOCTORS CHARGES</td>
+    <td> </td>
+    <td>DISCOUNT  </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>DR. NOEL</td>
+    <td> </td>
+    <td>TOTAL  </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>   </td>
+    <td> </td>
+    <td>   </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>   </td>
+    <td> </td>
+    <td>NET PAYABLE  </td>
+    <td> </td>
+  </tr>
 </table>
 
 
