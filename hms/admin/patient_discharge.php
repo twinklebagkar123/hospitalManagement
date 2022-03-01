@@ -107,13 +107,16 @@ if(isset($_POST['submit']))
     <th> AMOUNT</th>
   </tr>
   <tr>
+    <td>Registration Fees </td>
+    <td>200</td>
+    <td> Physiotherapy</td>
     <td> </td>
-    <td> </td>
-    <td> </td>
+
   </tr>
   <tr>
-    <td> </td>
-    <td> </td>
+  <td>Hospital Charges   </td>
+    <td> 1500</td>
+    <td> Miscellaneous charges</td>
     <td> </td>
   </tr>
 </table>
