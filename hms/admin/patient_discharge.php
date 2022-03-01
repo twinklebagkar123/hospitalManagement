@@ -101,9 +101,10 @@ if(isset($_POST['submit']))
                                                
   
   <tr>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <th> HOSPITAL CHARGES </th>
+    <th> AMOUNT </th>
+    <th> OTHER CHARGES</th>
+    <th> AMOUNT</th>
   </tr>
   <tr>
     <td> </td>
