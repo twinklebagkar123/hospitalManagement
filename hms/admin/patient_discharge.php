@@ -64,11 +64,14 @@ if(isset($_POST['submit']))
                                                 <table class="table table-bordered">
                                                 <thead>
 <tr>
+    <th>
                                                 <div class="row"> 
                                        <h4>HOSPITAL BILL</h4>
 
                                                      </div>
+    </th>
 
+    <th>
                                                      <div class="row">
 
 
@@ -78,6 +81,8 @@ if(isset($_POST['submit']))
 
 
                                                      </div>
+    </th>
+    <th>
                                                      <div class="row">
 
 
@@ -87,6 +92,7 @@ if(isset($_POST['submit']))
 
 
                                                      </div>
+    </th>
 </tr>
                                                 </thead>
   
