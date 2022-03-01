@@ -127,22 +127,124 @@ if(isset($_POST['submit']))
   </tr>
   <tr>
   <td>Nursing care    </td>
-    <td> 1500</td>
+    <td> </td>
     <td> Communication charges</td>
     <td> </td>
   </tr>
   <tr>
   <td> HOSPITAL CHARGES  </td>
-    <td> 1500</td>
+    <td> </td>
     <td> Attendant room charges</td>
     <td> </td>
   </tr>
   <tr>
   <td>Hospital Charges   </td>
-    <td> 1500</td>
+    <td> </td>
     <td>   ambulance  </td>
     <td> </td>
   </tr>
+  <tr>
+  <td>Resident DR's Charges   </td>
+    <td> </td>
+    <td>   water mattress  </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>nursing care  </td>
+    <td> </td>
+    <td>  air mattress </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>oxygen charges    </td>
+    <td> </td>
+    <td>  PROCEDURE CHARGES </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>moinitor      </td>
+    <td> </td>
+    <td>   TAPPING </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>SPO2      </td>
+    <td> </td>
+    <td>   lumber puncture </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>SYRINGE PUMP      </td>
+    <td> </td>
+    <td> blood tranfution </td>
+    <td> </td>
+  </tr>
+
+
+ 
+  <tr>
+  <td>Hospital -medicines & disposables    </td>
+    <td> </td>
+    <td> Nebulizer Charges </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>SURGERY CHARGES    </td>
+    <td> </td>
+    <td>Dressing</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>operation theater      </td>
+    <td> </td>
+    <td> CVP/Intubation </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>operation theater      </td>
+    <td> </td>
+    <td> CVP/Intubation </td>
+    <td> </td>
+  </tr>
+
+  <tr>
+  <td>  OT nurse   </td>
+    <td> </td>
+    <td> Minor OT </td>
+    <td> </td>
+  </tr>
+  
+  <tr>
+  <td>   Equipment Charges (C-ARM)  </td>
+    <td> </td>
+    <td> Ryles Tube Procedure </td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>   Technician  </td>
+    <td> </td>
+    <td>Cathetersation</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>OT assistant</td>
+    <td> </td>
+    <td>REDIOLOGY</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>Surgeon</td>
+    <td> </td>
+    <td>2D ECHO</td>
+    <td> </td>
+  </tr>
+  <tr>
+  <td>     </td>
+    <td> </td>
+    <td>  </td>
+    <td> </td>
+  </tr>
+
 </table>
 
 
