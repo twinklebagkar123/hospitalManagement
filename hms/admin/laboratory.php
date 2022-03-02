@@ -276,7 +276,7 @@ print_r($_POST);
         console.log("tetstt");
         var data = CKEDITOR.instances.editor.getData();
         $('#html_test_default_info').val(data);
-
+console.log(data);
         $(this).submit();
         
     });
