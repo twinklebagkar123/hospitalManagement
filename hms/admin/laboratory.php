@@ -143,7 +143,9 @@ if(isset($_POST['submit']))
 														
 
 													</div>
-													<textarea name="editor1"></textarea>
+													<div id="editor">
+    <p>This is the editor content.</p>
+</div>
         
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -244,13 +246,13 @@ if(isset($_POST['submit']))
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
 	<script src="assets/js/main.js"></script>
-	<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+	<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
 	 
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
 	<script>
 		jQuery(document).ready(function() {
-			CKEDITOR.replace( 'editor1' );
+			CKEDITOR.replace( 'editor' );
 			Main.init();
 			FormElements.init();
 			var jsonFieldDetails = [];
