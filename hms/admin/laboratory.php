@@ -246,7 +246,7 @@ if(isset($_POST['submit']))
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/ckeditor.js"></script>
+	<script src="assets/ckeditor/ckeditor.js"></script>
 	 
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
