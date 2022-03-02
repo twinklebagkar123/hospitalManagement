@@ -156,7 +156,7 @@ print_r($_POST['html_test_default_info'] );
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
 													</button>
-													<input type="hidden" name="html_test_default_info">
+													<input type="hidden" name="html_test_default_info" id="html_test_default_info">
 												</form>
 											</div>
 										</div>
