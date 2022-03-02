@@ -113,7 +113,7 @@ print_r($_POST['html_test_default_info'] );
 											</div>
 											<div class="panel-body">
 
-												<form role="form" name="addmed" id="addmed" method="post" onSubmit="return valid();">
+												<form role="form" name="addmed" id="addmed" method="post" >
 
 													<div class="form-group">
 														<label for="name">
