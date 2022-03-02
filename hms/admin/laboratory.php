@@ -143,6 +143,11 @@ if(isset($_POST['submit']))
 														
 
 													</div>
+													<div class="wrapperDiv">
+													
+													
+													<input type="checkbox" id="test_more_info"   name="test_more_info" value="1">
+													<label > Test More Info</label>
 													<div id="editor">
     <p>This is the editor content.</p>
 </div>
@@ -253,6 +258,7 @@ if(isset($_POST['submit']))
 	<script>
 		jQuery(document).ready(function() {
 			CKEDITOR.replace( 'editor' );
+
 			Main.init();
 			FormElements.init();
 			var jsonFieldDetails = [];
