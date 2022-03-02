@@ -263,7 +263,7 @@ check_login(); ?>
             </div>
             <?php  if($medicalDetail->prescription_type == "hourly_prescription"): ?>
             <div class="row">
-                <div class="col-md-12" style="min-height: 200px;">
+                <div class="col-md-12" style="min-height: 250px;">
                     <h6>Hourly Distribution: </h6>
                     <table class="table table-bordered">
                         <tr>
@@ -323,8 +323,6 @@ check_login(); ?>
         </div>
     </div>
     
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
