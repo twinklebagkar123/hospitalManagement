@@ -143,7 +143,8 @@ if(isset($_POST['submit']))
 														
 
 													</div>
-													
+													<textarea name="editor1"></textarea>
+        
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
@@ -228,6 +229,7 @@ if(isset($_POST['submit']))
 	<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script src="vendor/switchery/switchery.min.js"></script>
+	
 
 	<!-- end: MAIN JAVASCRIPTS -->
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
@@ -242,6 +244,11 @@ if(isset($_POST['submit']))
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/ckeditor.js"></script>
+	<script>
+            CKEDITOR.replace( 'editor1' );
+        </script>
+	 
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
 	<script>

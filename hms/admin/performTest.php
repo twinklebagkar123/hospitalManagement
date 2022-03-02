@@ -164,6 +164,7 @@ function fetchPatientName($admissionID)
     <script src="vendor/jquery-cookie/jquery.cookie.js"></script>
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="vendor/switchery/switchery.min.js"></script>
+    
     <!-- end: MAIN JAVASCRIPTS -->
     <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
