@@ -9,7 +9,7 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-print_r($_POST);
+print_r($_POST['html_test_default_info'] );
 	// $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,test_more_info) VALUES ('$labTestName','$labFields','$charges','')";
 	// $con->query($query);
 	$stat = true;
