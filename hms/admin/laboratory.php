@@ -9,9 +9,9 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`) VALUES ('$labTestName','$labFields','$charges')";
-	$con->query($query);
+print_r($_POST);
+	// $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,test_more_info) VALUES ('$labTestName','$labFields','$charges','')";
+	// $con->query($query);
 	$stat = true;
 	if($stat)
 	{
@@ -113,7 +113,7 @@ if(isset($_POST['submit']))
 											</div>
 											<div class="panel-body">
 
-												<form role="form" name="addmed" method="post" onSubmit="return valid();">
+												<form role="form" name="addmed" id="addmed" method="post" onSubmit="return valid();">
 
 													<div class="form-group">
 														<label for="name">
@@ -151,11 +151,12 @@ if(isset($_POST['submit']))
 													<div id="editor">
     <p>This is the editor content.</p>
 </div>
-        
+													</div>
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
 													</button>
+													<input type="hidden" name="html_test_default_info">
 												</form>
 											</div>
 										</div>
@@ -256,6 +257,7 @@ if(isset($_POST['submit']))
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
 	<script>
+		var ckeditor = [];
 		jQuery(document).ready(function() {
 			CKEDITOR.replace( 'editor' );
 			$(document).on("change","#test_more_info ", function(){
@@ -268,6 +270,20 @@ if(isset($_POST['submit']))
             {$("#cke_editor").hide();}
 
 			});
+
+			$(document).one("submit","#addmed", function(e){
+        e.preventDefault();
+        console.log("tetstt");
+        var data = CKEDITOR.instances.editor.getData();
+        $('#html_test_default_info').val(data);
+
+        $(this).submit();
+        
+    });
+
+
+
+
 			Main.init();
 			FormElements.init();
 			var jsonFieldDetails = [];
