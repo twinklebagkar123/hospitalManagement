@@ -9,9 +9,9 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-print_r($_POST['html_test_default_info'] );
-	// $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,test_more_info) VALUES ('$labTestName','$labFields','$charges','')";
-	// $con->query($query);
+$html_test_default_info=$_POST['html_test_default_info'] ;
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,'test_more_info') VALUES ('$labTestName','$labFields','$charges','$html_test_default_info')";
+	$con->query($query);
 	$stat = true;
 	if($stat)
 	{
@@ -277,7 +277,7 @@ print_r($_POST['html_test_default_info'] );
         var data = CKEDITOR.instances.editor.getData();
         $('#html_test_default_info').val(data);
 console.log(data);
-       // $(this).submit();
+       $(this).submit();
         
     });
 
@@ -289,7 +289,7 @@ console.log(data);
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
-			//	var fieldType = $("input[name='fieldType']:checked").val();
+			
 				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
