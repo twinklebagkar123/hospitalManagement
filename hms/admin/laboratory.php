@@ -17,7 +17,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 	$stat = true;
 	if($stat)
 	{
-		echo "<script>alert('Successfully Registered. You can login now');</script>";
+		echo "<script>alert('Successfully added. ');</script>";
 	}
 }
 
@@ -122,8 +122,8 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 															Test Name:
 														</label>
 
-														<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" required="true" onchange="checkemailAvailability()">
-														<span id="email-availability-status"></span>
+														<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" required="true" >
+														
 
 													</div>
 													<div class="form-group">
