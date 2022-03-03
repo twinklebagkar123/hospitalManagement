@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
@@ -11,11 +11,12 @@ if(isset($_POST['submit']))
 	$charges=$_POST['charges'];
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 try {
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`) VALUES ('".$labTestName."','".$labFields."','".$charges."',".$html_test_default_info.")";
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."')";
 	// "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,`test_more_info`) VALUES ('','$labFields',','' )";
 	$con->query($query);
 	echo $query;
 } catch (\Throwable $th) {
+	echo "_+_+_+_";
    print_r($th);
 }
 
