@@ -19,7 +19,8 @@ try {
 	echo "_+_+_+_";
    print_r($th);
 }
-$text ="select * from `laboratoryTestList`";
+$text ="select * from laboratoryTestList ";
+
 print_r(html_entity_decode($text, ENT_NOQUOTES));
 	
 	$stat = true;
