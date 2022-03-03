@@ -10,11 +10,16 @@ if(isset($_POST['submit']))
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
-
-$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`) VALUES ('".$labTestName."','".$labFields."','".$charges."',".$html_test_default_info.")";
+try {
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`) VALUES ('".$labTestName."','".$labFields."','".$charges."',".$html_test_default_info.")";
 	// "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,`test_more_info`) VALUES ('','$labFields',','' )";
 	$con->query($query);
-	print_r($query);
+	echo $query;
+} catch (\Throwable $th) {
+   print_r($th);
+}
+
+	
 	$stat = true;
 	if($stat)
 	{
