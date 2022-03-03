@@ -13,7 +13,8 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 
 	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,'test_more_info') VALUES ('$labTestName','$labFields','$charges','$html_test_default_info')";
-	$con->query($query);
+	//$con->query($query);
+	print_r($query);
 	$stat = true;
 	if($stat)
 	{
