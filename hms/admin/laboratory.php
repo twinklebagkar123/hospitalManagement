@@ -20,7 +20,7 @@ try {
    print_r($th);
 }
 $text ="select * from `laboratoryTestList`";
-echo html_entity_decode($text, ENT_NOQUOTES);
+print_r(html_entity_decode($text, ENT_NOQUOTES));
 	
 	$stat = true;
 	if($stat)
