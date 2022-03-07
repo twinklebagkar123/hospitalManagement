@@ -217,7 +217,7 @@ Main.init();
 			FormElements.init();
 			var jsonFieldDetails = [];
 			$("#addTest").on("click", function(){
-				var fieldName = $("#fieldName").val();
+				var fieldName = $("<?php echo $field; ?>").val();
 			
 				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
