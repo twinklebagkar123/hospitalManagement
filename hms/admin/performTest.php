@@ -222,6 +222,7 @@ Main.init();
 			var jsonFieldDetails = [];
 			$("#addTest").on("click", function(){
 				var fieldName = $("#field_lab_counter").val();
+                console.log("hello");
                 while (j<=fieldName){
                     var trow = "<tr><td>"+fieldName+j+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
