@@ -9,9 +9,15 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
+	$main_titles=$_POST['main_titles'];
+	$mt="";  
+foreach($main_titles as $mt1)  
+   {  
+      $mt .= $mt1.",";  
+   }  
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 try {
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."')";
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$mt."')";
 	// "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,`test_more_info`) VALUES ('','$labFields',','' )";
 	$con->query($query);
 	echo $query;
@@ -163,13 +169,13 @@ try {
 </div>
 													</div>
 												<div>
-<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<input type="checkbox" id="main_titles" name="main_titles" value="Test">
 <label for="vehicle1"> Test</label>
-<input type="checkbox" id="test" name="test" value="test">
+<input type="checkbox" id="main_titles" name="main_titles" value="Result">
 <label for="vehicle2"> I have a car</label>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<input type="checkbox" id="main_titles" name="main_titles" value="Boat">
 <label for="vehicle3"> I have a boat</label>
-<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<input type="checkbox" id="main_titles" name="main_titles" value="Boat">
 <label for="vehicle3"> I have a boat</label></div>
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
