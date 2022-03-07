@@ -169,13 +169,13 @@ try {
 </div>
 													</div>
 												<div>
-<input type="checkbox" id="main_titles" name="main_titles" value="Test">
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Test">
 <label for="vehicle1"> Test</label>
-<input type="checkbox" id="main_titles" name="main_titles" value="Result">
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Result">
 <label for="vehicle2"> I have a car</label>
-<input type="checkbox" id="main_titles" name="main_titles" value="Boat">
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Boat">
 <label for="vehicle3"> I have a boat</label>
-<input type="checkbox" id="main_titles" name="main_titles" value="Boat">
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Boat">
 <label for="vehicle3"> I have a boat</label></div>
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
