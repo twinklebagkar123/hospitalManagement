@@ -223,15 +223,15 @@ Main.init();
 			$("#addTest").on("click", function(){
 				var fieldName = $("#field_lab_counter").val();
                 while (j<=fieldName){
-
-                    
-                }
-			
-				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+                    var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(fieldName);
 				jsonFieldDetailsString = jsonFieldDetails.toString();
 				$("#fieldArray").val(jsonFieldDetailsString);
+
+                }
+			
+				
 				console.log(jsonFieldDetails);
 				
 			});
