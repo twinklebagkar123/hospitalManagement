@@ -9,8 +9,9 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-	//$main_titles=$_POST['main_titles'];
-	$main_titles = implode(',', $_POST['main_titles']);
+	$main_titles=$_POST['main_titles'];
+	$engine2 = implode(',', $_POST['main_titles']);
+	print_r($engine2);
 	$mt="";  
 // foreach($main_titles as $mt1)  
 //    {  
@@ -20,7 +21,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$mt."')";
 	// "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,`test_more_info`) VALUES ('','$labFields',','' )";
-	$con->query($query);
+	// $con->query($query);
 	
 
 print_r($query);
