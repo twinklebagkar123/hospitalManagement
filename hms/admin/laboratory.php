@@ -216,17 +216,7 @@ try {
 											</tbody>
 										</table>
 									</div>
-									<?php $ret = mysqli_query($con, "select * from laboratoryTestList");
-						$cnt = 1;
-						while ($row = mysqli_fetch_array($ret)) {
-						
-
-							print_r(html_entity_decode($row['test_more_info'], ENT_NOQUOTES));
-
-
-						}
-
-						?>
+								 
 								</div>
 							</div>
 
