@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
 	$mt="";  
 foreach($main_titles as $mt1)  
    {  
-      $mt .= $mt1.",";  
+      $mt.=$mt1.",";  
    }  
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 
