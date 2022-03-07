@@ -162,6 +162,9 @@ try {
     <p>This is the editor content.</p>
 </div>
 													</div>
+													<div class=""><input type="checkbox">a</div>
+<div class=""><input type="checkbox">b</div>
+<div class=""><input type="checkbox">c</div>
                                                     
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
