@@ -26,7 +26,7 @@ try {
    print_r($th);
 }
 
-
+print_r($query);
 	
 	$stat = true;
 	if($stat)
