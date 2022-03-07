@@ -160,7 +160,7 @@ function fetchPatientName($admissionID)
 											<thead>
 												<tr>
 													
-													<th>Field Name</th>
+													<th>Value</th>
 													<th>Action</th>
 
 												</tr>
@@ -216,7 +216,7 @@ function fetchPatientName($admissionID)
 Main.init();
 			FormElements.init();
 			var jsonFieldDetails = [];
-			$("#addField").on("click", function(){
+			$("#addTest").on("click", function(){
 				var fieldName = $("#fieldName").val();
 			
 				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
