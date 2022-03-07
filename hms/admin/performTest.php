@@ -111,6 +111,7 @@ function fetchPatientName($admissionID)
                                         <?php
                                         $fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
+                                        $i=1;
                                         foreach ($fields_arr as  $field) {
                                         ?>
                                             <div class="form-group">
@@ -118,13 +119,15 @@ function fetchPatientName($admissionID)
                                                     <?php echo $field; ?>
                                                 </label>
 
-                                                <input type="text" id="<?php echo $field; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
+                                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
 
-
+                                                    <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i;?>">
                                             </div>
 
                                     <?php
+                                    $i++;
                                         }
+
                                     }
                                     ?>
                                     <div class="form-group">
@@ -215,9 +218,14 @@ function fetchPatientName($admissionID)
 
 Main.init();
 			FormElements.init();
+            var j=1;
 			var jsonFieldDetails = [];
 			$("#addTest").on("click", function(){
-				var fieldName = $("<?php echo $field; ?>").val();
+				var fieldName = $("#field_lab_counter").val();
+                while (j<=fieldName){
+
+                    
+                }
 			
 				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 				$("#fieldShow").append(trow);
