@@ -162,10 +162,16 @@ try {
     <p>This is the editor content.</p>
 </div>
 													</div>
-													<div class=""><input type="checkbox">a
-<input type="checkbox">b
-<input type="checkbox">c</div>
-                                                    
+												<div>
+<input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+<label for="vehicle1"> Test</label>
+<input type="checkbox" id="test" name="test" value="test">
+<label for="vehicle2"> I have a car</label>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label>
+<input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+<label for="vehicle3"> I have a boat</label></div>
+          
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
 													</button>
