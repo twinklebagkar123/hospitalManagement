@@ -142,7 +142,39 @@ function fetchPatientName($admissionID)
                                     <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
                                 </form>
                             </div>
+                            <div class="col-sm-6">
+
+                            <a class="btn btn-o btn-primary" id ="addTest">+ Add Test</a>
+
+                            </div>
                         </div>
+                        <div class="container-fluid container-fullw bg-white">
+
+
+								<div class="row">
+									<div class="col-md-12">
+										<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
+										<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
+											<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+										<table class="table table-hover" id="sample-table-1">
+											<thead>
+												<tr>
+													
+													<th>Field Name</th>
+													<th>Action</th>
+
+												</tr>
+											</thead>
+											<tbody id="fieldShow">
+											
+
+
+											</tbody>
+										</table>
+									</div>
+								 
+								</div>
+							</div>
                     </div>
                 </div>
             </div>
@@ -179,6 +211,36 @@ function fetchPatientName($admissionID)
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     <script src="assets/js/main.js"></script>
+    <script>
+
+Main.init();
+			FormElements.init();
+			var jsonFieldDetails = [];
+			$("#addField").on("click", function(){
+				var fieldName = $("#fieldName").val();
+			
+				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+				$("#fieldShow").append(trow);
+				jsonFieldDetails.push(fieldName);
+				jsonFieldDetailsString = jsonFieldDetails.toString();
+				$("#fieldArray").val(jsonFieldDetailsString);
+				console.log(jsonFieldDetails);
+				
+			});
+			$(document).on("click" ,".remove",function(){
+				var shanti = $(this).data("name");
+              var index = jsonFieldDetails.indexOf(shanti);
+			  if (index > -1) {
+				jsonFieldDetails.splice(index, 1);
+			}
+			  console.log(jsonFieldDetails);
+			  jsonFieldDetailsString = jsonFieldDetails.toString();
+				$("#fieldArray").val(jsonFieldDetailsString);
+			   $(this).parent().remove();
+
+			});
+
+    </script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
