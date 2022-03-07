@@ -9,13 +9,13 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-	$main_titles=$_POST['main_titles'];
-	
+	//$main_titles=$_POST['main_titles'];
+	$main_titles = implode(',', $_POST['main_titles']);
 	$mt="";  
-foreach($main_titles as $mt1)  
-   {  
-      $mt.=$mt1.",";  
-   }  
+// foreach($main_titles as $mt1)  
+//    {  
+//       $mt.=$mt1.",";  
+//    }  
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 
 	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$mt."')";
