@@ -16,15 +16,11 @@ foreach($main_titles as $mt1)
       $mt .= $mt1.",";  
    }  
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
-try {
+
 	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$mt."')";
 	// "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`,`test_more_info`) VALUES ('','$labFields',','' )";
 	$con->query($query);
-	echo $query;
-} catch (\Throwable $th) {
-	echo "_+_+_+_";
-   print_r($th);
-}
+	
 
 print_r($query);
 	
