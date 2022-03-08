@@ -170,10 +170,10 @@ print_r($query);
 <label for="vehicle1"> Test</label>
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Result">
 <label for="vehicle2"> Result</label>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Boat">
-<label for="vehicle3"> I have a boat</label>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Boat">
-<label for="vehicle3"> I have a boat</label></div>
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Units">
+<label for="vehicle3"> Units</label>
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Referance_Range">
+<label for="vehicle3"> Referance Range</label></div>
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
