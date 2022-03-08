@@ -105,6 +105,7 @@ function fetchPatientName($admissionID)
                                     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
                                     $result = $con->query($query);
                                     while ($row = mysqli_fetch_array($result)) {
+                                        
                                     ?>
                                         <h3> <?php echo $row['labTestName']; ?> | <?php echo fetchPatientName($adID); ?></h3>
 
@@ -185,7 +186,7 @@ function fetchPatientName($admissionID)
     </div>
     <!-- start: FOOTER -->
     <?php include('include/footer.php'); ?>
-    
+
     <!-- end: FOOTER -->
 
     <!-- start: SETTINGS -->
