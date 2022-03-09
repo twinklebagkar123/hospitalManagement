@@ -129,7 +129,7 @@ function fetchPatientName($admissionID)
                                     <?php
                                     $i++;
                                         }?>
-                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i;?>">
+                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i-1;?>">
                                         <?php
 
                                     }
