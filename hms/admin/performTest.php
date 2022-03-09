@@ -228,31 +228,31 @@ Main.init();
 			var jsonFieldDetails = [];
             
 			$("#addTest").on("click", function(){
-                var j=1;
-                console.log("hello");
-				var counter = $("#field_lab_counter").val();
+                // var j=1;
+                // console.log("hello");
+				// var counter = $("#field_lab_counter").val();
                 
-                while (j<=counter){
+                // while (j<=counter){
 
 
                     
 
-                    var data = "<tr><th>"+counter+"</th><td>" +  + "</td><td>" +  + "</td></tr>";
-                    console.log(data);
-                    $("#table_field #fieldShow").append(data);
-                    // $("#fieldShow . tr").last(td);
-                    j++;
+                //     var data = "<tr><th>"+counter+"</th><td>" +  + "</td><td>" +  + "</td></tr>";
+                //     console.log(data);
+                //     $("#table_field #fieldShow").append(data);
+                //     // $("#fieldShow . tr").last(td);
+                //     j++;
              
-                }
-                $("#fieldShow").append("#field_lab_+j+");
-                var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
-				$("#fieldShow").append(trow);
-				jsonFieldDetails.push(counter);
-				jsonFieldDetailsString = jsonFieldDetails.toString();
-				$("#fieldArray").val(jsonFieldDetailsString);
+                // }
+                // $("#fieldShow").append("#field_lab_"+j);
+                // var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
+				// $("#fieldShow").append(trow);
+				// jsonFieldDetails.push(counter);
+				// jsonFieldDetailsString = jsonFieldDetails.toString();
+				// $("#fieldArray").val(jsonFieldDetailsString);
 
 				
-				console.log(jsonFieldDetails);
+				// console.log(jsonFieldDetails);
 				
 			});
 			$(document).on("click" ,".remove",function(){
