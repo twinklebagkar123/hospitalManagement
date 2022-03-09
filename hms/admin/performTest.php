@@ -223,19 +223,21 @@ Main.init();
 			FormElements.init();
             var j=1;
 			var jsonFieldDetails = [];
+            
 			$("#addTest").on("click", function(){
 				var counter = $("#field_lab_counter").val();
                 console.log("hello");
                 while (j<=counter){
-                     
+                   
+                    
+                }
+               
+                var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(counter);
 				jsonFieldDetailsString = jsonFieldDetails.toString();
 				$("#fieldArray").val(jsonFieldDetailsString);
 
-                }
-                var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
-			
 				
 				console.log(jsonFieldDetails);
 				
