@@ -174,6 +174,8 @@ print_r($query);
 <label for="vehicle3"> Units</label>
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Referance_Range">
 <label for="vehicle3"> Referance Range</label></div>
+<input type="checkbox" id="main_titles" name="main_titles[]" value="Normal_Range">
+<label for="vehicle3"> Normal  Range</label></div>
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
