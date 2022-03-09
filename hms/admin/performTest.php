@@ -228,8 +228,8 @@ Main.init();
 				var counter = $("#field_lab_counter").val();
                 console.log("hello");
                 while (j<=counter){
-                    $("#fieldShow").append(field_lab_+j+);
-                    $("#fieldShow . tr").(":last")(td);
+                    $("#fieldShow").append("#field_lab_+j+");
+                    $("#fieldShow . tr").last(td);
                     j++;
                 }
                
