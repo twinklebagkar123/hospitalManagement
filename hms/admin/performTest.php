@@ -161,7 +161,7 @@ function fetchPatientName($admissionID)
 										<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
 										<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 											<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
-										<table class="table table-hover" id="sample-table-1">
+										<table class="table table-hover" id="table_field">
 											<thead>
 												<tr>
 													
@@ -234,9 +234,9 @@ Main.init();
                 while (j<=counter){
 
 
-                    $
-                   
-                    $("#fieldShow . tr").last(td);
+                    // $("#table_field #fieldShow").append(data);
+                    var markup = "<tr><th></th><td>" + name + "</td><td>" + email + "</td></tr>";
+                    // $("#fieldShow . tr").last(td);
                     j++;
                 }
                 $("#fieldShow").append("#field_lab_+j+");
