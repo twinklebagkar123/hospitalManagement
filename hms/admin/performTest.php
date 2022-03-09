@@ -239,7 +239,7 @@ function fetchPatientName($admissionID)
                 while (j<=counter){
 
 
-                    var textName = $("field_lab_"+j);
+                    var textName = $("field_lab_"+j).val();
 
                     data = data+"<td>" +textName+ "</td>";
                     
