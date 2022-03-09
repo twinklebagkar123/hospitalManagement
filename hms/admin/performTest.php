@@ -104,6 +104,7 @@ function fetchPatientName($admissionID)
                                     <?php
                                     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
                                     $result = $con->query($query);
+                                    $fields_arr="";
                                     while ($row = mysqli_fetch_array($result)) {
                                         
                                     ?>
@@ -223,16 +224,17 @@ Main.init();
             var j=1;
 			var jsonFieldDetails = [];
 			$("#addTest").on("click", function(){
-				var fieldName = $("#field_lab_counter").val();
+				var counter = $("#field_lab_counter").val();
                 console.log("hello");
-                while (j<=fieldName){
-                    var trow = "<tr><td>"+fieldName+j+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+                while (j<=counter){
+                     
 				$("#fieldShow").append(trow);
-				jsonFieldDetails.push(fieldName);
+				jsonFieldDetails.push(counter);
 				jsonFieldDetailsString = jsonFieldDetails.toString();
 				$("#fieldArray").val(jsonFieldDetailsString);
 
                 }
+                var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
 			
 				
 				console.log(jsonFieldDetails);
