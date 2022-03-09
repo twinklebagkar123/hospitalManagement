@@ -229,7 +229,7 @@ Main.init();
             
 			$("#addTest").on("click", function(){
                 // var j=1;
-                // console.log("hello");
+                 console.log("hello");
 				// var counter = $("#field_lab_counter").val();
                 
                 // while (j<=counter){
