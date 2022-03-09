@@ -236,7 +236,7 @@ Main.init();
 
                     
 
-                    var data = "<tr><th></th><td>" + name + "</td><td>" + email + "</td></tr>";
+                    var data = "<tr><th>+counter+</th><td>" + name + "</td><td>" + email + "</td></tr>";
                     $("#table_field #fieldShow").append(data);
                     // $("#fieldShow . tr").last(td);
                     j++;
