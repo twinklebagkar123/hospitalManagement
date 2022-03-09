@@ -149,7 +149,7 @@ function fetchPatientName($admissionID)
                             </div>
                             <div class="col-sm-6">
 
-                            <a class="btn btn-o btn-primary" id ="addTest">+ Add Test</a>
+                            <a class="btn btn-o btn-primary" id ="addTestfield">+ Add Test</a>
 
                             </div>
                         </div>
@@ -219,15 +219,19 @@ function fetchPatientName($admissionID)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
+    <script src="assets/js/form-elements.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script> -->
     <script src="assets/js/main.js"></script>
     <script>
 
-Main.init();
-			FormElements.init();
+
            
-			var jsonFieldDetails = [];
+			
             $(document).ready(function(){
-                $("#addTest").on("click", function(){
+                Main.init();
+			FormElements.init();
+            var jsonFieldDetails = [];
+                $("#addTestfield").on("click", function(){
                 // var j=1;
                  console.log("hello");
 				// var counter = $("#field_lab_counter").val();
@@ -255,9 +259,7 @@ Main.init();
 				// console.log(jsonFieldDetails);
 				
 			});
-            });
-			
-			$(document).on("click" ,".remove",function(){
+            $(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
               var index = jsonFieldDetails.indexOf(shanti);
 			  if (index > -1) {
@@ -269,11 +271,13 @@ Main.init();
 			   $(this).parent().remove();
 
 			});
+            });
+			
+			
 
     </script>
     <!-- start: JavaScript Event Handlers for this page -->
-    <script src="assets/js/form-elements.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+   
    
 </body>
 </html>
