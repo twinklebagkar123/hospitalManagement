@@ -228,8 +228,9 @@ Main.init();
 				var counter = $("#field_lab_counter").val();
                 console.log("hello");
                 while (j<=counter){
-                   
-                    
+                    $("#fieldShow").append(field_lab_+j+);
+                    $("#fieldShow . tr").(":last")(td);
+                    j++;
                 }
                
                 var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
