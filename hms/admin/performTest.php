@@ -166,11 +166,14 @@ function fetchPatientName($admissionID)
 										<table class="table table-hover" id="table_field">
 											<thead>
 												<tr>
+													<?php
+                                                    foreach ($fields_arr as  $field) {
+                                                        echo "<th>$field<th>";
+                                                    }
+                                                    
+                                                    ?>
+                                                    
 													
-                                                    <th>Field 1</th>
-                                                    <th>Field 2</th>
-													<th>Laboratory Incharge</th>
-                                                    <th>Laboratory Findings</th>
 													<th>Action</th>
 
 												</tr>
