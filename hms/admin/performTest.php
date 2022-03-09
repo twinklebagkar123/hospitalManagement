@@ -225,8 +225,9 @@ Main.init();
 			var jsonFieldDetails = [];
             
 			$("#addTest").on("click", function(){
-				var counter = $("#field_lab_counter").val();
                 console.log("hello");
+				var counter = $("#field_lab_counter").val();
+                
                 while (j<=counter){
                     $("#fieldShow").append("#field_lab_+j+");
                     $("#fieldShow . tr").last(td);
