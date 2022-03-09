@@ -165,7 +165,10 @@ function fetchPatientName($admissionID)
 											<thead>
 												<tr>
 													
-													<th>Value</th>
+                                                <th>Field 1</th>
+                                                    <th>Field 2</th>
+													<th>Laboratory Incharge</th>
+                                                    <th>Laboratory Findings</th>
 													<th>Action</th>
 
 												</tr>
