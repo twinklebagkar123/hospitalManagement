@@ -123,12 +123,14 @@ function fetchPatientName($admissionID)
 
                                                 <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
 
-                                                    <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i;?>">
+                                                   
                                             </div>
 
                                     <?php
                                     $i++;
-                                        }
+                                        }?>
+                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i;?>">
+                                        <?php
 
                                     }
                                     ?>
