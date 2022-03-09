@@ -226,8 +226,8 @@ Main.init();
 			FormElements.init();
            
 			var jsonFieldDetails = [];
-            
-			$("#addTest").on("click", function(){
+            $(document).ready(function(){
+                $("#addTest").on("click", function(){
                 // var j=1;
                  console.log("hello");
 				// var counter = $("#field_lab_counter").val();
@@ -255,6 +255,8 @@ Main.init();
 				// console.log(jsonFieldDetails);
 				
 			});
+            });
+			
 			$(document).on("click" ,".remove",function(){
 				var shanti = $(this).data("name");
               var index = jsonFieldDetails.indexOf(shanti);
