@@ -224,10 +224,11 @@ function fetchPatientName($admissionID)
 
 Main.init();
 			FormElements.init();
-            var j=1;
+           
 			var jsonFieldDetails = [];
             
 			$("#addTest").on("click", function(){
+                var j=1;
                 console.log("hello");
 				var counter = $("#field_lab_counter").val();
                 
@@ -236,7 +237,8 @@ Main.init();
 
                     
 
-                    var data = "<tr><th>+counter+</th><td>" + name + "</td><td>" + email + "</td></tr>";
+                    var data = "<tr><th>"+counter+"</th><td>" +  + "</td><td>" +  + "</td></tr>";
+                    console.log(data);
                     $("#table_field #fieldShow").append(data);
                     // $("#fieldShow . tr").last(td);
                     j++;
