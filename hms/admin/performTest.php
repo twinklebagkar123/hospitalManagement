@@ -165,7 +165,7 @@ function fetchPatientName($admissionID)
 											<thead>
 												<tr>
 													
-                                                <th>Field 1</th>
+                                                    <th>Field 1</th>
                                                     <th>Field 2</th>
 													<th>Laboratory Incharge</th>
                                                     <th>Laboratory Findings</th>
@@ -232,11 +232,14 @@ Main.init();
 				var counter = $("#field_lab_counter").val();
                 
                 while (j<=counter){
-                    $("#fieldShow").append("#field_lab_+j+");
+
+
+                    $
+                   
                     $("#fieldShow . tr").last(td);
                     j++;
                 }
-               
+                $("#fieldShow").append("#field_lab_+j+");
                 var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
 				$("#fieldShow").append(trow);
 				jsonFieldDetails.push(counter);
