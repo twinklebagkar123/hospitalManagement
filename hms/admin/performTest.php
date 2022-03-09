@@ -252,15 +252,16 @@ function fetchPatientName($admissionID)
                 }
                 data = data+"</tr>";
                 console.log(data);
-                $("#fieldShow").append("#field_lab_"+j);
-                var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
-				$("#fieldShow").append(trow);
-				jsonFieldDetails.push(counter);
-				jsonFieldDetailsString = jsonFieldDetails.toString();
-				$("#fieldArray").val(jsonFieldDetailsString);
+                $("#table_field").append(data);
+                // $("#fieldShow").append("#field_lab_"+j);
+                // var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
+				// $("#fieldShow").append(trow);
+				// jsonFieldDetails.push(counter);
+				// jsonFieldDetailsString = jsonFieldDetails.toString();
+				// $("#fieldArray").val(jsonFieldDetailsString);
 
 				
-				console.log(jsonFieldDetails);
+				//console.log(jsonFieldDetails);
 				
 			});
             $(document).on("click" ,".remove",function(){
