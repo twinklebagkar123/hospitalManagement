@@ -223,8 +223,6 @@ print_r($query);
 							</div>
 
 
-
-
 						</div>
 					</div>
 				</div>
