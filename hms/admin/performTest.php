@@ -232,7 +232,7 @@ function fetchPatientName($admissionID)
 			FormElements.init();
             var jsonFieldDetails = [];
                 $("#addTestfield").on("click", function(){
-                // var j=1;
+                var j=1;
                  console.log("hello");
 				 var counter = $("#field_lab_counter").val();
                 
