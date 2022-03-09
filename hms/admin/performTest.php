@@ -238,6 +238,7 @@ Main.init();
                     var markup = "<tr><th></th><td>" + name + "</td><td>" + email + "</td></tr>";
                     // $("#fieldShow . tr").last(td);
                     j++;
+             
                 }
                 $("#fieldShow").append("#field_lab_+j+");
                 var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
