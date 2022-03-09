@@ -235,19 +235,21 @@ function fetchPatientName($admissionID)
                 var j=1;
                  console.log("hello");
 				 var counter = $("#field_lab_counter").val();
-                
+                 var data = "<tr>";
                 while (j<=counter){
 
 
-                    
+                    var textName = $("field_lab_"+j);
 
-                    var data = "<tr><th>"+counter+"</th><td>" +  + "</td><td>" +  + "</td></tr>";
-                    console.log(data);
-                    $("#table_field #fieldShow").append(data);
-                    // $("#fieldShow . tr").last(td);
+                    data = data+"<td>" +textName+ "</td>";
+                    
+                    // $("#table_field #fieldShow").append(data);
+                    // // $("#fieldShow . tr").last(td);
                     j++;
              
                 }
+                data = data+"</tr>";
+                console.log(data);
                 $("#fieldShow").append("#field_lab_"+j);
                 var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
 				$("#fieldShow").append(trow);
