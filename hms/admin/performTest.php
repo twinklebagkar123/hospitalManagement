@@ -234,10 +234,10 @@ Main.init();
                 while (j<=counter){
 
 
-                    // $("#table_field #fieldShow").append(data);
-
-                    var markup = "<tr><th></th><td>" + name + "</td><td>" + email + "</td></tr>";
                     
+
+                    var data = "<tr><th></th><td>" + name + "</td><td>" + email + "</td></tr>";
+                    $("#table_field #fieldShow").append(data);
                     // $("#fieldShow . tr").last(td);
                     j++;
              
