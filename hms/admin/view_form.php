@@ -75,11 +75,11 @@ if (isset($_GET['del'])) {
 <?php $sql=mysqli_query($con,"select * from laboratoryTestList where id='$id'");
 
 
-echo "labTestName";
+echo $row['labTestName'];
 ?>
 </div>
 <div class="row">
-<?php echo "main_titles"; ?>
+<?php echo $row['main_titles']; ?>
 
 </div>
 <div class="row">
