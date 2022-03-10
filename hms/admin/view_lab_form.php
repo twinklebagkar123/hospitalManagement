@@ -93,30 +93,13 @@ if (isset($_GET['del'])) {
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
 												<td ><?php echo $row['labTestName']; ?></td>
-												<td ><?php echo $row['labFields']; ?></td>
+												
 												<td ><?php echo $row['labCharges']; ?></td>
-												<td><?php echo $row['test_more_info']; ?></td>
-                                                <td><?php echo $row['main_titles']; ?></td>
+												
 												
 												<td>
-													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<form action="edit_package.php" method="post"  enctype="multipart/form-data">
-														
-														<input type="hidden" name="tariff_cat_name" value="<?php echo $row['tariff_cat_name']; ?>">
-														<input type="hidden" name="tariff_class_name" value="<?php echo $row['tariff_class_name']; ?>">
-														<input type="hidden" name="tariff_room_name" value="<?php echo $row['tariff_room_name']; ?>">
-														<input type="hidden" name="tariff_room_fee" value="<?php echo $row['tariff_room_fee']; ?>">
-														<input type="hidden" name="isFeeDistributed" value="<?php echo $row['is_fee_distributed']; ?>">
-
-														<input type="hidden" name="tariff_fee_distribution" value='<?php echo $row['tariff_fee_distribution']; ?>'>
-														<input type="hidden" name="tariff_room_id" value="<?php echo $row['tariff_room_id']; ?>">
-
-
-
-														<input type="submit" value="edit" class="btn btn-transparent btn-xs"  tooltip-placement="top" tooltip="Edit">
-														
-													
-													</form>
+					
+												
 														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
 													<div class="visible-xs visible-sm hidden-md hidden-lg">
