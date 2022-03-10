@@ -109,30 +109,7 @@ if (isset($_GET['del'])) {
 													</form>
 														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
-													<div class="visible-xs visible-sm hidden-md hidden-lg">
-														<div class="btn-group" dropdown is-open="status.isopen">
-															<button type="button" class="btn btn-primary btn-o btn-sm dropdown-toggle" dropdown-toggle>
-																<i class="fa fa-cog"></i>&nbsp;<span class="caret"></span>
-															</button>
-															<ul class="dropdown-menu pull-right dropdown-light" role="menu">
-																<li>
-																	<a href="#">
-																		Edit
-																	</a>
-																</li>
-																<li>
-																	<a href="#">
-																		Share
-																	</a>
-																</li>
-																<li>
-																	<a href="#">
-																		Remove
-																	</a>
-																</li>
-															</ul>
-														</div>
-													</div>
+													
 												</td>
 											</tr>
 
