@@ -75,9 +75,10 @@ if (isset($_GET['del'])) {
 										<tr>
 											<th class="center">#</th>
 											<th>lab Test Name </th>
-											
+											<th>lab Fields </th> </th>	
 											<th>lab Charges </th>
-											
+											<th>test_more_info</th>
+											<th> main_title </th>
 											<th>Action</th>
 
 										</tr>
@@ -97,8 +98,15 @@ if (isset($_GET['del'])) {
 												
 												
 												<td>
-					
-												
+													<div class="visible-md visible-lg hidden-sm hidden-xs">
+														<form action="view_form.php" method="post"  enctype="multipart/form-data">
+														
+
+
+														<input type="submit" value="view" class="btn btn-transparent btn-xs"  tooltip-placement="top" tooltip="Edit">
+														
+													
+													</form>
 														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
 													<div class="visible-xs visible-sm hidden-md hidden-lg">
