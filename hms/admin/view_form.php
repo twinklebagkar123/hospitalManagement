@@ -74,7 +74,7 @@ if (isset($_GET['del'])) {
 <div class="row">
 <?php $sql=mysqli_query($con,"select * from laboratoryTestList where id='$id'");
 
-
+{
 echo $row['labTestName'];
 ?>
 </div>
@@ -92,7 +92,7 @@ echo $row['labTestName'];
 
 </div>
 
-
+<?php } ?>
 
 
 								<!-- <table class="display" id="myTable">
