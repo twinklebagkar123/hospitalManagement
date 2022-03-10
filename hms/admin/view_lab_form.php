@@ -74,10 +74,8 @@ check_login();
 									<thead>
 										<tr>
 											<th class="center">#</th>
-											<th>lab Test Name </th>
-												
+											<th>lab Test Name </th>												
 											<th>lab Charges </th>
-											
 											<th>Action</th>
 
 										</tr>

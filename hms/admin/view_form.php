@@ -72,11 +72,12 @@ if (isset($_GET['del'])) {
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
 
 <div class="row">
-<?php $sql=mysqli_query($con,"select * from laboratoryTestList ");
 
-
-echo $row['labTestName'];
+<?php $sql=mysqli_query($con,"select * from laboratoryTestList where labFormID='$id'");
+while($data=mysqli_fetch_array($sql))
+{
 ?>
+<?php echo htmlentities($data['labTestName']);?>
 </div>
 <div class="row">
 <?php echo $row['main_titles']; ?>
@@ -84,14 +85,14 @@ echo $row['labTestName'];
 </div>
 <div class="row">
 
-<div class="col-sm-4"></div> 
-<div class="col-sm-4"></div> 
-<div class="col-sm-4"></div> 
+<div class="col-sm-4">   </div> 
+<div class="col-sm-4">   </div> 
+<div class="col-sm-4">   </div> 
 
 
 
 </div>
-
+<?php  }?>
 
 
 
