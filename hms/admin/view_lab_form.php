@@ -6,10 +6,10 @@ include('include/checklogin.php');
 check_login();
 
 
-if (isset($_GET['del'])) {
-	mysqli_query($con, "delete from laboratoryTestList where labFormID = '" . $_GET['id'] . "'");
-	$_SESSION['msg'] = "data deleted ! !!";
-}
+// if (isset($_GET['del'])) {
+// 	mysqli_query($con, "delete from laboratoryTestList where labFormID = '" . $_GET['id'] . "'");
+// 	$_SESSION['msg'] = "data deleted ! !!";
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
