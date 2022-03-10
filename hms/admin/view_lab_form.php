@@ -92,9 +92,9 @@ if (isset($_GET['del'])) {
 
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
-												<td class="hidden-xs"><?php echo $row['tariff_cat_name']; ?></td>
-												<td class="hidden-xs"><?php echo $row['tariff_class_name']; ?></td>
-												<td class="hidden-xs"><?php echo $row['tariff_room_name']; ?></td>
+												<td class="hidden-xs"><?php echo $row['labTestName']; ?></td>
+												<td class="hidden-xs"><?php echo $row['labFields']; ?></td>
+												<td class="hidden-xs"><?php echo $row['labCharges']; ?></td>
 												<td><?php echo $row['tariff_room_fee']; ?></td>
 												<td><?php
 												if(!empty($row['tariff_fee_distribution'])):
