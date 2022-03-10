@@ -92,7 +92,7 @@ echo "labTestName";
 
 
 
-								<table class="display" id="myTable">
+								<!-- <table class="display" id="myTable">
 									<thead>
 										<tr>
 											<th class="center">#</th>
@@ -106,16 +106,16 @@ echo "labTestName";
 									</thead>
 									<tbody>
 										<?php
-										$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
-										$cnt = 1;
-										while ($row = mysqli_fetch_array($sql)) {
+										// $sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
+										// $cnt = 1;
+										// while ($row = mysqli_fetch_array($sql)) {
 										?>
 
 											<tr>
-												<td class="center"><?php echo $cnt; ?>.</td>
-												<td ><?php echo $row['labTestName']; ?></td>
+												<td class="center"><?php //echo $cnt; ?>.</td>
+												<td ><?php //echo $row['labTestName']; ?></td>
 												
-												<td ><?php echo $row['labCharges']; ?></td>
+												<td ><?php //echo $row['labCharges']; ?></td>
 												
 												
 												<td>
@@ -135,12 +135,12 @@ echo "labTestName";
 											</tr>
 
 										<?php
-											$cnt = $cnt + 1;
-										} ?>
+											//$cnt = $cnt + 1;
+									//	} ?>
 
 
 									</tbody>
-								</table>
+								</table> -->
 							</div>
 						</div>
 					</div>
