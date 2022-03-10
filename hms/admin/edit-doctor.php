@@ -12,7 +12,7 @@ $docname=$_POST['docname'];
 $docaddress=$_POST['clinicaddress'];
 $docfees=$_POST['docfees'];
 $doccontactno=$_POST['doccontact'];
-$docemail=$_POST['docemail'];
+$docemail=$_POST['docemail']; 
 $sql=mysqli_query($con,"Update doctors set specilization='$docspecialization',doctorName='$docname',address='$docaddress',docFees='$docfees',contactno='$doccontactno',docEmail='$docemail' where id='$did'");
 if($sql)
 {

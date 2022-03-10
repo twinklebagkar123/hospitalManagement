@@ -96,15 +96,10 @@ check_login();
 												
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<form action="view_form.php" method="post"  enctype="multipart/form-data">
-														
-
-
-														<input type="submit" value="view" class="btn btn-transparent btn-xs" id="<?php echo $row['labFormID'] ?>"  tooltip-placement="top" tooltip="Edit">
 														<a href="view_form.php?id=<?php echo $row['labFormID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
 							
 													
-													</form>
+												
 														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
 													
