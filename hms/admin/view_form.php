@@ -76,14 +76,17 @@ if (isset($_GET['del'])) {
 
 
 echo "labTestName";
-
 ?>
+</div>
+<div class="row">
+<?php echo "main_titles"; ?>
 
+</div>
+<div class="row">
 
-
-
-
-
+<div class="col-sm-4"></div> 
+<div class="col-sm-4"></div> 
+<div class="col-sm-4"></div> 
 
 
 
