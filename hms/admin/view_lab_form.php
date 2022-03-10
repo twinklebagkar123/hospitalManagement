@@ -55,7 +55,7 @@ if (isset($_GET['del'])) {
 									<span>Admin</span>
 								</li>
 								<li class="active">
-									<span> Admission Fee</span>
+									<span> Laboratory Form</span>
 								</li>
 							</ol>
 						</div>
@@ -67,7 +67,7 @@ if (isset($_GET['del'])) {
 
 						<div class="row">
 							<div class="col-md-12">
-								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Package</span></h5>
+								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Form</span></h5>
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
 								<table class="display" id="myTable">
