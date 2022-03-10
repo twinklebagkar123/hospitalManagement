@@ -72,9 +72,9 @@ if (isset($_GET['del'])) {
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
 
 <div class="row">
-<?php $sql=mysqli_query($con,"select * from laboratoryTestList where id='$id'");
+<?php $sql=mysqli_query($con,"select * from laboratoryTestList ");
 
-{
+
 echo $row['labTestName'];
 ?>
 </div>
@@ -92,7 +92,7 @@ echo $row['labTestName'];
 
 </div>
 
-<?php } ?>
+
 
 
 								<!-- <table class="display" id="myTable">
@@ -131,7 +131,7 @@ echo $row['labTestName'];
 														
 													
 													</form>
-														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
+														<a href="view_lab_form.php?id=<?php //echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
 													
 												</td>
