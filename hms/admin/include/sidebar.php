@@ -348,7 +348,7 @@
 						</li>
 						<li>
 							<a href="view_lab.php">
-								<span class="title"> View Lab Forms </span>
+								<span class="title"> Lab user functionality </span>
 							</a>
 						</li>
 					</ul>
