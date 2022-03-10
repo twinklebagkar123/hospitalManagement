@@ -102,7 +102,7 @@ check_login();
 														
 
 
-														<input type="submit" value="view" class="btn btn-transparent btn-xs"  tooltip-placement="top" tooltip="Edit">
+														<input type="submit" value="view" class="btn btn-transparent btn-xs" id="<?php echo $row['labFormID'] ?>"  tooltip-placement="top" tooltip="Edit">
 														
 													
 													</form>
