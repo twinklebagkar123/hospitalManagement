@@ -74,11 +74,11 @@ if (isset($_GET['del'])) {
 									<thead>
 										<tr>
 											<th class="center">#</th>
-											<th>Tariff Category</th>
-											<th>Tariff class</th> </th>	
-											<th>Package Name</th>
-											<th>Total Price</th>
-											<th> Distributed fee </th>
+											<th>lab Test Name </th>
+											<th>lab Fields </th> </th>	
+											<th>lab Charges </th>
+											<th>test_more_info</th>
+											<th> main_title </th>
 											<th>Action</th>
 
 										</tr>
@@ -92,31 +92,12 @@ if (isset($_GET['del'])) {
 
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
-												<td class="hidden-xs"><?php echo $row['labTestName']; ?></td>
-												<td class="hidden-xs"><?php echo $row['labFields']; ?></td>
-												<td class="hidden-xs"><?php echo $row['labCharges']; ?></td>
-												<td><?php echo $row['tariff_room_fee']; ?></td>
-												<td><?php
-												if(!empty($row['tariff_fee_distribution'])):
-													$feeDistribution = json_decode($row['tariff_fee_distribution']);
-													
-													echo "Hospitalition: ".$feeDistribution[0]->hospitalisation;
-													echo	"  Medical Officer: " .$feeDistribution[0]->medofficer;
-													echo "  Nursing :" 	.$feeDistribution[0]->nursing; 
-												endif;
-												// echo	$feeDistribution[0]->hospitalisation;
-												// echo	$feeDistribution[0]->medofficer;
-												// echo	$feeDistribution[0]->nursing; 
-
-
-
+												<td ><?php echo $row['labTestName']; ?></td>
+												<td ><?php echo $row['labFields']; ?></td>
+												<td ><?php echo $row['labCharges']; ?></td>
+												<td><?php echo $row['test_more_info']; ?></td>
+                                                <td><?php echo $row['main_titles']; ?></td>
 												
-
-
-
-													?>
-												</td>
-
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
 														<form action="edit_package.php" method="post"  enctype="multipart/form-data">
