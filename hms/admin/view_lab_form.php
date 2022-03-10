@@ -85,7 +85,7 @@ if (isset($_GET['del'])) {
 									</thead>
 									<tbody>
 										<?php
-										$sql = mysqli_query($con, "SELECT * FROM `tariff_room_info` INNER JOIN tariff_category ON tariff_category.tariff_cat_id=tariff_room_info.tariff_cat_id INNER JOIN tariff_class ON tariff_class.tariff_class_id=tariff_room_info.tariff_class_type_id;");
+										$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
