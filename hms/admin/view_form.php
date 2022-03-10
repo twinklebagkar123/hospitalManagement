@@ -80,12 +80,12 @@ while($data=mysqli_fetch_array($sql))
 <?php echo htmlentities($data['labTestName']);?>
 </div>
 <div class="row">
-<?php echo $row['main_titles']; ?>
 
+<?php echo htmlentities($data['main_titles']);?>
 </div>
 <div class="row">
 
-<div class="col-sm-4">   </div> 
+<div class="col-sm-4">  <?php echo htmlentities($data['labFields']);?> </div> 
 <div class="col-sm-4">   </div> 
 <div class="col-sm-4">   </div> 
 
