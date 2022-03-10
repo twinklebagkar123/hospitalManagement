@@ -96,7 +96,7 @@ check_login();
 												
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<a href="view_form.php?id=<?php echo $row['labFormID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i></a>
+														<a href="view_form.php?id=<?php echo $row['labFormID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-eye"></i></a>
 							
 													
 												
