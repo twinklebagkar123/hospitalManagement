@@ -254,7 +254,7 @@ function fetchPatientName($admissionID)
              
                 }
                 data = data+"</tr>";
-                console.log(data);
+                
                 $("#table_field").append(data);
                 // $("#fieldShow").append("#field_lab_"+j);
                 // var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";

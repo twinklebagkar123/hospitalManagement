@@ -337,12 +337,18 @@
 
 						<li>
 							<a href="laboratory.php">
-								<span class="title"> Create Tests </span>
+								<span class="title"> Create Lab Tests Forms </span>
+							</a>
+						</li>
+
+						<li>
+							<a href="viewTests.php">
+								<span class="title"> Manage Tests Forms </span>
 							</a>
 						</li>
 						<li>
-							<a href="viewTests.php">
-								<span class="title"> Manage Tests </span>
+							<a href="view_lab.php">
+								<span class="title"> View Lab Forms </span>
 							</a>
 						</li>
 					</ul>
