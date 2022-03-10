@@ -75,10 +75,9 @@ if (isset($_GET['del'])) {
 										<tr>
 											<th class="center">#</th>
 											<th>lab Test Name </th>
-											<th>lab Fields </th> </th>	
+											
 											<th>lab Charges </th>
-											<th>test_more_info</th>
-											<th> main_title </th>
+											
 											<th>Action</th>
 
 										</tr>
