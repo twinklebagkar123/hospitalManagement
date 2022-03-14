@@ -140,6 +140,25 @@ $id= $_GET['id'];
 								
 								<?php }
 
+
+$fields = $row['labFields'];
+$fields_arr = explode(",", $fields);
+$i=1;
+foreach ($fields_arr as  $field) {
+?>
+	<div class="form-group">
+		<label for="<?php echo $field; ?>">
+			<?php echo $field; ?>
+		</label>
+
+		
+		   
+	</div>
+
+<?php
+$i++;
+}?>
+<?php
 								
 										$i++;
 										}
