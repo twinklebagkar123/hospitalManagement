@@ -109,7 +109,7 @@ $id= $_GET['id'];
                                         $fields_arr = explode(",", $fields);
                                         $titles = $row['main_titles'];
 
-                                        $title_arr = explode(",", $fields);
+                                        $title_arr = explode(",", $titles);
 										//$reverse=array_reverse($fields_arr);
 
                                         $i=1;
