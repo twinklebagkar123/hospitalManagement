@@ -115,8 +115,7 @@ while($data=mysqli_fetch_array($sql))
                                                     <?php echo $field; ?>
                                                 </label>
 
-                                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
-
+                                               
                                                    
                                             </div>
 
