@@ -165,7 +165,24 @@ $i++;
 									//}
 										?>
                                      
+<div>
+	<p> <?php echo $row['test_more_info']; ?> </p>
+
+
+
+
+</div>
+
+
+
+
 									 </div>   
+
+
+
+
+
+
                                 </form>
 
 
