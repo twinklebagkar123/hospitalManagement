@@ -108,7 +108,6 @@ $id= $_GET['id'];
 										$fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
                                         $titles = $row['main_titles'];
-
                                         $title_arr = explode(",", $titles);
 										//$reverse=array_reverse($fields_arr);
 
