@@ -124,11 +124,7 @@ $id= $_GET['id'];
                                                     <?php echo $fields; ?>
                                            
                                             </div>
-
-
     <?php
-
-   
                                         }
 										
 										else
