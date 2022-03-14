@@ -121,7 +121,7 @@ $id= $_GET['id'];
                                             
 											<div class="col-sm-2">
                                                 <h5>Test</h5>
-                                                    <?php //echo $fields; ?>
+                                                    <?php echo $fields; ?>
                                            
                                             </div>
     <?php
