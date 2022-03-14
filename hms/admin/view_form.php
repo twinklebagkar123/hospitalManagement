@@ -110,6 +110,7 @@ $id= $_GET['id'];
                                         $fields_arr = explode(",", $fields);
                                         $titles = $row['main_titles'];
                                         $title_arr = explode(",", $titles);
+										$info = explode(',', $_POST['test_more_info']);
 										//$reverse=array_reverse($fields_arr);
 
                                         $i=1;
