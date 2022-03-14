@@ -111,6 +111,7 @@ $id= $_GET['id'];
 
                                         $title_arr = explode(",", $fields);
 										$reverse=array_reverse($fields_arr);
+										
                                         $i=1;
                                         foreach ($title_arr as  $titles) {
 
