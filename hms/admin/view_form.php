@@ -116,22 +116,22 @@ $id= $_GET['id'];
                                         foreach ($title_arr as  $titles) {
 
 
-											if ($titles == "Test")
-											{
+											// if ($titles == "Test")
+											// {
 
                                         ?>
                                             
-											<div class="col-sm-2">
+											<!-- <div class="col-sm-2">
                                                 <h3>Test</h3>
-                                                    <?php echo $fields_arr; ?>
+                                                    <?php //echo $fields_arr; ?>
                                            
-                                            </div>
+                                            </div> -->
     <?php
-                                        }
+                                      //  }
 										
-										else
-										{
-											?>
+										// else
+										// {
+										// 	?>
 											<div class="col-sm-2">
                                                 
 											<?php echo $title_arr; ?>
@@ -141,7 +141,7 @@ $id= $_GET['id'];
 								<?php }
 										$i++;
 										}
-									}
+									//}
 										?>
                                      
 									 </div>   
