@@ -122,24 +122,11 @@ $id= $_GET['id'];
                                     <?php
                                     $i++;
                                         }?>
-                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i-1;?>">
-                                        <?php
+                                       <?php
 
                                     }
                                     ?>
-                                    <div class="form-group">
-                                        <label for="performedBy">
-                                           Laboratory Incharge
-                                        </label>
-                                        <input type="text" id="performedBy" name="performedBy" class="form-control" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="findings">
-                                           Laboratory Findings
-                                        </label>
-                                        <input type="text" id="findings" name="findings" class="form-control" required="true">
-                                    </div>
-                                    <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
+                                   
                                 </form>
 
 
