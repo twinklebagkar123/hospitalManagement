@@ -110,8 +110,8 @@ $id= $_GET['id'];
                                         $titles = $row['main_titles'];
 
                                         $title_arr = explode(",", $fields);
-										$reverse=array_reverse($fields_arr);
-										
+										//$reverse=array_reverse($fields_arr);
+
                                         $i=1;
                                         foreach ($title_arr as  $titles) {
 
@@ -123,7 +123,7 @@ $id= $_GET['id'];
                                             
 											<div class="col-sm-2">
                                                 <h3>Test</h3>
-                                                    <?php echo $fields; ?>
+                                                    <?php echo $fields_arr; ?>
                                            
                                             </div>
     <?php
@@ -134,7 +134,7 @@ $id= $_GET['id'];
 											?>
 											<div class="col-sm-2">
                                                 
-											<?php echo $titles; ?>
+											<?php echo $title_arr; ?>
 								   
 									</div>
 								
