@@ -110,7 +110,9 @@ $id= $_GET['id'];
                                         $fields_arr = explode(",", $fields);
                                         $titles = $row['main_titles'];
                                         $title_arr = explode(",", $titles);
-										$info = explode(',', $_POST['test_more_info']);
+										$info = $row['test_more_info'];
+										$b = html_entity_decode($info);
+										
 										//$reverse=array_reverse($fields_arr);
 
                                         $i=1;
@@ -160,7 +162,7 @@ foreach ($fields_arr as  $field) {
 <?php
 $i++;
 }?>
-<p> <?php echo $row['test_more_info']; ?> </p>
+<p> <?php echo $b; ?> </p>
 <?php
 								
 										$i++;
