@@ -103,7 +103,7 @@ $id= $_GET['id'];
                                         
                                     ?>
                                         <h3> <?php echo $row['labTestName']; ?> </h3>
-
+<div class="row">
                                         <?php
 										$fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
@@ -144,7 +144,7 @@ $id= $_GET['id'];
 									}
 										?>
                                      
-                                   
+									 </div>   
                                 </form>
 
 
