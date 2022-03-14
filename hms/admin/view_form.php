@@ -162,23 +162,12 @@ $i++;
 								
 										$i++;
 										}
-									//}
+									 echo $row['test_more_info']; 
 										?>
                                      
 <div>
-	<p> <?php echo $row['test_more_info']; ?> </p>
-	<?php
-                                    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
-                                    $result = $con->query($query);
-                                    $fields_arr="";
-                                    while ($row = mysqli_fetch_array($result)) {
-                                        
-                                    ?>
-                                        <p> <?php echo $row['test_more_info']; ?> </p>
-										<?php
-									}
-									?>
-
+	<p>  </p>
+	
 
 
 </div>
