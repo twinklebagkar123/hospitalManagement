@@ -72,28 +72,28 @@ $id= $_GET['id'];
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
 
-<div class="row">
+<!-- <div class="row">
 
-<?php $sql=mysqli_query($con,"select * from laboratoryTestList where labFormID='$id'");
-while($data=mysqli_fetch_array($sql))
-{
+<?php //$sql=mysqli_query($con,"select * from laboratoryTestList where labFormID='$id'");
+//while($data=mysqli_fetch_array($sql))
+//{
 ?>
-<?php echo htmlentities($data['labTestName']);?>
+<?php //echo htmlentities($data['labTestName']);?>
 </div>
 <div class="row">
 
-<?php echo htmlentities($data['main_titles']);?>
+<?php //echo htmlentities($data['main_titles']);?>
 </div>
 <div class="row">
 
-<div class="col-sm-4">  <?php echo htmlentities($data['labFields']);?> </div> 
+<div class="col-sm-4">  <?php //echo htmlentities($data['labFields']);?> </div> 
 <div class="col-sm-4">   </div> 
 <div class="col-sm-4">   </div> 
 
 
 
-</div>
-<?php  }?>  
+</div> -->
+<?php  //}?>  
 <form method="POST" action="">
                                     <?php
                                     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
