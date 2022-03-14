@@ -105,20 +105,11 @@ $id= $_GET['id'];
                                         <h3> <?php echo $row['labTestName']; ?> </h3>
 
                                         <?php
-										$titles = $row['main_titles'];
                                         $fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
                                         $i=1;
                                         foreach ($fields_arr as  $field) {
                                         ?>
-										<div class="form-group">
-                                                <label for="<?php echo $titles; ?>">
-                                                    <?php echo $titles; ?>
-                                                </label>
-
-                                               
-                                                   
-                                            </div>
                                             <div class="form-group">
                                                 <label for="<?php echo $field; ?>">
                                                     <?php echo $field; ?>
