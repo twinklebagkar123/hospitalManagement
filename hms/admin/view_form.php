@@ -110,7 +110,7 @@ $id= $_GET['id'];
                                         $titles = $row['main_titles'];
 
                                         $title_arr = explode(",", $fields);
-										$reverse=array_reverse($titles);
+										$reverse=array_reverse($title_arr);
                                         $i=1;
                                         foreach ($title_arr as  $titles) {
 
