@@ -136,13 +136,20 @@ $id= $_GET['id'];
 											<?php echo $titles; ?>
 								   
 									</div>
-									<div class="col-sm-2">
-                                                
-											<?php echo $fields; ?>
-								   
-									</div>
+									
 								
 								<?php }
+								?>
+								
+<div class="col-sm-2">
+                                                
+<?php echo $fields; ?>
+
+</div>
+
+
+
+<?php					
 										$i++;
 										}
 									//}
