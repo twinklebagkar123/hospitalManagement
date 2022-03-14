@@ -102,7 +102,7 @@ while($data=mysqli_fetch_array($sql))
                                     while ($row = mysqli_fetch_array($result)) {
                                         
                                     ?>
-                                        <h3> <?php echo $row['labFields']; ?> | <?php echo fetchPatientName($adID); ?></h3>
+                                        <h3> <?php echo $row['labTestName']; ?> </h3>
 
                                         <?php
                                         $fields = $row['labFields'];
