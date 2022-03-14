@@ -134,7 +134,7 @@ $id= $_GET['id'];
 										// 	?>
 											<div class="col-sm-2">
                                                 
-											<?php echo $title_arr; ?>
+											<?php echo $titles; ?>
 								   
 									</div>
 								
