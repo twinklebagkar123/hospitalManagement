@@ -93,7 +93,56 @@ while($data=mysqli_fetch_array($sql))
 
 
 </div>
-<?php  }?>
+<?php  }?>  
+<form method="POST" action="">
+                                    <?php
+                                    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
+                                    $result = $con->query($query);
+                                    $fields_arr="";
+                                    while ($row = mysqli_fetch_array($result)) {
+                                        
+                                    ?>
+                                        <h3> <?php echo $row['labFields']; ?> | <?php echo fetchPatientName($adID); ?></h3>
+
+                                        <?php
+                                        $fields = $row['labFields'];
+                                        $fields_arr = explode(",", $fields);
+                                        $i=1;
+                                        foreach ($fields_arr as  $field) {
+                                        ?>
+                                            <div class="form-group">
+                                                <label for="<?php echo $field; ?>">
+                                                    <?php echo $field; ?>
+                                                </label>
+
+                                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
+
+                                                   
+                                            </div>
+
+                                    <?php
+                                    $i++;
+                                        }?>
+                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i-1;?>">
+                                        <?php
+
+                                    }
+                                    ?>
+                                    <div class="form-group">
+                                        <label for="performedBy">
+                                           Laboratory Incharge
+                                        </label>
+                                        <input type="text" id="performedBy" name="performedBy" class="form-control" required="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="findings">
+                                           Laboratory Findings
+                                        </label>
+                                        <input type="text" id="findings" name="findings" class="form-control" required="true">
+                                    </div>
+                                    <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
+                                </form>
+
 
 
 
