@@ -94,7 +94,7 @@ $id= $_GET['id'];
 
 </div> -->
 <?php  //}?>  
-<form method="POST" action="">
+				<form method="POST" action="">
                                     <?php
                                     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
                                     $result = $con->query($query);
@@ -105,78 +105,51 @@ $id= $_GET['id'];
                                         <h3> <?php echo $row['labTestName']; ?> </h3>
 
                                         <?php
-                                        $fields = $row['labFields'];
+										$fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
-                                        $i=1;
-                                        foreach ($fields_arr as  $field) {
-                                        ?>
-                                            <div class="form-group">
-                                                <label for="<?php echo $field; ?>">
-                                                    <?php echo $field; ?>
-                                                </label>
+                                        $titles = $row['main_titles'];
 
-                                               
-                                                   
+                                        $title_arr = explode(",", $fields);
+                                        $i=1;
+                                        foreach ($title_arr as  $titles) {
+
+
+											if ($titles == "Test")
+											{
+
+                                        ?>
+                                            
+											<div class="col-sm-2">
+                                                
+                                                    <?php echo $fields; ?>
+                                           
                                             </div>
 
-                                    <?php
-                                    $i++;
-                                        }?>
-                                       <?php
 
-                                    }
-                                    ?>
+    <?php
+
+   
+                                        }
+										
+										else
+										{
+											?>
+											<div class="col-sm-2">
+                                                
+											<?php echo $titles; ?>
+								   
+									</div>
+								
+								<?php }
+										$i++;
+										}
+										?>
+                                     
                                    
                                 </form>
 
 
 
-
-								<!-- <table class="display" id="myTable">
-									<thead>
-										<tr>
-											<th class="center">#</th>
-											<th>lab Test Name </th>
-												
-											<th>lab Charges </th>
-											
-											<th>Action</th>
-
-										</tr>
-									</thead>
-									<tbody>
-										<?php
-										// $sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
-										// $cnt = 1;
-										// while ($row = mysqli_fetch_array($sql)) {
-										?>
-
-											<tr>
-												<td class="center"><?php //echo $cnt; ?>.</td>
-												<td ><?php //echo $row['labTestName']; ?></td>
-												
-												<td ><?php //echo $row['labCharges']; ?></td>
-												
-												
-												<td>
-													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<form action="view_form.php" method="post"  enctype="multipart/form-data">
-														
-
-
-														<input type="submit" value="view" class="btn btn-transparent btn-xs"  tooltip-placement="top" tooltip="Edit">
-														
-													
-													</form>
-														<a href="view_lab_form.php?id=<?php //echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
-													</div>
-													
-												</td>
-											</tr>
-
-										<?php
-											//$cnt = $cnt + 1;
-									//	} ?>
 
 
 									</tbody>
