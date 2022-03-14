@@ -120,8 +120,8 @@ $id= $_GET['id'];
                                         ?>
                                             
 											<div class="col-sm-2">
-                                                
-                                                    <?php echo $titles; ?>
+                                                <h5>Test</h5>
+                                                    <?php //echo $fields; ?>
                                            
                                             </div>
     <?php
@@ -132,7 +132,7 @@ $id= $_GET['id'];
 											?>
 											<div class="col-sm-2">
                                                 
-											<?php echo $fields; ?>
+											<?php echo $titles; ?>
 								   
 									</div>
 								
