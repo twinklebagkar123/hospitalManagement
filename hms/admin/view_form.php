@@ -143,6 +143,7 @@ $id= $_GET['id'];
 								<?php }
 										$i++;
 										}
+									}
 										?>
                                      
                                    
@@ -153,7 +154,7 @@ $id= $_GET['id'];
 
 
 									</tbody>
-								</table> -->
+								</table> 
 							</div>
 						</div>
 					</div>
