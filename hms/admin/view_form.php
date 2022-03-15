@@ -119,7 +119,7 @@ $id= $_GET['id'];
                                         foreach ($title_arr as  $titles) {
 
 
-											// if ($titles == "Test")
+											if ($titles == "Test")
 											// {
 
                                         ?>
