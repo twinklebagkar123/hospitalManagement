@@ -140,10 +140,10 @@ $id= $_GET['id'];
 											<?php echo $titles; ?>
 								   
 									</div>
-</div>
+
 									
 								
-								<?php }
+								<?php } ?></div><?php
 
 
 $fields = $row['labFields'];
