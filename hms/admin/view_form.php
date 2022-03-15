@@ -140,6 +140,7 @@ $id= $_GET['id'];
 											<?php echo $titles; ?>
 								   
 									</div>
+</div>
 									
 								
 								<?php }
@@ -150,13 +151,13 @@ $fields_arr = explode(",", $fields);
 $i=1;
 foreach ($fields_arr as  $field) {
 ?>
-	<div class="form-group">
-		<label for="<?php echo $field; ?>">
+	<div class="row">
+		<div class="col-sm-2">
 			<?php echo $field; ?>
-		</label>
+	
 
 		
-		   
+	</div>
 	</div>
 
 <?php
