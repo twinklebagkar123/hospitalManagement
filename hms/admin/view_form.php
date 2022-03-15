@@ -33,9 +33,18 @@ $id= $_GET['id'];
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
+	
 </head>
 
 <body>
+<style type="text/css">
+.title_style{
+	color: #333;
+	font-size:14px;
+		
+}
+</style>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
 		<div class="app-content">
@@ -86,7 +95,7 @@ $id= $_GET['id'];
 <div class="row">
 
 <div class="col-sm-6 justify-content-start ">
-<strong> PATIENT NAME: - </strong>
+<strong class="title_style"> PATIENT NAME: - </strong>
 <p>Ref. By: - St. Anthony Hospital & Research Center </p>
 <p>DATE: -  </p>
 
