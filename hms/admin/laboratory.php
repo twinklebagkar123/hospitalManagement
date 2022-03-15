@@ -138,7 +138,7 @@ print_r($query);
 														<label>
 															Field Name:
 														</label>
-														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true">
+														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true" onkeypress="return blockSpecialChar(event)">
 														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control" placeholder="Add Test Field Name" >
 														<br>
 														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
@@ -276,6 +276,13 @@ print_r($query);
 	 
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
+	<script type="text/javascript">
+    function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+        }
+    </script>
 	<script>
 		var ckeditor = [];
 		jQuery(document).ready(function() {
@@ -330,35 +337,7 @@ console.log(data);
 			   $(this).parent().remove();
 
 			});
-			// 	$('#delete').on("click",".dellClass" ,function(){
-			// 	console.log("heyyyy");
-
-
-			//   var deleteid = $(this).data('id');
-			//   console.log(deleteid);
-			//   var confirmalert = confirm("Are you sure?");
-			//   if (confirmalert == true) {
-			// 	 // AJAX Request
-			// 	 $.ajax({
-			// 	   url: 'delete.php',
-			// 	   type: 'POST',
-			// 	   data: { procedureID :deleteid },
-			// 	   success: function(response){
-
-			// 		 if(response == 1){
-			// 	   // Remove row from HTML Table
-			// 	   $(el).closest('tr').fadeOut(800,function(){
-			// 		  $(this).remove();
-			// 	   });
-			// 		 }else{
-			// 	   alert('Invalid ID.');
-			// 		 }
-
-			// 	   }
-			// 	 });
-			//   }
-
-			// });
+			
 
 		});
 	</script>
