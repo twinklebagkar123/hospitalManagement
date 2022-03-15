@@ -54,6 +54,10 @@ $id= $_GET['id'];
 p{
 	font-size: 16px;
 }
+.field_style{
+
+	font-size: 16px;
+}
 
 .main_title_style{
 
@@ -190,7 +194,7 @@ foreach ($fields_arr as  $field) {
 ?>
 	<div class="row">
 		<div class="col-sm-3 justify-content-center">
-			<?php echo $field; ?>
+		<p class="field_style">	<?php echo $field; ?> </p>
 	
 
 		
