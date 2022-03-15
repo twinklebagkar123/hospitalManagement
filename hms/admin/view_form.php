@@ -101,12 +101,12 @@ $id= $_GET['id'];
 <p>AGE: -  </p>
 <p>Reg. no: -1363/02  </p>
 
-<div style=" border-width:2px; border-style: solid; ">
+
 </div>
 
 
 
-
+<div style=" border-width:2px; border-style: solid; ">
 
 </div>
 
