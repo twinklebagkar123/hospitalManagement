@@ -109,7 +109,7 @@ $id= $_GET['id'];
 
 </div>
 
-<div style=" border-width:2px; border-style: solid; ">
+ <div style=" border-width:2px; border-style: solid; "> </div>
 
 
                                         <h3> <?php echo $row['labTestName']; ?> </h3>
