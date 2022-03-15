@@ -141,8 +141,7 @@ font-size: 12px;
 
                                         <h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
 					<!-- <div class="wrapper_style">					 -->
-<div class="row">
-<div class="col-sm-3 justify-content-center ">
+<div class="row justify-content-center">
                                         <?php
 										$fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
@@ -154,8 +153,6 @@ font-size: 12px;
 										//$reverse=array_reverse($fields_arr);
 
                                         $i=1;
-
-
                                         foreach ($title_arr as  $titles) {
 
 
@@ -175,15 +172,15 @@ font-size: 12px;
 										// else
 										// {
 										// 	?>
-											
+											<div class="col-sm-3  ">
                                                 
 											<p class="main_title_style"> <?php echo $titles; ?></p>
 								   
-									
+									</div>
 
 									
 								
-								<?php } ?></div></div><?php
+								<?php } ?></div><?php
 
 
 $fields = $row['labFields'];
