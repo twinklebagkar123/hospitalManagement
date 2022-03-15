@@ -72,27 +72,7 @@ $id= $_GET['id'];
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
 
-<!-- <div class="row">
 
-<?php //$sql=mysqli_query($con,"select * from laboratoryTestList where labFormID='$id'");
-//while($data=mysqli_fetch_array($sql))
-//{
-?>
-<?php //echo htmlentities($data['labTestName']);?>
-</div>
-<div class="row">
-
-<?php //echo htmlentities($data['main_titles']);?>
-</div>
-<div class="row">
-
-<div class="col-sm-4">  <?php //echo htmlentities($data['labFields']);?> </div> 
-<div class="col-sm-4">   </div> 
-<div class="col-sm-4">   </div> 
-
-
-
-</div> -->
 <?php  //}?>  
 				<form method="POST" action="">
                                     <?php
@@ -102,6 +82,34 @@ $id= $_GET['id'];
                                     while ($row = mysqli_fetch_array($result)) {
                                         
                                     ?>
+
+<div class="row">
+
+<div class="col-sm-6 justify-content-start">
+<p>PATIENT NAME: - </p>
+<p>Ref. By: - St. Anthony Hospital & Research Center </p>
+<p>DATE: -  </p>
+
+
+
+</div>
+
+
+<div class="col-sm-6 justify-content-end">
+
+<p>SEX: - </p>
+<p>AGE: -  </p>
+<p>Reg. no: -1363/02  </p>
+
+</div>
+
+
+
+
+</div>
+
+
+
                                         <h3> <?php echo $row['labTestName']; ?> </h3>
 										
 <div class="row">
@@ -135,7 +143,7 @@ $id= $_GET['id'];
 										// else
 										// {
 										// 	?>
-											<div class="col-sm-2">
+											<div class="col-sm-3">
                                                 
 											<?php echo $titles; ?>
 								   
@@ -152,7 +160,7 @@ $i=1;
 foreach ($fields_arr as  $field) {
 ?>
 	<div class="row">
-		<div class="col-sm-2">
+		<div class="col-sm-3">
 			<?php echo $field; ?>
 	
 
