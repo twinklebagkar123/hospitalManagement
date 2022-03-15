@@ -42,7 +42,7 @@ $id= $_GET['id'];
 .title_style{
 	color: #333;
 	font-size:14px;
-		
+
 }
 </style>
 	<div id="app">
@@ -96,8 +96,8 @@ $id= $_GET['id'];
 
 <div class="col-sm-6 justify-content-start ">
 <strong class="title_style"> PATIENT NAME: - </strong>
-<p>Ref. By: - St. Anthony Hospital & Research Center </p>
-<p>DATE: -  </p>
+<strong>Ref. By: - St. Anthony Hospital & Research Center </strong>
+<strong>DATE: -  </strong>
 
 
 
@@ -106,9 +106,9 @@ $id= $_GET['id'];
 
 <div class="col-sm-6 justify-content-end font-weight-bold">
 
-<p>SEX: - </p>
-<p>AGE: -  </p>
-<p>Reg. no: -1363/02  </p>
+<strong>SEX: - </strong>
+<strong>AGE: -  </strong>
+<strong>Reg. no: -1363/02  </strong>
 
 </div>
 
