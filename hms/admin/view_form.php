@@ -44,6 +44,13 @@ $id= $_GET['id'];
 	font-size:14px;
  font-weight: bold;
 }
+.form_title_style{
+
+	font-weight:bold; 
+	color: #333;
+	text-align:center;
+	margin-top:6px;
+}
 </style>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
@@ -121,7 +128,7 @@ $id= $_GET['id'];
  <div style=" border-width:2px; border-style: solid; "> </div>
 
 
-                                        <h3 style="text-align:center;"> <?php echo $row['labTestName']; ?> </h3>
+                                        <h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
 										
 <div class="row">
                                         <?php
@@ -171,7 +178,7 @@ $i=1;
 foreach ($fields_arr as  $field) {
 ?>
 	<div class="row">
-		<div class="col-sm-3 justify-content-start">
+		<div class="col-sm-3 justify-content-center">
 			<?php echo $field; ?>
 	
 
