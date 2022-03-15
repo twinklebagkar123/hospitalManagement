@@ -204,7 +204,7 @@ foreach ($fields_arr as  $field) {
 	if(strpos ($field, '*')!==false) {
 		?>
 
-<p class="field_style text-bold">	<?php echo $field; ?> </p>
+<p class="field_style text-bold">	<?php echo substr($field,0,-1); ?> </p>
 		<?php
 
 
