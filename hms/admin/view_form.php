@@ -51,6 +51,17 @@ $id= $_GET['id'];
 	text-align:center;
 	margin-top:6px;
 }
+p{
+	font-size: 12px;
+}
+
+.main_title_style{
+
+font-size: 12px;	
+ color: #333;
+ text-decoration:underline ;
+ font-weight:bold;
+}
 </style>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
@@ -129,7 +140,7 @@ $id= $_GET['id'];
 
 
                                         <h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
-					<div>					
+					<!-- <div class="wrapper_style">					 -->
 <div class="row">
                                         <?php
 										$fields = $row['labFields'];
@@ -161,9 +172,9 @@ $id= $_GET['id'];
 										// else
 										// {
 										// 	?>
-											<div class="col-sm-3 ">
+											<div class="col-sm-3 justify-content-center ">
                                                 
-											<?php echo $titles; ?>
+											<p class="main_title_style"> <?php echo $titles; ?></p>
 								   
 									</div>
 
@@ -189,7 +200,7 @@ foreach ($fields_arr as  $field) {
 <?php
 $i++;
 }?>
-					</div>
+					<!-- </div> -->
 <p> <?php echo $b; ?> </p>
 <?php
 								
