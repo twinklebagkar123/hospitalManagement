@@ -129,7 +129,7 @@ $id= $_GET['id'];
 
 
                                         <h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
-										
+					<div>					
 <div class="row">
                                         <?php
 										$fields = $row['labFields'];
@@ -189,6 +189,7 @@ foreach ($fields_arr as  $field) {
 <?php
 $i++;
 }?>
+					</div>
 <p> <?php echo $b; ?> </p>
 <?php
 								
