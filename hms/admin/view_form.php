@@ -201,7 +201,7 @@ foreach ($fields_arr as  $field) {
 	?> <div class="row">
 		<div class="col-sm-3 justify-content-center">
 		<?php
-	if(strpos ($fields, '*')!==false) {
+	if(strpos ($field, '*')!==false) {
 		?>
 
 <p class="field_style text-bold">	<?php echo $field; ?> </p>
