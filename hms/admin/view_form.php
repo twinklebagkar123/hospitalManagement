@@ -66,6 +66,8 @@ font-size: 16px;
  text-decoration:underline ;
  font-weight:bold;
 }
+
+
 </style>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
@@ -185,20 +187,37 @@ font-size: 16px;
 									
 								
 								<?php } ?></div>
-								<div class="text-center"><?php
+								<div class="text-center">
+									
+									<?php
 
 
 $fields = $row['labFields'];
 $fields_arr = explode(",", $fields);
 $i=1;
+
 foreach ($fields_arr as  $field) {
-?>
-	<div class="row">
+
+	?> <div class="row">
 		<div class="col-sm-3 justify-content-center">
+		<?php
+	if(strpos ($fields, '*')!==false) {
+		?>
+
+<p class="field_style text-bold">	<?php echo $field; ?> </p>
+		<?php
+
+
+
+	}
+	else{
+?>
+	
 		<p class="field_style">	<?php echo $field; ?> </p>
 	
-
-		
+<?php
+	}
+	?>
 	</div>
 	</div>
 
