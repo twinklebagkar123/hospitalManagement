@@ -226,6 +226,7 @@ $i++;
 }?>
 				 </div> 
 <p> <?php echo $b; ?> </p>
+<p class="text-center">~~ End of report ~~</p>
 <?php
 								
 										$i++;
