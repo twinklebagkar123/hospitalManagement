@@ -147,7 +147,7 @@ print_r($query);
 														
 
 													</div><div class="row">
-														<div class="col-sm-6">
+														<div class="col-sm-4">
 													<div class="form-group">
 														
 														<label>
@@ -161,12 +161,29 @@ print_r($query);
 														<br>
 													</div>
 														</div>
-													<div class="col-sm-6">
-<div class="no_value_style">
-<label> No value</label>
-<input type="checkbox" value="*" id="noValueCheckbox" placeholder="No value">  
 
-</div>
+														<div class="col-sm-4">
+														<div class="form-group">
+														
+														<label>
+															Field Name:
+														</label>
+														<input type="text" id="" name="" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
+														<input type="hidden" id="" name="" class="form-control" placeholder="Add Reference Range" >
+														<br>
+														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
+
+														<br>
+													</div>
+													
+													</div>
+														
+													<div class="col-sm-4">
+													<div class="no_value_style">
+													<label> No value</label>
+													<input type="checkbox" value="*" id="noValueCheckbox" placeholder="No value">  
+
+													</div>
 													</div>
 													</div>
 													<div class="form-group">
