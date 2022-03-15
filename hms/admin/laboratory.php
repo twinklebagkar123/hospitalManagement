@@ -164,7 +164,7 @@ print_r($query);
 													<div class="col-sm-6">
 <div class="no_value_style">
 <label> No value</label>
-<input type="checkbox" value="*" placeholder="No value">  
+<input type="checkbox" value="*" id="noValueCheckbox" placeholder="No value">  
 
 </div>
 													</div>
@@ -340,12 +340,20 @@ console.log(data);
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
-			
-				var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
-				$("#fieldShow").append(trow);
-				jsonFieldDetails.push(fieldName);
-				jsonFieldDetailsString = jsonFieldDetails.toString();
-				$("#fieldArray").val(jsonFieldDetailsString);
+				if($('#noValueCheckbox').is(':checked')){
+					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
+					jsonFieldDetails.push(fieldName+'*');
+					jsonFieldDetailsString = jsonFieldDetails.toString();
+					$("#fieldArray").val(jsonFieldDetailsString);
+				}else{
+					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
+					jsonFieldDetails.push(fieldName);
+					jsonFieldDetailsString = jsonFieldDetails.toString();
+					$("#fieldArray").val(jsonFieldDetailsString);
+				}
+				
 				console.log(jsonFieldDetails);
 				
 			});
