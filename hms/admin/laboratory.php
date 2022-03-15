@@ -149,10 +149,11 @@ print_r($query);
 													</div>
 														</div>
 													<div class="col-sm-6">
-
-<input type="checkbox" value="*" placeholder="No value">  
+<div class="form-group">
 <label> No value</label>
+<input type="checkbox" value="*" placeholder="No value">  
 
+</div>
 													</div>
 													</div>
 													<div class="form-group">
