@@ -85,8 +85,8 @@ $id= $_GET['id'];
 
 <div class="row">
 
-<div class="col-sm-6 justify-content-start font-weight-bold">
-<p>PATIENT NAME: - </p>
+<div class="col-sm-6 justify-content-start ">
+<p class="font-weight-bold"> PATIENT NAME: - </p>
 <p>Ref. By: - St. Anthony Hospital & Research Center </p>
 <p>DATE: -  </p>
 
