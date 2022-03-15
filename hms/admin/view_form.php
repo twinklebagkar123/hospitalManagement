@@ -41,7 +41,7 @@ $id= $_GET['id'];
 <style type="text/css">
 .title_style{
 	color: #333;
-	font-size:14px;
+	font-size:16px;
  font-weight: bold;
 }
 .form_title_style{
@@ -52,12 +52,12 @@ $id= $_GET['id'];
 	margin-top:6px;
 }
 p{
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .main_title_style{
 
-font-size: 12px;	
+font-size: 16px;	
  color: #333;
  text-decoration:underline ;
  font-weight:bold;
