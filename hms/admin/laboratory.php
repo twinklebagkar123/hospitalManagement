@@ -84,6 +84,19 @@ print_r($query);
 </head>
 
 <body>
+
+<style>
+.no_value_style {
+	margin-top: 26px;
+    font-size: 23px;
+
+}
+.no_value_style > input{
+	width: 20px;
+	height: 20px;
+}
+
+</style>
 	<div id="app">
 		<?php include('include/sidebar.php'); ?>
 		<div class="app-content">
@@ -149,7 +162,7 @@ print_r($query);
 													</div>
 														</div>
 													<div class="col-sm-6">
-<div class="form-group">
+<div class="no_value_style">
 <label> No value</label>
 <input type="checkbox" value="*" placeholder="No value">  
 
