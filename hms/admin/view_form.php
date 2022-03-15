@@ -145,7 +145,7 @@ $id= $_GET['id'];
 										// else
 										// {
 										// 	?>
-											<div class="col-sm-3">
+											<div class="col-sm-3 ">
                                                 
 											<?php echo $titles; ?>
 								   
@@ -162,7 +162,7 @@ $i=1;
 foreach ($fields_arr as  $field) {
 ?>
 	<div class="row">
-		<div class="col-sm-3">
+		<div class="col-sm-3 justify-content-start">
 			<?php echo $field; ?>
 	
 
