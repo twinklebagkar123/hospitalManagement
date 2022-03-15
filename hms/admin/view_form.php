@@ -184,7 +184,8 @@ font-size: 16px;
 
 									
 								
-								<?php } ?></div><?php
+								<?php } ?></div>
+								<div class="text-center"><?php
 
 
 $fields = $row['labFields'];
@@ -204,7 +205,7 @@ foreach ($fields_arr as  $field) {
 <?php
 $i++;
 }?>
-					<!-- </div> -->
+				 </div> 
 <p> <?php echo $b; ?> </p>
 <?php
 								
