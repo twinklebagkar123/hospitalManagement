@@ -133,8 +133,10 @@ print_r($query);
 														<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" required="true" >
 														
 
-													</div>
+													</div><div class="row">
+														<div class="col-sm-6">
 													<div class="form-group">
+														
 														<label>
 															Field Name:
 														</label>
@@ -144,6 +146,13 @@ print_r($query);
 														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
 
 														<br>
+													</div>
+														</div>
+													<div class="col-sm-6">
+
+
+
+													</div>
 													</div>
 													<div class="form-group">
 														<label>
