@@ -150,7 +150,7 @@ print_r($query);
 														</div>
 													<div class="col-sm-6">
 
-
+<input type="checkbox" value="*" placeholder="No value">
 
 													</div>
 													</div>
