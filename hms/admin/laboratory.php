@@ -166,13 +166,12 @@ print_r($query);
 														<div class="form-group">
 														
 														<label>
-															Field Name:
+															Refrence Range:
 														</label>
 														<input type="text" id="" name="" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
 														<input type="hidden" id="" name="" class="form-control" placeholder="Add Reference Range" >
 														<br>
-														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
-
+														
 														<br>
 													</div>
 													
