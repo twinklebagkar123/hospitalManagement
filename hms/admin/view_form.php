@@ -141,7 +141,7 @@ font-size: 12px;
 
                                         <h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
 					<!-- <div class="wrapper_style">					 -->
-<div class="row justify-content-center">
+<div class="row text-center">
                                         <?php
 										$fields = $row['labFields'];
                                         $fields_arr = explode(",", $fields);
