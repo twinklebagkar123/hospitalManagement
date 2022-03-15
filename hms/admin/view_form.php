@@ -112,7 +112,7 @@ $id= $_GET['id'];
  <div style=" border-width:2px; border-style: solid; "> </div>
 
 
-                                        <h3 class="justify-content-center"> <?php echo $row['labTestName']; ?> </h3>
+                                        <h3 style="text-align:center;"> <?php echo $row['labTestName']; ?> </h3>
 										
 <div class="row">
                                         <?php
