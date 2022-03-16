@@ -192,8 +192,46 @@ font-size: 16px;
 									<?php
 
 
-$fields = $row['labFields'].",".$row['main_titles']; ;
+$fields = $row['labFields']; ;
 $fields_arr = explode(",", $fields);
+$i=1;
+
+foreach ($fields_arr as  $field) {
+
+	?> <div class="row">
+		<div class="col-sm-3 justify-content-center">
+		<?php
+	if(strpos ($field, '*')!==false) {
+		?>
+
+<p class="field_style text-bold">	<?php echo substr($field,0,-1); ?> </p>
+		<?php
+
+
+
+	}
+	else{
+?>
+	
+		<p class="field_style">	<?php echo $field; ?> </p>
+	
+<?php
+	}
+	?>
+	</div>
+	</div>
+
+<?php
+$i++;
+}?>
+				 </div> 
+				 <div class="text-center">
+									
+									<?php
+
+
+$main_titles = $row['main_titles']; ;
+$rmain_titles_arr = explode(",", $reference_range);
 $i=1;
 
 foreach ($fields_arr as  $field) {
