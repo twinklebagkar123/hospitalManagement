@@ -192,7 +192,7 @@ font-size: 16px;
 									<?php
 
 
-$fields = $row['labFields'];
+$fields = $row['labFields'].",".$row['main_titles']; ;
 $fields_arr = explode(",", $fields);
 $i=1;
 
