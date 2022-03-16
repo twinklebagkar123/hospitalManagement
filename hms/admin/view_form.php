@@ -158,7 +158,7 @@ font-size: 16px;
 										
 								
 
-                                        $title_count=1;
+                                        $title_count=0;
                                         foreach ($title_arr as  $titles) {
 
 
