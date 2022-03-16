@@ -148,7 +148,7 @@ print_r($query);
 														
 
 													</div><div class="row">
-														<div class="col-sm-3">
+														<div class="col-sm-6">
 													<div class="form-group">
 														
 														<label>
@@ -163,36 +163,10 @@ print_r($query);
 													</div>
 														</div>
 
-														<div class="col-sm-3">
-														<div class="form-group">
-														
-														<label>
-															Refrence Range:
-														</label>
-														<input type="text" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >
-														<br>
-														
-														<br>
-													</div>
 													
-													</div>
-													<div class="col-sm-3">
-														<div class="form-group">
-														
-														<label>
-															Units :
-														</label>
-														<input type="text" id="units" name="units" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="units" name="units" class="form-control" placeholder="Add  units" >
-														<br>
-														
-														<br>
-													</div>
 													
-													</div>
 														
-													<div class="col-sm-3">
+													<div class="col-sm-6">
 													<div class="no_value_style">
 													<label> No value</label>
 													<input type="checkbox" value="*" id="noValueCheckbox" placeholder="No value">  
