@@ -156,28 +156,13 @@ font-size: 16px;
 										$info = $row['test_more_info'];
 										$b = html_entity_decode($info);
 										
-										//$reverse=array_reverse($fields_arr);
+								
 
                                         $i=1;
                                         foreach ($title_arr as  $titles) {
 
 
-											if ($titles == "Test")
-											// {
-
-                                        ?>
-                                            
-											<!-- <div class="col-sm-2">
-                                                <h3>Test</h3>
-                                                    <?php //echo $fields_arr; ?>
-                                           
-                                            </div> -->
-    <?php
-                                      //  }
-										
-										// else
-										// {
-										// 	?>
+											?>
 											<div class="col-sm-3  ">
                                                 
 											<p class="main_title_style"> <?php echo $titles; ?></p>
@@ -186,7 +171,9 @@ font-size: 16px;
 
 									
 								
-								<?php } ?></div>
+								<?php 
+							$i++;
+							} ?></div>
 								<div class="text-center">
 									
 									<?php
@@ -213,7 +200,7 @@ foreach ($fields_arr as  $field) {
 	else{
 ?>
 	
-		<p class="field_style">	<?php echo $field; ?> </p>
+		<p class="field_style">	<?php echo $field; echo $i; ?> </p>
 	
 <?php
 	}
@@ -225,33 +212,7 @@ foreach ($fields_arr as  $field) {
 $i++;
 }?>
 				 </div> 
-				 <div class="text-center">
-									
-									<?php
-
-
-$main_titles = $row['main_titles']; ;
-$main_titles_arr = explode(",", $main_titles);
-$i=1;
-
-foreach ($main_titles_arr as  $main_title) {
-
-	?> <div class="row">
-		<div class="col-sm-3 justify-content-center">
-		
-
-
-	
-		<p class="field_style">	<?php echo $main_titles; ?> </p>
-	
-
-	</div>
-	</div>
-
-<?php
-$i++;
-}?>
-				 </div> 
+				
 <p> <?php echo $b; ?> </p>
 <p class="text-center">~~ End of report ~~</p>
 <?php
