@@ -158,7 +158,7 @@ font-size: 16px;
 										
 								
 
-                                        $i=1;
+                                        $title_count=1;
                                         foreach ($title_arr as  $titles) {
 
 
@@ -172,7 +172,7 @@ font-size: 16px;
 									
 								
 								<?php 
-							$i++;
+							$title_count++;
 							} ?></div>
 								<div class="text-center">
 									
@@ -200,7 +200,7 @@ foreach ($fields_arr as  $field) {
 	else{
 ?>
 	
-		<p class="field_style">	<?php echo $field; echo $i; ?> </p>
+		<p class="field_style">	<?php echo $field; echo $title_count; ?> </p>
 	
 <?php
 	}
