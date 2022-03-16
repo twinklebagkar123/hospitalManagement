@@ -184,7 +184,7 @@ print_r($query);
 															Units :
 														</label>
 														<input type="text" id="units" name="units" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="units" name="units" class="form-control" placeholder="Add Reference Range" >
+														<input type="hidden" id="units" name="units" class="form-control" placeholder="Add  units" >
 														<br>
 														
 														<br>
