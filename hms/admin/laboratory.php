@@ -10,6 +10,7 @@ if(isset($_POST['submit']))
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
 	$referance_range=$_POST['referance_range'];
+	$units=$_POST['units'];
 	$main_title = implode(',', $_POST['main_titles']);
 	print_r($engine2);
 	$mt="";  
