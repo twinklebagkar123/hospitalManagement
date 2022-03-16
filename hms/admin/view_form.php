@@ -231,31 +231,20 @@ $i++;
 
 
 $main_titles = $row['main_titles']; ;
-$rmain_titles_arr = explode(",", $reference_range);
+$main_titles_arr = explode(",", $main_titles);
 $i=1;
 
-foreach ($fields_arr as  $field) {
+foreach ($main_titles_arr as  $main_title) {
 
 	?> <div class="row">
 		<div class="col-sm-3 justify-content-center">
-		<?php
-	if(strpos ($field, '*')!==false) {
-		?>
-
-<p class="field_style text-bold">	<?php echo substr($field,0,-1); ?> </p>
-		<?php
+		
 
 
-
-	}
-	else{
-?>
 	
-		<p class="field_style">	<?php echo $field; ?> </p>
+		<p class="field_style">	<?php echo $main_titles; ?> </p>
 	
-<?php
-	}
-	?>
+
 	</div>
 	</div>
 
