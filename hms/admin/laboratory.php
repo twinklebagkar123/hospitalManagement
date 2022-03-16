@@ -9,14 +9,14 @@ if(isset($_POST['submit']))
 	$labTestName=$_POST['name'];
 	$labFields=$_POST['fieldArray'];
 	$charges=$_POST['charges'];
-	
+	$referance_range=$_POST['referance_range'];
 	$main_title = implode(',', $_POST['main_titles']);
 	print_r($engine2);
 	$mt="";  
 
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."','".$referance_range."')";
 	 $con->query($query);
 	
 
@@ -168,8 +168,8 @@ print_r($query);
 														<label>
 															Refrence Range:
 														</label>
-														<input type="text" id="" name="" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="" name="" class="form-control" placeholder="Add Reference Range" >
+														<input type="text" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
+														<input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >
 														<br>
 														
 														<br>
