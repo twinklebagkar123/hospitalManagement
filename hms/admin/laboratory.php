@@ -433,7 +433,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
         var data = CKEDITOR.instances.editor.getData();
         $('#html_test_default_info').val(data);
 
-    //    $(this).submit();
+      $(this).submit();
         
     });
 
