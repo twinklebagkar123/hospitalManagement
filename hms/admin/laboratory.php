@@ -443,6 +443,14 @@ console.log(data);
 			var values = [];
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
+				var units =$("#units").is(":checked");
+					var referanceRange =$("#ref").is(":checked");
+					var normalRange =$("#normalRange").is(":checked");
+
+						
+					values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
+					console.log(values);
+
 				var fieldName = $("#fieldName").val();
 				if($('#noValueCheckbox').is(':checked')){
 					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
@@ -458,7 +466,7 @@ console.log(data);
 					$("#fieldArray").val(jsonFieldDetailsString);
 				}
 				
-				console.log(jsonFieldDetails);
+				
 				
 			});
 			$(document).on("click" ,".remove",function(){
@@ -513,13 +521,7 @@ console.log(data);
 
 			});
 
-			var units =$("#units").is(":checked");
-			var referanceRange =$("#ref").is(":checked");
-			var normalRange =$("#normalRange").is(":checked");
-
-				
-			values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
-			console.log(values);
+			
 
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
