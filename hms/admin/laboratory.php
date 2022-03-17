@@ -407,17 +407,7 @@ console.log(data);
         
     });
 
-	$(document).on("change","#referance_range ", function(){
-		console.log("whjevdjuahv");	
-		if($('#referance_range').is(":checked")){
-					console.log("whjevdjuahv");
-					$(".referanceRange").show();
-
-				}
-        else
-            {$(".referanceRange").hide();}
-
-			});
+	
 
 
 			Main.init();
@@ -459,7 +449,17 @@ console.log(data);
 
 		});
 
-		
+		$(document).on("change","#referance_range ", function(){
+		console.log("whjevdjuahv");	
+		if($('#referance_range').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".referanceRange").show();
+
+				}
+        else
+            {$(".referanceRange").hide();}
+
+			});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
