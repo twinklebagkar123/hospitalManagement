@@ -460,7 +460,7 @@ console.log(data);
 
 
 						
-					values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
+					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
 
 				
