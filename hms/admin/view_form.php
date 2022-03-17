@@ -176,41 +176,7 @@ font-size: 16px;
 							} ?></div>
 								<div class="text-center">
 									
-									<?php
-
-
-$fields = $row['labFields']; ;
-$fields_arr = explode(",", $fields);
-$i=1;
-
-foreach ($fields_arr as  $field) {
-
-	?> <div class="row">
-		<div class="col-sm-3 justify-content-center">
-		<?php
-	if(strpos ($field, '*')!==false) {
-		?>
-
-<p class="field_style text-bold">	<?php echo substr($field,0,-1); ?> </p>
-		<?php
-
-
-
-	}
-	else{
-?>
-	
-		<p class="field_style">	<?php echo $field; echo $title_count; ?> </p>
-	
-<?php
-	}
-	?>
-	</div>
-	</div>
-
-<?php
-$i++;
-}?>
+					
 				 </div> 
 				
 <p> <?php echo $b; ?> </p>
