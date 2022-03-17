@@ -154,7 +154,7 @@ print_r($query);
 													
 													<input type="checkbox" id="units"  value="Units">
 													<label for=""> Units</label>
-													<input type="checkbox" id="referanceRange"  value="Referance_Range">
+													<input type="checkbox" id="referanceRange"  value="1">
 													<label for=""> Referance Range</label>
 													<input type="checkbox" id="normalRange"  value="Normal_Range">
 													<label for=""> Normal  Range</label>
@@ -200,7 +200,7 @@ print_r($query);
 															</div>
 															</div>
 														</div> -->
-														 <div class="col-sm-3 referanceRange" style="display:none; margin-bottom: 8px;">
+														 <div class="col-sm-3 referanceRange" style="display:none; ">
 														<div class="form-group">
 														
 														<label>
@@ -252,7 +252,7 @@ print_r($query);
 													<input type="checkbox" id="test_more_info"   name="test_more_info" value="1">
 													<label > Test More Info</label>
 													<div id="editor">
-    <p>This is the editor content.</p>
+    
 </div>
 													</div>
 												<!-- <div>
@@ -380,16 +380,7 @@ print_r($query);
 		var ckeditor = [];
 		jQuery(document).ready(function() {
 
-			$(document).on("change","#referance_range ", function(){
-			if($('#referance_range').is(":checked")){
-					console.log("whjevdjuahv");
-					$(".referanceRange").show();
-
-				}
-        else
-            {$(".referanceRange").hide();}
-
-			});
+			
 
 
 
@@ -416,7 +407,16 @@ console.log(data);
         
     });
 
+	$(document).on("change","#referance_range ", function(){
+			if($('#referance_range').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".referanceRange").show();
 
+				}
+        else
+            {$(".referanceRange").hide();}
+
+			});
 
 
 			Main.init();
