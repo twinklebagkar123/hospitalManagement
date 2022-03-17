@@ -181,11 +181,11 @@ print_r($th);
 													
 													<div>
 													
-													<input type="checkbox" id="units"   name="main_titles[]" value="1">
+													<input type="checkbox" id="units"   name="main_titles[]" value="Units">
 													<label for=""> Units</label>
-													<input type="checkbox" id="ref" name="main_titles[]" value="1">
+													<input type="checkbox" id="ref" name="main_titles[]" value="Referance Range">
 													<label for=""> Referance Range</label>
-													<input type="checkbox" id="normalRange" name="main_titles[]" value="1">
+													<input type="checkbox" id="normalRange" name="main_titles[]" value="Normal Range">
 													<label for=""> Normal  Range</label>
 												</div>
 													<div class="row">
