@@ -196,10 +196,10 @@ font-size: 16px;
 											foreach($valuesDistribution as $value) {
 												print_r($value);
 												$i++;
-													echo "field name". $valuesDistribution->fieldName;
-													 echo "units". $valuesDistribution->units;
-													 echo "referanceRange". $valuesDistribution->referanceRange;
-													 echo "normalRange" . $valuesDistribution[i]->normalRange;
+													echo  $valuesDistribution[$i]->fieldName;
+													 echo  $valuesDistribution[$i]->units;
+													 echo  $valuesDistribution[$i]->referanceRange;
+													 echo  $valuesDistribution[$i]->normalRange;
 												}
 													
 												endif;
