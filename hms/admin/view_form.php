@@ -184,14 +184,14 @@ font-size: 16px;
 											</thead>
 											<tbody id="fieldShow">
 											<?php
-										$sql = mysqli_query($con, "SELECT * FROM `labTestRecord`;");
+										$sql = mysqli_query($con, "SELECT * FROM `laboratoryTestList`;");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
 <tr>
 <?php
-												if(!empty($row['testResult'])):
-													$valuesDistribution = json_decode($row['testResult']);
+												if(!empty($row['labFields'])):
+													$valuesDistribution = json_decode($row['labFields']);
 													
 													echo $valuesDistribution[0]->fieldName;
 													echo $valuesDistribution[0]->units;
