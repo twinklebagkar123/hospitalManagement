@@ -201,7 +201,7 @@ font-size: 16px;
 													 echo  $valuesDistribution[$i]->referanceRange;
 													 echo  $valuesDistribution[$i]->normalRange;
 												}
-													
+												var_dump($value);
 												endif;
 						
 
