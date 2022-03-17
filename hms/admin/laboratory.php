@@ -12,7 +12,7 @@ if(isset($_POST['submit']))
 	$referance_range=$_POST['referance_range'];
 	$units=$_POST['units'];
 	$main_title = implode(',', $_POST['main_titles']);
-	print_r($engine2);
+	
 	$mt="";  
 
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
@@ -21,7 +21,6 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 	 $con->query($query);
 	
 
-print_r($query);
 	
 	$stat = true;
 	if($stat)
@@ -430,10 +429,10 @@ print_r($query);
 
 			$(document).one("submit","#addmed", function(e){
         e.preventDefault();
-        console.log("tetstt");
+        
         var data = CKEDITOR.instances.editor.getData();
         $('#html_test_default_info').val(data);
-console.log(data);
+
     //    $(this).submit();
         
     });
@@ -507,9 +506,9 @@ console.log(data);
 
 		
 			$(document).on("change","#units", function(){
-		console.log("whjevdjuahv");	
+	
 		if($('#units').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".units").show();
 
 				}
@@ -518,9 +517,9 @@ console.log(data);
 
 			});
 			$(document).on("change","#ref", function(){
-		console.log("whjevdjuahv");	
+		
 		if($('#ref').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".referance_r").show();
 
 				}
@@ -529,9 +528,9 @@ console.log(data);
 
 			});
 			$(document).on("change","#normalRange", function(){
-		console.log("whjevdjuahv");	
+		
 		if($('#normalRange').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".normalRange").show();
 
 				}
