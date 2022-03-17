@@ -204,9 +204,9 @@ print_r($query);
 														<div class="form-group">
 														
 														<label>
-															Refrence Range:
+															Reference Range:
 														</label>
-														<input type="text" id="ref" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" >
+														<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range" required="true" >
 														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
@@ -444,6 +444,26 @@ console.log(data);
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
+				var unit_check =$("#units").is(":checked");
+					var referanceRange_check =$("#ref").is(":checked");
+					var normalRange_check =$("#normalRange").is(":checked");
+					var unit,referanceRange,normalRange;
+					if(unit_check){
+						unit=$("#units").val();
+					}
+					if(referanceRange_check){
+						referanceRange=$("#referance_value").val();
+					}
+					if(normalRange_check){
+						normalRange=$("#normalRange").val();
+					}
+
+
+						
+					values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
+					console.log(values);
+
+				
 				if($('#noValueCheckbox').is(':checked')){
 					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 					$("#fieldShow").append(trow);
@@ -458,7 +478,7 @@ console.log(data);
 					$("#fieldArray").val(jsonFieldDetailsString);
 				}
 				
-				console.log(jsonFieldDetails);
+				
 				
 			});
 			$(document).on("click" ,".remove",function(){
@@ -513,11 +533,7 @@ console.log(data);
 
 			});
 
-			var units =$("#units").is(":checked");
-			var referanceRange =$("#ref").is(":checked");
-			var normalRange =$("#normalRange").is(":checked");
-
-			array.push({})
+			
 
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
