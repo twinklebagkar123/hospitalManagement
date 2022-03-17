@@ -12,22 +12,16 @@ if(isset($_POST['submit']))
 	$referance_range=$_POST['referance_range'];
 	$units=$_POST['units'];
 	$main_title = implode(',', $_POST['main_titles']);
-	print_r($engine2);
+	
 	$mt="";  
 
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."','".$referance_range."')";
-	 $con->query($query);
+	// $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
+	//  $con->query($query);
 	
 
-print_r($query);
 	
-	$stat = true;
-	if($stat)
-	{
-		echo "<script>alert('Successfully added. ');</script>";
-	}
 }
 
 
@@ -85,7 +79,37 @@ print_r($query);
 </head>
 
 <body>
+	<?php
+try {
+	if(isset($_POST['submit']))
+	{
+		$labTestName=$_POST['name'];
+		$labFields=$_POST['fieldArray'];
+		$charges=$_POST['charges'];
+		$referance_range=$_POST['referance_range'];
+		$units=$_POST['units'];
+		$main_title = implode(',', $_POST['main_titles']);
+		
+		$mt="";  
+	
+	$html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
+	
+		$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
+		 $con->query($query);
+		echo $query;
+	
+		
+		// $stat = true;
+		// if($stat)
+		// {
+		// 	echo "<script>alert('Successfully added. ');</script>";
+		// }
+	}
+} catch (\Throwable $th) {
+print_r($th);
+}
 
+?>
 <style>
 .no_value_style {
 	margin-top: 26px;
@@ -152,11 +176,11 @@ print_r($query);
 													
 													<div>
 													
-													<input type="checkbox" id="units"  value="1">
+													<input type="checkbox" id="units"   name="main_titles[]" value="Units">
 													<label for=""> Units</label>
-													<input type="checkbox" id="ref"  value="1">
+													<input type="checkbox" id="ref" name="main_titles[]" value="Referance Range">
 													<label for=""> Referance Range</label>
-													<input type="checkbox" id="normalRange"  value="1">
+													<input type="checkbox" id="normalRange" name="main_titles[]" value="Normal Range">
 													<label for=""> Normal  Range</label>
 												</div>
 													<div class="row">
@@ -167,7 +191,7 @@ print_r($query);
 															Field Name:
 														</label>
 														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control" placeholder="Add Test Field Name" >
+														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control"  >
 														<br>
 														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
 
@@ -430,11 +454,11 @@ print_r($query);
 
 			$(document).one("submit","#addmed", function(e){
         e.preventDefault();
-        console.log("tetstt");
+        
         var data = CKEDITOR.instances.editor.getData();
         $('#html_test_default_info').val(data);
-console.log(data);
-    //    $(this).submit();
+
+      $(this).submit();
         
     });
 
@@ -451,6 +475,31 @@ console.log(data);
 					var referanceRange_check =$("#ref").is(":checked");
 					var normalRange_check =$("#normalRange").is(":checked");
 					var unit,referanceRange,normalRange;
+					// if(unit_check){
+					// 	unit=$("#units_value").val();
+					// }
+					// if(referanceRange_check){
+					// 	referanceRange=$("#referance_value").val();
+					// }
+					// if(normalRange_check){
+					// 	normalRange=$("#normalRange_value").val();
+					// }
+
+
+						
+					// values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
+					// console.log(values);
+
+				
+				if($('#noValueCheckbox').is(':checked')){
+					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
+					
+
+					values.push(fieldName+'*');
+					valuesString = values.toString();
+					$("#fieldArray").val(JSON.stringify(values));
+				}else{
 					if(unit_check){
 						unit=$("#units_value").val();
 					}
@@ -462,27 +511,17 @@ console.log(data);
 					}
 
 
-						
+					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
 					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
+					//valuesString = values.toString();
+					 $("#fieldArray").val(JSON.stringify(values));
 
+					// $("#fieldShow").append(trow);
 				
-				if($('#noValueCheckbox').is(':checked')){
-					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
-					$("#fieldShow").append(trow);
-					
-
-					jsonFieldDetails.push(fieldName+'*');
-					jsonFieldDetailsString = jsonFieldDetails.toString();
-					$("#fieldArray").val(jsonFieldDetailsString);
-				}else{
-					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
-				
-					$("#fieldShow").append(trow);
-				
-					jsonFieldDetails.push(fieldName,unit,referanceRange,normalRange);
-					jsonFieldDetailsString = jsonFieldDetails.toString();
-					$("#fieldArray").val(jsonFieldDetailsString);
+					// values.push(fieldName,unit,referanceRange,normalRange);
+					// 
 				}
 				
 				
@@ -507,9 +546,9 @@ console.log(data);
 
 		
 			$(document).on("change","#units", function(){
-		console.log("whjevdjuahv");	
+	
 		if($('#units').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".units").show();
 
 				}
@@ -518,9 +557,9 @@ console.log(data);
 
 			});
 			$(document).on("change","#ref", function(){
-		console.log("whjevdjuahv");	
+		
 		if($('#ref').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".referance_r").show();
 
 				}
@@ -529,9 +568,9 @@ console.log(data);
 
 			});
 			$(document).on("change","#normalRange", function(){
-		console.log("whjevdjuahv");	
+		
 		if($('#normalRange').is(":checked")){
-					console.log("whjevdjuahv");
+					
 					$(".normalRange").show();
 
 				}
