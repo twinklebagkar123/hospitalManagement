@@ -193,8 +193,8 @@ font-size: 16px;
 												if(!empty($row['labFields'])):
 													$valuesDistribution = json_decode($row['labFields']);
 													$i=0;
-											while($valuesDistribution) {
-												print_r($valuesDistribution[$i]);
+											foreach($valuesDistribution as $value) {
+												print_r($value);
 												$i++;
 													// echo "field name". $valuesDistribution->fieldName;
 													// echo "units". $valuesDistribution->units;
