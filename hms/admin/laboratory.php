@@ -476,11 +476,9 @@ console.log(data);
 					$("#fieldArray").val(jsonFieldDetailsString);
 				}else{
 					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
-					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+				
 					$("#fieldShow").append(trow);
-					$("#unit").append(trow);
-					$("#referanceRange").append(trow);
-					$("#normalRange").append(trow);
+				
 					jsonFieldDetails.push(fieldName,unit,referanceRange,normalRange);
 					jsonFieldDetailsString = jsonFieldDetails.toString();
 					$("#fieldArray").val(jsonFieldDetailsString);
