@@ -220,7 +220,7 @@ print_r($query);
 														<label>
 														Units:
 														</label>
-														<input type="text" id="units" name="units" class="form-control" placeholder="Add Reference Range" required="true" >
+														<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add Reference Range" required="true" >
 														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
@@ -234,7 +234,7 @@ print_r($query);
 														<label>
 														Normal Range:
 														</label>
-														<input type="text" id="normalRange" name="normalRange" class="form-control" placeholder="Add Normal Range" required="true" >
+														<input type="text" id="normalRange_value" name="normalRange_value" class="form-control" placeholder="Add Normal Range" required="true" >
 														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
@@ -449,18 +449,18 @@ console.log(data);
 					var normalRange_check =$("#normalRange").is(":checked");
 					var unit,referanceRange,normalRange;
 					if(unit_check){
-						unit=$("#units").val();
+						unit=$("#units_value").val();
 					}
 					if(referanceRange_check){
 						referanceRange=$("#referance_value").val();
 					}
 					if(normalRange_check){
-						normalRange=$("#normalRange").val();
+						normalRange=$("#normalRange_value").val();
 					}
 
 
 						
-					values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
+					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
 
 				
