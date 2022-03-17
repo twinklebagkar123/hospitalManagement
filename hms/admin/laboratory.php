@@ -206,7 +206,7 @@ print_r($query);
 														<label>
 															Refrence Range:
 														</label>
-														<input type="text" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
+														<input type="text" id="ref" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" >
 														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
@@ -449,9 +449,9 @@ console.log(data);
 
 		});
 
-		$(document).on("change","#referance_range ", function(){
+		$(document).on("change","#ref ", function(){
 		console.log("whjevdjuahv");	
-		if($('#referance_range').is(":checked")){
+		if($('#ref').is(":checked")){
 					console.log("whjevdjuahv");
 					$(".referanceRange").show();
 
