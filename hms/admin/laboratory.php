@@ -449,7 +449,7 @@ console.log(data);
 
 		});
 
-		$(document).on("change","#ref ", function(){
+		$(document).on("change","#ref", function(){
 		console.log("whjevdjuahv");	
 		if($('#ref').is(":checked")){
 					console.log("whjevdjuahv");
