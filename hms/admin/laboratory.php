@@ -200,7 +200,7 @@ print_r($query);
 															</div>
 															</div>
 														</div> -->
-														 <div class="col-sm-3 referanceRange" style="display:none; ">
+														 <div class="col-sm-3 referance_r" style="display:none; ">
 														<div class="form-group">
 														
 														<label>
@@ -477,17 +477,7 @@ console.log(data);
 
 		});
 
-		$(document).on("change","#ref", function(){
-		console.log("whjevdjuahv");	
-		if($('#ref').is(":checked")){
-					console.log("whjevdjuahv");
-					$(".referanceRange").show();
-
-				}
-        else
-            {$(".referanceRange").hide();}
-
-			});
+		
 			$(document).on("change","#units", function(){
 		console.log("whjevdjuahv");	
 		if($('#units').is(":checked")){
@@ -497,6 +487,17 @@ console.log(data);
 				}
         else
             {$(".units").hide();}
+
+			});
+			$(document).on("change","#ref", function(){
+		console.log("whjevdjuahv");	
+		if($('#ref').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".referance_r").show();
+
+				}
+        else
+            {$(".referance_r").hide();}
 
 			});
 			$(document).on("change","#normalRange", function(){
