@@ -101,14 +101,14 @@ try {
 	
 		$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."','".$referance_range."')";
 		 $con->query($query);
-		
+		echo $query;
 	
 		
-		$stat = true;
-		if($stat)
-		{
-			echo "<script>alert('Successfully added. ');</script>";
-		}
+		// $stat = true;
+		// if($stat)
+		// {
+		// 	echo "<script>alert('Successfully added. ');</script>";
+		// }
 	}
 } catch (\Throwable $th) {
 print_r($th);
