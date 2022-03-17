@@ -152,11 +152,11 @@ print_r($query);
 													
 													<div>
 													
-													<input type="checkbox" id="units" name="main_titles[]" value="Units">
+													<input type="checkbox" id="units"  value="Units">
 													<label for=""> Units</label>
-													<input type="checkbox" id="referanceRange" name="main_titles[]" value="Referance_Range">
-													<label for=""> Referance Range</label></div>
-													<input type="checkbox" id="normalRange" name="main_titles[]" value="Normal_Range">
+													<input type="checkbox" id="referanceRange"  value="Referance_Range">
+													<label for=""> Referance Range</label>
+													<input type="checkbox" id="normalRange"  value="Normal_Range">
 													<label for=""> Normal  Range</label>
 												</div>
 													<div class="row">
@@ -207,7 +207,7 @@ print_r($query);
 															Refrence Range:
 														</label>
 														<input type="text" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														 <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" > 
+														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
 														<br>
