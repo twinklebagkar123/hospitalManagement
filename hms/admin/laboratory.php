@@ -440,6 +440,7 @@ console.log(data);
 
 			Main.init();
 			FormElements.init();
+			var values = [];
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
 				var fieldName = $("#fieldName").val();
@@ -511,6 +512,13 @@ console.log(data);
             {$(".normalRange").hide();}
 
 			});
+
+			var units =$("#units").is(":checked");
+			var referanceRange =$("#ref").is(":checked");
+			var normalRange =$("#normalRange").is(":checked");
+
+			array.push({})
+
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
