@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
 
 $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
 
-	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."','".$referance_range."')";
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
 	 $con->query($query);
 	
 
@@ -181,11 +181,11 @@ print_r($th);
 													
 													<div>
 													
-													<input type="checkbox" id="units"  value="1">
+													<input type="checkbox" id="units"   name="main_titles[]" value="1">
 													<label for=""> Units</label>
-													<input type="checkbox" id="ref"  value="1">
+													<input type="checkbox" id="ref" name="main_titles[]" value="1">
 													<label for=""> Referance Range</label>
-													<input type="checkbox" id="normalRange"  value="1">
+													<input type="checkbox" id="normalRange" name="main_titles[]" value="1">
 													<label for=""> Normal  Range</label>
 												</div>
 													<div class="row">
