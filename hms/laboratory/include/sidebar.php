@@ -34,7 +34,7 @@
                     <a href="javascript:void(0)">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-user"></i>
+                                <i class="ti-list"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Lab Forms </span><i class="icon-arrow"></i>
@@ -58,7 +58,7 @@
                     <a href="addProcedure.php">
                         <div class="item-content">
                             <div class="item-media">
-                                <i class="ti-search"></i>
+                                <i class="ti-list"></i>
                             </div>
                             <div class="item-inner">
                                 <span class="title"> Pending Tests  </span>
