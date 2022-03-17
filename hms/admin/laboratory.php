@@ -214,6 +214,34 @@ print_r($query);
 													</div>
 													
 													</div>
+													<div class="col-sm-3 units" style="display:none; ">
+														<div class="form-group">
+														
+														<label>
+														Units:
+														</label>
+														<input type="text" id="units" name="units" class="form-control" placeholder="Add Reference Range" required="true" >
+														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
+														<br>
+														
+														<br>
+													</div>
+													
+													</div>
+													<div class="col-sm-3 normalRange" style="display:none; ">
+														<div class="form-group">
+														
+														<label>
+														Normal Range:
+														</label>
+														<input type="text" id="normalRange" name="normalRange" class="form-control" placeholder="Add Normal Range" required="true" >
+														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
+														<br>
+														
+														<br>
+													</div>
+													
+													</div>
 													<!--
 													<div class="col-sm-3">
 														<div class="form-group">
@@ -458,6 +486,28 @@ console.log(data);
 				}
         else
             {$(".referanceRange").hide();}
+
+			});
+			$(document).on("change","#units", function(){
+		console.log("whjevdjuahv");	
+		if($('#units').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".units").show();
+
+				}
+        else
+            {$(".units").hide();}
+
+			});
+			$(document).on("change","#normalRange", function(){
+		console.log("whjevdjuahv");	
+		if($('#normalRange').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".normalRange").show();
+
+				}
+        else
+            {$(".normalRange").hide();}
 
 			});
 	</script>
