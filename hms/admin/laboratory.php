@@ -328,6 +328,8 @@ print_r($query);
 												<tr>
 													
 													<th>Field Name</th>
+													<th> Units</th>
+													<th> Reference Range</th>
 													<th>Action</th>
 
 												</tr>
@@ -467,13 +469,19 @@ console.log(data);
 				if($('#noValueCheckbox').is(':checked')){
 					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 					$("#fieldShow").append(trow);
+					
+
 					jsonFieldDetails.push(fieldName+'*');
 					jsonFieldDetailsString = jsonFieldDetails.toString();
 					$("#fieldArray").val(jsonFieldDetailsString);
 				}else{
+					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 					$("#fieldShow").append(trow);
-					jsonFieldDetails.push(fieldName);
+					$("#unit").append(trow);
+					$("#referanceRange").append(trow);
+					$("#normalRange").append(trow);
+					jsonFieldDetails.push(fieldName,unit,referanceRange,normalRange);
 					jsonFieldDetailsString = jsonFieldDetails.toString();
 					$("#fieldArray").val(jsonFieldDetailsString);
 				}
