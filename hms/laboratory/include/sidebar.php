@@ -42,7 +42,6 @@
                         </div>
                     </a>
                     <ul class="sub-menu">
-
                         <li>
                             <a href="add-patient.php">
                                 <span class="title"> Add New Form</span>
@@ -53,7 +52,6 @@
                                 <span class="title"> View Forms </span>
                             </a>
                         </li>
-
                     </ul>
                 </li>
                 <li>
