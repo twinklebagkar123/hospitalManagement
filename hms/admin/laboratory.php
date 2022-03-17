@@ -490,8 +490,8 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 					$("#fieldShow").append(trow);
 					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
-					valuesString = values.toString();
-					 $("#fieldArray").val(valuesString);
+					//valuesString = values.toString();
+					 $("#fieldArray").val(values);
 					// $("#fieldShow").append(trow);
 				
 					// values.push(fieldName,unit,referanceRange,normalRange);
