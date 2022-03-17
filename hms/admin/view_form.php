@@ -192,8 +192,10 @@ font-size: 16px;
 <?php
 												if(!empty($row['labFields'])):
 													$valuesDistribution = json_decode($row['labFields']);
+													$i=0;
 											while($valuesDistribution) {
-												print_r($valuesDistribution);
+												print_r($valuesDistribution[$i]);
+												$i++;
 													// echo "field name". $valuesDistribution->fieldName;
 													// echo "units". $valuesDistribution->units;
 													// echo "referanceRange". $valuesDistribution->referanceRange;
