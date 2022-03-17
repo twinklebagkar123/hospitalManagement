@@ -204,9 +204,9 @@ print_r($query);
 														<div class="form-group">
 														
 														<label>
-															Refrence Range:
+															Reference Range:
 														</label>
-														<input type="text" id="ref" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" >
+														<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range" required="true" >
 														 <!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 														<br>
 														
@@ -452,7 +452,7 @@ console.log(data);
 						unit=$("#units").val();
 					}
 					if(referanceRange_check){
-						referanceRange=$("#ref").val();
+						referanceRange=$("#referance_value").val();
 					}
 					if(normalRange_check){
 						normalRange=$("#normalRange").val();
