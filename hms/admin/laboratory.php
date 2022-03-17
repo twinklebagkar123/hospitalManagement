@@ -379,6 +379,21 @@ print_r($query);
 	<script>
 		var ckeditor = [];
 		jQuery(document).ready(function() {
+
+			$(document).on("change","#referance_range ", function(){
+			if($('#referance_range').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".referanceRange").show();
+
+				}
+        else
+            {$(".referanceRange").hide();}
+
+			});
+
+
+
+
 			CKEDITOR.replace( 'editor' );
 			$(document).on("change","#test_more_info ", function(){
 			if($('#test_more_info').is(":checked")){
@@ -439,16 +454,7 @@ console.log(data);
 
 			});
 			
-			$(document).on("change","#referance_range ", function(){
-			if($('#referance_range').is(":checked")){
-					console.log("whjevdjuahv");
-					$(".referanceRange").show();
-
-				}
-        else
-            {$(".referanceRange").hide();}
-
-			});
+			
 
 		});
 
