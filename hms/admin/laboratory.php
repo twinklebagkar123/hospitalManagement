@@ -443,15 +443,27 @@ console.log(data);
 			var values = [];
 			var jsonFieldDetails = [];
 			$("#addField").on("click", function(){
-				var units =$("#units").is(":checked");
-					var referanceRange =$("#ref").is(":checked");
-					var normalRange =$("#normalRange").is(":checked");
+				var fieldName = $("#fieldName").val();
+				var unit_check =$("#units").is(":checked");
+					var referanceRange_check =$("#ref").is(":checked");
+					var normalRange_check =$("#normalRange").is(":checked");
+					var unit,referanceRange,normalRange;
+					if(unit_check){
+						unit=$("#units").val();
+					}
+					if(referanceRange_check){
+						referanceRange=$("#ref").val();
+					}
+					if(normalRange_check){
+						normalRange=$("#normalRange").val();
+					}
+
 
 						
 					values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
 
-				var fieldName = $("#fieldName").val();
+				
 				if($('#noValueCheckbox').is(':checked')){
 					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
 					$("#fieldShow").append(trow);
