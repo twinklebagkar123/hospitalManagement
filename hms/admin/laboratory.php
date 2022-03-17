@@ -330,6 +330,7 @@ print_r($query);
 													<th>Field Name</th>
 													<th> Units</th>
 													<th> Reference Range</th>
+													<th> Normal Range</th>
 													<th>Action</th>
 
 												</tr>
