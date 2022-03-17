@@ -487,6 +487,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 
 					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
 					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
 					valuesString = values.toString();
