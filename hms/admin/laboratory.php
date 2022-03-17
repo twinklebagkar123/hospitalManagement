@@ -154,7 +154,7 @@ print_r($query);
 													
 													<input type="checkbox" id="units"  value="Units">
 													<label for=""> Units</label>
-													<input type="checkbox" id="referanceRange"  value="1">
+													<input type="checkbox" id="ref"  value="1">
 													<label for=""> Referance Range</label>
 													<input type="checkbox" id="normalRange"  value="Normal_Range">
 													<label for=""> Normal  Range</label>
