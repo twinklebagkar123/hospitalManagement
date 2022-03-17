@@ -439,10 +439,7 @@ console.log(data);
 
 			});
 			
-
-		});
-
-		$(document).on("change","#referance_range ", function(){
+			$(document).on("change","#referance_range ", function(){
 			if($('#referance_range').is(":checked")){
 					console.log("whjevdjuahv");
 					$(".referanceRange").show();
@@ -452,6 +449,10 @@ console.log(data);
             {$(".referanceRange").hide();}
 
 			});
+
+		});
+
+		
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
