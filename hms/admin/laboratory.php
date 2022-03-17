@@ -444,7 +444,7 @@ console.log(data);
 
 		$(document).on("change","#referance_range ", function(){
 			if($('#referance_range').is(":checked")){
-					
+					console.log("whjevdjuahv");
 					$(".referanceRange").show();
 
 				}
