@@ -166,7 +166,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 															Field Name:
 														</label>
 														<input type="text" id="fieldName" name="fieldName" class="form-control" placeholder="Add Test Field Name" required="true" onkeypress="return blockSpecialChar(event)">
-														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control" placeholder="Add Test Field Name" >
+														<input type="hidden" id="fieldArray" name="fieldArray" class="form-control"  >
 														<br>
 														<a class="btn btn-o btn-primary" id ="addField">Add Field</a>
 
@@ -473,7 +473,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 					values.push(fieldName+'*');
 					valuesString = values.toString();
-					$("#fieldArray").val(jsonFieldDetailsString);
+					$("#fieldArray").val(JSON.stringify(values));
 				}else{
 					if(unit_check){
 						unit=$("#units_value").val();
