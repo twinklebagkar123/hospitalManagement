@@ -147,7 +147,19 @@ print_r($query);
 														<input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" required="true" >
 														
 
-													</div><div class="row">
+													</div>
+													
+													
+													<div>
+													
+													<input type="checkbox" id="units" name="main_titles[]" value="Units">
+													<label for=""> Units</label>
+													<input type="checkbox" id="referanceRange" name="main_titles[]" value="Referance_Range">
+													<label for=""> Referance Range</label></div>
+													<input type="checkbox" id="normalRange" name="main_titles[]" value="Normal_Range">
+													<label for=""> Normal  Range</label>
+												</div>
+													<div class="row">
 														<div class="col-sm-3">
 													<div class="form-group">
 														
@@ -162,7 +174,7 @@ print_r($query);
 														<br>
 													</div>
 														</div>
-														<div class="wrapperDiv">
+														<!-- <div class="wrapperDiv">
 													
 
 													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  value="1">
@@ -187,7 +199,8 @@ print_r($query);
 															</div>
 															</div>
 															</div>
-														<!-- <div class="col-sm-3">
+														</div> -->
+														 <div class="col-sm-3 referanceRange" style="display:none; margin-bottom: 8px;">
 														<div class="form-group">
 														
 														<label>
@@ -201,6 +214,7 @@ print_r($query);
 													</div>
 													
 													</div>
+													<!--
 													<div class="col-sm-3">
 														<div class="form-group">
 														
@@ -241,7 +255,7 @@ print_r($query);
     <p>This is the editor content.</p>
 </div>
 													</div>
-												<div>
+												<!-- <div>
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Test">
 <label for="vehicle1"> Test</label>
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Result">
@@ -251,7 +265,7 @@ print_r($query);
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Referance_Range">
 <label for="vehicle3"> Referance Range</label></div>
 <input type="checkbox" id="main_titles" name="main_titles[]" value="Normal_Range">
-<label for="vehicle3"> Normal  Range</label></div>
+<label for="vehicle3"> Normal  Range</label></div> -->
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
@@ -428,14 +442,14 @@ console.log(data);
 
 		});
 
-		$(document).on("change","#isFeeDistributed ", function(){
-			if($('#isFeeDistributed').is(":checked")){
-					console.log("whjevdjuahv");
-					$(".feeDistribution").show();
+		$(document).on("change","#referance_range ", function(){
+			if($('#referance_range').is(":checked")){
+					
+					$(".referanceRange").show();
 
 				}
         else
-            {$(".feeDistribution").hide();}
+            {$(".referanceRange").hide();}
 
 			});
 	</script>
