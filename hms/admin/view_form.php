@@ -197,9 +197,9 @@ font-size: 16px;
 												print_r($value);
 												$i++;
 													echo "field name". $valuesDistribution->fieldName;
-													// echo "units". $valuesDistribution->units;
-													// echo "referanceRange". $valuesDistribution->referanceRange;
-													// echo "normalRange" . $valuesDistribution[i]->normalRange;
+													 echo "units". $valuesDistribution->units;
+													 echo "referanceRange". $valuesDistribution->referanceRange;
+													 echo "normalRange" . $valuesDistribution[i]->normalRange;
 												}
 													
 												endif;
