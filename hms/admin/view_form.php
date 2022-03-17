@@ -182,7 +182,7 @@ font-size: 16px;
 											<thead>
 												
 											</thead>
-											<tbody id="fieldShow">
+											<tbody id="valueShow">
 											<?php
 										$sql = mysqli_query($con, "SELECT * FROM `laboratoryTestList`;");
 										$cnt = 1;
@@ -192,11 +192,11 @@ font-size: 16px;
 <?php
 												if(!empty($row['labFields'])):
 													$valuesDistribution = json_decode($row['labFields']);
-													
+											
 													echo "field name". $valuesDistribution[0]->fieldName;
-													echo $valuesDistribution[0]->units;
-													echo $valuesDistribution[0]->referanceRange;
-													echo $valuesDistribution[0]->normalRange; 
+													echo "units". $valuesDistribution[0]->units;
+													echo "referanceRange". $valuesDistribution[0]->referanceRange;
+													echo "normalRange" . $valuesDistribution[0]->normalRange; 
 												endif;
 						
 
