@@ -180,19 +180,32 @@ font-size: 16px;
 				 </div> 
 				 <table class="table table-hover" id="sample-table-1">
 											<thead>
-												<tr>
-													
-													<th>Field Name</th>
-													<th> Units</th>
-													<th> Reference Range</th>
-													<th> Normal Range</th>
-													<th>Action</th>
-
-												</tr>
+												
 											</thead>
 											<tbody id="fieldShow">
-											
+											<?php
+										$sql = mysqli_query($con, "SELECT * FROM `labTestRecord`;");
+										$cnt = 1;
+										while ($row = mysqli_fetch_array($sql)) {
+										?>
+<tr>
+<?php
+												if(!empty($row['testResult'])):
+													$valuesDistribution = json_decode($row['testResult']);
+													
+													echo $valuesDistribution[0]->fieldName;
+													echo $valuesDistribution[0]->units;
+													echo $valuesDistribution[0]->referanceRange;
+													echo $valuesDistribution[0]->normalRange; 
+												endif;
+						
 
+												
+
+
+
+											}?>
+</tr>
 
 											</tbody>
 										</table>

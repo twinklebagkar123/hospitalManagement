@@ -104,11 +104,7 @@ if (isset($_GET['del'])) {
 													echo	"  Medical Officer: " .$feeDistribution[0]->medofficer;
 													echo "  Nursing :" 	.$feeDistribution[0]->nursing; 
 												endif;
-												// echo	$feeDistribution[0]->hospitalisation;
-												// echo	$feeDistribution[0]->medofficer;
-												// echo	$feeDistribution[0]->nursing; 
-
-
+						
 
 												
 
