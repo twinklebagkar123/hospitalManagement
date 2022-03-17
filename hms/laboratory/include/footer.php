@@ -2,7 +2,6 @@
            
         </div>
         <!-- start: FOOTER -->
-        <?php include('footer.php'); ?>
         <!-- end: FOOTER -->
 
         <!-- start: SETTINGS -->
