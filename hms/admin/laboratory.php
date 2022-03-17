@@ -162,15 +162,39 @@ print_r($query);
 														<br>
 													</div>
 														</div>
+														<div class="wrapperDiv">
+													
 
-														<div class="col-sm-3">
+													<input type="checkbox" id="isFeeDistributed"   name="isFeeDistributed"  value="1">
+													<label > Fee Distribution</label>
+														<div class="feeDistribution" style="display:none; margin-bottom: 8px;">
+															<div class="row">
+														
+															<div class="col-md-4">
+															HOSPITALISATION
+																<input type="text" id="hospitalisation" placeholder="hospitalisation Charges " class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
+															</div>
+															<div class="col-md-4">
+															MEDICAL OFFICER
+																<input type="text" id="medofficer" placeholder=" MEDICAL OFFICER Charges" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+															</div>
+															<div class="col-md-4">
+																NURSING
+																<input type="text" id="nursing" placeholder="NURSING Charges" class="form-control medicineSugg" id="autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+
+															</div>
+															</div>
+															</div>
+														<!-- <div class="col-sm-3">
 														<div class="form-group">
 														
 														<label>
 															Refrence Range:
 														</label>
 														<input type="text" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" > -->
+														 <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" > 
 														<br>
 														
 														<br>
@@ -183,14 +207,14 @@ print_r($query);
 														<label>
 															Units :
 														</label>
-														<input type="text" id="units" name="units" class="form-control" placeholder="Add Reference Range" required="true" onkeypress="return blockSpecialChar(event)">
-														<!-- <input type="hidden" id="units" name="units" class="form-control" placeholder="Add  units" > -->
+														<input type="text" id="units" name="units" class="form-control" placeholder="Add units" required="true" onkeypress="return blockSpecialChar(event)">
+														 <input type="hidden" id="units" name="units" class="form-control" placeholder="Add  units" > 
 														<br>
 														
 														<br>
 													</div>
 													
-													</div>
+													</div> -->
 														
 													<div class="col-sm-3">
 													<div class="no_value_style">
@@ -403,6 +427,17 @@ console.log(data);
 			
 
 		});
+
+		$(document).on("change","#isFeeDistributed ", function(){
+			if($('#isFeeDistributed').is(":checked")){
+					console.log("whjevdjuahv");
+					$(".feeDistribution").show();
+
+				}
+        else
+            {$(".feeDistribution").hide();}
+
+			});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
