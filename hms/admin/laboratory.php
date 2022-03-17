@@ -518,7 +518,7 @@ console.log(data);
 			var normalRange =$("#normalRange").is(":checked");
 
 				
-			values.push({fieldName:fieldName,units:units,referanceRange:referanceRange,normalRange:normalRange});
+			values.push({"fieldName":fieldName,"units":units,"referanceRange":referanceRange,"normalRange":normalRange});
 			console.log(values);
 
 	</script>
