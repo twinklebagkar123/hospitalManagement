@@ -178,7 +178,24 @@ font-size: 16px;
 									
 					
 				 </div> 
-				
+				 <table class="table table-hover" id="sample-table-1">
+											<thead>
+												<tr>
+													
+													<th>Field Name</th>
+													<th> Units</th>
+													<th> Reference Range</th>
+													<th> Normal Range</th>
+													<th>Action</th>
+
+												</tr>
+											</thead>
+											<tbody id="fieldShow">
+											
+
+
+											</tbody>
+										</table>
 <p> <?php echo $b; ?> </p>
 <p class="text-center">~~ End of report ~~</p>
 <?php
