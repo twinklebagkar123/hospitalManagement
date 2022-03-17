@@ -84,7 +84,37 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 </head>
 
 <body>
+	<?php
+try {
+	if(isset($_POST['submit']))
+	{
+		$labTestName=$_POST['name'];
+		$labFields=$_POST['fieldArray'];
+		$charges=$_POST['charges'];
+		$referance_range=$_POST['referance_range'];
+		$units=$_POST['units'];
+		$main_title = implode(',', $_POST['main_titles']);
+		
+		$mt="";  
+	
+	$html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTES) ;
+	
+		$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`,`referance_range`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."','".$referance_range."')";
+		 $con->query($query);
+		
+	
+		
+		$stat = true;
+		if($stat)
+		{
+			echo "<script>alert('Successfully added. ');</script>";
+		}
+	}
+} catch (\Throwable $th) {
+print_r($th);
+}
 
+?>
 <style>
 .no_value_style {
 	margin-top: 26px;
