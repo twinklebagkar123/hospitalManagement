@@ -450,6 +450,31 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 					var referanceRange_check =$("#ref").is(":checked");
 					var normalRange_check =$("#normalRange").is(":checked");
 					var unit,referanceRange,normalRange;
+					// if(unit_check){
+					// 	unit=$("#units_value").val();
+					// }
+					// if(referanceRange_check){
+					// 	referanceRange=$("#referance_value").val();
+					// }
+					// if(normalRange_check){
+					// 	normalRange=$("#normalRange_value").val();
+					// }
+
+
+						
+					// values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
+					// console.log(values);
+
+				
+				if($('#noValueCheckbox').is(':checked')){
+					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
+					$("#fieldShow").append(trow);
+					
+
+					values.push(fieldName+'*');
+					valuesString = values.toString();
+					$("#fieldArray").val(jsonFieldDetailsString);
+				}else{
 					if(unit_check){
 						unit=$("#units_value").val();
 					}
@@ -461,27 +486,15 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 					}
 
 
-						
+					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
 					values.push({"fieldName":fieldName,"units":unit,"referanceRange":referanceRange,"normalRange":normalRange});
 					console.log(values);
-
+					valuesString = values.toString();
+					 $("#fieldArray").val(valuesString);
+					// $("#fieldShow").append(trow);
 				
-				if($('#noValueCheckbox').is(':checked')){
-					var trow = "<tr><td>"+fieldName+"</td><td class='remove' data-name='"+fieldName+"'>X</td></tr>"; 
-					$("#fieldShow").append(trow);
-					
-
-					jsonFieldDetails.push(fieldName+'*');
-					jsonFieldDetailsString = jsonFieldDetails.toString();
-					$("#fieldArray").val(jsonFieldDetailsString);
-				}else{
-					var trow = "<tr><td>"+fieldName+"</td><td>"+unit+"</td><td>"+referanceRange+"</td><td>"+normalRange+"</td><td class='remove' data-name='"+fieldName+""+unit+""+referanceRange+""+normalRange+"'>X</td></tr>"; 
-				
-					$("#fieldShow").append(trow);
-				
-					jsonFieldDetails.push(fieldName,unit,referanceRange,normalRange);
-					jsonFieldDetailsString = jsonFieldDetails.toString();
-					$("#fieldArray").val(jsonFieldDetailsString);
+					// values.push(fieldName,unit,referanceRange,normalRange);
+					// 
 				}
 				
 				
