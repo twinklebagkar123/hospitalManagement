@@ -193,7 +193,7 @@ font-size: 16px;
 												if(!empty($row['labFields'])):
 													$valuesDistribution = json_decode($row['labFields']);
 													
-													echo $valuesDistribution[0]->fieldName;
+													echo "field name". $valuesDistribution[0]->fieldName;
 													echo $valuesDistribution[0]->units;
 													echo $valuesDistribution[0]->referanceRange;
 													echo $valuesDistribution[0]->normalRange; 
