@@ -42,11 +42,24 @@
 					</li>
 				</ul>
 			</li>
-			<li>
+			<li class="dropdown">
 					<div class="item-media notification_wrapper">
-						<span clas="notification_counter"></span>
-						<i class="ti-bell" style="font-size:12px;"></i>
+						<span id="notification_counter" class="notification_counter">0</span>
+						<i class="ti-bell" style="font-size:25px;"></i>
+						<i class="ti-angle-down"></i>
 					</div>
+					<ul class="dropdown-menu dropdown-dark">
+					<li>
+						<a href="change-password.php">
+							Change Password
+						</a>
+					</li>
+					<li>
+						<a href="logout.php">
+							Log Out
+						</a>
+					</li>
+				</ul>
 				
 			</li>
 			<!-- end: USER OPTIONS DROPDOWN -->
