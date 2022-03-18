@@ -31,6 +31,25 @@
 				</a>
 				<ul class="dropdown-menu dropdown-dark">
 					<li>
+						<div>
+							Lab Test Record: Covid Test (Prashant)
+						</div>
+					</li>
+					<li>
+						<div>
+							Doctor xyz Signed In
+						</div>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<div class="item-media notification_wrapper dropdown">
+					<span id="notification_counter" class="notification_counter">0</span>
+					<i class="ti-bell" style="font-size:25px;" id="notification_info_click"></i>
+					<!-- <i class="ti-angle-down"></i> -->
+				</div>
+				<ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
+					<li>
 						<a href="change-password.php">
 							Change Password
 						</a>
@@ -41,26 +60,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
-			<li>
-					<div class="item-media notification_wrapper dropdown">
-						<span id="notification_counter" class="notification_counter">0</span>
-						<i class="ti-bell" style="font-size:25px;" id="notification_info_click"></i>
-						<!-- <i class="ti-angle-down"></i> -->
-					</div>
-					<ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
-						<li>
-							<a href="change-password.php">
-								Change Password
-							</a>
-						</li>
-						<li>
-							<a href="logout.php">
-								Log Out
-							</a>
-						</li>
-					</ul>
-				
+
 			</li>
 			<!-- end: USER OPTIONS DROPDOWN -->
 		</ul>

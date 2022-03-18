@@ -18,5 +18,12 @@
   }
   .notification_detail{
       display:block;
-      right: -36px;
+      right: -100% !important; 
   }
+  .notification_detail div {
+    min-width: 250px;
+    color: #fff;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin: 11px;
+}
