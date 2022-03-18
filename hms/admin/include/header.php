@@ -43,8 +43,8 @@
 				</ul>
 			</li>
 			<li>
-					<div class="item-media">
-						<i class="ti-bell"></i>
+					<div class="item-media notification_wrapper">
+						<i class="ti-bell notification_counter"></i>
 					</div>
 				
 			</li>
