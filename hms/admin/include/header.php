@@ -44,7 +44,8 @@
 			</li>
 			<li>
 					<div class="item-media notification_wrapper">
-						<i class="ti-bell notification_counter"></i>
+						<span clas="notification_counter"></span>
+						<i class="ti-bell" style="font-size:12px;"></i>
 					</div>
 				
 			</li>
