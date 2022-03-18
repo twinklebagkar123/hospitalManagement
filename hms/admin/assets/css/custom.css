@@ -14,7 +14,7 @@
   }
   .notification_wrapper > i{
     cursor: pointer;
-    z-index: 1;
+    z-index: 9;
   }
   .notification_detail{
       display:block;
