@@ -11,6 +11,8 @@
   .notification_wrapper{
     position: relative;
     margin-top: 17px;
+    cursor: pointer;
+    z-index: 1;
   }
   .notification_detail{
       display:block;

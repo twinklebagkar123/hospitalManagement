@@ -87,7 +87,7 @@ $(document).ready(function(){
       });
     
     $(document).on("click", ".notification_info_click" , function() {
-        $(this).children('ul').toggleClass('notification_detail');
+        $('#notification_toggle_info').toggleClass('notification_detail');
     });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
