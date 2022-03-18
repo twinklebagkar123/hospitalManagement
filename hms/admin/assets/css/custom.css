@@ -11,6 +11,8 @@
   .notification_wrapper{
     position: relative;
     margin-top: 17px;
+  }
+  .notification_wrapper > i{
     cursor: pointer;
     z-index: 1;
   }
