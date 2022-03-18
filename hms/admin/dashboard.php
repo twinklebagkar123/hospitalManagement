@@ -189,6 +189,7 @@ check_login();
 	</div>
 	<!-- start: MAIN JAVASCRIPTS -->
 	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="assets/js/custom.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/modernizr/modernizr.js"></script>
 	<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
@@ -207,7 +208,7 @@ check_login();
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
 	<script src="assets/js/main.js"></script>
-	<script src="assets/js/custom.js"></script>
+	
 	<!-- start: JavaScript Event Handlers for this page -->
 	<script src="assets/js/form-elements.js"></script>
 	<script>
