@@ -42,8 +42,8 @@
 					</li>
 				</ul>
 			</li>
-			<li class="dropdown">
-					<div class="item-media notification_wrapper">
+			<li>
+					<div class="item-media notification_wrapper dropdown">
 						<span id="notification_counter" class="notification_counter">0</span>
 						<a href class="dropdown-toggle" data-toggle="dropdown"><i class="ti-bell" style="font-size:25px;"></i></a>
 						<!-- <i class="ti-angle-down"></i> -->
