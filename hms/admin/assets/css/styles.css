@@ -11412,17 +11412,4 @@ td.small-width {
     cursor: pointer;
   
   }
-  .notification_counter{
-    position: absolute;
-    background-color: red;
-    border-radius: 13px;
-    font-size: 12px;
-    width: 15px;
-    text-align: center;
-    color: #fff;
-    right: -4px;
-  }
-  .notification_wrapper{
-    position: relative;
-    margin-top: 17px;
-  }
+  
