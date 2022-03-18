@@ -43,14 +43,10 @@
 				</ul>
 			</li>
 			<li>
-				<div class="item-content">
 					<div class="item-media">
 						<i class="ti-bell"></i>
 					</div>
-					<div class="item-inner">
-						<span class="title"> Notification </span>
-					</div>
-				</div>
+				
 			</li>
 			<!-- end: USER OPTIONS DROPDOWN -->
 		</ul>
