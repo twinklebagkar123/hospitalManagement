@@ -1,8 +1,8 @@
 .notification_counter{
     position: absolute;
     background-color: red;
-    border-radius: 13px;
-    font-size: 12px;
+    border-radius: 7px;
+    font-size: 10px;
     width: 15px;
     text-align: center;
     color: #fff;
@@ -11,4 +11,8 @@
   .notification_wrapper{
     position: relative;
     margin-top: 17px;
+  }
+  .notification_detail{
+      display:block;
+      right: -36px;
   }

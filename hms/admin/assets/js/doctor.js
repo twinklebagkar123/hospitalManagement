@@ -86,6 +86,9 @@ $(document).ready(function(){
         // $("#result").val().append(", ");
       });
     
+    $(document).on("click", ".notification_info_click" , function() {
+        $(this).children('ul').toggleClass('notification_detail');
+    });
     $(document).on("click", ".zap" , function() {
 	    $(this).closest('.chip').fadeOut( 500, function() {
             var searchInArray = $(this).children('.medicineName').text();
