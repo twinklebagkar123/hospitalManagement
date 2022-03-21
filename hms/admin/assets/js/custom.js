@@ -9,7 +9,11 @@ $(document).ready(function(){
             method:"POST",
             dataType:"json",
             success:function(data){
-             console.log("Notification Output: ",data);
+            //  console.log("Notification Output: ",data);
+             data.each(function(result) {
+                console.log("Each Output: ",result);
+                console.log(" \n");
+             })
             }
         });
     }
