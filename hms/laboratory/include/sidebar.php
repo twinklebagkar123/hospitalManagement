@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="appointment-history.php">
+                    <a href="viewCompletedTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
