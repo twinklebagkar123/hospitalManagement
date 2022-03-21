@@ -9,8 +9,16 @@ $(document).ready(function(){
             method:"POST",
             dataType:"json",
             success:function(data){
+               $('#notification_counter').text(data.length);
             //  console.log("Notification Output: ",data);
             $.each(data, function(key, value ) {
+                $('#notification_toggle_info').append(`
+                    <li>
+                        <div>
+                            ${value.notification_message}
+                        </div>
+                    </li> `
+                );
                 // console.log("Each Output: ",key,value);
                 console.log("Each Output: ",value.notification_type);
 
