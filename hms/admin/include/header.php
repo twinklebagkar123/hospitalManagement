@@ -49,16 +49,7 @@
 						<!-- <i class="ti-angle-down"></i> -->
 					</div>
 					<ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
-					<li>
-						<div>
-							Lab Test Record: Covid Test (Prashant)
-						</div>
-					</li>
-					<li>
-						<div>
-							Doctor xyz Signed In
-						</div>
-					</li>
+					
 					</ul>
 				
 			</li>
