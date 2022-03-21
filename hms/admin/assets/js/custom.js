@@ -12,7 +12,7 @@ $(document).ready(function(){
             //  console.log("Notification Output: ",data);
             $.each( data, function( value ) {
                 console.log("Each Output: ",value);
-            }
+            }}
             //  data.each(function(result) {
               
             //     console.log(" \n");
