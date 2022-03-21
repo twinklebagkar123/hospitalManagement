@@ -5,5 +5,5 @@ include('include/checklogin.php');
 check_login();
 $sql = "SELECT * FROM `notification_detail` WHERE `notification_type` = 'admin' AND `read_receipt` = 0";
 $result = mysqli_query($con, $sql);
-echo $result -> fetch_array(MYSQLI_ASSOC);
+print_r($result -> fetch_array(MYSQLI_ASSOC));
 ?>
