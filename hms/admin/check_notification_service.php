@@ -5,5 +5,5 @@ include('include/checklogin.php');
 check_login();
 $sql = "SELECT * FROM `notification_detail` WHERE `notification_type` = 'admin' AND `read_receipt` = 0";
 $result = mysqli_query($con, $sql);
-echo json_encode(mysqli_fetch_array($result));
+echo json_encode($result -> fetch_array(MYSQLI_ASSOC));
 ?>
