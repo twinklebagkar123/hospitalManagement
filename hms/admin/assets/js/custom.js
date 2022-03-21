@@ -5,7 +5,7 @@ $(document).ready(function(){
     });
     function load_unseen_notification(){
         $.ajax({
-            url:"hms/admin/check_notification_service.php",
+            url:"check_notification_service.php",
             method:"POST",
             dataType:"json",
             success:function(data){
