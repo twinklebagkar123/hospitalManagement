@@ -34,6 +34,7 @@ $(document).ready(function(){
                     $('#notification_counter').text(data.length);
                     console.log("case 2");
                    }else{
+                       console.log("Array Notification & Data ajax",notificationResult,data)
                         if(equals(notificationResult, data)){
                             console.log("Duplicate Result");
                         }else{
