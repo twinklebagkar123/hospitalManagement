@@ -32,12 +32,14 @@ $(document).ready(function(){
                     notificationResult = data;
                     notificationDetails(data);
                     $('#notification_counter').text(data.length);
+                    console.log("case 2");
                    }else{
                         if(equals(notificationResult, data)){
                             console.log("Duplicate Result");
                         }else{
                             notificationDetails(data);
                             notificationResult = data;
+                            console.log("case 1");
                         }
                    }      
                }  
