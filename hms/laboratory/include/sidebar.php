@@ -43,19 +43,19 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="add-patient.php">
+                            <a href="laboratory.php">
                                 <span class="title"> Add New Form</span>
                             </a>
                         </li>
                         <li>
-                            <a href="manage-patient.php">
+                            <a href="view_lab_form.php">
                                 <span class="title"> View Forms </span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="addProcedure.php">
+                    <a href="viewPendingTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
