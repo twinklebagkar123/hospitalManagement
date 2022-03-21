@@ -34,8 +34,22 @@ $(document).ready(function(){
                     $('#notification_counter').text(data.length);
                     console.log("case 2");
                    }else{
+                    var props = ['notification_id'];
+                    var result = notificationResult.filter(function(o1){
+                        // filter out (!) items in result2
+                        return !data.some(function(o2){
+                            return o1.id === o2.id;          // assumes unique id
+                        });
+                    }).map(function(o){
+                        // use reduce to make objects with only the required properties
+                        // and map to apply this to the filtered array as a whole
+                        return props.reduce(function(newo, name){
+                            newo[name] = o[name];
+                            return newo;
+                        }, {});
+                    });
                        console.log("Array Notification & Data ajax",notificationResult,data)
-                        if(equals(notificationResult, data)){
+                        if(typeof result !== 'undefined' && result.length === 0){
                             console.log("Duplicate Result");
                         }else{
                             notificationDetails(data);
