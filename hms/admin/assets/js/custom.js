@@ -11,7 +11,9 @@ $(document).ready(function(){
             success:function(data){
             //  console.log("Notification Output: ",data);
             $.each(data, function(key, value ) {
-                console.log("Each Output: ",key,value);
+                // console.log("Each Output: ",key,value);
+                console.log("Each Output: ",value.notification_type);
+
             });
         }
             //  data.each(function(result) {
