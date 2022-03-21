@@ -32,7 +32,7 @@ $(document).ready(function(){
                     notificationResult = data;
                     notificationDetails(data);
                     $('#notification_counter').text(data.length);
-                    console.log("case 2");
+                    // console.log("case 2");
                    }else{
                     var props = ['notification_id'];
                     var result = notificationResult.filter(function(o1){
@@ -48,14 +48,15 @@ $(document).ready(function(){
                             return newo;
                         }, {});
                     });
-                       console.log("Array Notification & Data ajax",notificationResult,data)
-                        if(typeof result !== 'undefined' && result.length === 0){
-                            console.log("Duplicate Result");
-                        }else{
+                    //    console.log("Array Notification & Data ajax",notificationResult,data)
+                        if(!(typeof result !== 'undefined' && result.length === 0)){
                             notificationDetails(data);
                             notificationResult = data;
-                            console.log("case 1");
                         }
+                        // else{
+                           
+                            // console.log("case 1");
+                        // }
                    }      
                }  
             //  console.log("Notification Output: ",data);      
