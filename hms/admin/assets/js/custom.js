@@ -10,8 +10,8 @@ $(document).ready(function(){
             dataType:"json",
             success:function(data){
             //  console.log("Notification Output: ",data);
-            $.each( data, function( value ) {
-                console.log("Each Output: ",value);
+            $.each(data, function(key, value ) {
+                console.log("Each Output: ",key,value);
             });
         }
             //  data.each(function(result) {
