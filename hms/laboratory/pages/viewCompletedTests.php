@@ -90,13 +90,13 @@ function fetchPatientName($admissionID){
 													<td><?php echo $row['labTestName'];?></td>
 													<td><?php echo fetchPatientName($row['admissionID']) ;?></td>
 													<td><?php echo $row['labTestStatus']; ?></td>
-													<td>
-                                                    <?php if($row['labTestStatus'] == "pending"){
+													<!-- <td>
+                                                    <?php // if($row['labTestStatus'] == "pending"){
                                                         ?>
-                                                            <a href="performTest.php?recID=<?php echo $row['recordID']?>&adID=<?php echo $row['admissionID']; ?>&testID=<?php echo $row['performedTestID'];?>">Perform test</a> | <a href="">Decline</a> 
+                                                            <a href="performTest.php?recID=<?php //echo $row['recordID']?>&adID=<?php //echo $row['admissionID']; ?>&testID=<?php //echo $row['performedTestID'];?>">Perform test</a> | <a href="">Decline</a> 
                                                         <?php
-                                                    }?>    
-                                                    </td>
+                                                   // }?>    
+                                                    </td> -->
 													<td><?php
                                                         if($row['labTestStatus'] == "complete"){
                                                             ?>
