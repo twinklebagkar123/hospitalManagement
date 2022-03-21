@@ -10,11 +10,14 @@ $(document).ready(function(){
             dataType:"json",
             success:function(data){
             //  console.log("Notification Output: ",data);
-             data.each(function(result) {
-                console.log("Each Output: ",result);
-                console.log(" \n");
-             })
+            $.each( data, function( value ) {
+                console.log("Each Output: ",value);
             }
+            //  data.each(function(result) {
+              
+            //     console.log(" \n");
+            //  })
+            // }
         });
     }
     setInterval(function(){
