@@ -134,7 +134,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Reference Range:
 												</label>
-												<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range" required="true">
+												<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range" >
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -148,7 +148,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Units:
 												</label>
-												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add Reference Range" required="true">
+												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add Reference Range" >
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -162,7 +162,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Normal Range:
 												</label>
-												<input type="text" id="normalRange_value" name="normalRange_value" class="form-control" placeholder="Add Normal Range" required="true">
+												<input type="text" id="normalRange_value" name="normalRange_value" class="form-control" placeholder="Add Normal Range" >
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
