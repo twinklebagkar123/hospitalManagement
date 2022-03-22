@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
 
 
 									<div>
-
+		
 										<input type="checkbox" id="units" name="main_titles[]" value="Units">
 										<label for=""> Units</label>
 										<input type="checkbox" id="ref" name="main_titles[]" value="Referance Range">

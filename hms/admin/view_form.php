@@ -109,115 +109,125 @@ $id = $_GET['id'];
 
 								<?php  //}
 								?>
-					
-									<?php
-									$query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
-									$result = $con->query($query);
-									$fields_arr = "";
-									while ($row = mysqli_fetch_array($result)) {
 
-									?>
+								<?php
+								$query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
+								$result = $con->query($query);
+								$fields_arr = "";
+								while ($row = mysqli_fetch_array($result)) {
 
-										<div class="row">
+								?>
 
-											<div class="col-sm-6 justify-content-start ">
-												<p class="title_style"> PATIENT NAME: - </p>
-												<p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
-												<p class="title_style">DATE: - </p>
+									<div class="row">
 
-
-
-											</div>
-
-
-											<div class="col-sm-6 justify-content-end font-weight-bold">
-
-												<p class="title_style">SEX: - </p>
-												<p class="title_style">AGE: - </p>
-												<p class="title_style">Reg. no: -1363/02 </p>
-
-											</div>
-
-
+										<div class="col-sm-6 justify-content-start ">
+											<p class="title_style"> PATIENT NAME: - </p>
+											<p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
+											<p class="title_style">DATE: - </p>
 
 
 
 										</div>
 
-										<div style=" border-width:2px; border-style: solid; "> </div>
 
+										<div class="col-sm-6 justify-content-end font-weight-bold">
 
-										<h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
-										<!-- <div class="wrapper_style">					 -->
-										<div class="row text-center">
-											<?php
-											//$fields = $row['labFields'];
-										//	$fields_arr = explode(",", $fields);
-											$titles = $row['main_titles'];
-											$title_arr = explode(",", $titles);
-											$info = $row['test_more_info'];
-											$b = html_entity_decode($info);
+											<p class="title_style">SEX: - </p>
+											<p class="title_style">AGE: - </p>
+											<p class="title_style">Reg. no: -1363/02 </p>
 
-
-
-											$title_count = 0;
-											foreach ($title_arr as  $titles) {
-
-
-											?>
-												<div class="col-sm-3  ">
-
-													<p class="main_title_style"> <?php echo $titles; ?></p>
-
-												</div>
-
-
-
-											<?php
-												$title_count++;
-											} ?>
 										</div>
-										<div class="row">
-									<div class="col-sm-3"></div>		
+
+
+
+
+
 									</div>
-										<table class="table table-hover" id="sample-table-1">
-											<thead>
 
-											</thead>
-											<tbody id="valueShow">
-												<?php
-				
-												$cnt = 1;
-												?>
-													<tr>
-													<?php
-													if (!empty($row['labFields'])) :
-														$valuesDistribution = json_decode($row['labFields']);
-														$i = 0;
-														foreach ($valuesDistribution as $value) {
-															echo "<div class='row'>";
-															
-															echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->fieldName."</div>" :  "";
-															echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->units."</div>" :  "";
-															echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->referanceRange."</div>" :  "";
-															echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->normalRange."</div>" :  "";
+									<div style=" border-width:2px; border-style: solid; "> </div>
 
-															echo "</div>";
-															$i++;
-														}
-														// var_dump($value);
-													endif;
-												} ?>
-													</tr>
 
-											</tbody>
-										</table>
-										<p> <?php echo $b; ?> </p>
-										<p class="text-center">~~ End of report ~~</p>
+									<h3 class="form_title_style"> <u> <?php echo $row['labTestName']; ?> </u></h3>
+									<!-- <div class="wrapper_style">					 -->
+									<div class="row text-center">
+										<?php
+										//$fields = $row['labFields'];
+										//	$fields_arr = explode(",", $fields);
+										$titles = $row['main_titles'];
+										$title_arr = explode(",", $titles);
+										$info = $row['test_more_info'];
+										$b = html_entity_decode($info);
+
+
+
+										$title_count = 0; ?> <div class="col-sm-3  ">
+
+											<p class="main_title_style">Test</p>
+
+										</div>
+										<div class="col-sm-3  ">
+
+											<p class="main_title_style"> Result</p>
+
+										</div>
+										<?php
+										foreach ($title_arr as  $titles) {
+
+
+										?>
+											<div class="col-sm-3  ">
+
+												<p class="main_title_style"> <?php echo $titles; ?></p>
+
+											</div>
+
+
+
+										<?php
+											$title_count++;
+										} ?>
+									</div>
+									<div class="row">
+										<div class="col-sm-3"></div>
+									</div>
+									<table class="table table-hover" id="sample-table-1">
+										<thead>
+
+										</thead>
+										<tbody id="valueShow">
+											<?php
+
+											$cnt = 1;
+											?>
+											<tr>
+											<?php
+											if (!empty($row['labFields'])) :
+												$valuesDistribution = json_decode($row['labFields']);
+												$i = 0;
+												foreach ($valuesDistribution as $value) {
+													echo "<div class='row'>";
+
+													echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
+													echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
+													echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
+													echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->normalRange . "</div>" :  "";
+
+													echo "</div>";
+													$i++;
+												}
+											// var_dump($value);
+											endif;
+										} ?>
+											</tr>
+
+										</tbody>
+									</table>
+									<p> <?php echo $b; ?> </p>
+									<p class="text-center">~~ End of report ~~</p>
 									<?php
 
-										$i++;
-									
+									$i++;
+
 
 									?>
 
