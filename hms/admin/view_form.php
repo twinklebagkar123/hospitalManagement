@@ -109,7 +109,7 @@ $id = $_GET['id'];
 
 								<?php  //}
 								?>
-								<form method="POST" action="">
+					
 									<?php
 									$query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
 									$result = $con->query($query);
@@ -151,8 +151,8 @@ $id = $_GET['id'];
 										<!-- <div class="wrapper_style">					 -->
 										<div class="row text-center">
 											<?php
-											$fields = $row['labFields'];
-											$fields_arr = explode(",", $fields);
+											//$fields = $row['labFields'];
+										//	$fields_arr = explode(",", $fields);
 											$titles = $row['main_titles'];
 											$title_arr = explode(",", $titles);
 											$info = $row['test_more_info'];
@@ -187,9 +187,8 @@ $id = $_GET['id'];
 											</thead>
 											<tbody id="valueShow">
 												<?php
-												$sql = mysqli_query($con, "SELECT * FROM `laboratoryTestList` where `id` =;");
+				
 												$cnt = 1;
-												while ($row = mysqli_fetch_array($sql)) {
 												?>
 													<tr>
 													<?php
@@ -198,13 +197,14 @@ $id = $_GET['id'];
 														$i = 0;
 														foreach ($valuesDistribution as $value) {
 															print_r($value);
-															$i++;
+															
 															echo  $valuesDistribution[$i]->fieldName;
 															echo  $valuesDistribution[$i]->units;
 															echo  $valuesDistribution[$i]->referanceRange;
 															echo  $valuesDistribution[$i]->normalRange;
+															$i++;
 														}
-														var_dump($value);
+														// var_dump($value);
 													endif;
 												} ?>
 													</tr>
@@ -216,7 +216,7 @@ $id = $_GET['id'];
 									<?php
 
 										$i++;
-									}
+									
 
 									?>
 

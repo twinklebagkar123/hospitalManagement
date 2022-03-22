@@ -1,9 +1,5 @@
 <?php include('../include/header.php'); 
-session_start();
-// error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
+
 if (isset($_POST['submit'])) {
     $labTestName = $_POST['name'];
     $labFields = $_POST['fieldArray'];
