@@ -2,6 +2,10 @@ $(document).ready(function () {
     var notificationResult = [];
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');
+        $.ajax({
+            url: "update_read_receipt.php",
+            method: "POST",
+        });
     });
     function notificationDetails(data) {
         $.each(data, function (key, value) {
@@ -50,4 +54,5 @@ $(document).ready(function () {
     setInterval(function () {
         load_unseen_notification();
     }, 8000);
+    
 });
