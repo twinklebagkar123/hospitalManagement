@@ -26,7 +26,9 @@
     <script src="../vendor/select2/select2.min.js"></script>
     <script src="../vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <?php if(basename($_SERVER['PHP_SELF']) == "laboratory.php") {?>
     <script src="../assets/ckeditor/ckeditor.js"></script>
+<?php } ?>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     <script src="../assets/js/main.js"></script>
@@ -41,6 +43,7 @@
     </script>
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
+    
 </body>
 
 </html>
