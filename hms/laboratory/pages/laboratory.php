@@ -1,4 +1,43 @@
-<?php include('../include/header.php') ?>
+<?php include('../include/header.php'); 
+session_start();
+// error_reporting(0);
+include('include/config.php');
+include('include/checklogin.php');
+check_login();
+if (isset($_POST['submit'])) {
+    $labTestName = $_POST['name'];
+    $labFields = $_POST['fieldArray'];
+    $charges = $_POST['charges'];
+    $referance_range = $_POST['referance_range'];
+    $units = $_POST['units'];
+    $main_title = implode(',', $_POST['main_titles']);
+
+    $mt = "";
+
+    $html_test_default_info = htmlentities($_POST['html_test_default_info'], ENT_QUOTES);
+
+    // $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
+    //  $con->query($query);
+
+
+
+}
+
+
+?>
+<style>
+        .no_value_style {
+            margin-top: 26px;
+            font-size: 23px;
+
+        }
+
+        .no_value_style>input {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+	
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
 	<section id="page-title">
