@@ -177,10 +177,9 @@ $id = $_GET['id'];
 												$title_count++;
 											} ?>
 										</div>
-										<div class="text-center">
-
-
-										</div>
+										<div class="row">
+									<div class="col-sm-3"></div>		
+									</div>
 										<table class="table table-hover" id="sample-table-1">
 											<thead>
 
@@ -196,12 +195,14 @@ $id = $_GET['id'];
 														$valuesDistribution = json_decode($row['labFields']);
 														$i = 0;
 														foreach ($valuesDistribution as $value) {
-															print_r($value);
+															echo "<div class='row'>";
 															
-															echo  $valuesDistribution[$i]->fieldName;
-															echo  $valuesDistribution[$i]->units;
-															echo  $valuesDistribution[$i]->referanceRange;
-															echo  $valuesDistribution[$i]->normalRange;
+															echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->fieldName."</div>" :  "";
+															echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->units."</div>" :  "";
+															echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->referanceRange."</div>" :  "";
+															echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>".$valuesDistribution[$i]->normalRange."</div>" :  "";
+
+															echo "</div>";
 															$i++;
 														}
 														// var_dump($value);
