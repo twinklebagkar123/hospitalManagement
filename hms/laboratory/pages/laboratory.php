@@ -253,4 +253,7 @@
 
 
 
+	<!-- end: SELECT BOXES -->
+
+	</div>
 	<?php include('include/footer.php'); ?>
