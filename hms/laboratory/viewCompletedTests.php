@@ -68,7 +68,7 @@ function fetchPatientName($admissionID){
                             <?php
 									$admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
 									$result = $con->query($admissionQuery);
-									?>
+									if($row['labTestStatus'] == "complete"){?>
 									<table class="table table-bordered dt-responsive nowrap">
 										<thead>
 											<th>#</th>
@@ -97,14 +97,11 @@ function fetchPatientName($admissionID){
                                                         <?php
                                                    // }?>    
                                                     </td> -->
-													<td><?php
-                                                        if($row['labTestStatus'] == "complete"){
+													<!-- <td><?php
+                                                        //if($row['labTestStatus'] == "complete"){
                                                             ?>
-                                                             <a href="testResultReport.php?recID=<?php echo $row['recordID']?>">View Results</a>
-                                                            <?php
-                                                        }
-                                                    
-                                                    ?></td>
+                                                             <a href="testResultReport.php?recID=<?php //echo $row['recordID']?>">View Results</a>
+                                                           </td> -->
 												</tr>
 											<?php
 												$sr++;
@@ -112,6 +109,10 @@ function fetchPatientName($admissionID){
 											?>
 										</tbody>
 									</table>
+                                    <?php
+                                                        }
+                                                    
+                                                    ?>
                             </div>
                         </div>
                     </div>
