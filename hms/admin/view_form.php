@@ -205,7 +205,7 @@ $id = $_GET['id'];
 												$valuesDistribution = json_decode($row['labFields']);
 												$i = 0;
 												foreach ($valuesDistribution as $value) {
-													echo "<div class='row'>";
+													echo "<div class='row text-center'>";
 
 													echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
 													echo "<div class='col-sm-3'></div>";
