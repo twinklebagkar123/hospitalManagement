@@ -81,7 +81,7 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 <body>
 	<?php
-try {
+
 	if(isset($_POST['submit']))
 	{
 		$labTestName=$_POST['name'];
@@ -99,16 +99,7 @@ try {
 		 $con->query($query);
 		echo $query;
 	
-		
-		// $stat = true;
-		// if($stat)
-		// {
-		// 	echo "<script>alert('Successfully added. ');</script>";
-		// }
 	}
-} catch (\Throwable $th) {
-print_r($th);
-}
 
 ?>
 <style>
@@ -391,9 +382,42 @@ print_r($th);
 	</div>
 	</div>
 	<!-- start: FOOTER -->
-	<?php include('include/header.php') ?>   
-	<script>
-	function blockSpecialChar(e){
+	<?php include('include/footer.php'); ?>
+	<!-- end: FOOTER -->
+
+	<!-- start: SETTINGS -->
+	<?php include('include/setting.php'); ?>
+
+	<!-- end: SETTINGS -->
+	</div>
+	<!-- start: MAIN JAVASCRIPTS -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/modernizr/modernizr.js"></script>
+	<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="vendor/switchery/switchery.min.js"></script>
+	
+
+	<!-- end: MAIN JAVASCRIPTS -->
+	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+	<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+	<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+	<script src="vendor/autosize/autosize.min.js"></script>
+	<script src="vendor/selectFx/classie.js"></script>
+	<script src="vendor/selectFx/selectFx.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+	<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+	<!-- start: CLIP-TWO JAVASCRIPTS -->
+	<script src="assets/js/main.js"></script>
+	<script src="assets/ckeditor/ckeditor.js"></script>
+	 
+	<!-- start: JavaScript Event Handlers for this page -->
+	<script src="assets/js/form-elements.js"></script>
+	<script type="text/javascript">
+    function blockSpecialChar(e){
         var k;
         document.all ? k = e.keyCode : k = e.which;
         return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
