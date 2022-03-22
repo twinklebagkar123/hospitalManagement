@@ -71,6 +71,7 @@ jQuery(document).ready(function() {
         var values = [];
         var jsonFieldDetails = [];
         $("#addField").on("click", function() {
+            console.log("working fine");
             var fieldName = $("#fieldName").val();
             var unit_check = $("#units").is(":checked");
             var referanceRange_check = $("#ref").is(":checked");
