@@ -174,19 +174,19 @@
 													<label > Test More Info</label>
 													<div id="editor">
     
-</div>
-													</div>
-												<!-- <div>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Test">
-<label for="vehicle1"> Test</label>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Result">
-<label for="vehicle2"> Result</label>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Units">
-<label for="vehicle3"> Units</label>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Referance_Range">
-<label for="vehicle3"> Referance Range</label></div>
-<input type="checkbox" id="main_titles" name="main_titles[]" value="Normal_Range">
-<label for="vehicle3"> Normal  Range</label></div> -->
+														</div>
+																											</div>
+																										<!-- <div>
+														<input type="checkbox" id="main_titles" name="main_titles[]" value="Test">
+														<label for="vehicle1"> Test</label>
+														<input type="checkbox" id="main_titles" name="main_titles[]" value="Result">
+														<label for="vehicle2"> Result</label>
+														<input type="checkbox" id="main_titles" name="main_titles[]" value="Units">
+														<label for="vehicle3"> Units</label>
+														<input type="checkbox" id="main_titles" name="main_titles[]" value="Referance_Range">
+														<label for="vehicle3"> Referance Range</label></div>
+														<input type="checkbox" id="main_titles" name="main_titles[]" value="Normal_Range">
+														<label for="vehicle3"> Normal  Range</label></div> -->
           
 													<button type="submit" name="submit" class="btn btn-o btn-primary">
 														Submit Test
@@ -243,17 +243,17 @@
 						</div>
 					</div>
 				</div>
+					</div>
+				</div>
 			</div>
-		</div>
-	</div>
-	<!-- end: BASIC EXAMPLE -->
+			<!-- end: BASIC EXAMPLE -->
 
 
 
 
 
 
-	<!-- end: SELECT BOXES -->
+			<!-- end: SELECT BOXES -->
 
-	</div>
+			</div>
 	<?php include('include/footer.php'); ?>
