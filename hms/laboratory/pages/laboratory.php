@@ -1,4 +1,4 @@
-<?php include('include/header.php') ?>
+<?php include('../include/header.php') ?>
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
 	<section id="page-title">
@@ -252,4 +252,4 @@
 
 <!-- end: SELECT BOXES -->
 
-<?php include('include/footer.php'); ?>
+<?php include('../include/footer.php'); ?>
