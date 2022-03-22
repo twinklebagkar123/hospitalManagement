@@ -3,6 +3,7 @@ session_start();
 // error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
+ include('include/header.php') ;
 check_login();
 if(isset($_POST['submit']))
 {
@@ -26,7 +27,44 @@ $html_test_default_info=htmlentities($_POST['html_test_default_info'], ENT_QUOTE
 
 
 ?>
-<?php include('include/header.php') ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Admin | Laboratory Section</title>
+
+	<script type="text/javascript">
+		function valid() {
+			if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
+				alert("Password and Confirm Password Field do not match  !!");
+				document.adddoc.cfpass.focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+
+
+	<script>
+		function checkemailAvailability() {
+			$("#loaderIcon").show();
+			jQuery.ajax({
+				url: "check_availability.php",
+				data: 'nameTest=' + $("#name").val(),
+				type: "POST",
+				success: function(data) {
+					$("#email-availability-status").html(data);
+					$("#loaderIcon").hide();
+				},
+				error: function() {}
+			});
+		}
+	</script>
+
+
+
+</head>
+
 <body>
 	<?php
 try {
