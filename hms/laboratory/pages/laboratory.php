@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
             height: 20px;
         }
     </style>
-	
+
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
 	<section id="page-title">
@@ -287,8 +287,7 @@ if (isset($_POST['submit'])) {
 
 
 
-
-
+FILE NAME : <?php echo basename($_SERVER['PHP_SELF']); ?>
 <!-- end: SELECT BOXES -->
 
 <?php include('../include/footer.php'); ?>

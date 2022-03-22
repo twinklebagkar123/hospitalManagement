@@ -26,6 +26,7 @@
     <script src="../vendor/select2/select2.min.js"></script>
     <script src="../vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="../assets/ckeditor/ckeditor.js"></script>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
     <script src="../assets/js/main.js"></script>
