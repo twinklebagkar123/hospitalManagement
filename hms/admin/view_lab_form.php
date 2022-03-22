@@ -5,7 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 
-$id = $_GET['id'];
+
 // if (isset($_GET['del'])) {
 // 	mysqli_query($con, "delete from laboratoryTestList where labFormID = '" . $_GET['id'] . "'");
 // 	$_SESSION['msg'] = "data deleted ! !!";
@@ -74,7 +74,7 @@ $id = $_GET['id'];
 									<thead>
 										<tr>
 											<th class="center">#</th>
-											<th>lab Test Name </th>
+											<th>lab Test Name </th>												
 											<th>lab Charges </th>
 											<th>Action</th>
 
@@ -82,27 +82,27 @@ $id = $_GET['id'];
 									</thead>
 									<tbody>
 										<?php
-										$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList where labFormID = '$id'");
+										$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
 
 											<tr>
 												<td class="center"><?php echo $cnt; ?>.</td>
-												<td><?php echo $row['labTestName']; ?></td>
-
-												<td><?php echo $row['labCharges']; ?></td>
-
-
+												<td ><?php echo $row['labTestName']; ?></td>
+												
+												<td ><?php echo $row['labCharges']; ?></td>
+												
+												
 												<td>
 													<div class="visible-md visible-lg hidden-sm hidden-xs">
-														<a href="view_form.php?id=<?php echo $row['labFormID']; ?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-eye"></i></a>
-
-
-
+														<a href="view_form.php?id=<?php echo $row['labFormID'];?>" class="btn btn-transparent btn-xs" tooltip-placement="top" tooltip="Edit"><i class="fa fa-eye"></i></a>
+							
+													
+												
 														<a href="view_lab_form.php?id=<?php echo $row['labFormID'] ?>&del=delete" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-transparent btn-xs tooltips" tooltip-placement="top" tooltip="Remove"><i class="fa fa-times fa fa-white"></i></a>
 													</div>
-
+													
 												</td>
 											</tr>
 
@@ -117,7 +117,7 @@ $id = $_GET['id'];
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> 
 			<!-- end: BASIC EXAMPLE -->
 			<!-- end: SELECT BOXES -->
 
