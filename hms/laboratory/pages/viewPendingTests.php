@@ -14,9 +14,9 @@ function fetchPatientName($admissionID){
 ?>
 <body>
     <div id="app">
-        <?php include('include/sidebar.php'); ?>
+       
         <div class="app-content">
-            <?php include('include/header.php'); ?>
+           
             <div class="main-content">
                 <div class="wrap-content container" id="container">
                     <!-- start: PAGE TITLE -->
