@@ -5,7 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 
-$id = $_GET['labFormID'];
+$id = $_GET['id'];
 // if (isset($_GET['del'])) {
 // 	mysqli_query($con, "delete from laboratoryTestList where labFormID = '" . $_GET['id'] . "'");
 // 	$_SESSION['msg'] = "data deleted ! !!";
