@@ -39,14 +39,12 @@
         jQuery(document).ready(function() {
             Main.init();
             FormElements.init();
-           
-        });
-    </script>
-    <script>
-		$(document).ready(function() {
+            $(document).ready(function() {
 			$('#myTable').DataTable();
 		});
-	</script>
+        });
+    </script>
+    
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
     
