@@ -189,9 +189,7 @@ function fetchPatientName($admissionID)
 							</div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+           
     <!-- start: FOOTER -->
     <?php include('../include/footer.php'); ?>
 
