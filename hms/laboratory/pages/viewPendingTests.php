@@ -4,6 +4,8 @@ function fetchPatientName($admissionID)
 {
     include('../include/header.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    print_r($query);
+
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $answer = $row['PatientName'];
