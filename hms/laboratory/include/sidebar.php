@@ -23,7 +23,7 @@
                             </a>
                 </li>
                 <li>
-                    <a href="viewCompletedTests.php">
+                    <a href="pages/viewCompletedTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
@@ -59,7 +59,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="viewPendingTests.php">
+                    <a href="pages/viewPendingTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
