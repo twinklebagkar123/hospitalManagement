@@ -2,7 +2,8 @@
 include('../include/header.php');
 function fetchPatientName($admissionID)
 {
-    include('../include/header.php');
+  //  include('../include/header.php');
+    include('../include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     //print_r($query);
 
@@ -60,7 +61,7 @@ function fetchPatientName($admissionID)
                                 <td><?php echo $sr; ?></td>
                                 <td id="date"><?php echo $row['assignedDate']; ?></td>
                                 <td><?php echo $row['labTestName']; ?></td>
-                                <td><?php echo "hi";// echo fetchPatientName($row['admissionID']); ?></td>
+                                <td><?php echo "hi";  echo fetchPatientName($row['admissionID']); ?></td>
                                 <td><?php echo $row['labTestStatus']; ?></td>
                                 <td>
                                     <?php if ($row['labTestStatus'] == "pending") {
