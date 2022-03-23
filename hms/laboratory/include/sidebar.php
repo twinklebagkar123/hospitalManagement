@@ -24,7 +24,7 @@
                 </li>
                 <li><?php
                     if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
-                        <a href="#">
+                        <a href="pages/viewCompletedTests.php">
                         <?php } else { ?>
                             <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/viewCompletedTests.php">
                             <?php } ?>
@@ -64,7 +64,7 @@
                 </li>
                 <li><?php
                     if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
-                        <a href="#">
+                        <a href="pages/viewPendingTests.php">
                         <?php } else { ?>
                             <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/viewPendingTests.php">
                             <?php } ?>
