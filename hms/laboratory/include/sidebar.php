@@ -29,7 +29,7 @@
                                 <i class="ti-list"></i>
                             </div>
                             <div class="item-inner">
-                                <span class="title"> Lab Records </span>
+                                <span class="title"><?php echo '//'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);?> Lab Records </span>
                             </div>
                         </div>
                     </a>
