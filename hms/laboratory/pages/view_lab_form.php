@@ -78,8 +78,3 @@
 <!-- end: SELECT BOXES -->
 
 <?php include('include/footer.php'); ?>
-<script>
-$(document).ready(function() {
-			$('#myTable').DataTable();
-		});
-		</script>
