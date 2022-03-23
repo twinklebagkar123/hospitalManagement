@@ -23,7 +23,7 @@
                             </a>
                 </li>
                 <li>
-                    <a href="pages/viewCompletedTests.php">
+                    <a href="../pages/viewCompletedTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
@@ -47,7 +47,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="pages/laboratory.php">
+                            <a href="../pages/laboratory.php">
                                 <span class="title"> Add New Form</span>
                             </a>
                         </li>
@@ -59,7 +59,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="pages/viewPendingTests.php">
+                    <a href="../pages/viewPendingTests.php">
                         <div class="item-content">
                             <div class="item-media">
                                 <i class="ti-list"></i>
