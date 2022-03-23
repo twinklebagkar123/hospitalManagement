@@ -39,9 +39,7 @@
         jQuery(document).ready(function() {
             Main.init();
             FormElements.init();
-            $(document).ready(function() {
-			$('#myTable').DataTable();
-		});
+           
         });
     </script>
     

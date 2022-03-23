@@ -76,6 +76,9 @@
 
 <!-- end: BASIC EXAMPLE -->
 <!-- end: SELECT BOXES -->
-
-
+<script>
+$(document).ready(function() {
+			$('#myTable').DataTable();
+		});
+		</script>
 <?php include('include/footer.php'); ?>
