@@ -1,8 +1,6 @@
 jQuery(document).ready(function () {
     console.log("code here");
-    $(document).ready(function () {
-        $('#myTable').DataTable();
-    });
+   
 
     function valid() {
         if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
