@@ -2,11 +2,8 @@
 include('../include/header.php');
 function fetchPatientName($admissionID)
 {
-  //  include('../include/header.php');
     include('../include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    //print_r($query);
-
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $answer = $row['PatientName'];
@@ -37,9 +34,7 @@ function fetchPatientName($admissionID)
         <div class="row">
             <div class="col-sm-12">
                 <?php
-                $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormIDAND table1.labTestStatus = 'pending';";
-                print_r($admissionQuery);
-               
+                $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID AND table1.labTestStatus = 'pending' ";
                 $result = $con->query($admissionQuery);
                 ?>
                 <table class="table table-bordered dt-responsive nowrap">
@@ -61,22 +56,20 @@ function fetchPatientName($admissionID)
                                 <td><?php echo $sr; ?></td>
                                 <td id="date"><?php echo $row['assignedDate']; ?></td>
                                 <td><?php echo $row['labTestName']; ?></td>
-                                <td><?php  echo fetchPatientName($row['admissionID']); ?></td>
+                                <td><?php echo fetchPatientName($row['admissionID']); ?></td>
                                 <td><?php echo $row['labTestStatus']; ?></td>
                                 <td>
                                     <?php if ($row['labTestStatus'] == "pending") {
                                     ?>
                                         <a href="performTest.php?recID=<?php echo $row['recordID'] ?>&adID=<?php echo $row['admissionID']; ?>&testID=<?php echo $row['performedTestID']; ?>">Perform test</a> | <a href="">Decline</a>
                                     <?php
-                                    } else{?>
-                                        <a href="testResultReport.php?recID=<?php echo $row['recordID'] ?>">View Results</a>
-                                   <?php  }?>
+                                    } ?>
                                 </td>
                                 <td><?php
-                                     if ($row['labTestStatus'] == "complete") {
-                                     ?>
-                                       <a href="testResultReport.php?recID=<?php echo $row['recordID'] ?>">View Results</a>
-                                     <?php
+                                    if ($row['labTestStatus'] == "complete") {
+                                    ?>
+                                        <a href="testResultReport.php?recID=<?php echo $row['recordID'] ?>">View Results</a>
+                                    <?php
                                     }
 
                                     ?>
@@ -92,7 +85,8 @@ function fetchPatientName($admissionID)
         </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
 <!-- start: FOOTER -->
 <?php include('../include/footer.php'); ?>
-<!-- end: FOOTER -->
