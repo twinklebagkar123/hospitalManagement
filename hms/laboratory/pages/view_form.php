@@ -1,6 +1,38 @@
 <?php include('../include/header.php');
 $id = $_GET['id'];
  ?>
+  <style type="text/css">
+        .title_style {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form_title_style {
+
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        .field_style {
+
+            font-size: 16px;
+        }
+
+        .main_title_style {
+
+            font-size: 16px;
+            color: #333;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    </style>
 				<div class="wrap-content container" id="container">
 					<!-- start: PAGE TITLE -->
 					<section id="page-title">
