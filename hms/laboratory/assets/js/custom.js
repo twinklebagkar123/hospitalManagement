@@ -34,30 +34,9 @@ jQuery(document).ready(function () {
         return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
     }
 
-    var ckeditor = [];
+  
     jQuery(document).ready(function () {
-        CKEDITOR.replace('editor');
-        $(document).on("change", "#test_more_info ", function () {
-            if ($('#test_more_info').is(":checked")) {
-                console.log("checked");
-                $("#cke_editor").show();
-
-            } else {
-                $("#cke_editor").hide();
-            }
-
-        });
-
-        $(document).one("submit", "#addmed", function (e) {
-            e.preventDefault();
-
-            var data = CKEDITOR.instances.editor.getData();
-            $('#html_test_default_info').val(data);
-
-            $(this).submit();
-
-        });
-
+       
 
 
 
