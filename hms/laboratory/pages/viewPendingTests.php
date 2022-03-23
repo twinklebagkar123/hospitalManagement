@@ -4,7 +4,7 @@ function fetchPatientName($admissionID)
 {
     include('../include/header.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    print_r($query);
+    //print_r($query);
 
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
@@ -37,6 +37,8 @@ function fetchPatientName($admissionID)
             <div class="col-sm-12">
                 <?php
                 $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
+                print_r($admissionQuery);
+               
                 $result = $con->query($admissionQuery);
                 ?>
                 <table class="table table-bordered dt-responsive nowrap">
