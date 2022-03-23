@@ -44,7 +44,7 @@ function fetchPatientName($admissionID)
                         <th>Test Type</th>
                         <th>Patient Name</th>
                         <th>Status</th>
-                        <th>Reports</th>
+                       
                     </thead>
                     <tbody id="viewReport">
                         <?php
@@ -61,7 +61,7 @@ function fetchPatientName($admissionID)
                             </tr>
                         <?php
                             $sr++;
-                        }
+                                 }
                         ?>
                     </tbody>
                 </table>
