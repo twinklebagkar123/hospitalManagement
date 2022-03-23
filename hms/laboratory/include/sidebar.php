@@ -52,7 +52,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="view_lab_form.php">
+                            <a href="pages/view_lab_form.php">
                                 <span class="title"> View Forms </span>
                             </a>
                         </li>
