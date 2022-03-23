@@ -60,7 +60,7 @@ function fetchPatientName($admissionID)
                                 <td><?php echo $sr; ?></td>
                                 <td id="date"><?php echo $row['assignedDate']; ?></td>
                                 <td><?php echo $row['labTestName']; ?></td>
-                                <td><?php echo fetchPatientName($row['admissionID']); ?></td>
+                                <td><?php echo "hi";// echo fetchPatientName($row['admissionID']); ?></td>
                                 <td><?php echo $row['labTestStatus']; ?></td>
                                 <td>
                                     <?php if ($row['labTestStatus'] == "pending") {
