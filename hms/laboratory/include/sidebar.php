@@ -47,7 +47,7 @@
                     </a>
                     <ul class="sub-menu">
                         <li>
-                            <a href="pages/laboratory.php">
+                            <a href="laboratory.php">
                                 <span class="title"> Add New Form</span>
                             </a>
                         </li>
