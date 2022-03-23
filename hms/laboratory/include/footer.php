@@ -26,6 +26,7 @@
     <script src="../vendor/select2/select2.min.js"></script>
     <script src="../vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="../vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <?php if(basename($_SERVER['PHP_SELF']) == "laboratory.php") {?>
     <script src="../assets/ckeditor/ckeditor.js"></script>
 <?php } ?>
