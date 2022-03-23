@@ -1,6 +1,9 @@
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     console.log("code here");
-   
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+
     function valid() {
         if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
             alert("Password and Confirm Password Field do not match  !!");
@@ -19,11 +22,11 @@ jQuery(document).ready(function() {
             url: "check_availability.php",
             data: 'nameTest=' + $("#name").val(),
             type: "POST",
-            success: function(data) {
+            success: function (data) {
                 $("#email-availability-status").html(data);
                 $("#loaderIcon").hide();
             },
-            error: function() {}
+            error: function () { }
         });
     }
 
@@ -34,7 +37,7 @@ jQuery(document).ready(function() {
     }
 
     var ckeditor = [];
-    jQuery(document).ready(function() {
+    jQuery(document).ready(function () {
 
 
 
@@ -42,7 +45,7 @@ jQuery(document).ready(function() {
 
 
         CKEDITOR.replace('editor');
-        $(document).on("change", "#test_more_info ", function() {
+        $(document).on("change", "#test_more_info ", function () {
             if ($('#test_more_info').is(":checked")) {
                 console.log("checked");
                 $("#cke_editor").show();
@@ -53,7 +56,7 @@ jQuery(document).ready(function() {
 
         });
 
-        $(document).one("submit", "#addmed", function(e) {
+        $(document).one("submit", "#addmed", function (e) {
             e.preventDefault();
 
             var data = CKEDITOR.instances.editor.getData();
@@ -70,8 +73,8 @@ jQuery(document).ready(function() {
         FormElements.init();
         var values = [];
         var jsonFieldDetails = [];
-        $("#addField").on("click", function() {
-          
+        $("#addField").on("click", function () {
+
             var fieldName = $("#fieldName").val();
             var unit_check = $("#units").is(":checked");
             var referanceRange_check = $("#ref").is(":checked");
@@ -134,7 +137,7 @@ jQuery(document).ready(function() {
 
 
         });
-        $(document).on("click", ".remove", function() {
+        $(document).on("click", ".remove", function () {
             var shanti = $(this).data("name");
             var index = jsonFieldDetails.indexOf(shanti);
             if (index > -1) {
@@ -152,7 +155,7 @@ jQuery(document).ready(function() {
     });
 
 
-    $(document).on("change", "#units", function() {
+    $(document).on("change", "#units", function () {
 
         if ($('#units').is(":checked")) {
 
@@ -163,7 +166,7 @@ jQuery(document).ready(function() {
         }
 
     });
-    $(document).on("change", "#ref", function() {
+    $(document).on("change", "#ref", function () {
 
         if ($('#ref').is(":checked")) {
 
@@ -174,7 +177,7 @@ jQuery(document).ready(function() {
         }
 
     });
-    $(document).on("change", "#normalRange", function() {
+    $(document).on("change", "#normalRange", function () {
 
         if ($('#normalRange').is(":checked")) {
 
@@ -186,9 +189,5 @@ jQuery(document).ready(function() {
 
     });
 
-$(document).ready(function() {
-			$('#myTable').DataTable();
-		});
-	
 
 });
