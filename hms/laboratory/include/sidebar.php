@@ -22,17 +22,21 @@
                             </div>
                             </a>
                 </li>
-                <li>
-                    <a href="<?php echo "https://". $_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']); ?>/viewCompletedTests.php">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-list"></i>
+                <li><?php
+                    if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
+                        <a href="#">
+                        <?php } else { ?>
+                            <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/viewCompletedTests.php">
+                            <?php } ?>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-list"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> Lab Records </span>
+                                </div>
                             </div>
-                            <div class="item-inner">
-                                <span class="title"> Lab Records </span>
-                            </div>
-                        </div>
-                    </a>
+                            </a>
                 </li>
                 <li>
                     <a href="javascript:void(0)">
@@ -58,17 +62,21 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="pages/viewPendingTests.php">
-                        <div class="item-content">
-                            <div class="item-media">
-                                <i class="ti-list"></i>
+                <li><?php
+                    if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
+                        <a href="#">
+                        <?php } else { ?>
+                            <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/viewPendingTests.php">
+                            <?php } ?>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-list"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> Pending Tests </span>
+                                </div>
                             </div>
-                            <div class="item-inner">
-                                <span class="title"> Pending Tests </span>
-                            </div>
-                        </div>
-                    </a>
+                            </a>
                 </li>
 
             </ul>
