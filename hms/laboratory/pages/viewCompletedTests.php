@@ -1,7 +1,7 @@
-
-<?php 
+<?php
 include('../include/header.php');
-function fetchPatientName($admissionID){
+function fetchPatientName($admissionID)
+{
     include('include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
@@ -13,66 +13,64 @@ function fetchPatientName($admissionID){
 
 ?>
 
-                <div class="wrap-content container" id="container">
-                    <!-- start: PAGE TITLE -->
-                    <section id="page-title">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <h1 class="mainTitle">Admin | View Tests</h1>
-                            </div>
-                            <ol class="breadcrumb">
-                                <li>
-                                    <span>Admin</span>
-                                </li>
-                                <li class="active">
-                                    <span>View Tests</span>
-                                </li>
-                            </ol>
-                        </div>
-                    </section>
-                    <div class="container-fluid container-fullw bg-white">
-                        <div class="row">
-                            <div class="col-sm-12">
-                            <?php
-									$admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
-									$result = $con->query($admissionQuery);
-									?>
-									<table class="table table-bordered dt-responsive nowrap">
-										<thead>
-											<th>#</th>
-											<th>Assigned Date</th>
-											<th>Test Type</th>
-											<th>Patient Name</th>
-											<th>Status</th>
-											
-											<th>Reports</th>
-										</thead>
-										<tbody id="viewReport">
-											<?php
-											$sr = 1;
-											while ($row = mysqli_fetch_array($result)) {
-											?>
-												<tr>
-													<td><?php echo $sr; ?></td>
-													<td id="date"><?php echo $row['assignedDate']; ?></td>
-													<td><?php echo $row['labTestName'];?></td>
-													<td><?php echo fetchPatientName($row['admissionID']) ;?></td>
-													<td><?php echo $row['labTestStatus']; ?></td>
-													
-												</tr>
-											<?php
-												$sr++;
-											}
-											?>
-										</tbody>
-									</table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="wrap-content container" id="container">
+    <!-- start: PAGE TITLE -->
+    <section id="page-title">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1 class="mainTitle">Admin | View Tests</h1>
+            </div>
+            <ol class="breadcrumb">
+                <li>
+                    <span>Admin</span>
+                </li>
+                <li class="active">
+                    <span>View Tests</span>
+                </li>
+            </ol>
+        </div>
+    </section>
+    <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+            <div class="col-sm-12">
+                <?php
+                $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID;";
+                $result = $con->query($admissionQuery);
+                ?>
+                <table class="table table-bordered dt-responsive nowrap">
+                    <thead>
+                        <th>#</th>
+                        <th>Assigned Date</th>
+                        <th>Test Type</th>
+                        <th>Patient Name</th>
+                        <th>Status</th>
+                        <th>Reports</th>
+                    </thead>
+                    <tbody id="viewReport">
+                        <?php
+                        $sr = 1;
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <tr>
+                                <td><?php echo $sr; ?></td>
+                                <td id="date"><?php echo $row['assignedDate']; ?></td>
+                                <td><?php echo $row['labTestName']; ?></td>
+                                <td><?php echo fetchPatientName($row['admissionID']); ?></td>
+                                <td><?php echo $row['labTestStatus']; ?></td>
+
+                            </tr>
+                        <?php
+                            $sr++;
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <!-- start: FOOTER -->
-    <?php include('../include/footer.php'); ?>
-   
+</div>
+</div>
+</div>
+</div>
+<!-- start: FOOTER -->
+<?php include('../include/footer.php'); ?>
