@@ -36,12 +36,6 @@ jQuery(document).ready(function () {
 
     var ckeditor = [];
     jQuery(document).ready(function () {
-
-
-
-
-
-
         CKEDITOR.replace('editor');
         $(document).on("change", "#test_more_info ", function () {
             if ($('#test_more_info').is(":checked")) {
