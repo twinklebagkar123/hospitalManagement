@@ -43,8 +43,6 @@ function fetchPatientName($admissionID)
 }
 
 ?>
-
-<
                 <div class="wrap-content container" id="container">
                     <!-- start: PAGE TITLE -->
                     <section id="page-title">
