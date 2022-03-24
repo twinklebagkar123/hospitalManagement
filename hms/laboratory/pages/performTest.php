@@ -73,10 +73,10 @@ function fetchPatientName($admissionID)
 
                         <?php
                         $fields = $row['labFields'];
-                        $fields_arr = explode(",", $fields);
+                        // $fields_arr = explode(",", $fields);
                         $i = 1;
-                        print_r($fields_arr);
-                        foreach ($fields_arr as $field) {
+                        print_r($fields);
+                        foreach ($fields as $field) {
                             $k = json_decode($field);
                             var_dump($k);
                             echo "________________________________________________________________________________________________________________________________________________________________________________________________";
@@ -84,7 +84,7 @@ function fetchPatientName($admissionID)
                             {
                         ?>
                             <div class="form-group">
-                                <label for="<?php echo $field; ?>">
+                                <label for="<?php echo $k->fieldName; ?>">
                                     <?php echo $k->fieldName;; ?>
                                 </label>
 
@@ -135,7 +135,7 @@ function fetchPatientName($admissionID)
                         <thead>
                             <tr>
                                 <?php
-                                foreach ($fields_arr as  $field) {
+                                foreach ($fields as  $field) {
                                     echo "<th>$field<th>";
                                 }
 
