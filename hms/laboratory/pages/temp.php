@@ -281,3 +281,42 @@ function fetchTestName($testID)
 </body>
 
 </html>
+
+
+
+
+
+<?php
+
+
+$titles = $row['main_titles'];
+$titles_arr = explode(",", $titles);
+$i = 1;
+
+foreach ($titles_arr as  $title) {
+
+?> <div class="row">
+        <div class="col-sm-3 justify-content-center">
+            <?php
+            if (strpos($title, '*') !== false) {
+            ?>
+
+                <p class="field_style text-bold"> </p>
+            <?php
+
+
+
+            } else {
+            ?>
+
+                <p class="field_style"> <?php echo $field; ?> </p>
+
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+
+<?php
+    $i++;
+} ?>
