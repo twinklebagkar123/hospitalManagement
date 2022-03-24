@@ -73,7 +73,13 @@ jQuery(document).ready(function () {
                 $("#fieldShow").append(trow);
 
 
-                values.push(fieldName + '*');
+                values.push({
+                    "fieldName": fieldName+"*",
+                    "units": "",
+                    "referanceRange": "",
+                    "normalRange": ""
+                });
+
                 valuesString = values.toString();
                 $("#fieldArray").val(JSON.stringify(values));
             } else {
@@ -91,9 +97,7 @@ jQuery(document).ready(function () {
                 var trow = "<tr><td>" + fieldName + "</td><td>" + unit + "</td><td>" + referanceRange + "</td><td>" + normalRange + "</td><td class='remove' data-name='" + fieldName + "" + unit + "" + referanceRange + "" + normalRange + "'>X</td></tr>";
                 $("#fieldShow").append(trow);
                 values.push({
-                 
                     "fieldName": fieldName,
-                    "noValueCheckbox" : noValueCheckbox,
                     "units": unit,
                     "referanceRange": referanceRange,
                     "normalRange": normalRange
