@@ -47,6 +47,7 @@ jQuery(document).ready(function () {
         $("#addField").on("click", function () {
 
             var fieldName = $("#fieldName").val();
+            var noValueCheckbox = $("#noValueCheckbox").val();
             var unit_check = $("#units").is(":checked");
             var referanceRange_check = $("#ref").is(":checked");
             var normalRange_check = $("#normalRange").is(":checked");
@@ -90,10 +91,12 @@ jQuery(document).ready(function () {
                 var trow = "<tr><td>" + fieldName + "</td><td>" + unit + "</td><td>" + referanceRange + "</td><td>" + normalRange + "</td><td class='remove' data-name='" + fieldName + "" + unit + "" + referanceRange + "" + normalRange + "'>X</td></tr>";
                 $("#fieldShow").append(trow);
                 values.push({
+                  "noValueCheckbox" : noValueCheckbox,
                     "fieldName": fieldName,
                     "units": unit,
                     "referanceRange": referanceRange,
                     "normalRange": normalRange
+
                 });
                 console.log(values);
                 //valuesString = values.toString();
