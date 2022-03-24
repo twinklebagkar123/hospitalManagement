@@ -2,7 +2,7 @@
 include('../include/header.php');
 function fetchPatientName($admissionID)
 {
-    include('include/config.php');
+    include('../include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
@@ -12,7 +12,7 @@ function fetchPatientName($admissionID)
 }
 function fetchTestName($testID)
 {
-    include('include/config.php');
+    include('../include/config.php');
     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {

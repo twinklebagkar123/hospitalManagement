@@ -1,7 +1,7 @@
 
 <?php
 include('../include/header.php');
-//include('../include/config.php');
+include('../include/config.php');
 if (isset($_POST['submit'])) {
     $testID = $_GET['testID'];
     $recID = $_GET['recID'];
