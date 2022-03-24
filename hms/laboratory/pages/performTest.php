@@ -76,6 +76,8 @@ function fetchPatientName($admissionID)
                         $fields_arr = explode(",", $fields);
                         $i = 1;
                         foreach ($fields_arr as  $field) {
+                            if(!(($fields == "units") || ($fields == "referanceRange") ||($fields == "normalRange") ) )
+                            {
                         ?>
                             <div class="form-group">
                                 <label for="<?php echo $field; ?>">
@@ -88,6 +90,7 @@ function fetchPatientName($admissionID)
                             </div>
 
                         <?php
+                            }
                             $i++;
                         } ?>
                         <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i - 1; ?>">
