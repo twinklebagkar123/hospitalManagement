@@ -77,15 +77,13 @@ function fetchPatientName($admissionID)
                         $i = 1;
                         print_r($fields);
                         foreach ($fields as $field) {
-                            var_dump($field);
-                        }
-                        //     $k = json_decode($field);
-                        //     var_dump($k);
-                        //     echo "________________________________________________________________________________________________________________________________________________________________________________________________";
-                        //     if(!(($field =='"units":""') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
-                        //     {
+                            $k = json_decode($field);
+                            var_dump($k);
+                            echo "________________________________________________________________________________________________________________________________________________________________________________________________";
+                            if(!(($field =='"units":""') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
+                            {
                         ?>
-                            <!-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="<?php echo $k->fieldName; ?>">
                                     <?php echo $k->fieldName;; ?>
                                 </label>
@@ -93,12 +91,12 @@ function fetchPatientName($admissionID)
                                 <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
 
 
-                            </div> -->
+                            </div>
 
                         <?php
-                        //     }
-                        //     $i++;
-                        // } 
+                            }
+                            $i++;
+                        } 
                         ?>
                         <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i - 1; ?>">
                     <?php
