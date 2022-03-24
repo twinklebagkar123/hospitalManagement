@@ -72,7 +72,7 @@ function fetchPatientName($admissionID)
                         <h3> <?php echo $row['labTestName']; ?> | <?php echo fetchPatientName($adID); ?></h3>
 
                         <?php
-                        $fields = $row['labFields'] ;
+                        $fields = $row['labFields'];
                         $fields_arr = explode(",", $fields);
                         $i = 1;
                         foreach ($fields_arr as  $field) {
