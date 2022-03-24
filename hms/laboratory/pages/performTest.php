@@ -76,7 +76,9 @@ function fetchPatientName($admissionID)
                         // $fields_arr = explode(",", $fields);
                         $i = 1;
                         print_r($fields);
-                        // foreach ($fields as $field) {
+                        foreach ($fields as $field) {
+                            var_dump($field);
+                        }
                         //     $k = json_decode($field);
                         //     var_dump($k);
                         //     echo "________________________________________________________________________________________________________________________________________________________________________________________________";
