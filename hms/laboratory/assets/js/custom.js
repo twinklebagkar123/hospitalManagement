@@ -91,8 +91,9 @@ jQuery(document).ready(function () {
                 var trow = "<tr><td>" + fieldName + "</td><td>" + unit + "</td><td>" + referanceRange + "</td><td>" + normalRange + "</td><td class='remove' data-name='" + fieldName + "" + unit + "" + referanceRange + "" + normalRange + "'>X</td></tr>";
                 $("#fieldShow").append(trow);
                 values.push({
-                  "noValueCheckbox" : noValueCheckbox,
+                 
                     "fieldName": fieldName,
+                    "noValueCheckbox" : noValueCheckbox,
                     "units": unit,
                     "referanceRange": referanceRange,
                     "normalRange": normalRange
