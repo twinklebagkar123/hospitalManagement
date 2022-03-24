@@ -122,27 +122,27 @@ function fetchPatientName($admissionID)
                     <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
                 </form>
             </div>
-            <div class="col-sm-6">
+            <!-- <div class="col-sm-6">
 
-                <a class="btn btn-o btn-primary" id="addTestfield">+ Add Test</a>
+               <a class="btn btn-o btn-primary" id="addTestfield">+ Add Test</a> 
 
-            </div>
+            </div> -->
         </div>
-        <div class="container-fluid container-fullw bg-white">
+        <!-- <div class="container-fluid container-fullw bg-white">
 
 
             <div class="row">
                 <div class="col-md-12">
                     <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
-                    <p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
-                        <?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+                    <p style="color:red;"><?php //echo htmlentities($_SESSION['msg']); ?>
+                        <?php // echo htmlentities($_SESSION['msg'] = ""); ?></p>
                     <table class="table table-hover" id="table_field">
                         <thead>
                             <tr>
                                 <?php
-                                foreach ($fields as  $field) {
-                                    echo "<th>$field->fieldName<th>";
-                                }
+                                // foreach ($fields as  $field) {
+                                //     echo "<th>$field->fieldName<th>";
+                                // }
 
                                 ?>
 
@@ -157,7 +157,7 @@ function fetchPatientName($admissionID)
                 </div>
 
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
