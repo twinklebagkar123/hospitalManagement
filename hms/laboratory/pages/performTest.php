@@ -76,7 +76,7 @@ function fetchPatientName($admissionID)
                         $fields_arr = explode(",", $fields);
                         $i = 1;
                         foreach ($fields_arr as  $field) {
-                            if(!(($fields == "units") || ($fields == "referanceRange") ||($fields == "normalRange") ) )
+                            if(!(($fields =='"units":""') || ($fields == "referanceRange") ||($fields == "normalRange") ) )
                             {
                         ?>
                             <div class="form-group">
