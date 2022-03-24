@@ -1,6 +1,7 @@
 
 <?php
 include('../include/header.php');
+//include('../include/config.php');
 if (isset($_POST['submit'])) {
     $testID = $_GET['testID'];
     $recID = $_GET['recID'];
@@ -32,7 +33,7 @@ $adID = $_GET['adID'];
 $testID = $_GET['testID'];
 function fetchPatientName($admissionID)
 {
-    include('include/config.php');
+    include('../include/config.php');
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {

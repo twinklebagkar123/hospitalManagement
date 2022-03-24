@@ -5,36 +5,6 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 ?>
-<?php
-
-if (isset($_POST['submit'])) {
-    $testID = $_GET['testID'];
-    $recID = $_GET['recID'];
-    $performedBy = $_POST['performedBy'];
-    $findings = $_POST['findings'];
-    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
-    $result = $con->query($query);
-    while ($row = mysqli_fetch_array($result)) {
-        $fields = $row['labFields'];
-      
-       $fields_arr = explode(",", $fields);
-       foreach ($fields_arr as  $value) {
-           $str = str_replace(' ', '_', $value);
-           $postVAl = $_POST["$str"];
-           $testresult[$value] = $postVAl;
-          
-       }
-       $charges = $row['labCharges'];
-
-    }
-    $date = date("Y-m-d");
-    $testJson = json_encode($testresult);
-    $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
-    //print_r($updateQuery);
-    $result = $con->query($updateQuery);
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,8 +27,6 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
 <?php
-$adID = $_GET['adID'];
-$testID = $_GET['testID'];
 function fetchPatientName($admissionID)
 {
     include('include/config.php');
@@ -66,12 +34,78 @@ function fetchPatientName($admissionID)
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $answer = $row['PatientName'];
-      
     }
     return $answer;
 }
-
+function fetchTestName($testID)
+{
+    include('include/config.php');
+    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['labTestName'];
+    }
+    return $answer;
+}
 ?>
+<style>
+    .resultSection header {
+        min-height: 83px;
+        border-bottom: 1px solid black;
+
+    }
+
+    .doc-details {
+        margin-top: 5px;
+        margin-left: 15px;
+
+    }
+
+    .clinic-details {
+        margin-top: 5px;
+        margin-left: 15px;
+    }
+
+    .doc-name {
+        font-weight: bold;
+        margin-bottom: 5px;
+
+    }
+
+    .doc-meta {
+        font-size: 10px;
+    }
+
+    .datetime {
+        font-size: 12px;
+        margin-top: 5px;
+
+    }
+
+    .row.title {
+        font-weight: bold;
+        padding-left: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .prescription {
+        min-height: 380px;
+        margin-bottom: 10px;
+    }
+
+    .border {
+        border: 1px solid black;
+    }
+
+    .reportHeader {
+        border: 1px solid black;
+    }
+
+    .instruction {
+        font-size: 12px;
+    }
+</style>
 
 <body>
     <div id="app">
@@ -84,7 +118,7 @@ function fetchPatientName($admissionID)
                     <section id="page-title">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h1 class="mainTitle">Laboratory | Perform Tests</h1>
+                                <h1 class="mainTitle">Laboratory | Test Result</h1>
                             </div>
                             <ol class="breadcrumb">
                                 <li>
@@ -96,148 +130,130 @@ function fetchPatientName($admissionID)
                             </ol>
                         </div>
                     </section>
-                    <div class="container-fluid container-fullw bg-white">
-                        <div class="row">
-                            <div class="col-sm-6">
+                    <section class="resultSection border">
+                        <div class="container border">
+                            <header class="row">
+                                <div class="col-md-10">
+                                    <div class="doc-details">
+                                        <p class="doc-name">St. Anthony's Hospital & Research Center</p>
+                                        <p class="doc-meta">General Hospital</p>
+                                        <p class="doc-meta">Rgn: 2341</p>
+                                    </div>
 
-                                <form method="POST" action="">
+                                    <div class="clinic-details">
+                                        <p class="doc-meta">Doctor Name: </p>
+                                        <p class="doc-meta">Anjana Gupta</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-2 datetime">
+                                    <p>Date: <?php echo date("Y/m/d"); ?></p>
+                                    <p>Time: <?php echo date("h:i:sa"); ?></p>
+                                </div>
+                            </header>
+                        </div>
+                        <div class="container bg-white ">
+                            <div class="row">
+                                <div class="col-sm-12">
                                     <?php
-                                    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
-                                    $result = $con->query($query);
-                                    $fields_arr="";
+                                    $recID = $_GET['recID'];
+                                    $queryRec = "SELECT * FROM `labTestRecord` where recordID='$recID'";
+                                    $result = $con->query($queryRec);
                                     while ($row = mysqli_fetch_array($result)) {
-                                        
                                     ?>
-                                        <h3> <?php echo $row['labTestName']; ?> | <?php echo fetchPatientName($adID); ?></h3>
+                                        <table border="1" class="table table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Patient Name </th>
+                                                    <th>Test Name</th>
+                                                    <th>Test Assigned Date</th>
+                                                    <th>Test Performed Date</th>
+                                                    <th>Report Status</th>
+                                                    <th>Report Remarks</th>
 
-                                        <?php
-                                        $fields = $row['labFields'].",".$row['main_titles'] ;
-                                        $fields_arr = explode(",", $fields);
-                                        $i=1;
-                                        foreach ($fields_arr as  $field) {
-                                        ?>
-                                            <div class="form-group">
-                                                <label for="<?php echo $field; ?>">
-                                                    <?php echo $field; ?>
-                                                </label>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><?php echo fetchPatientName($row['admissionID']); ?></td>
+                                                    <td><?php echo fetchTestName($row['performedTestID']); ?></td>
+                                                    <td><?php echo $row['assignedDate']; ?></td>
+                                                    <td><?php echo $row['performedDate']; ?></td>
+                                                    <td><?php echo $row['labTestStatus']; ?></td>
+                                                    <td><?php echo $row['remark']; ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
+                                        <h5>Lab Test Findings: </h5>
+                                        <table border="1" class="table table-hover table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Field Name </th>
+                                                    <th>Finding</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                                   
+
+                                                <?php
+                                                $recResult =  json_decode($row['testResult']);
+                                                foreach ($recResult as $key => $value) {
+                                                ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?php echo $key; ?>
+                                                        </td>
+                                                        <td><?php echo $value; ?></td>
+                                                    </tr>
+
+                                                <?php
+                                                }
+
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <h5>Report Summary:</h5>
+                                                    <p>
+                                                        <?php echo $row['findings']; ?>
+
+                                                    </p>
+                                                </div>
+                                                <div class="col-sm-6" align="right">
+                                                    <h5>
+                                                        Laboratory/Test Incharge:
+                                                    </h5>
+                                                    <p>
+                                                        <?php echo $row['performedBy']; ?>
+                                                    </p>
+                                                </div>
                                             </div>
-
+                                        </div>
                                     <?php
-                                    $i++;
-                                        }?>
-                                        <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i-1;?>">
-                                        <?php
-
                                     }
+
                                     ?>
-                                        								<?php
-
-
-                                                                        $titles = $row['main_titles'];
-                                                                        $titles_arr = explode(",", $titles);
-                                                                        $i=1;
-
-                                                                        foreach ($titles_arr as  $title) {
-
-                                                                            ?> <div class="row">
-                                                                                <div class="col-sm-3 justify-content-center">
-                                                                                <?php
-                                                                            if(strpos ($title, '*')!==false) {
-                                                                                ?>
-
-                                                                        <p class="field_style text-bold">	 </p>
-                                                                                <?php
-
-
-
-                                                                            }
-                                                                            else{
-                                                                        ?>
-                                                                            
-                                                                                <p class="field_style">	<?php echo $field; ?> </p>
-                                                                            
-                                                                        <?php
-                                                                            }
-                                                                            ?>
-                                                                            </div>
-                                                                            </div>
-
-                                                                        <?php
-                                                                        $i++;
-                                                                        }?>
-                                    <div class="form-group">
-                                        <label for="performedBy">
-                                           Laboratory Incharge
-                                        </label>
-                                        <input type="text" id="performedBy" name="performedBy" class="form-control" required="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="findings">
-                                           Laboratory Findings
-                                        </label>
-                                        <input type="text" id="findings" name="findings" class="form-control" required="true">
-                                    </div>
-                                    <input type="submit" class="btn btn-o btn-primary" name="submit" value="SUBMIT">
-                                </form>
-                            </div>
-                            <div class="col-sm-6">
-
-                            <a class="btn btn-o btn-primary" id ="addTestfield">+ Add Test</a>
-
+                                </div>
                             </div>
                         </div>
-                        <div class="container-fluid container-fullw bg-white">
+                    </section>
 
-
-								<div class="row">
-									<div class="col-md-12">
-										<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
-										<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
-											<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
-										<table class="table table-hover" id="table_field">
-											<thead>
-												<tr>
-													<?php
-                                                    foreach ($fields_arr as  $field) {
-                                                        echo "<th>$field<th>";
-                                                    }
-                                                    
-                                                    ?>
-                                                    
-													
-													<th>Action</th>
-
-												</tr>
-											</thead>
-											<tbody id="fieldShow">
-											
-
-
-											</tbody>
-										</table>
-									</div>
-								 
-								</div>
-							</div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- start: FOOTER -->
     <?php include('include/footer.php'); ?>
-
     <!-- end: FOOTER -->
 
     <!-- start: SETTINGS -->
     <?php include('include/setting.php'); ?>
 
     <!-- end: SETTINGS -->
-    </div> 
+    </div>
     <!-- start: MAIN JAVASCRIPTS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -245,7 +261,6 @@ function fetchPatientName($admissionID)
     <script src="vendor/jquery-cookie/jquery.cookie.js"></script>
     <script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="vendor/switchery/switchery.min.js"></script>
-    
     <!-- end: MAIN JAVASCRIPTS -->
     <!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
@@ -259,68 +274,10 @@ function fetchPatientName($admissionID)
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
     <!-- start: CLIP-TWO JAVASCRIPTS -->
-    <script src="assets/js/form-elements.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script> -->
     <script src="assets/js/main.js"></script>
-    <script>
-
-
-           
-			
-            $(document).ready(function(){
-                Main.init();
-			FormElements.init();
-            var jsonFieldDetails = [];
-                $("#addTestfield").on("click", function(){
-                var j=1;
-                 console.log("hello");
-				 var counter = $("#field_lab_counter").val();
-                 var data = "<tr>";
-                while (j<=counter){
-
-
-                    var textName = $("#field_lab_"+j).val();
-
-                    data = data+"<td>" +textName+ "</td>";
-                    
-                    // $("#table_field #fieldShow").append(data);
-                    // // $("#fieldShow . tr").last(td);
-                    j++;
-             
-                }
-                data = data+"</tr>";
-                
-                $("#table_field").append(data);
-                // $("#fieldShow").append("#field_lab_"+j);
-                // var trow = "<tr><td>"+counter+j+"</td><td class='remove' data-name='"+counter+"'>X</td></tr>";
-				// $("#fieldShow").append(trow);
-				// jsonFieldDetails.push(counter);
-				// jsonFieldDetailsString = jsonFieldDetails.toString();
-				// $("#fieldArray").val(jsonFieldDetailsString);
-
-				
-				//console.log(jsonFieldDetails);
-				
-			});
-            $(document).on("click" ,".remove",function(){
-				var shanti = $(this).data("name");
-              var index = jsonFieldDetails.indexOf(shanti);
-			  if (index > -1) {
-				jsonFieldDetails.splice(index, 1);
-			}
-			  console.log(jsonFieldDetails);
-			  jsonFieldDetailsString = jsonFieldDetails.toString();
-				$("#fieldArray").val(jsonFieldDetailsString);
-			   $(this).parent().remove();
-
-			});
-            });
-			
-			
-
-    </script>
     <!-- start: JavaScript Event Handlers for this page -->
-   
-   
+    <script src="assets/js/form-elements.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 </body>
+
 </html>
