@@ -84,7 +84,7 @@ function fetchPatientName($admissionID)
                             // {
                         ?>
                             <div class="form-group">
-                                <label for="<?php echo $field->fieldName; ?>">
+                                <label for="<?php echo $field['fieldName']; ?>">
                                     <?php echo $field->fieldName; ?>
                                 </label>
 
