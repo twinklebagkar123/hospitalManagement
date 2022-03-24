@@ -140,9 +140,6 @@ function fetchPatientName($admissionID)
                             </tr>
                         </thead>
                         <tbody id="fieldShow">
-
-
-
                         </tbody>
                     </table>
                 </div>
