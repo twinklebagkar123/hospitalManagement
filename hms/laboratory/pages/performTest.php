@@ -83,7 +83,7 @@ function fetchPatientName($admissionID)
                         ?>
                             <div class="form-group">
                                 <label for="<?php echo $k->fieldName; ?>">
-                                    <?php echo $field; ?>
+                                    <?php echo $k->fieldName;; ?>
                                 </label>
 
                                 <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
