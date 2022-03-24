@@ -209,5 +209,3 @@ function fetchPatientName($admissionID)
     });
 </script>
 <!-- start: JavaScript Event Handlers for this page -->
-
-
