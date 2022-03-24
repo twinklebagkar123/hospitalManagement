@@ -80,7 +80,7 @@ function fetchPatientName($admissionID)
                             echo "_______";
                             //var_dump($field);
                             $k = json_decode($field);
-                            print_r($k);
+                            var_dump($k);
                             echo "________________________________________________________________________________________________________________________________________________________________________________________________";
                             // if(!(($field->units == '') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
                             // {
