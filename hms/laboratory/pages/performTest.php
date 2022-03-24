@@ -78,7 +78,7 @@ function fetchPatientName($admissionID)
                         print_r($fields);
                         foreach ($fields as $field) {
                             $k = json_decode($field);
-                            var_dump($k);
+                            var_dump($field);
                             echo "________________________________________________________________________________________________________________________________________________________________________________________________";
                             if(!(($field =='"units":""') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
                             {
