@@ -77,6 +77,7 @@ function fetchPatientName($admissionID)
                         $i = 1;
                       //  print_r($fields);
                         foreach ($fields as $field) {
+                            if (!(strpos($field->fieldName, "*"))) {
                             // echo "_______";
                             // var_dump($field);
                             // echo $field->fieldName;
@@ -97,7 +98,7 @@ function fetchPatientName($admissionID)
                             </div>
 
                         <?php
-                            // }
+                            }
                             $i++;
                         } 
                         ?>
