@@ -78,11 +78,12 @@ function fetchPatientName($admissionID)
                         print_r($fields_arr);
                         foreach ($fields_arr as $field) {
                             $k = json_decode($field);
+                            var_dump($k);
                             if(!(($field =='"units":""') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
                             {
                         ?>
                             <div class="form-group">
-                                <label for="<?php echo $k->fieldName; ?>">
+                                <label for="<?php echo $field; ?>">
                                     <?php echo $k->fieldName;; ?>
                                 </label>
 
