@@ -75,23 +75,23 @@ function fetchPatientName($admissionID)
                         $fields = json_decode($row['labFields']);
                         // $fields_arr = explode(",", $fields);
                         $i = 1;
-                        print_r($fields);
+                      //  print_r($fields);
                         foreach ($fields as $field) {
-                            echo "_______";
-                            var_dump($field);
-                            echo $field->fieldName;
+                            // echo "_______";
+                            // var_dump($field);
+                            // echo $field->fieldName;
                             // $k = json_decode($field);
                             // var_dump($k);
-                            echo "________________________________________________________________________________________________________________________________________________________________________________________________";
+                           // echo "________________________________________________________________________________________________________________________________________________________________________________________________";
                             // if(!(($field->units == '') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
                             // {
                         ?>
                             <div class="form-group">
-                                <label for="<?php echo $field['fieldName']; ?>">
+                                <label for="<?php echo $field->fieldName; ?>">
                                     <?php echo $field->fieldName; ?>
                                 </label>
 
-                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field->fieldName; ?>" class="form-control" placeholder="Enter <?php echo $field; ?>">
+                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field->fieldName; ?>" class="form-control" placeholder="Enter <?php echo $field->fieldName; ?>">
 
 
                             </div>
@@ -140,7 +140,7 @@ function fetchPatientName($admissionID)
                             <tr>
                                 <?php
                                 foreach ($fields as  $field) {
-                                    echo "<th>$field<th>";
+                                    echo "<th>$field->fieldName<th>";
                                 }
 
                                 ?>
