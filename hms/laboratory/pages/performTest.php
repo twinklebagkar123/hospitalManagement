@@ -76,12 +76,13 @@ function fetchPatientName($admissionID)
                         $fields_arr = explode(",", $fields);
                         $i = 1;
                         print_r($fields_arr);
-                        foreach ($fields_arr as  $field) {
+                        foreach ($fields_arr as $field) {
+                            $k = json_decode($field);
                             if(!(($field =='"units":""') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
                             {
                         ?>
                             <div class="form-group">
-                                <label for="<?php echo $field; ?>">
+                                <label for="<?php echo $k->fieldName; ?>">
                                     <?php echo $field; ?>
                                 </label>
 
