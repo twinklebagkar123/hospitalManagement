@@ -81,7 +81,7 @@ jQuery(document).ready(function () {
                 });
 
                 valuesString = values.toString();
-                $("#fieldArray").val(JSON.stringify(values));
+                $("#fieldArray").val(values);
             } else {
                 if (unit_check) {
                     unit = $("#units_value").val();
@@ -105,7 +105,7 @@ jQuery(document).ready(function () {
                 });
                 console.log(values);
                 //valuesString = values.toString();
-                $("#fieldArray").val(JSON.stringify(values));
+                $("#fieldArray").val(values);
 
                 // $("#fieldShow").append(trow);
 
