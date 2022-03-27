@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     //         $testresult[$value] = $postVAl;
     //     }
     //     $charges = $row['labCharges'];
-    // }
+     }
     // print_r($testresult);
    // $date = date("Y-m-d");
     // $testJson = json_encode($testresult);
