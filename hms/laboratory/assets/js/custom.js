@@ -107,7 +107,7 @@ jQuery(document).ready(function () {
                 var test = JSON.stringify(values);
                 //valuesString = values.toString();
                 console.log(test);
-                $("#fieldArray").val(values);
+                $("#fieldArray").val(test);
 
                 // $("#fieldShow").append(trow);
 
