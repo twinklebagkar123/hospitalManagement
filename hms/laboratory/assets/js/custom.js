@@ -80,8 +80,8 @@ jQuery(document).ready(function () {
                     "normalRange": ""
                 });
 
-                valuesString = values.toString();
-                $("#fieldArray").val(valuesString);
+             //   valuesString = values.toString();
+                $("#fieldArray").val(values);
             } else {
                 if (unit_check) {
                     unit = $("#units_value").val();
