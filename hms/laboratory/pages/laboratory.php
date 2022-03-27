@@ -14,9 +14,9 @@ if (isset($_POST['submit'])) {
     $html_test_default_info = htmlentities($_POST['html_test_default_info'], ENT_QUOTES);
 
      $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
-    // $con->query($query);
+     $con->query($query);
 
-print_r($labFields);
+print_r($query);
 
 }
 
