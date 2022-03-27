@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     while ($row = mysqli_fetch_array($result)) {
         $fields = $row['labFields'];
        // print_r($fields);
-         $fields_arr = explode("},", $fields);
+         $fields_arr = explode(",", $fields);
 
          foreach ($fields_arr as  $value) {
              print_r($value);
