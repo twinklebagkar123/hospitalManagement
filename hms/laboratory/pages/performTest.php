@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
 
          foreach ($fields_arr as  $value) {
              print_r($value);
+             echo "<br>check";
     //         $str = str_replace(' ', '_', $value);
     //         $postVAl = $_POST["$str"];
     //         $testresult[$value] = $postVAl;
