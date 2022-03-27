@@ -105,6 +105,7 @@ jQuery(document).ready(function () {
                 });
                 console.log(values);
                 valuesString = values.toString();
+                
                 $("#fieldArray").val(valuesString);
 
                 // $("#fieldShow").append(trow);
