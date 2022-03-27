@@ -17,9 +17,10 @@ if (isset($_POST['submit'])) {
          foreach ($fields_arr as  $value) {
              print_r($value);
              echo "<br>check<br>";
-    //         $str = str_replace(' ', '_', $value);
-    //         $postVAl = $_POST["$str"];
-    //         $testresult[$value] = $postVAl;
+            $str = str_replace(' ', '_', $value['fieldName']);
+            echo $str."<br>";
+            $postVAl = $_POST["$str"];
+            $testresult[$value] = $postVAl;
         }
              $charges = $row['labCharges'];
      }
