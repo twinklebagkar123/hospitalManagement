@@ -15,16 +15,19 @@ if (isset($_POST['submit'])) {
         // print_r($fields_arr);
 
          foreach ($fields_arr as  $value) {
-             print_r($value);
-             echo "<br>check<br>";
+             //print_r($value);
+           //  echo "<br>check<br>";
             $str = str_replace(' ', '_', $value['fieldName']);
-            echo $str."<br>";
+           // echo $str."<br>";
             $postVAl = $_POST["$str"];
+            if(empty($postVAl)){
+                $postVAl = " ";
+            }
             $testresult[$value] = $postVAl;
         }
              $charges = $row['labCharges'];
      }
-    // print_r($testresult);
+     print_r($testresult);
    // $date = date("Y-m-d");
     // $testJson = json_encode($testresult);
     // $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
