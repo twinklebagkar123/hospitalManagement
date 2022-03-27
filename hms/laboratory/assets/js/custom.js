@@ -104,8 +104,9 @@ jQuery(document).ready(function () {
 
                 });
                 console.log(values);
+                var test = JSON.stringify(values);
                 //valuesString = values.toString();
-               // console.log(valuesString);
+                console.log(test);
                 $("#fieldArray").val(values);
 
                 // $("#fieldShow").append(trow);
