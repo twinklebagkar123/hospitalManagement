@@ -10,15 +10,16 @@ if (isset($_POST['submit'])) {
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $fields = $row['labFields'];
-        print_r($fields);
-    //     $fields_arr = explode(",", $fields);
+       // print_r($fields);
+         $fields_arr = explode("},", $fields);
 
-    //     foreach ($fields_arr as  $value) {
+         foreach ($fields_arr as  $value) {
+             print_r($value);
     //         $str = str_replace(' ', '_', $value);
     //         $postVAl = $_POST["$str"];
     //         $testresult[$value] = $postVAl;
-    //     }
-    //     $charges = $row['labCharges'];
+        }
+             $charges = $row['labCharges'];
      }
     // print_r($testresult);
    // $date = date("Y-m-d");
