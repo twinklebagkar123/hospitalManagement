@@ -1,4 +1,5 @@
 <?php include('../include/header.php'); 
+include('../include/config.php');
 
 if (isset($_POST['submit'])) {
     $labTestName = $_POST['name'];
