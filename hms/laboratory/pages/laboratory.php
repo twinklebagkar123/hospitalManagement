@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
      $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
      $con->query($query);
 
-print_r($query);
+print_r($labFields);
 
 }
 
