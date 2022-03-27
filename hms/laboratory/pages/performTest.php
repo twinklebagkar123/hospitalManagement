@@ -22,7 +22,8 @@ if (isset($_POST['submit'])) {
     $date = date("Y-m-d");
     $testJson = json_encode($testresult);
     $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
-    $result = $con->query($updateQuery);
+    print_r($updateQuery);
+   // $result = $con->query($updateQuery);
 }
 
 
