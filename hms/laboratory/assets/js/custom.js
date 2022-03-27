@@ -82,7 +82,7 @@ jQuery(document).ready(function () {
 
              //   valuesString = values.toString();
              var valuesString = JSON.stringify(values);
-                $("#fieldArray").val(values);
+                $("#fieldArray").val(valuesString);
             } else {
                 if (unit_check) {
                     unit = $("#units_value").val();
