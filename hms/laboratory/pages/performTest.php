@@ -11,15 +11,16 @@ if (isset($_POST['submit'])) {
     while ($row = mysqli_fetch_array($result)) {
         $fields = $row['labFields'];
        // print_r($fields);
-         $fields_arr = explode(",", $fields);
+         $fields_arr = json_decode($fields, true);
+         print_r($fields_arr);
 
-         foreach ($fields_arr as  $value) {
-             print_r($value);
-             echo "<br>check";
-    //         $str = str_replace(' ', '_', $value);
-    //         $postVAl = $_POST["$str"];
-    //         $testresult[$value] = $postVAl;
-        }
+    //      foreach ($fields_arr as  $value) {
+    //          print_r($value);
+    //          echo "<br>check";
+    // //         $str = str_replace(' ', '_', $value);
+    // //         $postVAl = $_POST["$str"];
+    // //         $testresult[$value] = $postVAl;
+    //     }
              $charges = $row['labCharges'];
      }
     // print_r($testresult);
