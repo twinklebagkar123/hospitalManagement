@@ -190,8 +190,10 @@ function fetchPatientName($admissionID)
                                 $recResult =  json_decode($row['testResult']);
                                 //$recResult =  json_decode($recResult);
                                 print_r($recResult);
+                                echo "__________".$resResult->Sodium;
                                 foreach ($recResult as $key => $value) {
                                     print_r($recResult['Sodium']);
+
                                 }
                                 $valuesDistribution = json_decode($row['labFields']);
                                 $i = 0;
