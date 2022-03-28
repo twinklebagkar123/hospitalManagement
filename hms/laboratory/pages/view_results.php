@@ -66,7 +66,7 @@ $id = $_GET['id'];
 				?>
 
 				<?php
-				$query = "SELECT * FROM `laboratoryTestList` where labFormID= '$id'";
+				$query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
 				$result = $con->query($query);
 				$fields_arr = "";
 				while ($row = mysqli_fetch_array($result)) {
