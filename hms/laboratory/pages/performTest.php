@@ -20,12 +20,12 @@ if (isset($_POST['submit'])) {
             $str = str_replace(' ', '_', $value['fieldName']);
             // echo $str."<br>";
             $val = $value['fieldName'];
-            $postVAl = $_POST["$str"];
+            $postVAl = $_POST[$str];
             if (empty($postVAl)) {
                 $postVAl = " ";
             }
             echo $postVAl;
-            $testresult[$val] = $postVAl;
+            $testresult[$str] = $postVAl;
         }
         $charges = $row['labCharges'];
     }
