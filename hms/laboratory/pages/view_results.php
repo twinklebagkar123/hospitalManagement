@@ -1,5 +1,15 @@
 <?php include('../include/header.php');
 $id = $_GET['recID'];
+function fetchPatientName($admissionID)
+{
+    include('../include/config.php');
+    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result =  $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['PatientName'];
+    }
+    return $answer;
+}
 ?>
 <style type="text/css">
     .title_style {
@@ -72,7 +82,7 @@ $id = $_GET['recID'];
                     <div class="row">
 
                         <div class="col-sm-6 justify-content-start ">
-                            <p class="title_style"> PATIENT NAME: - </p>
+                            <p class="title_style"> PATIENT NAME: - <?php echo fetchPatientName($row['admissionID']); ?></p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
                             <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p> 
 
