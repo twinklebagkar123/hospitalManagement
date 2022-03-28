@@ -6,9 +6,29 @@ function fetchPatientName($admissionID)
     $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
-        $answer = $row['PatientName'];
+        $name = $row['PatientName'];
     }
-    return $answer;
+    return $name;
+}
+function fetchPatientGender($admissionID)
+{
+    include('../include/config.php');
+    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result =  $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $gender = $row['PatientName'];
+    }
+    return $gender;
+}
+function fetchPatientAge($admissionID)
+{
+    include('../include/config.php');
+    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result =  $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $age = $row['PatientName'];
+    }
+    return $age;
 }
 ?>
 <style type="text/css">
@@ -93,8 +113,8 @@ function fetchPatientName($admissionID)
 
                         <div class="col-sm-6 justify-content-end font-weight-bold">
 
-                            <p class="title_style">SEX: - </p>
-                            <p class="title_style">AGE: - </p>
+                            <p class="title_style">SEX: - <?php echo fetchPatientGender($row['admissionID']); ?></p>
+                            <p class="title_style">AGE: - <?php echo fetchPatientAge($row['admissionID']); ?></p>
                             <p class="title_style">Reg. no: -1363/02 </p>
 
                         </div>
