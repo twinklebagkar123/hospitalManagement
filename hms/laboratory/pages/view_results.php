@@ -198,7 +198,7 @@ function fetchPatientName($admissionID)
                                 foreach ($valuesDistribution as $value) {
                                     $temp = $valuesDistribution[$i]->fieldName;
                                     $temp = str_replace(' ', '_', $temp );
-                                    echo $$recResult['$temp'];
+                                   // echo $recResult['$temp'];
                                     echo "<div class='row text-center'>";
                                     if (!(strpos($valuesDistribution[$i]->fieldName, "*"))) {
 
