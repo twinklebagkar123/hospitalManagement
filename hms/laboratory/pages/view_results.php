@@ -1,5 +1,5 @@
 <?php include('../include/header.php');
-$id = $_GET['id'];
+$id = $_GET['recID'];
 ?>
 <style type="text/css">
     .title_style {
