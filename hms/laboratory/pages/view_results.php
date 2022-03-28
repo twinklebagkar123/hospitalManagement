@@ -1,7 +1,5 @@
 <?php include('../include/header.php');
     include('../include/config.php');
-$sql1 = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-$result1 =  $con->query($sql1);
 while ($row = mysqli_fetch_array($result1)) {
     $answer1 = $row['PatientName'];
 }
