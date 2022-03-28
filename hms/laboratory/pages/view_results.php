@@ -3,33 +3,37 @@ $id = $_GET['recID'];
 function fetchPatientName($admissionID)
 {
     include('../include/config.php');
-    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
+    $resultarray=[];
+
     while ($row = mysqli_fetch_array($result)) {
-        $name = $row['PatientName'];
+        $resultarray['name'] = $row['PatientName'];
+        $resultarray['gender'] = $row['PatientGender'];
+        $resultarray['age'] = $row['PatientAge'];
     }
-    return $name;
+    return $resultarray;
 }
-function fetchPatientGender($admissionID)
-{
-    include('../include/config.php');
-    $query2 = "SELECT tblpatient.PatientGender FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    $result2 =  $con->query($query2);
-    while ($row = mysqli_fetch_array($result2)) {
-        $gender = $row['PatientGender'];
-    }
-    return $gender;
-}
-function fetchPatientAge($admissionID)
-{
-    include('../include/config.php');
-    $query3 = "SELECT tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    $result3 =  $con->query($query3);
-    while ($row = mysqli_fetch_array($result3)) {
-        $age = $row['PatientAge'];
-    }
-    return $age;
-}
+// function fetchPatientGender($admissionID)
+// {
+//     include('../include/config.php');
+//     $query2 = "SELECT tblpatient.PatientGender FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+//     $result2 =  $con->query($query2);
+//     while ($row = mysqli_fetch_array($result2)) {
+//         $gender = $row['PatientGender'];
+//     }
+//     return $gender;
+// }
+// function fetchPatientAge($admissionID)
+// {
+//     include('../include/config.php');
+//     $query3 = "SELECT tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+//     $result3 =  $con->query($query3);
+//     while ($row = mysqli_fetch_array($result3)) {
+//         $age = $row['PatientAge'];
+//     }
+//     return $age;
+//  }
 ?>
 <style type="text/css">
     .title_style {
@@ -96,13 +100,13 @@ function fetchPatientAge($admissionID)
                 $result = $con->query($query);
                 $fields_arr = "";
                 while ($row = mysqli_fetch_array($result)) {
-
+                    $resultarray2= fetchPatientName($row['admissionID']);
                 ?>
 
                     <div class="row">
 
                         <div class="col-sm-6 justify-content-start ">
-                            <p class="title_style"> PATIENT NAME: - <?php echo fetchPatientName($row['admissionID']); ?></p>
+                            <p class="title_style"> PATIENT NAME: - <?php echo $resultarray2['name']; ?></p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
                             <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p>
 
@@ -113,8 +117,8 @@ function fetchPatientAge($admissionID)
 
                         <div class="col-sm-6 justify-content-end font-weight-bold">
 
-                            <p class="title_style">SEX: - <?php echo fetchPatientGender($row['admissionID']); ?></p>
-                            <p class="title_style">AGE: - <?php echo fetchPatientAge($row['admissionID']); ?></p>
+                            <p class="title_style">SEX: - <?php echo fetchPatientName($row['admissionID']); ?></p>
+                            <p class="title_style">AGE: - <?php echo fetchPatientName($row['admissionID']); ?></p>
                             <p class="title_style">Reg. no: -1363/02 </p>
 
                         </div>
