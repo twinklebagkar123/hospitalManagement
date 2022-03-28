@@ -146,7 +146,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Units:
 												</label>
-												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add Reference Range">
+												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add units ">
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -196,7 +196,7 @@ if (isset($_POST['submit'])) {
 										<label>
 											Test Charges:
 										</label>
-										<input type="text" name="charges" class="form-control" placeholder="Add Test Field Name" required="true">
+										<input type="text" name="charges" class="form-control" placeholder="Add Test Charges " required="true">
 
 
 									</div>
