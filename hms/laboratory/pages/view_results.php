@@ -74,7 +74,7 @@ $id = $_GET['recID'];
                         <div class="col-sm-6 justify-content-start ">
                             <p class="title_style"> PATIENT NAME: - </p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
-                            <p class="title_style">DATE: - </p>
+                            <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p>
 
 
 
