@@ -157,6 +157,7 @@ $id = $_GET['recID'];
                             <tr>
                             <?php
                             if (!empty($row['labFields'])) :
+                                $recResult =  json_decode($row['testResult']);
                                 $valuesDistribution = json_decode($row['labFields']);
                                 $i = 0;
                                 foreach ($valuesDistribution as $value) {
@@ -164,13 +165,17 @@ $id = $_GET['recID'];
                                     if (!(strpos($valuesDistribution[$i]->fieldName, "*"))) {
 
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
-                                        echo "<div class='col-sm-3'></div>";
+                                        foreach ($recResult as $key => $value) {
+                                        echo "<div class='col-sm-3'> $value </div>";
+                                    }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->normalRange . "</div>" :  "";
                                     } else {
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3 text-bold'>" .         substr($valuesDistribution[$i]->fieldName, 0, -1) . "</div>" :  "";
-                                        echo "<div class='col-sm-3'></div>";
+                                        foreach ($valuesDistribution as $value) {
+                                        echo "<div class='col-sm-3'> $value </div>"; 
+                                        }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->normalRange . "</div>" :  "";
