@@ -192,7 +192,8 @@ function fetchPatientName($admissionID)
                                 $valuesDistribution = json_decode($row['labFields']);
                                 $i = 0;
                                 foreach ($valuesDistribution as $value) {
-                                    $temp = str_replace(' ', '_', $valuesDistribution[$i]->fieldName);
+                                    $temp = $valuesDistribution[$i]->fieldName;
+                                    $temp = str_replace(' ', '_', $temp );
                                     echo "<div class='row text-center'>";
                                     if (!(strpos($valuesDistribution[$i]->fieldName, "*"))) {
 
