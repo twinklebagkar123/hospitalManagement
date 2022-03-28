@@ -189,7 +189,7 @@ function fetchPatientName($admissionID)
                             if (!empty($row['labFields'])) :
                                 $recResult =  json_decode($row['testResult']);
                                 //$recResult =  json_decode($recResult);
-                                print_r($recResult['Sodium']);
+                                print_r($recResult);
                                 $valuesDistribution = json_decode($row['labFields']);
                                 $i = 0;
                                 foreach ($valuesDistribution as $value) {
