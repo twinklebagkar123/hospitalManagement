@@ -10,29 +10,29 @@ if (isset($_POST['submit'])) {
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
         $fields = $row['labFields'];
-       // print_r($fields);
-         $fields_arr = json_decode($fields, true);
+        // print_r($fields);
+        $fields_arr = json_decode($fields, true);
         // print_r($fields_arr);
 
-         foreach ($fields_arr as  $value) {
-             //print_r($value);
-           //  echo "<br>check<br>";
+        foreach ($fields_arr as  $value) {
+            //print_r($value);
+            //  echo "<br>check<br>";
             $str = str_replace(' ', '_', $value['fieldName']);
-           // echo $str."<br>";
-           $val = $value['fieldName'];
+            // echo $str."<br>";
+            $val = $value['fieldName'];
             $postVAl = $_POST["$str"];
-            if(empty($postVAl)){
+            if (empty($postVAl)) {
                 $postVAl = " ";
             }
             echo $postVAl;
             $testresult[$val] = $postVAl;
         }
-             $charges = $row['labCharges'];
-     }
+        $charges = $row['labCharges'];
+    }
     // print_r($testresult);
     $date = date("Y-m-d");
-     $testJson = json_encode($testresult);
-     $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
+    $testJson = json_encode($testresult);
+    $updateQuery = "UPDATE `labTestRecord` SET `labTestStatus`='complete',`testResult`='$testJson',`findings`='$findings',`performedDate`='$date',`performedBy`='$performedBy',`charges`='$charges' WHERE recordID = '$recID'";
     // print_r($updateQuery);
     $result = $con->query($updateQuery);
 }
@@ -87,32 +87,32 @@ function fetchPatientName($admissionID)
                         $fields = json_decode($row['labFields']);
                         // $fields_arr = explode(",", $fields);
                         $i = 1;
-                      //  print_r($fields);
+                        //  print_r($fields);
                         foreach ($fields as $field) {
                             if (!(strpos($field->fieldName, "*"))) {
-                            // echo "_______";
-                            // var_dump($field);
-                            // echo $field->fieldName;
-                            // $k = json_decode($field);
-                            // var_dump($k);
-                           // echo "________________________________________________________________________________________________________________________________________________________________________________________________";
-                            // if(!(($field->units == '') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
-                            // {
+                                // echo "_______";
+                                // var_dump($field);
+                                // echo $field->fieldName;
+                                // $k = json_decode($field);
+                                // var_dump($k);
+                                // echo "________________________________________________________________________________________________________________________________________________________________________________________________";
+                                // if(!(($field->units == '') || ($field == '"referanceRange":""') ||($field == '"normalRange":""}') ) )
+                                // {
                         ?>
-                            <div class="form-group">
-                                <label for="<?php echo $field->fieldName; ?>">
-                                    <?php echo $field->fieldName; ?>
-                                </label>
+                                <div class="form-group">
+                                    <label for="<?php echo $field->fieldName; ?>">
+                                        <?php echo $field->fieldName; ?>
+                                    </label>
 
-                                <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field->fieldName; ?>" class="form-control" placeholder="Enter <?php echo $field->fieldName; ?>">
+                                    <input type="text" id="field_lab_<?php echo $i; ?>" name="<?php echo $field->fieldName; ?>" class="form-control" placeholder="Enter <?php echo $field->fieldName; ?>">
 
 
-                            </div>
+                                </div>
 
                         <?php
                             }
                             $i++;
-                        } 
+                        }
                         ?>
                         <input type="hidden" name="field_lab_counter" id="field_lab_counter" value="<?php echo $i - 1; ?>">
                     <?php
@@ -146,8 +146,10 @@ function fetchPatientName($admissionID)
             <div class="row">
                 <div class="col-md-12">
                     <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Procedures</span></h5>
-                    <p style="color:red;"><?php //echo htmlentities($_SESSION['msg']); ?>
-                        <?php // echo htmlentities($_SESSION['msg'] = ""); ?></p>
+                    <p style="color:red;"><?php //echo htmlentities($_SESSION['msg']); 
+                                            ?>
+                        <?php // echo htmlentities($_SESSION['msg'] = ""); 
+                        ?></p>
                     <table class="table table-hover" id="table_field">
                         <thead>
                             <tr>
