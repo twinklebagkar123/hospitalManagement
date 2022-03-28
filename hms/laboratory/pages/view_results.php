@@ -194,6 +194,7 @@ function fetchPatientAge($admissionID)
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
                                         foreach ($recResult as $key => $value) {
                                            // echo "<div class='col-sm-3'> $value </div>";
+                                           
                                             echo isset($recResult->$value) ? "<div class='col-sm-3'>" . $recResult->$value . "</div>" :  "";
                                         }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
