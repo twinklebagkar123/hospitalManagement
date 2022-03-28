@@ -154,6 +154,7 @@ $id = $_GET['recID'];
                             <?php
                             if (!empty($row['labFields'])) :
                                 $recResult =  json_decode($row['testResult']);
+                                print_r($recResult);
                                 $valuesDistribution = json_decode($row['labFields']);
                                 $i = 0;
                                 foreach ($valuesDistribution as $value) {
