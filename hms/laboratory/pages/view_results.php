@@ -117,8 +117,8 @@ function fetchPatientName($admissionID)
 
                         <div class="col-sm-6 justify-content-end font-weight-bold">
 
-                            <p class="title_style">SEX: - <?php echo fetchPatientName($row['admissionID']); ?></p>
-                            <p class="title_style">AGE: - <?php echo fetchPatientName($row['admissionID']); ?></p>
+                            <p class="title_style">SEX: - <?php echo $resultarray2['gender']; ?></p>
+                            <p class="title_style">AGE: - <?php echo $resultarray2['age']; ?></p>
                             <p class="title_style">Reg. no: -1363/02 </p>
 
                         </div>
