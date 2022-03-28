@@ -1,4 +1,11 @@
 <?php include('../include/header.php');
+    include('../include/config.php');
+$sql1 = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+$result1 =  $con->query($sql1);
+while ($row = mysqli_fetch_array($result1)) {
+    $answer1 = $row['PatientName'];
+}
+return $answer1;
 $id = $_GET['recID'];
 ?>
 <style type="text/css">
@@ -72,7 +79,7 @@ $id = $_GET['recID'];
                     <div class="row">
 
                         <div class="col-sm-6 justify-content-start ">
-                            <p class="title_style"> PATIENT NAME: - </p>
+                            <p class="title_style"> PATIENT NAME: - <?php echo fetchPatientName($row['admissionID']); ?></p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
                             <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p> 
 
