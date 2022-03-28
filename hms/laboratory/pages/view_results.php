@@ -207,7 +207,7 @@ function fetchPatientName($admissionID)
 
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
                                         // foreach ($recResult as $key => $value) {
-                                            echo "<div class='col-sm-3'> ".$recResult[$temp]." </div>";
+                                            echo "<div class='col-sm-3'> ".$recResult->$temp." </div>";
                                             
                                         // }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
@@ -216,7 +216,7 @@ function fetchPatientName($admissionID)
                                     } else {
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3 text-bold'>" .         substr($valuesDistribution[$i]->fieldName, 0, -1) . "</div>" :  "";
                                         // foreach ($valuesDistribution as $value) {
-                                            echo "<div class='col-sm-3'> ".$recResult[$temp]." </div>";
+                                            echo "<div class='col-sm-3'> ".$recResult->$temp." </div>";
                                         // }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
