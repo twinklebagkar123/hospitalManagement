@@ -1,5 +1,5 @@
 <?php include('../include/header.php');
-    include('../include/config.php');
+   
 while ($row = mysqli_fetch_array($result1)) {
     $answer1 = $row['PatientName'];
 }
