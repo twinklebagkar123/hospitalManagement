@@ -1,9 +1,4 @@
 <?php include('../include/header.php');
-   
-while ($row = mysqli_fetch_array($result1)) {
-    $answer1 = $row['PatientName'];
-}
-return $answer1;
 $id = $_GET['recID'];
 ?>
 <style type="text/css">
@@ -77,9 +72,9 @@ $id = $_GET['recID'];
                     <div class="row">
 
                         <div class="col-sm-6 justify-content-start ">
-                            <p class="title_style"> PATIENT NAME: - <?php echo fetchPatientName($row['admissionID']); ?></p>
+                            <p class="title_style"> PATIENT NAME: - </p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
-                            <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p> 
+                            <p class="title_style">DATE: - <?php echo $row['performedDate'] ?>< </p> 
 
 
 
