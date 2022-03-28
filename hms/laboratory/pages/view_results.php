@@ -58,12 +58,8 @@ $id = $_GET['recID'];
         <div class="row">
             <div class="col-md-12">
                 <h5 class="over-title margin-bottom-15">View <span class="text-bold">Form</span></h5>
-                <p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
+                <p style="color:red;"> <?php echo htmlentities($_SESSION['msg']); ?>
                     <?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
-
-
-                <?php  //}
-                ?>
 
                 <?php
                 $query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
@@ -166,15 +162,15 @@ $id = $_GET['recID'];
 
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
                                         foreach ($recResult as $key => $value) {
-                                        echo "<div class='col-sm-3'> $value </div>";
-                                    }
+                                            echo "<div class='col-sm-3'> $value </div>";
+                                        }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->normalRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->normalRange . "</div>" :  "";
                                     } else {
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3 text-bold'>" .         substr($valuesDistribution[$i]->fieldName, 0, -1) . "</div>" :  "";
                                         foreach ($valuesDistribution as $value) {
-                                        echo "<div class='col-sm-3'> $value </div>"; 
+                                            echo "<div class='col-sm-3'> $value </div>";
                                         }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
