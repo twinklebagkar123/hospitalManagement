@@ -13,9 +13,9 @@ function fetchPatientName($admissionID)
 function fetchPatientGender($admissionID)
 {
     include('../include/config.php');
-    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    $result =  $con->query($query);
-    while ($row = mysqli_fetch_array($result)) {
+    $query2 = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result2 =  $con->query($query2);
+    while ($row = mysqli_fetch_array($result2)) {
         $gender = $row['PatientGender'];
     }
     return $gender;
@@ -23,9 +23,9 @@ function fetchPatientGender($admissionID)
 function fetchPatientAge($admissionID)
 {
     include('../include/config.php');
-    $query = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    $result =  $con->query($query);
-    while ($row = mysqli_fetch_array($result)) {
+    $query3 = "SELECT tblpatient.PatientName FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result3 =  $con->query($query3);
+    while ($row = mysqli_fetch_array($result3)) {
         $age = $row['PatientAge'];
     }
     return $age;
