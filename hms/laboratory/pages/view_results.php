@@ -187,7 +187,7 @@ function fetchPatientName($admissionID)
                             <tr>
                             <?php
                             if (!empty($row['labFields'])) :
-                                $recResult =  json_decode($row['testResult']);
+                                $recResult =  $row['testResult'];
                                 //$recResult =  json_decode($recResult);
                                 print_r($recResult);
                                 echo "__________".$resResult->Sodium;
