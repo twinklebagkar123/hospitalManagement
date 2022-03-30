@@ -28,12 +28,15 @@ var Main = function() {
 				});
 				e.stopPropagation();
 				e.preventDefault();
+				console.log("condition 1");
 			} else {
+				console.log("condition 1 else");
 				_this.parent().addClass("active");
 
 			}
 		});
 		elem.on(eventObject, 'a', function(e) {
+			console.log("condition 2");
 			if (!isSidebarClosed() || isSmallDevice())
 				return;
 			_this = $(this);
