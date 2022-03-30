@@ -22,10 +22,10 @@ var Main = function() {
 			_this.closest("ul").find(".open").not(".active").children("ul").not(_this.next()).slideUp(200).parent('.open').removeClass("open");
 			if (_this.next().is('ul') && _this.parent().toggleClass('open')) {
 
-				_this.next().slideToggle(200, function() {
-					$win.trigger("resize");
+				// _this.next().slideToggle(200, function() {
+				// 	$win.trigger("resize");
 
-				});
+				// });
 				e.stopPropagation();
 				e.preventDefault();
 				console.log("condition 1");
