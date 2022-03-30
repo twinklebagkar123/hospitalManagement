@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
 											<th>Patient Contact Number</th>
 											<th>Patient Gender </th>
 											<th>Creation Date </th>
-											<th>Updation Date </th>
+											 <th>Updation Date </th>
 											<th>Appointment </th>
 											<th>Documents </th>
 
@@ -325,7 +325,7 @@ if (isset($_POST['submit'])) {
 								jQuery(document).ready(function() {
 									Main.init();
 									FormElements.init();
-									$(document).on("click","#patientList button", function() {
+									$(document).on("click", "#patientList button", function() {
 										var name = $(this).data("name");
 										var id = $(this).data("pid");
 										$("#titleModal").html("Book " + name + "'s Appointment");
