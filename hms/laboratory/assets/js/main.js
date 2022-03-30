@@ -22,16 +22,16 @@ var Main = function() {
 			_this.closest("ul").find(".open").not(".active").children("ul").not(_this.next()).slideUp(200).parent('.open').removeClass("open");
 			if (_this.next().is('ul') && _this.parent().toggleClass('open')) {
 
-				// _this.next().slideToggle(200, function() {
-				// 	$win.trigger("resize");
+				_this.next().slideToggle(200, function() {
+					$win.trigger("resize");
 
-				// });
+				});
 				e.stopPropagation();
 				e.preventDefault();
 				console.log("condition 1");
 			} else {
 				console.log("condition 1 else");
-				_this.parent().addClass("active");
+				// _this.parent().addClass("active");
 
 			}
 		});
@@ -40,7 +40,6 @@ var Main = function() {
 			if (!isSidebarClosed() || isSmallDevice())
 				return;
 			_this = $(this);
-
 			if (!_this.parent().hasClass('hover') && !_this.closest("ul").hasClass("sub-menu")) {
 				wrapLeave();
 				_this.parent().addClass('hover');
@@ -50,11 +49,11 @@ var Main = function() {
 				}
 				var offset = $("#sidebar").position().top;
 				var itemTop = isSidebarFixed() ? _this.parent().position().top + offset : (_this.parent().position().top);
-				menuTitle.css({
-					position : isSidebarFixed() ? 'fixed' : 'absolute',
-					height : _this.outerHeight(),
-					top : itemTop
-				}).appendTo(wrap);
+				// menuTitle.css({
+				// 	position : isSidebarFixed() ? 'fixed' : 'absolute',
+				// 	height : _this.outerHeight(),
+				// 	top : itemTop
+				// }).appendTo(wrap);
 				if (_this.next().is('ul')) {
 					ul = _this.next().clone(true);
 
