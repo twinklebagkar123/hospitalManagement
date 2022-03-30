@@ -164,9 +164,9 @@ if (isset($_POST['submit'])) {
 
 									?>
 									<div id="test"></div>
-									<p align="center">
+									<!-- <p align="center">
 										<button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Assign Test</button>
-									</p>
+									</p> -->
 									<?php
 
 									//$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
