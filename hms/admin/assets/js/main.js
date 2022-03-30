@@ -29,7 +29,7 @@ var Main = function() {
 				e.stopPropagation();
 				e.preventDefault();
 			} else {
-				//_this.parent().addClass("active");
+				// _this.parent().addClass("active");
 
 			}
 		});
