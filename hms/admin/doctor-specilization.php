@@ -98,7 +98,7 @@ if (isset($_GET['del'])) {
 														<label for="exampleInputEmail1">
 															Doctor Specialization
 														</label>
-														<input type="text" id= "doctorspecilization" name="doctorspecilization" class="form-control" placeholder="Enter Doctor Specialization" onBlur="checkIfAvailable()">
+														<input type="text" id= "doctorspecilization" name="doctorspecilization" class="form-control" placeholder="Enter Doctor Specialization" onkeyup="checkIfAvailable()">
 														<span id="email-availability-status"></span>
 													</div>
 
