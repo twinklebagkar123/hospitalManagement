@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $PatientContno = $row['PatientContno'];
   $PatientGender = $row['PatientGender'];
   $CreationDate = $row['CreationDate'];
-  $UpdationDate = $row['UpdationDate'];
+  // $UpdationDate = $row['UpdationDate'];
   $bookAppointment = "<button type='button' data-admissionID = '".$row['']."' data-pid='".$row['ID']."' data-name='".$row['PatientName']."' class='btn btn-primary' data-toggle='modal' data-target='#myModal'>Book</button>";
   $addFiles = '<a class="btn btn-primary"  class="btn btn-primary" href="medical-history-documents.php?docId='.$row['ID'].'"">Attach</a>';
 
