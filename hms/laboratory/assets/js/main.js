@@ -465,7 +465,7 @@ var Main = function() {
 	return {
 		init : function() {
 			settingsHandler();
-			// sidebarHandler();
+			sidebarHandler();
 			toggleClassOnElement();
 			navbarHandler();
 			searchHandler();
