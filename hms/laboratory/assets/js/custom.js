@@ -1,6 +1,7 @@
-jQuery(document).ready(function() {
+jQuery(document).ready(function () {
     console.log("code here");
    
+
     function valid() {
         if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
             alert("Password and Confirm Password Field do not match  !!");
@@ -19,11 +20,11 @@ jQuery(document).ready(function() {
             url: "check_availability.php",
             data: 'nameTest=' + $("#name").val(),
             type: "POST",
-            success: function(data) {
+            success: function (data) {
                 $("#email-availability-status").html(data);
                 $("#loaderIcon").hide();
             },
-            error: function() {}
+            error: function () { }
         });
     }
 
@@ -33,36 +34,9 @@ jQuery(document).ready(function() {
         return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
     }
 
-    var ckeditor = [];
-    jQuery(document).ready(function() {
 
-
-
-
-
-
-        CKEDITOR.replace('editor');
-        $(document).on("change", "#test_more_info ", function() {
-            if ($('#test_more_info').is(":checked")) {
-                console.log("checked");
-                $("#cke_editor").show();
-
-            } else {
-                $("#cke_editor").hide();
-            }
-
-        });
-
-        $(document).one("submit", "#addmed", function(e) {
-            e.preventDefault();
-
-            var data = CKEDITOR.instances.editor.getData();
-            $('#html_test_default_info').val(data);
-
-            $(this).submit();
-
-        });
-
+    jQuery(document).ready(function () {
+       
 
 
 
@@ -70,9 +44,10 @@ jQuery(document).ready(function() {
         FormElements.init();
         var values = [];
         var jsonFieldDetails = [];
-        $("#addField").on("click", function() {
-            console.log("working fine");
+        $("#addField").on("click", function () {
+
             var fieldName = $("#fieldName").val();
+            var noValueCheckbox = $("#noValueCheckbox").val();
             var unit_check = $("#units").is(":checked");
             var referanceRange_check = $("#ref").is(":checked");
             var normalRange_check = $("#normalRange").is(":checked");
@@ -98,9 +73,16 @@ jQuery(document).ready(function() {
                 $("#fieldShow").append(trow);
 
 
-                values.push(fieldName + '*');
-                valuesString = values.toString();
-                $("#fieldArray").val(JSON.stringify(values));
+                values.push({
+                    "fieldName": fieldName+"*",
+                    "units": "",
+                    "referanceRange": "",
+                    "normalRange": ""
+                });
+
+             //   valuesString = values.toString();
+             var valuesString = JSON.stringify(values);
+                $("#fieldArray").val(valuesString);
             } else {
                 if (unit_check) {
                     unit = $("#units_value").val();
@@ -120,10 +102,13 @@ jQuery(document).ready(function() {
                     "units": unit,
                     "referanceRange": referanceRange,
                     "normalRange": normalRange
+
                 });
                 console.log(values);
+                var valuesString = JSON.stringify(values);
                 //valuesString = values.toString();
-                $("#fieldArray").val(JSON.stringify(values));
+                console.log(valuesString);
+                $("#fieldArray").val(valuesString);
 
                 // $("#fieldShow").append(trow);
 
@@ -134,7 +119,7 @@ jQuery(document).ready(function() {
 
 
         });
-        $(document).on("click", ".remove", function() {
+        $(document).on("click", ".remove", function () {
             var shanti = $(this).data("name");
             var index = jsonFieldDetails.indexOf(shanti);
             if (index > -1) {
@@ -152,7 +137,7 @@ jQuery(document).ready(function() {
     });
 
 
-    $(document).on("change", "#units", function() {
+    $(document).on("change", "#units", function () {
 
         if ($('#units').is(":checked")) {
 
@@ -163,7 +148,7 @@ jQuery(document).ready(function() {
         }
 
     });
-    $(document).on("change", "#ref", function() {
+    $(document).on("change", "#ref", function () {
 
         if ($('#ref').is(":checked")) {
 
@@ -174,7 +159,7 @@ jQuery(document).ready(function() {
         }
 
     });
-    $(document).on("change", "#normalRange", function() {
+    $(document).on("change", "#normalRange", function () {
 
         if ($('#normalRange').is(":checked")) {
 

@@ -1,42 +1,36 @@
-<?php include('../include/header.php'); 
-session_start();
-// error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
+<?php include('../include/header.php');
+include('../include/config.php');
+
 if (isset($_POST['submit'])) {
-    $labTestName = $_POST['name'];
-    $labFields = $_POST['fieldArray'];
-    $charges = $_POST['charges'];
-    $referance_range = $_POST['referance_range'];
-    $units = $_POST['units'];
-    $main_title = implode(',', $_POST['main_titles']);
+	$labTestName = $_POST['name'];
+	$labFields = $_POST['fieldArray'];
+	$charges = $_POST['charges'];
+	$referance_range = $_POST['referance_range'];
+	$units = $_POST['units'];
+	$main_title = implode(',', $_POST['main_titles']);
 
-    $mt = "";
+	$mt = "";
 
-    $html_test_default_info = htmlentities($_POST['html_test_default_info'], ENT_QUOTES);
+	$html_test_default_info = htmlentities($_POST['html_test_default_info'], ENT_QUOTES);
 
-     $query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('".$labTestName."','".$labFields."','".$charges."','".$html_test_default_info."','".$main_title."')";
-     $con->query($query);
-
-
-
+	$query = "INSERT INTO `laboratoryTestList`(`labTestName`, `labFields`, `labCharges`, `test_more_info`,`main_titles`) VALUES ('" . $labTestName . "','" . $labFields . "','" . $charges . "','" . $html_test_default_info . "','" . $main_title . "')";
+	$con->query($query);
 }
 
 
 ?>
 <style>
-        .no_value_style {
-            margin-top: 26px;
-            font-size: 23px;
+	.no_value_style {
+		margin-top: 26px;
+		font-size: 23px;
 
-        }
+	}
 
-        .no_value_style>input {
-            width: 20px;
-            height: 20px;
-        }
-    </style>
+	.no_value_style>input {
+		width: 20px;
+		height: 20px;
+	}
+</style>
 
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
@@ -138,7 +132,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Reference Range:
 												</label>
-												<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range" required="true">
+												<input type="text" id="referance_value" name="referance_value" class="form-control" placeholder="Add Reference Range">
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -152,7 +146,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Units:
 												</label>
-												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add Reference Range" required="true">
+												<input type="text" id="units_value" name="units_value" class="form-control" placeholder="Add units ">
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -166,7 +160,7 @@ if (isset($_POST['submit'])) {
 												<label>
 													Normal Range:
 												</label>
-												<input type="text" id="normalRange_value" name="normalRange_value" class="form-control" placeholder="Add Normal Range" required="true">
+												<input type="text" id="normalRange_value" name="normalRange_value" class="form-control" placeholder="Add Normal Range">
 												<!-- <input type="hidden" id="referance_range" name="referance_range" class="form-control" placeholder="Add Reference Range" >  -->
 												<br>
 
@@ -202,7 +196,7 @@ if (isset($_POST['submit'])) {
 										<label>
 											Test Charges:
 										</label>
-										<input type="text" name="charges" class="form-control" placeholder="Add Test Field Name" required="true">
+										<input type="text" name="charges" class="form-control" placeholder="Add Test Charges " required="true">
 
 
 									</div>
@@ -290,3 +284,28 @@ if (isset($_POST['submit'])) {
 <!-- end: SELECT BOXES -->
 
 <?php include('../include/footer.php'); ?>
+<script>
+	var ckeditor = [];
+	jQuery(document).ready(function() {
+		CKEDITOR.replace('editor');
+		$(document).on("change", "#test_more_info ", function() {
+			if ($('#test_more_info').is(":checked")) {
+				console.log("checked");
+				$("#cke_editor").show();
+
+			} else {
+				$("#cke_editor").hide();
+			}
+
+		});
+
+		$(document).one("submit", "#addmed", function(e) {
+			e.preventDefault();
+
+			var data = CKEDITOR.instances.editor.getData();
+			$('#html_test_default_info').val(data);
+
+			$(this).submit();
+		});
+	});
+</script>
