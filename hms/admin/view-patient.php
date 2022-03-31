@@ -68,11 +68,11 @@ if (isset($_POST['submit'])) {
 
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Doctor | Manage Patients</h1>
+								<h1 class="mainTitle"> Manage Patients</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
-									<span>Doctor</span>
+									<span>ADMIN</span>
 								</li>
 								<li class="active">
 									<span>Manage Patients</span>
@@ -81,107 +81,394 @@ if (isset($_POST['submit'])) {
 						</div>
 					</section>
 					<div class="container-fluid container-fullw bg-white">
-						<div class="row">
-							<div class="col-md-12">
-								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
+            <div class="row">
+              <div class="col-md-12">
+                <h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
+                <?php
+                $vid = $_GET['viewid'];
+                $ret = mysqli_query($con, "select * from tblpatient where ID='$vid'");
+                $cnt = 1;
+                while ($row = mysqli_fetch_array($ret)) {
+                ?>
+                  <table style="border:1" class="table table-bordered">
+                    <tr style="align : center">
+                      <td colspan="4" style="font-size:20px;color:blue">
+                        Patient Details</td>
+                    </tr>
 
-								<?php
-								$vid = $_GET['viewid'];
-								$ret = mysqli_query($con, "select * from tblpatient where ID='$vid'");
-								$cnt = 1;
-								while ($row = mysqli_fetch_array($ret)) {
-								?>
-									<table border="1" class="table table-bordered">
-										<tr align="center">
-											<td colspan="4" style="font-size:20px;color:blue">
-												Patient Details</td>
-										</tr>
+                    <tr>
+                      <th scope>Patient Name</th>
+                      <td><?php echo $row['PatientName']; ?></td>
+                      <th scope>Patient Email</th>
+                      <td><?php echo $row['PatientEmail']; ?></td>
+                    </tr>
+                    <tr>
+                      <th scope>Patient Mobile Number</th>
+                      <td><?php echo $row['PatientContno']; ?></td>
+                      <th>Patient Address</th>
+                      <td><?php echo $row['PatientAdd']; ?></td>
+                    </tr>
+                    <tr>
+                      <th>Patient Gender</th>
+                      <td><?php echo $row['PatientGender']; ?></td>
+                      <th>Patient Age</th>
+                      <td><?php echo $row['PatientAge']; ?></td>
+                    </tr>
+                    <tr>
 
-										<tr>
-											<th scope>Patient Name</th>
-											<td><?php echo $row['PatientName']; ?></td>
-											<th scope>Patient Email</th>
-											<td><?php echo $row['PatientEmail']; ?></td>
-										</tr>
-										<tr>
-											<th scope>Patient Mobile Number</th>
-											<td><?php echo $row['PatientContno']; ?></td>
-											<th>Patient Address</th>
-											<td><?php echo $row['PatientAdd']; ?></td>
-										</tr>
-										<tr>
-											<th>Patient Gender</th>
-											<td><?php echo $row['PatientGender']; ?></td>
-											<th>Patient Age</th>
-											<td><?php echo $row['PatientAge']; ?></td>
-										</tr>
-										<tr>
+                      <th>Patient Medical History(if any)</th>
+                      <td><?php echo $row['PatientMedhis']; ?></td>
+                      <th>Patient Reg Date</th>
+                      <td><?php echo $row['CreationDate']; ?></td>
+                    </tr>
 
-											<th>Patient Medical History(if any)</th>
-											<td><?php echo $row['PatientMedhis']; ?></td>
-											<th>Patient Reg Date</th>
-											<td><?php echo $row['CreationDate']; ?></td>
-										</tr>
-
-									<?php } ?>
-									</table>
-									<?php
-									$admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
-									$result = $con->query($admissionQuery);
-									?>
-									<table class="table table-bordered dt-responsive nowrap">
-										<thead>
-											<th>#</th>
-											<th>Admission Date</th>
-											<th>Admission Type</th>
-											<th>Diagnosis</th>
-											<th>Discharge Date</th>
-											<th>Assign Test</th>
-											<th>Reports</th>
-										</thead>
-										<tbody id="viewReport">
-											<?php
-											$sr = 1;
-											while ($row = mysqli_fetch_array($result)) {
-											?>
-												<tr>
-													<td><?php echo $sr; ?></td>
-													<td id="date"><?php echo $row['dateofadmission']; ?></td>
-													<td><?php echo $row['admissionType']; ?></td>
-													<td><?php //echo $row['dateofadmission'];
-														?></td>
-													<td><?php echo $row['dateofdischarge']; ?></td>
-													<td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#myModal">Assign Test</button></td>
-													<td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionid="<?php echo $row['unqId']; ?>" class="btn btn-primary reportInfo">View</button></td>
-												</tr>
-											<?php
-												$sr++;
-											}
-											?>
-										</tbody>
-									</table>
-									<?php
-
-									?>
-									<div id="test"></div>
-									<!-- <p align="center">
-										<button class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Assign Test</button>
-									</p> -->
-									<?php
-
-									//$ret = mysqli_query($con, "select * from tblmedicalhistory  where PatientID='$vid'");
+                  <?php } ?>
+                  </table>
+                  <!-- new table structure -->
+                  <?php
+                  $admissionQuery = "SELECT * FROM `patientAdmission` where uid = '$vid'";
+                  $result = $con->query($admissionQuery);
 
 
+                  ?>
+                  <table class="table table-bordered dt-responsive nowrap">
+                    <thead>
+                      <th>#</th>
+                      <th>Admission Date</th>
+                      <th>Admission Type</th>
+                      <th>Diagnosis</th>
+                      <th>Discharge Date</th>
+                      <th>Assign Test</th>
+                      <th>Reports</th>
+                      <th>Add History</th>
+                    </thead>
+                    <tbody id="viewReport">
+                      <?php
+                      $sr = 1;
+                      while ($row = mysqli_fetch_array($result)) {
+                      ?>
+                        <tr>
+                          <td><?php echo $row['unqId']; ?></td>
+                          <td id="date"><?php echo $row['dateofadmission']; ?></td>
+                          <td><?php echo $row['admissionType']; ?></td>
+                          <td><?php //echo $row['dateofadmission'];
+                              ?></td>
+                          <td><?php echo $row['dateofdischarge']; ?></td>
+                          <td><button type="button" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary assignTest" data-toggle="modal" data-target="#testModal">Assign Test</button></td>
+                          <td><button type="button" data-admission="<?php echo $row['dateofadmission']; ?>" data-discharge="<?php echo $row['dateofdischarge']; ?>" data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary reportInfo">View</button></td>
+                          <td>
+                            <?php
+                            // if ($row['dateofdischarge'] == "0000-00-00") {
+                            ?>
+                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                            <?php
+                            // }
 
-									?>
+                            ?>
+                          </td>
+                        </tr>
+                      <?php
+                        $sr++;
+                      }
+                      ?>
+                    </tbody>
 
-									<div>
-										<canvas id="line-chart" width="400" height="100"></canvas>
-										<canvas id="tpr-chart" width="400" height="100"></canvas>
-									</div>
-							</div>
-						</div>
-					</div>
+                  </table>
+                  <?php
+
+                  $queryfetchFiles = "SELECT * FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
+                  $res = $con->query($queryfetchFiles);
+
+
+                  ?>
+                  <h5 class="over-title margin-bottom-15">Files <span class="text-bold">Attached</span></h5>
+                  <table class="table table-bordered dt-responsive nowrap">
+                    <thead>
+                      <tr>
+                        <th>
+                          Sr No.
+                        </th>
+                        <th>
+                          File Name
+                        </th>
+                        <th>
+                          Uploaded Date
+                        </th>
+                        <th>
+                          View
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      $i = 0;
+                      while ($row1 = mysqli_fetch_array($res)) {
+                        $i++;
+                      ?>
+                        <tr>
+                          <td>
+                            <?php echo $i; ?>
+                          </td>
+                          <td>
+                            <?php echo $row1['file_title'] ?>
+                          </td>
+                          <td>
+                            <?php echo $row1['uploaded_at'] ?>
+                          </td>
+                          <td>
+                            <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
+
+                          </td>
+                        </tr>
+                      <?php
+                      }
+
+                      ?>
+                    </tbody>
+                  </table>
+                  <div id="test"></div>
+                  <div>
+                    <canvas id="line-chart" width="400" height="100"></canvas>
+                    <canvas id="tpr-chart" width="400" height="100"></canvas>
+                  </div>
+                  <!-- Modal -->
+                  <div id="testModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Assign Test Here</h4>
+                        </div>
+                        <div class="modal-body">
+                          <form method="POST" action="">
+                            <input name="admissionID" id="adID" type="hidden" class="form-control wd-450">
+                            <?php
+                            $ret = mysqli_query($con, "select * from laboratoryTestList");
+                            $cnt = 1;
+                            while ($row = mysqli_fetch_array($ret)) {
+                            ?>
+
+                              <input type="checkbox" id="<?php echo $row['labFormID'] ?>" name="testID[]" value="<?php echo $row['labFormID'] ?>">
+                              <label for="<?php echo $row['labFormID'] ?>"> <?php echo $row['labTestName'] ?></label><br>
+
+                            <?php
+                            }
+
+                            ?>
+                            <input type="submit" name="testAssign" value="Assign Test">
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Add Medical History</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <table class="table table-bordered table-hover data-tables">
+                            <form method="post" name="submit">
+                              <input type="hidden" id="admissionIDHis" name="admissionID" value="">
+                              <input type="hidden" id="medicinePrescription" name="medicinePrescription" value="">
+                              <input type="hidden" id="medicinePrescriptionType" name="medicinePrescriptionType" value="general_prescription">
+                              <tr>
+                                <th>Blood Pressure :</th>
+                                <td>
+                                  <input name="bp" placeholder="Blood Pressure" class="form-control wd-450" required="true">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>Blood Sugar Type :</th>
+                                <td>
+                                  <select name="type">
+                                    <option value="BBF">BBF</option>
+                                    <option value="PBF">PBF</option>
+                                    <option value="BL">BL</option>
+                                    <option value="PL">PL</option>
+                                    <option value="BD">BD</option>
+                                    <option value="PD">PD</option>
+                                    <option value="Midnight">Midnight</option>
+
+
+                                  </select>
+                                </td>
+
+                              </tr>
+
+                              <tr>
+                                <th>Blood Sugar :</th>
+
+                                <td><input name="bs" placeholder="Blood Sugar" class="form-control wd-450" required="true"></td>
+                              </tr>
+                              <tr>
+                                <th>Weight :</th>
+                                <td>
+                                  <input name="weight" placeholder="Weight" class="form-control wd-450" required="true">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>Body Temprature :</th>
+                                <td>
+                                  <input name="temp" placeholder="Blood Sugar" class="form-control wd-450" required="true">
+                                </td>
+                              </tr>
+                              <tr>
+                                <th>Prescription :</th>
+                                <td>
+                                  <div class="wrapperDiv">
+                                    <div class="row">
+                                      <div class="col-md-6">
+                                        <button type="button" id="general_prescription" class="btn btn-primary">General Prescription</button>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <button type="button" id="hourly_prescription" class="btn btn-primary">Hourly Prescription</button>
+                                      </div>
+                                    </div>
+                                    <!-- <div id="medicalResult"></div>
+                                    <input type="hidden" name="pres" id="result" value=""> -->
+                                    <div class="hourly_prescription" style="display: none;">
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          Medicine
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg autosuggest" autocomplete="off" style="margin-bottom: 5px;">
+                                          <div class="subDiv pillResult"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          Start From
+                                          <div class="input-group bootstrap-timepicker timepicker" style="margin-bottom: 5px;">
+                                            <input id="start_from" type="text" class="form-control input-small">
+                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                          </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          Dosage
+                                          <input type="text" id="dosage_hourly" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Interval (In Hour)
+                                          <input type="number" id="interval_hourly" class="form-control" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 text-right">
+                                          <button type="button" class="btn btn-primary addMedicineBtn">+ Medicine</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="general_prescription" style="display: none;">
+                                      <div class="row">
+                                        <div class="col-md-3">
+                                          Medicine
+                                          <input type="text" placeholder="Type here..." class="form-control medicineSugg autosuggest " autocomplete="off" style="margin-bottom: 5px;">
+                                          <div class="subDiv pillResult"></div>
+                                        </div>
+                                        <div class="col-md-3">
+                                          Frequency
+                                          <input type="text" id="frequency" placeholder="1-0-1" class="form-control" autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Dosage
+                                          <input type="text" id="dosage" placeholder="400 mg" class="form-control " autocomplete="off" style="margin-bottom: 5px;">
+
+                                        </div>
+                                        <div class="col-md-3">
+                                          Period
+                                          <input type="text" id="period" placeholder="5 days" class="form-control medicineSugg" autocomplete="off" style="margin-bottom: 5px;width: 60px;">
+                                          <input type="checkbox" id="meal_check" autocomplete="off"> Before Meal
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                        <div class="col-md-12 text-right">
+                                          <button type="button" class="btn btn-primary addMedicineBtn">+ Medicine</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="row" id="prescribedMedicineList" style="display: none; margin-top: 10px;">
+                                      <div class="col-md-12">
+                                        <table class="table table-bordered table-hover data-tables">
+                                          <thead>
+                                            <tr>
+                                              <th>Medicine</th>
+                                              <th>Frequency</th>
+                                              <th>Dosage</th>
+                                              <th>Period</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody class="medicineList">
+
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+                                    <div class="row" id="prescribedMedicineListHourly" style="display: none; margin-top: 10px;">
+                                      <div class="col-md-12">
+                                        <table class="table table-bordered table-hover data-tables">
+                                          <thead>
+                                            <tr>
+                                              <th>Medicine</th>
+                                              <th>Start From</th>
+                                              <th>Dosage</th>
+                                              <th>Interval</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody class="medicineList">
+
+                                          </tbody>
+                                        </table>
+                                      </div>
+                                    </div>
+
+
+                                  </div>
+
+
+                                  <!-- <textarea name="pres" id="result" class="form-control wd-450" required="true"></textarea> -->
+                                  <div></div>
+                                </td>
+                              </tr>
+
+                              <tr>
+                                <th>Nurse Note :</th>
+                                <td>
+                                  <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                              </tr>
+                              <tr>
+                                <th>Doctor's Observation :</th>
+                                <td>
+                                  <textarea name="doctorObservation" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                              </tr>
+                              <tr>
+                                <th>Doctor's Diagnosis :</th>
+                                <td>
+                                  <textarea name="doctorDiagnosis" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                              </tr>
+                          </table>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
 				</div>
 			</div>
 		</div>

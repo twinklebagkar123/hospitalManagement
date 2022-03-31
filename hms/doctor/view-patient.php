@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
 <body>
   <script type="text/javascript">
     function getAllValues(em) {
-      console.log("TYPE... ",em.val())
+      console.log("TYPE... ", em.val())
       $("#loaderIcon").show();
       if (em.val() == "") {
         $(".pillResult").html(' ');
@@ -184,7 +184,7 @@ if (isset($_POST['submit'])) {
                             <?php
                             // if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
-                              <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
                             <?php
                             // }
 
@@ -196,7 +196,7 @@ if (isset($_POST['submit'])) {
                       }
                       ?>
                     </tbody>
-                    
+
                   </table>
                   <?php
 
@@ -240,8 +240,8 @@ if (isset($_POST['submit'])) {
                             <?php echo $row1['uploaded_at'] ?>
                           </td>
                           <td>
-                            <a href = "https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
-                           
+                            <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
+
                           </td>
                         </tr>
                       <?php
@@ -373,7 +373,7 @@ if (isset($_POST['submit'])) {
                                           <div class="input-group bootstrap-timepicker timepicker" style="margin-bottom: 5px;">
                                             <input id="start_from" type="text" class="form-control input-small">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                                        </div>
+                                          </div>
                                         </div>
                                         <div class="col-md-3">
                                           Dosage
@@ -396,7 +396,7 @@ if (isset($_POST['submit'])) {
                                         <div class="col-md-3">
                                           Medicine
                                           <input type="text" placeholder="Type here..." class="form-control medicineSugg autosuggest " autocomplete="off" style="margin-bottom: 5px;">
-                                          <div  class="subDiv pillResult"></div>
+                                          <div class="subDiv pillResult"></div>
                                         </div>
                                         <div class="col-md-3">
                                           Frequency
@@ -641,12 +641,11 @@ if (isset($_POST['submit'])) {
           // });
           // $(document).ready(function() {
           $(".autosuggest").on('input', function() {
-           
+
             getAllValues($(this));
           });
           // });
         });
-    
       </script>
 
       <script>
