@@ -5,14 +5,22 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
+  $query = false;
   $testID = $_POST["testID"];
   $admissionID = $_POST["admissionID"];
   $date = date("Y-m-d");
   foreach ($testID as $value) {
     $sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
     //print_r($sql);
-    $result = $con->query($sql);
+    $query .= mysqli_query($con, $sql);
+	
   }
+  if ($query) {
+		echo '<script>alert("Test Assigned Successfully.")</script>';
+	
+	} else {
+		echo '<script>alert("Something Went Wrong. Please try again")</script>';
+	}
 }
 if (isset($_POST['submit'])) {
 
@@ -56,6 +64,7 @@ if (isset($_POST['submit'])) {
   <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
   <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
   <link rel="stylesheet" href="assets/css/styleext.css?ver=<?php echo rand(); ?>">
   <link rel="stylesheet" href="assets/css/plugins.css">
   <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
@@ -281,7 +290,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Submit">
                           </form>
                         </div>
                         <div class="modal-footer">

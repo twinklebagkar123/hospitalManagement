@@ -5,13 +5,22 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
+	$query = false;
 	$testID = $_POST["testID"];
 	$admissionID = $_POST["admissionID"];
 	$date = date("Y-m-d");
 	foreach ($testID as $value) {
 		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
-		print_r($sql);
-		//	$con->query($sql);
+		// print_r($sql);
+			// $con->query($sql);
+			$query .= mysqli_query($con, $sql);
+	
+	}
+	if ($query) {
+		echo '<script>alert("Test Assigned Successfully.")</script>';
+	
+	} else {
+		echo '<script>alert("Something Went Wrong. Please try again")</script>';
 	}
 }
 if (isset($_POST['submit'])) {
@@ -24,7 +33,7 @@ if (isset($_POST['submit'])) {
 	$pres = $_POST['pres'];
 
 
-	$query .= mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+	$query .= mysqli_query($con, "iNSERT INTO tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
 	if ($query) {
 		echo '<script>alert("Medicle history has been added.")</script>';
 		echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -38,7 +47,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-	<title>Doctor | Manage Patients</title>
+	<title>ADMIN | Manage Patients</title>
 
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -52,6 +61,7 @@ if (isset($_POST['submit'])) {
 	<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 	<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
@@ -257,7 +267,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Submit">
                           </form>
                         </div>
                         <div class="modal-footer">
@@ -514,7 +524,7 @@ if (isset($_POST['submit'])) {
 						}
 
 						?>
-						<input type="submit" name="testAssign" value="Assign Test">
+						<input type="submit" name="testAssign" value="Assign Test" >
 					</form>
 				</div>
 				<div class="modal-footer">
