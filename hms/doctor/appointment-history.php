@@ -65,9 +65,9 @@ if (isset($_GET['attend'])) {
 						<div class="row">
 							<div class="col-sm-4">
 								<div class="appointmentBox" id="pickappointment">
-									<a href="#" data-appointmentdate="<?php echo date('Y-m-d', strtotime("-1 days")); ?>">Yesterday</a>
-									<a href="#" data-appointmentdate="<?php echo date('Y-m-d'); ?>">Today</a>
-									<a href="#" data-appointmentdate="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">Tomorrow</a>
+									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d', strtotime("-1 days")); ?>">Yesterday</a>
+									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d'); ?>">Today</a>
+									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">Tomorrow</a>
 								</div>
 
 							</div>
@@ -87,6 +87,7 @@ if (isset($_GET['attend'])) {
 
 								<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 									<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
+									<div id="fetchappointment">
 								<table class="table table-hover" id="sample-table-1">
 									<thead>
 										<tr>
@@ -170,6 +171,7 @@ if (isset($_GET['attend'])) {
 
 									</tbody>
 								</table>
+									</div>
 							</div>
 						</div>
 					</div>
@@ -226,7 +228,8 @@ if (isset($_GET['attend'])) {
 						docID : <?php echo $_SESSION['id'];?>},
 					type: "POST",
 					success: function(data) {
-						//$("#user-availability-status1").html(data);
+						console.log(data);
+						$("#fetchappointment").html(data);
 						//$("#loaderIcon").hide();
 					},
 					error: function() {}
