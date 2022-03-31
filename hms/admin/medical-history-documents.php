@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
             $query = "INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) VALUES ('" . $_POST['fTitle'] . "','" . $path . "','" . $docid . "','" . $today . "')";
             $result = $con->query($query);
             echo '<script>alert("Medicle history has been added.")</script>';
-		    echo "<script>window.location.href ='manage-history-docuemnts.php'</script>";
+		    echo "<script>window.location.href ='medical-history-docuemnts.php?docId=".$docid."'</script>";
         else :
             echo '<script>alert("Something Went Wrong. Please try again")</script>';
         endif;
