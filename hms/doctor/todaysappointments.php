@@ -91,7 +91,9 @@ if (isset($_GET['attend'])) {
                                         $today = date('Y-m-d');
 										echo $_SESSION['id'];
 										echo $today;
-										$sql = mysqli_query($con, "select tblpatient.PatientName as fname,appointment.*  from appointment join tblpatient on tblpatient.ID=appointment.userId where appointment.doctorId='" . $_SESSION['id'] . "' AND appointmentDate = '$today'");
+										$query = "select tblpatient.PatientName as fname,appointment.*  from appointment join tblpatient on tblpatient.ID=appointment.userId where appointment.doctorId='" . $_SESSION['id'] . "' AND appointmentDate = '$today'";
+										print_r($query);
+										$sql = mysqli_query($con,$query);
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
