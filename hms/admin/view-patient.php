@@ -188,7 +188,7 @@ if (isset($_POST['submit'])) {
                   </table>
                   <?php
 
-                  $queryfetchFiles = "SELECT `file_title`,`file_url`,DATE_FORMAT(uploaded_at,'%y-%m-%d') as uploadDate FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
+                  $queryfetchFiles = "SELECT `file_title`,`file_url`,DATE_FORMAT(uploaded_at,'%F %j, %Y') as uploadDate FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
                   $res = $con->query($queryfetchFiles);
 
 
