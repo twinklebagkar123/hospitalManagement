@@ -66,7 +66,7 @@ if (isset($_GET['attend'])) {
 						<div class="col-sm-4">
 								<a href="#"  data-appointmentdate="<?php echo date('Y-m-d',strtotime("-1 days"));?>">Yesterday</a>
 								<a href="#" data-appointmentdate="<?php echo date('Y-m-d');?>">Today</a>
-								<a href="#" data-appointmentdate="">Tomorrow</a>
+								<a href="#" data-appointmentdate="<?php echo date('Y-m-d',strtotime("+1 days"));?>">Tomorrow</a>
 							</div>
 							<div class="col-sm-8">
 							<a href="#">Yesterday</a>
