@@ -11,7 +11,14 @@ if (isset($_POST["testAssign"])) {
 	foreach ($testID as $value) {
 		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
 		// print_r($sql);
-			$con->query($sql);
+			// $con->query($sql);
+			$query .= mysqli_query($con, $sql);
+	if ($query) {
+		echo '<script>alert("Test Assigned Successfully.")</script>';
+	
+	} else {
+		echo '<script>alert("Something Went Wrong. Please try again")</script>';
+	}
 	}
 }
 if (isset($_POST['submit'])) {
@@ -24,7 +31,7 @@ if (isset($_POST['submit'])) {
 	$pres = $_POST['pres'];
 
 
-	$query .= mysqli_query($con, "insert   tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
+	$query .= mysqli_query($con, "iNSERT INTO tblmedicalhistory(PatientID,BloodPressure,BloodSugar,Weight,Temperature,MedicalPres)value('$vid','$bp','$bs','$weight','$temp','$pres')");
 	if ($query) {
 		echo '<script>alert("Medicle history has been added.")</script>';
 		echo "<script>window.location.href ='manage-patient.php'</script>";
@@ -258,7 +265,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Submit">
                           </form>
                         </div>
                         <div class="modal-footer">

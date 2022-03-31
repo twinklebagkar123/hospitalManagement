@@ -11,7 +11,13 @@ if (isset($_POST["testAssign"])) {
   foreach ($testID as $value) {
     $sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
     //print_r($sql);
-    $result = $con->query($sql);
+    $query .= mysqli_query($con, $sql);
+	if ($query) {
+		echo '<script>alert("Test Assigned Successfully.")</script>';
+	
+	} else {
+		echo '<script>alert("Something Went Wrong. Please try again")</script>';
+	}
   }
 }
 if (isset($_POST['submit'])) {
@@ -282,7 +288,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Submit">
                           </form>
                         </div>
                         <div class="modal-footer">
