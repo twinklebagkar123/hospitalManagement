@@ -64,7 +64,7 @@ if (isset($_GET['attend'])) {
 						</div>
 						<div class="row">
 							<div class="col-sm-4">
-								<div class="appointmentBox" id="pickappointment">
+								<div class="appointmentBox" style="margin-top:20px;" id="pickappointment">
 									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d', strtotime("-1 days")); ?>">Yesterday</a>
 									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d'); ?>">Today</a>
 									<a href="#" class="btn btn-o btn-primary" data-appointmentdate="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">Tomorrow</a>
