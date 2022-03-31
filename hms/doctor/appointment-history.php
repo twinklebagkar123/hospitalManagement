@@ -75,7 +75,9 @@ if (isset($_GET['attend'])) {
 								<div class="chooseDate" id="pick-date">
                                 <div class="row datedisplay">
 								<div class="col-sm-2"><p>From: </p> </div>
-								<div class="col-sm-6"><p><input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd"> </p> </div>
+								<div class="col-sm-4"><p><input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd"> </p> </div>
+								<div class="col-sm-2"><p>To: </p> </div>
+								<div class="col-sm-4"><p><input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd"> </p> </div>
 								 
 								</div>   
 								
