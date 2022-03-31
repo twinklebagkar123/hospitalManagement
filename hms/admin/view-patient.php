@@ -5,6 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
+	$query = false;
 	$testID = $_POST["testID"];
 	$admissionID = $_POST["admissionID"];
 	$date = date("Y-m-d");
@@ -13,12 +14,13 @@ if (isset($_POST["testAssign"])) {
 		// print_r($sql);
 			// $con->query($sql);
 			$query .= mysqli_query($con, $sql);
+	
+	}
 	if ($query) {
 		echo '<script>alert("Test Assigned Successfully.")</script>';
 	
 	} else {
 		echo '<script>alert("Something Went Wrong. Please try again")</script>';
-	}
 	}
 }
 if (isset($_POST['submit'])) {
