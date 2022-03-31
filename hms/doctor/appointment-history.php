@@ -222,10 +222,8 @@ if (isset($_GET['attend'])) {
 				jQuery.ajax({
 					url: "fetchappointments.php",
 					data:{
-						appointmentdate = appointmentdate,
-						docID = <?php echo $_SESSION['id'];?>
-
-					},
+						appointmentdate : appointmentdate,
+						docID : <?php echo $_SESSION['id'];?>},
 					type: "POST",
 					success: function(data) {
 						//$("#user-availability-status1").html(data);
