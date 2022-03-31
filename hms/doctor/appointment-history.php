@@ -103,7 +103,11 @@ if (isset($_GET['attend'])) {
 									</thead>
 									<tbody>
 										<?php
-										$sql = mysqli_query($con, "select tblpatient.PatientName as fname,appointment.*  from appointment join tblpatient on tblpatient.ID=appointment.userId where appointment.doctorId='" . $_SESSION['id'] . "'");
+
+										$today = date('Y-m-d');
+										$query = "select tblpatient.PatientName as fname,appointment.*  from appointment join tblpatient on tblpatient.ID=appointment.userId where appointment.doctorId='" . $_SESSION['id'] . "' AND appointmentDate = '$today'";
+										//print_r($query);
+										$sql = mysqli_query($con, $query);
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
@@ -211,9 +215,22 @@ if (isset($_GET['attend'])) {
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
-			$("#pickappointment a").on("click",function(){
-              var appointmentdate = $(this).data("appointmentdate");
-			  console.log("the date is"+appointmentdate);
+			$("#pickappointment a").on("click", function() {
+				var appointmentdate = $(this).data("appointmentdate");
+				console.log("the date is" + appointmentdate);
+				$("#loaderIcon").show();
+				jQuery.ajax({
+					url: "fetchappointments.php",
+					data:{
+						appointmentdate : appointmentdate,
+						docID : <?php echo $_SESSION['id'];?>},
+					type: "POST",
+					success: function(data) {
+						//$("#user-availability-status1").html(data);
+						//$("#loaderIcon").hide();
+					},
+					error: function() {}
+				});
 			});
 		});
 	</script>
