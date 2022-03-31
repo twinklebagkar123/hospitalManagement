@@ -1,14 +1,14 @@
 <?php
-	session_start();
-	error_reporting(0);
-	include('include/config.php');
-	include('include/checklogin.php');
-	check_login();
-	$month = date('m');
-	$day = date('d');
-	$year = date('Y');
+session_start();
+error_reporting(0);
+include('include/config.php');
+include('include/checklogin.php');
+check_login();
+$month = date('m');
+$day = date('d');
+$year = date('Y');
 
-	$today = $year . '-' . $month . '-' . $day;
+$today = $year . '-' . $month . '-' . $day;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,6 +108,14 @@
 												<h5 class="panel-title">Patient Admission</h5>
 											</div>
 											<div class="panel-body">
+												<div class="row">
+													<div class="col-md-6">
+														<div class="patient_admission_step1_box"><a id="existing_patient_admission" href="void(0)">Existing Patient</a></div>
+													</div>
+													<div class="col-md-6">
+														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="void(0)">Register Patient</a></div>
+													</div>
+												</div>
 												<form role="form" name="" method="post">
 													<div class="form-group">
 														<label for="fess">
@@ -333,7 +341,7 @@
 			echo $th;
 		}
 	}
-	
+
 	?>
 </body>
 

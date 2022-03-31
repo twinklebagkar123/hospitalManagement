@@ -212,8 +212,6 @@ if (isset($_POST['submit'])) {
 
                   $queryfetchFiles = "SELECT `file_title`,`file_url`,DATE_FORMAT(uploaded_at,'%d %M %Y') as uploadDate FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
                   $res = $con->query($queryfetchFiles);
-
-
                   ?>
                   <h5 class="over-title margin-bottom-15">Files <span class="text-bold">Attached</span></h5>
                   <table class="table table-bordered dt-responsive nowrap">
