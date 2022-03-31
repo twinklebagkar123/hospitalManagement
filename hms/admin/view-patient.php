@@ -258,7 +258,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Assign Test">
                           </form>
                         </div>
                         <div class="modal-footer">
@@ -515,7 +515,7 @@ if (isset($_POST['submit'])) {
 						}
 
 						?>
-						<input type="submit" name="testAssign" value="Assign Test" class="btn-submit-custom">
+						<input type="submit" name="testAssign" value="Assign Test" >
 					</form>
 				</div>
 				<div class="modal-footer">
