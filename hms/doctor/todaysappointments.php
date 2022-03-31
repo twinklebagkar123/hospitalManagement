@@ -57,7 +57,7 @@ if (isset($_GET['attend'])) {
 									<span>Doctor </span>
 								</li>
 								<li class="active">
-									<span>Appointment History</span>
+									<span>Today's Appointments</span>
 								</li>
 							</ol>
 						</div>
