@@ -56,6 +56,7 @@ if (isset($_POST['submit'])) {
   <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
   <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
   <link rel="stylesheet" href="assets/css/styleext.css?ver=<?php echo rand(); ?>">
   <link rel="stylesheet" href="assets/css/plugins.css">
   <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
@@ -281,7 +282,7 @@ if (isset($_POST['submit'])) {
                             }
 
                             ?>
-                            <input type="submit" name="testAssign" value="Assign Test">
+                            <input type="submit" class="btn-submit-custom" name="testAssign" value="Assign Test">
                           </form>
                         </div>
                         <div class="modal-footer">

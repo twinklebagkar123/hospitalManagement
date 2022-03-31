@@ -10,8 +10,8 @@ if (isset($_POST["testAssign"])) {
 	$date = date("Y-m-d");
 	foreach ($testID as $value) {
 		$sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
-		print_r($sql);
-		//	$con->query($sql);
+		// print_r($sql);
+			$con->query($sql);
 	}
 }
 if (isset($_POST['submit'])) {
@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-	<title>Doctor | Manage Patients</title>
+	<title>ADMIN | Manage Patients</title>
 
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -52,6 +52,7 @@ if (isset($_POST['submit'])) {
 	<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 	<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
@@ -514,7 +515,7 @@ if (isset($_POST['submit'])) {
 						}
 
 						?>
-						<input type="submit" name="testAssign" value="Assign Test">
+						<input type="submit" name="testAssign" value="Assign Test" class="btn-submit-custom">
 					</form>
 				</div>
 				<div class="modal-footer">
