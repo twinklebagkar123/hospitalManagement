@@ -215,6 +215,8 @@ if (isset($_POST['submit'])) {
                       <?php
                       $i = 0;
                       while ($row1 = mysqli_fetch_array($res)) {
+						  $uploadedDate = date("F j, Y,",$row1['uploaded_at']);
+						  
                         $i++;
                       ?>
                         <tr>
@@ -222,10 +224,10 @@ if (isset($_POST['submit'])) {
                             <?php echo $i; ?>
                           </td>
                           <td>
-                            <?php echo $row1['file_title'] ?>
+                            <?php echo $row1['file_title']; ?>
                           </td>
                           <td>
-                            <?php echo $row1['uploaded_at'] ?>
+                            <?php echo $uploadedDate;?>
                           </td>
                           <td>
                             <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
