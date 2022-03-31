@@ -103,7 +103,7 @@ if (isset($_POST['submit'])) {
                 while ($row = mysqli_fetch_array($ret)) {
                 ?>
                   <table style="border:1" class="table table-bordered">
-                    <tr style="align : center">
+                    <tr style="text-align : center">
                       <td colspan="4" style="font-size:20px;color:blue">
                         Patient Details</td>
                     </tr>
