@@ -6,7 +6,7 @@ $id = $_POST['docID'];
 $appointmentdate = $_POST['appointmentdate'];
 
 ?>
-
+<h6>Your Appointments for the date: <?php echo $appointmentdate. " ";?> are: </h6>
 <table class="table table-hover" id="sample-table-1">
 	<thead>
 		<tr>
