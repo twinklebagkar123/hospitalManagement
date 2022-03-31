@@ -210,7 +210,7 @@ if (isset($_POST['submit'])) {
                   </table>
                   <?php
 
-                  $queryfetchFiles = "SELECT * FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
+                  $queryfetchFiles = "SELECT `file_title`,`file_url`,DATE_FORMAT(uploaded_at,'%d-%m-%y') as uploadDate FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
                   $res = $con->query($queryfetchFiles);
 
 
@@ -247,7 +247,7 @@ if (isset($_POST['submit'])) {
                             <?php echo $row1['file_title'] ?>
                           </td>
                           <td>
-                            <?php echo $row1['uploaded_at'] ?>
+                            <?php echo $row1['uploadDate'] ?>
                           </td>
                           <td>
                             <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
