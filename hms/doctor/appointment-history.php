@@ -52,6 +52,7 @@ if (isset($_GET['attend'])) {
 							<div class="col-sm-8">
 								<h1 class="mainTitle">Doctor | Appointment History</h1>
 							</div>
+							
 							<ol class="breadcrumb">
 								<li>
 									<span>Doctor </span>
@@ -60,6 +61,17 @@ if (isset($_GET['attend'])) {
 									<span>Appointment History</span>
 								</li>
 							</ol>
+						</div>
+						<div class="row">
+						<div class="col-sm-4">
+								<a href="#"  data-appointmentdate="">Yesterday</a>
+								<a href="#" data-appointmentdate="<?php echo date('Y-m-d');?>">Today</a>
+								<a href="#" data-appointmentdate="">Tomorrow</a>
+							</div>
+							<div class="col-sm-8">
+							<a href="#">Yesterday</a>
+								<a href="#">Today</a>
+							</div>
 						</div>
 					</section>
 					<!-- end: PAGE TITLE -->
