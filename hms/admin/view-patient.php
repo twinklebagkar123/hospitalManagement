@@ -5,6 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
+	$vid = $_GET['viewid'];
 	$query = false;
 	$testID = $_POST["testID"];
 	$admissionID = $_POST["admissionID"];
@@ -18,7 +19,7 @@ if (isset($_POST["testAssign"])) {
 	}
 	if ($query) {
 		echo '<script>alert("Test Assigned Successfully.")</script>';
-		echo "<script>window.location.href ='view-patient.php'</script>";
+		echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
 	
 	} else {
 		echo '<script>alert("Something Went Wrong. Please try again")</script>';
@@ -187,7 +188,7 @@ if (isset($_POST['submit'])) {
                   </table>
                   <?php
 
-                  $queryfetchFiles = "SELECT * FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
+                  $queryfetchFiles = "SELECT `file_title`,`file_url`,DATE_FORMAT(uploaded_at,'%d-%m-%y') as uploadDate FROM `patient_medical_files` WHERE patient_id='" . $vid . "'";
                   $res = $con->query($queryfetchFiles);
 
 
@@ -214,6 +215,8 @@ if (isset($_POST['submit'])) {
                       <?php
                       $i = 0;
                       while ($row1 = mysqli_fetch_array($res)) {
+						//   $uploadedDate = date("F j, Y,",$row1['uploaded_at']);
+						  
                         $i++;
                       ?>
                         <tr>
@@ -221,10 +224,10 @@ if (isset($_POST['submit'])) {
                             <?php echo $i; ?>
                           </td>
                           <td>
-                            <?php echo $row1['file_title'] ?>
+                            <?php echo $row1['file_title']; ?>
                           </td>
                           <td>
-                            <?php echo $row1['uploaded_at'] ?>
+                            <?php echo $row1['uploadDate'];?>
                           </td>
                           <td>
                             <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
