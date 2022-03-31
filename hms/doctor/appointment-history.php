@@ -52,7 +52,7 @@ if (isset($_GET['attend'])) {
 							<div class="col-sm-8">
 								<h1 class="mainTitle">Doctor | Appointment History</h1>
 							</div>
-							
+
 							<ol class="breadcrumb">
 								<li>
 									<span>Doctor </span>
@@ -63,13 +63,16 @@ if (isset($_GET['attend'])) {
 							</ol>
 						</div>
 						<div class="row">
-						<div class="col-sm-4">
-								<a href="#"  data-appointmentdate="<?php echo date('Y-m-d',strtotime("-1 days"));?>">Yesterday</a>
-								<a href="#" data-appointmentdate="<?php echo date('Y-m-d');?>">Today</a>
-								<a href="#" data-appointmentdate="<?php echo date('Y-m-d',strtotime("+1 days"));?>">Tomorrow</a>
+							<div class="col-sm-4">
+								<div class="appointmentBox" id="pickappointment">
+									<a href="#" data-appointmentdate="<?php echo date('Y-m-d', strtotime("-1 days")); ?>">Yesterday</a>
+									<a href="#" data-appointmentdate="<?php echo date('Y-m-d'); ?>">Today</a>
+									<a href="#" data-appointmentdate="<?php echo date('Y-m-d', strtotime("+1 days")); ?>">Tomorrow</a>
+								</div>
+
 							</div>
 							<div class="col-sm-8">
-							<a href="#">Yesterday</a>
+								<a href="#">Yesterday</a>
 								<a href="#">Today</a>
 							</div>
 						</div>
@@ -111,7 +114,7 @@ if (isset($_GET['attend'])) {
 												<td><?php echo $row['doctorSpecialization']; ?></td>
 												<td><?php echo $row['consultancyFees']; ?></td>
 												<td><?php echo $row['appointmentDate']; ?> / <?php echo
-																							$row['appointmentTime']; ?>
+																								$row['appointmentTime']; ?>
 												</td>
 												<td><?php echo $row['postingDate']; ?></td>
 												<td>
@@ -208,6 +211,10 @@ if (isset($_GET['attend'])) {
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+			$("#pickappointment a").on("click",function(){
+              var appointmentdate = $(this).data("appointmentdate");
+			  console.log("the date is"+appointmentdate);
+			});
 		});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
