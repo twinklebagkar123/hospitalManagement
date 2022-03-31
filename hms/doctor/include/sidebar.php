@@ -35,6 +35,18 @@
 					</a>
 				</li>
 				<li>
+					<a href="todaysappointments.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-list"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> Todays Appointments </span>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
