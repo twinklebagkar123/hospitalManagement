@@ -5,6 +5,7 @@ include('include/config.php');
 include('include/checklogin.php');
 check_login();
 if (isset($_POST["testAssign"])) {
+	$vid = $_GET['viewid'];
 	$query = false;
 	$testID = $_POST["testID"];
 	$admissionID = $_POST["admissionID"];
@@ -18,7 +19,7 @@ if (isset($_POST["testAssign"])) {
 	}
 	if ($query) {
 		echo '<script>alert("Test Assigned Successfully.")</script>';
-		echo "<script>window.location.href ='view-patient.php'</script>";
+		echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
 	
 	} else {
 		echo '<script>alert("Something Went Wrong. Please try again")</script>';
