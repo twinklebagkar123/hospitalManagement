@@ -144,7 +144,7 @@ Patient Address
 </div>
 <div class="form-group">
 <label for="fess">
- Medical History
+ Initial Complain
 </label>
 <textarea type="text" name="medhis" class="form-control"  placeholder="Enter Patient Medical History(if any)" required="true"></textarea>
 </div>	
