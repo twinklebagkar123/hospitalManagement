@@ -31,12 +31,14 @@ if (isset($_POST['submit'])) {
         if (move_uploaded_file($tempname, '/home/u298126064/domains/adpigo.com/public_html/hospital/uploads/' . $picProfile)) :
             $query = "INSERT INTO `patient_medical_files`( `file_title`, `file_url`, `patient_id`, `uploaded_at`) VALUES ('" . $_POST['fTitle'] . "','" . $path . "','" . $docid . "','" . $today . "')";
             $result = $con->query($query);
-            echo "Succefully uploaded";
+            echo '<script>alert("Medicle history has been added.")</script>';
+		    echo "<script>window.location.href ='manage-history-docuemnts.php'</script>";
         else :
-            echo "Something went wrong";
+            echo '<script>alert("Something Went Wrong. Please try again")</script>';
         endif;
     } catch (\Throwable $th) {
         echo "ERROR WHILE UPLOADING: " . $th;
+        echo '<script>alert("ERROR WHILE UPLOADING: '.$th.'")</script>';
     }
 
 
