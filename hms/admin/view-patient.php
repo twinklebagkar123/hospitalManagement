@@ -18,6 +18,7 @@ if (isset($_POST["testAssign"])) {
 	}
 	if ($query) {
 		echo '<script>alert("Test Assigned Successfully.")</script>';
+		echo "<script>window.reload();</script>";
 	
 	} else {
 		echo '<script>alert("Something Went Wrong. Please try again")</script>';
