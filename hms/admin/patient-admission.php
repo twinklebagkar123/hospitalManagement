@@ -167,13 +167,6 @@ $today = $year . '-' . $month . '-' . $day;
 															<?php } ?>
 														</select>
 													</div>
-													<div class="form-group">
-														<label for="AppointmentDate">
-															Date of Admission
-														</label>
-														<!-- <input class="form-control " type="hidden" value="<?php //echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly> -->
-													</div>
-
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 														Add
 													</button>
