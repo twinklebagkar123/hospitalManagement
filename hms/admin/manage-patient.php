@@ -232,7 +232,7 @@ if (isset($_POST['submit'])) {
 																	Time
 
 																</label>
-																<input class="form-control" name="apptime" id="timepicker1" autocomplete="off" required="required">eg : 10:00 PM
+																<input class="form-control" name="apptime" id='datetimepicker1' autocomplete="off" required="required">eg : 10:00 PM
 															</div>
 
 															<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -363,6 +363,11 @@ if (isset($_POST['submit'])) {
 											"contentType": 'application/json'
 										},
 									});
+								});
+							</script>
+							<script>
+								$(function() {
+									$('#datetimepicker1').datetimepicker();
 								});
 							</script>
 							<!-- end: JavaScript Event Handlers for this page -->
