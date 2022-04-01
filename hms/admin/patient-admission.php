@@ -117,7 +117,17 @@ $today = $year . '-' . $month . '-' . $day;
 														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="void(0)">Register Patient</a></div>
 													</div>
 												</div>
-												<form role="form" name="" method="post">
+												<div class="row" id="existing_customer_selectBy" style="margin-top: 30px;">
+													<div class="col-md-12">
+														<p>Search By: </p>
+														<div class="row">
+															<div class="col-md-4 admission_step2_btn"><button class="btn btn-primary">Customer Id</button></div>
+															<div class="admission_step2_btn col-md-4 "><button class="btn btn-primary">Contact Number</button></div>
+															<div class="col-md-4 admission_step2_btn"><button class="btn btn-primary">Adhar Card</button></div>
+														</div>
+													</div>
+												</div>
+												<form role="form" class="" method="post" style="margin-top: 30px;">
 													<input type="hidden" id="uid" name="uid" value="">
 													<div class="form-group">
 														<label class="block">
