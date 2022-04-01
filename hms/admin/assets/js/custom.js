@@ -4,7 +4,21 @@ $(document).ready(function () {
         $('#existing_customer_selectBy').css('display', 'block');
     });
     $(".searchByAdmission").on("click", function () {
-        console.log($(this).data('customer_detail'));
+        var selected = $(this).data('customer_detail');
+        switch (selected) {
+            case "customer_id_admission":
+                $('#existing_customer_input').attr('placeholder', selected);
+                break;
+            case "customer_contact_admission":
+                $('#existing_customer_input').attr('placeholder', selected);
+                break;
+            // case "customer_adhar_admission":
+                
+            //     break;
+            default:
+                $('#existing_customer_input').attr('placeholder', selected);
+                break;
+        }
     });
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');
