@@ -232,7 +232,7 @@ if (isset($_POST['submit'])) {
 																	Time
 
 																</label>
-																<input class="form-control" name="apptime" id='datetimepicker1' autocomplete="off" required="required">eg : 10:00 PM
+																<input class="form-control" name="apptime" id='datetimepicker3' autocomplete="off" required="required">eg : 10:00 PM
 															</div>
 
 															<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -367,7 +367,9 @@ if (isset($_POST['submit'])) {
 							</script>
 							<script>
 								$(function() {
-									$('#datetimepicker1').datetimepicker();
+									$('#datetimepicker3').datetimepicker({
+										format: 'LT'
+									});
 								});
 							</script>
 							<!-- end: JavaScript Event Handlers for this page -->
