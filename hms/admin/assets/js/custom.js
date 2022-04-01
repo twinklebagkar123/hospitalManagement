@@ -1,7 +1,10 @@
 $(document).ready(function () {
     var notificationResult = [];
-    $(document).on("click", "#existing_patient_admission", function () {
+    $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
+    });
+    $(".searchByAdmission").on("click", function () {
+        console.log($(this).data('customer_detail'));
     });
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');

@@ -111,19 +111,19 @@ $today = $year . '-' . $month . '-' . $day;
 											<div class="panel-body">
 												<div class="row">
 													<div class="col-md-6">
-														<div class="patient_admission_step1_box"><a id="existing_patient_admission" href="void(0)">Existing Patient</a></div>
+														<div class="patient_admission_step1_box"><a id="existing_patient_admission" href="javascript:void(0);">Existing Patient</a></div>
 													</div>
 													<div class="col-md-6">
-														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="void(0)">Register Patient</a></div>
+														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="javascript:void(0);">Register Patient</a></div>
 													</div>
 												</div>
 												<div class="row" id="existing_customer_selectBy" style="margin-top: 30px; display: none;">
 													<div class="col-md-12" id="existing_customer_sec">
 														<p>Search By: </p>
 														<div class="row">
-															<div class="col-md-4 admission_step2_btn"><button class="btn btn-primary">Customer Id</button></div>
-															<div class="admission_step2_btn col-md-4 "><button class="btn btn-primary">Contact Number</button></div>
-															<div class="col-md-4 admission_step2_btn"><button class="btn btn-primary">Adhar Card</button></div>
+															<div class="col-md-4 admission_step2_btn"><button  data-customer_detail="customer_id_admission" class="btn btn-primary searchByAdmission">Customer Id</button></div>
+															<div class="admission_step2_btn col-md-4 "><button data-customer_detail="customer_contact_admission" class="btn btn-primary searchByAdmission">Contact Number</button></div>
+															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_adhar_admission" class="btn btn-primary searchByAdmission">Adhar Card</button></div>
 														</div>
 														<div class="row" style="margin-top: 30px;">
 															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control"></div>
