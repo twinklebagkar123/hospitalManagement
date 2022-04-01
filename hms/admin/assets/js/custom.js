@@ -1,5 +1,8 @@
 $(document).ready(function () {
     var notificationResult = [];
+    $(document).on("click", "#existing_patient_admission", function () {
+        $('#existing_customer_selectBy').css('display', 'block');
+    });
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');
         $.ajax({
