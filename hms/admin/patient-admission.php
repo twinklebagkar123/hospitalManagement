@@ -125,6 +125,10 @@ $today = $year . '-' . $month . '-' . $day;
 															<div class="admission_step2_btn col-md-4 "><button class="btn btn-primary">Contact Number</button></div>
 															<div class="col-md-4 admission_step2_btn"><button class="btn btn-primary">Adhar Card</button></div>
 														</div>
+														<div class="row" style="margin-top: 30px;">
+															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control"></div>
+															<div class="col-md-6"><button class="btn btn-primary">Go</button></div>
+														</div>
 													</div>
 												</div>
 												<form role="form" class="" method="post" style="margin-top: 30px;">
