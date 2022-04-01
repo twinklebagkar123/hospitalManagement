@@ -118,62 +118,7 @@ $today = $year . '-' . $month . '-' . $day;
 													</div>
 												</div>
 												<form role="form" name="" method="post">
-													<div class="form-group">
-														<label for="fess">
-															Patient Contact no
-														</label>
-														<input type="text" id="patcontact" name="patcontact" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+" onblur="userAvailability()">
-														<span id="user-availability-status1" style="font-size:12px;"></span>
-													</div>
 													<input type="hidden" id="uid" name="uid" value="">
-													<div class="form-group">
-														<label for="patadhar">
-															Adhar Card No.
-														</label>
-														<input type="text" id="adharCard" name="patadhar" class="form-control" placeholder="Enter Patient Adhaar Card No" required="true" maxlength="12">
-													</div>
-													<div class="form-group">
-														<label for="">
-															Patient Name
-														</label>
-														<input type="text" id="fname" name="fname" class="form-control" placeholder="Enter First Name" required="true">
-
-													</div>
-													<div class="form-group">
-														<label for="address">
-															Patient Address
-														</label>
-														<textarea name="pataddress" id="pataddress" class="form-control" placeholder="Enter Patient Address" required="true"></textarea>
-													</div>
-
-													<div class="form-group">
-														<label for="fess">
-															Patient Email
-														</label>
-														<input type="email" id="patemail" name="patemail" class="form-control" placeholder="Enter Patient Email id" required="true">
-													</div>
-													<div class="form-group">
-														<label class="block">
-															Gender
-														</label>
-														<div class="clip-radio radio-primary">
-															<input type="radio" id="rg-female" name="gender" value="female">
-															<label for="rg-female">
-																Female
-															</label>
-															<input type="radio" id="rg-male" name="gender" value="male">
-															<label for="rg-male">
-																Male
-															</label>
-														</div>
-													</div>
-													<div class="form-group">
-														<label for="patage">
-															Patient Age
-														</label>
-														<input type="text" name="patage" id="patage" class="form-control" placeholder="Enter Patient Age" required="true">
-													</div>
-
 													<div class="form-group">
 														<label class="block">
 															Admission Type
@@ -189,7 +134,6 @@ $today = $year . '-' . $month . '-' . $day;
 															</label>
 														</div>
 													</div>
-
 													<div class="form-group">
 														<label>
 															Ward No.
@@ -227,7 +171,7 @@ $today = $year . '-' . $month . '-' . $day;
 														<label for="AppointmentDate">
 															Date of Admission
 														</label>
-														<input class="form-control " type="hidden" value="<?php echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly>
+														<!-- <input class="form-control " type="hidden" value="<?php //echo $today; ?>" name="appdate" required="required" data-date-format="yyyy-mm-dd" readonly> -->
 													</div>
 
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
@@ -295,43 +239,30 @@ $today = $year . '-' . $month . '-' . $day;
 
 	if (isset($_POST['submit'])) {
 		//$unqId = $_SESSION['id'];
-		$phno = $_POST['patcontact'];
+		// $phno = $_POST['patcontact'];
 		$uid = $_POST['uid'];
-		$firstname = $_POST['fname'];
+		// $firstname = $_POST['fname'];
 		//$lastname = $_POST['lname'];
-		$address = $_POST['pataddress'];
-		$gender = $_POST['gender'];
-		$adharcardno = $_POST['patadhar'];
-		$dateofadmission = $_POST['appdate'];
+		// $address = $_POST['pataddress'];
+		// $gender = $_POST['gender'];
+		// $adharcardno = $_POST['patadhar'];
+		$dateofadmission = $today;
 		$doctor = $_POST['doctor'];
 		$admissionType  = $_POST['admissionType'];
-		$patemail  = $_POST['patemail'];
-		$patage  = $_POST['patage'];
+		// $patemail  = $_POST['patemail'];
+		// $patage  = $_POST['patage'];
 		$wn  = $_POST['wn'];
 		$cpd = $_POST['cpd'];
 		$advpaid = $_POST['aa'];
 		$stat = false;
-		echo "test";
+		// echo "test";
 		try {
 			if (!empty($uid)) {
-				echo "condition1";
+				// echo "condition1";
 				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd')";
 				$con->query($query);
 				$stat = true;
-				echo $query . ")_)_)__)_)";
-			} else {
-				echo "condition2";
-				$patname = $firstname;
-
-				$queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$')";
-
-				if ($con->query($queryToRegister) == TRUE) {
-					$uid = $con->insert_id;
-					$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd')";
-					$con->query($query);
-					$stat = true;
-					echo $query . ")_)_)__)_)";
-				}
+				// echo $query . ")_)_)__)_)";
 			}
 
 			if ($stat) {

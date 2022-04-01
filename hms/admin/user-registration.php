@@ -15,6 +15,9 @@ if(isset($_POST['submit']))
 	$pataddress=$_POST['pataddress'];
 	$patage=$_POST['patage'];
 	$medhis=$_POST['medhis'];
+	// $queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$')";
+
+	// 			if ($con->query($queryToRegister) == TRUE) {
 	$sql=mysqli_query($con,"insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,PatientAge,PatientMedhis) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$patage','$medhis')");
 if($sql)
 {
