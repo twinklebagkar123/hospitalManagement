@@ -7,16 +7,16 @@ $(document).ready(function () {
         var selected = $(this).data('customer_detail');
         switch (selected) {
             case "customer_id_admission":
-                $('#existing_customer_input').attr('placeholder', selected);
+                $('#existing_customer_input').attr('placeholder', "Please enter Customer Id");
+                $('#customer_input_search').attr('data-selected_searchby', "id");
                 break;
             case "customer_contact_admission":
-                $('#existing_customer_input').attr('placeholder', selected);
+                $('#existing_customer_input').attr('placeholder', "Please enter Customer Phone Number");
+                $('#customer_input_search').attr('data-selected_searchby', "contact");
                 break;
-            // case "customer_adhar_admission":
-                
-            //     break;
             default:
-                $('#existing_customer_input').attr('placeholder', selected);
+                $('#existing_customer_input').attr('placeholder', "Please enter Adhar Card Number");
+                $('#customer_input_search').attr('data-selected_searchby', "adhar");
                 break;
         }
     });

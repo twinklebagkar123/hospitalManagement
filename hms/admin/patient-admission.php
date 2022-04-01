@@ -127,7 +127,7 @@ $today = $year . '-' . $month . '-' . $day;
 														</div>
 														<div class="row" style="margin-top: 30px;">
 															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control"></div>
-															<div class="col-md-6"><button class="btn btn-primary">Go</button></div>
+															<div class="col-md-6"><a data-selected_searchby="" id="customer_input_search" class="btn btn-primary">Go</a></div>
 														</div>
 													</div>
 												</div>
