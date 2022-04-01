@@ -222,7 +222,7 @@ if (isset($_POST['submit'])) {
 																<label for="AppointmentDate">
 																	Date
 																</label>
-																<input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd">
+																<input class="form-control datepicker" name="appdate" id="appDate" required="required" autocomplete="off" data-date-format="yyyy-mm-dd">
 
 															</div>
 
@@ -232,7 +232,7 @@ if (isset($_POST['submit'])) {
 																	Time
 
 																</label>
-																<input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
+																<input class="form-control" name="apptime" id='datetimepicker3' autocomplete="off" required="required">eg : 10:00 PM
 															</div>
 
 															<button type="submit" name="submit" class="btn btn-o btn-primary">
@@ -362,6 +362,13 @@ if (isset($_POST['submit'])) {
 											"url": 'response.php',
 											"contentType": 'application/json'
 										},
+									});
+								});
+							</script>
+							<script>
+								$(function() {
+									$('#datetimepicker3').datetimepicker({
+										format: 'LT'
 									});
 								});
 							</script>
