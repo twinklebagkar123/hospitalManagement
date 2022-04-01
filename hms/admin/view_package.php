@@ -128,7 +128,7 @@ if (isset($_GET['del'])) {
 
 
 
-														<input type="submit" class="fa fa-pencil"  tooltip-placement="top" tooltip="Edit"><i class=""></i>
+														<input type="submit" class="btn btn-transparent btn-xs" placeholder="edit" tooltip-placement="top" tooltip="Edit"><i class="fa fa-pencil"></i>
 														
 													
 													</form>
