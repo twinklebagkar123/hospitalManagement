@@ -103,6 +103,7 @@ function fetchPatientName($admissionID)
 										$fields_arr = "";
 										while ($row = mysqli_fetch_array($result)) {
 											$resultarray2 = fetchPatientName($row['admissionID']);
+											print_r($resultarray2);
 										?>
 											<label for="Patient Name">
 												Patient Name
@@ -112,6 +113,7 @@ function fetchPatientName($admissionID)
 											<div id="nameResponse"> </div>
 										<?Php } ?>
 								</div>
+								
 								<div class="form-group">
 									<label for="consultant">
 										Consultant
