@@ -97,7 +97,7 @@ function fetchPatientName($admissionID)
 									<form method="post" name="submit">
 
 										<input type="hidden" name="pid" class="form-control" id="patId" value="">
-										<?php $resultarray= fetchPatientName($id);
+										<?php $resultarray = fetchPatientName($id);
 										print_r($resultarray); ?>
 											<label for="Patient Name">
 												Patient Name
