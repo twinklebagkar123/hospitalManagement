@@ -97,12 +97,20 @@ function fetchPatientName($admissionID)
 									<form method="post" name="submit">
 										
 										<input type="hidden" name="pid" class="form-control" id="patId" value="">
+										<?php
+                $query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
+                $result = $con->query($query);
+                $fields_arr = "";
+                while ($row = mysqli_fetch_array($result)) {
+                    $resultarray2= fetchPatientName($row['admissionID']);
+                ?>
 										<label for="Patient Name">
 											Patient Name
 
 										</label>
 										<input type="text" name="pat" class="form-control" id="pat" value="<?php echo $resultarray2['name']; ?>" required="require" autocomplete="off">
 										<div id="nameResponse"> </div>
+										<?Php } ?>
 								</div>
 								<div class="form-group">
 									<label for="consultant">
