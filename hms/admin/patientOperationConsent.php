@@ -251,10 +251,10 @@ function fetchPatientName($admissionID)
 									<p>Patient Name: <span id="pName"> <?php echo $resultarray['name']; ?></span></p>
 								</div>
 								<div class="col-sm-3">
-									<p>Age: <span id="pAge"> </span> </p>
+									<p>Age: <span id="pAge"> <?php echo $resultarray['age']; ?> </span> </p>
 								</div>
 								<div class="col-sm-3">
-									<p>Sex: <span id="pGender"></span> </p>
+									<p>Sex: <span id="pGender"><?php echo $resultarray['gender']; ?></span> </p>
 								</div>
 							</div>
 
