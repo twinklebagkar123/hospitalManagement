@@ -39,6 +39,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 	<script type="text/javascript">
 		function valid() {
 			if (document.adddoc.npass.value != document.adddoc.cfpass.value) {
@@ -168,7 +169,7 @@ if (isset($_POST['submit'])) {
 										<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Ambulance</span></h5>
 										<p style="color:red;"><?php echo htmlentities($_SESSION['msg']); ?>
 											<?php echo htmlentities($_SESSION['msg'] = ""); ?></p>
-										<table class="table table-hover" id="sample-table-1">
+										<table class="display" id="myTable">
 											<thead>
 												<tr>
 													<th class="center">#</th>
@@ -329,6 +330,12 @@ if (isset($_POST['submit'])) {
 
 		});
 	</script>
+		<script> 
+	$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+										
+		</script>
 	<!-- end: JavaScript Event Handlers for this page -->
 	<!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>
