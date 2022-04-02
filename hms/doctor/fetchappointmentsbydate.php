@@ -5,6 +5,9 @@ include('include/checklogin.php');
 $id = $_POST['docID'];
 $fromDate = $_POST['fromDate'];
 $toDate = $_POST['toDate'];
+if(empty($toDate)){
+    $todate = date('Y-m-d');
+}
 
 ?>
 <h6>Your Appointments for the date: <?php echo $fromDate. " - ".$toDate ;?> are: </h6>
