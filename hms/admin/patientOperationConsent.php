@@ -11,7 +11,20 @@ $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
 
+function fetchPatientName($admissionID)
+{
+    include('../include/config.php');
+    $query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+    $result =  $con->query($query);
+    $resultarray=[];
 
+    while ($row = mysqli_fetch_array($result)) {
+        $resultarray['name'] = $row['PatientName'];
+        $resultarray['gender'] = $row['PatientGender'];
+        $resultarray['age'] = $row['PatientAge'];
+    }
+    return $resultarray;
+}
 
 ?>
 <!DOCTYPE html>
@@ -86,7 +99,7 @@ $today = $year . '-' . $month . '-' . $day;
 											Patient Name
 
 										</label>
-										<input type="text" name="pat" class="form-control" id="pat" required="require" autocomplete="off">
+										<input type="text" name="pat" class="form-control" id="pat" value="<?php echo $resultarray2['name']; ?>" required="require" autocomplete="off">
 										<div id="nameResponse"> </div>
 								</div>
 								<div class="form-group">
