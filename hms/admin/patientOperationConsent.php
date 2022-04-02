@@ -11,10 +11,10 @@ $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
 
-function fetchPatientName($id)
+function fetchPatientName($admissionID)
 {
 	include('../include/config.php');
-	$query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$id'";
+	$query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
 	$result =  $con->query($query);
 	$resultarray = [];
 
@@ -97,7 +97,8 @@ function fetchPatientName($id)
 									<form method="post" name="submit">
 
 										<input type="hidden" name="pid" class="form-control" id="patId" value="">
-										
+										<?php $resultarray= fetchPatientName($id);
+										print_r($resultarray); ?>
 											<label for="Patient Name">
 												Patient Name
 
