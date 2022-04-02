@@ -1,4 +1,10 @@
-<?php include('../include/header.php'); ?>
+<?php include('../include/header.php');
+include('../include/config.php');
+if (isset($_GET['del'])) {
+	mysqli_query($con, "delete from labTestRecord where recordID = '" . $_GET['id'] . "'");
+	$_SESSION['msg'] = "data deleted ! !!";
+}
+?>
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
 	<section id="page-title">
