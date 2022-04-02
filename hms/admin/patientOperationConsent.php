@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$id = 5;
+$id = $_GET['admissionID'];
 $month = date('m');
 $day = date('d');
 $year = date('Y');
