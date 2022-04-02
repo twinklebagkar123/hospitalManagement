@@ -45,7 +45,6 @@ function fetchPatientName($admissionID)
                         <th>Patient Name</th>
                         <th>Status</th>
                         <th>Action</th>
-                        <th>Reports</th>
                     </thead>
                     <tbody id="viewReport">
                         <?php
