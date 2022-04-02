@@ -93,7 +93,15 @@ function fetchPatientName($admissionID)
 						<div class="col-sm-6 ">
 							<div class="input-group">
 								<div class="form-group">
+
 									<form method="post" name="submit">
+									<?php
+                $query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
+                $result = $con->query($query);
+                $fields_arr = "";
+                while ($row = mysqli_fetch_array($result)) {
+                    $resultarray2= fetchPatientName($row['admissionID']);
+                ?>
 										<input type="hidden" name="pid" class="form-control" id="patId" value="">
 										<label for="Patient Name">
 											Patient Name
@@ -233,7 +241,8 @@ function fetchPatientName($admissionID)
 								</div>
 
 								<input type="submit" name="submit" class="btn btn-primary pull-right" id="Submit" value="Submit">
-								</form>
+											<?php } ?>
+							</form>
 							</div>
 						</div>
 
