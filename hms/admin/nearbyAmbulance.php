@@ -280,6 +280,7 @@ if (isset($_POST['submit'])) {
 	<!-- end: MAIN JAVASCRIPTS -->
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<script src="vendor/maskedinput/jquery.maskedinput.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<script src="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
 	<script src="vendor/autosize/autosize.min.js"></script>
 	<script src="vendor/selectFx/classie.js"></script>
