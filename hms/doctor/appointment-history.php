@@ -253,7 +253,22 @@ if (isset($_GET['attend'])) {
 			$("#pick-date input").on("change", function(){
 				var fromDate = $("#fromDate").val();
 				var toDate = $("#toDate").val();
-				console.log(fromDate);
+				//console.log(fromDate);
+				jQuery.ajax({
+					url: "fetchappointments.php",
+					data: {
+						fromDate: fromDate,
+						toDate: toDate,
+						docID: <?php echo $_SESSION['id']; ?>
+					},
+					type: "POST",
+					success: function(data) {
+						console.log(data);
+						$("#fetchappointment").html(data);
+						//$("#loaderIcon").hide();
+					},
+					error: function() {}
+				});
 			});
 		});
 	</script>
