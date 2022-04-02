@@ -121,7 +121,7 @@ function fetchPatientName($admissionID)
 									<select name="consultant" class="form-control" id="consultant" required="require">
 										<option value="">Select consultant</option>
 										<?php $ret = mysqli_query($con, "select * from doctors where 1");
-										while ($row = mysqli_fetch_array($ret)) {
+										while ($row = mysqli_fetch_array($ret))  { 
 										?>
 											<option value="<?php echo htmlentities($row['id']); ?>">
 												<?php echo htmlentities($row['doctorName']); ?>
