@@ -248,7 +248,7 @@ function fetchPatientName($admissionID)
 							<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
 							<div class="row">
 								<div class="col-sm-6">
-									<p>Patient Name: <span id="pName"> </span></p>
+									<p>Patient Name: <span id="pName"> <?php echo $resultarray['name']; ?></span></p>
 								</div>
 								<div class="col-sm-3">
 									<p>Age: <span id="pAge"> </span> </p>
