@@ -13,17 +13,17 @@ $today = $year . '-' . $month . '-' . $day;
 
 function fetchPatientName($admissionID)
 {
-    include('../include/config.php');
-    $query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-    $result =  $con->query($query);
-    $resultarray=[];
+	include('../include/config.php');
+	$query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+	$result =  $con->query($query);
+	$resultarray = [];
 
-    while ($row = mysqli_fetch_array($result)) {
-        $resultarray['name'] = $row['PatientName'];
-        $resultarray['gender'] = $row['PatientGender'];
-        $resultarray['age'] = $row['PatientAge'];
-    }
-    return $resultarray;
+	while ($row = mysqli_fetch_array($result)) {
+		$resultarray['name'] = $row['PatientName'];
+		$resultarray['gender'] = $row['PatientGender'];
+		$resultarray['age'] = $row['PatientAge'];
+	}
+	return $resultarray;
 }
 
 ?>
@@ -95,21 +95,21 @@ function fetchPatientName($admissionID)
 								<div class="form-group">
 
 									<form method="post" name="submit">
-										
+
 										<input type="hidden" name="pid" class="form-control" id="patId" value="">
 										<?php
-                $query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
-                $result = $con->query($query);
-                $fields_arr = "";
-                while ($row = mysqli_fetch_array($result)) {
-                    $resultarray2= fetchPatientName($row['admissionID']);
-                ?>
-										<label for="Patient Name">
-											Patient Name
+										$query = "SELECT laboratoryTestList.labFormID,labTestRecord.performedTestID, labTestRecord.testResult, laboratoryTestList.labFields, laboratoryTestList.test_more_info, laboratoryTestList.main_titles, labTestRecord.admissionID, labTestRecord.testResult, labTestRecord.findings, labTestRecord.assignedDate, labTestRecord.performedDate, labTestRecord.performedBy FROM laboratoryTestList INNER JOIN labTestRecord ON laboratoryTestList.labFormID= labTestRecord.performedTestID And labTestRecord.recordID = '$id'";
+										$result = $con->query($query);
+										$fields_arr = "";
+										while ($row = mysqli_fetch_array($result)) {
+											$resultarray2 = fetchPatientName($row['admissionID']);
+										?>
+											<label for="Patient Name">
+												Patient Name
 
-										</label>
-										<input type="text" name="pat" class="form-control" id="pat" value="<?php echo $resultarray2['name']; ?>" required="require" autocomplete="off">
-										<div id="nameResponse"> </div>
+											</label>
+											<input type="text" name="pat" class="form-control" id="pat" value="<?php echo $resultarray2['name']; ?>" required="require" autocomplete="off">
+											<div id="nameResponse"> </div>
 										<?Php } ?>
 								</div>
 								<div class="form-group">
@@ -360,7 +360,7 @@ function fetchPatientName($admissionID)
 
 
 							</div>
-							<div tyle="margin: 30px 0;"> 
+							<div tyle="margin: 30px 0;">
 
 								<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
 									fully answered all such questions.</p>
