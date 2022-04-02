@@ -37,14 +37,13 @@ function fetchPatientName($admissionID)
                 $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID AND table1.labTestStatus = 'complete' ";
                 $result = $con->query($admissionQuery);
                 ?>
-                <table class="table table-bordered dt-responsive nowrap">
+                <table  class="display" id="myTable">
                 <thead>
                         <th>#</th>
                         <th>Assigned Date</th>
                         <th>Test Type</th>
                         <th>Patient Name</th>
                         <th>Status</th>
-                        <th>Action</th>
                         <th>Reports</th>
                     </thead>
                     <tbody id="viewReport">
@@ -58,13 +57,6 @@ function fetchPatientName($admissionID)
                                 <td><?php echo $row['labTestName']; ?></td>
                                 <td><?php echo fetchPatientName($row['admissionID']); ?></td>
                                 <td><?php echo $row['labTestStatus']; ?></td>
-                                <td>
-                                    <?php if ($row['labTestStatus'] == "pending") {
-                                    ?>
-                                        <a href="performTest.php?recID=<?php echo $row['recordID'] ?>&adID=<?php echo $row['admissionID']; ?>&testID=<?php echo $row['performedTestID']; ?>">Perform test</a> | <a href="">Decline</a>
-                                    <?php
-                                    } ?>
-                                </td>
                                 <td><?php
                                     if ($row['labTestStatus'] == "complete") {
                                     ?>
