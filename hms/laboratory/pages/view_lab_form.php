@@ -1,7 +1,7 @@
 <?php include('../include/header.php');
 include('../include/config.php');
 if (isset($_GET['del'])) {
-	mysqli_query($con, "delete from labTestRecord where recordID = '" . $_GET['id'] . "'");
+	mysqli_query($con, "delete from laboratoryTestList where labFormID = '" . $_GET['id'] . "'");
 	$_SESSION['msg'] = "data deleted ! !!";
 }
 ?>
