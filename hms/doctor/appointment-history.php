@@ -255,7 +255,7 @@ if (isset($_GET['attend'])) {
 				var toDate = $("#toDate").val();
 				//console.log(fromDate);
 				jQuery.ajax({
-					url: "fetchappointments.php",
+					url: "fetchappointmentsbydate.php",
 					data: {
 						fromDate: fromDate,
 						toDate: toDate,
