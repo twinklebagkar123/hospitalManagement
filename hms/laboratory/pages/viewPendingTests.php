@@ -37,7 +37,7 @@ function fetchPatientName($admissionID)
                 $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID AND table1.labTestStatus = 'pending' ";
                 $result = $con->query($admissionQuery);
                 ?>
-                <table class="table table-bordered dt-responsive nowrap">
+                <table class="display" id="myTable">
                     <thead>
                         <th>#</th>
                         <th>Assigned Date</th>
