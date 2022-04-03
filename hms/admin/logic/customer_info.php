@@ -15,7 +15,10 @@ function getCustomerDetails($inputKey,$searchBy){
         case 'contact':
             global $con;
             $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE PatientContno='$inputKey'";
-            $result = mysqli_fetch_array(mysqli_query($con,$sql));
+            $result = mysqli_query($con,$sql);
+            while ($row = mysqli_fetch_array($result)) {
+                echo $row['PatientName'];
+            }
             print_r($result);
             // $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
             // return json_encode($arrayResponse);
