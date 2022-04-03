@@ -18,7 +18,7 @@ $(document).ready(function () {
                 var response = JSON.parse(data);
                 console.log("Patient Name: ",response.patientName);
                 $("#uid").val(response.patientID);
-                $(this).parent.append("<span>"+response.patientName+"</span>");
+                $('#patient_name_existing').text(response.patientName);
             }
         });
 

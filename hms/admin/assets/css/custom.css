@@ -43,3 +43,8 @@
     font-weight: 600;
     box-shadow: 2px 4px 7px 1px rgb(0 0 0 / 20%);
 }
+#patient_name_existing{
+  margin-left: 15px;
+  color: green;
+  font-size: 18px;
+}
