@@ -4,14 +4,27 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-
+$id = $_GET['admissionId'];
 $month = date('m');
 $day = date('d');
 $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
 
+function fetchPatientName($admissionID)
+{
+	include('../include/config.php');
+	$query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
+	$result =  $con->query($query);
+	$resultarray = [];
 
+	while ($row = mysqli_fetch_array($result)) {
+		$resultarray['name'] = $row['PatientName'];
+		$resultarray['gender'] = $row['PatientGender'];
+		$resultarray['age'] = $row['PatientAge'];
+	}
+	return $resultarray;
+}
 
 ?>
 <!DOCTYPE html>
@@ -80,15 +93,20 @@ $today = $year . '-' . $month . '-' . $day;
 						<div class="col-sm-6 ">
 							<div class="input-group">
 								<div class="form-group">
-									<form method="post" name="submit">
-										<input type="hidden" name="pid" class="form-control" id="patId" value="">
-										<label for="Patient Name">
-											Patient Name
 
-										</label>
-										<input type="text" name="pat" class="form-control" id="pat" required="require" autocomplete="off">
-										<div id="nameResponse"> </div>
+									<form method="post" name="submit">
+
+										<input type="hidden" name="pid" class="form-control" id="patId" value="">
+										<?php $resultarray = fetchPatientName($id);?>
+											<label for="Patient Name">
+												Patient Name
+
+											</label>
+											<input type="text" name="pat" class="form-control" id="pat" value="<?php echo $resultarray['name']; ?>" required="require" autocomplete="off">
+											<div id="nameResponse"> </div>
+										
 								</div>
+								
 								<div class="form-group">
 									<label for="consultant">
 										Consultant
@@ -96,7 +114,7 @@ $today = $year . '-' . $month . '-' . $day;
 									<select name="consultant" class="form-control" id="consultant" required="require">
 										<option value="">Select consultant</option>
 										<?php $ret = mysqli_query($con, "select * from doctors where 1");
-										while ($row = mysqli_fetch_array($ret)) {
+										while ($row = mysqli_fetch_array($ret))  { 
 										?>
 											<option value="<?php echo htmlentities($row['id']); ?>">
 												<?php echo htmlentities($row['doctorName']); ?>
@@ -230,13 +248,13 @@ $today = $year . '-' . $month . '-' . $day;
 							<h4> CONSENT FOR OPERATION / PROCEDURE</h4>
 							<div class="row">
 								<div class="col-sm-6">
-									<p>Patient Name: <span id="pName"> </span></p>
+									<p>Patient Name: <span id="pName"> <?php echo $resultarray['name']; ?></span></p>
 								</div>
 								<div class="col-sm-3">
-									<p>Age: <span id="pAge"> </span> </p>
+									<p>Age: <span id="pAge"> <?php echo $resultarray['age']; ?> </span> </p>
 								</div>
 								<div class="col-sm-3">
-									<p>Sex: <span id="pGender"></span> </p>
+									<p>Sex: <span id="pGender"><?php echo $resultarray['gender']; ?></span> </p>
 								</div>
 							</div>
 
@@ -337,7 +355,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 							</div>
-							<div tyle="margin: 30px 0;"> 
+							<div tyle="margin: 30px 0;">
 
 								<p> I hereby certify that I have explained the nature of procedure, have offered to answer any questions and
 									fully answered all such questions.</p>

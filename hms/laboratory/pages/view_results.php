@@ -14,26 +14,6 @@ function fetchPatientName($admissionID)
     }
     return $resultarray;
 }
-// function fetchPatientGender($admissionID)
-// {
-//     include('../include/config.php');
-//     $query2 = "SELECT tblpatient.PatientGender FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-//     $result2 =  $con->query($query2);
-//     while ($row = mysqli_fetch_array($result2)) {
-//         $gender = $row['PatientGender'];
-//     }
-//     return $gender;
-// }
-// function fetchPatientAge($admissionID)
-// {
-//     include('../include/config.php');
-//     $query3 = "SELECT tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
-//     $result3 =  $con->query($query3);
-//     while ($row = mysqli_fetch_array($result3)) {
-//         $age = $row['PatientAge'];
-//     }
-//     return $age;
-//  }
 ?>
 <style type="text/css">
     .title_style {

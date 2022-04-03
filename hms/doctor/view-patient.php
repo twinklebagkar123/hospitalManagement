@@ -14,14 +14,13 @@ if (isset($_POST["testAssign"])) {
     $sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
     //print_r($sql);
     $query .= mysqli_query($con, $sql);
-	
   }
   if ($query) {
-		echo '<script>alert("Test Assigned Successfully.")</script>';
+    echo '<script>alert("Test Assigned Successfully.")</script>';
     echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
-	} else {
-		echo '<script>alert("Something Went Wrong. Please try again")</script>';
-	}
+  } else {
+    echo '<script>alert("Something Went Wrong. Please try again")</script>';
+  }
 }
 if (isset($_POST['submit'])) {
 
@@ -248,7 +247,7 @@ if (isset($_POST['submit'])) {
                             <?php echo $row1['uploadDate'] ?>
                           </td>
                           <td>
-                            <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>">View</a>
+                            <a href="https://adpigo.com/hospital/uploads/<?php echo $row1['file_url'] ?>" target="_blank">View</a>
 
                           </td>
                         </tr>
