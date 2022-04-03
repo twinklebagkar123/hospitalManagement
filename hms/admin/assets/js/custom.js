@@ -7,10 +7,18 @@ $(document).ready(function () {
 
     });
     $(document).on("click", "#customer_input_search", function () {
-        // $inputKey = $(this).data('selected_searchby');
-        $inputKey = $(this).attr('data-selected_searchby');
-        $searchBy = $('#existing_customer_input').val();
-        console.log($inputKey,$searchBy);
+        var inputKey = $(this).attr('data-selected_searchby');
+        var searchBy = $('#existing_customer_input').val();
+        // console.log($inputKey,$searchBy);
+        $.ajax({
+            url: "logic/customer_info.php",
+            method: "POST",
+            data: {inputKey: inputKey, searchBy: searchBy},
+            success: function (data){
+                console.log(data);
+            }
+        });
+
     });
     $(".searchByAdmission").on("click", function () {
         var selected = $(this).data('customer_detail');
