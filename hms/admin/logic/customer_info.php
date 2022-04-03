@@ -16,8 +16,9 @@ function getCustomerDetails($inputKey,$searchBy){
             global $con;
             $sql = "SELECT `ID`,PatientName` FROM tblpatient WHERE PatientContno='$inputKey'";
             $result = mysqli_fetch_array(mysqli_query($con,$sql));
-            $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
-            return json_encode($arrayResponse);
+            print_r($result);
+            // $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
+            // return json_encode($arrayResponse);
             break;
         
         default:
@@ -29,5 +30,5 @@ function getCustomerDetails($inputKey,$searchBy){
             break;
     }
 }
-echo getCustomerDetails($inputKey,$searchBy);
+ getCustomerDetails($inputKey,$searchBy);
 ?>
