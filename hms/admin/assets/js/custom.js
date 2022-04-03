@@ -17,18 +17,18 @@ $(document).ready(function () {
         switch (selected) {
             case "customer_id_admission":
                 $('#existing_customer_input').attr('placeholder', "Please enter Customer Id");
-                $('#existing_customer_input').removeAttribute('readonly');
+                $('#existing_customer_input').removeAttr('readonly');
                 
                 $('#customer_input_search').attr('data-selected_searchby', "id");
                 break;
             case "customer_contact_admission":
                 $('#existing_customer_input').attr('placeholder', "Please enter Customer Phone Number");
-                $('#existing_customer_input').removeAttribute('readonly');
+                $('#existing_customer_input').removeAttr('readonly');
                 $('#customer_input_search').attr('data-selected_searchby', "contact");
                 break;
             default:
                 $('#existing_customer_input').attr('placeholder', "Please enter Adhar Card Number");
-                $('#existing_customer_input').removeAttribute('readonly');
+                $('#existing_customer_input').removeAttr('readonly');
                 $('#customer_input_search').attr('data-selected_searchby', "adhar");
                 break;
         }
