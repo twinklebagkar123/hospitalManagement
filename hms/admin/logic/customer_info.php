@@ -19,7 +19,7 @@ function getCustomerDetails($inputKey,$searchBy){
             // while ($row = mysqli_fetch_array($result)) {
             //     return $row['PatientName'].$inputKey."  ".$searchBy;
             // }
-            $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
+            $arrayResponse = array('patientID' => $result[0]['ID'],'patientName'=> $result[0]['PatientName']);
             return json_encode($arrayResponse);
             break;
         
