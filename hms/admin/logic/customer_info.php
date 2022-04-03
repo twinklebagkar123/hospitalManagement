@@ -15,12 +15,12 @@ function getCustomerDetails($inputKey,$searchBy){
         case 'contact':
             global $con;
             $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE PatientContno='$searchBy'";
-            $result = mysqli_query($con,$sql);
-            while ($row = mysqli_fetch_array($result)) {
-                return $row['PatientName'].$inputKey."  ".$searchBy;
-            }
-            // $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
-            // return json_encode($arrayResponse);
+            $result = mysqli_fetch_array(mysqli_query($con,$sql));
+            // while ($row = mysqli_fetch_array($result)) {
+            //     return $row['PatientName'].$inputKey."  ".$searchBy;
+            // }
+            $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
+            return json_encode($arrayResponse);
             break;
         
         default:
