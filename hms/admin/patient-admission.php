@@ -186,7 +186,7 @@ $today = $year . '-' . $month . '-' . $day;
 																</select>
 															</div>
 															<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-																Add
+																Submit Patient Admission
 															</button>
 														</form>
 													</div>
