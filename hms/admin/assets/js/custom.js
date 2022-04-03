@@ -15,7 +15,7 @@ $(document).ready(function () {
             method: "POST",
             data: {inputKey: inputKey, searchBy: searchBy},
             success: function (data){
-                var response = json_decode(data);
+                var response = JSON.parse(data);
                 console.log("Patient Name: ",response.patientName);
             }
         });
