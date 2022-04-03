@@ -126,7 +126,7 @@ $today = $year . '-' . $month . '-' . $day;
 															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_adhar_admission" class="btn btn-primary searchByAdmission">Adhar Card</button></div>
 														</div>
 														<div class="row" style="margin-top: 30px;">
-															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control"></div>
+															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control" readonly="true"></div>
 															<div class="col-md-6"><a data-selected_searchby="" id="customer_input_search" class="btn btn-primary">Go</a></div>
 														</div>
 													</div>

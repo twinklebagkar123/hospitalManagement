@@ -3,23 +3,34 @@ $(document).ready(function () {
     $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
     });
+    $("#customer_input_search").on("click", function () {
+
+    });
+    $("#customer_input_search").on("click", function () {
+        $inputKey = $(this).data('selected_searchby');
+        console.log($inputKey);
+    });
     $(".searchByAdmission").on("click", function () {
         var selected = $(this).data('customer_detail');
         switch (selected) {
             case "customer_id_admission":
                 $('#existing_customer_input').attr('placeholder', "Please enter Customer Id");
+                $('#existing_customer_input').attr('readonly', "false");
                 $('#customer_input_search').attr('data-selected_searchby', "id");
                 break;
             case "customer_contact_admission":
                 $('#existing_customer_input').attr('placeholder', "Please enter Customer Phone Number");
+                $('#existing_customer_input').attr('readonly', "false");
                 $('#customer_input_search').attr('data-selected_searchby', "contact");
                 break;
             default:
                 $('#existing_customer_input').attr('placeholder', "Please enter Adhar Card Number");
+                $('#existing_customer_input').attr('readonly', "false");
                 $('#customer_input_search').attr('data-selected_searchby', "adhar");
                 break;
         }
     });
+
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');
         $.ajax({
