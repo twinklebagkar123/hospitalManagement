@@ -6,7 +6,7 @@ $(document).ready(function () {
     $("#customer_input_search").on("click", function () {
 
     });
-    $("#customer_input_search").on("click", function () {
+    $(document).on("click", "#customer_input_search", function () {
         $inputKey = $(this).data('selected_searchby');
         console.log($inputKey);
     });
