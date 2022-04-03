@@ -1,6 +1,6 @@
 <?php
 include "../include/config.php";
-
+$con;
 $inputKey = $_POST['inputKey'];
 $searchBy = $_POST['searchBy'];
 function getCustomerDetails($inputKey,$searchBy){
@@ -19,7 +19,6 @@ function getCustomerDetails($inputKey,$searchBy){
             while ($row = mysqli_fetch_array($result)) {
                 echo $row['PatientName'];
             }
-            print_r($result);
             // $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
             // return json_encode($arrayResponse);
             break;
