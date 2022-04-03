@@ -170,21 +170,7 @@ $today = $year . '-' . $month . '-' . $day;
 																</label>
 																<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 															</div>
-															<div class="form-group">
-																<label for="doctor">
-																	Doctors
-																</label>
-																<select name="doctor" class="form-control" id="doctor" required="true">
-																	<option value="">Select doctor</option>
-																	<?php $ret = mysqli_query($con, "select * from doctors where 1");
-																	while ($row = mysqli_fetch_array($ret)) {
-																	?>
-																		<option value="<?php echo htmlentities($row['id']); ?>">
-																			<?php echo htmlentities($row['doctorName']); ?>
-																		</option>
-																	<?php } ?>
-																</select>
-															</div>
+															<input type="hidden" name="doctor" value="1">
 															<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 																Submit Patient Admission
 															</button>
