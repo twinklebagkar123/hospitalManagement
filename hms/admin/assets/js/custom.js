@@ -7,7 +7,8 @@ $(document).ready(function () {
 
     });
     $(document).on("click", "#customer_input_search", function () {
-        $inputKey = $(this).data('selected_searchby');
+        // $inputKey = $(this).data('selected_searchby');
+        $inputKey = $(this).attr('data-selected_searchby');
         console.log($inputKey);
     });
     $(".searchByAdmission").on("click", function () {
