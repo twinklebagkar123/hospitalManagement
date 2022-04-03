@@ -14,7 +14,7 @@ function getCustomerDetails($inputKey,$searchBy){
             break;
         case 'contact':
             global $con;
-            $sql = "SELECT `ID`,PatientName` FROM tblpatient WHERE PatientContno='$inputKey'";
+            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE PatientContno='$inputKey'";
             $result = mysqli_fetch_array(mysqli_query($con,$sql));
             print_r($result);
             // $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName']);
@@ -23,7 +23,7 @@ function getCustomerDetails($inputKey,$searchBy){
         
         default:
             global $con;
-            $sql = "SELECT `ID`,PatientName` FROM tblpatient WHERE adharCardNo='$inputKey'";
+            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE adharCardNo='$inputKey'";
             $result = mysqli_fetch_array(mysqli_query($con,$sql));
             $arrayResponse = array('patientID' => $result[0]['ID'],'patientName'=> $result[0]['PatientName']);
             return json_encode($arrayResponse);
