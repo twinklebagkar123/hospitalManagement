@@ -133,61 +133,64 @@ $today = $year . '-' . $month . '-' . $day;
 														</div>
 													</div>
 												</div>
-
-												<form role="form" class="" method="post" style="margin-top: 30px;">
-													<input type="hidden" id="uid" name="uid" value="">
-													<div class="form-group">
-														<label class="block">
-															Admission Type
-														</label>
-														<div class="clip-radio radio-primary">
-															<input type="radio" id="rg-opd" name="admissionType" value="opd">
-															<label for="rg-opd">
-																OPD
-															</label>
-															<input type="radio" id="rg-ide" name="admissionType" value="ide">
-															<label for="rg-ide">
-																IDE
-															</label>
-														</div>
+												<div class="row">
+													<div class="col-md-12">
+														<form role="form" class="" method="post" style="margin-top: 30px;">
+															<input type="hidden" id="uid" name="uid" value="">
+															<div class="form-group">
+																<label class="block">
+																	Admission Type
+																</label>
+																<div class="clip-radio radio-primary">
+																	<input type="radio" id="rg-opd" name="admissionType" value="opd">
+																	<label for="rg-opd">
+																		OPD
+																	</label>
+																	<input type="radio" id="rg-ide" name="admissionType" value="ide">
+																	<label for="rg-ide">
+																		IDE
+																	</label>
+																</div>
+															</div>
+															<div class="form-group">
+																<label>
+																	Ward No.
+																</label>
+																<input type="text" name="wn" class="form-control" placeholder="Enter Ward No." required="true">
+															</div>
+															<div class="form-group">
+																<label>
+																	Cost Per day
+																</label>
+																<input type="text" name="cpd" class="form-control" placeholder="Enter Cost Per day" required="true">
+															</div>
+															<div class="form-group">
+																<label>
+																	Advance Amount
+																</label>
+																<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
+															</div>
+															<div class="form-group">
+																<label for="doctor">
+																	Doctors
+																</label>
+																<select name="doctor" class="form-control" id="doctor" required="true">
+																	<option value="">Select doctor</option>
+																	<?php $ret = mysqli_query($con, "select * from doctors where 1");
+																	while ($row = mysqli_fetch_array($ret)) {
+																	?>
+																		<option value="<?php echo htmlentities($row['id']); ?>">
+																			<?php echo htmlentities($row['doctorName']); ?>
+																		</option>
+																	<?php } ?>
+																</select>
+															</div>
+															<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
+																Add
+															</button>
+														</form>
 													</div>
-													<div class="form-group">
-														<label>
-															Ward No.
-														</label>
-														<input type="text" name="wn" class="form-control" placeholder="Enter Ward No." required="true">
-													</div>
-													<div class="form-group">
-														<label>
-															Cost Per day
-														</label>
-														<input type="text" name="cpd" class="form-control" placeholder="Enter Cost Per day" required="true">
-													</div>
-													<div class="form-group">
-														<label>
-															Advance Amount
-														</label>
-														<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
-													</div>
-													<div class="form-group">
-														<label for="doctor">
-															Doctors
-														</label>
-														<select name="doctor" class="form-control" id="doctor" required="true">
-															<option value="">Select doctor</option>
-															<?php $ret = mysqli_query($con, "select * from doctors where 1");
-															while ($row = mysqli_fetch_array($ret)) {
-															?>
-																<option value="<?php echo htmlentities($row['id']); ?>">
-																	<?php echo htmlentities($row['doctorName']); ?>
-																</option>
-															<?php } ?>
-														</select>
-													</div>
-													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-														Add
-													</button>
-												</form>
+												</div>
 											</div>
 										</div>
 									</div>
