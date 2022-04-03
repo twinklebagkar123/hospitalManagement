@@ -9,7 +9,8 @@ $(document).ready(function () {
     $(document).on("click", "#customer_input_search", function () {
         // $inputKey = $(this).data('selected_searchby');
         $inputKey = $(this).attr('data-selected_searchby');
-        console.log($inputKey);
+        $searchBy = $('#existing_customer_input').val();
+        console.log($inputKey,$searchBy);
     });
     $(".searchByAdmission").on("click", function () {
         var selected = $(this).data('customer_detail');
