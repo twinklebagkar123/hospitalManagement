@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
 	$sql = mysqli_query($con, "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,adharCardNo,PatientAge,PatientMedhis) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$adharCardNo','$patage','$medhis')");
 	if ($sql) {
 		$patientInsertedId = mysqli_insert_id($con);
-		// $patientInsertedId = $sql->mysqli_insert_id;
-		echo "<script>alert('Patient info added Successfully with Id: ".$patientInsertedId."');</script>";
-		// header('location:patient-admission.php?');
+		header('location:patient-admission.php?patientId='.$patientInsertId);
+	}else{
+		echo "<script>alert('Something Went wrong.');</script>";
 	}
 }
 ?>

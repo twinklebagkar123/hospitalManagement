@@ -114,7 +114,7 @@ $today = $year . '-' . $month . '-' . $day;
 														<div class="patient_admission_step1_box"><a id="existing_patient_admission" href="javascript:void(0);">Existing Patient</a></div>
 													</div>
 													<div class="col-md-6">
-														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="javascript:void(0);">Register Patient</a></div>
+														<div class="patient_admission_step1_box"><a id="register_patient_admission" href="user-registration.php">Register Patient</a></div>
 													</div>
 												</div>
 												<div class="row" id="existing_customer_selectBy" style="margin-top: 30px; display: none;">
@@ -136,7 +136,11 @@ $today = $year . '-' . $month . '-' . $day;
 												<div class="row">
 													<div class="col-md-12">
 														<form role="form" class="" method="post" style="margin-top: 30px;">
+															<?php if(isset($_GET['patientId'])): ?>
+															<input type="hidden" id="uid" name="uid" value="<?php echo $_GET['patientId']; ?>">
+															<?php else: ?>
 															<input type="hidden" id="uid" name="uid" value="">
+															<?php endif; ?>
 															<div class="form-group">
 																<label class="block">
 																	Admission Type
