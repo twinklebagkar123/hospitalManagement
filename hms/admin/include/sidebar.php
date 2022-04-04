@@ -118,7 +118,7 @@
 						</li>
 						<li>
 							<a href="view-admit-patient.php">
-								<span class="title"> View Patient</span>
+								<span class="title"> View Admissions</span>
 							</a>
 						</li>
 						<li>
@@ -345,7 +345,7 @@
 								<i class="ti-search"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Procedure Section </span>
+								<span class="title"> Operation Procedure </span>
 							</div>
 						</div>
 					</a>
