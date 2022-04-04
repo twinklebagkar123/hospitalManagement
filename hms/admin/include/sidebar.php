@@ -199,7 +199,7 @@
 								<i class="ti-files"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Admission Fee  </span><i class="icon-arrow"></i>
+								<span class="title"> Packages (IDE) </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
@@ -215,33 +215,17 @@
 								<span class="title"> Show </span>
 							</a>
 						</li>
+						<li>
+							<a href="tariff_class_name.php">
+								<span class="title"> Tariff Class </span>
+							</a>
+						</li>
+						<li>
+							<a href="tariff_cat_name.php">
+								<span class="title"> Tariff Category </span>
+							</a>
+						</li>
 					</ul>
-				</li>
-			
-				<li>
-					<a href="tariff_class_name.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-search"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> tariff class name </span>
-							</div>
-						</div>
-					</a>
-				</li>
-				</li>
-				<li>
-					<a href="tariff_cat_name.php">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-search"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Tariff category </span>
-							</div>
-						</div>
-					</a>
 				</li>
 				</li>
 				<li>
