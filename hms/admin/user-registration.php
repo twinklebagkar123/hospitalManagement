@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 	$sql = mysqli_query($con, "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,adharCardNo,PatientAge,PatientMedhis,CreationDate) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$adharCardNo','$patage','$medhis','$created_at')");
 	if ($sql) {
 		$patientInsertedId = mysqli_insert_id($con);
-		header('location:patient-admission.php?patientId="'.$patientInsertedId.'"');
+		header('location:patient-admission.php?patientId='.$patientInsertedId);
 	}else{
 		echo "<script>alert('Something Went wrong.');</script>";
 	}

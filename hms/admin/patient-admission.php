@@ -137,7 +137,7 @@ $today = $year . '-' . $month . '-' . $day;
 													<div class="col-md-12">
 														<form role="form" class="" method="post" style="margin-top: 30px;">
 															<?php if(isset($_GET['patientId'])): ?>
-															<input type="hidden" id="uid" name="uid" value ="'<?php echo $_GET['patientId']; ?>'">
+															<input type="hidden" id="uid" name="uid" value ="<?php echo $_GET['patientId']; ?>">
 															<?php else: ?>
 															<input type="hidden" id="uid" name="uid" value="">
 															<?php endif; ?>
