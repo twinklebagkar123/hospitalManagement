@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 		$patientInsertedId = mysqli_insert_id($con);
 		// $patientInsertedId = $sql->mysqli_insert_id;
 		echo "<script>alert('Patient info added Successfully with Id: ".$patientInsertedId."');</script>";
-		header('location:patient-admission.php?');
+		// header('location:patient-admission.php?');
 	}
 }
 ?>
@@ -117,7 +117,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Adhar Card
 														</label>
-														<input type="text" name="adharCardNo" class="form-control" placeholder="Enter Patient Contact no" required="true" maxlength="10" pattern="[0-9]+">
+														<input type="text" name="adharCardNo" class="form-control" placeholder="Enter Patient Contact no" required="true" minlength="12" maxlength="12" pattern="[0-9]+">
 													</div>
 													<div class="form-group">
 														<label for="fess">
