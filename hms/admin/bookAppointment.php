@@ -219,8 +219,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="panel panel-white">
-
-
+                                    <div id="resultFetch"></div>
                                 </div>
                             </div>
                         </div>
