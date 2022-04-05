@@ -194,7 +194,7 @@ if (isset($_POST['submit'])) {
                                                         <label for="AppointmentDate">
                                                             Date
                                                         </label>
-                                                        <input class="form-control datepicker" name="appdate" id="appDate" required="required" data-date-format="yyyy-mm-dd">
+                                                        <input class="form-control datepicker" name="appdate" id="appDate" autocomplete="off" required="required" data-date-format="yyyy-mm-dd">
 
                                                     </div>
 
@@ -204,7 +204,7 @@ if (isset($_POST['submit'])) {
                                                             Time
 
                                                         </label>
-                                                        <input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
+                                                        <input class="form-control" name="apptime" id="timepicker1" required="required" autocomplete="off">eg : 10:00 PM
                                                     </div>
 
                                                     <button type="submit" name="submit" class="btn btn-o btn-primary">
