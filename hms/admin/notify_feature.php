@@ -59,7 +59,7 @@
         </div>
     </div>
     <div class="row"><div class="col-md-12">
-            <h2>Email Feature</h2>
+            <h2 style="margin-top: 20px;margin-left: 12px;">Email Feature</h2>
         </div></div>
     <div class="row">
         <div class="col-md-12">
