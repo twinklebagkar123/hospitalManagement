@@ -103,7 +103,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-user"></i>
+								<i class="ti-bookmark-alt"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Patient Admission </span><i class="icon-arrow"></i>
@@ -144,7 +144,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-time"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Appointment History  </span><i class="icon-arrow"></i>
@@ -170,7 +170,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-pulse"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Operation list  </span><i class="icon-arrow"></i>
@@ -196,7 +196,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-bookmark"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Packages (IDE) </span><i class="icon-arrow"></i>
@@ -232,7 +232,7 @@
 					<a href="doctor-logs.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-list"></i>
+								<i class="ti-info-alt"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Doctor Session Logs </span>
@@ -244,10 +244,10 @@
 					<a href="user-logs.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-list"></i>
+								<i class="ti-info-alt"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> User Session Logs </span>
+								<span class="title"> Laboratory Session Logs </span>
 							</div>
 						</div>
 					</a>
@@ -256,7 +256,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-agenda"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Reports </span><i class="icon-arrow"></i>
@@ -277,7 +277,7 @@
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-files"></i>
+								<i class="ti-support"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Medicine </span><i class="icon-arrow"></i>
@@ -285,7 +285,6 @@
 						</div>
 					</a>
 					<ul class="sub-menu">
-
 						<li>
 							<a href="add-medicine.php">
 								<span class="title"> Add medicine </span>
@@ -297,7 +296,7 @@
 					<a href="nearbyAmbulance.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-list"></i>
+								<i class="ti-truck"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Ambulance </span>
@@ -354,7 +353,7 @@
 					<a href="addProcedure.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-search"></i>
+								<i class="ti-pencil-alt"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Operation Procedure </span>
