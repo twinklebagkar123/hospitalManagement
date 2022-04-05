@@ -20,7 +20,7 @@
     <!-- start: BASIC EXAMPLE -->
     <div class="container-fluid container-fullw bg-white">
         <div class="row"><div class="col-md-12">
-            <strong>SMS Feature</strong>
+            <h2>SMS Feature</h2>
         </div></div>
         <div class="row">
             <div class=" col-md-6">
@@ -41,9 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="row"><div class="col-md-12">
-            <strong>Email Feature</strong>
-        </div></div>
+       
         <div class="row" style="margin-top: 3%;">
             <div class="col-md-6">
                 <div class="form-group">
@@ -60,6 +58,9 @@
             </div>
         </div>
     </div>
+    <div class="row"><div class="col-md-12">
+            <h2>Email Feature</h2>
+        </div></div>
     <div class="row">
         <div class="col-md-12">
             <form id="contact-form" method="POST" action="email_script.php" role="form">
