@@ -194,7 +194,7 @@ if (isset($_POST['submit'])) {
                                                         <label for="AppointmentDate">
                                                             Date
                                                         </label>
-                                                        <input class="form-control datepicker" name="appdate" id="appDate" autocomplete="off" required="required" data-date-format="yyyy-mm-dd">
+                                                        <input class="form-control datepicker" name="appdate" id="appointment_date" autocomplete="off" required="required" data-date-format="yyyy-mm-dd">
 
                                                     </div>
 
@@ -219,7 +219,8 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="panel panel-white">
-                                <div id="resultFetch"></div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -269,6 +270,12 @@ if (isset($_POST['submit'])) {
     <script src="assets/js/main.js"></script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
+    <script>
+        jQuery(document).ready(function() {
+            Main.init();
+            FormElements.init();
+        });
+    </script>
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>

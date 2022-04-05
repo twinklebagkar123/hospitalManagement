@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#appDate").on("change", function() {
+    $("#appointment_date").on("change", function() {
         var apt = $(this).val();
         var doc = $("#doctor").val();
         console.log(doc);
