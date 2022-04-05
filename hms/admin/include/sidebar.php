@@ -244,7 +244,7 @@
 					<a href="user-logs.php">
 						<div class="item-content">
 							<div class="item-media">
-								<i class="ti-info-alt"></i>
+								<i class="ti-archive"></i>
 							</div>
 							<div class="item-inner">
 								<span class="title"> Laboratory Session Logs </span>
