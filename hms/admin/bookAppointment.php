@@ -219,8 +219,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="col-lg-12 col-md-12">
                                 <div class="panel panel-white">
-
-
+                                <div id="resultFetch"></div>
                                 </div>
                             </div>
                         </div>
@@ -270,31 +269,6 @@ if (isset($_POST['submit'])) {
     <script src="assets/js/main.js"></script>
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="assets/js/form-elements.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            Main.init();
-            FormElements.init();
-            $("#appDate").on("change", function() {
-                var apt = $(this).val();
-                var doc = $("#doctor").val();
-                console.log(doc);
-
-                $.ajax({
-                    type: "POST",
-                    url: "get_doctor.php",
-                    data: {
-                        appDate: apt,
-                        docID: doc
-                    },
-                    success: function(data) {
-                        $("#resultFetch").html(data);
-                    }
-                });
-
-
-            });
-        });
-    </script>
     <!-- end: JavaScript Event Handlers for this page -->
     <!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>

@@ -1,4 +1,21 @@
 $(document).ready(function () {
+    $("#appDate").on("change", function() {
+        var apt = $(this).val();
+        var doc = $("#doctor").val();
+        console.log(doc);
+
+        $.ajax({
+            type: "POST",
+            url: "get_doctor.php",
+            data: {
+                appDate: apt,
+                docID: doc
+            },
+            success: function(data) {
+                $("#resultFetch").html(data);
+            }
+        });
+    });
     var notificationResult = [];
     $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
