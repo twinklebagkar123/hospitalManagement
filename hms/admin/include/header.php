@@ -43,15 +43,15 @@
 				</ul>
 			</li>
 			<li>
-					<div class="item-media notification_wrapper dropdown">
-						<span id="notification_counter" class="notification_counter">0</span>
-						<i class="ti-bell" style="font-size:25px;" id="notification_info_click"></i>
-						<!-- <i class="ti-angle-down"></i> -->
-					</div>
-					<ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
-					
-					</ul>
-				
+				<div class="item-media notification_wrapper dropdown">
+					<span id="notification_counter" class="notification_counter">0</span>
+					<i class="ti-bell" style="font-size:25px;" id="notification_info_click"></i>
+					<!-- <i class="ti-angle-down"></i> -->
+				</div>
+				<ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
+
+				</ul>
+
 			</li>
 			<!-- end: USER OPTIONS DROPDOWN -->
 		</ul>

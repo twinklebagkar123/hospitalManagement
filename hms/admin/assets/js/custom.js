@@ -117,4 +117,66 @@ $(document).ready(function () {
         load_unseen_notification();
     }, 8000);
     
+        function sendSms(smsType) {
+            var message = $('#sms_textarea').val();
+            var contacts = $('#contact_number_sms_custom').val();
+            if (message.length > 0) {
+                $.ajax({
+                    url: "/hospital/email_script.php",
+                    dataType: "json",
+                    type: "Post",
+                    async: true,
+                    data: {
+                        "sms_type": smsType,
+                        "message": message,
+                        "numbers": contacts,
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        alert(data.message[0]);
+                    },
+                    error: function(xhr, exception) {
+                        var msg = "";
+                        if (xhr.status === 0) {
+                            msg = "Not connect.\n Verify Network." + xhr.responseText;
+                        } else if (xhr.status == 404) {
+                            msg = "Requested page not found. [404]" + xhr.responseText;
+                        } else if (xhr.status == 500) {
+                            msg = "Internal Server Error [500]." + xhr.responseText;
+                        } else if (exception === "parsererror") {
+                            msg = "Requested JSON parse failed.";
+                        } else if (exception === "timeout") {
+                            msg = "Time out error." + xhr.responseText;
+                        } else if (exception === "abort") {
+                            msg = "Ajax request aborted.";
+                        } else {
+                            msg = "Error:" + xhr.status + " " + xhr.responseText;
+                        }
+                        console.log(msg);
+                        alert(msg);
+                    }
+                });
+            }
+        }
+        $('#all_sms').click(function() {
+            sendSms(1);
+        });
+        $('#patients_sms').click(function() {
+            sendSms(2);
+        });
+        $('#staff_sms').click(function() {
+            sendSms(3);
+        });
+        $('#manual_sms_submit').click(function() {
+            sendSms(4);
+        });
+        /*
+        SMS TYPE:  
+        all_sms - 1,
+        patients_sms - 2,
+        staff_sms -3,
+        manual_sms_submit - 4,
+        */
+
+
 });

@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 
     <script>
         function getdoctor(val) {
-            console.log("hi");
+            // console.log("hi");
             $.ajax({
                 type: "POST",
                 url: "get_doctor.php",
@@ -76,21 +76,6 @@ if (isset($_POST['submit'])) {
                 success: function(data) {
                     $("#fees").html(data);
                 }
-            });
-        }
-    </script>
-    <script>
-        function checkemailAvailability() {
-            $("#loaderIcon").show();
-            jQuery.ajax({
-                url: "check_availability.php",
-                data: 'emailid=' + $("#docemail").val(),
-                type: "POST",
-                success: function(data) {
-                    $("#email-availability-status").html(data);
-                    $("#loaderIcon").hide();
-                },
-                error: function() {}
             });
         }
     </script>
@@ -127,7 +112,6 @@ if (isset($_POST['submit'])) {
                     <div class="container-fluid container-fullw bg-white">
                         <div class="row">
                             <div class="col-md-12">
-
                                 <div class="row margin-top-30">
                                     <div class="col-lg-8 col-md-12">
                                         <div class="panel panel-white">
