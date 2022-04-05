@@ -4,14 +4,14 @@
     <section id="page-title">
         <div class="row">
             <div class="col-sm-8">
-                <h1 class="mainTitle">Admin | Book Appointment</h1>
+                <h1 class="mainTitle">Admin | Notification Feature</h1>
             </div>
             <ol class="breadcrumb">
                 <li>
                     <span>Admin</span>
                 </li>
                 <li class="active">
-                    <span>Book Appointment</span>
+                    <span>Notification</span>
                 </li>
             </ol>
         </div>
@@ -19,6 +19,9 @@
     <!-- end: PAGE TITLE -->
     <!-- start: BASIC EXAMPLE -->
     <div class="container-fluid container-fullw bg-white">
+        <div class="row"><div class="col-md-12">
+            <strong>SMS Feature</strong>
+        </div></div>
         <div class="row">
             <div class=" col-md-6">
                 <label for="form_message">Message *</label>
@@ -38,7 +41,9 @@
                 </div>
             </div>
         </div>
-
+        <div class="row"><div class="col-md-12">
+            <strong>Email Feature</strong>
+        </div></div>
         <div class="row" style="margin-top: 3%;">
             <div class="col-md-6">
                 <div class="form-group">
