@@ -87,14 +87,14 @@ $today = $year . '-' . $month . '-' . $day;
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Patient | Patient Admission</h1>
+								<h1 class="mainTitle">Admin | Patient Admission</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
 									<span>Patient</span>
 								</li>
 								<li class="active">
-									<span>Patient Admission</span>
+									<span>Admission</span>
 								</li>
 							</ol>
 						</div>

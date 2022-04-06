@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Admin | Add Ambulance Details</title>
+		<title>Admin | Operation Procedure</title>
 		
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -87,14 +87,14 @@ function checkemailAvailability() {
 						<section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Procedure Section</h1>
+									<h1 class="mainTitle">Admin | Operation Procedure</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
-										<span>Admin</span>
+										<span>Operation</span>
 									</li>
 									<li class="active">
-										<span>Add Ambulance Details</span>
+										<span>Procedure</span>
 									</li>
 								</ol>
 							</div>
@@ -109,7 +109,7 @@ function checkemailAvailability() {
 										<div class="col-lg-8 col-md-12">
 											<div class="panel panel-white">
 												<div class="panel-heading">
-													<h5 class="panel-title">Add Procedure Details</h5>
+													<h5 class="panel-title">Procedure Details</h5>
 												</div>
 												<div class="panel-body">
 									

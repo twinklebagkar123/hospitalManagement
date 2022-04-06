@@ -63,9 +63,8 @@ if(isset($_POST['submit']))
 
 													<div class="form-group">
 														<label for="name">
-                                                        tariff Class Name:
+                                                        Tariff Class:
 														</label>
-
 														<input type="text" id="tariff_class_name" name="tariff_class_name" class="form-control" placeholder="Enter tariff class Name" required="true" >
 													
 													</div>

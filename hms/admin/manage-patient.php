@@ -84,14 +84,14 @@ if (isset($_POST['submit'])) {
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Admin | View Patients</h1>
+								<h1 class="mainTitle">Admin | Manage Patients</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
 									<span>Admin</span>
 								</li>
 								<li class="active">
-									<span>View Patients</span>
+									<span>Manage</span>
 								</li>
 							</ol>
 						</div>
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
 					<div class="container-fluid container-fullw bg-white">
 						<div class="row">
 							<div class="col-md-12">
-								<h5 class="over-title margin-bottom-15">View <span class="text-bold">Patients</span></h5>
+								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
 
 								<table class="display" id="myTable">
 									<thead>

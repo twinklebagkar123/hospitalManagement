@@ -50,28 +50,6 @@
 
 					</ul>
 				</li>
-
-				<!-- <li>
-					<a href="javascript:void(0)">
-						<div class="item-content">
-							<div class="item-media">
-								<i class="ti-user"></i>
-							</div>
-							<div class="item-inner">
-								<span class="title"> Users </span><i class="icon-arrow"></i>
-							</div>
-						</div>
-					</a>
-					<ul class="sub-menu">
-
-						<li>
-							<a href="manage-users.php">
-								<span class="title"> Manage Users </span>
-							</a>
-						</li>
-
-					</ul>
-				</li> -->
 				<li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
@@ -128,7 +106,7 @@
 						</li>
 					</ul>
 					<li>
-					<a href="patient-search.php">
+					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
 								<i class="ti-search"></i>
@@ -138,6 +116,18 @@
 							</div>
 						</div>
 					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="patient-search.php">
+								<span class="title">Name/Id/Phone number </span>
+							</a>
+						</li>
+						<li>
+							<a href="between-dates-reports.php">
+								<span class="title">Registration Date</span>
+							</a>
+						</li>
+					</ul>
 				</li>
 				</li>
 				<li>
@@ -155,7 +145,7 @@
 
 						<li>
 							<a href="appointment-history.php">
-								<span class="title"> Todays list </span>
+								<span class="title"> All Appointments </span>
 							</a>
 						</li>
 						<li>
@@ -252,7 +242,7 @@
 						</div>
 					</a>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
@@ -272,7 +262,7 @@
 						</li>
 					</ul>
 				
-				</li>
+				</li> -->
 				<li>
 					<a href="javascript:void(0)">
 						<div class="item-content">

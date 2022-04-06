@@ -78,14 +78,14 @@ if (isset($_POST['submit'])) {
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Patient | Register Patient</h1>
+								<h1 class="mainTitle">Admin | Register Patient</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
 									<span>Patient</span>
 								</li>
 								<li class="active">
-									<span>Register Patient</span>
+									<span>Registration</span>
 								</li>
 							</ol>
 						</div>
