@@ -118,7 +118,12 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Adhar Card
 														</label>
-														<input type="text" name="adharCardNo" class="form-control" placeholder="Enter Patient Contact no" required="true" minlength="12" maxlength="12" pattern="[0-9]+">
+														<input type="number" id="adhar_card_registration" name="adharCardNo" class="form-control" placeholder="Enter Patient Contact no" required="true" minlength="12" maxlength="12" >
+													</div>
+													<div class="form-group" id="customer_already_registered" style="display:none;">
+														<label for="fess" style="color: green;font-weight: 600;">Customer Already Registered: <span></span>
+														</label>
+														<a href="javascript:void(0)" class="btn btn-success">Proceed to Admission</a>
 													</div>
 													<div class="form-group">
 														<label for="fess">

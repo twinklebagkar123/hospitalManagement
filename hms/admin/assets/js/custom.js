@@ -20,8 +20,23 @@ $(document).ready(function () {
     $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
     });
-    $("#customer_input_search").on("click", function () {
-
+    $("#adhar_card_registration").on("change", function () {
+        $.ajax({
+            url: "logic/adhar_verify.php",
+            method: "POST",
+            data: {adhar_card_num: $(this).val()},
+            success: function (data){
+                var response = JSON.parse(data);
+                if(response.patientID == null){
+                    return;
+                }else{  
+                    // $("#uid").val(response.patientID);
+                    $('#customer_already_registered').css('display', 'block');
+                    $('#customer_already_registered a').attr('href', `patient-admission.php?patientId=${response.patientID}`)
+                    $('#customer_already_registered span').text(response.patientName);
+                }
+            }
+        });
     });
     $(document).on("click", "#customer_input_search", function () {
         var inputKey = $(this).attr('data-selected_searchby');
