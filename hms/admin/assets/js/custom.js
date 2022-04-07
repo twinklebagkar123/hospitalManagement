@@ -27,6 +27,7 @@ $(document).ready(function () {
             method: "POST",
             data: {adhar_card_num: $(this).val()},
             success: function (data){
+                console.log("On Ajax Reposnse: ",data);
                 var response = JSON.parse(data);
                 if(response.patientID == null){
                     return;
