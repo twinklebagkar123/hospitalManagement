@@ -21,6 +21,7 @@ $(document).ready(function () {
         $('#existing_customer_selectBy').css('display', 'block');
     });
     $("#adhar_card_registration").on("change", function () {
+        console.log("On Adhar Card change: ",$(this).val())
         $.ajax({
             url: "logic/adhar_verify.php",
             method: "POST",
