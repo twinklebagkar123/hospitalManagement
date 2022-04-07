@@ -118,7 +118,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Adhar Card
 														</label>
-														<input type="number" id="adhar_card_registration" name="adharCardNo" class="form-control" placeholder="Enter Patient Contact no" required="true" minlength="12" maxlength="12" >
+														<input type="number" id="adhar_card_registration" name="adharCardNo" class="form-control" placeholder="Enter Adhar Card Number" required="true" minlength="12" maxlength="12" >
 													</div>
 													<div class="form-group" id="customer_already_registered" style="display:none;">
 														<label for="fess" style="color: green;font-weight: 600;">Customer Already Registered: <span></span>
