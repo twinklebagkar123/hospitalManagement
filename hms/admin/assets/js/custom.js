@@ -58,6 +58,7 @@ $(document).ready(function () {
             success: function (data){
                 var response = JSON.parse(data);
                 if(response.length > 1){
+                    $( "#multi_contact_results" ).empty();
                     console.log("Multiple Data found: ",response);
                     $('#multiple_patient_same_contact_modal').css('display', 'block');
                     response.forEach(element => {
