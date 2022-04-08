@@ -42,8 +42,8 @@ $(document).ready(function () {
     });
     $(document).on("click", "#multi_patient_submit", function () {
        var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
-       var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').data('patientName');
-       console.log("PATIENT NAME OF SELECTED RADIO: ",selected_patient_name);
+       var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').attr('patientName');
+    //    console.log("PATIENT NAME OF SELECTED RADIO: ",selected_patient_name);
        $("#uid").val(selected_id);
        $('#patient_name_existing').text(selected_patient_name);
        $('#multiple_patient_same_contact_modal').css('display', 'none');
@@ -67,7 +67,7 @@ $(document).ready(function () {
                                 <label>
                                     ${element.patientName}
                                 </label>
-                                <input type="radio" name="patient_id_multi_contact" data-patientName="${element.patientName}" class="form-control" required="true" value=" ${element.patientID}">
+                                <input type="radio" name="patient_id_multi_contact" patientName="${element.patientName}" class="form-control" required="true" value=" ${element.patientID}">
                             </div>
                         `);
                     });
