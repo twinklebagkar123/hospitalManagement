@@ -136,10 +136,10 @@ $today = $year . '-' . $month . '-' . $day;
 												<div class="row">
 													<div class="col-md-12">
 														<form role="form" class="" method="post" style="margin-top: 30px;">
-															<?php if(isset($_GET['patientId'])): ?>
-															<input type="hidden" id="uid" name="uid" value ="<?php echo $_GET['patientId']; ?>">
-															<?php else: ?>
-															<input type="hidden" id="uid" name="uid" value="">
+															<?php if (isset($_GET['patientId'])) : ?>
+																<input type="hidden" id="uid" name="uid" value="<?php echo $_GET['patientId']; ?>">
+															<?php else : ?>
+																<input type="hidden" id="uid" name="uid" value="">
 															<?php endif; ?>
 															<div class="form-group">
 																<label class="block">
@@ -195,30 +195,50 @@ $today = $year . '-' . $month . '-' . $day;
 				</div>
 			</div>
 		</div>
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+		<!-- Modal -->
+		<div class="modal fade in" id="multiple_patient_same_contact_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle">Choose One Patient from below:</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<label>
+								Patient Name 1
+							</label>
+							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="21">
+						</div>
+						<div class="form-group">
+							<label>
+								Patient Name 2
+							</label>
+							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="22">
+						</div>
+						<div class="form-group">
+							<label>
+								Patient Name 3
+							</label>
+							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="23">
+						</div>
+						<div class="form-group">
+							<label>
+								Patient Name 4
+							</label>
+							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="24">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	</div>
 
@@ -266,33 +286,20 @@ $today = $year . '-' . $month . '-' . $day;
 
 
 	if (isset($_POST['submit'])) {
-		//$unqId = $_SESSION['id'];
-		// $phno = $_POST['patcontact'];
 		$uid = $_POST['uid'];
-		// $firstname = $_POST['fname'];
-		//$lastname = $_POST['lname'];
-		// $address = $_POST['pataddress'];
-		// $gender = $_POST['gender'];
-		// $adharcardno = $_POST['patadhar'];
 		$dateofadmission = $today;
 		$doctor = $_POST['doctor'];
 		$admissionType  = $_POST['admissionType'];
-		// $patemail  = $_POST['patemail'];
-		// $patage  = $_POST['patage'];
 		$wn  = $_POST['wn'];
 		$cpd = $_POST['cpd'];
 		$advpaid = $_POST['aa'];
 		$stat = false;
-		// echo "test";
 		try {
 			if (!empty($uid)) {
-				// echo "condition1";
 				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd')";
 				$con->query($query);
 				$stat = true;
-				// echo $query . ")_)_)__)_)";
 			}
-
 			if ($stat) {
 				echo "<script>alert('Patient info added Successfully');</script>";
 				header('location:patient-admission.php');
