@@ -50,6 +50,9 @@ $(document).ready(function () {
             data: {inputKey: inputKey, searchBy: searchBy},
             success: function (data){
                 var response = JSON.parse(data);
+                if(response.length > 1){
+                    console.log("Multiple Data found: ",response);
+                }
                 console.log("Patient Name: ",response.patientName);
                 $("#uid").val(response.patientID);
                 $('#patient_name_existing').text(response.patientName);
