@@ -43,7 +43,7 @@ $(document).ready(function () {
     $(document).on("click", "#multi_patient_submit", function () {
        var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
        var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').data('patientName');
-       $("#uid").val(response.patientID);
+       $("#uid").val(selected_id);
        $('#patient_name_existing').text(selected_patient_name);
        $('#multiple_patient_same_contact_modal').css('display', 'none');
     });
