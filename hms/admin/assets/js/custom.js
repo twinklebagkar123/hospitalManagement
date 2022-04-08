@@ -40,6 +40,13 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on("click", "#multi_patient_submit", function () {
+       var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
+       var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').data('patientName');
+       $("#uid").val(response.patientID);
+       $('#patient_name_existing').text(selected_patient_name);
+       $('#multiple_patient_same_contact_modal').css('display', 'none');
+    });
     $(document).on("click", "#customer_input_search", function () {
         var inputKey = $(this).attr('data-selected_searchby');
         var searchBy = $('#existing_customer_input').val();
@@ -59,7 +66,7 @@ $(document).ready(function () {
                                 <label>
                                     ${element.patientName}
                                 </label>
-                                <input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value=" ${element.patientID}">
+                                <input type="radio" name="patient_id_multi_contact" data-patientName="${element.patientName}" class="form-control" required="true" value=" ${element.patientID}">
                             </div>
                         `);
                     });

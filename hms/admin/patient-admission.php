@@ -207,34 +207,10 @@ $today = $year . '-' . $month . '-' . $day;
 						</button>
 					</div>
 					<div class="modal-body" id="multi_contact_results">
-						<div class="form-group">
-							<label>
-								Patient Name 1
-							</label>
-							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="21">
-						</div>
-						<div class="form-group">
-							<label>
-								Patient Name 2
-							</label>
-							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="22">
-						</div>
-						<div class="form-group">
-							<label>
-								Patient Name 3
-							</label>
-							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="23">
-						</div>
-						<div class="form-group">
-							<label>
-								Patient Name 4
-							</label>
-							<input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value="24">
-						</div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Confirm</button>
+						<button type="button" id="multi_patient_submit" class="btn btn-primary">Confirm</button>
 					</div>
 				</div>
 			</div>
