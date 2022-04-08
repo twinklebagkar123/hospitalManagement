@@ -43,6 +43,7 @@ $(document).ready(function () {
     $(document).on("click", "#multi_patient_submit", function () {
        var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
        var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').data('patientName');
+       console.log("PATIENT NAME OF SELECTED RADIO: ",selected_patient_name);
        $("#uid").val(selected_id);
        $('#patient_name_existing').text(selected_patient_name);
        $('#multiple_patient_same_contact_modal').css('display', 'none');
@@ -59,7 +60,6 @@ $(document).ready(function () {
                 var response = JSON.parse(data);
                 if(response.length > 1){
                     $( "#multi_contact_results" ).empty();
-                    console.log("Multiple Data found: ",response);
                     $('#multiple_patient_same_contact_modal').css('display', 'block');
                     response.forEach(element => {
                         $('#multi_contact_results').append(`
