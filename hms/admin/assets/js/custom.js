@@ -52,10 +52,21 @@ $(document).ready(function () {
                 var response = JSON.parse(data);
                 if(response.length > 1){
                     console.log("Multiple Data found: ",response);
+                    $('#multiple_patient_same_contact_modal').css('display', 'block');
+                    response.forEach(element => {
+                        $('#multi_contact_results').append(`
+                            <div class="form-group">
+                                <label>
+                                    ${element.patientName}
+                                </label>
+                                <input type="radio" name="patient_id_multi_contact" class="form-control" required="true" value=" ${element.patientID}">
+                            </div>
+                        `);
+                    });
+                }else{
+                    $("#uid").val(response.patientID);
+                    $('#patient_name_existing').text(response.patientName);
                 }
-                console.log("Patient Name: ",response.patientName);
-                $("#uid").val(response.patientID);
-                $('#patient_name_existing').text(response.patientName);
             }
         });
 

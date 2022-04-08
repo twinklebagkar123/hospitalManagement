@@ -206,7 +206,7 @@ $today = $year . '-' . $month . '-' . $day;
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body">
+					<div class="modal-body" id="multi_contact_results">
 						<div class="form-group">
 							<label>
 								Patient Name 1
