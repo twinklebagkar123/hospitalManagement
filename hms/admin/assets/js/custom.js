@@ -41,11 +41,19 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on("click", "#select_package", function () {
+        var package_class = $('input[name="tariff_class_name_ideModal"]:checked').val();
+        var package_category = $('input[name="tariff_cat_id_ideModal"]:checked').val();
+        console.log(package_category,package_class);
+    });
     $(document).on("click", "input[name='admissionType']", function () {
         if($('input[name="admissionType"]:checked').val() == 'ide'){
             $('#ide_package_modal').css('display', 'block');
         }    
         console.log("working");
+    });
+    $(document).on("click", ".close_modal_ide", function () {
+        $('#ide_package_modal').css('display', 'none');
     });
     $(document).on("click", ".close_modal", function () {
         $('#multiple_patient_same_contact_modal').css('display', 'none');

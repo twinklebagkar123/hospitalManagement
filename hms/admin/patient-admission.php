@@ -220,14 +220,48 @@ $today = $year . '-' . $month . '-' . $day;
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalCenterTitle" style="display: inline-block;">Choose Package</h5>
-						<button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
+						<button type="button" class="close close_modal_ide" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body" id="multi_package_results">
+						<div class="form-group">
+							<label for="">
+								Tariff Category
+							</label>
+							<select name="tariff_cat_id_ideModal" class="form-control" id="tariff_cat_id_ideModal" required="true">
+								<option value="">Select Tariff Category</option>
+								<?php $ret = mysqli_query($con, "SELECT * FROM tariff_category where 1");
+								while ($row = mysqli_fetch_array($ret)) {
+								?>
+									<option value="<?php echo htmlentities($row['tariff_cat_id']); ?>">
+										<?php echo htmlentities($row['tariff_cat_name']); ?>
+									</option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="doctor">
+								Tariff Class
+							</label>
+							<select name="tariff_class_name_ideModal" class="form-control" id="tariff_class_name_ideModal" required="true">
+								<option value="">Select Tariff Class</option>
+								<?php $ret = mysqli_query($con, "SELECT * FROM `tariff_class` where 1");
+								while ($row = mysqli_fetch_array($ret)) {
+								?>
+									<option value="<?php echo htmlentities($row['tariff_class_id']); ?>">
+										<?php echo htmlentities($row['tariff_class_name']); ?>
+									</option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group">
+							<button type="button" id="select_package" class="btn btn-primary">Proceed to select package</button>
+						</div>
+						
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary close_modal" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary close_modal_ide" data-dismiss="modal">Close</button>
 						<button type="button" id="multi_package_submit" class="btn btn-primary">Confirm</button>
 					</div>
 				</div>
