@@ -215,6 +215,24 @@ $today = $year . '-' . $month . '-' . $day;
 				</div>
 			</div>
 		</div>
+		<div class="modal fade in" id="ide_package_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalCenterTitle" style="display: inline-block;">Choose Package</h5>
+						<button type="button" class="close close_modal" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="multi_package_results">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary close_modal" data-dismiss="modal">Close</button>
+						<button type="button" id="multi_package_submit" class="btn btn-primary">Confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	</div>
 
