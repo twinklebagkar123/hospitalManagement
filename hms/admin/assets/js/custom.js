@@ -45,7 +45,7 @@ $(document).ready(function () {
         var package_class = $('#tariff_class_name_ideModal').find(":selected").val();
         var package_category = $('#tariff_cat_id_ideModal').find(":selected").val();
         $.ajax({
-            url: "logic/customer_info.php",
+            url: "logic/ide_packages.php",
             method: "POST",
             data: {package_class: package_class, package_category: package_category},
             success: function (data){
