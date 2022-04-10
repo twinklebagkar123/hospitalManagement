@@ -42,8 +42,10 @@ $(document).ready(function () {
     });
 
     $(document).on("click", "#select_package", function () {
-        var package_class = $('select[name="tariff_class_name_ideModal"]:checked').val();
-        var package_category = $('select[name="tariff_cat_id_ideModal"]:checked').val();
+        var package_class = $('#tariff_class_name_ideModal').find(":selected").text();
+        var package_category = $('#tariff_cat_id_ideModal').find(":selected").text();
+        
+        // var package_category = $('select[name="tariff_cat_id_ideModal"]:checked').val();
         console.log(package_category,package_class);
     });
     $(document).on("click", "input[name='admissionType']", function () {
