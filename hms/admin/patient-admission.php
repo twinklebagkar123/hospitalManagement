@@ -258,7 +258,7 @@ $today = $year . '-' . $month . '-' . $day;
 						<div class="form-group">
 							<button type="button" id="select_package" class="btn btn-primary">Proceed to select package</button>
 						</div>
-						
+						<div id="package_list"></div>
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary close_modal_ide" data-dismiss="modal">Close</button>

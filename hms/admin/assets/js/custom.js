@@ -44,7 +44,24 @@ $(document).ready(function () {
     $(document).on("click", "#select_package", function () {
         var package_class = $('#tariff_class_name_ideModal').find(":selected").val();
         var package_category = $('#tariff_cat_id_ideModal').find(":selected").val();
-        
+        $.ajax({
+            url: "logic/customer_info.php",
+            method: "POST",
+            data: {package_class: package_class, package_category: package_category},
+            success: function (data){
+                var response = JSON.parse(data);
+                    response.forEach(element => {
+                        $('#package_list').append(`
+                            <div class="form-group">
+                                <label>
+                                    ${element.tariff_room_name} || Package Cost: ${element.tariff_room_fee}
+                                </label>
+                                <input type="radio" name="room_package_selected" class="form-control" required="true" value=" ${element.tariff_room_id}">
+                            </div>
+                        `);
+                    });
+            }
+        });
         // var package_category = $('select[name="tariff_cat_id_ideModal"]:checked').val();
         console.log(package_category,package_class);
     });
