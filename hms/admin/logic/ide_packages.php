@@ -10,5 +10,5 @@ $num=mysqli_num_rows($mysqlResult);
         $output = array('tariff_room_name' => $row['tariff_room_name'],'tariff_room_fee'=> $row['tariff_room_fee'],'tariff_room_id' => $row['tariff_room_id']);
         array_push($allResults,$output);
     }
-    return json_encode($allResults);
+    echo json_encode($allResults);
 ?>
