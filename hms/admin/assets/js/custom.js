@@ -40,10 +40,13 @@ $(document).ready(function () {
             }
         });
     });
-    if($('input[name="admissionType"]:checked').val() == 'ide'){
-        $('#ide_package_modal').css('display', 'block');
-    }
-    
+
+    $(document).on("click", "input[name='admissionType']", function () {
+        if($('input[name="admissionType"]:checked').val() == 'ide'){
+            $('#ide_package_modal').css('display', 'block');
+        }    
+        console.log("working");
+    });
     $(document).on("click", ".close_modal", function () {
         $('#multiple_patient_same_contact_modal').css('display', 'none');
     });
