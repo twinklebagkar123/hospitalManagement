@@ -40,6 +40,9 @@ $(document).ready(function () {
             }
         });
     });
+    $(document).on("click", ".close_modal", function () {
+        $('#multiple_patient_same_contact_modal').css('display', 'none');
+    });
     $(document).on("click", "#multi_patient_submit", function () {
        var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
        var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').attr('patientName');
