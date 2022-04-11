@@ -116,7 +116,7 @@ if (isset($_POST['submit'])) {
 													</div>
 													<div class="form-group">
 														<label for="fess">
-															Adhar Card
+															Adhar Card / Passport Number
 														</label>
 														<input type="number" id="adhar_card_registration" name="adharCardNo" class="form-control" placeholder="Enter Adhar Card Number" required="true" minlength="12" maxlength="12" >
 													</div>

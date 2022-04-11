@@ -57,12 +57,13 @@ $(document).ready(function () {
             success: function (data) {
                 $("#package_list").empty();
                 var response = JSON.parse(data);
+                
                 response.forEach(element => {
                     $('#package_list').append(`
                             <div class="form-group">
                             <div class="row">
                             <div class="col-md-6"> 
-                                <label>
+                                <label style="padding: 12px 0;">
                                     ${element.tariff_room_name} || Package Cost: ${element.tariff_room_fee}
                                 </label>
                                 </div>
@@ -75,8 +76,6 @@ $(document).ready(function () {
                 });
             }
         });
-        // var package_category = $('select[name="tariff_cat_id_ideModal"]:checked').val();
-        console.log(package_category, package_class);
     });
     $(document).on("click", "input[name='admissionType']", function () {
         if ($('input[name="admissionType"]:checked').val() == 'ide') {
@@ -118,7 +117,7 @@ $(document).ready(function () {
                             <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>
+                                    <label style="padding: 12px 0;">
                                         ${element.patientName}
                                     </label>
                                 </div>

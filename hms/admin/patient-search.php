@@ -56,7 +56,7 @@ check_login();
 
 <div class="form-group">
 <label for="doctorname">
-Search by Name/Mobile No.
+Search by Name/Mobile No/Patient Id.
 </label>
 <input type="text" name="searchdata" id="searchdata" class="form-control" value="" required='true'>
 </div>
