@@ -108,16 +108,14 @@ $today = $year . '-' . $month . '-' . $day;
                       <th>Specialization</th>
                       <th>Doctor Fees</th>
                       <th>Appointment Date / Time </th>
-                      <th>Created at </th>
-
-                      <!-- <th>Action</th> -->
+                      <th>More Detail</th>
 
                     </tr>
                   </thead>
                   <tbody>
                     <?php
 
-                    $sql = mysqli_query($con, "SELECT tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
+                    $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
                     $num = mysqli_num_rows($sql);
                     if ($num > 0) {
                       $cnt = 1;
@@ -128,8 +126,8 @@ $today = $year . '-' . $month . '-' . $day;
                           <td><?php echo $row['doctorName']; ?></td>
                           <td><?php echo $row['specilization']; ?></td>
                           <td><?php echo $row['docFees']; ?></td>
-                          <td><?php echo $row['postingDate']; ?></td>
-                          </td>
+                          <td><?php echo $row['appointmentDate']; ?></td>
+                          <td><a href="view-patient.php?viewid='<?php echo $row['id']; ?>'"><i class="fa fa-eye"></i></a></td>
 
                         </tr>
                       <?php
