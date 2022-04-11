@@ -110,10 +110,16 @@ $(document).ready(function () {
                     response.forEach(element => {
                         $('#multi_contact_results').append(`
                             <div class="form-group">
-                                <label>
-                                    ${element.patientName}
-                                </label>
-                                <input type="radio" name="patient_id_multi_contact" patientName="${element.patientName}" class="form-control" required="true" value=" ${element.patientID}">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>
+                                        ${element.patientName}
+                                    </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="radio" name="patient_id_multi_contact" patientName="${element.patientName}" class="form-control" required="true" value=" ${element.patientID}">
+                                </div>
+                                    </div>
                             </div>
                         `);
                     });
