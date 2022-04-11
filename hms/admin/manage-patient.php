@@ -227,9 +227,9 @@ if (isset($_POST['submit'])) {
 																<input class="form-control" name="apptime" id='datetimepicker3' autocomplete="off" required="required">eg : 10:00 PM
 															</div>
 
-															<!-- <button type="submit" name="submit" class="btn btn-o btn-primary">
+															<button type="submit" name="submit" class="btn btn-o btn-primary">
 																Book Appointment
-															</button> -->
+															</button>
 														</form>
 													</div>
 												</div>
