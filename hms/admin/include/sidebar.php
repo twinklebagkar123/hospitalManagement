@@ -123,7 +123,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="between-dates-reports.php">
+							<a href="patient_register_search.php">
 								<span class="title">Registration Date</span>
 							</a>
 						</li>
