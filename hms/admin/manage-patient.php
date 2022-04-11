@@ -23,8 +23,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-	<title>Admin | View Patients</title>
-
+	<title>Admin | Manage Patients</title>
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
@@ -39,10 +38,7 @@ if (isset($_POST['submit'])) {
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
-
 	<script>
 		function getdoctor(val) {
 			console.log("hi");
@@ -68,9 +64,6 @@ if (isset($_POST['submit'])) {
 			});
 		}
 	</script>
-
-
-
 </head>
 
 <body>
@@ -100,7 +93,6 @@ if (isset($_POST['submit'])) {
 						<div class="row">
 							<div class="col-md-12">
 								<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Patients</span></h5>
-
 								<table class="display" id="myTable">
 									<thead>
 										<tr>
@@ -111,7 +103,7 @@ if (isset($_POST['submit'])) {
 											<th>Gender </th>
 											<th>Created At </th>
 											<!-- <th>Updation Date </th> -->
-											<th>Appointment </th>
+											<!-- <th>Appointment </th> -->
 											<th>Documents </th>
 
 											<th>More Info</th>
@@ -235,50 +227,16 @@ if (isset($_POST['submit'])) {
 																<input class="form-control" name="apptime" id='datetimepicker3' autocomplete="off" required="required">eg : 10:00 PM
 															</div>
 
-															<button type="submit" name="submit" class="btn btn-o btn-primary">
+															<!-- <button type="submit" name="submit" class="btn btn-o btn-primary">
 																Book Appointment
-															</button>
+															</button> -->
 														</form>
-
-
-
-
-
-
-
-
-
-
-
-
 													</div>
-
-
-
-
-
-
-													<!-- end: BASIC EXAMPLE -->
-
-
-
-
-
-
-													<!-- end: SELECT BOXES -->
-
 												</div>
 												<div id="resultFetch">
-
 												</div>
-
-
 											</div>
 										</div>
-
-
-
-
 									</div>
 
 									<!-- Modal footer -->
@@ -372,13 +330,6 @@ if (isset($_POST['submit'])) {
 									});
 								});
 							</script>
-							<!-- end: JavaScript Event Handlers for this page -->
-
-							<!-- end: CLIP-TWO JAVASCRIPTS -->
-
-
-
-
 </body>
 
 </html>
