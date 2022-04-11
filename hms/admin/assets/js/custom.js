@@ -75,7 +75,9 @@ $(document).ready(function () {
     $(document).on("click", "input[name='admissionType']", function () {
         if($('input[name="admissionType"]:checked').val() == 'ide'){
             $('#ide_package_modal').css('display', 'block');
-        }    
+        }else{
+            $('#package_id').val("0");
+        }
         // console.log("working");
     });
     $(document).on("click", ".close_modal_ide", function () {
