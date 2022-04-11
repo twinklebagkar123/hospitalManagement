@@ -21,6 +21,7 @@ $(document).ready(function () {
         var package_id = $('input[name="room_package_selected"]:checked').val();
         console.log(package_id);
         $('#package_id').val(package_id);
+        $('#ide_package_modal').css('display', 'none');
     });
     $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
