@@ -39,7 +39,7 @@ check_login();
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Admin | View Patients</h1>
+								<h1 class="mainTitle">Admin | Registration Date</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
@@ -54,7 +54,7 @@ check_login();
 					<div class="container-fluid container-fullw bg-white">
 						<div class="row">
 							<div class="col-md-12">
-								<h4 class="tittle-w3-agileits mb-4">Between dates reports</h4>
+								<h4 class="tittle-w3-agileits mb-4">Search By Registration Date</h4>
 								<?php
 								$fdate = $_POST['fromdate'];
 								$tdate = $_POST['todate'];
@@ -67,11 +67,11 @@ check_login();
 										<tr>
 											<th class="center">#</th>
 											<th>Patient Name</th>
-											<th>Patient Contact Number</th>
-											<th>Patient Gender </th>
-											<th>Creation Date </th>
-											<th>Updation Date </th>
-											<th>Action</th>
+											<th>Contact Number</th>
+											<th>Gender </th>
+											<th>Created at </th>
+											<th>Updated at </th>
+											<th>More Details</th>
 										</tr>
 									</thead>
 									<tbody>
