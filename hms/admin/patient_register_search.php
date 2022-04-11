@@ -77,7 +77,6 @@ check_login();
 														</label>
 														<input type="date" name="fromdate" id="fromdate" value="" required='true'>
 													</div>
-
 													<div class="form-group">
 														<label for="exampleInputPassword1">
 															To Date::
@@ -85,8 +84,6 @@ check_login();
 														<input type="date" name="todate" id="todate" value="" required='true'>
 
 													</div>
-
-
 													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 														Submit
 													</button>
