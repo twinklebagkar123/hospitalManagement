@@ -110,7 +110,7 @@ $today = $year . '-' . $month . '-' . $day;
                       <th>Appointment Date / Time </th>
                       <th>Created at </th>
 
-                      <th>Action</th>
+                      <!-- <th>Action</th> -->
 
                     </tr>
                   </thead>
@@ -124,13 +124,11 @@ $today = $year . '-' . $month . '-' . $day;
                       while ($row = mysqli_fetch_array($sql)) {
                     ?>
                         <tr>
-                          <td class="center"><?php echo $cnt; ?>.</td>
-                          <td class="hidden-xs"><?php echo $row['patNme']; ?></td>
-                          <td><?php echo $row['opDate']; ?></td>
-                          <td><?php echo $row['opTitle']; ?></td>
-                          <td><?php echo $row['opTime']; ?></td>
-                          <td><?php echo $row['pRNote']; ?></td>
-                          <td><?php echo $row['doctorName']; ?>
+                          <td class="hidden-xs"><?php echo $row['PatientName']; ?></td>
+                          <td><?php echo $row['doctorName']; ?></td>
+                          <td><?php echo $row['specilization']; ?></td>
+                          <td><?php echo $row['docFees']; ?></td>
+                          <td><?php echo $row['postingDate']; ?></td>
                           </td>
 
                         </tr>
