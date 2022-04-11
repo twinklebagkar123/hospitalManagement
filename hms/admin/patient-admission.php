@@ -165,9 +165,9 @@ $today = $year . '-' . $month . '-' . $day;
 															</div>
 															<div class="form-group">
 																<label>
-																	Cost Per day
+																	Registration Fee
 																</label>
-																<input type="text" name="cpd" class="form-control" placeholder="Enter Cost Per day" required="true">
+																<input type="text" name="registration_fee" class="form-control" value="200" placeholder="Registration Fee" required="true">
 															</div>
 															<div class="form-group">
 																<label>
@@ -320,13 +320,13 @@ $today = $year . '-' . $month . '-' . $day;
 		$doctor = $_POST['doctor'];
 		$admissionType  = $_POST['admissionType'];
 		$wn  = $_POST['wn'];
-		$cpd = $_POST['cpd'];
+		$registration_fee = $_POST['registration_fee'];
 		$advpaid = $_POST['aa'];
 		$package_id = $_POST['package_id'];
 		$stat = false;
 		try {
 			if (!empty($uid)) {
-				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`, `package_id`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd','$package_id')";
+				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `registration_fee`, `package_id`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$registration_fee','$package_id')";
 				$con->query($query);
 				$stat = true;
 			}
