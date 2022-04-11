@@ -69,24 +69,32 @@ check_login();
 												<h5 class="panel-title">Search By Registration Date</h5>
 											</div>
 											<div class="panel-body">
-
 												<form role="form" method="post" action="patient_register_result.php">
-													<div class="form-group">
-														<label for="exampleInputPassword1">
-															From Date:
-														</label>
-														<input type="date" name="fromdate" id="fromdate" value="" required='true'>
-													</div>
-													<div class="form-group">
-														<label for="exampleInputPassword1">
-															To Date::
-														</label>
-														<input type="date" name="todate" id="todate" value="" required='true'>
+													<div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="exampleInputPassword1">
+																	From Date:
+																</label>
+																<input type="date" name="fromdate" id="fromdate" value="" required='true'>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="exampleInputPassword1">
+																	To Date::
+																</label>
+																<input type="date" name="todate" id="todate" value="" required='true'>
 
+															</div>
+														</div>
+														<div class="col-md-4"><button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
+																Submit
+															</button></div>
 													</div>
-													<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
-														Submit
-													</button>
+
+
+
 												</form>
 											</div>
 										</div>
