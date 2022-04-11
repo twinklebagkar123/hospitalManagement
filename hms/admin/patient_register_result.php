@@ -60,7 +60,7 @@ check_login();
 								$tdate = $_POST['todate'];
 
 								?>
-								<h5 align="center" style="color:blue">Report from <?php echo $fdate ?> to <?php echo $tdate ?></h5>
+								<h5 align="center" style="color:blue">Result from <?php echo $fdate ?> to <?php echo $tdate ?></h5>
 
 								<table class="table table-hover" id="sample-table-1">
 									<thead>

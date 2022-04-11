@@ -149,7 +149,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="date-search.php">
+							<a href="appointment_by_date_search.php">
 								<span class="title">Search By Date</span>
 							</a>
 						</li>

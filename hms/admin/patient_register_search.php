@@ -88,13 +88,12 @@ check_login();
 
 															</div>
 														</div>
-														<div class="col-md-4"><button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
+														<div class="col-md-4">
+															<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 																Submit
-															</button></div>
+															</button>
+														</div>
 													</div>
-
-
-
 												</form>
 											</div>
 										</div>

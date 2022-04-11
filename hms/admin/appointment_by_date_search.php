@@ -49,14 +49,14 @@ $today = $year . '-' . $month . '-' . $day;
           <section id="page-title">
 							<div class="row">
 								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Operations Search By Date</h1>
+									<h1 class="mainTitle">Admin | Appointment Search By Date</h1>
 																	</div>
 								<ol class="breadcrumb">
 									<li>
 										<span>View</span>
 									</li>
 									<li class="active">
-										<span>Operations</span>
+										<span>Appointments</span>
 									</li>
 								</ol>
 							</div>
@@ -66,23 +66,38 @@ $today = $year . '-' . $month . '-' . $day;
             <div class="col-md-12">
               <form role="form" method="post" name="search">
 
-                <div class="form-group">
-                  <label for="doctorname">
-                    Date
-                  </label>
-                  <input type="date" name="opDate" id="opDate" value="" required='true'>
-                </div>
+              <div class="row">
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="exampleInputPassword1">
+																	From Date:
+																</label>
+																<input type="date" name="fromdate" id="fromdate" value="" required='true'>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<div class="form-group">
+																<label for="exampleInputPassword1">
+																	To Date::
+																</label>
+																<input type="date" name="todate" id="todate" value="" required='true'>
 
-                <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-                  Search
-                </button>
+															</div>
+														</div>
+														<div class="col-md-4">
+															<button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
+																Submit
+															</button>
+														</div>
+													</div>
               </form>
               <?php
               if (isset($_POST['search'])) {
 
-                $sdata = $_POST['opDate'];
+                $todate = $_POST['todate'];
+                $fromdate = $_POST['fromdate'];
               ?>
-                <h4 align="center">Result against "<?php echo $sdata; ?>" keyword </h4>
+                <h4 align="center">Result from <?php echo $fromdate ?> to <?php echo $todate ?></h4>
                 <table class="table table-hover" id="sample-table-1">
                   <thead>
 
@@ -102,7 +117,7 @@ $today = $year . '-' . $month . '-' . $day;
                   <tbody>
                     <?php
 
-                    $sql = mysqli_query($con, "SELECT tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where apt.appointmentDate== '$sdata'");
+                    $sql = mysqli_query($con, "SELECT tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
                     $num = mysqli_num_rows($sql);
                     if ($num > 0) {
                       $cnt = 1;
@@ -139,12 +154,6 @@ $today = $year . '-' . $month . '-' . $day;
       </div>
     </div>
   </div>
-
-
-
-
-
-
   </div>
   </div>
 
