@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#appointment_date").on("change", function() {
+    $("#appointment_date").on("change", function () {
         var apt = $(this).val();
         var doc = $("#doctor").val();
         console.log(doc);
@@ -11,7 +11,7 @@ $(document).ready(function () {
                 appDate: apt,
                 docID: doc
             },
-            success: function(data) {
+            success: function (data) {
                 $("#resultFetch").html(data);
             }
         });
@@ -31,13 +31,13 @@ $(document).ready(function () {
         $.ajax({
             url: "logic/adhar_verify.php",
             method: "POST",
-            data: {adhar_card_num: $(this).val()},
-            success: function (data){
+            data: { adhar_card_num: $(this).val() },
+            success: function (data) {
                 // console.log("On Ajax Reposnse: ",data);
                 var response = JSON.parse(data);
-                if(response.patientID == null){
+                if (response.patientID == null) {
                     return;
-                }else{  
+                } else {
                     // $("#uid").val(response.patientID);
                     $('#customer_already_registered').css('display', 'block');
                     $('#customer_already_registered a').attr('href', `patient-admission.php?patientId=${response.patientID}`)
@@ -53,29 +53,35 @@ $(document).ready(function () {
         $.ajax({
             url: "logic/ide_packages.php",
             method: "POST",
-            data: {package_class: package_class, package_category: package_category},
-            success: function (data){
-                $( "#package_list" ).empty();
+            data: { package_class: package_class, package_category: package_category },
+            success: function (data) {
+                $("#package_list").empty();
                 var response = JSON.parse(data);
-                    response.forEach(element => {
-                        $('#package_list').append(`
+                response.forEach(element => {
+                    $('#package_list').append(`
                             <div class="form-group">
+                            <div class="row">
+                            <div class="col-md-6"> 
                                 <label>
                                     ${element.tariff_room_name} || Package Cost: ${element.tariff_room_fee}
                                 </label>
+                                </div>
+                                <div class="col-md-6">
                                 <input type="radio" name="room_package_selected" class="form-control" required="true" value=" ${element.tariff_room_id}">
+                                </div>
+                                </div>
                             </div>
                         `);
-                    });
+                });
             }
         });
         // var package_category = $('select[name="tariff_cat_id_ideModal"]:checked').val();
-        console.log(package_category,package_class);
+        console.log(package_category, package_class);
     });
     $(document).on("click", "input[name='admissionType']", function () {
-        if($('input[name="admissionType"]:checked').val() == 'ide'){
+        if ($('input[name="admissionType"]:checked').val() == 'ide') {
             $('#ide_package_modal').css('display', 'block');
-        }else{
+        } else {
             $('#package_id').val("0");
         }
         // console.log("working");
@@ -87,12 +93,12 @@ $(document).ready(function () {
         $('#multiple_patient_same_contact_modal').css('display', 'none');
     });
     $(document).on("click", "#multi_patient_submit", function () {
-       var selected_id =  $('input[name="patient_id_multi_contact"]:checked').val();
-       var selected_patient_name =  $('input[name="patient_id_multi_contact"]:checked').attr('patientName');
-    //    console.log("PATIENT NAME OF SELECTED RADIO: ",selected_patient_name);
-       $("#uid").val(selected_id);
-       $('#patient_name_existing').text(selected_patient_name);
-       $('#multiple_patient_same_contact_modal').css('display', 'none');
+        var selected_id = $('input[name="patient_id_multi_contact"]:checked').val();
+        var selected_patient_name = $('input[name="patient_id_multi_contact"]:checked').attr('patientName');
+        //    console.log("PATIENT NAME OF SELECTED RADIO: ",selected_patient_name);
+        $("#uid").val(selected_id);
+        $('#patient_name_existing').text(selected_patient_name);
+        $('#multiple_patient_same_contact_modal').css('display', 'none');
     });
     $(document).on("click", "#customer_input_search", function () {
         var inputKey = $(this).attr('data-selected_searchby');
@@ -101,11 +107,11 @@ $(document).ready(function () {
         $.ajax({
             url: "logic/customer_info.php",
             method: "POST",
-            data: {inputKey: inputKey, searchBy: searchBy},
-            success: function (data){
+            data: { inputKey: inputKey, searchBy: searchBy },
+            success: function (data) {
                 var response = JSON.parse(data);
-                if(response.length > 1){
-                    $( "#multi_contact_results" ).empty();
+                if (response.length > 1) {
+                    $("#multi_contact_results").empty();
                     $('#multiple_patient_same_contact_modal').css('display', 'block');
                     response.forEach(element => {
                         $('#multi_contact_results').append(`
@@ -123,7 +129,7 @@ $(document).ready(function () {
                             </div>
                         `);
                     });
-                }else{
+                } else {
                     $("#uid").val(response.patientID);
                     $('#patient_name_existing').text(response.patientName);
                 }
@@ -137,7 +143,7 @@ $(document).ready(function () {
             case "customer_id_admission":
                 $('#existing_customer_input').attr('placeholder', "Please enter Customer Id");
                 $('#existing_customer_input').removeAttr('readonly');
-                
+
                 $('#customer_input_search').attr('data-selected_searchby', "id");
                 break;
             case "customer_contact_admission":
@@ -207,67 +213,67 @@ $(document).ready(function () {
     setInterval(function () {
         load_unseen_notification();
     }, 8000);
-    
-        function sendSms(smsType) {
-            var message = $('#sms_textarea').val();
-            var contacts = $('#contact_number_sms_custom').val();
-            if (message.length > 0) {
-                $.ajax({
-                    url: "/hospital/email_script.php",
-                    dataType: "json",
-                    type: "Post",
-                    async: true,
-                    data: {
-                        "sms_type": smsType,
-                        "message": message,
-                        "numbers": contacts,
-                    },
-                    success: function(data) {
-                        console.log(data);
-                        alert(data.message[0]);
-                    },
-                    error: function(xhr, exception) {
-                        var msg = "";
-                        if (xhr.status === 0) {
-                            msg = "Not connect.\n Verify Network." + xhr.responseText;
-                        } else if (xhr.status == 404) {
-                            msg = "Requested page not found. [404]" + xhr.responseText;
-                        } else if (xhr.status == 500) {
-                            msg = "Internal Server Error [500]." + xhr.responseText;
-                        } else if (exception === "parsererror") {
-                            msg = "Requested JSON parse failed.";
-                        } else if (exception === "timeout") {
-                            msg = "Time out error." + xhr.responseText;
-                        } else if (exception === "abort") {
-                            msg = "Ajax request aborted.";
-                        } else {
-                            msg = "Error:" + xhr.status + " " + xhr.responseText;
-                        }
-                        console.log(msg);
-                        alert(msg);
+
+    function sendSms(smsType) {
+        var message = $('#sms_textarea').val();
+        var contacts = $('#contact_number_sms_custom').val();
+        if (message.length > 0) {
+            $.ajax({
+                url: "/hospital/email_script.php",
+                dataType: "json",
+                type: "Post",
+                async: true,
+                data: {
+                    "sms_type": smsType,
+                    "message": message,
+                    "numbers": contacts,
+                },
+                success: function (data) {
+                    console.log(data);
+                    alert(data.message[0]);
+                },
+                error: function (xhr, exception) {
+                    var msg = "";
+                    if (xhr.status === 0) {
+                        msg = "Not connect.\n Verify Network." + xhr.responseText;
+                    } else if (xhr.status == 404) {
+                        msg = "Requested page not found. [404]" + xhr.responseText;
+                    } else if (xhr.status == 500) {
+                        msg = "Internal Server Error [500]." + xhr.responseText;
+                    } else if (exception === "parsererror") {
+                        msg = "Requested JSON parse failed.";
+                    } else if (exception === "timeout") {
+                        msg = "Time out error." + xhr.responseText;
+                    } else if (exception === "abort") {
+                        msg = "Ajax request aborted.";
+                    } else {
+                        msg = "Error:" + xhr.status + " " + xhr.responseText;
                     }
-                });
-            }
+                    console.log(msg);
+                    alert(msg);
+                }
+            });
         }
-        $('#all_sms').click(function() {
-            sendSms(1);
-        });
-        $('#patients_sms').click(function() {
-            sendSms(2);
-        });
-        $('#staff_sms').click(function() {
-            sendSms(3);
-        });
-        $('#manual_sms_submit').click(function() {
-            sendSms(4);
-        });
-        /*
-        SMS TYPE:  
-        all_sms - 1,
-        patients_sms - 2,
-        staff_sms -3,
-        manual_sms_submit - 4,
-        */
+    }
+    $('#all_sms').click(function () {
+        sendSms(1);
+    });
+    $('#patients_sms').click(function () {
+        sendSms(2);
+    });
+    $('#staff_sms').click(function () {
+        sendSms(3);
+    });
+    $('#manual_sms_submit').click(function () {
+        sendSms(4);
+    });
+    /*
+    SMS TYPE:  
+    all_sms - 1,
+    patients_sms - 2,
+    staff_sms -3,
+    manual_sms_submit - 4,
+    */
 
 
 });
