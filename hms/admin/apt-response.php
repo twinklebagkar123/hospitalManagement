@@ -11,7 +11,7 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if((isset($_SESSION['lastPageId'])) && $s > 0): 
   $getDataFromId = $_SESSION['lastPageId'];
-  $query="SELECT tblp.ID,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where tblp.ID  <= " . $getDataFromId . " ORDER BY apt.id DESC LIMIT ". $g;
+  $query="SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where tblp.ID  <= " . $getDataFromId . " ORDER BY apt.id DESC LIMIT ". $g;
 else:
   $query="SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where tblp.ID  >= " . $getDataFromId . " ORDER BY apt.id DESC LIMIT ". $g;
 endif;
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_array($sql)) {
   $specilization = $row['specilization'];
   $docFees = $row['docFees'];
   $appointmentDate = $row['appointmentDate'];
- $cancel = '<a href="view-patient.php?viewid='.$row['ID'].'"><i class="fa fa-eye"></i></a>';
+ $cancel = '<a href="view-patient.php?viewid='.$ID.'"><i class="fa fa-eye"></i></a>';
  $result = array($ID, $PatientName, $doctorName, $specilization, $docFees, $appointmentDate,$cancel);
   array_push($data, $result);
 }
