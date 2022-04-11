@@ -127,7 +127,7 @@ $today = $year . '-' . $month . '-' . $day;
                           <td><?php echo $row['specilization']; ?></td>
                           <td><?php echo $row['docFees']; ?></td>
                           <td><?php echo $row['appointmentDate']; ?></td>
-                          <td><a href="view-patient.php?viewid='<?php echo $row['id']; ?>'"><i class="fa fa-eye"></i></a></td>
+                          <td><a href="view-patient.php?viewid=<?php echo $row['id']; ?>"><i class="fa fa-eye"></i></a></td>
 
                         </tr>
                       <?php
