@@ -140,6 +140,7 @@ $today = $year . '-' . $month . '-' . $day;
 																<input type="hidden" id="uid" name="uid" value="<?php echo $_GET['patientId']; ?>">
 															<?php else : ?>
 																<input type="hidden" id="uid" name="uid" value="">
+																<input type="hidden" id="package_id" name="package_id" value="0">
 															<?php endif; ?>
 															<div class="form-group">
 																<label class="block">
@@ -321,10 +322,11 @@ $today = $year . '-' . $month . '-' . $day;
 		$wn  = $_POST['wn'];
 		$cpd = $_POST['cpd'];
 		$advpaid = $_POST['aa'];
+		$package_id = $_POST['package_id'];
 		$stat = false;
 		try {
 			if (!empty($uid)) {
-				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd')";
+				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `cpd`, `package_id`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$cpd','$package_id')";
 				$con->query($query);
 				$stat = true;
 			}

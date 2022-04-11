@@ -17,17 +17,22 @@ $(document).ready(function () {
         });
     });
     var notificationResult = [];
+    $("#multi_package_submit").on("click", function () {
+        var package_id = $('input[name="room_package_selected"]:checked').val();
+        console.log(package_id);
+        $('#package_id').val(package_id);
+    });
     $("#existing_patient_admission").on("click", function () {
         $('#existing_customer_selectBy').css('display', 'block');
     });
     $("#adhar_card_registration").on("change", function () {
-        console.log("On Adhar Card change: ",$(this).val())
+        // console.log("On Adhar Card change: ",$(this).val())
         $.ajax({
             url: "logic/adhar_verify.php",
             method: "POST",
             data: {adhar_card_num: $(this).val()},
             success: function (data){
-                console.log("On Ajax Reposnse: ",data);
+                // console.log("On Ajax Reposnse: ",data);
                 var response = JSON.parse(data);
                 if(response.patientID == null){
                     return;
@@ -49,6 +54,7 @@ $(document).ready(function () {
             method: "POST",
             data: {package_class: package_class, package_category: package_category},
             success: function (data){
+                $( "#package_list" ).empty();
                 var response = JSON.parse(data);
                     response.forEach(element => {
                         $('#package_list').append(`
@@ -69,7 +75,7 @@ $(document).ready(function () {
         if($('input[name="admissionType"]:checked').val() == 'ide'){
             $('#ide_package_modal').css('display', 'block');
         }    
-        console.log("working");
+        // console.log("working");
     });
     $(document).on("click", ".close_modal_ide", function () {
         $('#ide_package_modal').css('display', 'none');
