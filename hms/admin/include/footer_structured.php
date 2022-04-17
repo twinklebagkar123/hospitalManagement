@@ -32,7 +32,12 @@
     jQuery(document).ready(function() {
         Main.init();
         FormElements.init();
+            Main.init();
+            FormElements.init();
+			$('#myTable').DataTable();
+        
     });
+    
 </script>
 </body>
 
