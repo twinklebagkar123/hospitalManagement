@@ -1,5 +1,5 @@
 <?php
-include('../include/header_structured.php');
+include('include/header_structured.php');
 function fetchPatientName($admissionID)
 {
     include('../include/config.php');
@@ -113,4 +113,4 @@ function fetchPatientName($admissionID)
 </div>
 </div>
 <!-- start: FOOTER -->
-<?php include('../include/footer_structured.php'); ?>
+<?php include('include/footer_structured.php'); ?>
