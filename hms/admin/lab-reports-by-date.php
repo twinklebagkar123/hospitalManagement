@@ -64,7 +64,7 @@ function fetchPatientName($admissionID)
                 if(isset($_POST["search"])):
                 $todate = $_POST['todate'];
                 $fromdate = $_POST['fromdate'];
-                $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID AND table1.labTestStatus = 'complete' where date(table1.assignedDate) between '$fromdate' and '$todate'";
+                $admissionQuery = "SELECT assignedDate,labTestName,admissionID,labTestStatus,recordID,performedTestID FROM labTestRecord as table1 INNER JOIN laboratoryTestList as table2 ON table1.performedTestID = table2.labFormID where date(table1.assignedDate) between '$fromdate' and '$todate'";
                 $result = $con->query($admissionQuery);
                 ?>
                  <h4 align="center">Result from <?php echo $fromdate ?> to <?php echo $todate ?> based on Assigned Test Date</h4>
