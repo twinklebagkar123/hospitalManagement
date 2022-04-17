@@ -302,26 +302,21 @@
 								<i class="ti-archive"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Laboratory Section </span><i class="icon-arrow"></i>
+								<span class="title"> Laboratory History </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
 					<ul class="sub-menu">
 
 						<li>
-							<a href="laboratory.php">
-								<span class="title"> Create Lab Tests Forms </span>
+							<a href="laboratory-history.php">
+								<span class="title"> All Records </span>
 							</a>
 						</li>
 
 						<li>
-							<a href="viewTests.php">
-								<span class="title"> Manage Tests Forms </span>
-							</a>
-						</li>
-						<li>
-							<a href="view_lab_form.php">
-								<span class="title"> Lab user functionality </span>
+							<a href="lab-records-by-date.php">
+								<span class="title"> Records by date </span>
 							</a>
 						</li>
 					</ul>

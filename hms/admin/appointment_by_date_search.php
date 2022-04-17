@@ -47,109 +47,109 @@ $today = $year . '-' . $month . '-' . $day;
         <div class="wrap-content container" id="container">
           <!-- start: PAGE TITLE -->
           <section id="page-title">
-							<div class="row">
-								<div class="col-sm-8">
-									<h1 class="mainTitle">Admin | Appointment Search By Date</h1>
-																	</div>
-								<ol class="breadcrumb">
-									<li>
-										<span>View</span>
-									</li>
-									<li class="active">
-										<span>Appointments</span>
-									</li>
-								</ol>
-							</div>
-						</section>
-        <div class="container-fluid container-fullw bg-white">
-          <div class="row">
-            <div class="col-md-12">
-              <form role="form" method="post" name="search">
+            <div class="row">
+              <div class="col-sm-8">
+                <h1 class="mainTitle">Admin | Appointment Search By Date</h1>
+              </div>
+              <ol class="breadcrumb">
+                <li>
+                  <span>View</span>
+                </li>
+                <li class="active">
+                  <span>Appointments</span>
+                </li>
+              </ol>
+            </div>
+          </section>
+          <div class="container-fluid container-fullw bg-white">
+            <div class="row">
+              <div class="col-md-12">
+                <form role="form" method="post" name="search">
 
-              <div class="row">
-														<div class="col-md-4">
-															<div class="form-group">
-																<label for="exampleInputPassword1">
-																	From Date:
-																</label>
-																<input type="date" name="fromdate" id="fromdate" value="" required='true'>
-															</div>
-														</div>
-														<div class="col-md-4">
-															<div class="form-group">
-																<label for="exampleInputPassword1">
-																	To Date::
-																</label>
-																<input type="date" name="todate" id="todate" value="" required='true'>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">
+                          From Date:
+                        </label>
+                        <input type="date" name="fromdate" id="fromdate" value="" required='true'>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">
+                          To Date::
+                        </label>
+                        <input type="date" name="todate" id="todate" value="" required='true'>
 
-															</div>
-														</div>
-														<div class="col-md-4">
-															<button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
-																Submit
-															</button>
-														</div>
-													</div>
-              </form>
-              <?php
-              if (isset($_POST['search'])) {
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="submit" name="search" id="submit" class="btn btn-o btn-primary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <?php
+                if (isset($_POST['search'])) {
 
-                $todate = $_POST['todate'];
-                $fromdate = $_POST['fromdate'];
-              ?>
-                <h4 align="center">Result from <?php echo $fromdate ?> to <?php echo $todate ?></h4>
-                <table class="table table-hover" id="sample-table-1">
-                  <thead>
+                  $todate = $_POST['todate'];
+                  $fromdate = $_POST['fromdate'];
+                ?>
+                  <h4 align="center">Result from <?php echo $fromdate ?> to <?php echo $todate ?></h4>
+                  <table class="table table-hover" id="sample-table-1">
+                    <thead>
 
-                    <tr>
-
-                      <th class="hidden-xs">Patient Name</th>
-                      <th>Doctor</th>
-                      <th>Specialization</th>
-                      <th>Doctor Fees</th>
-                      <th>Appointment Date / Time </th>
-                      <th>More Detail</th>
-
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-
-                    $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
-                    $num = mysqli_num_rows($sql);
-                    if ($num > 0) {
-                      $cnt = 1;
-                      while ($row = mysqli_fetch_array($sql)) {
-                    ?>
-                        <tr>
-                          <td class="hidden-xs"><?php echo $row['PatientName']; ?></td>
-                          <td><?php echo $row['doctorName']; ?></td>
-                          <td><?php echo $row['specilization']; ?></td>
-                          <td><?php echo $row['docFees']; ?></td>
-                          <td><?php echo $row['appointmentDate']; ?></td>
-                          <td><a href="view-patient.php?viewid=<?php echo $row['id']; ?>"><i class="fa fa-eye"></i></a></td>
-
-                        </tr>
-                      <?php
-                        $cnt = $cnt + 1;
-                      }
-                    } else { ?>
                       <tr>
-                        <td colspan="8"> No record found against this search</td>
+
+                        <th class="hidden-xs">Patient Name</th>
+                        <th>Doctor</th>
+                        <th>Specialization</th>
+                        <th>Doctor Fees</th>
+                        <th>Appointment Date / Time </th>
+                        <th>More Detail</th>
 
                       </tr>
+                    </thead>
+                    <tbody>
+                      <?php
 
-                  <?php }
-                  } ?>
-                  </tbody>
-                </table>
+                      $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
+                      $num = mysqli_num_rows($sql);
+                      if ($num > 0) {
+                        $cnt = 1;
+                        while ($row = mysqli_fetch_array($sql)) {
+                      ?>
+                          <tr>
+                            <td class="hidden-xs"><?php echo $row['PatientName']; ?></td>
+                            <td><?php echo $row['doctorName']; ?></td>
+                            <td><?php echo $row['specilization']; ?></td>
+                            <td><?php echo $row['docFees']; ?></td>
+                            <td><?php echo $row['appointmentDate']; ?></td>
+                            <td><a href="view-patient.php?viewid=<?php echo $row['id']; ?>"><i class="fa fa-eye"></i></a></td>
+
+                          </tr>
+                        <?php
+                          $cnt = $cnt + 1;
+                        }
+                      } else { ?>
+                        <tr>
+                          <td colspan="8"> No record found against this search</td>
+
+                        </tr>
+
+                    <?php }
+                    } ?>
+                    </tbody>
+                  </table>
+              </div>
             </div>
           </div>
+          </span>
         </div>
-        </span>
       </div>
     </div>
-  </div>
   </div>
   </div>
 
@@ -196,19 +196,6 @@ $today = $year . '-' . $month . '-' . $day;
     jQuery(document).ready(function() {
       Main.init();
       FormElements.init();
-      $("#Submit").on("click", function() {
-        // var name = $(this).data("name");
-        // var id = $(this).data("pid");
-        // $("#titleModal").html("Book " + name + "'s Appointment");
-        // $("#idInput").val(id);
-
-        console.log("heyyyyy");
-      });
-
-
-      $("#opDate").on("change", function() {
-        console.log("heyyy");
-      });
     });
   </script>
   <script>
