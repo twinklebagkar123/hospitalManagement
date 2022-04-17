@@ -52,7 +52,7 @@ function fetchPatientName($admissionID)
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                              <tr>
-                                <td><?php echo $sr; ?></td>
+                                <td><?php echo $row['recordID'];  ?></td>
                                 <td id="date"><?php echo $row['assignedDate']; ?></td>
                                 <td><?php echo $row['labTestName']; ?></td>
                                 <td><?php echo fetchPatientName($row['admissionID']); ?></td>
