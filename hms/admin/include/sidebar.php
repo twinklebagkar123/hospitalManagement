@@ -315,7 +315,7 @@
 						</li>
 
 						<li>
-							<a href="lab-records-by-date.php">
+							<a href="lab-reports-by-date.php">
 								<span class="title"> Records by date </span>
 							</a>
 						</li>
