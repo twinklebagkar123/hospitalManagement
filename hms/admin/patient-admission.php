@@ -316,7 +316,7 @@ $today = $year . '-' . $month . '-' . $day;
 
 	if (isset($_POST['submit'])) {
 		$uid = $_POST['uid'];
-		$dateofadmission = $today;
+		$dateofadmission = date("Y-m-d H:i:s");;
 		$doctor = $_POST['doctor'];
 		$admissionType  = $_POST['admissionType'];
 		$wn  = $_POST['wn'];
