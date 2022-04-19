@@ -127,7 +127,7 @@ $today = $year . '-' . $month . '-' . $day;
                         <th>Doctor</th>
                         <th>Specialization</th>
                         <th>Doctor Fees</th>
-                        <th>Appointment Date / Time </th>
+                        <th>Appointment Date - Time </th>
                         <th>More Detail</th>
 
                       </tr>
@@ -135,7 +135,7 @@ $today = $year . '-' . $month . '-' . $day;
                     <tbody>
                       <?php
                       if (isset($_POST['search'])) {
-                        $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
+                        $sql = mysqli_query($con, "SELECT apt.id,apt.appointmentTime,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
                       } else {
                         $dateFiltered = date("Y-m-d");
                         switch ($quicksearch) {
@@ -150,7 +150,7 @@ $today = $year . '-' . $month . '-' . $day;
                             $dateFiltered = date("Y-m-d");
                             break;
                         }
-                        $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) ='$dateFiltered'");
+                        $sql = mysqli_query($con, "SELECT apt.id,apt.appointmentTime,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) ='$dateFiltered'");
                       }
                       $num = mysqli_num_rows($sql);
                       if ($num > 0) {
@@ -162,7 +162,7 @@ $today = $year . '-' . $month . '-' . $day;
                             <td><?php echo $row['doctorName']; ?></td>
                             <td><?php echo $row['specilization']; ?></td>
                             <td><?php echo $row['docFees']; ?></td>
-                            <td><?php echo $row['appointmentDate']; ?></td>
+                            <td><?php echo $row['appointmentDate'].' - '.$row['appointmentTime']; ?></td>
                             <td><a href="view-patient.php?viewid=<?php echo $row['id']; ?>"><i class="fa fa-eye"></i></a></td>
 
                           </tr>
