@@ -64,8 +64,7 @@ $today = $year . '-' . $month . '-' . $day;
           <div class="container-fluid container-fullw bg-white">
             <div class="row">
               <div class="col-md-12">
-                <form role="form" method="post" name="search">
-
+                <form role="form" method="post">
                   <div class="row">
                     <div class="col-md-4">
                       <div class="form-group">
@@ -91,18 +90,39 @@ $today = $year . '-' . $month . '-' . $day;
                     </div>
                   </div>
                 </form>
+                <div class="row">
+                  <form role="form" method="post">
+                    <div class="col-md-4">
+                      <button type="submit" name="quicksearch" value="yesterday" id="submit" class="btn btn-o btn-primary">
+                        Yesterday
+                      </button>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="submit" name="quicksearch" value="today" id="submit" class="btn btn-o btn-primary">
+                        Today
+                      </button>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="submit" name="quicksearch" value="tomorrow" id="submit" class="btn btn-o btn-primary">
+                        Tomorrow
+                      </button>
+                    </div>
+                  </form>
+                </div>
                 <?php
-                if (isset($_POST['search'])) {
-
-                  $todate = $_POST['todate'];
-                  $fromdate = $_POST['fromdate'];
+                if (isset($_POST['search']) || isset($_POST['quicksearch'])) {
+                  if (isset($_POST['search'])) {
+                    $todate = $_POST['todate'];
+                    $fromdate = $_POST['fromdate'];
+                    echo '<h4 align="center">Result from ' . $fromdate . ' to  ' . $todate . ' </h4>';
+                  } else {
+                    $quicksearch = $_POST['quicksearch'];
+                    echo '<h4 align="center">Result from ' . $quicksearch . '</h4>';
+                  }
                 ?>
-                  <h4 align="center">Result from <?php echo $fromdate ?> to <?php echo $todate ?></h4>
                   <table class="table table-hover" id="sample-table-1">
                     <thead>
-
                       <tr>
-
                         <th class="hidden-xs">Patient Name</th>
                         <th>Doctor</th>
                         <th>Specialization</th>
@@ -114,8 +134,24 @@ $today = $year . '-' . $month . '-' . $day;
                     </thead>
                     <tbody>
                       <?php
+                      if (isset($_POST['search'])) {
+                        $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
+                      } else {
+                        $dateFiltered = date("Y-m-d");
+                        switch ($quicksearch) {
+                          case 'yesterday':
+                            $dateFiltered = date('Y-m-d', strtotime("-1 days"));
+                            break;
+                          case 'tomorrow':
+                            $dateFiltered = date('Y-m-d', strtotime("+1 days"));
+                            break;
 
-                      $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) between '$fromdate' and '$todate'");
+                          default:
+                            $dateFiltered = date("Y-m-d");
+                            break;
+                        }
+                        $sql = mysqli_query($con, "SELECT apt.id,tblp.PatientName,doc.doctorName,doc.specilization,doc.docFees,apt.appointmentDate,apt.postingDate FROM appointment as apt INNER JOIN tblpatient AS tblp ON apt.userId = tblp.ID INNER JOIN doctors AS doc ON apt.doctorId = doc.id where date(apt.appointmentDate) ='$dateFiltered'");
+                      }
                       $num = mysqli_num_rows($sql);
                       if ($num > 0) {
                         $cnt = 1;
