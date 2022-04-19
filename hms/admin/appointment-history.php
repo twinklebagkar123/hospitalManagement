@@ -77,9 +77,7 @@ if(isset($_GET['cancel']))
 												<th>Doctor Name</th>
 												<th>Specialization</th>
 												<th>Doctor Fees</th>
-												<th>Appointment Date / Time </th>
-												
-												
+												<th>Appointment Date - Time </th>
 												<th>Action</th>
 												
 											</tr>
