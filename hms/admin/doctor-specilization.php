@@ -32,6 +32,7 @@ if (isset($_GET['del'])) {
 	<link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
 	<link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/custom.css?ver=3">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -214,6 +215,7 @@ if (isset($_GET['del'])) {
 	</div>
 	<!-- start: MAIN JAVASCRIPTS -->
 	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="assets/js/custom.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="vendor/modernizr/modernizr.js"></script>
 	<script src="vendor/jquery-cookie/jquery.cookie.js"></script>
