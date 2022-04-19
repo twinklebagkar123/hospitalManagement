@@ -15,7 +15,8 @@ if (isset($_POST['submit'])) {
     $time = $_POST['apptime'];
     $userstatus = 1;
     $docstatus = 1;
-    $query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus')";
+    $todaysDate = date("Y-m-d H:i:s");
+    $query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus,postingDate) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus','$todaysDate')";
     $result = $con->query($query);
     // print_r($query);
     if ($result) {
