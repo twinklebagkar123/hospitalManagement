@@ -51,17 +51,26 @@ if (isset($_POST['submit'])) {
 
 	<script>
 		function userAvailability() {
-			$("#loaderIcon").show();
-			jQuery.ajax({
-				url: "check_availability.php",
-				data: 'email=' + $("#patemail").val(),
-				type: "POST",
-				success: function(data) {
-					$("#user-availability-status1").html(data);
-					$("#loaderIcon").hide();
-				},
-				error: function() {}
-			});
+			var emailpattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;////Regular expression
+			if(emailpattern.test($("#patemail").val()))
+			{
+				$("#user-availability-status1").empty();
+				$("#loaderIcon").show();
+				jQuery.ajax({
+					url: "check_availability.php",
+					data: 'email=' + $("#patemail").val(),
+					type: "POST",
+					success: function(data) {
+						$("#user-availability-status1").html(data);
+						$("#loaderIcon").hide();
+					},
+					error: function() {}
+				});
+			}else{
+				$("#user-availability-status1").empty();
+				var data = '<span style="color:red"> Email Address Incorrect.</span>';
+				$("#user-availability-status1").html(data);
+			}
 		}
 	</script>
 </head>
