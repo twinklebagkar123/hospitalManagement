@@ -53,17 +53,30 @@ if (isset($_POST['submit'])) {
 
 	<script>
 		function checkemailAvailability() {
-			$("#loaderIcon").show();
-			jQuery.ajax({
-				url: "check_availability.php",
-				data: 'emailid=' + $("#docemail").val(),
-				type: "POST",
-				success: function(data) {
-					$("#email-availability-status").html(data);
-					$("#loaderIcon").hide();
-				},
-				error: function() {}
-			});
+			var emailpattern=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;////Regular expression
+			if(emailpattern.test($("#docemail").val()))
+			{
+				$("#email-availability-status").empty();
+				$("#loaderIcon").show();
+				jQuery.ajax({
+					url: "check_availability.php",
+					data: 'emailid=' + $("#docemail").val(),
+					type: "POST",
+					success: function(data) {
+						$("#email-availability-status").html(data);
+						$("#loaderIcon").hide();
+					},
+					error: function() {}
+				});
+			}
+			else
+			{
+				$("#email-availability-status").empty();
+				var data = '<span style="color:red"> Email Address Incorrect.</span>';
+				$("#email-availability-status").html(data);
+			}
+			
+		
 		}
 	</script>
 </head>
@@ -150,7 +163,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Doctor Email
 														</label>
-														<input type="email" id="docemail" name="docemail" class="form-control" placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
+														<input type="email" id="docemail" name="docemail" pattern=".+@globex\.com" class="form-control" placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
 														<span id="email-availability-status"></span>
 													</div>
 
