@@ -1,5 +1,9 @@
-<?php error_reporting(0); 
+<?php 
+session_start();
+error_reporting(0); 
 include('../include/config.php');
+include('../include/checklogin.php');
+check_login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +22,7 @@ include('../include/config.php');
     <link href="../vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
     <link href="../vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/custom.css?ver=<?php echo rand(); ?>">
     <link rel="stylesheet" href="../assets/css/plugins.css">
     <link rel="stylesheet" href="../assets/css/themes/theme-1.css" id="skin_color" />
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
