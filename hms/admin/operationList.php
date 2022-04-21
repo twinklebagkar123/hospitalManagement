@@ -1,70 +1,11 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Bill</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-
-</head>
-<body>
-
-
-
-</body>
-</html>
- -->
-
-
 <?php
-session_start();
-error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
-check_login();
-
+include('include/header_structured.php');
 $month = date('m');
 $day = date('d');
 $year = date('Y');
 
 $today = $year . '-' . $month . '-' . $day;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>Admin | Doctor Operation</title>
-
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="vendor/themify-icons/themify-icons.min.css">
-  <link href="vendor/animate.css/animate.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/switchery/switchery.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/select2/select2.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-  <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/plugins.css">
-  <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-</head>
-
-<body>
-  <div id="app">
-    <?php include('include/sidebar.php'); ?>
-    <div class="app-content">
-
-      <?php include('include/header.php'); ?>
-
-      <!-- end: TOP NAVBAR -->
-      <div class="main-content">
         <div class="wrap-content container" id="container">
           <!-- start: PAGE TITLE -->
           <section id="page-title">
