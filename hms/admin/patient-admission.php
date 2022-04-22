@@ -293,8 +293,10 @@ $today = $year . '-' . $month . '-' . $day;
 				$stat = true;
 			}
 			if ($stat) {
-				// echo "<script>alert('Admission Successfully');</script>";
-				header('Location: view-admit-patient.php');
+				echo "<script>alert('Admission Successfully');
+				window.location.replace('view-admit-patient.php');
+				</script>";
+				// header('Location: view-admit-patient.php');
 			}
 		} catch (\Throwable $th) {
 			echo $th;
