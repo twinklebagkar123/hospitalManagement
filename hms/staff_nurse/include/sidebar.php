@@ -24,16 +24,16 @@
                 </li>
                 <li><?php
                     if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
-                        <a href="pages/viewCompletedTests.php">
+                        <a href="pages/patientList.php">
                         <?php } else { ?>
-                            <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/viewCompletedTests.php">
+                            <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/patientList.php">
                             <?php } ?>
                             <div class="item-content">
                                 <div class="item-media">
                                     <i class="ti-list"></i>
                                 </div>
                                 <div class="item-inner">
-                                    <span class="title"> Lab Records </span>
+                                    <span class="title"> Patient List </span>
                                 </div>
                             </div>
                             </a>
