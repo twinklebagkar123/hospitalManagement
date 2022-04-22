@@ -4,6 +4,13 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
+if(isset($_POST['fluidcount'])){
+  $iv = $_POST['iv'];
+  $oral = $_POST['oral'];
+  $rt = $_POST['rt'];
+  $urine = $_POST['urine'];
+  $others = $_POST['others'];
+}
 if (isset($_POST["testAssign"])) {
   $vid = $_GET['viewid'];
   $query = false;
