@@ -87,7 +87,8 @@ $(document).ready(function () {
     });
     $(document).on("click", ".close_modal_ide", function () {
         $('#ide_package_modal').css('display', 'none');
-        $('input[name="admissionType"]:checked').val('opd')
+        // $('input[name="admissionType"]:checked').val('opd');
+        $('input[name="admissionType"]').not(':checked').prop("checked", true);
     });
     $(document).on("click", ".close_modal", function () {
         $('#multiple_patient_same_contact_modal').css('display', 'none');
