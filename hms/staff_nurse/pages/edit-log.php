@@ -30,10 +30,10 @@ if(isset($_POST['fluidcount'])){
             </div>
             <ol class="breadcrumb">
                 <li>
-                    <span>Doctor</span>
+                    <span>Nurse</span>
                 </li>
                 <li class="active">
-                    <span>Manage Patients</span>
+                    <span>edit records</span>
                 </li>
             </ol>
         </div>
