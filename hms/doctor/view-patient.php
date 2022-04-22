@@ -312,11 +312,25 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="modal-body">
                           <form method="post">
-                            <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
-                            <input name="oral" placeholder="IV" class="form-control wd-450" required="true">
-                            <input name="rt" placeholder="IV" class="form-control wd-450" required="true">
-                            <input name="urine" placeholder="IV" class="form-control wd-450" required="true">
-                            <input name="others" placeholder="IV" class="form-control wd-450" required="true">
+                            <div class="input">
+                              <h3>INPUT</h3>
+                              <label>IV</label>
+                              <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
+                              <label>Oral</label>
+                              <input name="oral" placeholder="oral" class="form-control wd-450" required="true">
+                              <label>RT</label>
+                              <input name="rt" placeholder="rt" class="form-control wd-450" required="true">
+                            </div>
+                            <div class="output">
+                              <h3>OUTPUT</h3>
+                              <label>Urine</label>
+                              <input name="urine" placeholder="urine" class="form-control wd-450" required="true">
+                              <label>Others</label>
+                              <input name="others" placeholder="others" class="form-control wd-450" required="true">
+                            </div>
+                            <div>
+                              <input type="submit" name="fluidcount">
+                            </div>
                           </form>
                         </div>
                         <div class="modal-footer">
