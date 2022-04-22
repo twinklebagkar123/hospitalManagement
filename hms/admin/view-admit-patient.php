@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
 ?>
 	<script>
 		function getdoctor(val) {
-			console.log("hi");
 			$.ajax({
 				type: "POST",
 				url: "get_doctor.php",
@@ -74,7 +73,7 @@ if (isset($_POST['submit'])) {
 											<!-- <th class="center">#</th> -->
 
 											<th>Patient Name</th>
-											<th>Doctor Name</th>
+											<!-- <th>Doctor Name</th> -->
 											<th> Ward Number </th>
 											<th>Admission Date </th>
 											<th>Discharge Date </th>

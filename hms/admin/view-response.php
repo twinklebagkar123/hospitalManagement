@@ -10,9 +10,9 @@ $getDataFromId = $s;
 $g = $_GET['length'];
 if ((isset($_SESSION['lastPageIdAdmit'])) && $s > 0) :
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
-  $query = "SELECT doctors.doctorName,patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query = "SELECT patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else :
-  $query = "SELECT doctors.doctorName,patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.docID,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid INNER JOIN `doctors` ON doctors.id = patientAdmission.docID WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
+  $query = "SELECT patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid WHERE `unqId` >= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 endif;
 
 $patientCountSql = "SELECT COUNT(`unqId`) FROM `patientAdmission`";
@@ -26,8 +26,6 @@ while ($row = mysqli_fetch_array($sql)) {
 
   $ID = $row['uid'];
   $patientName = $row['PatientName'];
-  $doctorName = $row['doctorName'];
-  $doc =   $row['docID'];
   $ward = $row['wardNo'];
   $admissiondate = $row['dateofadmission'];
   $dischargedate = $row['dateofdischarge'];
@@ -44,7 +42,7 @@ while ($row = mysqli_fetch_array($sql)) {
 
   // $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge_getreport);
 
-  $result = array($patientName, $doctorName, $ward, $admissiondate, $dischargedate, $advanve, $admissionType, $operation,$bookAppointment, $discharge_getreport);
+  $result = array($patientName, $ward, $admissiondate, $dischargedate, $advanve, $admissionType, $operation,$bookAppointment, $discharge_getreport);
   array_push($data, $result);
 }
 
