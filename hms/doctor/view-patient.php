@@ -194,6 +194,8 @@ if (isset($_POST['submit'])) {
                             // if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
                             <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
+                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
+                            <!-- <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Nurse Note</button> -->
                             <?php
                             // }
 
@@ -290,6 +292,28 @@ if (isset($_POST['submit'])) {
                             ?>
                             <input type="submit" class="btn-submit-custom" name="testAssign" value="Submit">
                           </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!-- Modal -->
+                  <div id="fluidInpiut" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Modal Header</h4>
+                        </div>
+                        <div class="modal-body">
+                         <form  method="post">
+                         <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
+                         </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
