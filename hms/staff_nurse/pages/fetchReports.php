@@ -23,7 +23,7 @@ if (!empty($_POST['admissionid'])) {
     $resultFluid = $con->query($fluidquery);
     // print_r($data);
     $html = "<div class='row'><table class='table table-bordered dt-responsive nowrap' style='border-collapse: collapse; border-spacing: 0; width: 100%;'>
-    <thead><th> Date-Time</th><th>IV<th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
+    <thead><th> Date-Time</th><th>IV</th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
     <tbody>";
     while ($row5 = mysqli_fetch_array($resultFluid)) {
         $html = $html. "<tr><td>".$row5['datetime']."</td><td>".$row5['iv']."</td><td>".$row5['oral']."</td><td>".$row5['rt']."</td><td>".$row5['urine']."</td><td>".$row5['others']."</td></tr>";
