@@ -9,6 +9,7 @@ $num=mysqli_fetch_array($ret);
 if($num>0)
 {
 	print_r($num);
+	echo "<br>".$num['id'];
 	exit;
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
