@@ -1,5 +1,5 @@
 <?php
-require_once("include/config.php");
+include('../include/config.php');
 $html = "";
 function fetchTestName($testID)
 {
