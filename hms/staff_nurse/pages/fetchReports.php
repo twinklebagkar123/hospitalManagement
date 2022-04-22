@@ -18,6 +18,17 @@ if (!empty($_POST['admissionid'])) {
     if ($discharge == "0000-00-00") {
         $discharge = date("Y-m-d");
     }
+    //Input/Output
+    $fluidquery = "SELECT * FROM `fluidintakelog` WHERE admissionID = '$admissionid'";
+    $resultFluid = $con->query($fluidquery);
+    // print_r($data);
+    $html = "<div class='row'><table class='table table-bordered dt-responsive nowrap' style='border-collapse: collapse; border-spacing: 0; width: 100%;'>
+    <thead><th> Date-Time</th><th>IV<th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
+    <tbody>";
+    while ($row5 = mysqli_fetch_array($resultFluid)) {
+        $html = $html. "<tr><td>".$row5['datetime']."</td><td>".$row5['iv']."</td><td>".$row5['oral']."</td><td>".$row5['rt']."</td><td>".$row5['urine']."</td><td>".$row5['others']."</td></tr>";
+    }
+    $html= $html."</tbody></table></div>";
     $vid = $_POST['vid'];
     // BS Dates
     $period = new DatePeriod(
@@ -41,18 +52,6 @@ if (!empty($_POST['admissionid'])) {
         //$i = 1;
         array_push($type, $rowTypes["BSType"]);
 
-        // if ($type != "") {
-        // 	$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
-
-        // 	$result1 = $con->query($query2);
-        // 	$x = 0;
-        // 	while ($row2 = $result1->fetch_assoc()) {
-        // 	$value = $row2["BloodSugar"];
-        // 	$data = array_push_assoc($data, $type, $value, $x);
-        // 	$x++;
-        // 	}
-        // }
-        //$i++;
     }
     //print_r($type);
     function array_push_assoc($array, $key, $sugarLevel, $x)
@@ -92,16 +91,7 @@ if (!empty($_POST['admissionid'])) {
         }
         $x++;
     }
-    $fluidquery = "SELECT * FROM `fluidintakelog` WHERE admissionID = '$admissionid'";
-    $resultFluid = $con->query($fluidquery);
-    // print_r($data);
-    $html = "<div class='row'><table class='table table-bordered dt-responsive nowrap' style='border-collapse: collapse; border-spacing: 0; width: 100%;'>
-    <thead><th> Date-Time</th><th>IV<th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
-    <tbody>";
-    while ($row = mysqli_fetch_array($resultFluid)) {
-        $html = $html. "<tr>".$row['datetime']."</tr><tr>".$row['iv']."</tr><tr>".$row['oral']."</tr><tr>".$row['rt']."</tr><tr>".$row['urine']."</tr><tr>".$row['others']."</tr>";
-    }
-    $html= $html."</tbody></table></div>";
+   
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
     $result1 = $con->query($query);
