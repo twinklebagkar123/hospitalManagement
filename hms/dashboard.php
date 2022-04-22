@@ -102,14 +102,7 @@ check_login();
 								</div>
 							</div>
 						</div>
-			
-					
-					
-						
-						
-					
 						<!-- end: SELECT BOXES -->
-						
 					</div>
 				</div>
 			</div>
