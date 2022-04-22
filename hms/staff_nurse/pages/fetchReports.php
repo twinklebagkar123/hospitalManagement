@@ -92,13 +92,20 @@ if (!empty($_POST['admissionid'])) {
         }
         $x++;
     }
-   // $fluidquery = ;
+    $fluidquery = "SELECT * FROM `fluidintakelog` WHERE admissionID = '$admissionid'";
+    $resultFluid = $con->query($fluidquery);
     // print_r($data);
-    //$html = "<div></div>";
+    $html = "<div class='row'><table class='table table-bordered dt-responsive nowrap' style='border-collapse: collapse; border-spacing: 0; width: 100%;'>
+    <thead><th> Date-Time</th><th>IV<th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
+    <tbody>";
+    while ($row = mysqli_fetch_array($resultFluid)) {
+        $html = $html. "<tr>".$row['datetime']."</tr><tr>".$row['iv']."</tr><tr>".$row['oral']."</tr><tr>".$row['rt']."</tr><tr>".$row['urine']."</tr><tr>".$row['others']."</tr>";
+    }
+    $html= $html."</tbody></table></div>";
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
     $result1 = $con->query($query);
-    $html = '<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+    $html = $html.'<table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
     <tr align="center">
         <th colspan="8">Medical History</th>
     </tr>
