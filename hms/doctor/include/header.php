@@ -19,7 +19,7 @@
 	<!-- end: NAVBAR HEADER -->
 	<!-- start: NAVBAR COLLAPSE -->
 	<div class="navbar-collapse collapse">
-		<ul class="nav navbar-right">
+		<ul class="nav navbar-right" style="display: flex;">
 			<!-- start: MESSAGES DROPDOWN -->
 			<li style="padding-top:2% ">
 				<h2>Hospital Management System</h2>
