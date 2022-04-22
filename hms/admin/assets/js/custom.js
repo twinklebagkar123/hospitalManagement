@@ -102,8 +102,8 @@ $(document).ready(function () {
         $('#multiple_patient_same_contact_modal').css('display', 'none');
     });
     $(document).on("click", "#customer_input_search", function () {
-        var inputKey = $(this).attr('data-selected_searchby');
-        var searchBy = $('#existing_customer_input').val();
+        var searchBy = $(this).attr('data-selected_searchby');
+        var inputKey = $('#existing_customer_input').val();
         // console.log($inputKey,$searchBy);
         $.ajax({
             url: "logic/customer_info.php",

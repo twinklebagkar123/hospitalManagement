@@ -3,18 +3,19 @@ include "../include/config.php";
 $con;
 $inputKey = $_POST['inputKey'];
 $searchBy = $_POST['searchBy'];
+
 function getCustomerDetails($inputKey,$searchBy){
-    switch ($inputKey) {
+    switch ($searchBy) {
         case 'id':
             global $con;
-            $sql = "SELECT `PatientName` FROM tblpatient WHERE ID='$searchBy'";
+            $sql = "SELECT `PatientName` FROM tblpatient WHERE ID='$inputKey'";
             $result = mysqli_fetch_array(mysqli_query($con,$sql));
             $arrayResponse = array('patientID' => $inputKey,'patientName'=> $result['PatientName'],'multiResult' => false);
             return json_encode($arrayResponse);
             break;
         case 'contact':
             global $con;
-            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE PatientContno='$searchBy'";
+            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE PatientContno='$inputKey'";
             $mysqlResult = mysqli_query($con,$sql);
             $num=mysqli_num_rows($mysqlResult);
             if($num > 1){
@@ -31,7 +32,7 @@ function getCustomerDetails($inputKey,$searchBy){
             break;
         default:
             global $con;
-            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE adharCardNo='$searchBy'";
+            $sql = "SELECT `ID`,`PatientName` FROM tblpatient WHERE adharCardNo='$inputKey'";
             $result = mysqli_fetch_array(mysqli_query($con,$sql));
             $arrayResponse = array('patientID' => $result['ID'],'patientName'=> $result['PatientName'],'multiResult' => false);
             return json_encode($arrayResponse);
