@@ -294,7 +294,7 @@ $today = $year . '-' . $month . '-' . $day;
 			}
 			if ($stat) {
 				// echo "<script>alert('Admission Successfully');</script>";
-				header('location:view-admit-patient.php');
+				header('Location: view-admit-patient.php');
 			}
 		} catch (\Throwable $th) {
 			echo $th;
