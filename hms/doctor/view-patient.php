@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                             // if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
                             <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
-                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
+                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addTest btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
                             <!-- <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Nurse Note</button> -->
                             <?php
                             // }
@@ -613,7 +613,7 @@ if (isset($_POST['submit'])) {
             $("#adID").val(admissionid);
 
           });
-          $("#fluidInpiut").click(function(){
+          $(".addTest").click(function(){
             console.log("hi");
             var id = $(this).data("admissionid");
             $("#fluidadmissionID").val(id);
