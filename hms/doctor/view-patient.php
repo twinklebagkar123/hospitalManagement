@@ -11,7 +11,7 @@ if(isset($_POST['fluidcount'])){
   $urine = $_POST['urine'];
   $others = $_POST['others'];
   $admissionID = $_POST['admissionID'];
-  $date = date("d-m-Y h:i:s");
+  $date = date("Y-m-d h:i:s");
   $sql = "INSERT INTO `fluidintakelog`(`admissionID`, `iv`, `oral`, `rt`, `urine`, `others`, `datetime`) VALUES ('$admissionID','$iv','$oral','$rt','$urine','$others','$date')";
   $query = mysqli_query($con,$sql);
 }
