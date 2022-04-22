@@ -8,6 +8,8 @@ $ret=mysqli_query($con,"SELECT * FROM doctors WHERE docEmail='".$_POST['username
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
+	print_r($num);
+	exit;
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
@@ -96,7 +98,7 @@ exit();
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> WEBLOZEE IT Solutions</span>. <span>All rights reserved</span>
 					</div>
 			
 				</div>
