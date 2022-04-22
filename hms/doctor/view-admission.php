@@ -323,7 +323,7 @@ check_login();
                                         "serverSide": true,
                                         "processing": true,
                                         ajax: {
-                                            "url": 'admission_details.php',
+                                            "url": 'logic/admission_details.php',
                                             "contentType": 'application/json'
                                         },
                                     });
