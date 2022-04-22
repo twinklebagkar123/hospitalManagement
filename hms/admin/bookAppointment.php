@@ -14,6 +14,8 @@ if (isset($_POST['submit'])) {
     $todaysDate = date("Y-m-d H:i:s");
     $query = "insert into appointment(admission_id,doctorSpecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus,postingDate) values('$admissionID','$specilization','$doctorid','$userid','$fees','$appdate','$time','$userstatus','$docstatus','$todaysDate')";
     $result = $con->query($query);
+    $notify_doctor = "INSERT INTO `notification_detail` ( `notification_type`, `notification_message`, `read_receipt`, `user_id`) VALUES ('doctor', 'Appointment Assigned by admin for the date: $appdate', '0', NULL);";
+    $result_notify = $con->query($notify_doctor);
     // print_r($query);
     if ($result) {
         echo "<script>alert('Your appointment successfully booked');</script>";
@@ -109,10 +111,6 @@ if (isset($_POST['submit'])) {
 
                                                         </select>
                                                     </div>
-
-
-
-
                                                     <div class="form-group">
                                                         <label for="doctor">
                                                             Doctors
@@ -121,11 +119,6 @@ if (isset($_POST['submit'])) {
                                                             <option value="">Select Doctor</option>
                                                         </select>
                                                     </div>
-
-
-
-
-
                                                     <div class="form-group">
                                                         <label for="consultancyfees">
                                                             Consultancy Fees

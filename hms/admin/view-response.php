@@ -8,7 +8,7 @@ $data = [];
 $s = $_GET['start'];
 $getDataFromId = $s;
 $g = $_GET['length'];
-if ((isset($_SESSION['lastPageIdAdmit'])) && $s > 0) :
+if ((isset($_SESSION['lastPageIdAdmit'])) && $s > 0):
   $getDataFromId = $_SESSION['lastPageIdAdmit'];
   $query = "SELECT patientAdmission.unqId,patientAdmission.admissionType,patientAdmission.uid,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.dateofdischarge,patientAdmission.status,patientAdmission.advance_paid,tblpatient.PatientName FROM `patientAdmission` INNER JOIN `tblpatient` ON tblpatient.ID = patientAdmission.uid WHERE `unqId` <= " . $getDataFromId . " ORDER BY `unqId` desc LIMIT " . $g;
 else :
