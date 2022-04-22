@@ -34,6 +34,19 @@
 						</div>
 					</a>
 				</li>
+
+				<li>
+					<a href="view-admission.php">
+						<div class="item-content">
+							<div class="item-media">
+								<i class="ti-list"></i>
+							</div>
+							<div class="item-inner">
+								<span class="title"> View Admissions </span>
+							</div>
+						</div>
+					</a>
+				</li>
 				
 				<li>
 					<a href="javascript:void(0)">
