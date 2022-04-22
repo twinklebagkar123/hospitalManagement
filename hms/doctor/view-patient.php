@@ -10,6 +10,10 @@ if(isset($_POST['fluidcount'])){
   $rt = $_POST['rt'];
   $urine = $_POST['urine'];
   $others = $_POST['others'];
+  $admissionID = $_POST['admissionID'];
+  $date = date("d-m-Y h:i:s");
+  $sql = "INSERT INTO `fluidintakelog`(`admissionID`, `iv`, `oral`, `rt`, `urine`, `others`, `datetime`) VALUES ('$admissionID','$iv','$oral','$rt','$urine','$others','$date')";
+  $query = mysqli_query($con,$sql);
 }
 if (isset($_POST["testAssign"])) {
   $vid = $_GET['viewid'];
@@ -320,6 +324,7 @@ if (isset($_POST['submit'])) {
                         <div class="modal-body">
                           <form method="post">
                             <div class="input">
+                              <input type="hidden" value="" id="fluidadmissionID" name="admissionID">
                             <h5 class="panel-title">INPUT</h5>
                               <div class="form-group">
                                 <label>IV</label>
@@ -607,6 +612,10 @@ if (isset($_POST['submit'])) {
             var admissionid = $(this).data("admissionid");
             $("#adID").val(admissionid);
 
+          });
+          $("#fluidInpiut").click(function(){
+            var id = $(this).data("admissionid");
+            $("#fluidadmissionID").val(id);
           });
           $(".addMedHistory").click(function() {
             var id = $(this).data("admissionid");
