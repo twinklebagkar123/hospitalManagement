@@ -6,7 +6,7 @@ include('../include/config.php');
 check_login();
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,20 +26,20 @@ check_login();
 	<link rel="stylesheet" href="assets/css/styles.css">
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
-</head>
+</head> -->
 
-<body>
+<!-- <body>
 	<div id="app">
-		<?php include('include/sidebar.php'); ?>
+		<?php //include('include/sidebar.php'); ?>
 		<div class="app-content">
-			<?php include('include/header.php'); ?>
-			<div class="main-content">
+			<?php //include('include/header.php'); ?>
+			<div class="main-content"> -->
 				<div class="wrap-content container" id="container">
 					<!-- start: PAGE TITLE -->
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Doctor | Manage Patients</h1>
+								<h1 class="mainTitle">Nurse | View Patients</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
