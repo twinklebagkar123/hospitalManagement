@@ -28,7 +28,7 @@ if (!empty($_POST['admissionid'])) {
     $totalothers = 0;
     // print_r($data);
     $html = "<div class='row'><table class='table table-bordered dt-responsive nowrap' style='border-collapse: collapse; border-spacing: 0; width: 100%;'>
-    <thead><th> Date-Time</th><th>IV</th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th></thead>
+    <thead><th> Date-Time</th><th>IV</th><th>Oral</th><th>RT</th><th>Urine</th><th>Others</th><th>Edit | Delete</th></thead>
     <tbody>";
     while ($row5 = mysqli_fetch_array($resultFluid)) {
         $totaliv = $totaliv + $row5['iv'];
@@ -36,7 +36,7 @@ if (!empty($_POST['admissionid'])) {
         $totalrt = $totalrt + $row5['rt'];
         $totalurine = $totalurine + $row5['urine'];
         $totalothers = $totalothers + $row5['others'];
-        $html = $html. "<tr><td>".$row5['datetime']."</td><td>".$row5['iv']."</td><td>".$row5['oral']."</td><td>".$row5['rt']."</td><td>".$row5['urine']."</td><td>".$row5['others']."</td></tr>";
+        $html = $html. "<tr><td>".$row5['datetime']."</td><td>".$row5['iv']."</td><td>".$row5['oral']."</td><td>".$row5['rt']."</td><td>".$row5['urine']."</td><td>".$row5['others']."</td><td><a href='edit-patient.php?editid=". $row5['logid']."'><i class='fa fa-edit'></i></a> | <a href='edit-patient.php?editid=". $row5['logid']."'><i class='fa fa-trash'></i></a></td></tr>";
     }
     $html= $html."</tbody></table>";
     $html = $html."<div class='col-sm-3'><h5>Total IV: ".$totaliv."</h5></div>";
