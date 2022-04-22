@@ -8,9 +8,9 @@ $ret=mysqli_query($con,"SELECT * FROM doctors WHERE docEmail='".$_POST['username
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
-	print_r($num);
-	echo "<br>".$num['id'];
-	exit;
+	// print_r($num);
+	// echo "<br>".$num['id'];
+	// exit;
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
