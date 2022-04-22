@@ -566,11 +566,11 @@ if (isset($_POST['submit'])) {
           </div>
         </div>
         <!-- start: FOOTER -->
-        <?php include('include/footer.php'); ?>
+        <?php include('../include/footer.php'); ?>
         <!-- end: FOOTER -->
 
         <!-- start: SETTINGS -->
-        <?php include('include/setting.php'); ?>
+        <?php //include('include/setting.php'); ?>
 
         <!-- end: SETTINGS -->
       </div>
