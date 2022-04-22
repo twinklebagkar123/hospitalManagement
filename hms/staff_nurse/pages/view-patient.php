@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-include('include/config.php');
-include('include/checklogin.php');
+include('../include/header.php');
+include('../include/config.php');
 check_login();
 if(isset($_POST['fluidcount'])){
   $iv = $_POST['iv'];
@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
 </head>
 
-<body>
+<body> -->
   <script type="text/javascript">
     function getAllValues(em) {
       console.log("TYPE... ", em.val())
@@ -102,11 +102,11 @@ if (isset($_POST['submit'])) {
       }
     }
   </script>
-  <div id="app">
-    <?php include('include/sidebar.php'); ?>
+  <!-- <div id="app">
+    <?php //include('include/sidebar.php'); ?>
     <div class="app-content">
-      <?php include('include/header.php'); ?>
-      <div class="main-content">
+      <?php //include('include/header.php'); ?>
+      <div class="main-content"> -->
         <div class="wrap-content container" id="container">
           <!-- start: PAGE TITLE -->
           <section id="page-title">
