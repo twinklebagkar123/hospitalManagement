@@ -11,5 +11,6 @@ while($row =mysqli_fetch_assoc($result))
 {
     $emparray[] = $row;
 }
-echo json_encode($emparray);
+// echo json_encode($emparray);
+echo $_SESSION['dlogin'];
 ?>
