@@ -5,6 +5,22 @@ include('../include/header.php');
 include('../include/config.php');
 check_login();
 ?>
+<?php
+if(isset($_POST['fluidcount'])){
+    $editid = $_GET['editid'];
+    $iv = $_POST['iv'];
+    $oral = $_POST['oral'];
+    $rt = $_POST['rt'];
+    $urine = $_POST['urine'];
+    $others = $_POST['others'];
+  //  $admissionID = $_POST['admissionID'];
+  //  $date = date("Y-m-d h:i:s");
+  //  $date2 = date("Y-m-d");
+    $sql = "UPDATE `fluidintakelog` SET `iv`='$iv',`oral`='$oral',`rt`='$rt',`urine`='$urine',`others`='$others' WHERE logid = $editid";
+    $query = mysqli_query($con,$sql);
+  }
+
+?>
 <div class="wrap-content container" id="container">
     <!-- start: PAGE TITLE -->
     <section id="page-title">
