@@ -313,20 +313,30 @@ if (isset($_POST['submit'])) {
                         <div class="modal-body">
                           <form method="post">
                             <div class="input">
-                              <h3>INPUT</h3>
-                              <label>IV</label>
-                              <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
-                              <label>Oral</label>
-                              <input name="oral" placeholder="oral" class="form-control wd-450" required="true">
-                              <label>RT</label>
-                              <input name="rt" placeholder="rt" class="form-control wd-450" required="true">
+                            <h5 class="panel-title">INPUT</h5>
+                              <div class="form-group">
+                                <label>IV</label>
+                                <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
+                              </div>
+                              <div class="form-group">
+                                <label>Oral</label>
+                                <input name="oral" placeholder="oral" class="form-control wd-450" required="true">
+                              </div>
+                              <div class="form-group">
+                                <label>RT</label>
+                                <input name="rt" placeholder="rt" class="form-control wd-450" required="true">
+                              </div>
                             </div>
                             <div class="output">
-                              <h3>OUTPUT</h3>
+                            <h5 class="panel-title">OUTPUT</h5>
+                              <div class="form-group">
                               <label>Urine</label>
                               <input name="urine" placeholder="urine" class="form-control wd-450" required="true">
+                              </div>
+                              <div class="form-group">
                               <label>Others</label>
                               <input name="others" placeholder="others" class="form-control wd-450" required="true">
+                              </div>
                             </div>
                             <div>
                               <input type="submit" name="fluidcount">
