@@ -44,6 +44,8 @@ if (!empty($_POST['admissionid'])) {
     $html = $html."<div class='col-sm-3'><h5>Total RT: ".$totalrt."</h5></div>";
     $html = $html."<div class='col-sm-3'><h5>Total Urine: ".$totalurine."</h5></div>";
     $html = $html."<div class='col-sm-3'><h5>Total Others: ".$totalothers."</h5></div></div>";
+    $html = $html."<div class='col-sm-3'><h5>Total Input = IV + Oral + RT: ".$totaliv+$totaloral+$totalrt."</h5></div>";
+    $html = $html."<div class='col-sm-3'><h5>Total Output = Urine + Others: ".$totalothers+$totalurine."</h5></div></div>";
     $vid = $_POST['vid'];
     // BS Dates
     $period = new DatePeriod(
