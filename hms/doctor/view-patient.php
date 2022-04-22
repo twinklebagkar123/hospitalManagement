@@ -614,6 +614,7 @@ if (isset($_POST['submit'])) {
 
           });
           $("#fluidInpiut").click(function(){
+            console.log("hi");
             var id = $(this).data("admissionid");
             $("#fluidadmissionID").val(id);
           });
