@@ -92,9 +92,9 @@ if (!empty($_POST['admissionid'])) {
         }
         $x++;
     }
-
+   // $fluidquery = ;
     // print_r($data);
-
+    //$html = "<div></div>";
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
     $result1 = $con->query($query);
