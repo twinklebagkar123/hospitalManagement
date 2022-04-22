@@ -194,7 +194,7 @@ if (isset($_POST['submit'])) {
                             // if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
                             <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
-                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
+                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
                             <!-- <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Nurse Note</button> -->
                             <?php
                             // }
@@ -311,9 +311,13 @@ if (isset($_POST['submit'])) {
                           <h4 class="modal-title">Modal Header</h4>
                         </div>
                         <div class="modal-body">
-                         <form  method="post">
-                         <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
-                         </form>
+                          <form method="post">
+                            <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
+                            <input name="oral" placeholder="IV" class="form-control wd-450" required="true">
+                            <input name="rt" placeholder="IV" class="form-control wd-450" required="true">
+                            <input name="urine" placeholder="IV" class="form-control wd-450" required="true">
+                            <input name="others" placeholder="IV" class="form-control wd-450" required="true">
+                          </form>
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
