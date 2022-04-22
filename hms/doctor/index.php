@@ -11,6 +11,7 @@ if($num>0)
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
+$_SESSION['doctor_id']=$num['id'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
 $log=mysqli_query($con,"insert into doctorslog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
