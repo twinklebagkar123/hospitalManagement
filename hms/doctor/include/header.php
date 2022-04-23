@@ -1,4 +1,4 @@
-<?php error_reporting(0); ?>
+
 <header class="navbar navbar-default navbar-static-top">
 	<!-- start: NAVBAR HEADER -->
 	<div class="navbar-header">
