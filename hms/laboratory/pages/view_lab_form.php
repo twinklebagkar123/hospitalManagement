@@ -44,7 +44,7 @@ if (isset($_GET['del'])) {
 					</thead>
 					<tbody>
 						<?php
-						$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList ");
+						$sql = mysqli_query($con, "SELECT * FROM laboratoryTestList");
 						$cnt = 1;
 						while ($row = mysqli_fetch_array($sql)) {
 						?>

@@ -37,6 +37,12 @@
     <!-- start: JavaScript Event Handlers for this page -->
     <script src="../assets/js/form-elements.js"></script>
     <script>
+        	
+			jQuery(document).ready(function() {
+				Main.init();
+				FormElements.init();
+			});
+		
         jQuery(document).ready(function() {
             Main.init();
             FormElements.init();
