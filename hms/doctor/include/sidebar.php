@@ -48,7 +48,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="view-patient.php">
+					<a href="manage-patient.php">
 						<div class="item-content">
 							<div class="item-media">
 								<i class="ti-user"></i>
