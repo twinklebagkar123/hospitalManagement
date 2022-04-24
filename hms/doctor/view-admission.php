@@ -80,6 +80,7 @@ include('include/header_structure.php');
                                             <th> Ward Number </th>
                                             <th>Admission Date </th>
                                             <th>Discharge Date </th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="patientList">

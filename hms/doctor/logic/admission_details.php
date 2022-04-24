@@ -28,11 +28,11 @@ while ($row = mysqli_fetch_array($sql)) {
   $ward = $row['wardNo'];
   $admissiondate = $row['dateofadmission'];
   $dischargedate = $row['dateofdischarge'];
-  //  $id = '<a class="btn btn-primary" data-pid="'.$row['ID'].'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="medical-history-documents.php">id</a>';
+  $patient_info = '<a class="btn btn-primary" data-pid="'.$ID.'" data-name="'.$row['PatientName'].'" class="btn btn-primary" href="view-patient.php?viewid='.$ID.'">Patient Info</a>';
 
   // $result = array($ID, $doc, $ward, $admissiondate, $dischargedate, $advanve,$operation,$id,  $discharge_getreport);
 
-  $result = array($patientName, $ward, $admissiondate, $dischargedate);
+  $result = array($patientName, $ward, $admissiondate, $dischargedate,$patient_info);
   array_push($data, $result);
 }
 
