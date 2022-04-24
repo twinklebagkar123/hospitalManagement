@@ -23,7 +23,7 @@ check_login();
         <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
         <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
         <link rel="stylesheet" href="assets/css/styles.css">
-        <link rel="stylesheet" href="assets/css/custom.css">
+        <link rel="stylesheet" href="assets/css/custom.css?ver=<?php echo rand(); ?>">
         <link rel="stylesheet" href="assets/css/plugins.css">
         <link rel="stylesheet" href="assets/css/themes/theme-1.css" id="skin_color" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -40,7 +40,7 @@ check_login();
             <link href="../vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
             <link href="../vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
             <link rel="stylesheet" href="../assets/css/styles.css">
-            <link rel="stylesheet" href="../assets/css/custom.css">
+            <link rel="stylesheet" href="../assets/css/custom.css?ver=<?php echo rand(); ?>">
             <link rel="stylesheet" href="../assets/css/plugins.css">
             <link rel="stylesheet" href="../assets/css/themes/theme-1.css" id="skin_color" />
             <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -104,6 +104,17 @@ check_login();
                                     </a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <div class="item-media notification_wrapper dropdown">
+                                <span id="notification_counter" class="notification_counter">0</span>
+                                <i class="ti-bell" style="font-size:25px;" id="notification_info_click"></i>
+                                <!-- <i class="ti-angle-down"></i> -->
+                            </div>
+                            <ul class="dropdown-menu dropdown-dark " id="notification_toggle_info">
+
+                            </ul>
+
                         </li>
                         <!-- end: USER OPTIONS DROPDOWN -->
                     </ul>

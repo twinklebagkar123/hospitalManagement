@@ -1,0 +1,50 @@
+.notification_counter{
+    position: absolute;
+    background-color: red;
+    border-radius: 7px;
+    font-size: 10px;
+    width: 15px;
+    text-align: center;
+    color: #fff;
+    right: -4px;
+  }
+  .notification_wrapper{
+    position: relative;
+    margin-top: 17px;
+  }
+  .notification_wrapper > i{
+    cursor: pointer;
+    z-index: 9;
+  }
+  .notification_detail{
+      display:block;
+      right: -100% !important; 
+  }
+  .notification_detail div {
+    min-width: 250px;
+    color: #fff;
+    width: 100%;
+    border-bottom: 1px solid;
+    margin: 11px;
+  }
+  .btn-submit-custom{
+    width: 100%;
+    margin-top: 3%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 4px 0;
+    color: #262222;
+  }
+  .patient_admission_step1_box {
+    padding: 18% 18%;
+    background: aliceblue;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 2px 4px 7px 1px rgb(0 0 0 / 20%);
+}
+#patient_name_existing{
+  margin-left: 15px;
+  color: green;
+  font-size: 18px;
+}
