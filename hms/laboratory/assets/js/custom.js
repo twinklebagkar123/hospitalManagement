@@ -5,7 +5,7 @@ jQuery(document).ready(function () {
     $(document).on("click", "#notification_info_click", function () {
         $('#notification_toggle_info').toggleClass('notification_detail');
         $.ajax({
-            url: "update_read_receipt.php",
+            url: "logic/update_read_receipt.php",
             method: "POST",
         });
     });
@@ -22,7 +22,7 @@ jQuery(document).ready(function () {
     }
     function load_unseen_notification() {
         $.ajax({
-            url: "check_notification_service.php",
+            url: "logic/check_notification_service.php",
             method: "POST",
             dataType: "json",
             success: function (data) {
