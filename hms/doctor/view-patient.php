@@ -17,8 +17,9 @@ if (isset($_POST["testAssign"])) {
   $testID = $_POST["testID"];
   $admissionID = $_POST["admissionID"];
   $date = date("Y-m-d");
+  $doctorId = $_SESSION['doctor_id'];
   foreach ($testID as $value) {
-    $sql = "INSERT INTO `labTestRecord`( `admissionID`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$value','pending','$date')";
+    $sql = "INSERT INTO `labTestRecord`( `admissionID`,`doctor_id`, `performedTestID`, `labTestStatus`, `assignedDate`) VALUES ('$admissionID','$doctorId','$value','pending','$date')";
     //print_r($sql);
     $query .= mysqli_query($con, $sql);
   }
