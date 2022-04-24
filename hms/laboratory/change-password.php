@@ -7,10 +7,10 @@ check_login();
 date_default_timezone_set('Asia/Kolkata'); // change according timezone
 $currentTime = date('d-m-Y h:i:s A', time());
 if (isset($_POST['submit'])) {
-	$sql = mysqli_query($con, "SELECT password FROM  admin where password='" . $_POST['cpass'] . "' && username='" . $_SESSION['login'] . "'");
+	$sql = mysqli_query($con, "SELECT password FROM  laboratory where password='" . $_POST['cpass'] . "' && username='" . $_SESSION['login'] . "'");
 	$num = mysqli_fetch_array($sql);
 	if ($num > 0) {
-		$con = mysqli_query($con, "update admin set password='" . $_POST['npass'] . "', updationDate='$currentTime' where username='" . $_SESSION['login'] . "'");
+		$con = mysqli_query($con, "update laboratory set password='" . $_POST['npass'] . "', updationDate='$currentTime' where username='" . $_SESSION['login'] . "'");
 		$_SESSION['msg1'] = "Password Changed Successfully !!";
 	} else {
 		$_SESSION['msg1'] = "Old Password not match !!";
@@ -82,11 +82,11 @@ if (isset($_POST['submit'])) {
 					<section id="page-title">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1 class="mainTitle">Admin | Change Password</h1>
+								<h1 class="mainTitle">Laboratory | Change Password</h1>
 							</div>
 							<ol class="breadcrumb">
 								<li>
-									<span>Admin</span>
+									<span>Laboratory</span>
 								</li>
 								<li class="active">
 									<span>Change Password</span>

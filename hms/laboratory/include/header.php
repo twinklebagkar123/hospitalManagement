@@ -88,11 +88,11 @@ check_login();
                                     ?> <i class="ti-angle-down"></i></i></span>
                             </a>
                             <ul class="dropdown-menu dropdown-dark">
-                                <li>
+                                <!-- <li>
                                     <a href="edit-profile.php">
                                         My Profile
                                     </a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="change-password.php">
                                         Change Password
