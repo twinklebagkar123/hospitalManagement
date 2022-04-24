@@ -1,16 +1,6 @@
 <?php
 include('include/header_structure.php');
-if(isset($_POST['fluidcount'])){
-  $iv = $_POST['iv'];
-  $oral = $_POST['oral'];
-  $rt = $_POST['rt'];
-  $urine = $_POST['urine'];
-  $others = $_POST['others'];
-  $admissionID = $_POST['admissionID'];
-  $date = date("Y-m-d h:i:s");
-  $sql = "INSERT INTO `fluidintakelog`(`admissionID`, `iv`, `oral`, `rt`, `urine`, `others`, `datetime`) VALUES ('$admissionID','$iv','$oral','$rt','$urine','$others','$date')";
-  $query = mysqli_query($con,$sql);
-}
+
 if (isset($_POST["testAssign"])) {
   $vid = $_GET['viewid'];
   $query = false;
@@ -174,7 +164,7 @@ if (isset($_POST['submit'])) {
                             // if ($row['dateofdischarge'] == "0000-00-00") {
                             ?>
                             <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Medical History</button>
-                            <button data-admissionID="<?php echo $row['unqId']; ?>" class="addTest btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#fluidInpiut">Fuild intake log</button>
+                       
                             <!-- <button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Nurse Note</button> -->
                             <?php
                             // }
@@ -281,56 +271,7 @@ if (isset($_POST['submit'])) {
                     </div>
                   </div>
                   <!-- Modal -->
-                  <div id="fluidInpiut" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                          <form method="post">
-                            <div class="input">
-                              <input type="hidden" value="" id="fluidadmissionID" name="admissionID">
-                            <h5 class="panel-title">INPUT</h5>
-                              <div class="form-group">
-                                <label>IV</label>
-                                <input name="iv" placeholder="IV" class="form-control wd-450" required="true">
-                              </div>
-                              <div class="form-group">
-                                <label>Oral</label>
-                                <input name="oral" placeholder="oral" class="form-control wd-450" required="true">
-                              </div>
-                              <div class="form-group">
-                                <label>RT</label>
-                                <input name="rt" placeholder="rt" class="form-control wd-450" required="true">
-                              </div>
-                            </div>
-                            <div class="output">
-                            <h5 class="panel-title">OUTPUT</h5>
-                              <div class="form-group">
-                              <label>Urine</label>
-                              <input name="urine" placeholder="urine" class="form-control wd-450" required="true">
-                              </div>
-                              <div class="form-group">
-                              <label>Others</label>
-                              <input name="others" placeholder="others" class="form-control wd-450" required="true">
-                              </div>
-                            </div>
-                            <div>
-                              <input type="submit" name="fluidcount">
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
+                  
                   <div class="modal fade" id="myModal" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                       <div class="modal-content">
