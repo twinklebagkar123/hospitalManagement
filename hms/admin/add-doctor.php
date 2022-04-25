@@ -1,7 +1,5 @@
 <?php
 include('include/header_structured.php');
-
-
 if (isset($_POST['submit'])) {
 	$docspecialization = $_POST['Doctorspecialization'];
 	$docname = $_POST['docname'];
@@ -128,7 +126,7 @@ if (isset($_POST['submit'])) {
 														<label for="fess">
 															Doctor Email
 														</label>
-														<input type="email" id="docemail" name="docemail" pattern=".+@globex\.com" class="form-control" placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
+														<input type="email" id="docemail" name="docemail" class="form-control" placeholder="Enter Doctor Email id" required="true" onBlur="checkemailAvailability()">
 														<span id="email-availability-status"></span>
 													</div>
 
