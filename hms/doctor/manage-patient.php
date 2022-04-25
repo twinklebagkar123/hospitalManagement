@@ -95,6 +95,7 @@ include('include/header_structure.php');
 	<script src="vendor/select2/select2.min.js"></script>
 	<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 	<script src="vendor/bootstrap-timepicker/bootstrap-timepicker.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 	<!-- start: CLIP-TWO JAVASCRIPTS -->
 	<script src="assets/js/main.js"></script>
@@ -105,6 +106,7 @@ include('include/header_structure.php');
 		jQuery(document).ready(function() {
 			Main.init();
 			FormElements.init();
+    $('#sample-table-1').DataTable();
 		});
 	</script>
 	<!-- end: JavaScript Event Handlers for this page -->
