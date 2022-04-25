@@ -36,6 +36,7 @@ $(document).ready(function () {
                 // console.log("On Ajax Reposnse: ",data);
                 var response = JSON.parse(data);
                 if (response.patientID == null) {
+                    $('#customer_already_registered').css('display', 'none');
                     return;
                 } else {
                     // $("#uid").val(response.patientID);
