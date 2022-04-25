@@ -15,7 +15,7 @@ if (isset($_POST["testAssign"])) {
   }
   if ($query) {
     $notify_lab = "INSERT INTO `notification_detail` ( `notification_type`, `notification_message`, `read_receipt`, `user_id`) VALUES ('lab', 'New Lab Test Assigned by Doctor.', '0', '0');";
-    $result_notify = $con->query($notify_doctor);
+    mysqli_query($con, $notify_doctor);
     echo '<script>alert("Test Assigned Successfully.")</script>';
     echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
   } else {
