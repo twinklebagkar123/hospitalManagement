@@ -38,7 +38,7 @@ include('include/header_structure.php');
 									<tbody>
 										<?php
 										$docid = $_SESSION['id'];
-										$sql = mysqli_query($con, "select * from tblpatient");
+										$sql = mysqli_query($con, "select * from tblpatient ORDER BY ID DESC");
 										$cnt = 1;
 										while ($row = mysqli_fetch_array($sql)) {
 										?>
