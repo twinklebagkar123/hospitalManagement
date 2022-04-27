@@ -4,7 +4,7 @@ include("include/config.php");
 error_reporting(0);
 if(isset($_POST['submit']))
 {
-$ret=mysqli_query($con,"SELECT * FROM doctors WHERE docEmail='".$_POST['username']."' and password='".md5($_POST['password'])."'");
+$ret=mysqli_query($con,"SELECT * FROM laboratory WHERE username='".$_POST['username']."' and password='".md5($_POST['password'])."'");
 $num=mysqli_fetch_array($ret);
 if($num>0)
 {
@@ -95,7 +95,7 @@ exit();
 					</form>
 
 					<div class="copyright">
-						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> HMS</span>. <span>All rights reserved</span>
+						&copy; <span class="current-year"></span><span class="text-bold text-uppercase"> WEBLOZEE </span>. <span>All rights reserved</span>
 					</div>
 			
 				</div>
