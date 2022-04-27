@@ -11,7 +11,7 @@ if($num>0)
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
-$uip=$_SERVER['HTTP_CLIENT_IP'];
+$uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
 $date = date("Y-m-d H:i:s");
 $log=mysqli_query($con,"insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','staff_nurse','$uip','$status','".$date."')");
@@ -25,7 +25,7 @@ else
 $date = date("Y-m-d H:i:s");
 $host  = $_SERVER['HTTP_HOST'];
 $_SESSION['dlogin']=$_POST['username'];
-$uip=$_SERVER['HTTP_CLIENT_IP'];
+$uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
 mysqli_query($con,"insert into application_logs(usertype,userip,status,loginTime) values('staff_nurse','$uip','$status','$date')");
 $_SESSION['errmsg']="Invalid username or password";
