@@ -68,18 +68,22 @@ check_login();
                                     ?> <i class="ti-angle-down"></i></i></span>
                             </a>
                             <ul class="dropdown-menu dropdown-dark">
-                                <li>
-                                    <a href="edit-profile.php">
-                                        My Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="change-password.php">
+                                <li><?php
+                                if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
+                        <a href="change-password.php">
+                        <?php } else { ?>
+                            <a href="change-password.php">
+                            <?php } ?>
                                         Change Password
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="logout.php">
+                                    <?php
+                                    if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
+                        <a href="logout.php">
+                        <?php } else { ?>
+                            <a href="../logout.php">
+                                <?php } ?>
                                         Log Out
                                     </a>
                                 </li>
