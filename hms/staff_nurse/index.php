@@ -11,10 +11,15 @@ if($num>0)
 $extra="dashboard.php";
 $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
-$uip=$_SERVER['REMOTE_ADDR'];
+$uip=$_SERVER['HTTP_CLIENT_IP'];
 $status=1;
 $date = date("Y-m-d H:i:s");
-$log=mysqli_query($con,"insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','staff_nurse','$uip','$status','".$date."')");
+$sql="insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','staff_nurse','$uip','$status','".$date."')";
+if ($con->query($sql) === TRUE) {
+	$last_id = $conn->insert_id;
+	$_SESSION['staff_log_id'] = $last_id;
+	echo $last_id." ++___++____++ ";
+  }exit(); 
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
