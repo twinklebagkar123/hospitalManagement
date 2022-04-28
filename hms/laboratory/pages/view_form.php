@@ -32,6 +32,14 @@ $id = $_GET['id'];
 		text-decoration: underline;
 		font-weight: bold;
 	}
+	table {
+    width: 100% !important;
+    border: 0;
+}
+
+table td {
+    border: 0;
+}
 </style>
 <div class="wrap-content container" id="container">
 	<!-- start: PAGE TITLE -->
