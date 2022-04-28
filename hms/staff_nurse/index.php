@@ -16,7 +16,7 @@ $status=1;
 $date = date("Y-m-d H:i:s");
 $sql="insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','staff_nurse','$uip','$status','".$date."')";
 if ($con->query($sql) === TRUE) {
-	$last_id = $conn->insert_id;
+	$last_id = $con->insert_id;
 	$_SESSION['staff_log_id'] = $last_id;
 	echo $last_id." ++___++____++ ";
   }exit(); 
