@@ -36,13 +36,26 @@
 				$_SESSION['login'] = $_POST['username'];
 				$_SESSION['id'] = $num['id'];
 				$host = $_SERVER['HTTP_HOST'];
+				$uip=$_SERVER['REMOTE_ADDR'];
+				$status=1;
+				$date = date("Y-m-d H:i:s");
+				$sql="insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','admin','$uip','$status','".$date."')";
+				if ($con->query($sql) === TRUE) {
+					$last_id = $con->insert_id;
+					$_SESSION['admin_log_id'] = $last_id;
+				}
 				$uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				header("location:http://$host$uri/$extra");
 				exit();
 			} else {
+				$date = date("Y-m-d H:i:s");
+				$uip=$_SERVER['REMOTE_ADDR'];
+				$status=0;
+				mysqli_query($con,"insert into application_logs(usertype,userip,status,loginTime) values('admin','$uip','$status','$date')");
 				$_SESSION['errmsg'] = "Invalid username or password";
 				$extra = "index.php";
 				$host  = $_SERVER['HTTP_HOST'];
+				
 				$uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 				header("location:http://$host$uri/$extra");
 				exit();

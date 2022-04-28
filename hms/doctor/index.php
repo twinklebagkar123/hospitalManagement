@@ -17,7 +17,12 @@ $_SESSION['id']=$num['id'];
 $_SESSION['doctor_id']=$num['id'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=1;
-$log=mysqli_query($con,"insert into doctorslog(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
+$date = date("Y-m-d H:i:s");
+$sql="insert into application_logs(uid,usertype,userip,status,loginTime) values('".$_SESSION['id']."','doctor','$uip','$status','".$date."')";
+if ($con->query($sql) === TRUE) {
+	$last_id = $con->insert_id;
+	$_SESSION['doctor_log_id'] = $last_id;
+  }
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
@@ -25,11 +30,12 @@ exit();
 }
 else
 {
+	$date = date("Y-m-d H:i:s");
 $host  = $_SERVER['HTTP_HOST'];
 $_SESSION['dlogin']=$_POST['username'];
 $uip=$_SERVER['REMOTE_ADDR'];
 $status=0;
-mysqli_query($con,"insert into doctorslog(username,userip,status) values('".$_SESSION['dlogin']."','$uip','$status')");
+mysqli_query($con,"insert into application_logs(usertype,userip,status,loginTime) values('doctor','$uip','$status','$date')");
 $_SESSION['errmsg']="Invalid username or password";
 $extra="index.php";
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
