@@ -18,8 +18,7 @@ $sql="insert into application_logs(uid,usertype,userip,status,loginTime) values(
 if ($con->query($sql) === TRUE) {
 	$last_id = $con->insert_id;
 	$_SESSION['staff_log_id'] = $last_id;
-	echo $last_id." ++___++____++ ";
-  }exit(); 
+  }
 $host=$_SERVER['HTTP_HOST'];
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
