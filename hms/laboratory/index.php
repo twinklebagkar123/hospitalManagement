@@ -13,8 +13,13 @@ $_SESSION['dlogin']=$_POST['username'];
 $_SESSION['id']=$num['id'];
 $uip=$_SERVER['HTTP_CLIENT_IP'];
 $status=1;
-$log=mysqli_query($con,"insert into application_logs(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')");
+$sql="insert into application_logs(uid,username,userip,status) values('".$_SESSION['id']."','".$_SESSION['dlogin']."','$uip','$status')";
 $host=$_SERVER['HTTP_HOST'];
+if ($con->query($sql) === TRUE) {
+	$last_id = $conn->insert_id;
+	$_SESSION['staff_log_id'] = $last_id;
+	echo $last_id." ++___++____++ ";
+  }exit(); 
 $uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
 header("location:http://$host$uri/$extra");
 exit();
