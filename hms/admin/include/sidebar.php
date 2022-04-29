@@ -189,7 +189,7 @@
 								<i class="ti-bookmark"></i>
 							</div>
 							<div class="item-inner">
-								<span class="title"> Packages (IDE) </span><i class="icon-arrow"></i>
+								<span class="title"> Packages (IPD) </span><i class="icon-arrow"></i>
 							</div>
 						</div>
 					</a>
