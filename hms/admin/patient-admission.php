@@ -115,7 +115,7 @@ $today = $year . '-' . $month . '-' . $day;
 																	</label>
 																	<input type="radio" id="rg-ide" name="admissionType" value="ide">
 																	<label for="rg-ide">
-																		IDE
+																		IPD
 																	</label>
 																</div>
 															</div>
