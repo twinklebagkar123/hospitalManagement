@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 	// $queryToRegister = "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,adharCardNo,PatientAdd,PatientAge,CreationDate) values('$doctor','$patname','$phno','$patemail','$gender','$adharcardno','$pataddress','$patage','$')";
 
 	// 			if ($con->query($queryToRegister) == TRUE) {
-	$sql = mysqli_query($con, "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,adharCardNo,PatientAge,PatientMedhis,CreationDate) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$adharCardNo','$patage','$medhis','$created_at')");
+	$sql = mysqli_query($con, "insert into tblpatient(Docid,PatientName,PatientContno,PatientEmail,PatientGender,PatientAdd,adharCardNo,Patientdob,PatientMedhis,CreationDate) values('$docid','$patname','$patcontact','$patemail','$gender','$pataddress','$adharCardNo','$patage','$medhis','$created_at')");
 	if ($sql) {
 		$patientInsertedId = mysqli_insert_id($con);
 		header('location:patient-admission.php?patientId=' . $patientInsertedId);
@@ -128,9 +128,9 @@ if (isset($_POST['submit'])) {
 									</div>
 									<div class="form-group">
 										<label for="fess">
-											Age
+											Date of Birth
 										</label>
-										<input type="text" name="patage" class="form-control" placeholder="Enter Patient Age" required="true">
+										<input class="form-control datepicker" name="patage" autocomplete="off" required="required" data-date-format="yyyy-mm-dd">
 									</div>
 									<div class="form-group">
 										<label for="fess">
