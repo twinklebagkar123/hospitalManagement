@@ -38,6 +38,7 @@ if(isset($_POST['fluidcount'])){
             </ol>
         </div>
     </section>
+    
     <?php 
     $editid = $_GET['editid'];
     $query = "SELECT * FROM `fluidintakelog` WHERE logid = '$editid'";
