@@ -85,7 +85,7 @@ if (isset($_GET['del'])) {
                   Hospital Bill
                 </h5>
                 <p>Hospital Charges</p>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select form-control-input" aria-label="Default select example">
                   <option selected>select hospital charges</option>
                   <option value="registration_fees">Registration Fees</option>
                   <option value="resident_dr_charges">Resident Doctor's Chrages</option>
