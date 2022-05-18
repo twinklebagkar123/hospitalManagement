@@ -13,6 +13,15 @@ $result = $con->query($query);
 //var_dump($result);
 while($row = mysqli_fetch_array($result)){
   var_dump($row);
+  $name = $row["PatientName"];
+  $dateofadmission = $row["dateofadmission"];
+  $dateofdischarge = $row["dateofdischarge"];
+  $advance_paid = $row["advance_paid"];
+  $registration_fee = $row["registration_fee"];
+  $package_id = $row["package_id"];
+  $Patientdob  = $row["Patientdob"];
+  //$package_id = $row["package_id"];
+ // $package_id = $row["package_id"];
 }
 
 ?>
@@ -107,10 +116,10 @@ while($row = mysqli_fetch_array($result)){
 
 
                     <div class="col-sm-4">
-                      <h5> PATIENT NAME: </h5>
+                      <h5> PATIENT NAME: <span><?php echo $name;?></span></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.B :</h5>
+                      <h5>D.O.B : <?php echo $Patientdob;?></h5>
                     </div>
                     <div class="col-sm-4">
                       <h5> DATE: <span><?php echo date("d/m/Y");?></span></h5>
@@ -129,10 +138,10 @@ while($row = mysqli_fetch_array($result)){
                       <h5> ADMISSION NO: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.A :</h5>
+                      <h5>D.O.A : <?php echo $dateofadmission;?></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5> D.O.D: </h5>
+                      <h5> D.O.D: <?php echo $dateofdischarge;?></h5>
                     </div>
 
 
@@ -149,7 +158,7 @@ while($row = mysqli_fetch_array($result)){
                 </tr>
                 <tr>
                   <td>Registration Fees </td>
-                  <td>200</td>
+                  <td><?php echo $registration_fee ;?></td>
                   <td> Physiotherapy</td>
                   <td> </td>
 
