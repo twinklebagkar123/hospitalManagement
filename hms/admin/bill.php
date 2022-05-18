@@ -114,7 +114,7 @@ if (isset($_GET['del'])) {
 
                   <div class="row">
                     <div class="col-sm-12">
-                      <h4>HOSPITAL BILL</h4>
+                      <h4 class="text-center">HOSPITAL BILL</h4>
                     </div>
 
 
