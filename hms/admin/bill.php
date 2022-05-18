@@ -79,7 +79,7 @@ if (isset($_GET['del'])) {
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-sm-6 ">
+            <div class="col-sm-3">
               <div class="hospitalCharges">
                 <h5>
                   Hospital Bill
@@ -107,7 +107,7 @@ if (isset($_GET['del'])) {
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-9">
               <table class="table table-bordered">
 
                 <tr>
