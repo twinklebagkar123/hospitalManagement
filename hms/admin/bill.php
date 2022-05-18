@@ -127,13 +127,13 @@ if (isset($_GET['del'])) {
 
 
                     <div class="col-sm-4">
-                      <h4> NAME OF THE PATIENT: </h4>
+                      <h5> NAME OF THE PATIENT: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h4>D.O.B :</h4>
+                      <h5>D.O.B :</h5>
                     </div>
                     <div class="col-sm-4">
-                      <h4> DATE: </h4>
+                      <h5> DATE: </h5>
                     </div>
 
 
@@ -146,13 +146,13 @@ if (isset($_GET['del'])) {
 
 
                     <div class="col-sm-4">
-                      <h4> ADMISSION NO: </h4>
+                      <h5> ADMISSION NO: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h4>D.O.A :</h4>
+                      <h5>D.O.A :</h5>
                     </div>
                     <div class="col-sm-4">
-                      <h4> D.O.D: </h4>
+                      <h5> D.O.D: </h5>
                     </div>
 
 
