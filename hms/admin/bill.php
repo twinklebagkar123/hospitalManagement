@@ -1,23 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Bill</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-
-</head>
-<body>
-
-
-
-</body>
-</html>
- -->
 
 
 <?php
@@ -26,21 +6,21 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if (isset($_POST['submit'])) {
-  $sql = mysqli_query($con, "insert into doctorSpecilization(specilization) values('" . $_POST['doctorspecilization'] . "')");
-  $_SESSION['msg'] = "Doctor Specialization added successfully !!";
-}
+$admissionId = 9;
+$paymentStatus = "pending";
+$query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '9'";
+$result = $con->query($query);
+var_dump($result);
+// while($row = mysqli_fetch_array($result)){
+//   $name = $row[];
+// }
 
-if (isset($_GET['del'])) {
-  mysqli_query($con, "delete from doctorSpecilization where id = '" . $_GET['id'] . "'");
-  $_SESSION['msg'] = "data deleted !!";
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Admin | Doctor Specialization</title>
+  <title>Admin | Patient Bill</title>
 
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
