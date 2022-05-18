@@ -80,7 +80,7 @@ if (isset($_GET['del'])) {
         <div class="container">
           <div class="row">
             <div class="col-sm-6 ">
-              <div class="">
+              <div class="hospitalCharges">
                 <h5>
                   Hospital Bill
                 </h5>
@@ -96,6 +96,9 @@ if (isset($_GET['del'])) {
                   <option value="syringe_pump">Syringe Pump</option>
                   <option value="medicines_disposables">Medicines & Disposables</option>
                 </select>
+                <input type="text" class="form-control-input" id="price" placeholder="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
               <div class="input-group">
                 <input type="text" class="form-control-input" id="service" placeholder="service">
