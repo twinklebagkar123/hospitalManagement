@@ -127,13 +127,13 @@ if (isset($_GET['del'])) {
 
 
                     <div class="col-sm-4">
-                      <h5> NAME OF THE PATIENT: </h5>
+                      <h5> PATIENT NAME: </h5>
                     </div>
                     <div class="col-sm-4">
                       <h5>D.O.B :</h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5> DATE: </h5>
+                      <h5> DATE: <span><?php echo date("d/m/Y");?></span></h5>
                     </div>
 
 
