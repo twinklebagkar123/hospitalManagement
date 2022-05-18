@@ -12,7 +12,7 @@ $query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmis
 $result = $con->query($query);
 //var_dump($result);
 while($row = mysqli_fetch_array($result)){
-  var_dump($row);
+  //var_dump($row);
   $name = $row["PatientName"];
   $dateofadmission = $row["dateofadmission"];
   $dateofdischarge = $row["dateofdischarge"];
