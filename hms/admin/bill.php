@@ -6,14 +6,14 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$admissionId = 9;
-$paymentStatus = "pending";
+// $admissionId = 9;
+// $paymentStatus = "pending";
 $query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '9'";
 $result = $con->query($query);
-var_dump($result);
-// while($row = mysqli_fetch_array($result)){
-//   $name = $row[];
-// }
+//var_dump($result);
+while($row = mysqli_fetch_array($result)){
+  var_dump($row);
+}
 
 ?>
 <!DOCTYPE html>
