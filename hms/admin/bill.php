@@ -27,6 +27,13 @@ while($row = mysqli_fetch_array($result)){
  $dateofadmissionNoTime = $createDate->format('Y-m-d');
  $date2 = new DateTime($dateofdischarge);
  $dateofdischargeNoTime = $date2->format('Y-m-d');
+ if($dateofadmissionNoTime = "0000-00-00"){
+   $dateofadmissionNoTime = date('Y-m-d');
+ }
+ //Days in difference
+ $interval 	= $datetime1->diff($datetime2);
+
+echo $interval->format('%a');
 }
 function getTariffCost ($tariffID){
   global $con;
@@ -162,7 +169,7 @@ function getDoctorFees ($docID){
                       <h5> ADMISSION NO: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.A : <?php echo $dateofadmission; echo $dateofadmissionNoTime;?></h5>
+                      <h5>D.O.A : <?php echo $dateofadmission;?></h5>
                     </div>
                     <div class="col-sm-4">
                       <h5> D.O.D: <?php echo $dateofdischarge;?></h5>
