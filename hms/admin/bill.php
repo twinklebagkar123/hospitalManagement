@@ -27,13 +27,15 @@ while($row = mysqli_fetch_array($result)){
  $dateofadmissionNoTime = $createDate->format('Y-m-d');
  $date2 = new DateTime($dateofdischarge);
  $dateofdischargeNoTime = $date2->format('Y-m-d');
- if($dateofadmissionNoTime = "0000-00-00"){
-   $dateofadmissionNoTime = date('Y-m-d');
+ if($dateofdischargeNoTime = "0000-00-00"){
+   $dateofdischargeNoTime = date('Y-m-d');
  }
  //Days in difference
- $interval 	= $datetime1->diff($datetime2);
+ $dateofadmissionNoTime =  new DateTime($dateofadmissionNoTime);
+ $dateofdischargeNoTime =  new DateTime($dateofdischargeNoTime);
+ $interval 	= $dateofadmissionNoTime->diff($dateofdischargeNoTime);
 
-echo $interval->format('%a');
+echo $day = $interval->format('%a');
 }
 function getTariffCost ($tariffID){
   global $con;
