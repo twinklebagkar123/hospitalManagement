@@ -199,7 +199,7 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Hospital Charges </td>
-                  <td> <?php echo getTariffCost($package_id)*$days;?></td>
+                  <td> <?php echo getTariffCost($package_id)*$day;?></td>
                   <td> Miscellaneous charges</td>
                   <td> </td>
                 </tr>
