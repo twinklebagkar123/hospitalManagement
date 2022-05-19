@@ -35,7 +35,7 @@ while($row = mysqli_fetch_array($result)){
  $dateofdischargeNoTime =  new DateTime($dateofdischargeNoTime);
  $interval 	= $dateofadmissionNoTime->diff($dateofdischargeNoTime);
 
-echo $day = $interval->format('%a');
+$day = $interval->format('%a');
 }
 function getTariffCost ($tariffID){
   global $con;
@@ -45,6 +45,7 @@ function getTariffCost ($tariffID){
   while($row = mysqli_fetch_array($result)){
     $returnVal = $row["tariff_room_fee"];
   }
+ 
   return $returnVal;
 }
 function getDoctorFees ($docID){
@@ -198,7 +199,7 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Hospital Charges </td>
-                  <td> <?php echo getTariffCost($package_id);?></td>
+                  <td> <?php echo getTariffCost($package_id)*$days;?></td>
                   <td> Miscellaneous charges</td>
                   <td> </td>
                 </tr>
