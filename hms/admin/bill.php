@@ -22,6 +22,11 @@ while($row = mysqli_fetch_array($result)){
   $Patientdob  = $row["Patientdob"];
   $docID = $row["docID"];
  // $package_id = $row["package_id"];
+ //Convert Date
+ $createDate = new DateTime($dateofadmission);
+ $dateofadmissionNoTime = $createDate->format('Y-m-d');
+ $date2 = new DateTime($dateofdischarge);
+ $dateofdischargeNoTime = $date2->format('Y-m-d');
 }
 function getTariffCost ($tariffID){
   global $con;
@@ -157,7 +162,7 @@ function getDoctorFees ($docID){
                       <h5> ADMISSION NO: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.A : <?php echo $dateofadmission;?></h5>
+                      <h5>D.O.A : <?php echo $dateofadmission; echo $dateofadmissionNoTime;?></h5>
                     </div>
                     <div class="col-sm-4">
                       <h5> D.O.D: <?php echo $dateofdischarge;?></h5>
