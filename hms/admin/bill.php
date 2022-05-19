@@ -23,7 +23,16 @@ while($row = mysqli_fetch_array($result)){
   //$package_id = $row["package_id"];
  // $package_id = $row["package_id"];
 }
-
+function getTariffCost ($tariffID){
+  global $con;
+  $returnVal ="";
+  $query = "SELECT tariff_room_fee FROM `tariff_room_info` WHERE tariff_room_id = '$tariffID'";
+  $result = $con->query($query);
+  while($row = mysqli_fetch_array($result)){
+    $returnVal = $row["tariff_room_fee"];
+  }
+  return $returnVal;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -165,7 +174,7 @@ while($row = mysqli_fetch_array($result)){
                 </tr>
                 <tr>
                   <td>Hospital Charges </td>
-                  <td> 1500</td>
+                  <td> <?php echo getTariffCost($row['package_id']);?></td>
                   <td> Miscellaneous charges</td>
                   <td> </td>
                 </tr>
