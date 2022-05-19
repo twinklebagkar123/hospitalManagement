@@ -177,6 +177,9 @@ function getDoctorFees ($docID){
                     <div class="col-sm-4">
                       <h5> D.O.D: <?php echo $dateofdischarge;?></h5>
                     </div>
+                    <div class="col-sm-4">
+                      <h5> Admission Days: <?php echo $day." Days";?></h5>
+                    </div>
 
 
                   </div>
