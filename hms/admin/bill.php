@@ -174,7 +174,7 @@ function getTariffCost ($tariffID){
                 </tr>
                 <tr>
                   <td>Hospital Charges </td>
-                  <td> <?php echo getTariffCost($row['package_id']);?></td>
+                  <td> <?php $id = $row['package_id']; echo getTariffCost($id);?></td>
                   <td> Miscellaneous charges</td>
                   <td> </td>
                 </tr>
