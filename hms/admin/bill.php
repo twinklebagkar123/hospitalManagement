@@ -20,7 +20,7 @@ while($row = mysqli_fetch_array($result)){
   $registration_fee = $row["registration_fee"];
   $package_id = $row["package_id"];
   $Patientdob  = $row["Patientdob"];
-  //$package_id = $row["package_id"];
+  $docID = $row["docID"];
  // $package_id = $row["package_id"];
 }
 function getTariffCost ($tariffID){
@@ -30,6 +30,16 @@ function getTariffCost ($tariffID){
   $result = $con->query($query);
   while($row = mysqli_fetch_array($result)){
     $returnVal = $row["tariff_room_fee"];
+  }
+  return $returnVal;
+}
+function getDoctorFees ($docID){
+  global $con;
+  $returnVal ="";
+  $query = "SELECT docFees FROM `doctors` WHERE id = '$docID'";
+  $result = $con->query($query);
+  while($row = mysqli_fetch_array($result)){
+    $returnVal = $row["docFees"];
   }
   return $returnVal;
 }
@@ -180,7 +190,7 @@ function getTariffCost ($tariffID){
                 </tr>
                 <tr>
                   <td>Resident DR's Charges </td>
-                  <td> </td>
+                  <td> <?php echo getDoctorFees($docID)?></td>
                   <td> Food charges</td>
                   <td> </td>
                 </tr>
