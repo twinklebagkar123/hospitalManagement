@@ -553,7 +553,9 @@ function getDoctorFees ($docID){
        sumArr.push({
         name : myValue , price : price
        });
-     console.log(sumArr);
+     sumArr.forEach(function(item){
+       console.log(item.price+"price!!");
+     });
      });
     });
   </script>
