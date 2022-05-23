@@ -123,6 +123,98 @@ function getDoctorFees ($docID){
 
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
+              <div class="hospitalCharges">
+                <h5>
+                Surgery Charges
+                </h5>
+                <p>Surgery Charges</p>
+                <select class="form-select form-control-input" aria-label="Default select example">
+                  <option selected>select surgery charges</option>
+                  <option value="operation_theater">operation theater</option>
+                  <option value="OT_nurse">OT nurse</option>
+                  <option value="equipment_charges">Equipment Charges (C-ARM)</option>
+                  <option value="technician">Technician</option>
+                  <option value="OT_assistant">OT assistant</option>
+                  <option value="surgeon">Surgeon</option>
+                  <option value="anesthetist">Anesthetist</option>
+                  <option value="OT_gases">OT Gases</option>
+                  <option value="implant">Implant</option>
+                  <option value="OT_medicines_disposables">OT- medicines & disposables</option>
+                </select>
+                <input type="text" class="form-control-input" id="price" placeholder="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+              </div>
+              <div class="hospitalCharges">
+                <h5>
+                INVESTIGATIONS
+                </h5>
+                <p>INVESTIGATIONS</p>
+                <select class="form-select form-control-input" aria-label="Default select example">
+                  <option selected>select INVESTIGATIONS</option>
+                  <option value="rbsl">RBSL</option>
+                  <option value="laboratory_charges">Laboratory Charges</option>
+                  <option value="histopathology">Histopathology</option>
+                  <option value="technician">Technician</option>
+                  <option value="OT_assistant">OT assistant</option>
+                  <option value="surgeon">Surgeon</option>
+                  <option value="anesthetist">Anesthetist</option>
+                  <option value="OT_gases">OT Gases</option>
+                  <option value="implant">Implant</option>
+                  <option value="OT_medicines_disposables">OT- medicines & disposables</option>
+                </select>
+                <input type="text" class="form-control-input" id="price" placeholder="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+              </div>
+              <div class="hospitalCharges">
+                <h5>
+                OTHER CHARGES
+                </h5>
+                <p>OTHER CHARGES</p>
+                <select class="form-select form-control-input" aria-label="Default select example">
+                  <option selected>select INVESTIGATIONS</option>
+                  <option value="physiotherapy">Physiotherapy</option>
+                  <option value="miscellaneous_charges">Miscellaneous charges</option>
+                  <option value="food_charges">Food charges</option>
+                  <option value="communication_charges">Communication charges</option>
+                  <option value="attendant_room_charges">attendant_room_charges</option>
+                  <option value="ambulance">ambulance</option>
+                  <option value="water_mattress">water mattress</option>
+                  <option value="air_mattress">air mattress</option>
+                </select>
+                <input type="text" class="form-control-input" id="price" placeholder="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+              </div>
+              <div class="hospitalCharges">
+                <h5>
+                PROCEDURE CHARGES
+                </h5>
+                <p>PROCEDURE CHARGES</p>
+                <select class="form-select form-control-input" aria-label="Default select example">
+                  <option selected>select PROCEDURE CHARGES</option>
+                  <option value="tapping">TAPPING</option>
+                  <option value="lumber_puncture">lumber puncture</option>
+                  <option value="blood_tranfution">blood tranfution</option>
+                  <option value="nebulizer_charges">Nebulizer Charges</option>
+                  <option value="dressing">Dressing</option>
+                  <option value="cvp_intubation">CVP/Intubation</option>
+                  <option value="minor_ot">Minor OT</option>
+                  <option value="ryles_tube_procedure">Ryles Tube Procedure</option>
+                  <option value="cathetersation">Cathetersation</option>
+                  <option value="radioligy">RADIOLOGY</option>
+                  <option value="2d_echo">2D ECHO</option>
+                  <option value="x_ray">X-Ray</option>
+                  <option value="doppler">Doppler</option>
+                  <option value="ultrasound">Ultrasound</option>
+                  <option value="ecg">ECG</option>
+                  <option value="ct_scan">CT SCAN</option>
+                </select>
+                <input type="text" class="form-control-input" id="price" placeholder="price">
+
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+              </div>
               <div class="input-group">
                 <input type="text" class="form-control-input" id="service" placeholder="service">
                 <input type="text" class="form-control-input" id="price" placeholder="price">
