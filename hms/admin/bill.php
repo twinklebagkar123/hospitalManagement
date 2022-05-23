@@ -102,7 +102,7 @@ function getDoctorFees ($docID){
         </div>
         <div class="container">
           <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <div class="hospitalCharges">
                 <h5>
                   Hospital Bill
@@ -222,7 +222,7 @@ function getDoctorFees ($docID){
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-8">
               <table class="table table-bordered">
 
                 <tr>
