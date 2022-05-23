@@ -548,10 +548,10 @@ function getDoctorFees ($docID){
      $("select").change(function(){
        var myValue = $(this).val();
        var sum = 100;
-       console.log(myValue+"selected value");
+      // console.log(myValue+"selected value");
        var price = 100;
        sumArr.push({
-        myValue : price
+        name : myValue , price : price
        });
      console.log(sumArr);
      });
