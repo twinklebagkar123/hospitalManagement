@@ -201,7 +201,7 @@ function getDoctorFees ($docID){
 
                 </tr>
                 <tr>
-                  <td>Hospital Charges <?php echo "Rs. ".getTariffCost($package_id)." per day";?> </td>
+                  <td>Hospital Charges <?php echo "Rs. "; echo getTariffCost($package_id); echo " per day";?> </td>
                   <td> <?php echo getTariffCost($package_id)*$day;?></td>
                   <td> Miscellaneous charges</td>
                   <td> </td>
