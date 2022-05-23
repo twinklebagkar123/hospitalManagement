@@ -544,7 +544,7 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
-     $("select").click(function(){
+     $("select").change(function(){
        var myValue = $(this).val();
        console.log(myValue+"selected value");
      });
