@@ -141,9 +141,9 @@ function getDoctorFees ($docID){
                   <option value="implant">Implant</option>
                   <option value="OT_medicines_disposables">OT- medicines & disposables</option>
                 </select>
-                <input type="text" class="form-control-input" id="price" placeholder="price">
+                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
 
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
               </div>
               <div class="hospitalCharges">
                 <h5>
@@ -163,9 +163,9 @@ function getDoctorFees ($docID){
                   <option value="implant">Implant</option>
                   <option value="OT_medicines_disposables">OT- medicines & disposables</option>
                 </select>
-                <input type="text" class="form-control-input" id="price" placeholder="price">
+                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
 
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
               </div>
               <div class="hospitalCharges">
                 <h5>
@@ -183,9 +183,9 @@ function getDoctorFees ($docID){
                   <option value="water_mattress">water mattress</option>
                   <option value="air_mattress">air mattress</option>
                 </select>
-                <input type="text" class="form-control-input" id="price" placeholder="price">
+                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
 
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
               </div>
               <div class="hospitalCharges">
                 <h5>
@@ -457,7 +457,7 @@ function getDoctorFees ($docID){
                   <td>Laboratory Charges</td>
                   <td> </td>
                   <td>GRAND TOTAL </td>
-                  <td> </td>
+                  <td id="grand_total"> </td>
                 </tr>
                 <tr>
                   <td>Histopathology</td>
@@ -545,6 +545,7 @@ function getDoctorFees ($docID){
   <script>
     jQuery(document).ready(function() {
       var sumArr = [];
+      var majorSum = 0;
      $("select").change(function(){
        var myValue = $(this).val();
        var sum = 100;
@@ -555,7 +556,9 @@ function getDoctorFees ($docID){
        });
      sumArr.forEach(function(item){
        console.log(item.price+"price!!");
+       majorSum = majorSum + item.price;
      });
+     $("#grand_total").text("Rs. "+majorSum);
      });
     });
   </script>
