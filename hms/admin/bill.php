@@ -287,7 +287,7 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Registration Fees </td>
-                  <td><?php echo $registration_fee ;?></td>
+                  <td id="registration_fees"><?php echo $registration_fee ;?></td>
                   <td> Physiotherapy</td>
                   <td> </td>
 
@@ -306,7 +306,7 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Nursing care </td>
-                  <td> </td>
+                  <td id="nursing_care"> </td>
                   <td> Communication charges</td>
                   <td> </td>
                 </tr>
@@ -544,9 +544,16 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
+      var sumarr = {};
      $("select").change(function(){
        var myValue = $(this).val();
+       var sum = 100;
        console.log(myValue+"selected value");
+       var price = 100;
+       sumarr.push({
+        myValue : price
+       });
+     console.log(sumarr);
      });
     });
   </script>
