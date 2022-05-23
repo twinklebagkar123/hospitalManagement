@@ -544,8 +544,9 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
-      Main.init();
-      FormElements.init();
+     $("select").click(function(){
+       console.log("clicked on selecct");
+     });
     });
   </script>
   <!-- end: JavaScript Event Handlers for this page -->
