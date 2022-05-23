@@ -544,16 +544,16 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
-      var sumarr = {};
+      var sumArr = [];
      $("select").change(function(){
        var myValue = $(this).val();
        var sum = 100;
        console.log(myValue+"selected value");
        var price = 100;
-       sumarr.push({
+       sumArr.push({
         myValue : price
        });
-     console.log(sumarr);
+     console.log(sumArr);
      });
     });
   </script>
