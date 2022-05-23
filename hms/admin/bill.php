@@ -108,7 +108,7 @@ function getDoctorFees ($docID){
                   Hospital Bill
                 </h5>
                 <p>Hospital Charges</p>
-                <select class="form-select form-control-input" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>select hospital charges</option>
                   <option value="registration_fees">Registration Fees</option>
                   <option value="resident_dr_charges">Resident Doctor's Chrages</option>
@@ -128,7 +128,7 @@ function getDoctorFees ($docID){
                 Surgery Charges
                 </h5>
                 <p>Surgery Charges</p>
-                <select class="form-select form-control-input" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>select surgery charges</option>
                   <option value="operation_theater">operation theater</option>
                   <option value="OT_nurse">OT nurse</option>
@@ -150,7 +150,7 @@ function getDoctorFees ($docID){
                 INVESTIGATIONS
                 </h5>
                 <p>INVESTIGATIONS</p>
-                <select class="form-select form-control-input" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>select INVESTIGATIONS</option>
                   <option value="rbsl">RBSL</option>
                   <option value="laboratory_charges">Laboratory Charges</option>
@@ -172,7 +172,7 @@ function getDoctorFees ($docID){
                 OTHER CHARGES
                 </h5>
                 <p>OTHER CHARGES</p>
-                <select class="form-select form-control-input" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>select INVESTIGATIONS</option>
                   <option value="physiotherapy">Physiotherapy</option>
                   <option value="miscellaneous_charges">Miscellaneous charges</option>
@@ -192,7 +192,7 @@ function getDoctorFees ($docID){
                 PROCEDURE CHARGES
                 </h5>
                 <p>PROCEDURE CHARGES</p>
-                <select class="form-select form-control-input" aria-label="Default select example">
+                <select class="form-select form-control" aria-label="Default select example">
                   <option selected>select PROCEDURE CHARGES</option>
                   <option value="tapping">TAPPING</option>
                   <option value="lumber_puncture">lumber puncture</option>
