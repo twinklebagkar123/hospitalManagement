@@ -545,7 +545,8 @@ function getDoctorFees ($docID){
   <script>
     jQuery(document).ready(function() {
      $("select").click(function(){
-       console.log("clicked on selecct");
+       var myValue = $(this).val();
+       console.log(myValue+"selected value");
      });
     });
   </script>
