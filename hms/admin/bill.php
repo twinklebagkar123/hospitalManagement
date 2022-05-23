@@ -545,8 +545,9 @@ function getDoctorFees ($docID){
   <script>
     jQuery(document).ready(function() {
       var sumArr = [];
-      var majorSum = 0;
+      
      $("select").change(function(){
+      var majorSum = 0;
        var myValue = $(this).val();
        var sum = 100;
       // console.log(myValue+"selected value");
