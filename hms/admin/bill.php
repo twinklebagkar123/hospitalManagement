@@ -365,7 +365,7 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Surgeon</td>
-                  <td> </td>
+                  <td id="surgeon"> </td>
                   <td>2D ECHO</td>
                   <td id="2d_echo"> </td>
                 </tr>
@@ -377,19 +377,19 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td> OT Gases </td>
-                  <td> </td>
+                  <td id="OT_gases"> </td>
                   <td> Doppler </td>
                   <td id="doppler"> </td>
                 </tr>
                 <tr>
                   <td>Implant</td>
-                  <td> </td>
+                  <td id="implant"> </td>
                   <td>Ultrasound</td>
                   <td id="ultrasound"> </td>
                 </tr>
                 <tr>
                   <td> OT- medicines & disposables </td>
-                  <td> </td>
+                  <td id="OT_medicines_disposables"> </td>
                   <td>ECG </td>
                   <td id="ecg"> </td>
                 </tr>
@@ -397,23 +397,23 @@ function getDoctorFees ($docID){
                   <td>INVESTIGATIONS</td>
                   <td> </td>
                   <td>Ultrasound</td>
-                  <td> </td>
+                  <td id="ultrasound"> </td>
                 </tr>
                 <tr>
                   <td>RBSL</td>
-                  <td> </td>
+                  <td id="rbsl"> </td>
                   <td>CT SCAN</td>
                   <td id="ct_scan"> </td>
                 </tr>
                 <tr>
                   <td>Laboratory Charges</td>
-                  <td> </td>
+                  <td id="laboratory_charges"> </td>
                   <td>GRAND TOTAL </td>
                   <td id="grand_total"> </td>
                 </tr>
                 <tr>
                   <td>Histopathology</td>
-                  <td> </td>
+                  <td id="histopathology"> </td>
                   <td>ADVANCE PAID </td>
                   <td> </td>
                 </tr>
