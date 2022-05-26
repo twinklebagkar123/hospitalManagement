@@ -556,7 +556,8 @@ function getDoctorFees($docID)
         var discount = $("#discount").val();
         $("#discountBox").text("Rs. "+discount);
         var grandTotal = $("#grand_total").text();
-        grandTotal =  parseInt(grandTotal.match(/\d+/));
+        console.log(grandTotal);
+        grandTotal =  parseInt(grandTotal.replace(/[^d.,]+/,''));
         console.log(grandTotal);
         // var finalDiscount = netPayable();
         // $("#netPayable").text("Rs. "+finalDiscount);
