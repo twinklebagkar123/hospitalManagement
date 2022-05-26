@@ -561,12 +561,12 @@ function getDoctorFees($docID)
         //var nettotal = $("#netPayable").text();
         var discount =  $("#discountBox").text();
         discount =  parseInt(discount.replace('Rs. ','0'));
-        var advance = $("#discount").text();
+        var advance = $("#advance").text();
         advance =  parseInt(advance.replace('Rs. ','0'));
         nettotal = grandTotal - discount - advance;
         console.log(grandTotal+"GT"+discount+"DISC"+ advance+"adv");
        // var finalDiscount = netPayable();
-        $("#netPayable").text("Rs. "+finalDiscount);
+       // $("#netPayable").text("Rs. "+finalDiscount);
         
       });
     });
