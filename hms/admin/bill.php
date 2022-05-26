@@ -489,17 +489,23 @@ function getDoctorFees ($docID){
   <script>
     jQuery(document).ready(function() {
       var sumArr = [];
-      
+      sumArr = [{
+        name: 'test', price : 30
+      },
+    {
+      name : 'test2' , price : 50
+    }];
      $("#add").click(function(){
       var majorSum = 0;
        var myValue = $("select").val();
        var sum = 0;
       // console.log(myValue+"selected value");
+
        var price = parseInt($("#price").val());
        sumArr.push({
         name : myValue , price : price
        });
-       
+      console.log(sumArr); 
      sumArr.forEach(function(item){
        console.log(item.price+"price!!");
        majorSum = majorSum + item.price;
