@@ -555,9 +555,11 @@ function getDoctorFees($docID)
       $("#discountButton").click(function(){
         var discount = $("#discount").val();
         $("#discountBox").text("Rs. "+discount);
-        var total = calculateTotal(sumArr);
-        var finalDiscount = netPayable();
-        $("#netPayable").text("Rs. "+finalDiscount);
+        var grandTotal = $("#grand_total").text();
+        grandTotal =  parseInt(grandTotal.replace(/[^0-9.]/g, ""));
+        console.log(grandTotal);
+        // var finalDiscount = netPayable();
+        // $("#netPayable").text("Rs. "+finalDiscount);
         
       });
     });
