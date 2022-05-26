@@ -562,6 +562,7 @@ function getDoctorFees($docID)
         var discount =  $("#discountBox").text();
         discount =  parseInt(discount.replace('Rs. ','0'));
         var advance = $("#advance").text();
+        console.log(advance+"advance")
         advance =  parseInt(advance.replace('Rs. ','0'));
         nettotal = grandTotal - discount - advance;
         console.log(grandTotal+"GT"+discount+"DISC"+ advance+"adv");
