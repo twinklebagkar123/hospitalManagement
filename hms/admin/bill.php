@@ -498,7 +498,7 @@ function getDoctorFees ($docID){
       // }
       var sumArr = [];
       sumArr = [{
-        name: 'advance', price : <?php echo $advance_paid; ?>
+        name: 'doctor_charges', price : <?php echo getDoctorFees($docID);?>
       },
     {
       name : 'stay_in_hospital' , price : <?php echo getTariffCost($package_id)*$day;?>
