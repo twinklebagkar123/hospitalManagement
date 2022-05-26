@@ -407,7 +407,7 @@ function getDoctorFees ($docID){
                   <td>Histopathology</td>
                   <td id="histopathology"> </td>
                   <td>ADVANCE PAID </td>
-                  <td> </td>
+                  <td> <?php echo $advance_paid; ?></td>
                 </tr>
                 <tr>
                   <td>DOCTORS CHARGES</td>
@@ -499,6 +499,7 @@ function getDoctorFees ($docID){
        sumArr.push({
         name : myValue , price : price
        });
+       
      sumArr.forEach(function(item){
        console.log(item.price+"price!!");
        majorSum = majorSum + item.price;
