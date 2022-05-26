@@ -1,5 +1,3 @@
-
-
 <?php
 session_start();
 error_reporting(0);
@@ -113,23 +111,11 @@ function getDoctorFees ($docID){
                   <option value="registration_fees">Registration Fees</option>
                   <option value="resident_dr_charges">Resident Doctor's Chrages</option>
                   <option value="nursing_care">Nursing Care</option>
-                  <option value="owygen_charges">Oxygen Charges</option>
+                  <option value="oxygen_charges">Oxygen Charges</option>
                   <option value="monitor">Monitor</option>
                   <option value="spo2">SPO2</option>
                   <option value="syringe_pump">Syringe Pump</option>
                   <option value="medicines_disposables">Medicines & Disposables</option>
-                </select>
-                <input type="text" class="form-control-input" id="price" placeholder="price">
-
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
-              </div>
-              <div class="hospitalCharges">
-                <h5>
-                Surgery Charges
-                </h5>
-                <p>Surgery Charges</p>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected>select surgery charges</option>
                   <option value="operation_theater">operation theater</option>
                   <option value="OT_nurse">OT nurse</option>
                   <option value="equipment_charges">Equipment Charges (C-ARM)</option>
@@ -140,18 +126,6 @@ function getDoctorFees ($docID){
                   <option value="OT_gases">OT Gases</option>
                   <option value="implant">Implant</option>
                   <option value="OT_medicines_disposables">OT- medicines & disposables</option>
-                </select>
-                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
-
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
-              </div>
-              <div class="hospitalCharges">
-                <h5>
-                INVESTIGATIONS
-                </h5>
-                <p>INVESTIGATIONS</p>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected>select INVESTIGATIONS</option>
                   <option value="rbsl">RBSL</option>
                   <option value="laboratory_charges">Laboratory Charges</option>
                   <option value="histopathology">Histopathology</option>
@@ -162,38 +136,14 @@ function getDoctorFees ($docID){
                   <option value="OT_gases">OT Gases</option>
                   <option value="implant">Implant</option>
                   <option value="OT_medicines_disposables">OT- medicines & disposables</option>
-                </select>
-                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
-
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
-              </div>
-              <div class="hospitalCharges">
-                <h5>
-                OTHER CHARGES
-                </h5>
-                <p>OTHER CHARGES</p>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected>select INVESTIGATIONS</option>
                   <option value="physiotherapy">Physiotherapy</option>
                   <option value="miscellaneous_charges">Miscellaneous charges</option>
                   <option value="food_charges">Food charges</option>
                   <option value="communication_charges">Communication charges</option>
-                  <option value="attendant_room_charges">attendant_room_charges</option>
+                  <option value="attendant_room_charges">attendant room charges</option>
                   <option value="ambulance">ambulance</option>
                   <option value="water_mattress">water mattress</option>
                   <option value="air_mattress">air mattress</option>
-                </select>
-                <!-- <input type="text" class="form-control-input" id="price" placeholder="price">
-
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button> -->
-              </div>
-              <div class="hospitalCharges">
-                <h5>
-                PROCEDURE CHARGES
-                </h5>
-                <p>PROCEDURE CHARGES</p>
-                <select class="form-select form-control" aria-label="Default select example">
-                  <option selected>select PROCEDURE CHARGES</option>
                   <option value="tapping">TAPPING</option>
                   <option value="lumber_puncture">lumber puncture</option>
                   <option value="blood_tranfution">blood tranfution</option>
@@ -203,7 +153,7 @@ function getDoctorFees ($docID){
                   <option value="minor_ot">Minor OT</option>
                   <option value="ryles_tube_procedure">Ryles Tube Procedure</option>
                   <option value="cathetersation">Cathetersation</option>
-                  <option value="radioligy">RADIOLOGY</option>
+                  <option value="radiology">RADIOLOGY</option>
                   <option value="2d_echo">2D ECHO</option>
                   <option value="x_ray">X-Ray</option>
                   <option value="doppler">Doppler</option>
@@ -215,6 +165,8 @@ function getDoctorFees ($docID){
 
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
+             
+ 
               <div class="input-group">
                 <input type="text" class="form-control-input" id="service" placeholder="service">
                 <input type="text" class="form-control-input" id="price" placeholder="price">
@@ -289,72 +241,72 @@ function getDoctorFees ($docID){
                   <td>Registration Fees </td>
                   <td id="registration_fees"><?php echo $registration_fee ;?></td>
                   <td> Physiotherapy</td>
-                  <td> </td>
+                  <td id="physiotherapy"> </td>
 
                 </tr>
                 <tr>
                   <td>Hospital Charges <?php echo "(Rs. "; echo getTariffCost($package_id); echo " per day)";?> </td>
                   <td> <?php echo getTariffCost($package_id)*$day;?></td>
                   <td> Miscellaneous charges</td>
-                  <td> </td>
+                  <td id="miscellaneous_charges"> </td>
                 </tr>
                 <tr>
                   <td>Resident DR's Charges </td>
-                  <td> <?php echo getDoctorFees($docID)?></td>
+                  <td id="resident_dr_charges"> <?php echo getDoctorFees($docID)?></td>
                   <td> Food charges</td>
-                  <td> </td>
+                  <td id="food_charges"> </td>
                 </tr>
                 <tr>
                   <td>Nursing care </td>
                   <td id="nursing_care"> </td>
                   <td> Communication charges</td>
-                  <td> </td>
+                  <td id="communication_charges"> </td>
                 </tr>
                 <tr>
                   <td> HOSPITAL CHARGES </td>
                   <td> </td>
                   <td> Attendant room charges</td>
-                  <td> </td>
+                  <td id="attendant_room_charges"> </td>
                 </tr>
                 <tr>
                   <td>Hospital Charges </td>
                   <td> </td>
-                  <td> ambulance </td>
-                  <td> </td>
+                  <td > ambulance </td>
+                  <td id="ambulance"> </td>
                 </tr>
                 <tr>
                   <td>Resident DR's Charges </td>
                   <td> </td>
                   <td> water mattress </td>
-                  <td> </td>
+                  <td id="water_mattress"> </td>
                 </tr>
                 <tr>
                   <td>nursing care </td>
                   <td> </td>
                   <td> air mattress </td>
-                  <td> </td>
+                  <td id="air_mattress"> </td>
                 </tr>
                 <tr>
                   <td>oxygen charges </td>
-                  <td> </td>
+                  <td id="oxygen_charges"> </td>
                   <td> PROCEDURE CHARGES </td>
                   <td> </td>
                 </tr>
                 <tr>
                   <td>moinitor </td>
-                  <td> </td>
+                  <td id="monitor"> </td>
                   <td> TAPPING </td>
-                  <td> </td>
+                  <td id="tapping"> </td>
                 </tr>
                 <tr>
                   <td>SPO2 </td>
-                  <td> </td>
+                  <td id="spo2"> </td>
                   <td> lumber puncture </td>
-                  <td> </td>
+                  <td id="lumber_puncture"> </td>
                 </tr>
                 <tr>
                   <td>SYRINGE PUMP </td>
-                  <td> </td>
+                  <td id="syringe_pump"> </td>
                   <td> blood tranfution </td>
                   <td> </td>
                 </tr>
@@ -365,13 +317,13 @@ function getDoctorFees ($docID){
                   <td>Hospital -medicines & disposables </td>
                   <td> </td>
                   <td> Nebulizer Charges </td>
-                  <td> </td>
+                  <td id="nebulizer_charges"> </td>
                 </tr>
                 <tr>
                   <td>SURGERY CHARGES </td>
                   <td> </td>
                   <td>Dressing</td>
-                  <td> </td>
+                  <td id="dressing"> </td>
                 </tr>
                 <tr>
                   <td>operation theater </td>
@@ -381,65 +333,65 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>operation theater </td>
-                  <td> </td>
+                  <td id="operation_theater"> </td>
                   <td> CVP/Intubation </td>
-                  <td> </td>
+                  <td id="cvp_intubation"> </td>
                 </tr>
 
                 <tr>
                   <td> OT nurse </td>
                   <td> </td>
                   <td> Minor OT </td>
-                  <td> </td>
+                  <td id="minor_ot"> </td>
                 </tr>
 
                 <tr>
                   <td> Equipment Charges (C-ARM) </td>
-                  <td> </td>
+                  <td id="equipment_charges"> </td>
                   <td> Ryles Tube Procedure </td>
-                  <td> </td>
+                  <td id="ryles_tube_procedure"> </td>
                 </tr>
                 <tr>
                   <td> Technician </td>
-                  <td> </td>
+                  <td id="technician"> </td>
                   <td>Cathetersation</td>
-                  <td> </td>
+                  <td id="cathetersation"> </td>
                 </tr>
                 <tr>
                   <td>OT assistant</td>
-                  <td> </td>
+                  <td id="OT_assistant"> </td>
                   <td>REDIOLOGY</td>
-                  <td> </td>
+                  <td id="radiology"> </td>
                 </tr>
                 <tr>
                   <td>Surgeon</td>
                   <td> </td>
                   <td>2D ECHO</td>
-                  <td> </td>
+                  <td id="2d_echo"> </td>
                 </tr>
                 <tr>
                   <td> Anesthetist </td>
                   <td> </td>
                   <td> X-Ray </td>
-                  <td> </td>
+                  <td id="x_ray"> </td>
                 </tr>
                 <tr>
                   <td> OT Gases </td>
                   <td> </td>
                   <td> Doppler </td>
-                  <td> </td>
+                  <td id="doppler"> </td>
                 </tr>
                 <tr>
                   <td>Implant</td>
                   <td> </td>
                   <td>Ultrasound</td>
-                  <td> </td>
+                  <td id="ultrasound"> </td>
                 </tr>
                 <tr>
                   <td> OT- medicines & disposables </td>
                   <td> </td>
                   <td>ECG </td>
-                  <td> </td>
+                  <td id="ecg"> </td>
                 </tr>
                 <tr>
                   <td>INVESTIGATIONS</td>
@@ -451,7 +403,7 @@ function getDoctorFees ($docID){
                   <td>RBSL</td>
                   <td> </td>
                   <td>CT SCAN</td>
-                  <td> </td>
+                  <td id="ct_scan"> </td>
                 </tr>
                 <tr>
                   <td>Laboratory Charges</td>
@@ -546,12 +498,12 @@ function getDoctorFees ($docID){
     jQuery(document).ready(function() {
       var sumArr = [];
       
-     $("select").change(function(){
+     $("#add").click(function(){
       var majorSum = 0;
-       var myValue = $(this).val();
-       var sum = 100;
+       var myValue = $("select").val();
+       var sum = 0;
       // console.log(myValue+"selected value");
-       var price = 100;
+       var price = $("#price").val();
        sumArr.push({
         name : myValue , price : price
        });
