@@ -515,12 +515,12 @@ function getDoctorFees($docID)
       }
       function netPayable (){
         var grandTotal = $("#grand_total").text();
-        grandTotal =  parseInt(grandTotal.replace(/[^0-9.]/g, ""));
+        grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
         var nettotal = $("#netPayable").text();
         var discount =  $("#discountBox").text();
-        discount =  parseInt(discount.replace(/[^0-9.]/g, ""));
+        discount =  parseInt(discount.replace('Rs. ','0'));
         var advance = $("#discount").text();
-        advance =  parseInt(advance.replace(/[^0-9.]/g, ""));
+        advance =  parseInt(advance.replace('Rs. ','0'));
         nettotal = grandTotal - discount - advance;
         return nettotal;
       }
@@ -555,12 +555,10 @@ function getDoctorFees($docID)
       $("#discountButton").click(function(){
         var discount = $("#discount").val();
         $("#discountBox").text("Rs. "+discount);
-        var grandTotal = $("#grand_total").text();
-        console.log(grandTotal);
-        grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
-        console.log(grandTotal);
-        // var finalDiscount = netPayable();
-        // $("#netPayable").text("Rs. "+finalDiscount);
+       
+        
+        var finalDiscount = netPayable();
+        $("#netPayable").text("Rs. "+finalDiscount);
         
       });
     });
