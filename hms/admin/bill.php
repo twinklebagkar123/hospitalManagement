@@ -498,10 +498,10 @@ function getDoctorFees ($docID){
       // }
       var sumArr = [];
       sumArr = [{
-        name: 'test', price : 30
+        name: 'advance', price : <?php echo $advance_paid; ?>
       },
     {
-      name : 'test2' , price : 50
+      name : 'stay_in_hospital' , price : <?php echo getTariffCost($package_id)*$day;?>
     }];
      $("#add").click(function(){
       var majorSum = 0;
@@ -518,7 +518,7 @@ function getDoctorFees ($docID){
       console.log(sumArr); 
      sumArr.forEach(function(item){
        console.log(item.price+"price!!");
-       majorSum = majorSum + item.price;
+       majorSum = majorSum + parseInt(item.price);
      });
      $("#grand_total").text("Rs. "+majorSum);
     
