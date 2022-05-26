@@ -513,6 +513,17 @@ function getDoctorFees($docID)
         var discount = total - amount;
         return discount;
       }
+      function netPayable (){
+        var grandTotal = $("#grand_total").text();
+        grandTotal =  parseInt(grandTotal.replace(/[^0-9.]/g, ""));
+        var nettotal = $("#netPayable").text();
+        var discount =  $("#discountBox").text();
+        discount =  parseInt(discount.replace(/[^0-9.]/g, ""));
+        var advance = $("#discount").text();
+        advance =  parseInt(advance.replace(/[^0-9.]/g, ""));
+        nettotal = grandTotal - discount - advance;
+        return nettotal;
+      }
       var sumArr = [];
       sumArr = [{
           name: 'doctor_charges',
@@ -543,10 +554,11 @@ function getDoctorFees($docID)
       });
       $("#discountButton").click(function(){
         var discount = $("#discount").val();
+        $("#discountBox").text("Rs. "+discount);
         var total = calculateTotal(sumArr);
-        var finalDiscount = calculateDiscount(discount, total);
-        $("#netPayable").text("Rs. "+finalDiscount)
-        $("#discountBox").text("Rs. "+discount)
+        var finalDiscount = netPayable();
+        $("#netPayable").text("Rs. "+finalDiscount);
+        
       });
     });
   </script>
