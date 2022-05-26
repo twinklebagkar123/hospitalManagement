@@ -9,7 +9,7 @@ check_login();
 $query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '9'";
 $result = $con->query($query);
 //var_dump($result);
-while($row = mysqli_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)) {
   //var_dump($row);
   $name = $row["PatientName"];
   $dateofadmission = $row["dateofadmission"];
@@ -19,39 +19,41 @@ while($row = mysqli_fetch_array($result)){
   $package_id = $row["package_id"];
   $Patientdob  = $row["Patientdob"];
   $docID = $row["docID"];
- // $package_id = $row["package_id"];
- //Convert Date
- $createDate = new DateTime($dateofadmission);
- $dateofadmissionNoTime = $createDate->format('Y-m-d');
- $date2 = new DateTime($dateofdischarge);
- $dateofdischargeNoTime = $date2->format('Y-m-d');
- if($dateofdischargeNoTime = "0000-00-00"){
-   $dateofdischargeNoTime = date('Y-m-d');
- }
- //Days in difference
- $dateofadmissionNoTime =  new DateTime($dateofadmissionNoTime);
- $dateofdischargeNoTime =  new DateTime($dateofdischargeNoTime);
- $interval 	= $dateofadmissionNoTime->diff($dateofdischargeNoTime);
+  // $package_id = $row["package_id"];
+  //Convert Date
+  $createDate = new DateTime($dateofadmission);
+  $dateofadmissionNoTime = $createDate->format('Y-m-d');
+  $date2 = new DateTime($dateofdischarge);
+  $dateofdischargeNoTime = $date2->format('Y-m-d');
+  if ($dateofdischargeNoTime = "0000-00-00") {
+    $dateofdischargeNoTime = date('Y-m-d');
+  }
+  //Days in difference
+  $dateofadmissionNoTime =  new DateTime($dateofadmissionNoTime);
+  $dateofdischargeNoTime =  new DateTime($dateofdischargeNoTime);
+  $interval   = $dateofadmissionNoTime->diff($dateofdischargeNoTime);
 
-$day = $interval->format('%a');
+  $day = $interval->format('%a');
 }
-function getTariffCost ($tariffID){
+function getTariffCost($tariffID)
+{
   global $con;
-  $returnVal ="";
+  $returnVal = "";
   $query = "SELECT tariff_room_fee FROM `tariff_room_info` WHERE tariff_room_id = '$tariffID'";
   $result = $con->query($query);
-  while($row = mysqli_fetch_array($result)){
+  while ($row = mysqli_fetch_array($result)) {
     $returnVal = $row["tariff_room_fee"];
   }
- 
+
   return $returnVal;
 }
-function getDoctorFees ($docID){
+function getDoctorFees($docID)
+{
   global $con;
-  $returnVal ="";
+  $returnVal = "";
   $query = "SELECT docFees FROM `doctors` WHERE id = '$docID'";
   $result = $con->query($query);
-  while($row = mysqli_fetch_array($result)){
+  while ($row = mysqli_fetch_array($result)) {
     $returnVal = $row["docFees"];
   }
   return $returnVal;
@@ -166,14 +168,14 @@ function getDoctorFees ($docID){
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
               <div class="hospitalCharges">
-                 <h5>  ADD DISCOUNT </h5>
-                 <input type="number" class="form-control-input" id="discount" placeholder="discount">
-                 <button type="button" class="btn btn-outline-secondary btn-sm" id="discountButton"> ADD</button>
+                <p> ADD DISCOUNT </p>
+                <input type="number" class="form-control-input" id="discount" placeholder="discount">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="discountButton"> ADD</button>
               </div>
               <div class="hospitalCharges">
-                 <h5>  ADD ADVANCE </h5>
-                 <input type="number" class="form-control-input" id="advance" placeholder="advance">
-                 <button type="button" class="btn btn-outline-secondary btn-sm" id="advanceButton"> ADD</button>
+                <p> ADD ADVANCE </p>
+                <input type="number" class="form-control-input" id="advance" placeholder="advance">
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="advanceButton"> ADD</button>
               </div>
             </div>
             <div class="col-sm-8">
@@ -196,13 +198,13 @@ function getDoctorFees ($docID){
 
 
                     <div class="col-sm-4">
-                      <h5> PATIENT NAME: <span><?php echo $name;?></span></h5>
+                      <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.B : <?php echo $Patientdob;?></h5>
+                      <h5>D.O.B : <?php echo $Patientdob; ?></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5> DATE: <span><?php echo date("d/m/Y");?></span></h5>
+                      <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
                     </div>
 
 
@@ -218,13 +220,13 @@ function getDoctorFees ($docID){
                       <h5> ADMISSION NO: </h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5>D.O.A : <?php echo $dateofadmission;?></h5>
+                      <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5> D.O.D: <?php echo $dateofdischarge;?></h5>
+                      <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
                     </div>
                     <div class="col-sm-4">
-                      <h5> Admission Days: <?php echo $day." Days";?></h5>
+                      <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
                     </div>
 
 
@@ -241,20 +243,22 @@ function getDoctorFees ($docID){
                 </tr>
                 <tr>
                   <td>Registration Fees </td>
-                  <td id="registration_fees"><?php echo $registration_fee ;?></td>
+                  <td id="registration_fees"><?php echo $registration_fee; ?></td>
                   <td> Physiotherapy</td>
                   <td id="physiotherapy"> </td>
 
                 </tr>
                 <tr>
-                  <td>Hospital Charges <?php echo "(Rs. "; echo getTariffCost($package_id); echo " per day)";?> </td>
-                  <td> <?php echo getTariffCost($package_id)*$day;?></td>
+                  <td>Hospital Charges <?php echo "(Rs. ";
+                                        echo getTariffCost($package_id);
+                                        echo " per day)"; ?> </td>
+                  <td> <?php echo getTariffCost($package_id) * $day; ?></td>
                   <td> Miscellaneous charges</td>
                   <td id="miscellaneous_charges"> </td>
                 </tr>
                 <tr>
                   <td>Resident DR's Charges </td>
-                  <td id="resident_dr_charges"> <?php echo getDoctorFees($docID)?></td>
+                  <td id="resident_dr_charges"> <?php echo getDoctorFees($docID) ?></td>
                   <td> Food charges</td>
                   <td id="food_charges"> </td>
                 </tr>
@@ -273,7 +277,7 @@ function getDoctorFees ($docID){
                 <tr>
                   <td>Hospital Charges </td>
                   <td> </td>
-                  <td > ambulance </td>
+                  <td> ambulance </td>
                   <td id="ambulance"> </td>
                 </tr>
                 <tr>
@@ -498,36 +502,45 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
-      // function calculateDiscount (amount,grandTotal){
-
-      // }
+      function calculateTotal(sendValues) {
+        majorSum = 0;
+        sendValues.forEach(function(item) {
+          majorSum = majorSum + parseInt(item.price);
+        });
+        return majorSum;
+      }
       var sumArr = [];
       sumArr = [{
-        name: 'doctor_charges', price : <?php echo getDoctorFees($docID);?>
-      },
-    {
-      name : 'stay_in_hospital' , price : <?php echo getTariffCost($package_id)*$day;?>
-    }];
-     $("#add").click(function(){
-      var majorSum = 0;
-       var myValue = $("select").val();
-       var sum = 0;
-       add = "#"+myValue;
-       console.log(myValue+"selected value");
-    
-       var price = parseInt($("#price").val());
-       $('#'+myValue).text(price);
-       sumArr.push({
-        name : myValue , price : price
-       });
-      console.log(sumArr); 
-     sumArr.forEach(function(item){
-       console.log(item.price+"price!!");
-       majorSum = majorSum + parseInt(item.price);
-     });
-     $("#grand_total").text("Rs. "+majorSum);
-    
-     });
+          name: 'doctor_charges',
+          price: <?php echo getDoctorFees($docID); ?>
+        },
+        {
+          name: 'stay_in_hospital',
+          price: <?php echo getTariffCost($package_id) * $day; ?>
+        }
+      ];
+      $("#add").click(function() {
+        var majorSum = 0;
+        var myValue = $("select").val();
+        var sum = 0;
+        add = "#" + myValue;
+        console.log(myValue + "selected value");
+
+        var price = parseInt($("#price").val());
+        $('#' + myValue).text(price);
+        sumArr.push({
+          name: myValue,
+          price: price
+        });
+        console.log(sumArr);
+        var majorSum = calculateTotal(sumArr);
+        //  sumArr.forEach(function(item){
+        //    console.log(item.price+"price!!");
+        //    majorSum = majorSum + parseInt(item.price);
+        //  });
+        $("#grand_total").text("Rs. " + majorSum);
+
+      });
     });
   </script>
   <!-- end: JavaScript Event Handlers for this page -->
