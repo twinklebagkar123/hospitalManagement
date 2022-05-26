@@ -515,12 +515,27 @@ function getDoctorFees($docID)
       }
       function netPayable (){
         var grandTotal = $("#grand_total").text();
-        grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
+        if(grandTotal== ""){
+          grandTotal = 0;
+        }else{
+          grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
+        }
+        
         var nettotal = $("#netPayable").text();
         var discount =  $("#discountBox").text();
-        discount =  parseInt(discount.replace('Rs. ','0'));
+        if(discount== ""){
+          discount = 0;
+        }else{
+          discount =  parseInt(discount.replace('Rs. ','0'));
+        }
+       
         var advance = $("#discount").text();
-        advance =  parseInt(advance.replace('Rs. ','0'));
+        if(advance== ""){
+          advance = 0;
+        }else{
+          advance =  parseInt(advance.replace('Rs. ','0'));
+        }
+       
         nettotal = grandTotal - discount - advance;
         return nettotal;
       }
@@ -556,23 +571,8 @@ function getDoctorFees($docID)
         var discount = $("#discount").val();
         $("#discountBox").text("Rs. "+discount);
        
-        var grandTotal = $("#grand_total").text();
-        grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
-        //var nettotal = $("#netPayable").text();
-        var discount =  $("#discountBox").text();
-        discount =  parseInt(discount.replace('Rs. ','0'));
-        var advance = $("#advance").text();
-        console.log(advance+"advance");
-        if(advance== ""){
-          advance = 0;
-        }else{
-          advance =  parseInt(advance.replace('Rs. ','0'));
-        }
-       
-        nettotal = grandTotal - discount - advance;
-        console.log(grandTotal+"GT"+discount+"DISC"+ advance+"adv");
-       //var finalDiscount = netPayable();
-       // $("#netPayable").text("Rs. "+finalDiscount);
+       var finalDiscount = netPayable();
+       $("#netPayable").text("Rs. "+finalDiscount);
         
       });
     });
