@@ -445,7 +445,7 @@ function getDoctorFees($docID)
                   <td> </td>
                   <td> </td>
                   <td>NET PAYABLE </td>
-                  <td> </td>
+                  <td id="netPayable"> </td>
                 </tr>
               </table>
 
