@@ -161,15 +161,7 @@ function getDoctorFees ($docID){
                   <option value="ecg">ECG</option>
                   <option value="ct_scan">CT SCAN</option>
                 </select>
-                <input type="text" class="form-control-input" id="price" placeholder="price">
-
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
-              </div>
-             
- 
-              <div class="input-group">
-                <input type="text" class="form-control-input" id="service" placeholder="service">
-                <input type="text" class="form-control-input" id="price" placeholder="price">
+                <input type="number" class="form-control-input" id="price" placeholder="price">
 
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
