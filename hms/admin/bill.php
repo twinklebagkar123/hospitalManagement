@@ -509,7 +509,7 @@ function getDoctorFees ($docID){
        var sum = 0;
        add = "#"+myValue;
        console.log(myValue+"selected value");
-      $('"'+add+'"').text(price);
+      $(add).text(price);
        var price = parseInt($("#price").val());
        sumArr.push({
         name : myValue , price : price
