@@ -171,7 +171,7 @@ function getDoctorFees ($docID){
                  <button type="button" class="btn btn-outline-secondary btn-sm" id="discountButton"> ADD</button>
               </div>
               <div class="hospitalCharges">
-                 <h5>  ADD DISCOUNT </h5>
+                 <h5>  ADD ADVANCE </h5>
                  <input type="number" class="form-control-input" id="discount" placeholder="discount">
                  <button type="button" class="btn btn-outline-secondary btn-sm" id="discountButton"> ADD</button>
               </div>
