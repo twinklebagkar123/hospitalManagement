@@ -165,7 +165,7 @@ function getDoctorFees($docID)
                 </select>
                 <input type="number" class="form-control-input" id="price" placeholder="price">
 
-                <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
+                <button type="button" class="btn btn-outline-secondary btn-sm" id="addService"> ADD</button>
               </div>
               <div class="hospitalCharges">
                 <p> ADD DISCOUNT </p>
@@ -427,7 +427,7 @@ function getDoctorFees($docID)
                   <td>DOCTORS CHARGES</td>
                   <td> </td>
                   <td>DISCOUNT </td>
-                  <td> </td>
+                  <td id="discountBox"> </td>
                 </tr>
                 <tr>
                   <td>DR. NOEL</td>
@@ -509,6 +509,10 @@ function getDoctorFees($docID)
         });
         return majorSum;
       }
+      function calculateDiscount(amount,total){
+        var discount = total - amount;
+        return discount;
+      }
       var sumArr = [];
       sumArr = [{
           name: 'doctor_charges',
@@ -519,7 +523,7 @@ function getDoctorFees($docID)
           price: <?php echo getTariffCost($package_id) * $day; ?>
         }
       ];
-      $("#add").click(function() {
+      $("#addService").click(function() {
         var majorSum = 0;
         var myValue = $("select").val();
         var sum = 0;
@@ -534,12 +538,15 @@ function getDoctorFees($docID)
         });
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
-        //  sumArr.forEach(function(item){
-        //    console.log(item.price+"price!!");
-        //    majorSum = majorSum + parseInt(item.price);
-        //  });
         $("#grand_total").text("Rs. " + majorSum);
 
+      });
+      $("#discountButton").click(function(){
+        var discount = $("#discount").val();
+        var total = calculateTotal(sumArr);
+        var finalDiscount = calculateDiscount(discount, total);
+        $("#netPayable").text("Rs. "+finalDiscount)
+        $("#discountBox").text("Rs. "+discount)
       });
     });
   </script>
