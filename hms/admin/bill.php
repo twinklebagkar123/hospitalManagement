@@ -421,7 +421,7 @@ function getDoctorFees($docID)
                   <td>Histopathology</td>
                   <td id="histopathology"> </td>
                   <td>ADVANCE PAID </td>
-                  <td> <?php echo $advance_paid; ?></td>
+                  <td id="advance"> <?php echo $advance_paid; ?></td>
                 </tr>
                 <tr>
                   <td>DOCTORS CHARGES</td>
