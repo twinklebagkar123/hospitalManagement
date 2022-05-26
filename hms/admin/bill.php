@@ -421,7 +421,7 @@ function getDoctorFees($docID)
                   <td>Histopathology</td>
                   <td id="histopathology"> </td>
                   <td>ADVANCE PAID </td>
-                  <td id="advance"> <?php echo $advance_paid; ?></td>
+                  <td id="advanceText"> <?php echo $advance_paid; ?></td>
                 </tr>
                 <tr>
                   <td>DOCTORS CHARGES</td>
@@ -529,7 +529,7 @@ function getDoctorFees($docID)
           discount =  parseInt(discount.replace('Rs. ','0'));
         }
        
-        var advance = $("#discount").text();
+        var advance = $("#advanceText").text();
         if(advance== ""){
           advance = 0;
         }else{
@@ -574,6 +574,13 @@ function getDoctorFees($docID)
        var finalDiscount = netPayable();
        $("#netPayable").text("Rs. "+finalDiscount);
         
+      });
+      $("#advanceButton").click(function(){
+        var advance = $("#advance").val();
+        $("#advanceText").text("Rs. "+advance);
+       
+       var finalDiscount = netPayable();
+       $("#netPayable").text("Rs. "+finalDiscount);
       });
     });
   </script>
