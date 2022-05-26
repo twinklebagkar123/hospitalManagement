@@ -165,6 +165,11 @@ function getDoctorFees ($docID){
 
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="add"> ADD</button>
               </div>
+              <div>
+                 <h4>  ADD DISCOUNT </h4>
+                 <input type="number" class="form-control-input" id="discount" placeholder="discount">
+                 <button type="button" class="btn btn-outline-secondary btn-sm" id="discountButton"> ADD</button>
+              </div>
             </div>
             <div class="col-sm-8">
               <table class="table table-bordered">
@@ -488,6 +493,9 @@ function getDoctorFees ($docID){
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
+      // function calculateDiscount (amount,grandTotal){
+
+      // }
       var sumArr = [];
       sumArr = [{
         name: 'test', price : 30
@@ -500,7 +508,7 @@ function getDoctorFees ($docID){
        var myValue = $("select").val();
        var sum = 0;
       // console.log(myValue+"selected value");
-
+      $("#"+myValue).text(price);
        var price = parseInt($("#price").val());
        sumArr.push({
         name : myValue , price : price
@@ -511,6 +519,7 @@ function getDoctorFees ($docID){
        majorSum = majorSum + item.price;
      });
      $("#grand_total").text("Rs. "+majorSum);
+    
      });
     });
   </script>
