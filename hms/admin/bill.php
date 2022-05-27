@@ -584,6 +584,7 @@ function getDoctorFees($docID)
           if(item.name == myValue){
             console.log("is found",flag);
             item.price = price;
+            flag = false;
           }
           else{
            flag = true;
