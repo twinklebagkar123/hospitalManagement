@@ -461,7 +461,7 @@ function getDoctorFees($docID)
 
             </div>
             <div class="col-sm-12">
-              <form type="post" action="">
+              <form role="form" method="post" action="">
                 <input type="text" name="printingtable" id="printingtable">
                 <input type="submit" name="submitButton" id="submitButton">
 
