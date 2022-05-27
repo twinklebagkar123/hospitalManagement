@@ -461,6 +461,11 @@ function getDoctorFees($docID)
 
             </div>
             <div class="col-sm-12">
+              <form type="post" action="">
+                <input type="text" name="printingtable" id="printingtable">
+                <input type="submit" name="submitButton">
+
+              </form>
               <button id="printBill">PRINT</button>
             </div>
           </div>
@@ -620,7 +625,9 @@ function getDoctorFees($docID)
         var table = document.getElementById('printingTable'),rIndex;
                  for(var i=0;i<table.rows.length;i++){
                           console.log(table.rows[i]);
+                          rIndex += table.rows[i];
                        }
+                       $("#printingtable").val(rIndex);
       });
     });
   </script>
