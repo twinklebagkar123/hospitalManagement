@@ -622,12 +622,13 @@ function getDoctorFees($docID)
         $("#netPayable").text("Rs. " + finalamount);
       });
       $("#printBill").click(function() {
-        var table = document.getElementById('printingTable'),rIndex;
-                 for(var i=0;i<table.rows.length;i++){
-                          console.log(table.rows[i]);
-                          rIndex += table.rows[i];
-                       }
-                       $("#printingtable").val(rIndex);
+        var table = document.getElementById('printingTable'),
+          rIndex;
+        for (var i = 0; i < table.rows.length; i++) {
+          console.log(table.rows[i]);
+          rIndex = rIndex+table.rows[i].outerHTML;
+        }
+        $("#printingtable").val(rIndex);
       });
     });
   </script>
