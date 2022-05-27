@@ -618,7 +618,7 @@ function getDoctorFees($docID)
       });
       $("#printBill").click(function() {
         
-         $("#printingMatter").print();
+         $("#printingMatter").printThis();
       });
     });
   </script>
