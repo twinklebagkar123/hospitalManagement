@@ -580,12 +580,13 @@ function getDoctorFees($docID)
         $('#' + myValue).text(price);
         var flag = 0;
         sumArr.forEach(function(item){
-          if(item.name == myValue){
-            item.price = price;
-          }
-          else{
-           flag = 1;
-          }
+          console.log(item.name,myValue)
+          // if(item.name == myValue){
+          //  // item.price = price;
+          // }
+          // else{
+          //  flag = 1;
+          // }
         })
         if(flag == 1){
           sumArr.push({
