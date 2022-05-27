@@ -578,7 +578,7 @@ function getDoctorFees($docID)
 
         var price = parseInt($("#price").val());
         $('#' + myValue).text(price);
-        var flag = false;
+        var flag = true;
         sumArr.forEach(function(item){
           console.log(item.name,myValue);
           if(item.name == myValue){
@@ -586,9 +586,9 @@ function getDoctorFees($docID)
             item.price = price;
             flag = false;
           }
-          else{
-           flag = true;
-          }
+          // else{
+          //  flag = true;
+          // }
         });
         if(flag){
           sumArr.push({
