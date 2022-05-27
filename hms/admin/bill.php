@@ -583,18 +583,18 @@ function getDoctorFees($docID)
           console.log(item.name,myValue);
           if(item.name == myValue){
             console.log("is found");
-           // item.price = price;
+            item.price = price;
           }
           else{
            flag = 1;
           }
         })
-        //if(flag == 1){
+        if(flag == 1){
           sumArr.push({
             name: myValue,
             price: price
           });
-       // }
+        }
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
         $("#grand_total").text("Rs. " + majorSum);
