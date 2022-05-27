@@ -188,7 +188,7 @@ function getDoctorFees($docID)
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="advanceButton"> ADD</button>
               </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-8" id="printingMatter">
               <table class="table table-bordered">
 
                 <tr>
@@ -460,7 +460,9 @@ function getDoctorFees($docID)
               </table>
 
             </div>
-
+            <div class="col-sm-12">
+                <button id="printBill">PRINT</button>
+            </div>
           </div>
 
         </div>
@@ -512,6 +514,7 @@ function getDoctorFees($docID)
   <script src="assets/js/form-elements.js"></script>
   <script>
     jQuery(document).ready(function() {
+
       function calculateTotal(sendValues) {
         majorSum = 0;
         sendValues.forEach(function(item) {
@@ -586,9 +589,6 @@ function getDoctorFees($docID)
             item.price = price;
             flag = false;
           }
-          // else{
-          //  flag = true;
-          // }
         });
         if(flag){
           sumArr.push({
@@ -615,6 +615,9 @@ function getDoctorFees($docID)
 
         var finalamount = netPayable();
         $("#netPayable").text("Rs. " + finalamount);
+      });
+      ("#printBill").click(function(){
+        $("#printingMatter").print();
       });
     });
   </script>
