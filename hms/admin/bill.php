@@ -622,8 +622,8 @@ function getDoctorFees($docID)
         $("#netPayable").text("Rs. " + finalamount);
       });
       $("#printBill").click(function() {
-        var table = document.getElementById('printingTable'),
-          rIndex;
+        var table = document.getElementById('printingTable');
+          var rIndex ="";
         for (var i = 0; i < table.rows.length; i++) {
           console.log(table.rows[i]);
           rIndex = rIndex+table.rows[i].outerHTML;
