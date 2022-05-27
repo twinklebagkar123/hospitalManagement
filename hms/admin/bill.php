@@ -36,6 +36,14 @@ while ($row = mysqli_fetch_array($result)) {
   while ($row = mysqli_fetch_array($result2)) {
     $labChargesTotal = $row['totalLabCharges'];
   }
+  // calculate operation charges
+  $operationQuery = "SELECT SUM(procedureList.charges) as totalCost , SUM(patientoperation.operationFeeRecieved) as advance FROM `patientoperation` INNER JOIN `procedureList` ON patientoperation.opTitle = procedureList.procedureID AND patientoperation.patient_admission_id = '9'";
+  $result3 = $con->query($operationQuery);
+  while ($row = mysqli_fetch_array($result3)) {
+    $operationCharges = $row['totalCost'];
+    $opadvance = $row['advance'];
+    $finalOperationCharges = $operationCharges - $opadvance;
+  }
 }
 function getTariffCost($tariffID)
 {
@@ -341,7 +349,7 @@ function getDoctorFees($docID)
                 </tr>
                 <tr>
                   <td>operation theater </td>
-                  <td id="operation_theater"> </td>
+                  <td id="operation_theater"> <?php echo $finalOperationCharges; ?> </td>
                   <td> CVP/Intubation </td>
                   <td id="cvp_intubation"> </td>
                 </tr>
@@ -554,7 +562,11 @@ function getDoctorFees($docID)
         },
         {
           name : 'laboratory_charges',
-          price : <?php echo $labChargesTotal ; ?>
+          price : <?php echo $labChargesTotal ; ?> 
+        },
+        {
+          name : 'operation_theater' ,
+          price : <?php echo $finalOperationCharges; ?>
         }
       ];
       $("#addService").click(function() {
@@ -566,10 +578,21 @@ function getDoctorFees($docID)
 
         var price = parseInt($("#price").val());
         $('#' + myValue).text(price);
-        sumArr.push({
-          name: myValue,
-          price: price
-        });
+        var flag = 0;
+        sumArr.forEach(function(item){
+          if(item.name == myValue){
+            item.price = value;
+          }
+          else{
+           flag = 1;
+          }
+        })
+        if(flag == 1){
+          sumArr.push({
+            name: myValue,
+            price: price
+          });
+        }
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
         $("#grand_total").text("Rs. " + majorSum);
