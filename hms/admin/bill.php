@@ -625,9 +625,9 @@ newWin.document.open();
 
 newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
 
-newWin.document.close();
+//newWin.document.close();
 
-setTimeout(function(){newWin.close();},10);
+///setTimeout(function(){newWin.close();},10);
         
         // $("#printingMatter").printThis();
       });
