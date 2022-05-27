@@ -616,7 +616,7 @@ function getDoctorFees($docID)
         var finalamount = netPayable();
         $("#netPayable").text("Rs. " + finalamount);
       });
-      ("#printBill").click(function(){
+      $("#printBill").click(function(){
         $("#printingMatter").print();
       });
     });
