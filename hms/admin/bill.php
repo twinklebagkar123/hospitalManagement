@@ -4,13 +4,11 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-// $admissionId = 9;
+$admissionId = 9;
 // $paymentStatus = "pending";
-$query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '9'";
+$query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionId'";
 $result = $con->query($query);
-//var_dump($result);
 while ($row = mysqli_fetch_array($result)) {
-  //var_dump($row);
   $name = $row["PatientName"];
   $dateofadmission = $row["dateofadmission"];
   $dateofdischarge = $row["dateofdischarge"];
@@ -19,8 +17,6 @@ while ($row = mysqli_fetch_array($result)) {
   $package_id = $row["package_id"];
   $Patientdob  = $row["Patientdob"];
   $docID = $row["docID"];
-  // $package_id = $row["package_id"];
-  //Convert Date
   $createDate = new DateTime($dateofadmission);
   $dateofadmissionNoTime = $createDate->format('Y-m-d');
   $date2 = new DateTime($dateofdischarge);
@@ -28,12 +24,18 @@ while ($row = mysqli_fetch_array($result)) {
   if ($dateofdischargeNoTime = "0000-00-00") {
     $dateofdischargeNoTime = date('Y-m-d');
   }
+
   //Days in difference
   $dateofadmissionNoTime =  new DateTime($dateofadmissionNoTime);
   $dateofdischargeNoTime =  new DateTime($dateofdischargeNoTime);
   $interval   = $dateofadmissionNoTime->diff($dateofdischargeNoTime);
-
   $day = $interval->format('%a');
+  //calculate laboratory charges
+  $labquery = "SELECT SUM(charges) as totalLabCharges FROM `labTestRecord` WHERE admissionID = '$admissionId'";
+  $result2 = $con->query($labquery);
+  while ($row = mysqli_fetch_array($result2)) {
+    $labChargesTotal = $row['totalLabCharges'];
+  }
 }
 function getTariffCost($tariffID)
 {
@@ -413,7 +415,7 @@ function getDoctorFees($docID)
                 </tr>
                 <tr>
                   <td>Laboratory Charges</td>
-                  <td id="laboratory_charges"> </td>
+                  <td id="laboratory_charges"> <?php echo $labChargesTotal ; ?></td>
                   <td>GRAND TOTAL </td>
                   <td id="grand_total"> </td>
                 </tr>
@@ -509,33 +511,35 @@ function getDoctorFees($docID)
         });
         return majorSum;
       }
-      function calculateDiscount(amount,total){
+
+      function calculateDiscount(amount, total) {
         var discount = total - amount;
         return discount;
       }
-      function netPayable (){
+
+      function netPayable() {
         var grandTotal = $("#grand_total").text();
-        if(grandTotal== ""){
+        if (grandTotal == "") {
           grandTotal = 0;
-        }else{
-          grandTotal =  parseInt(grandTotal.replace('Rs. ','0'));
+        } else {
+          grandTotal = parseInt(grandTotal.replace('Rs. ', '0'));
         }
-        
+
         var nettotal = $("#netPayable").text();
-        var discount =  $("#discountBox").text();
-        if(discount== ""){
+        var discount = $("#discountBox").text();
+        if (discount == "") {
           discount = 0;
-        }else{
-          discount =  parseInt(discount.replace('Rs. ','0'));
+        } else {
+          discount = parseInt(discount.replace('Rs. ', '0'));
         }
-       
+
         var advance = $("#advanceText").text();
-        if(advance== ""){
+        if (advance == "") {
           advance = 0;
-        }else{
-          advance =  parseInt(advance.replace('Rs. ','0'));
+        } else {
+          advance = parseInt(advance.replace('Rs. ', '0'));
         }
-       
+
         nettotal = grandTotal - discount - advance;
         return nettotal;
       }
@@ -547,6 +551,10 @@ function getDoctorFees($docID)
         {
           name: 'stay_in_hospital',
           price: <?php echo getTariffCost($package_id) * $day; ?>
+        },
+        {
+          name : 'laboratory_charges',
+          price : <?php echo $labChargesTotal ; ?>
         }
       ];
       $("#addService").click(function() {
@@ -567,20 +575,20 @@ function getDoctorFees($docID)
         $("#grand_total").text("Rs. " + majorSum);
 
       });
-      $("#discountButton").click(function(){
+      $("#discountButton").click(function() {
         var discount = $("#discount").val();
-        $("#discountBox").text("Rs. "+discount);
-       
-       var finalDiscount = netPayable();
-       $("#netPayable").text("Rs. "+finalDiscount);
-        
+        $("#discountBox").text("Rs. " + discount);
+
+        var finalDiscount = netPayable();
+        $("#netPayable").text("Rs. " + finalDiscount);
+
       });
-      $("#advanceButton").click(function(){
+      $("#advanceButton").click(function() {
         var advance = $("#advance").val();
-        $("#advanceText").text("Rs. "+advance);
-       
-       var finalDiscount = netPayable();
-       $("#netPayable").text("Rs. "+finalDiscount);
+        $("#advanceText").text("Rs. " + advance);
+
+        var finalamount = netPayable();
+        $("#netPayable").text("Rs. " + finalamount);
       });
     });
   </script>
