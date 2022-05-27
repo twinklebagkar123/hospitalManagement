@@ -189,7 +189,7 @@ function getDoctorFees($docID)
               </div>
             </div>
             <div class="col-sm-8" id="printingMatter">
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="printingTable">
 
                 <tr>
 
@@ -617,7 +617,10 @@ function getDoctorFees($docID)
         $("#netPayable").text("Rs. " + finalamount);
       });
       $("#printBill").click(function() {
-      
+        var table = document.getElementById('printingTable'),rIndex;
+                 for(var i=0;i<table.rows.length;i++){
+                          console.log(table.rows[i]);
+                       }
       });
     });
   </script>
