@@ -582,13 +582,13 @@ function getDoctorFees($docID)
         sumArr.forEach(function(item){
           console.log(item.name,myValue);
           if(item.name == myValue){
-            console.log("is found");
+            console.log("is found",flag);
             item.price = price;
           }
           else{
            flag = 1;
           }
-        })
+        });
         if(flag == 1){
           sumArr.push({
             name: myValue,
