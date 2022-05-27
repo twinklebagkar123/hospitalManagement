@@ -423,7 +423,7 @@ function getDoctorFees($docID)
                 </tr>
                 <tr>
                   <td>Laboratory Charges</td>
-                  <td id="laboratory_charges"> <?php echo $labChargesTotal ; ?></td>
+                  <td id="laboratory_charges"> <?php echo $labChargesTotal; ?></td>
                   <td>GRAND TOTAL </td>
                   <td id="grand_total"> </td>
                 </tr>
@@ -461,7 +461,7 @@ function getDoctorFees($docID)
 
             </div>
             <div class="col-sm-12">
-                <button id="printBill">PRINT</button>
+              <button id="printBill">PRINT</button>
             </div>
           </div>
 
@@ -564,12 +564,12 @@ function getDoctorFees($docID)
           price: <?php echo getTariffCost($package_id) * $day; ?>
         },
         {
-          name : 'laboratory_charges',
-          price : <?php echo $labChargesTotal ; ?> 
+          name: 'laboratory_charges',
+          price: <?php echo $labChargesTotal; ?>
         },
         {
-          name : 'operation_theater' ,
-          price : <?php echo $finalOperationCharges; ?>
+          name: 'operation_theater',
+          price: <?php echo $finalOperationCharges; ?>
         }
       ];
       $("#addService").click(function() {
@@ -582,15 +582,15 @@ function getDoctorFees($docID)
         var price = parseInt($("#price").val());
         $('#' + myValue).text(price);
         var flag = true;
-        sumArr.forEach(function(item){
-          console.log(item.name,myValue);
-          if(item.name == myValue){
-            console.log("is found",flag);
+        sumArr.forEach(function(item) {
+          console.log(item.name, myValue);
+          if (item.name == myValue) {
+            console.log("is found", flag);
             item.price = price;
             flag = false;
           }
         });
-        if(flag){
+        if (flag) {
           sumArr.push({
             name: myValue,
             price: price
@@ -616,8 +616,13 @@ function getDoctorFees($docID)
         var finalamount = netPayable();
         $("#netPayable").text("Rs. " + finalamount);
       });
-      $("#printBill").click(function(){
-        $("#printingMatter").print();
+      $("#printBill").click(function() {
+        divToPrint = document.getElementById("printingMatter");
+        newWin = window.open("");
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+       // newWin.close();
+        // $("#printingMatter").print();
       });
     });
   </script>
