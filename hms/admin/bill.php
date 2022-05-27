@@ -617,8 +617,19 @@ function getDoctorFees($docID)
         $("#netPayable").text("Rs. " + finalamount);
       });
       $("#printBill").click(function() {
+        var divToPrint=document.getElementById('printingMatter');
+
+var newWin=window.open('','Print-Window');
+
+newWin.document.open();
+
+newWin.document.write('<html><body onload="window.print()">'+divToPrint.innerHTML+'</body></html>');
+
+newWin.document.close();
+
+setTimeout(function(){newWin.close();},10);
         
-         $("#printingMatter").printThis();
+        // $("#printingMatter").printThis();
       });
     });
   </script>
