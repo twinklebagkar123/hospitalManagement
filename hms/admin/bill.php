@@ -580,7 +580,7 @@ function getDoctorFees($docID)
         $('#' + myValue).text(price);
         var flag = 0;
         sumArr.forEach(function(item){
-          console.log(item.name,myValue)
+          console.log(item.name,myValue);
           // if(item.name == myValue){
           //  // item.price = price;
           // }
@@ -588,12 +588,12 @@ function getDoctorFees($docID)
           //  flag = 1;
           // }
         })
-        if(flag == 1){
+        //if(flag == 1){
           sumArr.push({
             name: myValue,
             price: price
           });
-        }
+       // }
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
         $("#grand_total").text("Rs. " + majorSum);
