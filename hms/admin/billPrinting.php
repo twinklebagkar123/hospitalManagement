@@ -118,7 +118,11 @@ function getDoctorFees($docID)
           <div class="row">
          
             <div class="col-sm-12">
-                <?php echo $table;?>
+              <table>
+                <tbody>
+                  <?php echo $table;?>
+                </tbody>
+              </table>               
             </div>
               
             
