@@ -107,6 +107,10 @@ function getDoctorFees($docID)
         <div class="wrap-content container" id="container">
           <!-- start: PAGE TITLE -->
           <section id="page-title">
+
+        </div>
+        <div class="container">
+          <div class="row">
             <div class="row">
               <div class="col-sm-12">
                 <h4 class="text-center">HOSPITAL BILL</h4>
@@ -115,42 +119,42 @@ function getDoctorFees($docID)
 
             </div>
             <div class="row">
-
-
-                    <div class="col-sm-4" style="width:30%">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>
                       <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
-                    </div>
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                    <td>
                       <h5>D.O.B : <?php echo $Patientdob; ?></h5>
-                    </div>
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                    <td>
                       <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
-                    </div>
-
-
-                  </div>
-                  <div class="row">
-
-
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h5> ADMISSION NO: </h5>
-                    </div>
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                    <td>
                       <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
-                    </div>
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                    <td>
                       <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
-                    </div>
-                    <div class="col-sm-4" style="width:30%">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
-                    </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
 
 
-                  </div>
-        </div>
-        <div class="container">
-          <div class="row">
-
+            </div>
             <div class="col-sm-12">
               <table class="table table-bordered" id="printingTable">
                 <tbody>
