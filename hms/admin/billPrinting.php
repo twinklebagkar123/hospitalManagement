@@ -117,13 +117,13 @@ function getDoctorFees($docID)
             <div class="row">
 
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5>D.O.B : <?php echo $Patientdob; ?></h5>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
                     </div>
 
@@ -132,16 +132,16 @@ function getDoctorFees($docID)
                   <div class="row">
 
 
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5> ADMISSION NO: </h5>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-4" style="width:30%">
                       <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
                     </div>
 
