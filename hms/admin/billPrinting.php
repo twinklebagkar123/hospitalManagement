@@ -119,39 +119,41 @@ function getDoctorFees($docID)
 
             </div>
             <div class="row">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <td>
-                      <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
-                    </td>
-                    <td>
-                      <h5>D.O.B : <?php echo $Patientdob; ?></h5>
-                    </td>
-                    <td>
-                      <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5> ADMISSION NO: </h5>
-                    </td>
-                    <td>
-                      <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
-                    </td>
-                    <td>
-                      <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
-                    </td>
-                    <td></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="col-sm-12">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
+                      </td>
+                      <td>
+                        <h5>D.O.B : <?php echo $Patientdob; ?></h5>
+                      </td>
+                      <td>
+                        <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5> ADMISSION NO: </h5>
+                      </td>
+                      <td>
+                        <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
+                      </td>
+                      <td>
+                        <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
+                      </td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
 
             </div>
