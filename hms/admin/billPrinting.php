@@ -4,9 +4,9 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-if(isset($_POST['submitButton'])){
-    $table = htmlentities($_POST['printingtable']);
-   // var_dump($table);
+if (isset($_POST['submitButton'])) {
+  $table = htmlentities($_POST['printingtable']);
+  // var_dump($table);
 }
 $admissionId = 9;
 // $paymentStatus = "pending";
@@ -108,24 +108,58 @@ function getDoctorFees($docID)
           <!-- start: PAGE TITLE -->
           <section id="page-title">
             <div class="row">
-              <div class="col-sm-8">
-                <h1 class="mainTitle">Billing | Add Bill</h1>
-
+              <div class="col-sm-12">
+                <h4 class="text-center">HOSPITAL BILL</h4>
               </div>
+
+
             </div>
+            <div class="row">
+
+
+                    <div class="col-sm-4">
+                      <h5> PATIENT NAME: <span><?php echo $name; ?></span></h5>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5>D.O.B : <?php echo $Patientdob; ?></h5>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5> DATE: <span><?php echo date("d/m/Y"); ?></span></h5>
+                    </div>
+
+
+                  </div>
+                  <div class="row">
+
+
+                    <div class="col-sm-4">
+                      <h5> ADMISSION NO: </h5>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5>D.O.A : <?php echo $dateofadmission; ?></h5>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5> D.O.D: <?php echo $dateofdischarge; ?></h5>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5> Admission Days: <?php echo $day . " Days"; ?></h5>
+                    </div>
+
+
+                  </div>
         </div>
         <div class="container">
           <div class="row">
-         
+
             <div class="col-sm-12">
               <table class="table table-bordered" id="printingTable">
                 <tbody>
-                  <?php echo html_entity_decode($table);?>
+                  <?php echo html_entity_decode($table); ?>
                 </tbody>
-              </table>               
+              </table>
             </div>
-              
-            
+
+
           </div>
 
         </div>
@@ -177,11 +211,11 @@ function getDoctorFees($docID)
   <script src="assets/js/form-elements.js"></script>
   <script>
     window.onload = function() {
-      console.log("DOcument loaded");
+      //console.log("DOcument loaded");
       window.print();
       document.getElementById("goBackRow").setAttribute("style", "display: block;");
     }
-</script>
+  </script>
   <!-- end: JavaScript Event Handlers for this page -->
   <!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>
