@@ -630,7 +630,7 @@ function getDoctorFees($docID)
           rIndex = rIndex+table.rows[i].outerHTML;
         }
         $("#printingtable").val(rIndex);
-        $("#submitButton").click()
+       // $("#submitButton").click()
       });
     });
   </script>
