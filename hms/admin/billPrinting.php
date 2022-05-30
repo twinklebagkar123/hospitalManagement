@@ -176,11 +176,12 @@ function getDoctorFees($docID)
   <!-- start: JavaScript Event Handlers for this page -->
   <script src="assets/js/form-elements.js"></script>
   <script>
-    jQuery(document).ready(function() {
-
-
-    });
-  </script>
+    window.onload = function() {
+      console.log("DOcument loaded");
+      window.print();
+      document.getElementById("goBackRow").setAttribute("style", "display: block;");
+    }
+</script>
   <!-- end: JavaScript Event Handlers for this page -->
   <!-- end: CLIP-TWO JAVASCRIPTS -->
 </body>
