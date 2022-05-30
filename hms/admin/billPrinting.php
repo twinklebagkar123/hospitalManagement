@@ -6,7 +6,7 @@ include('include/checklogin.php');
 check_login();
 if(isset($_POST['submitButton'])){
     $table = htmlentities($_POST['printingtable']);
-    var_dump($table);
+   // var_dump($table);
 }
 $admissionId = 9;
 // $paymentStatus = "pending";
