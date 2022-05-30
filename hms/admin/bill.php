@@ -461,8 +461,8 @@ function getDoctorFees($docID)
 
             </div>
             <div class="col-sm-12">
-               <!-- action="billPrinting.php" -->
-              <form role="form" method="post" >
+               <!--  -->
+              <form role="form" method="post" action="billPrinting.php" style= "visibility:hidden;">
                 <input type="text" name="printingtable" id="printingtable">
                 <input type="submit" name="submitButton" id="submitButton">
 
@@ -630,7 +630,7 @@ function getDoctorFees($docID)
           rIndex = rIndex+table.rows[i].outerHTML;
         }
         $("#printingtable").val(rIndex);
-       // $("#submitButton").click()
+        $("#submitButton").click()
       });
     });
   </script>
