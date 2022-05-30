@@ -118,7 +118,7 @@ function getDoctorFees($docID)
           <div class="row">
          
             <div class="col-sm-12">
-              <table>
+              <table class="table table-bordered" id="printingTable">
                 <tbody>
                   <?php echo html_entity_decode($table);?>
                 </tbody>
