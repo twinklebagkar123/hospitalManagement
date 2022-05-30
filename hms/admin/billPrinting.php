@@ -120,7 +120,7 @@ function getDoctorFees($docID)
             <div class="col-sm-12">
               <table>
                 <tbody>
-                  <?php echo $table;?>
+                  <?php echo html_entity_decode($table);?>
                 </tbody>
               </table>               
             </div>
