@@ -461,8 +461,8 @@ function getDoctorFees($docID)
 
             </div>
             <div class="col-sm-12">
-               <!--  -->
-              <form role="form" method="post" action="billPrinting.php" style= "visibility:hidden;">
+               <!--style= "visibility:hidden;"  -->
+              <form role="form" method="post" action="billPrinting.php" >
                 <input type="text" name="printingtable" id="printingtable">
                 <input type="submit" name="submitButton" id="submitButton">
 
