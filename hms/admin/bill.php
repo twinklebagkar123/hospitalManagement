@@ -4,7 +4,7 @@ error_reporting(0);
 include('include/config.php');
 include('include/checklogin.php');
 check_login();
-$admissionId = 9;
+$admissionId = $_GET['admissionId'];
 // $paymentStatus = "pending";
 $query = "SELECT * FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionId'";
 $result = $con->query($query);
