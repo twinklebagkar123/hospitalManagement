@@ -37,7 +37,7 @@ while ($row = mysqli_fetch_array($result)) {
     $labChargesTotal = $row['totalLabCharges'];
   }
   // calculate operation charges
-  $operationQuery = "SELECT SUM(procedureList.charges) as totalCost , SUM(patientoperation.operationFeeRecieved) as advance FROM `patientoperation` INNER JOIN `procedureList` ON patientoperation.opTitle = procedureList.procedureID AND patientoperation.patient_admission_id = '9'";
+  $operationQuery = "SELECT SUM(procedureList.charges) as totalCost , SUM(patientoperation.operationFeeRecieved) as advance FROM `patientoperation` INNER JOIN `procedureList` ON patientoperation.opTitle = procedureList.procedureID AND patientoperation.patient_admission_id = '$admissionId'";
   $result3 = $con->query($operationQuery);
   while ($row = mysqli_fetch_array($result3)) {
     $operationCharges = $row['totalCost'];
