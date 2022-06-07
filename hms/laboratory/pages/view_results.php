@@ -5,7 +5,7 @@ function fetchPatientName($admissionID)
     include('../include/config.php');
     $query = "SELECT tblpatient.PatientName,tblpatient.PatientGender,tblpatient.PatientAge FROM `patientAdmission` as tab1 INNER JOIN tblpatient ON tab1.uid = tblpatient.ID WHERE tab1.unqId = '$admissionID'";
     $result =  $con->query($query);
-    $resultarray=[];
+    $resultarray = [];
 
     while ($row = mysqli_fetch_array($result)) {
         $resultarray['name'] = $row['PatientName'];
@@ -80,7 +80,7 @@ function fetchPatientName($admissionID)
                 $result = $con->query($query);
                 $fields_arr = "";
                 while ($row = mysqli_fetch_array($result)) {
-                    $resultarray2= fetchPatientName($row['admissionID']);
+                    $resultarray2 = fetchPatientName($row['admissionID']);
                 ?>
 
                     <div class="row">
@@ -168,8 +168,8 @@ function fetchPatientName($admissionID)
                             <?php
                             if (!empty($row['labFields'])) :
                                 $recResult =  $row['testResult'];
-                                $recResult =  json_decode($recResult,false);
-                              
+                                $recResult =  json_decode($recResult, false);
+
                                 // var_dump($recResult);
                                 // echo "__________".$recResult->sodium."____________";
                                 // foreach ($recResult as $key => $value) {
@@ -180,15 +180,15 @@ function fetchPatientName($admissionID)
                                 $i = 0;
                                 foreach ($valuesDistribution as $value) {
                                     $temp = $valuesDistribution[$i]->fieldName;
-                                    $temp = str_replace(' ', '_', $temp );
-                                   // echo $recResult['$temp'];
+                                    $temp = str_replace(' ', '_', $temp);
+                                    // echo $recResult['$temp'];
                                     echo "<div class='row text-center'>";
                                     if (!(strpos($valuesDistribution[$i]->fieldName, "*"))) {
 
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->fieldName . "</div>" :  "";
                                         // foreach ($recResult as $key => $value) {
-                                            echo "<div class='col-sm-3'> ".$recResult->$temp." </div>";
-                                            
+                                        echo "<div class='col-sm-3'> " . $recResult->$temp . " </div>";
+
                                         // }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
@@ -196,7 +196,7 @@ function fetchPatientName($admissionID)
                                     } else {
                                         echo isset($valuesDistribution[$i]->fieldName) ? "<div class='col-sm-3 text-bold'>" .         substr($valuesDistribution[$i]->fieldName, 0, -1) . "</div>" :  "";
                                         // foreach ($valuesDistribution as $value) {
-                                            echo "<div class='col-sm-3'> ".$recResult->$temp." </div>";
+                                        echo "<div class='col-sm-3'> " . $recResult->$temp . " </div>";
                                         // }
                                         echo isset($valuesDistribution[$i]->units) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->units . "</div>" :  "";
                                         echo isset($valuesDistribution[$i]->referanceRange) ? "<div class='col-sm-3'>" . $valuesDistribution[$i]->referanceRange . "</div>" :  "";
@@ -222,7 +222,11 @@ function fetchPatientName($admissionID)
                     ?>
 
                     <div>
-                        <p> </p>
+                        <form role="form" method="post" action="">
+                            <!-- <input type="text" name="printingtable" id="printingtable"> -->
+                            <input type="submit" name="submitButton" id="submitButton" value="PRINT REPORT">
+
+                        </form>
 
 
 
@@ -256,11 +260,16 @@ function fetchPatientName($admissionID)
 
 <?php include('../include/footer.php'); ?>
 <?php
+if (isset($_POST['submitButton'])) {
 ?>
- <script>
-    window.onload = function() {
-      //console.log("DOcument loaded");
-      window.print();
-      document.getElementById("goBackRow").setAttribute("style", "display: block;");
-    }
-  </script>
+    <script>
+        window.onload = function() {
+            //console.log("DOcument loaded");
+            window.print();
+            document.getElementById("goBackRow").setAttribute("style", "display: block;");
+        }
+    </script>
+
+<?php
+}
+?>
