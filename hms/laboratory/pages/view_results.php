@@ -85,23 +85,40 @@ function fetchPatientName($admissionID)
 
                     <div class="row">
 
-                        <div class="col-sm-6 justify-content-start ">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td> <p class="title_style"> PATIENT NAME: - <?php echo $resultarray2['name']; ?></p></td>
+                                <td> <p class="title_style">SEX: - <?php echo $resultarray2['gender']; ?></p></td>
+                            </tr>
+                            <tr>
+                                <td>  <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p></td>
+                                <td>  <p class="title_style">AGE: - <?php echo $resultarray2['age']; ?></p></td>
+                            </tr>
+                            <tr>
+                                <td> <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p></td>
+                                <td><p class="title_style">Reg. no: -1363/02 </p></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                        <!-- <div class="col-sm-6 justify-content-start ">
                             <p class="title_style"> PATIENT NAME: - <?php echo $resultarray2['name']; ?></p>
                             <p class="title_style">Ref. By: - St. Anthony Hospital & Research Center </p>
                             <p class="title_style">DATE: - <?php echo $row['performedDate'] ?> </p>
 
 
 
-                        </div>
+                        </div> -->
 
 
-                        <div class="col-sm-6 justify-content-end font-weight-bold">
+                        <!-- <div class="col-sm-6 justify-content-end font-weight-bold">
 
                             <p class="title_style">SEX: - <?php echo $resultarray2['gender']; ?></p>
                             <p class="title_style">AGE: - <?php echo $resultarray2['age']; ?></p>
                             <p class="title_style">Reg. no: -1363/02 </p>
 
-                        </div>
+                        </div> -->
 
 
 
