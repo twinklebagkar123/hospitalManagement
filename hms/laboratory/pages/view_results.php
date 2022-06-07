@@ -52,16 +52,16 @@ function fetchPatientName($admissionID)
     <section id="page-title">
         <div class="row">
             <div class="col-sm-8">
-                <h1 class="mainTitle">Admin | view form</h1>
+                <h1 class="mainTitle">St. Anthony Hospital & Research Center</h1>
             </div>
-            <ol class="breadcrumb">
+            <!-- <ol class="breadcrumb">
                 <li>
                     <span>Admin</span>
                 </li>
                 <li class="active">
                     <span> View Form</span>
                 </li>
-            </ol>
+            </ol> -->
         </div>
     </section>
     <!-- end: PAGE TITLE -->
