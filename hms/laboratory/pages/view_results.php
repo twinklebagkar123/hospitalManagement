@@ -255,3 +255,12 @@ function fetchPatientName($admissionID)
 
 
 <?php include('../include/footer.php'); ?>
+<?php
+?>
+ <script>
+    window.onload = function() {
+      //console.log("DOcument loaded");
+      window.print();
+      document.getElementById("goBackRow").setAttribute("style", "display: block;");
+    }
+  </script>
