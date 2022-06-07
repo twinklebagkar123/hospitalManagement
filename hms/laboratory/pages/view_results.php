@@ -282,6 +282,7 @@ if (isset($_POST['submitButton'])) {
     <script>
         window.onload = function() {
             //console.log("DOcument loaded");
+            document.getElementById("submitButton").style.display = "none";
             window.print();
             document.getElementById("goBackRow").setAttribute("style", "display: block;");
         }
