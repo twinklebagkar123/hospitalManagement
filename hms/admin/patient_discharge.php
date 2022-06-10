@@ -52,9 +52,9 @@ if (isset($_POST['submit'])) {
         <div class="row">
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                       HISTORY / CHIEF COMPLAINTS
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
@@ -62,9 +62,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                      ON EXAMINATION VITALS
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
@@ -72,9 +72,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                       SYSTEMIC EXAMINATION
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
@@ -82,9 +82,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                       INVESTIGATIONS
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
@@ -92,9 +92,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                       TREATMENT
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
@@ -102,9 +102,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-sm-12">
               <div class="">
-                    <h3>
+                    <h5>
                       ADVICE ON DISCHARGE
-                    </h3>
+                    </h5>
                     <div class="content">
 
                     </div>
