@@ -13,7 +13,6 @@ if (isset($_POST['submit'])) {
 }
 
 ?>
- <div class="main-content">
 <div class="wrap-content container" id="container">
   <!-- start: PAGE TITLE -->
   <div class="container-fluid container-fullw bg-white">
@@ -23,7 +22,6 @@ if (isset($_POST['submit'])) {
       </div>
     </div>
   </div>
-</div>
 </div>
 </div>
 <!-- start: FOOTER -->
