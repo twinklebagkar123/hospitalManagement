@@ -18,8 +18,36 @@ if (isset($_POST['submit'])) {
   <div class="container-fluid container-fullw bg-white">
     <div class="row">
       <div class="col-sm-12">
-          <h4 class="text-right">DATE : <?php echo date('Y-m-d')?></h4>
-          <h2 class="text-centre">DISCHARGE SUMMARY</h2>
+        <h4 class="text-right">DATE : <?php echo date('Y-m-d') ?></h4>
+        <h2 class="text-center">DISCHARGE SUMMARY</h2>
+        <div class="row">
+          <div class="col-sm-12">
+            <h5>Name: </h5>
+          </div>
+          
+        </div>
+        <div class="row">
+        <div class="col-sm-4">
+            <h5>DOB: </h5>
+          </div>
+          <div class="col-sm-4">
+            <h5>SEX: </h5>
+          </div>
+          
+        </div>
+        <div class="row">
+        <div class="col-sm-4">
+            <h5>DOA: </h5>
+          </div>
+          <div class="col-sm-4">
+            <h5>DOD: </h5>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+            <h5>Diagnosis: </h5>
+            </div>
+        </div>
       </div>
     </div>
   </div>
