@@ -48,6 +48,69 @@ if (isset($_POST['submit'])) {
             <h5>Diagnosis: </h5>
             </div>
         </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                      HISTORY / CHIEF COMPLAINTS
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                     ON EXAMINATION VITALS
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                      SYSTEMIC EXAMINATION
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                      INVESTIGATIONS
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                      TREATMENT
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+          <div class="col-sm-12">
+              <div class="">
+                    <h3>
+                      ADVICE ON DISCHARGE
+                    </h3>
+                    <div class="content">
+
+                    </div>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
