@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
     <div class="row">
       <div class="col-sm-12">
           <h4 class="text-right">DATE : <?php echo date('Y-m-d')?></h4>
+          <h2 class="text-centre">DISCHARGE SUMMARY</h2>
       </div>
     </div>
   </div>
