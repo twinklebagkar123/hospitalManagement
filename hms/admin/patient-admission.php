@@ -291,10 +291,11 @@ $today = $year . '-' . $month . '-' . $day;
 		$registration_fee = $_POST['registration_fee'];
 		$advpaid = $_POST['aa'];
 		$package_id = $_POST['package_id'];
+		$chiefComplaint = $_POST['chiefComplaint'];
 		$stat = false;
 		try {
 			if (!empty($uid)) {
-				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`, `dateofadmission`, `advance_paid`, `status`, `registration_fee`, `package_id`) VALUES ('$uid','$admissionType','$doctor','$wn','$dateofadmission','$advpaid','pending','$registration_fee','$package_id')";
+				$query = "INSERT INTO `patientAdmission`( `uid`, `admissionType`, `docID`, `wardNo`,`chiefComplaint`, `dateofadmission`, `advance_paid`, `status`, `registration_fee`, `package_id`) VALUES ('$uid','$admissionType','$doctor','$wn', '$chiefComplaint' ,'$dateofadmission','$advpaid','pending','$registration_fee','$package_id')";
 				$con->query($query);
 				$stat = true;
 			}
