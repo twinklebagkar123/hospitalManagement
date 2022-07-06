@@ -1,17 +1,16 @@
 <?php
 include('include/header_structured.php');
-if (isset($_POST['submit'])) {
-  $tcname = $_POST['tariff_cat_name'];
-
-
-  $query = "INSERT INTO `tariff_category`( `tariff_cat_name`) VALUES ('$tcname')";
-  $con->query($query);
-  $stat = true;
-  if ($stat) {
-    echo "<script>alert('Successfully Added.');</script>";
-  }
+$resultArray = [];
+$admissionID = 9;
+$query = "SELECT tblpatient.PatientName , tblpatient.PatientGender, tblpatient.Patientdob , patientAdmission.dateofadmission, patientAdmission.dateofdischarge FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionID'";
+$result = $con->query($query);
+while ($row = mysqli_fetch_array($result)) {
+   $resultArray["PatientName"]  = $row['PatientName'];
+   $resultArray["PatientGender"]  = $row['PatientGender'];
+   $resultArray["Patientdob"]  = $row['Patientdob'];
+   $resultArray["dateofadmission"]  = $row['dateofadmission'];
 }
-
+var_dump($resultArray);
 ?>
 <div class="wrap-content container" id="container">
   <!-- start: PAGE TITLE -->
