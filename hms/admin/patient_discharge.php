@@ -2,7 +2,7 @@
 include('include/header_structured.php');
 $resultArray = [];
 $admissionID = 9;
-$query = "SELECT tblpatient.PatientName , tblpatient.PatientGender, tblpatient.Patientdob , patientAdmission.dateofadmission, patientAdmission.dateofdischarge FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionID'";
+$query = "SELECT tblpatient.PatientName , tblpatient.PatientGender, tblpatient.Patientdob ,patientAdmission.chiefComplaint, patientAdmission.dateofadmission, patientAdmission.dateofdischarge FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionID'";
 $result = $con->query($query);
 while ($row = mysqli_fetch_array($result)) {
    $resultArray["PatientName"]  = $row['PatientName'];
@@ -10,6 +10,7 @@ while ($row = mysqli_fetch_array($result)) {
    $resultArray["Patientdob"]  = $row['Patientdob'];
    $resultArray["dateofadmission"]  = $row['dateofadmission'];
    $resultArray["dateofdischarge"]  = $row['dateofdischarge'];
+   $resultArray["chiefComplaint"]  = $row['chiefComplaint'];
 }
 //var_dump($resultArray);
 ?>
@@ -56,7 +57,7 @@ while ($row = mysqli_fetch_array($result)) {
                       HISTORY / CHIEF COMPLAINTS
                     </h5>
                     <div class="content">
-
+                   <?php echo $resultArray["chiefComplaint"]; ?>
                     </div>
               </div>
           </div>
