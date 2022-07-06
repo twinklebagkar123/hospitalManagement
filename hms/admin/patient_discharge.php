@@ -33,12 +33,12 @@ while ($row = mysqli_fetch_array($result)) {
           <div class="col-sm-4">
             <h5>SEX: <span><?php echo $resultArray["PatientGender"]; ?></span></h5>
           </div>
-          
-        </div>
-        <div class="row">
-        <div class="col-sm-4">
+          <div class="col-sm-4">
             <h5>DOA: <span><?php echo $resultArray["dateofadmission"]; ?></span></h5>
           </div>
+        </div>
+        <div class="row">
+       
           <div class="col-sm-4">
             <h5>DOD: <span><?php echo $resultArray["dateofdischarge"]; ?></span></h5>
           </div>
