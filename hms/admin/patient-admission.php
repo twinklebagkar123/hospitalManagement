@@ -137,6 +137,12 @@ $today = $year . '-' . $month . '-' . $day;
 																</label>
 																<input type="text" name="aa" class="form-control" placeholder="Enter Advance Amount Paid" required="true">
 															</div>
+															<div class="form-group">
+																<label>
+																	Chief Complaint
+																</label>
+																<input type="text" name="chiefComplaint" class="form-control" placeholder="Chief Complaint" required="true">
+															</div>
 															<input type="hidden" name="doctor" value="1">
 															<button type="submit" name="submit" id="submit" class="btn btn-o btn-primary">
 																Submit Patient Admission
