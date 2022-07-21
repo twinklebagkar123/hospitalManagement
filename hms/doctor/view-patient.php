@@ -493,6 +493,7 @@ if (isset($_POST['submit'])) {
                 <!-- Modal body -->
                 <div class="modal-body">
                 <form method="post" name="dischargeSummary">
+                  <input type="hidden" name="admissionID" id="sumadmissionID">
                     <label>
                        ADD DISCHARGE SUMMARY HERE
                     </label>
@@ -572,6 +573,7 @@ if (isset($_POST['submit'])) {
     });
     $("#viewReport .dischargeSummary").click(function(){
       var admissionid = $(this).data("admissionid");
+      $("#sumadmissionID").val(admissionid);
       console.log(admissionid);
     });
     //new js for charts:
