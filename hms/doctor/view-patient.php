@@ -498,7 +498,8 @@ if (isset($_POST['submit'])) {
                        ADD DISCHARGE SUMMARY HERE
                     </label>
                     <textarea name="doctorDiagnosis" id="nn" placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
-                </form>
+                    <button type="submit" name="disSummary" class="btn btn-primary">Submit Summary</button>
+                  </form>
                 </div>
 
                 <!-- Modal footer -->
