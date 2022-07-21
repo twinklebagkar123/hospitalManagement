@@ -571,9 +571,8 @@ if (isset($_POST['submit'])) {
       $("#admissionIDHis").val(id);
     });
     $("#viewReport .dischargeSummary").click(function(){
-      console.log("TEST");
-      // var admissionid = $(this).data("admissionID");
-      // console.log(admissionid);
+      var admissionid = $(this).data("admissionID");
+      console.log(admissionid);
     });
     //new js for charts:
     $("#viewReport button").click(function() {
