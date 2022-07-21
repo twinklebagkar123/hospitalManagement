@@ -496,7 +496,7 @@ if (isset($_POST['submit'])) {
                     <label>
                        ADD DISCHARGE SUMMARY HERE
                     </label>
-                    <textarea name="doctorDiagnosis" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                    <textarea name="doctorDiagnosis" id="nn" placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                 </form>
                 </div>
 
