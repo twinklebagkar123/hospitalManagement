@@ -13,6 +13,16 @@ while ($row = mysqli_fetch_array($result)) {
   $resultArray["chiefComplaint"]  = $row['chiefComplaint'];
 }
 //var_dump($resultArray);
+function fetchTestName($testID)
+{
+    include('include/config.php');
+    $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['labTestName'];
+    }
+    return $answer;
+}
 ?>
 <div class="wrap-content container" id="container">
   <!-- start: PAGE TITLE -->
