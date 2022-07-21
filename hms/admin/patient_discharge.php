@@ -156,7 +156,10 @@ function fetchTestName($testID)
                       $medicalPres = "SELECT MedicalPres FROM `tblmedicalhistory` WHERE admissionID = '$admissionID'";
                       $testList = $con->query($medicalPres);
                       while ($row2 = mysqli_fetch_array($testList)) {
-                        var_dump(json_decode($row2['MedicalPres']));
+                       $MedicalPres = json_decode($row2['MedicalPres']);
+                       foreach($MedicalPres as $medicalDetail){
+                        echo $medicalDetail->medicineName; echo ",";
+                       }
                         echo "<br>";
                       }
                       
