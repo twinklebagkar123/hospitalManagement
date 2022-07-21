@@ -87,7 +87,31 @@ while ($row = mysqli_fetch_array($result)) {
                       INVESTIGATIONS
                     </h5>
                     <div class="content">
+<?php
 
+$testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '" . $admissionid . "'";
+$testList = $con->query($testQuery);
+if ($testList) {
+    $html = $html . '<table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; 
+    border-spacing: 0; width: 100%;"><thead><tr><td>Sr No.</td><td>Assigned Date</td><td>Test Name</td><td>Test 
+    Status</td><td>Results</td></tr></thead><tbody>';
+    $srNum = 0;
+    while ($row2 = mysqli_fetch_array($testList)) {
+        $srNum++;
+        $testname = fetchTestName($row2['performedTestID']);
+        $html = $html . '<tr><td>' . $srNum . '</td><td>' . $row2['assignedDate'] . '</td><td>' . $testname . '</td><td>' . $row2['labTestStatus'] . '</td>';
+        if ($row2['labTestStatus'] == 'complete') {
+            $html = $html . '<td><a href="testResultReport.php?recID=' . $row2['recordID'] . '"> View Results</a></td><tr>';
+        } else {
+            $html = $html . '<td></td><tr>';
+        }
+    }
+}
+
+$html = $html . '</tbody></table>';
+print_r($html);
+
+?>
                     </div>
               </div>
           </div>
