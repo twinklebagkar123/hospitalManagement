@@ -144,6 +144,7 @@ if (isset($_POST['submit'])) {
                       <th>Assign Test</th>
                       <th>Reports</th>
                       <th>Add History</th>
+                      <th>Add Discharge Summary</th>
                     </thead>
                     <tbody id="viewReport">
                       <?php
@@ -171,6 +172,7 @@ if (isset($_POST['submit'])) {
 
                             ?>
                           </td>
+                          <td><button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#myModal">Add Summary</button></td>
                         </tr>
                       <?php
                         $sr++;
