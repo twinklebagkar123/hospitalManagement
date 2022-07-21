@@ -153,7 +153,7 @@ function fetchTestName($testID)
               </h5>
               <div class="content">
                       <?php
-                      $medicalPres = "SELECT MedicalPres FROM `tblmedicalhistory` WHERE admissionID = '$admissionID'";
+                      $medicalPres = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionID'";
                       $testList = $con->query($testQuery);
                       while ($row2 = mysqli_fetch_array($testList)) {
                         var_dump(json_decode($row2['MedicalPres']));
