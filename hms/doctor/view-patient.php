@@ -1,6 +1,11 @@
 <?php
 include('include/header_structure.php');
-
+if(isset($_POST["disSummary"])){
+   $summary = $_POST["dischargeSummary"];
+   $admissionID = $_POST["sumadmissionID"];
+   $query = "INSERT INTO `patdischargesummary`(`admissionID`, `summary`) VALUES ('$admissionID','$summary')";
+   mysqli_query($con, $query);
+}
 if (isset($_POST["testAssign"])) {
   $vid = $_GET['viewid'];
   $query = false;
@@ -493,11 +498,11 @@ if (isset($_POST['submit'])) {
                 <!-- Modal body -->
                 <div class="modal-body">
                 <form method="post" name="dischargeSummary">
-                  <input type="hidden" name="admissionID" id="sumadmissionID">
+                  <input type="hidden" name="sumadmissionID" id="sumadmissionID">
                     <label>
                        ADD DISCHARGE SUMMARY HERE
                     </label>
-                    <textarea name="doctorDiagnosis" id="nn" placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                    <textarea name="dischargeSummary" id="nn" placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                     <button type="submit" name="disSummary" class="btn btn-primary">Submit Summary</button>
                   </form>
                 </div>
