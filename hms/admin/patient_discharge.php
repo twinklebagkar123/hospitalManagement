@@ -152,7 +152,15 @@ function fetchTestName($testID)
                 TREATMENT
               </h5>
               <div class="content">
-
+                      <?php
+                      $medicalPres = "SELECT MedicalPres FROM `tblmedicalhistory` WHERE admissionID = '$admissionID'";
+                      $testList = $con->query($testQuery);
+                      while ($row2 = mysqli_fetch_array($testList)) {
+                        var_dump($row2['MedicalPres']);
+                        echo "<br>";
+                      }
+                      
+                      ?>
               </div>
             </div>
           </div>
