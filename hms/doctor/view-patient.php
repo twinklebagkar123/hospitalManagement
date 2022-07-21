@@ -3,7 +3,8 @@ include('include/header_structure.php');
 if(isset($_POST["disSummary"])){
    $summary = $_POST["dischargeSummary"];
    $admissionID = $_POST["sumadmissionID"];
-   $query = "INSERT INTO `patdischargesummary`(`admissionID`, `summary`) VALUES ('$admissionID','$summary')";
+   $dischargeadvice = $_POST["dischargeadvice"];
+   $query = "INSERT INTO `patdischargesummary`(`admissionID`, `summary`) VALUES ('$admissionID','$summary','$dischargeadvice')";
    mysqli_query($con, $query);
 }
 if (isset($_POST["testAssign"])) {
@@ -502,7 +503,12 @@ if (isset($_POST['submit'])) {
                     <label>
                        ADD DISCHARGE SUMMARY HERE
                     </label>
-                    <textarea name="dischargeSummary" id="nn" placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                    <textarea name="dischargeSummary"  placeholder="ADD DISCHARGE SUMMARY HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                    <label>
+                       ON DISCHARGE ADVICE
+                    </label>
+                    <textarea name="dischargeadvice"  placeholder="ADD DISCHARGE ADVICE HERE" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                   
                     <button type="submit" name="disSummary" class="btn btn-primary">Submit Summary</button>
                   </form>
                 </div>
