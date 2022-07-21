@@ -184,7 +184,7 @@ function fetchTestName($testID)
           </div>
           <div class="col-sm-12">
                       <form method="post">
-                        <button type="submit" name="printSummary">PRINT SUMMARY</button>
+                        <button type="submit" id="printSummary" name="printSummary">PRINT SUMMARY</button>
                       </form>
           </div>
         </div>
@@ -230,7 +230,7 @@ if(isset($_POST['printSummary'])){?>
   window.onload = function() {
     //console.log("DOcument loaded");
     window.print();
-   // document.getElementById("goBackRow").setAttribute("style", "display: block;");
+    document.getElementById("printSummary").setAttribute("style", "display: none;");
   }
 </script>
 <?php
