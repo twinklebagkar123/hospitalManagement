@@ -1,7 +1,7 @@
 <?php
 include('include/header_structured.php');
 $resultArray = [];
-$admissionID = 9;
+$admissionID = $_GET['admissionId'];
 $query = "SELECT tblpatient.PatientName , tblpatient.PatientGender, tblpatient.Patientdob ,patientAdmission.chiefComplaint, patientAdmission.dateofadmission, patientAdmission.dateofdischarge FROM `patientAdmission` INNER JOIN tblpatient ON patientAdmission.uid = tblpatient.ID WHERE patientAdmission.unqId = '$admissionID'";
 $result = $con->query($query);
 while ($row = mysqli_fetch_array($result)) {
