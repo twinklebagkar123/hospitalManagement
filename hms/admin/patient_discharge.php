@@ -17,7 +17,7 @@ $dischargesummmaryandadvice = "SELECT * FROM `patdischargesummary` WHERE admissi
 $summaryandadvice = $con->query($dischargesummmaryandadvice);
 while ($row3 = mysqli_fetch_array($summaryandadvice)) {
   $summary = $row3['summary'];
-  $advice = $row3['dischargeadvice	'];
+  $advice = $row3['dischargeadvice'];
 }
 function fetchTestName($testID)
 {
