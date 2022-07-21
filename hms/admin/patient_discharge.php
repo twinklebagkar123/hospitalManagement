@@ -100,7 +100,6 @@ function fetchTestName($testID)
                 <?php
 
                 $testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '" . $admissionID . "'";
-                print_r($testQuery);
                 $testList = $con->query($testQuery);
                 if ($testList) {
                 ?>
