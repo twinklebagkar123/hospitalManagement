@@ -14,7 +14,6 @@ while ($row = mysqli_fetch_array($result)) {
 }
 //var_dump($resultArray);
 $dischargesummmaryandadvice = "SELECT * FROM `patdischargesummary` WHERE admissionID = '$admissionID'";
-print_r($dischargesummmaryandadvice);
 $summaryandadvice = $con->query($dischargesummmaryandadvice);
 while ($row3 = mysqli_fetch_array($summaryandadvice)) {
   $summary = $row3['summary'];
