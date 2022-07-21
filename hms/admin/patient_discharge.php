@@ -182,6 +182,11 @@ function fetchTestName($testID)
               </div>
             </div>
           </div>
+          <div class="col-sm-12">
+                      <form method="post">
+                        <button type="submit" name="printSummary">PRINT SUMMARY</button>
+                      </form>
+          </div>
         </div>
       </div>
     </div>
@@ -219,6 +224,19 @@ function fetchTestName($testID)
 <script src="assets/js/main.js"></script>
 <!-- start: JavaScript Event Handlers for this page -->
 <script src="assets/js/form-elements.js"></script>
+<?php
+if(isset($_POST['printSummary'])){?>
+  <script>
+  window.onload = function() {
+    //console.log("DOcument loaded");
+    window.print();
+   // document.getElementById("goBackRow").setAttribute("style", "display: block;");
+  }
+</script>
+<?php
+}
+
+?>
 <script>
   jQuery(document).ready(function() {
     Main.init();
