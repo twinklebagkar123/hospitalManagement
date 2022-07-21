@@ -13,6 +13,12 @@ while ($row = mysqli_fetch_array($result)) {
   $resultArray["chiefComplaint"]  = $row['chiefComplaint'];
 }
 //var_dump($resultArray);
+$dischargesummmaryandadvice = "SELECT * FROM `patdischargesummary` WHERE admissionID = '$admissionID'";
+$summaryandadvice = $con->query($dischargesummmaryandadvice);
+while ($row = mysqli_fetch_array($summaryandadvice)) {
+  $summary = $row['summary'];
+  $advice = $row['dischargeadvice	'];
+}
 function fetchTestName($testID)
 {
     include('include/config.php');
@@ -87,7 +93,7 @@ function fetchTestName($testID)
                 SYSTEMIC EXAMINATION
               </h5>
               <div class="content">
-
+                  <?php echo $summary; ?>
               </div>
             </div>
           </div>
@@ -172,7 +178,7 @@ function fetchTestName($testID)
                 ADVICE ON DISCHARGE
               </h5>
               <div class="content">
-                  
+              <?php echo $advice; ?>
               </div>
             </div>
           </div>
