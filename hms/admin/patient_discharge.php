@@ -160,7 +160,6 @@ function fetchTestName($testID)
                        foreach($MedicalPres as $medicalDetail){
                         echo $medicalDetail->medicineName; echo ",";
                        }
-                        echo "<br>";
                       }
                       
                       ?>
