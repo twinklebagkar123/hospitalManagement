@@ -89,7 +89,7 @@ while ($row = mysqli_fetch_array($result)) {
                     <div class="content">
 <?php
 
-$testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '" . $admissionid . "'";
+$testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '" . $admissionID . "'";
 $testList = $con->query($testQuery);
 if ($testList) {
     $html = $html . '<table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; 
