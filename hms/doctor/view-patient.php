@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
 
                     ?>
                   </td>
-                  <td><button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg dischargeSummary" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button></td>
+                  <td><button data-admissionID="<?php echo $row['unqId']; ?>" class=" btn btn-primary waves-effect waves-light w-lg dischargeSummary" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button></td>
                 </tr>
               <?php
                 $sr++;
