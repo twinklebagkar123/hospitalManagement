@@ -172,7 +172,7 @@ if (isset($_POST['submit'])) {
 
                     ?>
                   </td>
-                  <td><button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button></td>
+                  <td><button data-admissionID="<?php echo $row['unqId']; ?>" class="addMedHistory btn btn-primary waves-effect waves-light w-lg dischargeSummary" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button></td>
                 </tr>
               <?php
                 $sr++;
@@ -569,6 +569,10 @@ if (isset($_POST['submit'])) {
     $(".addMedHistory").click(function() {
       var id = $(this).data("admissionid");
       $("#admissionIDHis").val(id);
+    });
+    $("#viewReport dischargeSummary").click(function(){
+      var admissionid = $(this).data("admissionid");
+      console.log(admissionid);
     });
     //new js for charts:
     $("#viewReport button").click(function() {
