@@ -228,9 +228,10 @@ function fetchTestName($testID)
 if(isset($_POST['printSummary'])){?>
   <script>
   window.onload = function() {
+    document.getElementById("printSummary").setAttribute("style", "display: none;");
     //console.log("DOcument loaded");
     window.print();
-    document.getElementById("printSummary").setAttribute("style", "display: none;");
+    
   }
 </script>
 <?php
