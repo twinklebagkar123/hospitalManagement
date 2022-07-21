@@ -487,17 +487,22 @@ if (isset($_POST['submit'])) {
                 <!-- Modal Header -->
                 <div class="modal-header">
                   <h4 class="modal-title">Modal Heading</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  <button type="button" class="btn-close" data-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                  Modal body..
+                <form method="post" name="dischargeSummary">
+                    <label>
+                       ADD DISCHARGE SUMMARY HERE
+                    </label>
+                    <textarea name="doctorDiagnosis" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                </form>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
 
               </div>
