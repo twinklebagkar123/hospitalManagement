@@ -140,40 +140,7 @@ if (!empty($_POST['admissionid'])) {
     }
     
     $html = $html . '</tbody></table>';
-    $html = $html. '<div class="col-sm-12"> MEDICINE PRESCRIPTION 
-    <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; 
-    border-spacing: 0; width: 100%;">
-    <tr>
-    <th></th>
-    <th>Name of the drug</th>
-    <th>Start From </th>
-    <th>Dosage</th>
-    <th>Interval</th>
-</tr>'; 
-foreach ($medicalPres as $key => $value) {
-  
-   $i = 0;
-   foreach($value as $medicalDetail){ $i++; 
-   if($medicalDetail->prescription_type == "hourly_prescription"){ 
-      $html = $html. '<tr>
-           <td>'. $i.'</td>
-           <td>'.$medicalDetail->medicineName.'</td>
-           <td>'.$medicalDetail->start_from.'</td>
-           <td>'. $medicalDetail->dosage.'</td>
-           <td>'.$medicalDetail->interval_hourly.'</td>
-       </tr>';
-   } else{ 
-    $html = $html.' <tr>
-           <td>'. $i.'</td>
-           <td>'.$medicalDetail->medicineName.'</td>
-           <td>'.$medicalDetail->dosage.'</td>
-           <td>'.$medicalDetail->frequency.'</td>
-           <td>'.$medicalDetail->period.'</td>
-       </tr>';
-    } }
-   
-}
-$html = $html. '</table> </div>';
+
 
 
     $result["html"] = $html;
