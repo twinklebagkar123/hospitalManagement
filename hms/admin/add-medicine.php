@@ -4,7 +4,9 @@ include('include/header_structured.php');
 if (isset($_POST['submit'])) {
 
 	$medname = $_POST['medname'];
-	$sql = mysqli_query($con, "insert into medicine_table(medname) values('$medname')");
+	$medweight = $_POST['medweight'];
+	$medcharges = $_POST['medcharges'];
+	$sql = mysqli_query($con, "insert into medicine_table(`medname`, `weight`, `charges`) values('$medname','$medweight','$medcharges')");
 	if ($sql) {
 		echo "<script>alert('Medicine added Successfully');</script>";
 		echo "<script>window.location.href ='add-medicine.php'</script>";
@@ -79,6 +81,9 @@ if (isset($_POST['submit'])) {
 														</label>
 														<input type="text" id="med" name="medname" class="form-control" placeholder="Enter Medicine Name" required="true" onchange="checkemailAvailability()">
 														<span id="email-availability-status"></span>
+														<input type="text"  name="medweight" class="form-control" placeholder="Enter Weight" required="true" >
+														<input type="text"  name="medcharges" class="form-control" placeholder="Enter Charges" required="true">
+														
 
 													</div>
 

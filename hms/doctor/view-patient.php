@@ -157,6 +157,8 @@ if (isset($_POST['submit'])) {
               <?php
               $sr = 1;
               while ($row = mysqli_fetch_array($result)) {
+                $query2 = "SELECT * FROM `patdischargesummary` WHERE admissionID= '".$row['unqId']."'";
+                $result2 = $con->query($query2);
               ?>
                 <tr>
                   <td><?php echo $row['unqId']; ?></td>
@@ -179,8 +181,26 @@ if (isset($_POST['submit'])) {
 
                     ?>
                   </td>
-                  <td><button data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary waves-effect waves-light w-lg dischargeSummary" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button></td>
-                </tr>
+                  <td>
+                    <?php
+                   
+                       if(mysqli_num_rows($result2) == 0){
+                        ?>
+                        <button data-admissionID="<?php echo $row['unqId']; ?>" class="btn btn-primary waves-effect waves-light w-lg dischargeSummary" data-toggle="modal" data-target="#dischargeSummary">Add Summary</button>
+                        <?php
+                       }
+                       else{
+                        while ($row2 = mysqli_fetch_array($result2)) {
+                        ?>
+                          <p>
+                            <?php echo $row2["summary"];?><br><a href="editDischargeSummary.php?id=<?php echo $row2['unqID']?>">EDIT DISCHARGE SUMMARY</a>
+                          </p>
+                        <?php
+                        }
+                       }
+                    ?>
+                   </td>
+                  </tr>
               <?php
                 $sr++;
               }
