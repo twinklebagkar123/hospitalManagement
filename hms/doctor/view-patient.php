@@ -4,7 +4,7 @@ if(isset($_POST["disSummary"])){
    $summary = $_POST["dischargeSummary"];
    $admissionID = $_POST["sumadmissionID"];
    $dischargeadvice = $_POST["dischargeadvice"];
-   $query = "INSERT INTO `patdischargesummary`(`admissionID`, `summary`) VALUES ('$admissionID','$summary','$dischargeadvice')";
+   $query = "INSERT INTO `patdischargesummary`(`admissionID`, `summary`,`dischargeadvice`) VALUES ('$admissionID','$summary','$dischargeadvice')";
    mysqli_query($con, $query);
 }
 if (isset($_POST["testAssign"])) {
@@ -32,7 +32,8 @@ if (isset($_POST['submit'])) {
 
   $vid = $_GET['viewid'];
   $admissionID = $_POST['admissionID'];
-  $bp = $_POST['bp'];
+  $bp1 = $_POST['bp1'];
+  $bp2 = $_POST['bp2'];
   $bs = $_POST['bs'];
   $weight = $_POST['weight'];
   $type = $_POST['type'];
@@ -40,12 +41,12 @@ if (isset($_POST['submit'])) {
   $pres = $_POST['medicinePrescription'];
   $doctorObservation = $_POST['doctorObservation'];
   $doctorDiagnosis = $_POST['doctorDiagnosis'];
-  $nn = $_POST['nn'];
+  //$nn = $_POST['nn'];
   $docID = $_SESSION['id'];
-  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,BSType,BloodSugar,Weight,Temperature,MedicalPres,nurseNote,doctorObservation,doctorDiagnosis,doctorID)value('$vid','$admissionID','$bp','$type','$bs','$weight','$temp','$pres','$nn','$doctorObservation','$doctorDiagnosis','$docID')");
+  $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,diastolic,BSType,BloodSugar,Weight,Temperature,MedicalPres,doctorObservation,doctorDiagnosis,doctorID)value('$vid','$admissionID','$bp1','$bp2','$type','$bs','$weight','$temp','$pres','$doctorObservation','$doctorDiagnosis','$docID')");
   if ($query) {
     echo '<script>alert("Medical history has been added.")</script>';
-    echo "<script>window.location.href ='view-patient.php?viewid=" . $vid . "'</script>";
+    echo "<script>window.location.href ='view-patient.php?viewid=". $vid ."'</script>";
   } else {
     echo '<script>alert("Something Went Wrong. Please try again")</script>';
   }
@@ -297,8 +298,9 @@ if (isset($_POST['submit'])) {
                       <input type="hidden" id="medicinePrescriptionType" name="medicinePrescriptionType" value="general_prescription">
                       <tr>
                         <th>Blood Pressure :</th>
-                        <td>
-                          <input name="bp" placeholder="Blood Pressure" class="form-control wd-450" required="true">
+                        <td style="display: inline-flex; align-items:center;">
+                          <input name="bp1" placeholder="Systolic pressure" class="form-control wd-200" required="true"> /
+                          <input name="bp2" placeholder="Diastolic pressure" class="form-control wd-200" required="true">
                         </td>
                       </tr>
                       <tr>
@@ -452,22 +454,21 @@ if (isset($_POST['submit'])) {
                           <div></div>
                         </td>
                       </tr>
-
-                      <tr>
-                        <th>Nurse Note :</th>
-                        <td>
-                          <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
-                      </tr>
                       <tr>
                         <th>Doctor's Observation :</th>
                         <td>
-                          <textarea name="doctorObservation" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                          <textarea name="doctorObservation" id="nn" placeholder="Doctor Observation" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                       </tr>
                       <tr>
                         <th>Doctor's Diagnosis :</th>
                         <td>
-                          <textarea name="doctorDiagnosis" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                          <textarea name="doctorDiagnosis" id="nn" placeholder="Doctor Diagnosis" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
                       </tr>
+                      <!-- <tr>
+                        <th>Nurse Note :</th>
+                        <td>
+                          <textarea name="nn" id="nn" placeholder="Nurse Note" rows="8" cols="14" class="form-control wd-450" required="true"></textarea>
+                      </tr> -->
                   </table>
                 </div>
                 <div class="modal-footer">
@@ -498,8 +499,8 @@ if (isset($_POST['submit'])) {
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                <form method="post" name="dischargeSummary">
-                  <input type="hidden" name="sumadmissionID" id="sumadmissionID">
+                <form method="post" name="dischargeSummary" action="" >
+                  <input type="hidden" name="sumadmissionID" id="sumadmissionID" value="<?php echo $vid;?>">
                     <label>
                        ADD DISCHARGE SUMMARY HERE
                     </label>
@@ -608,10 +609,12 @@ if (isset($_POST['submit'])) {
         success: function(data) {
           //	console.log(data.bsDates);
           tpr = data.tpr;
+          systolic = data.pressureSys;
+          diastolic = data.diastolic;
           tprDate = data.tprDate;
           bsDates = data.bsDates;
           sugarReads = data.sugarReads;
-          //	console.log(bsDates+"BS DATES");
+        	console.log(data.pressureSys+"systolic");
           console.log(sugarReads);
           var obj = [];
           $.each(sugarReads, function(key, value) {
@@ -657,10 +660,23 @@ if (isset($_POST['submit'])) {
             type: 'line',
             data: {
               labels: tprDate,
-              datasets: [{
-                  label: 'TPR CHART',
+              datasets: [
+                {
+                  label: 'Temperature',
                   data: tpr,
-                  borderColor: '#000000',
+                  borderColor: '#0000FF',
+                  fill: false
+                },
+                {
+                  label: 'Systolic',
+                  data: systolic,
+                  borderColor: '#FF0000',
+                  fill: false
+                },
+                {
+                  label: 'Diastolic',
+                  data: diastolic,
+                  borderColor: '#FFC0CB',
                   fill: false
                 }
 

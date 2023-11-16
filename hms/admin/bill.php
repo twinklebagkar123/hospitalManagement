@@ -34,7 +34,7 @@ while ($row = mysqli_fetch_array($result)) {
   $labquery = "SELECT SUM(charges) as totalLabCharges FROM `labTestRecord` WHERE admissionID = '$admissionId'";
   $result2 = $con->query($labquery);
   while ($row = mysqli_fetch_array($result2)) {
-    $labChargesTotal = $row['totalLabCharges'];
+    $labChargesTotal = $row['totalLabCharges'] == "" ? 0 : $row['totalLabCharges'];
   }
   // calculate operation charges
   $operationQuery = "SELECT SUM(procedureList.charges) as totalCost , SUM(patientoperation.operationFeeRecieved) as advance FROM `patientoperation` INNER JOIN `procedureList` ON patientoperation.opTitle = procedureList.procedureID AND patientoperation.patient_admission_id = '$admissionId'";
@@ -292,7 +292,7 @@ function getDoctorFees($docID)
                 </tr>
                 <tr>
                   <td>Resident DR's Charges </td>
-                  <td> </td>
+                  <td id="resident_dr_charges"> </td>
                   <td> water mattress </td>
                   <td id="water_mattress"> </td>
                 </tr>
@@ -424,7 +424,7 @@ function getDoctorFees($docID)
                 <tr>
                   <td>Laboratory Charges</td>
                   <td id="laboratory_charges"> <?php echo $labChargesTotal; ?></td>
-                  <td>GRAND TOTAL </td>
+                  <td>TOTAL </td>
                   <td id="grand_total"> </td>
                 </tr>
                 <tr>
@@ -442,7 +442,7 @@ function getDoctorFees($docID)
                 <tr>
                   <td>DR. NOEL</td>
                   <td> </td>
-                  <td>TOTAL </td>
+                  <td> </td>
                   <td> </td>
                 </tr>
                 <tr>
@@ -462,12 +462,18 @@ function getDoctorFees($docID)
             </div>
             <div class="col-sm-12">
                <!--style= "visibility:hidden;"  -->
-              <form role="form" method="post" action="billPrinting.php" >
+              <form role="form" method="post" action="billPrinting.php" style= "visibility:hidden;"  >
                 <input type="text" name="printingtable" id="printingtable">
                 <input type="submit" name="submitButton" id="submitButton">
 
               </form>
               <button id="printBill">PRINT</button>
+              <form role="form" method="post" action="bill_clear.php">
+                <input type="hidden" name="admissionId" value="<?php echo $admissionId?>">
+                <input id="totalAmt" type="hidden" name="totalamt" value="0">
+                <input type="submit" name="clearBill" value="Clear Bill" id="clearBill">
+
+              </form>
             </div>
           </div>
 
@@ -536,22 +542,27 @@ function getDoctorFees($docID)
 
       function netPayable() {
         var grandTotal = $("#grand_total").text();
-        if (grandTotal == "") {
+        if (grandTotal == " ") {
           grandTotal = 0;
         } else {
           grandTotal = parseInt(grandTotal.replace('Rs. ', '0'));
         }
 
         var nettotal = $("#netPayable").text();
+        if(nettotal == " "){
+          nettotal = 0;
+        } else {
+          nettotal = parseInt(nettotal.replace('Rs. ', '0'));
+        }
         var discount = $("#discountBox").text();
-        if (discount == "") {
+        if (discount == " ") {
           discount = 0;
         } else {
           discount = parseInt(discount.replace('Rs. ', '0'));
         }
 
         var advance = $("#advanceText").text();
-        if (advance == "") {
+        if (advance == " ") {
           advance = 0;
         } else {
           advance = parseInt(advance.replace('Rs. ', '0'));
@@ -561,7 +572,13 @@ function getDoctorFees($docID)
         return nettotal;
       }
       var sumArr = [];
-      sumArr = [{
+      sumArr = [
+        {
+          name: 'registration_fees',
+          price: <?php echo $registration_fee; ?>
+
+        },
+        {
           name: 'doctor_charges',
           price: <?php echo getDoctorFees($docID); ?>
         },
@@ -605,6 +622,10 @@ function getDoctorFees($docID)
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
         $("#grand_total").text("Rs. " + majorSum);
+        var finalamount = netPayable();
+        $("#totalAmt").val(finalamount);
+        $("#netPayable").text("Rs. " + finalamount);
+        
 
       });
       $("#discountButton").click(function() {
@@ -612,6 +633,7 @@ function getDoctorFees($docID)
         $("#discountBox").text("Rs. " + discount);
 
         var finalDiscount = netPayable();
+        $("#totalAmt").val(finalDiscount);
         $("#netPayable").text("Rs. " + finalDiscount);
 
       });
@@ -620,6 +642,7 @@ function getDoctorFees($docID)
         $("#advanceText").text("Rs. " + advance);
 
         var finalamount = netPayable();
+        $("#totalAmt").val(finalamount);
         $("#netPayable").text("Rs. " + finalamount);
       });
       $("#printBill").click(function() {

@@ -48,7 +48,7 @@ check_login();
 									<li>
 										<span>User</span>
 									</li>
-									<li class="active">
+									<li class="active">  
 										<span>Dashboard</span>
 									</li>
 								</ol>
@@ -101,6 +101,7 @@ check_login();
 									</div>
 								</div>
 							</div>
+							
 						</div>
 						<!-- end: SELECT BOXES -->
 					</div>

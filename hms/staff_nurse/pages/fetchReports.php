@@ -3,7 +3,8 @@ include('../include/config.php');
 $html = "";
 function fetchTestName($testID)
 {
-    include('../include/config.php');
+    // include('../include/config.php');
+    global $con;
     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
@@ -120,23 +121,30 @@ if (!empty($_POST['admissionid'])) {
         <th>Weight</th>
         <th>Blood Sugar</th>
         <th>Body Temprature</th>
+        <th>Doctors Observation</th>
+        <th>Doctors Diagnosis</th>
+        <th>Nurse Note</th>
         <th>Medical Prescription</th>
         <th>Visit Date</th>
     </tr>';
     $tpr = array();
     $visit = array();
     $tprDate = array();
+    $pressureSys = array();
+    $pressureDias = array();
     $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
         if ($row['Temperature']) {
             array_push($tpr, $row['Temperature']);
             array_push($tprDate, $row['CreationDate']);
+            array_push($pressureSys, $row['BloodPressure']);
+            array_push($pressureDias, $row['diastolic']);
         }
 
         $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
-        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="prescription_print.php?reportId=' . $row['ID'] . '&patientId=' . $vid . '">View & Print</a></td> <td>' . $prescribed_date . '</td>
-        </tr>';
+        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '/'.$row["diastolic"].'</td> <td>' . $row['Weight'] . '</td>
+        <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>'.$row["doctorObservation"].'</td><td>'.$row["doctorDiagnosis"].'</td><td>'.$row["nurseNote"].'<br><a href="editHistory.php?admissionID='.$row["ID"].'">EDIT NURSE NOTE</a></td><td><a class="btn btn-default" href="prescription_print.php?reportId=' . $row['ID'] . '&patientId=' . $vid . '">View & Print</a></td> <td>' . $prescribed_date . '</td>
+    </tr>';
         $cnt++;
     }
     $html = $html . '</table>';
@@ -167,5 +175,7 @@ if (!empty($_POST['admissionid'])) {
     $result['tprDate'] = $tprDate;
     $result['bsDates'] = $bsDates;
     $result['sugarReads'] = $data;
+    $result['diastolic']= $pressureDias;
+    $result['pressureSys']= $pressureSys;
     echo json_encode($result);
 }

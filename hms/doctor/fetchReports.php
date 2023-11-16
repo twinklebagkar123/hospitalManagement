@@ -3,7 +3,8 @@ require_once("include/config.php");
 $html = "";
 function fetchTestName($testID)
 {
-    include('include/config.php');
+    // include('include/config.php');
+    global $con;
     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {
@@ -38,23 +39,12 @@ if (!empty($_POST['admissionid'])) {
     $data = array();
     $type = array();
     while ($rowTypes = $resultTypes->fetch_assoc()) {
-        //$i = 1;
+       
         array_push($type, $rowTypes["BSType"]);
 
-        // if ($type != "") {
-        // 	$query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $type . "' AND PatientID='$vid'";
-
-        // 	$result1 = $con->query($query2);
-        // 	$x = 0;
-        // 	while ($row2 = $result1->fetch_assoc()) {
-        // 	$value = $row2["BloodSugar"];
-        // 	$data = array_push_assoc($data, $type, $value, $x);
-        // 	$x++;
-        // 	}
-        // }
-        //$i++;
+       
     }
-    //print_r($type);
+    
     function array_push_assoc($array, $key, $sugarLevel, $x)
     {
         $array[$key][$x] = $sugarLevel;
@@ -68,32 +58,22 @@ if (!empty($_POST['admissionid'])) {
                 $query2 = "SELECT  `BloodSugar`,`CreationDate` FROM `tblmedicalhistory` WHERE BSType='" . $valueType . "' AND CreationDate LIKE '" . $value . '%' . "' AND PatientID='$vid'";
 
                 $result1 = $con->query($query2);
-                // $z = 0;
-                //echo $valueType."<br>";
+                
                 $valueSugar = 0;
-                // if($row3 = $result1->fetch_assoc()){
                 while ($row3 = $result1->fetch_assoc()) {
 
                     $valueSugar = $row3["BloodSugar"];
 
-                    // $data = array_push_assoc($data, $valueType, $valueSugar, $x);
-
-                    //$z++;
+                    
                 }
-                // echo $valueSugar.":Sugar, Type:".$valueType."<br>";
                 $data = array_push_assoc($data, $valueType, $valueSugar, $x);
-                //  }
-                // else{
-                //   //  echo $valueSugar.":Sugar, Type:".$valueType."<br>";
-                //     $data = array_push_assoc($data, $valueType, $valueSugar, $x);
-                // }
+                
 
             }
         }
         $x++;
     }
 
-    // print_r($data);
 
     //medical History 
     $query = "SELECT * FROM `tblmedicalhistory` WHERE admissionID = '$admissionid' ORDER BY ID DESC";
@@ -108,22 +88,33 @@ if (!empty($_POST['admissionid'])) {
         <th>Weight</th>
         <th>Blood Sugar</th>
         <th>Body Temprature</th>
+        <th>Doctors Observation</th>
+        <th>Doctors Diagnosis</th>
+        <th>Nurse Note</th>
         <th>Medical Prescription</th>
         <th>Visit Date</th>
     </tr>';
     $tpr = array();
     $visit = array();
     $tprDate = array();
+    $pressureSys = array();
+    $pressureDias = array();
+    $medicalPres = array();
     $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
         if ($row['Temperature']) {
             array_push($tpr, $row['Temperature']);
             array_push($tprDate, $row['CreationDate']);
+            array_push($pressureSys, $row['BloodPressure']);
+            array_push($pressureDias, $row['diastolic']);
+            $MedicalPres = json_decode($row['MedicalPres']);
+            array_push($medicalPres, $MedicalPres);
+
         }
 
         $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
-        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '</td> <td>' . $row['Weight'] . '</td>
-            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td><a class="btn btn-default" href="prescription_print.php?reportId=' . $row['ID'] . '&patientId=' . $vid . '">View & Print</a></td> <td>' . $prescribed_date . '</td>
+        $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '/'.$row["diastolic"].'</td> <td>' . $row['Weight'] . '</td>
+            <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>'.$row["doctorObservation"].'  <br><a href="editHistory.php?admissionID='.$row["ID"].'">EDIT OBSERVATION</a></td><td>'.$row["doctorDiagnosis"].'<br><a>EDIT DIAGNOSIS</a></td><td>'.$row["nurseNote"].'</td><td><a class="btn btn-default" href="prescription_print.php?reportId=' . $row['ID'] . '&patientId=' . $vid . '">View & Print</a></td> <td>' . $prescribed_date . '</td>
         </tr>';
         $cnt++;
     }
@@ -147,13 +138,50 @@ if (!empty($_POST['admissionid'])) {
             }
         }
     }
-
+    
     $html = $html . '</tbody></table>';
+    $html = $html. '<div class="col-sm-12"> MEDICINE PRESCRIPTION 
+    <table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; 
+    border-spacing: 0; width: 100%;">
+    <tr>
+    <th></th>
+    <th>Name of the drug</th>
+    <th>Start From </th>
+    <th>Dosage</th>
+    <th>Interval</th>
+</tr>'; 
+foreach ($medicalPres as $key => $value) {
+  
+   $i = 0;
+   foreach($value as $medicalDetail){ $i++; 
+   if($medicalDetail->prescription_type == "hourly_prescription"){ 
+      $html = $html. '<tr>
+           <td>'. $i.'</td>
+           <td>'.$medicalDetail->medicineName.'</td>
+           <td>'.$medicalDetail->start_from.'</td>
+           <td>'. $medicalDetail->dosage.'</td>
+           <td>'.$medicalDetail->interval_hourly.'</td>
+       </tr>';
+   } else{ 
+    $html = $html.' <tr>
+           <td>'. $i.'</td>
+           <td>'.$medicalDetail->medicineName.'</td>
+           <td>'.$medicalDetail->dosage.'</td>
+           <td>'.$medicalDetail->frequency.'</td>
+           <td>'.$medicalDetail->period.'</td>
+       </tr>';
+    } }
+   
+}
+$html = $html. '</table> </div>';
+
 
     $result["html"] = $html;
     $result['tpr'] = $tpr;
     $result['tprDate'] = $tprDate;
     $result['bsDates'] = $bsDates;
     $result['sugarReads'] = $data;
+    $result['diastolic']= $pressureDias;
+    $result['pressureSys']= $pressureSys;
     echo json_encode($result);
 }

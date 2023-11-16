@@ -286,13 +286,11 @@ if (isset($_POST['submit'])) {
 											"contentType": 'application/json'
 										},
 									});
-								});
-							</script>
-							<script>
-								$(function() {
-									$('#datetimepicker3').datetimepicker({
-										format: 'LT'
-									});
+								// 	$(function() {
+								// 	$('#datetimepicker3').datetimepicker({
+								// 		format: 'LT'
+								// 	});
+								// });
 								});
 							</script>
 </body>

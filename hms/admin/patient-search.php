@@ -47,7 +47,7 @@ include('include/header_structured.php'); ?>
 								<th>Patient Name</th>
 								<th>Patient Contact Number</th>
 								<th>Patient Gender </th>
-								<th>Creation Date </th>
+								<th>Created </th>
 								<th>Action</th>
 							</tr>
 						</thead>

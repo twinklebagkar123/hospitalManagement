@@ -153,6 +153,11 @@ $(document).ready(function () {
                 $('#existing_customer_input').removeAttr('readonly');
                 $('#customer_input_search').attr('data-selected_searchby', "contact");
                 break;
+            case "customer_dob_admission":
+                $('#existing_customer_input').attr('placeholder', "Please enter DOB YYYY-MM-DD");
+                $('#existing_customer_input').removeAttr('readonly');
+                $('#customer_input_search').attr('data-selected_searchby', "Patientdob");
+                break;
             default:
                 $('#existing_customer_input').attr('placeholder', "Please enter Adhar Card Number");
                 $('#existing_customer_input').removeAttr('readonly');

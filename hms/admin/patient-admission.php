@@ -85,7 +85,8 @@ $today = $year . '-' . $month . '-' . $day;
 														<div class="row">
 															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_id_admission" class="btn btn-primary searchByAdmission">Customer Id</button></div>
 															<div class="admission_step2_btn col-md-4 "><button data-customer_detail="customer_contact_admission" class="btn btn-primary searchByAdmission">Contact Number</button></div>
-															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_adhar_admission" class="btn btn-primary searchByAdmission">Adhar Card</button></div>
+															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_adhar_admission" class="btn btn-primary searchByAdmission">Adhar Card/Passport No.</button></div>
+															<div class="col-md-4 admission_step2_btn"><button data-customer_detail="customer_dob_admission" class="btn btn-primary searchByAdmission">DOB</button></div> 
 														</div>
 														<div class="row" style="margin-top: 30px;">
 															<div class="col-md-6"><input type="text" id="existing_customer_input" class="form-control" readonly="true"></div>

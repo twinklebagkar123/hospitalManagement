@@ -25,7 +25,7 @@ var position = this.selectionStart - 1;
 
    $("#add").on('click',function(){
     
-          var service = $("#service").val();
+  var service = $("#service").val();
  var price = $("#price").val();
 
 console.log("PRICE OF : ",typeof(price))
@@ -67,14 +67,11 @@ function removeItemOnce(arr, value) {
   return arr;
 }
 $(document).on('click', "#tbid tr td button",  function() {
-
-
+  console.log("clicked");
 
     var grandsubTotal=0;
     var removeprice=0;
     var total=0;
-
-
 
      removeprice =$(this).data("price") ;
      console.log("remove"+ typeof(removeprice));

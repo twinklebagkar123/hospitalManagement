@@ -187,7 +187,8 @@ check_login(); ?>
         $reportId = $_GET["reportId"];
         $patientId = $_GET["patientId"];
         
-        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientAge,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = tblmedicalhistory.doctorID WHERE tblmedicalhistory.ID = '".$reportId."'";
+        $query = "SELECT tblmedicalhistory.MedicalPres,tblmedicalhistory.CreationDate,tblpatient.PatientGender,tblpatient.PatientName,doctors.doctorName FROM `tblmedicalhistory` INNER JOIN patientAdmission ON patientAdmission.unqId = tblmedicalhistory.admissionID INNER JOIN tblpatient ON tblpatient.ID = patientAdmission.uid INNER JOIN doctors ON doctors.id = tblmedicalhistory.doctorID WHERE tblmedicalhistory.ID = '".$reportId."'";
+       // print_r($query);
         $result = $con->query($query);
         // echo $query." QUERY UPDATE ";
         while ($row = mysqli_fetch_array($result)) {
@@ -196,7 +197,7 @@ check_login(); ?>
             $prescribed_time = date('h:i A', strtotime($row['CreationDate']));
             $PatientName = $row['PatientName'];
             $doctorName = $row['doctorName'];
-            $PatientAge = $row['PatientAge'];
+            // $PatientAge = $row['PatientAge'];
             $PatientGender = $row['PatientGender'];
     ?>
         <div class="container">
@@ -219,7 +220,7 @@ check_login(); ?>
                 </div>
             </header>
             <div class="prescription">
-                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName." ,".$PatientGender."/".$PatientAge;?></p>
+                <p style="margin-left:15px;font-size:10px;font-weight:bold;">Rx <?php echo $PatientName.",".$PatientGender."/";?></p>
                 <table>
                     <?php if($MedicalPres[0]->prescription_type == "hourly_prescription"): ?>
                         <tr>

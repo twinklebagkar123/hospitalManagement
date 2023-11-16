@@ -77,6 +77,33 @@ check_login();
 									<div class="panel panel-white no-radius text-center">
 										<div class="panel-body">
 											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
+											<h2 class="StepTitle">Today's Appointments</h2>
+											
+											<p class="links cl-effect-1">
+												<?php 
+												$today = date("Y-m-d");
+												$id = $_SESSION['id'];
+												$query = "SELECT COUNT(*) as count FROM `appointment` WHERE doctorId = '$id' AND appointmentDate = '$today'";
+												$sql = mysqli_query($con,$query);
+												while ($row = mysqli_fetch_array($sql)) {?>
+												  <a href="appointment-history.php">
+													<?php print_r($row["count"]);?>
+												  </a>
+													
+												<?php
+												}
+												?>
+												<!-- <a href="edit-profile.php">
+													Update Profile
+												</a> -->
+											</p>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="col-sm-4">
+									<div class="panel panel-white no-radius text-center">
+										<div class="panel-body">
+											<span class="fa-stack fa-2x"> <i class="fa fa-square fa-stack-2x text-primary"></i> <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i> </span>
 											<h2 class="StepTitle">My Appointments</h2>
 										
 											<p class="cl-effect-1">
@@ -86,7 +113,7 @@ check_login();
 											</p>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								
 							</div>
 						</div>

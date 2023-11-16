@@ -1,9 +1,11 @@
 <?php
 require_once("include/config.php");
+
 $html = "";
 function fetchTestName($testID)
 {
-    include('include/config.php');
+    global $con;
+    // include('include/config.php');
     $query = "SELECT * FROM `laboratoryTestList` where labFormID= '$testID'";
     $result = $con->query($query);
     while ($row = mysqli_fetch_array($result)) {

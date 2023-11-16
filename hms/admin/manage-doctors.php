@@ -31,7 +31,7 @@ if(isset($_GET['del']))
 
 									<div class="row">
 								<div class="col-md-12">
-									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Docters</span></h5>
+									<h5 class="over-title margin-bottom-15">Manage <span class="text-bold">Doctors</span></h5>
 									<p style="color:red;"><?php echo htmlentities($_SESSION['msg']);?>
 								<?php echo htmlentities($_SESSION['msg']="");?></p>	
 									<table class="display" id="myTable">
@@ -40,7 +40,8 @@ if(isset($_GET['del']))
 												<th class="center">#</th>
 												<th>Specialization</th>
 												<th class="hidden-xs">Doctor Name</th>
-												<th>Creation Date </th>
+												<!-- <th class="hidden-xs">Clinic Address</th> -->
+												<th>Created</th>
 												<th>Action</th>
 												
 											</tr>
@@ -57,6 +58,7 @@ while($row=mysqli_fetch_array($sql))
 												<td class="center"><?php echo $cnt;?>.</td>
 												<td class="hidden-xs"><?php echo $row['specilization'];?></td>
 												<td><?php echo $row['doctorName'];?></td>
+												<!-- <td></td> -->
 												<td><?php echo $row['creationDate'];?>
 												</td>
 												
@@ -92,12 +94,7 @@ while($row=mysqli_fetch_array($sql))
 													</div>
 												</div></td>
 											</tr>
-											
-											<?php 
-$cnt=$cnt+1;
-											 }?>
-											
-											
+											<?php $cnt=$cnt+1; }?>
 										</tbody>
 									</table>
 								</div>

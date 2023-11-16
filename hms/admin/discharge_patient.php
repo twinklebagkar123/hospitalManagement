@@ -312,9 +312,10 @@ $paymentStatus = "pending";
                                                 <th>Admission (Cost Per Day)</th>
                                             </tr>
                                             <?php
-                                            $sql = mysqli_query($con, "SELECT patientAdmission.status,patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid,patientAdmission.cpd FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = '".$admissionId."'");
-
+                                            $sql = mysqli_query($con, "SELECT patientAdmission.billAmount, patientadmission.advance_paid, patientAdmission.status,patientAdmission.admissionType, doctors.doctorName,patientAdmission.wardNo,patientAdmission.dateofadmission,patientAdmission.advance_paid  FROM `patientAdmission` INNER JOIN doctors ON patientAdmission.docID = doctors.id where unqId = '".$admissionId."'");
+                                            //var_dump($sql);
                                             while ($row = mysqli_fetch_array($sql)) {
+                                              //  var_dump($row);
                                                 $paymentStatus = $row['status'];
                                                 $month = date('m');
                                                 $day = date('d');
@@ -328,6 +329,8 @@ $paymentStatus = "pending";
                                                 $daysDiff = $interval->format('%a days');
                                                 $daysDiffNumeric = $interval->format('%a');
                                                 $billPayable += ($row['cpd'] * $daysDiffNumeric);
+                                                $advPayment = $row["advance_paid"];
+                                                $billpaid = $row["billAmount"];
 
 
                                             ?>
@@ -461,18 +464,42 @@ $paymentStatus = "pending";
 
                                         </tbody>
                                     </table>
+                                    <?php 
+                                    
+                                    $sqlDischarge = mysqli_query($con,"SELECT * FROM `patdischargesummary` WHERE admissionID = '$admissionId'");
+                                         while ($row = mysqli_fetch_array($sqlDischarge)) {
+                                            
+                                            ?>
+                                                <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5 class="over-title margin-bottom-15"><span class="text-bold">Discharge Summary </span>Information</h5>
+                                                            <p><?php echo  $row["summary"]; ?></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <h5 class="over-title margin-bottom-15"><span class="text-bold">Discharge Advice </span>Information</h5>
+                                                            <p><?php echo  $row["dischargeadvice"]; ?></p>
+                                                        </div>
+                                                    </div>
+                                            <?php
+                                         }
+                                    
+                                    
+                                    ?>
+                                    
                                     <div class="row">
                                         <div class="col-12 text-right ">
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
-                                                <span class="text-bold">Total: </span><?php echo number_format($billPayable) . "/-"; ?>
+                                                <span class="text-bold">Total: </span><?php echo $billpaid . "/-"; ?>
                                             </h5>
                                             <?php if($paymentStatus == 'pending'): ?>
                                             <h5 class=" margin-top-15" style="font-size: 18px;">
-                                                <span class="text-bold">Advance Paid: </span><?php echo number_format($advancePaid) . "/-"; ?>
+                                                <span class="text-bold">Advance Paid: </span><?php echo $advPayment . "/-"; ?>
                                             </h5>
-                                            <h5 class=" margin-top-15" style="font-size: 18px;">
-                                                <span class="text-bold">Total Payable: </span><?php echo number_format($billPayable - $advancePaid) . "/-"; ?>
-                                            </h5>
+                                            <!-- <h5 class=" margin-top-15" style="font-size: 18px;">
+                                                <span class="text-bold">Total Payable: </span><?php //echo number_format($billPayable - $advancePaid) . "/-"; ?>
+                                            </h5> -->
                                             <?php endif; ?>
                                         </div>
                                     </div>
