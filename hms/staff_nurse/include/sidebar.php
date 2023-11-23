@@ -78,6 +78,22 @@
                             </div>
                             </a>
                 </li>
+                <li><?php
+                    if (basename($_SERVER['PHP_SELF']) == "dashboard.php") { ?>
+                        <a href="pages/pharmaLog.php">
+                        <?php } else { ?>
+                            <a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); ?>/pharmaLog.php">
+                            <?php } ?>
+                            <div class="item-content">
+                                <div class="item-media">
+                                    <i class="ti-list"></i>
+                                </div>
+                                <div class="item-inner">
+                                    <span class="title"> Pharma Log</span>
+                                </div>
+                            </div>
+                            </a>
+                </li>
 
             </ul>
             <!-- end: CORE FEATURES -->

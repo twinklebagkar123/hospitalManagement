@@ -26,10 +26,12 @@ $(document).ready(function(){
         var prescription_type = $('#medicinePrescriptionType').val();
         if(prescription_type == "hourly_prescription"){
             var medicineName = $('.hourly_prescription .autosuggest').val();
+            var medicineID = $('.hourly_prescription .autosuggest').attr("data-pillID");
+            console.log("medicineID: "+medicineID);
             var start_from = $('#start_from').val();
             var dosage = $('#dosage_hourly').val();
             var interval_hourly = parseInt($('#interval_hourly').val());
-            medList.push({medicineName: medicineName,start_from: start_from,dosage: dosage,interval_hourly: interval_hourly,prescription_type:prescription_type});
+            medList.push({medicineID: medicineID,medicineName: medicineName,start_from: start_from,dosage: dosage,interval_hourly: interval_hourly,prescription_type:prescription_type});
             $('#medicinePrescription').val(JSON.stringify(medList));
             $('#prescribedMedicineList').css("display","none"); 
             $('#prescribedMedicineListHourly').css("display","block"); 
@@ -45,6 +47,8 @@ $(document).ready(function(){
         }
         else{
             var medicineName = $('.general_prescription .autosuggest').val();
+            var medicineID = $('.general_prescription .autosuggest').attr("data-pillID");
+            console.log("medicineID: "+medicineID);
             var frequency = $('#frequency').val();
             var dosage = $('#dosage').val();
             var period = $('#period').val();
@@ -55,7 +59,7 @@ $(document).ready(function(){
             }else{
                 mealDetail = "After Meal";
             }
-            medList.push({medicineName: medicineName,frequency: frequency,dosage: dosage,period: period,mealDetail:mealDetail,prescription_type:prescription_type});
+            medList.push({medicineID: medicineID,medicineName: medicineName,frequency: frequency,dosage: dosage,period: period,mealDetail:mealDetail,prescription_type:prescription_type});
             $('#medicinePrescription').val(JSON.stringify(medList));
             $('#prescribedMedicineList').css("display","block"); 
             $('#prescribedMedicineListHourly').css("display","none"); 
@@ -74,7 +78,10 @@ $(document).ready(function(){
     
     $(document).on("click",".pillResult span", function(){
         var name = $(this).data("name");
+        var pillID = $(this).attr("data-pillID");
+        console.log("pillID here"+ pillID);
         $('.autosuggest').val(name);
+        $('.autosuggest').attr("data-pillID",pillID);
         $('.pillResult').empty();
         
         // var $edit = $("#result");

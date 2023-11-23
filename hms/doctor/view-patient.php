@@ -1,5 +1,16 @@
 <?php
 include('include/header_structure.php');
+
+function getMedicinePrice($id){
+  include('include/config.php');
+  $charges = 0;
+   $query = "SELECT charges FROM `medicine_table` WHERE code = '".$id."'";
+   $result = $con->query($query);
+   while ($row = mysqli_fetch_array($result)) {
+    $charges= $row['charges'];
+   }
+   return $charges;
+}
 if(isset($_POST["disSummary"])){
    $summary = $_POST["dischargeSummary"];
    $admissionID = $_POST["sumadmissionID"];
@@ -43,6 +54,16 @@ if (isset($_POST['submit'])) {
   $doctorDiagnosis = $_POST['doctorDiagnosis'];
   //$nn = $_POST['nn'];
   $docID = $_SESSION['id'];
+  //medicine ID
+  $MedicalPres = json_decode($_POST['medicinePrescription']);
+  foreach($MedicalPres as $medicalDetail){
+    $idMed = $medicalDetail->medicineID;
+    $date = date("Y-m-d");
+    $charges = getMedicinePrice($idMed);
+    $queryPharma = "INSERT INTO `pharmatable`( `admissionID`, `medID`, `charges`, `prescriptionDate`) VALUES ('".$admissionID."','".$idMed."','".$charges."','".$date."')";
+    mysqli_query($con, $queryPharma);
+  }
+  //INSERT QUERY FOR MEDICAL HISTORY
   $query .= mysqli_query($con, "insert tblmedicalhistory(PatientID,admissionID,BloodPressure,diastolic,BSType,BloodSugar,Weight,Temperature,MedicalPres,doctorObservation,doctorDiagnosis,doctorID)value('$vid','$admissionID','$bp1','$bp2','$type','$bs','$weight','$temp','$pres','$doctorObservation','$doctorDiagnosis','$docID')");
   if ($query) {
     echo '<script>alert("Medical history has been added.")</script>';
