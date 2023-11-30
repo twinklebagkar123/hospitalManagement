@@ -38,12 +38,13 @@ jQuery(document).ready(function () {
     jQuery(document).ready(function () {
        
 
-
+     
 
         Main.init();
         FormElements.init();
         var values = [];
         var jsonFieldDetails = [];
+
         $("#addField").on("click", function () {
 
             var fieldName = $("#fieldName").val();
@@ -171,5 +172,38 @@ jQuery(document).ready(function () {
 
     });
 
+    $(document).on("click",".qtyButton", function() {
+        var qty = $(this).attr("data-admissionID");
+        var rowID = $(this).attr("data-rowid");
+        var inputValue = $("#"+rowID+" .newQty input").val();
+        console.log(inputValue+"VALUE");
+        var totalVal = parseInt(inputValue) + 1;
+        $("#"+rowID+" .newQty input").val(totalVal);
+        console.log(qty+" THIS IS MY QTY");
 
+    });
+    $(document).on("click",".submitqty", function() {
+        var admissionID = $(this).attr("data-admissionID");
+        var medicineID = $(this).attr("data-medicineID");
+        var prevQty = $(this).attr("data-prevQty");
+        var rowID = $(this).attr("data-rowid");
+        var inputValue = $("#"+rowID+" .newQty input").val();
+        var totalQty = parseInt(prevQty) + parseInt(inputValue);
+        $.ajax({
+            url: "updateMedicineQty.php",
+            method: "POST",
+            dataType: "JSON",
+            data:  {
+                admissionID: admissionID,
+                medicineID : medicineID,
+                totalQty: totalQty
+            },
+            success: function(data) {
+                if(data.result){
+                    $("#"+rowID+".updateQty").html(totalQty);
+                }
+            }
+        });
+
+    });
 });

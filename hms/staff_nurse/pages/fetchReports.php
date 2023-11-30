@@ -12,6 +12,15 @@ function fetchTestName($testID)
     }
     return $answer;
 }
+function fetchMedicineqty ($medid,$admissionid){
+    global $con;
+    $query = "SELECT qty FROM `pharmatable` where admissionID = '".$admissionid."' AND medID = '".$medid."'";
+    $result = $con->query($query);
+    while ($row = mysqli_fetch_array($result)) {
+        $answer = $row['qty'];
+    }
+    return $answer; 
+}
 if (!empty($_POST['admissionid'])) {
     $admissionid = $_POST['admissionid'];
     $admission = $_POST['admission'];
@@ -132,6 +141,7 @@ if (!empty($_POST['admissionid'])) {
     $tprDate = array();
     $pressureSys = array();
     $pressureDias = array();
+    $medicine = array();
     $cnt = 1;
     while ($row = mysqli_fetch_array($result1)) {
         if ($row['Temperature']) {
@@ -140,7 +150,8 @@ if (!empty($_POST['admissionid'])) {
             array_push($pressureSys, $row['BloodPressure']);
             array_push($pressureDias, $row['diastolic']);
         }
-
+        $MedicalPres = $row['MedicalPres'];
+        array_push($medicine, $MedicalPres);
         $prescribed_date = date('d/m/Y', strtotime($row['CreationDate']));
         $html = $html . '  <tr> <td>' . $row['ID'] . '</td> <td>' . $row['BloodPressure'] . '/'.$row["diastolic"].'</td> <td>' . $row['Weight'] . '</td>
         <td>' . $row['BloodSugar'] . '</td> <td>' . $row['Temperature'] . '</td><td>'.$row["doctorObservation"].'</td><td>'.$row["doctorDiagnosis"].'</td><td>'.$row["nurseNote"].'<br><a href="editHistory.php?admissionID='.$row["ID"].'">EDIT NURSE NOTE</a></td><td><a class="btn btn-default" href="prescription_print.php?reportId=' . $row['ID'] . '&patientId=' . $vid . '">View & Print</a></td> <td>' . $prescribed_date . '</td>
@@ -148,7 +159,47 @@ if (!empty($_POST['admissionid'])) {
         $cnt++;
     }
     $html = $html . '</table>';
-
+    $html = $html.'<div><h3> MEDICINE TABLE</h3></div><table class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+    <tr align="center">
+        <th colspan="8">Medical History</th>
+    </tr>
+    <tr>
+        <th>NO</th>
+        <th>Medicine Name</th>
+        <th>Frequency</th>
+        <th>ADD MEDICINE</th>
+    </tr>';
+    $medicineID = 0;
+    $medicineQty =0;
+    $rowID = 0;
+    foreach ($medicine as  $detail) {
+      $medicineDetail = json_decode($detail);
+      // var_dump($medicineDetail);
+      if (is_array($medicineDetail) || is_object($medicineDetail)):
+        foreach ($medicineDetail as $value) {
+            $rowID++;
+            $medicineID = $value->medicineID;
+            $medicineQty = fetchMedicineqty($medicineID,$admissionid);
+           
+            $html = $html.  '<tr id="newRowID'.$rowID.'"><td></td><td>'.$value->medicineName.'</td>';
+            if($value->prescription_type == "hourly_prescription"){
+                $html = $html.'<td>'.$value->interval_hourly.' hourly</td>';
+            }
+            else{
+                $html = $html.'<td>'.$value->frequency.'</td>';
+            }
+            $html = $html.'<td><span class="updateQty" style="margin-right: 20px;"> QTY: '.$medicineQty.'  </span><span class="newQty" style="margin-left:20px; margin-right: 20px; border: 1px solid #ccc"><input type="number" value="0"></span>
+            <button data-rowid="newRowID'.$rowID.'" data-admissionID ="'.$admissionid.'" class=" qtyButton btn btn-primary waves-effect waves-light w-lg" >Add +1</button>
+            <button data-medicineID="'.$medicineID.'" data-prevQty="'.$medicineQty.'" data-rowid="newRowID'.$rowID.'" data-admissionID ="'.$admissionid.'" class="submitqty btn btn-primary waves-effect waves-light w-lg" >Add +1</button>
+            </td></tr>';
+        
+            }
+       endif;
+      
+    }
+    
+    
+    $html = $html. '</table>';
     $testQuery = "SELECT * FROM `labTestRecord` WHERE admissionID= '" . $admissionid . "'";
     $testList = $con->query($testQuery);
     if ($testList) {
