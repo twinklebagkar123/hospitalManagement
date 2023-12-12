@@ -99,11 +99,11 @@
 								<span class="title"> View Admissions</span>
 							</a>
 						</li>
-						<li>
+						<!-- <li>
 							<a href="patient_discharge.php">
 								<span class="title"> Discharge Patient</span>
 							</a>
-						</li>
+						</li> -->
 					</ul>
 					<li>
 					<a href="javascript:void(0)">
@@ -263,7 +263,7 @@
 					</ul>
 				
 				</li> -->
-				<li>
+				<!-- <li>
 					<a href="javascript:void(0)">
 						<div class="item-content">
 							<div class="item-media">
@@ -281,7 +281,7 @@
 							</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 				<li>
 					<a href="nearbyAmbulance.php">
 						<div class="item-content">
