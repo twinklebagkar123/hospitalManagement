@@ -188,7 +188,7 @@ if (!empty($_POST['admissionid'])) {
             else{
                 $html = $html.'<td>'.$value->frequency.'</td>';
             }
-            $html = $html.'<td><span class="updateQty" style="margin-right: 20px;"> QTY: '.$medicineQty.'  </span><span class="newQty" style="margin-left:20px; margin-right: 20px; border: 1px solid #ccc"><input type="number" value="0"></span>
+            $html = $html.'<td><span id="newRowID'.$rowID.'updateQty" style="margin-right: 20px;"> QTY: '.$medicineQty.'  </span><span class="newQty" style="margin-left:20px; margin-right: 20px; border: 1px solid #ccc"><input type="number" value="0"></span>
             <button data-rowid="newRowID'.$rowID.'" data-admissionID ="'.$admissionid.'" class=" qtyButton btn btn-primary waves-effect waves-light w-lg" >Add +1</button>
             <button data-medicineID="'.$medicineID.'" data-prevQty="'.$medicineQty.'" data-rowid="newRowID'.$rowID.'" data-admissionID ="'.$admissionid.'" class="submitqty btn btn-primary waves-effect waves-light w-lg" >Submit</button>
             </td></tr>';

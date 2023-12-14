@@ -200,7 +200,8 @@ jQuery(document).ready(function () {
             },
             success: function(data) {
                 if(data.result){
-                    $("#"+rowID+".updateQty").html(totalQty);
+                    console.log("#"+rowID+"updateQty");
+                    $("#"+rowID+"updateQty").html("QTY: "+totalQty);
                 }
             }
         });
