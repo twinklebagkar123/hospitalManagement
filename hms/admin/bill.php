@@ -112,6 +112,40 @@ function getDoctorFees($docID)
         </div>
         <div class="container">
           <div class="row">
+              <div class="col-sm-12">
+                  <table id="showSelectedValues" class="table table-bordered">
+                  <tr>
+                    <th>Service Name</th>
+                    <th>Price</th>
+                  </tr>
+                  
+
+                  </table>
+                  <table class="table table-bordered">
+                      <tr>
+                        <th>Grand Total</th>
+                        <th id="grandTotal"></th>
+                      </tr>
+                      <tr>
+                        <th>Discount</th>
+                        <th id="discountApplied"></th>
+                      </tr>
+                      <tr>
+                        <th>Total</th>
+                        <th id="discountedTotal"></th>
+                      </tr>
+                      <tr>
+                        <th>GST 18%</th>
+                        <th id="gstONTotal"></th>
+                      </tr>
+                      <tr>
+                        <th>Net Payable</th>
+                        <th id="netPayable"></th>
+                      </tr>
+                  </table>
+              </div>
+          </div>
+          <div class="row">
             <div class="col-sm-4">
               <div class="hospitalCharges">
                 <h5>
@@ -622,11 +656,16 @@ function getDoctorFees($docID)
         console.log(sumArr);
         var majorSum = calculateTotal(sumArr);
         $("#grand_total").text("Rs. " + majorSum);
+        $("#grandTotal").text("Rs. " + majorSum);
         var finalamount = netPayable();
         $("#totalAmt").val(finalamount);
         $("#netPayable").text("Rs. " + finalamount);
-        
-
+        $("#discountedTotal").text("Rs. " + finalamount);
+        var displayHtml = "";
+        sumArr.forEach(function(item){
+           displayHtml += "<tr><td>"+item.name+"</td><td>"+item.price+"</td></tr>";
+        });
+        $("#showSelectedValues").html(displayHtml);
       });
       $("#discountButton").click(function() {
         var discount = $("#discount").val();
