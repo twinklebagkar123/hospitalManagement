@@ -221,6 +221,12 @@ function getDoctorFees($docID)
                 <input type="number" class="form-control-input" id="advance" placeholder="advance">
                 <button type="button" class="btn btn-outline-secondary btn-sm" id="advanceButton"> ADD</button>
               </div>
+              <div class="hospitalCharges">
+              
+              <label>Enable GST 18%</label> <input type="checkbox" name="chackbox" id="checkbox" style="width: 20px; height: 20px;" value="true"> 
+             
+              
+              </div>
             </div>
             <div class="col-sm-8" id="printingMatter">
               <table class="table table-bordered" id="printingTable">
@@ -229,7 +235,7 @@ function getDoctorFees($docID)
 
                   <div class="row">
                     <div class="col-sm-12">
-                      <h4 class="text-center">HOSPITAL BILL blghhig</h4>
+                      <h4 class="text-center">HOSPITAL BILL</h4>
                     </div>
 
 
@@ -573,6 +579,10 @@ function getDoctorFees($docID)
         var discount = total - amount;
         return discount;
       }
+      function calculategstAmount(netamountPayable){
+        var gstCalculated = netamountPayable * 18/100;
+        return gstCalculated;
+      }
 
       function netPayable() {
         var grandTotal = $("#grand_total").text();
@@ -603,6 +613,7 @@ function getDoctorFees($docID)
         }
 
         nettotal = grandTotal - discount - advance;
+       
         return nettotal;
       }
       var sumArr = [];
@@ -658,6 +669,7 @@ function getDoctorFees($docID)
         $("#grand_total").text("Rs. " + majorSum);
         $("#grandTotal").text("Rs. " + majorSum);
         var finalamount = netPayable();
+        
         $("#totalAmt").val(finalamount);
         $("#netPayable").text("Rs. " + finalamount);
         $("#discountedTotal").text("Rs. " + finalamount);
@@ -669,9 +681,13 @@ function getDoctorFees($docID)
       });
       $("#discountButton").click(function() {
         var discount = $("#discount").val();
-        $("#discountBox").text("Rs. " + discount);
-
+        $("#discountApplied").text("Rs. " + discount);
         var finalDiscount = netPayable();
+        if($("#checkbox").is(":checked")){
+          var gstValue = calculategstAmount(finalDiscount);
+          finalDiscount = finalDiscount + gstValue;
+        }
+        $("#gstONTotal").text("Rs. "+gstValue);
         $("#totalAmt").val(finalDiscount);
         $("#netPayable").text("Rs. " + finalDiscount);
 
@@ -681,8 +697,32 @@ function getDoctorFees($docID)
         $("#advanceText").text("Rs. " + advance);
 
         var finalamount = netPayable();
+        if($("#checkbox").is(":checked")){
+          var gstValue = calculategstAmount(finalamount);
+          finalamount = finalamount + gstValue;
+        }
+        $("#gstONTotal").text("Rs. "+gstValue);
         $("#totalAmt").val(finalamount);
         $("#netPayable").text("Rs. " + finalamount);
+      });
+      $("#gstButton").click(function(){
+       
+
+
+      });
+      $("#checkbox").on("change",function(){
+        
+        if($("#checkbox").is(":checked")){
+          console.log("lets calculate gst!");
+          var finalamount = netPayable();
+          var gst = finalamount * 18/100 ;
+          console.log(gst + "GST AMOUNT CALCULATED");
+          $("#gstONTotal").text("Rs. "+gst);
+          var netPayablee = finalamount + gst;
+          $("#netPayable").text("Rs. " + netPayablee);
+          
+        }
+       
       });
       $("#printBill").click(function() {
         var table = document.getElementById('printingTable');
