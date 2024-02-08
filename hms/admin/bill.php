@@ -229,7 +229,7 @@ function getDoctorFees($docID)
 
                   <div class="row">
                     <div class="col-sm-12">
-                      <h4 class="text-center">HOSPITAL BILL</h4>
+                      <h4 class="text-center">HOSPITAL BILL blghhig</h4>
                     </div>
 
 
